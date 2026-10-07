@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-arcana-midnight: #0B0F19;
+  --color-arcana-darkBlue: #0E1224;
+  --color-arcana-deepPurple: #1A0B2E;
+  --color-arcana-gold: #D4AF37;
+  --color-arcana-neonCyan: #00F0FF;
+  --color-arcana-cardBg: #12101E;
+  --color-arcana-textMuted: #9CA3AF;
+  
+  --font-sans: "Alegreya Sans", sans-serif;
+  --font-serif: "Alegreya", serif;
+  --font-display: "Alegreya SC", serif;
+
+  --background-image-mystic-gradient: linear-gradient(to bottom right, #0B0F19, #1A0B2E, #0f172a);
+  --background-image-card-gradient: linear-gradient(to bottom right, rgba(26,11,46,0.8), rgba(11,15,25,0.95));
+
+  --shadow-neon: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.025em;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* =====================================================================
+   Codex — styles for the content extracted from the original wiki.
+   Palette = dark values of the original guide.css, one accent per destiny.
+   ===================================================================== */
+.codex {
+  --paper: #14111b; --paper-2: #1c1826; --paper-3: #262033;
+  --ink: #ece7f3; --ink-soft: #a79fb6; --rule: #342d42;
+  --gold: #d8ac64; --gold-soft: #a8833f;
+  --accent: #c993e0; --wash: #2a1f33;
+  --f-display: "Alegreya SC", Georgia, serif;
+  --f-body: "Alegreya", Georgia, serif;
+  --f-data: "Alegreya Sans", system-ui, sans-serif;
+  /* Heartweaver wheel */
+  --w-joy: #f2c94c; --w-trust: #9bd36a; --w-fear: #4fc08d; --w-surprise: #5cc8e3;
+  --w-sadness: #7c9df0; --w-disgust: #b58ee6; --w-anger: #f07a70; --w-anticipation: #f5a65e;
+  --w-op-int: .55; --w-op-base: .34; --w-op-mood: .2;
+}
+.codex[data-arcanum="unbound"]     { --accent: #f2c939; --wash: #2b2513; }
+.codex[data-arcanum="deceiver"]    { --accent: #f77cbf; --wash: #33182a; }
+.codex[data-arcanum="starchild"]   { --accent: #8cc4fa; --wash: #15233a; }
+.codex[data-arcanum="eternal"]     { --accent: #7fd197; --wash: #14271b; }
+.codex[data-arcanum="heartweaver"] { --accent: #f39a78; --wash: #331d16; }
+
+.codex-html { color: color-mix(in srgb, var(--ink) 88%, transparent); line-height: 1.7; }
+.codex-html > * + * { margin-top: .85em; }
+.codex-html p + p { margin-top: .7em; }
+.codex-html strong { color: #fff; font-weight: 700; }
+.codex-html em { font-style: italic; }
+.codex-html a { color: var(--accent); text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+.codex-html a:hover { text-decoration-style: solid; }
+.codex-html ul { list-style: disc; padding-left: 1.25em; display: grid; gap: .35em; }
+.codex-html ol { list-style: decimal; padding-left: 1.25em; display: grid; gap: .35em; }
+.codex-html h3 { font-family: var(--f-display); font-size: 1.4rem; color: #fff; margin-top: 1.4em; }
+.codex-html h4 { font-family: var(--f-display); font-size: 1.15rem; color: var(--accent); }
+.codex-html .kw { font-weight: 700; color: var(--ink); border-bottom: 1px dotted var(--accent); }
+.codex-html .dmg { font-family: var(--f-data); font-weight: 700; white-space: nowrap; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
+.codex-html .upcast { font-size: .9em; font-family: var(--f-data); color: var(--ink-soft); padding-top: .6em; border-top: 1px dashed var(--rule); }
+.codex-html .upcast strong { color: var(--ink); }
+.codex-html .subtle { color: var(--ink-soft); font-size: .92em; }
+
+/* Tables */
+.codex-html table { width: 100%; border-collapse: collapse; font-family: var(--f-data); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.codex-html caption { caption-side: top; text-align: left; font-family: var(--f-display); font-size: 1.05rem; color: var(--accent); padding-bottom: .6rem; }
+.codex-html th, .codex-html td { padding: .55rem .8rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.codex-html thead th { background: var(--paper-2); color: var(--ink-soft); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+.codex-html tbody tr:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.codex-html th[scope="row"] { color: #fff; font-weight: 700; }
+.codex-html .num { text-align: center; }
+.codex-table { overflow-x: auto; border: 1px solid var(--rule); border-radius: .9rem; background: color-mix(in srgb, var(--paper) 70%, transparent); padding: 1rem; }
+
+/* Diagrams */
+.codex-html .figure { margin: 0; display: grid; gap: .6rem; justify-items: center; }
+.codex-html .figure svg { width: 100%; max-width: 34rem; height: auto; }
+.codex-html .figure figcaption { font-family: var(--f-data); font-size: .875rem; color: var(--ink-soft); text-align: center; max-width: 52ch; }
+.codex-html .wheel-figure svg { max-width: 46rem; }
+.codex .w-joy { --w-hue: var(--w-joy); }
+.codex .w-trust { --w-hue: var(--w-trust); }
+.codex .w-fear { --w-hue: var(--w-fear); }
+.codex .w-surprise { --w-hue: var(--w-surprise); }
+.codex .w-sadness { --w-hue: var(--w-sadness); }
+.codex .w-disgust { --w-hue: var(--w-disgust); }
+.codex .w-anger { --w-hue: var(--w-anger); }
+.codex .w-anticipation { --w-hue: var(--w-anticipation); }
+.codex .w-petal path { fill: var(--w-hue); stroke: var(--w-hue); stroke-width: 1; stroke-opacity: .55; }
+.codex .w-petal .w-int { fill-opacity: var(--w-op-int); }
+.codex .w-petal .w-base { fill-opacity: var(--w-op-base); }
+.codex .w-petal .w-mood { fill-opacity: var(--w-op-mood); }
+.codex .wheel-figure text { fill: var(--ink); font-family: var(--f-data); text-anchor: middle; }
+.codex .wheel-figure .w-t-int { font-size: 13px; font-weight: 600; }
+.codex .wheel-figure .w-t-base { font-family: var(--f-display); font-size: 19px; font-weight: 700; }
+.codex .wheel-figure .w-t-mood { font-size: 13px; font-style: italic; }
+.codex .wheel-figure .w-t-dyad { font-family: var(--f-body); font-size: 16px; font-style: italic; fill: var(--accent); }
+.codex .wheel-figure .w-core { fill: var(--paper-2); stroke: var(--gold); stroke-width: 1.5; }
+.codex .wheel-figure .w-core-num { font-family: var(--f-display); font-size: 22px; fill: var(--gold); }
+.codex .wheel-figure .w-axis { stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 3 5; opacity: .5; fill: none; }
+
+/* Card text: clamp on the card face, full text lives in the modal */
+.card-clamp { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; }
+.card-clamp p + p { margin-top: .4em; }
+.card-clamp .upcast { display: none; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 8rem; }
