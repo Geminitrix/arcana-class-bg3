@@ -345,6 +345,9 @@ table.progression tr.is-subclass td:first-child { box-shadow: inset 3px 0 0 var(
   .tiers { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
+  .topbar { position: static; backdrop-filter: none; background: var(--paper); }
+  html { scroll-padding-top: 1rem; }
+  table.progression th:nth-child(3), table.progression td:nth-child(3) { min-width: 13rem; }
   .hero { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
   .hero .tarot { max-width: 11rem; }
   .epigraph, .lede { margin-inline: auto; }

@@ -209,7 +209,7 @@
             </tbody>
           </table>
         </div>
-        <p class="subtle">The base class features of the Arcana (Weaver Hand, Weave Knowledge, Arcane Recovery and the rest) are on <a href="index.html#progression">the Arcana page</a>. All your Woven Spell Slots share one level, so every spell you cast uses the Slot Level shown here.</p>
+        <p class="subtle">The base class features of the Arcana are on <a href="index.html#progression">the Arcana page</a>. All your Woven Spell Slots share one level, so every spell you cast uses the Slot Level shown here.</p>
       </section>
 
       <!-- ===== THE WHEEL OF EMOTIONS ===== -->
@@ -594,8 +594,7 @@
               <div><dt>Save</dt><dd>Wisdom</dd></div>
             </dl>
             <div class="feature-body">
-              <p>Tug a single string of a creature's heart. The target takes <span class="dmg">1d4 Psychic</span> damage. If it carries a mood, the mood lasts 2 turns longer.</p>
-              <p class="upcast"><strong>At higher levels:</strong> <span class="dmg">2d4 Psychic</span> at level 5 and <span class="dmg">3d4 Psychic</span> at level 10.</p>
+              <p>Tug a single string of a creature's heart. The target takes <span class="dmg">1d4 Psychic</span> damage, which grows with your level as cantrip damage does. If it carries a mood, the mood lasts 2 turns longer.</p>
             </div>
           </article>
 
@@ -689,23 +688,6 @@
               <p>The target's movement speed is halved, and it can only take either an action or a bonus action. When the surge fades, it leaves the target <span class="kw">Pensive</span> for 5 turns, with its movement speed reduced by 3m.</p>
               <p class="subtle">Reacts with: Distracted into Disapproval, Bored into Remorse · Apprehensive into Despair, Annoyed into Envy (level 5) · Accepting into Sentimentality, Interested into Pessimism (level 9) · Serene into Catharsis · Pensive into Grief (level 7).</p>
               <p class="upcast"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>
-            </div>
-          </article>
-
-          <article class="feature" id="the-two-cups">
-            <div class="feature-icon blank"></div>
-            <div class="feature-head">
-              <h4 class="feature-name">The Two Cups</h4>
-              <ul class="chips"><li class="chip-kind">Aspect Spell</li><li>Enchantment</li></ul>
-            </div>
-            <dl class="statline">
-              <div><dt>Cast</dt><dd>Action</dd></div>
-              <div><dt>Area</dt><dd>18m around you</dd></div>
-              <div><dt>Recharge</dt><dd>Once per combat</dd></div>
-            </dl>
-            <div class="feature-body">
-              <p>Tip every cup in the room at once. Every creature within 18m that carries a mood undergoes Catharsis: enemies take <span class="dmg">2d8 Psychic</span> damage and allies regain <span class="dmg">2d8</span> hit points, plus Attunement's extra <span class="dmg">1d8</span>. Every mood is spent.</p>
-              <p>Costs no Woven Spell Slot. You can cast it only while the Aspect of Empathy is awakened (Tier I or higher). Each Catharsis it causes counts towards your next tier.</p>
             </div>
           </article>
         </div>
@@ -805,7 +787,7 @@
               <ul class="chips"><li class="chip-kind">Passive</li></ul>
             </div>
             <div class="feature-body">
-              <p>Your Awakening can now reach Tier II, Harmony, after 5 reactions in a fight. See <a href="#awakening">Aspect of Empathy</a>.</p>
+              <p>Your Awakening can reach Tier II, Harmony, after 5 reactions in a fight. See <a href="#awakening">Aspect of Empathy</a>.</p>
             </div>
           </article>
         </div>
@@ -833,7 +815,7 @@
             </div>
             <dl class="statline">
               <div><dt>Cast</dt><dd>Action</dd></div>
-              <div><dt>Area</dt><dd>6m around the target</dd></div>
+              <div><dt>Area</dt><dd>6m radius around the target</dd></div>
               <div><dt>Save</dt><dd>Wisdom (non-allies)</dd></div>
             </dl>
             <div class="feature-body">
@@ -854,6 +836,7 @@
               <ul class="chips"><li class="chip-kind">Level 2 Spell</li><li>Enchantment</li></ul>
             </div>
             <dl class="statline">
+              <div><dt>Cast</dt><dd>No action</dd></div>
               <div><dt>Duration</dt><dd>Until combat ends</dd></div>
               <div><dt>Recharge</dt><dd>Once per round</dd></div>
             </dl>
@@ -870,7 +853,7 @@
             </div>
             <dl class="statline">
               <div><dt>Cast</dt><dd>Action</dd></div>
-              <div><dt>Area</dt><dd>9m around you</dd></div>
+              <div><dt>Area</dt><dd>9m radius</dd></div>
               <div><dt>Duration</dt><dd>3 turns</dd></div>
               <div><dt>Recharge</dt><dd>Long Rest</dd></div>
             </dl>
@@ -891,7 +874,7 @@
               <ul class="chips"><li class="chip-kind">Passive</li></ul>
             </div>
             <div class="feature-body">
-              <p>Your Awakening can now reach Tier III after 7 reactions in a fight, and you awaken as the Aspect of Empathy. See <a href="#awakening">Aspect of Empathy</a>.</p>
+              <p>Your Awakening can reach Tier III after 7 reactions in a fight, and you awaken as the Aspect of Empathy. See <a href="#awakening">Aspect of Empathy</a>.</p>
             </div>
           </article>
         </div>
@@ -930,6 +913,22 @@
             </ul>
           </div>
         </div>
+        <article class="feature" id="the-two-cups">
+          <div class="feature-icon blank"></div>
+          <div class="feature-head">
+            <h4 class="feature-name">The Two Cups</h4>
+            <ul class="chips"><li class="chip-kind">Aspect Spell</li><li>Enchantment</li></ul>
+          </div>
+          <dl class="statline">
+            <div><dt>Cast</dt><dd>Action</dd></div>
+            <div><dt>Area</dt><dd>18m radius</dd></div>
+            <div><dt>Recharge</dt><dd>Once per combat</dd></div>
+          </dl>
+          <div class="feature-body">
+            <p>Tip every cup in the room at once. Every creature within 18m that carries a mood undergoes Catharsis: enemies take <span class="dmg">2d8 Psychic</span> damage and allies regain <span class="dmg">2d8</span> hit points, plus Attunement's extra <span class="dmg">1d8</span>. Every mood is spent.</p>
+            <p>Costs no Woven Spell Slot. You can cast it only while the Aspect of Empathy is awakened (Tier I or higher). Each Catharsis it causes counts towards your next tier.</p>
+          </div>
+        </article>
         <aside class="aside">
           <p class="aside-title">Pouring for the Aspect</p>
           <p>Harmony feeds itself: each feeling you braid leaves a fresh mood on the creature next to it, ready for your next Surge. At Tier III, a Surge cast with a level 6 slot touches 7 creatures, so a single action can braid, overwhelm and snap across half the battlefield.</p>
