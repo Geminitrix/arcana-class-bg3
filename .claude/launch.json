@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wiki",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["Wiki/_work/serve.js", "8765"],
+      "port": 8765
+    }
+  ]
+}

@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en" data-arcanum="starchild">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Starchild · Arcana</title>
+<meta name="description" content="The Starchild, XVII · The Star: an Arcana subclass for Baldur's Gate 3. Traits, progression, spells and the Aspect of Hope.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya:ital,wght@0,400;0,700;1,400&family=Alegreya+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/guide.css">
+<script src="assets/js/guide.js"></script>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">Arcana</a>
+    <ul class="pages">
+      <li><a href="index.html">The Arcana</a></li>
+      <li><a href="unbound.html">Unbound</a></li>
+      <li><a href="deceiver.html">Deceiver</a></li>
+      <li><a href="starchild.html" aria-current="page">Starchild</a></li>
+      <li><a href="eternal.html">Eternal</a></li>
+      <li><a href="heartweaver.html">Heartweaver</a></li>
+    </ul>
+    <button class="theme-toggle" type="button" id="theme-toggle">☾ Dark</button>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <figure class="tarot" aria-label="Tarot card: XVII, The Star">
+      <div class="tarot-face">
+        <div class="tarot-num">XVII</div>
+        <div class="tarot-art"><img src="assets/img/emblems/starchild.png" alt="A golden hand holding a silver eight-pointed star, wrapped in a blue ribbon"></div>
+        <div class="tarot-name">THE STAR</div>
+      </div>
+    </figure>
+    <div class="hero-text">
+      <p class="eyebrow">Arcana Subclass · XVII · The Star · Aspect of Hope</p>
+      <h1>The Starchild</h1>
+      <blockquote class="epigraph">
+        <p>We keep a light burning after every fall, and the Weave lets us pour it into the wounded.</p>
+        <cite>A Starchild</cite>
+      </blockquote>
+      <p class="lede"><em>Mystra wove the Starchild from the light that remains after disaster, a thread of hope that never stops shining. They mend wounds that should have been fatal, shelter their allies beneath solar and lunar wards, and call the fallen back from the edge of death.</em> The Starchild is the Arcana's healer. You strike with starlight to fuel your own renewal, pour that light into wounded allies, and raise those who fall. Late in your journey the same light burns, blinds and silences whole groups of enemies.</p>
+    </div>
+  </section>
+
+  <div class="layout">
+    <!-- ============ CONTENTS ============ -->
+    <nav class="toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      <ol>
+        <li><a href="#the-card">The Card</a></li>
+        <li><a href="#overview">Playing a Starchild</a></li>
+        <li><a href="#traits">Core Traits</a></li>
+        <li><a href="#progression">Progression</a></li>
+        <li><a href="#healing-loop">The Healing Loop</a></li>
+        <li><a href="#sun-and-moon">Sun, Moon and Stars</a></li>
+        <li><a href="#features">Features by Level</a></li>
+        <li><a href="#awakening">Aspect of Hope</a></li>
+        <li><a href="#glossary">Conditions &amp; Terms</a></li>
+      </ol>
+    </nav>
+
+    <main class="content">
+
+      <!-- ===== THE CARD ===== -->
+      <section class="chapter" id="the-card">
+        <h2>The Card</h2>
+        <div class="prose">
+          <p>The seventeenth card of the Major Arcana shows a figure kneeling at the edge of a pool beneath a night sky. They pour water from two jugs: one into the pool, one onto the dry earth beside it. Above them a great star burns, ringed by seven smaller ones.</p>
+          <p>The Star follows The Tower, the card of sudden ruin. That is why it reads as hope: the storm has passed, the walls have fallen, and something is still shining. It is the card of healing after the worst has happened, of renewal that asks for nothing back, and of a light that shows the way home.</p>
+          <p>This is the Starchild's destiny. One jug pours into the wounded; the other waters the ground the party stands on, as wards of sun and moon. The great star is the light itself, gentle on allies and merciless on anyone who tries to put it out.</p>
+        </div>
+        <div class="reading">
+          <div class="upright">
+            <h4>Upright</h4>
+            <ul class="keywords"><li>Hope</li><li>Healing</li><li>Renewal</li><li>Guidance</li></ul>
+            <p class="subtle">You keep the party standing: heals, wards and revivals that arrive when the fight has turned against you.</p>
+          </div>
+          <div class="reversed">
+            <h4>Reversed</h4>
+            <ul class="keywords"><li>Despair</li><li>Lost faith</li><li>Disconnection</li></ul>
+            <p class="subtle">Enemies meet the other face of the light: Blinded, Silenced, Stunned and set Burning, cut off from the fight.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== OVERVIEW ===== -->
+      <section class="chapter" id="overview">
+        <h2>Playing a Starchild</h2>
+        <div class="prose">
+          <p>You are the party's healer and support. A typical turn starts with <a href="#starcall">Starcall</a> on an enemy: it deals Radiant damage, slows the target and grants you <span class="kw">Rejuvenation</span>. Your bonus action then goes to <a href="#astral-infusion">Astral Infusion</a>, which heals an ally without costing you any hit points while Rejuvenation lasts. Around that rhythm you place wards (<a href="#lunar-aegis">Lunar Aegis</a>, <a href="#moon-gravity">Moon Gravity</a>, <a href="#astral-fortitude">Astral Fortitude</a>), cleanse conditions with <a href="#solar-purge">Solar Purge</a>, and bring the fallen back with <a href="#starbreath">Starbreath</a>. From level 5 you also shape the battlefield with light, and at level 11 you gain two of the hardest-hitting area spells in the class.</p>
+        </div>
+        <aside class="aside">
+          <p class="aside-title">At a Glance</p>
+          <ul>
+            <li><strong>Role:</strong> healer and support, with area control late on.</li>
+            <li><strong>Strengths:</strong> single-target and group healing, revival, a cleanse for most conditions, Armour Class and hit point wards, medium armour and shields.</li>
+            <li><strong>Weaknesses:</strong> modest damage until level 11; five key spells need Concentration; Astral Infusion costs your own hit points without Rejuvenation; the Aspect of Hope only grows when allies get hurt.</li>
+            <li><strong>Tip:</strong> cast <a href="#lunar-wisp">Lunar Wisp</a> before a fight. It needs no action and stays until combat ends, so every heal in that fight also grants temporary hit points.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- ===== CORE TRAITS ===== -->
+      <section class="chapter" id="traits">
+        <h2>Core Starchild Traits</h2>
+        <div class="table-wrap">
+          <table class="traits">
+            <tbody>
+              <tr><th scope="row">Hit Points</th><td>6 + your Constitution modifier at level 1, then 4 + your Constitution modifier per level</td></tr>
+              <tr><th scope="row">Spellcasting Ability</th><td>Intelligence</td></tr>
+              <tr><th scope="row">Secondary Ability</th><td>Wisdom (Rejuvenation, Lunar Wisp and the Aspect of Hope scale with it)</td></tr>
+              <tr><th scope="row">Saving Throws</th><td>Wisdom, Constitution</td></tr>
+              <tr><th scope="row">Armour</th><td>Light armour, medium armour, shields</td></tr>
+              <tr><th scope="row">Weapons</th><td>Clubs, daggers, javelins, maces, quarterstaffs, sickles, spears</td></tr>
+              <tr><th scope="row">Skills</th><td>Choose 4 from Animal Handling, Arcana, History, Medicine, Nature, Perception, Religion and Survival. Then gain Expertise in 2 of them.</td></tr>
+              <tr><th scope="row">Suggested Abilities</th><td>Strength 8 · Dexterity 10 · Constitution 13 · Intelligence 15 · Wisdom 15 · Charisma 10. At creation, +2 and +1 to two abilities of your choice.</td></tr>
+              <tr><th scope="row">Starting Equipment</th><td>Starchild's Robe, Mace, Shield, 2 Potions of Healing, a Scroll of Revivify, shoes and camp clothes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== PROGRESSION ===== -->
+      <section class="chapter" id="progression">
+        <h2>Starchild Progression</h2>
+        <div class="prose"><p class="subtle">Starchild features only. The Arcana's own features, shared by every destiny, are on the <a href="index.html#progression">class page</a>.</p></div>
+        <div class="table-wrap">
+          <table class="progression">
+            <thead><tr><th class="num">Level</th><th class="num">Prof.</th><th>Features</th><th class="num">Slot Level</th><th class="num">Woven Slots</th></tr></thead>
+            <tbody>
+              <tr class="is-subclass"><td class="num">1</td><td class="num">+2</td><td><a href="#lvl-1">Starcall</a>, <a href="#lvl-1">Astral Infusion</a>, <a href="#lvl-1">Light</a>, <a href="#lvl-1">Cosmic Omen</a></td><td class="num">1</td><td class="num">2</td></tr>
+              <tr><td class="num">2</td><td class="num">+2</td><td class="none">—</td><td class="num">1</td><td class="num">4</td></tr>
+              <tr class="is-subclass"><td class="num">3</td><td class="num">+2</td><td><a href="#lvl-3">Stellar Anchor</a>, <a href="#lvl-3">17 - The Star: Awakening</a> (<a href="#awakening">Beacon</a>), <a href="#lvl-3">Solar Purge</a>, <a href="#lvl-3">Lunar Aegis</a>, <a href="#lvl-3">Lunar Wisp</a></td><td class="num">2</td><td class="num">6</td></tr>
+              <tr><td class="num">4</td><td class="num">+2</td><td><span class="none">—</span> <span class="tag-sub tag-feat">Feat</span></td><td class="num">2</td><td class="num">8</td></tr>
+              <tr class="is-subclass"><td class="num">5</td><td class="num">+3</td><td><a href="#lvl-5">Starbreath</a>, <a href="#lvl-5">Lucent Singularity</a>, <a href="#lvl-5">Star Radiance</a></td><td class="num">3</td><td class="num">10</td></tr>
+              <tr><td class="num">6</td><td class="num">+3</td><td class="none">—</td><td class="num">3</td><td class="num">12</td></tr>
+              <tr class="is-subclass"><td class="num">7</td><td class="num">+3</td><td><a href="#awakening">Sunrise</a>, <a href="#lvl-7">Wish</a>, <a href="#lvl-7">Moon Gravity</a></td><td class="num">4</td><td class="num">14</td></tr>
+              <tr><td class="num">8</td><td class="num">+3</td><td><span class="none">—</span> <span class="tag-sub tag-feat">Feat</span></td><td class="num">4</td><td class="num">16</td></tr>
+              <tr class="is-subclass"><td class="num">9</td><td class="num">+4</td><td><a href="#lvl-9">Equinox</a>, <a href="#lvl-9">Astral Fortitude</a></td><td class="num">5</td><td class="num">18</td></tr>
+              <tr><td class="num">10</td><td class="num">+4</td><td class="none">—</td><td class="num">5</td><td class="num">20</td></tr>
+              <tr class="is-subclass"><td class="num">11</td><td class="num">+4</td><td><a href="#lvl-11">Solar Flare</a>, <a href="#lvl-11">Final Spark</a></td><td class="num">6</td><td class="num">21</td></tr>
+              <tr class="is-subclass"><td class="num">12</td><td class="num">+4</td><td><a href="#awakening">Aspect of Hope</a>, <a href="#lvl-12">Stellar Grace</a> <span class="tag-sub tag-feat">Feat</span></td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">13</td><td class="num">+5</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">14</td><td class="num">+5</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">15</td><td class="num">+5</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">16</td><td class="num">+5</td><td><span class="none">—</span> <span class="tag-sub tag-feat">Feat</span></td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">17</td><td class="num">+6</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">18</td><td class="num">+6</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">19</td><td class="num">+6</td><td class="none">—</td><td class="num">6</td><td class="num">22</td></tr>
+              <tr><td class="num">20</td><td class="num">+6</td><td><span class="none">—</span> <span class="tag-sub tag-feat">Feat</span></td><td class="num">6</td><td class="num">22</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SIGNATURE MECHANIC 1: THE HEALING LOOP ===== -->
+      <section class="chapter" id="healing-loop">
+        <h2>The Healing Loop</h2>
+        <div class="prose">
+          <p>Your two level 1 spells are built to be cast together. <a href="#starcall">Starcall</a> takes your action: a ranged spell attack that deals Radiant damage, reduces the target's movement speed for 1 turn and gives you <span class="kw">Rejuvenation</span> for 2 turns. Rejuvenation increases your movement speed by 30% and restores hit points equal to your Wisdom modifier at the end of each turn.</p>
+          <p><a href="#astral-infusion">Astral Infusion</a> takes your bonus action and heals an ally within 9m. Normally it also costs you 10% of your maximum hit points, and you can't cast it at all while you are at 11% of your hit points or lower. While you have Rejuvenation, that cost disappears: the heal costs only the Woven Spell Slot.</p>
+          <p>Every heal you give an ally feeds two other things. With <a href="#lunar-wisp">Lunar Wisp</a> active, the healed ally also gains temporary hit points equal to your Arcana level plus twice your Wisdom modifier. From level 3, the hit points you restore to allies in combat count towards the <a href="#awakening">Aspect of Hope</a>.</p>
+        </div>
+        <aside class="aside">
+          <p class="aside-title">One Turn, in Order</p>
+          <ul>
+            <li><strong>Action:</strong> Starcall an enemy. On a hit you gain Rejuvenation.</li>
+            <li><strong>Bonus action:</strong> Astral Infusion on the ally who needs it most, with no hit point cost.</li>
+            <li><strong>End of turn:</strong> Rejuvenation restores your Wisdom modifier in hit points.</li>
+          </ul>
+          <p>Starcall grants Rejuvenation only when it hits. If it misses, Infusion still works, but it takes its 10% from you.</p>
+        </aside>
+        <div class="table-wrap">
+          <table class="scaling">
+            <caption>Starchild healing and damage by Slot Level</caption>
+            <thead><tr><th>Character level</th><th>1–2</th><th>3–4</th><th>5–6</th><th>7–8</th><th>9–10</th><th>11+</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Slot Level</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+              <tr><th scope="row">Starcall</th><td>1d6</td><td>2d6</td><td>3d6</td><td>4d6</td><td>5d6</td><td>6d6</td></tr>
+              <tr><th scope="row">Astral Infusion</th><td>1d10</td><td>2d10</td><td>3d10</td><td>4d10</td><td>5d10</td><td>6d10</td></tr>
+              <tr><th scope="row">Starbreath</th><td>—</td><td>—</td><td>10%</td><td>30%</td><td>60%</td><td>100%</td></tr>
+              <tr><th scope="row">Wish</th><td>—</td><td>—</td><td>—</td><td>4d4</td><td>5d4</td><td>6d4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="subtle">All your Woven Spell Slots share one level, so every spell is cast with a slot of your current Slot Level and uses that level's values. Starbreath returns a fallen ally with the listed share of their maximum hit points; Wish heals every ally within 18m.</p>
+      </section>
+
+      <!-- ===== SIGNATURE MECHANIC 2: SUN, MOON AND STARS ===== -->
+      <section class="chapter" id="sun-and-moon">
+        <h2>Sun, Moon and Stars</h2>
+        <div class="prose">
+          <p>The Starchild's light takes three forms. Solar light purges and burns: it clears conditions from allies and sets enemies alight. Lunar light shelters: it hardens Armour Class, wraps healing in temporary hit points and keeps allies moving. Starlight heals, revives and reveals. The <a href="#awakening">Aspect of Hope</a> follows the same pattern, marking allies as Moonlit, then Sunlit, then shielding them with an Eclipse.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>What your spells do</caption>
+            <thead><tr><th>Purpose</th><th>Spells</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Heal</th><td><a href="#astral-infusion">Astral Infusion</a> (one ally), <a href="#wish">Wish</a> (everyone within 18m), <a href="#stellar-grace">Stellar Grace</a> (every heal maximised)</td></tr>
+              <tr><th scope="row">Revive</th><td><a href="#starbreath">Starbreath</a></td></tr>
+              <tr><th scope="row">Ward</th><td><a href="#lunar-aegis">Lunar Aegis</a> (+2 Armour Class), <a href="#lunar-wisp">Lunar Wisp</a> (temporary hit points), <a href="#astral-fortitude">Astral Fortitude</a> (hit point maximum), <a href="#moon-gravity">Moon Gravity</a> (freedom of movement)</td></tr>
+              <tr><th scope="row">Cleanse</th><td><a href="#solar-purge">Solar Purge</a>, <a href="#moon-gravity">Moon Gravity</a> (Stun)</td></tr>
+              <tr><th scope="row">Empower</th><td><a href="#star-radiance">Star Radiance</a> (+1d4 Radiant on weapon attacks)</td></tr>
+              <tr><th scope="row">Control</th><td><a href="#starcall">Starcall</a> (slow), <a href="#lucent-singularity">Lucent Singularity</a>, <a href="#equinox">Equinox</a></td></tr>
+              <tr><th scope="row">Destroy</th><td><a href="#solar-flare">Solar Flare</a>, <a href="#final-spark">Final Spark</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="aside">
+          <p class="aside-title">Concentration</p>
+          <p>Five of your spells need Concentration: Lunar Aegis, Lucent Singularity, Star Radiance, Final Spark and Stellar Grace. You can hold only one at a time, so choose the one that matters most in this fight. <a href="#stellar-anchor">Stellar Anchor</a> gives you Advantage on Saving Throws to keep it when you take damage.</p>
+        </aside>
+      </section>
+
+      <!-- ===== FEATURES BY LEVEL ===== -->
+      <section class="chapter" id="features">
+        <h2>Features by Level</h2>
+        <p class="subtle">Every Starchild spell is Always Prepared.</p>
+
+        <!-- Level 1 -->
+        <div class="level" id="lvl-1">
+          <div class="level-head"><span class="level-badge">1</span><h3>Level 1</h3></div>
+
+          <article class="feature" id="starcall">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/1-starcall.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Starcall</h4>
+              <ul class="chips"><li class="chip-kind">Level 1 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>18m</dd></div>
+              <div><dt>Attack</dt><dd>Ranged spell attack</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p class="flavour">Hurl a radiant star at a target.</p>
+              <p>On a hit, deals <span class="dmg">1d6 Radiant</span> damage. The target's movement speed is reduced by 30% for 1 turn, and you gain <span class="kw">Rejuvenation</span> for 2 turns.</p>
+              <p class="upcast"><strong>At higher levels:</strong> 2d6 with a level 2 slot, 3d6 with a level 3 slot, up to 6d6 with a level 6 slot.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="astral-infusion">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/1-astral-infusion.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Astral Infusion</h4>
+              <ul class="chips"><li class="chip-kind">Level 1 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Bonus action</dd></div>
+              <div><dt>Range</dt><dd>9m</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p class="flavour">Transfuse a portion of your own life force through an astral bond.</p>
+              <p>An ally regains <span class="dmg">1d10</span> hit points. If you don't have Rejuvenation, you also sacrifice 10% of your own maximum hit points. You can't cast it while you are at 11% of your hit points or lower, and it can't target yourself, Undead or Constructs.</p>
+              <p class="upcast"><strong>At higher levels:</strong> 2d10 with a level 2 slot, 3d10 with a level 3 slot, up to 6d10 with a level 6 slot.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="light">
+            <div class="feature-icon blank"></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Light</h4>
+              <ul class="chips"><li class="chip-kind">Cantrip</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>Melee (1.5m)</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Infuse an object with an aura of light. If you target the weapon a hostile creature is holding, it can resist with a Dexterity Saving Throw.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="cosmic-omen">
+            <div class="feature-icon blank"></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Cosmic Omen</h4>
+              <ul class="chips"><li class="chip-kind">Passive</li></ul>
+            </div>
+            <div class="feature-body">
+              <p>Whenever you Long Rest, you consult the stars for a Cosmic Omen of Weal or of Woe, chosen at random.</p>
+              <ul>
+                <li><strong>Weal:</strong> as a reaction, add 1d6 to an ally's Attack Roll that would miss or a Saving Throw that would fail. You can also give your allies a +1d6 bonus to Ability Checks.</li>
+                <li><strong>Woe:</strong> as a reaction, subtract 1d6 from an enemy's Attack Roll that would hit or from its Saving Throw.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 3 -->
+        <div class="level" id="lvl-3">
+          <div class="level-head"><span class="level-badge">3</span><h3>Level 3</h3></div>
+
+          <article class="feature" id="stellar-anchor">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/3-stellar-anchor.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Stellar Anchor</h4>
+              <ul class="chips"><li class="chip-kind">Passive</li></ul>
+            </div>
+            <div class="feature-body">
+              <p>Your consciousness is anchored to the unchanging positions of the stars. You have Advantage on Saving Throws to maintain Concentration on a spell.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="the-star-awakening">
+            <div class="feature-icon blank"></div>
+            <div class="feature-head">
+              <h4 class="feature-name">17 - The Star: Awakening</h4>
+              <ul class="chips"><li class="chip-kind">Passive</li><li>Aspect Awakening</li></ul>
+            </div>
+            <div class="feature-body">
+              <p>Heal your allies during a fight to awaken the Aspect of Hope until combat ends. Healing beyond an ally's maximum hit points doesn't count. Each goal you reach awakens one more tier.</p>
+              <p>At level 3 you can reach Tier I, <strong>Beacon</strong>: restore hit points equal to 5 times your level. Allies you heal or target with an Arcane spell become <span class="kw">Moonlit</span>. Full rules in <a href="#awakening">Aspect of Hope</a>.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="solar-purge">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/3-solar-purge.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Solar Purge</h4>
+              <ul class="chips"><li class="chip-kind">Level 2 Spell</li><li>Abjuration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>6m</dd></div>
+              <div><dt>Recharge</dt><dd>Short Rest</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Channel the purifying heat of the sun to purge negative effects and conditions from a creature, including Charm, Fear, Fright, Sleep, Confusion, Petrification, Paralysis, Stun, Burn, Poison, Chill, Frozen, Shock, Bleeding, Blindness, Restraint, Polymorph, Daze, Disease or Curse.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="lunar-aegis">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/3-lunar-aegis.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Lunar Aegis</h4>
+              <ul class="chips"><li class="chip-kind">Level 2 Spell</li><li>Abjuration</li><li>Concentration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Bonus action</dd></div>
+              <div><dt>Range</dt><dd>18m</dd></div>
+              <div><dt>Duration</dt><dd>Concentration</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Manifest a resilient lunar aura around an ally, increasing their Armour Class by 2.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="lunar-wisp">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/3-lunar-wisp.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Lunar Wisp</h4>
+              <ul class="chips"><li class="chip-kind">Level 1 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>No action</dd></div>
+              <div><dt>Range</dt><dd>Self</dd></div>
+              <div><dt>Duration</dt><dd>Until Long Rest or combat ends</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p class="flavour">Call a sliver of moonlight to follow your healing.</p>
+              <p>You gain <span class="kw">Lunar Wisp</span>. While it lasts, whenever you heal an ally, they also gain temporary hit points equal to your Arcana level plus twice your Wisdom modifier. You can't cast it again while it is active.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 5 -->
+        <div class="level" id="lvl-5">
+          <div class="level-head"><span class="level-badge">5</span><h3>Level 5</h3></div>
+
+          <article class="feature" id="starbreath">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/5-starbreath.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Starbreath</h4>
+              <ul class="chips"><li class="chip-kind">Level 3 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>9m</dd></div>
+              <div><dt>Recharge</dt><dd>Long Rest</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Channel a spark of stellar power into a fallen ally. They return to life with 10% of their maximum hit points.</p>
+              <p class="upcast"><strong>At higher levels:</strong> 30% with a level 4 slot, 60% with a level 5 slot, 100% with a level 6 slot.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="lucent-singularity">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/5-lucent-singularity.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Lucent Singularity</h4>
+              <ul class="chips"><li class="chip-kind">Level 3 Spell</li><li>Evocation</li><li>Concentration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>18m</dd></div>
+              <div><dt>Area</dt><dd>15m radius</dd></div>
+              <div><dt>Duration</dt><dd>2 turns</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Condense radiant light into a gravitational point that dispels magical darkness. The singularity's pull creates Difficult Terrain, while its brilliance encases enemies in Faerie Fire.</p>
+              <p>Enemies within 15m of the point are caught in Difficult Terrain and revealed by <span class="kw">Faerie Fire</span>, so Attack Rolls against them have Advantage.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="star-radiance">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/5-star-radiance.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Star Radiance</h4>
+              <ul class="chips"><li class="chip-kind">Level 3 Spell</li><li>Evocation</li><li>Concentration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>Self</dd></div>
+              <div><dt>Area</dt><dd>9m radius</dd></div>
+              <div><dt>Duration</dt><dd>10 turns</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Emit a brilliant aura of starlight that empowers you and nearby allies. Your weapon attacks and those of your allies within 9m deal an additional <span class="dmg">1d4 Radiant</span> damage.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 7 -->
+        <div class="level" id="lvl-7">
+          <div class="level-head"><span class="level-badge">7</span><h3>Level 7</h3></div>
+
+          <article class="feature" id="sunrise">
+            <div class="feature-icon blank"></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Sunrise</h4>
+              <ul class="chips"><li class="chip-kind">Passive</li><li>Aspect Tier II</li></ul>
+            </div>
+            <div class="feature-body">
+              <p>You can now reach Tier II of the Aspect of Hope by restoring hit points equal to 8 times your level in one fight. Moonlit deals 2d4 Cold instead, and allies you heal or target with an Arcane spell also become <span class="kw">Sunlit</span>. See <a href="#awakening">Aspect of Hope</a>.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="wish">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/7-wish.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Wish</h4>
+              <ul class="chips"><li class="chip-kind">Level 4 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Bonus action</dd></div>
+              <div><dt>Range</dt><dd>Self</dd></div>
+              <div><dt>Area</dt><dd>18m radius</dd></div>
+              <div><dt>Recharge</dt><dd>Once per combat</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Call upon the stars to heal yourself and nearby allies. Every ally within 18m regains <span class="dmg">4d4</span> hit points. Undead and Constructs are not healed.</p>
+              <p class="upcast"><strong>At higher levels:</strong> 5d4 with a level 5 slot, 6d4 with a level 6 slot.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="moon-gravity">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/7-moon-gravity.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Moon Gravity</h4>
+              <ul class="chips"><li class="chip-kind">Level 4 Spell</li><li>Abjuration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>Melee (1.5m)</dd></div>
+              <div><dt>Duration</dt><dd>Until Long Rest</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Manipulate gravity to grant an ally total freedom of movement. Instantly remove Stun. The target is unaffected by Difficult Terrain and cannot be magically Paralysed or Restrained.</p>
+              <p>Their movement speed can't be reduced by spells or magical effects. Non-magical restraints can be escaped by spending 1.5m of movement.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 9 -->
+        <div class="level" id="lvl-9">
+          <div class="level-head"><span class="level-badge">9</span><h3>Level 9</h3></div>
+
+          <article class="feature" id="equinox">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/9-equinox.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Equinox</h4>
+              <ul class="chips"><li class="chip-kind">Level 5 Spell</li><li>Illusion</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>18m</dd></div>
+              <div><dt>Area</dt><dd>6m radius</dd></div>
+              <div><dt>Duration</dt><dd>1 turn</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Manifest a zone of celestial equilibrium. Enemies within the area are <span class="kw">Silenced</span>. When the field dissipates after 1 turn, any enemies still inside become Restrained for 1 turn.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="astral-fortitude">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/9-astral-fortitude.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Astral Fortitude</h4>
+              <ul class="chips"><li class="chip-kind">Level 5 Spell</li><li>Abjuration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>Self</dd></div>
+              <div><dt>Area</dt><dd>6m radius</dd></div>
+              <div><dt>Duration</dt><dd>Until Long Rest</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Bolster your allies within 6m with celestial energy to increase their hit point maximum by an amount equal to your Arcana level. A Downed ally in the area also regains 1 hit point. You don't receive the bonus yourself.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 11 -->
+        <div class="level" id="lvl-11">
+          <div class="level-head"><span class="level-badge">11</span><h3>Level 11</h3></div>
+
+          <article class="feature" id="solar-flare">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/11-solar-flare.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Solar Flare</h4>
+              <ul class="chips"><li class="chip-kind">Level 6 Spell</li><li>Evocation</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>18m</dd></div>
+              <div><dt>Area</dt><dd>3m radius</dd></div>
+              <div><dt>Save</dt><dd>Dexterity</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Call down a pillar of solar fire that may Stun and Burn enemies in the area.</p>
+              <p>Each creature in the area takes <span class="dmg">8d6 Fire</span> damage, is Stunned for 1 turn and Burning for 3 turns. On a successful save, it takes half damage and is Burning for 1 turn. The ground in the area ignites.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="final-spark">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/11-final-spark.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Final Spark</h4>
+              <ul class="chips"><li class="chip-kind">Level 6 Spell</li><li>Evocation</li><li>Concentration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>18m line</dd></div>
+              <div><dt>Save</dt><dd>Constitution</dd></div>
+              <div><dt>Duration</dt><dd>2 turns</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Release a concentrated beam of pure radiant energy. All creatures caught in its path take <span class="dmg">6d6 Radiant</span> damage and are Blinded and encased in Faerie Fire for 1 turn. On a successful save, a creature takes half damage and suffers neither condition.</p>
+              <p>Until the spell ends (2 turns), you shed light around you and can cast <strong>Recast Final Spark</strong>: an action that costs no Woven Spell Slot and releases another beam with the same damage and conditions.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Level 12 -->
+        <div class="level" id="lvl-12">
+          <div class="level-head"><span class="level-badge">12</span><h3>Level 12</h3></div>
+
+          <article class="feature" id="aspect-of-hope">
+            <div class="feature-icon blank"></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Aspect of Hope</h4>
+              <ul class="chips"><li class="chip-kind">Passive</li><li>Aspect Tier III</li></ul>
+            </div>
+            <div class="feature-body">
+              <p>You can now reach Tier III by restoring hit points equal to 12 times your level in one fight. Your Wisdom increases by 3, Sunlit deals 2d4 Fire instead, allies you heal or target with an Arcane spell gain <span class="kw">Eclipse</span>, and the first ally who would be downed during the fight instead regains half their hit points. See <a href="#awakening">Aspect of Hope</a>.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="stellar-grace">
+            <div class="feature-icon"><img src="assets/img/icons/starchild/12-stellar-grace.webp" alt=""></div>
+            <div class="feature-head">
+              <h4 class="feature-name">Stellar Grace</h4>
+              <ul class="chips"><li class="chip-kind">Level 6 Spell</li><li>Abjuration</li><li>Concentration</li></ul>
+            </div>
+            <dl class="statline">
+              <div><dt>Cast</dt><dd>Action</dd></div>
+              <div><dt>Range</dt><dd>Self</dd></div>
+              <div><dt>Area</dt><dd>18m radius</dd></div>
+              <div><dt>Duration</dt><dd>Concentration</dd></div>
+              <div><dt>Recharge</dt><dd>Long Rest</dd></div>
+            </dl>
+            <div class="feature-body">
+              <p>Bind your companions' fates to the enduring light of the cosmos. Your allies within 18m regain the maximum hit points possible when healed. They also gain Advantage on Wisdom Saving Throws and Death Saving Throws.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== ASPECT AWAKENING ===== -->
+      <section class="chapter" id="awakening">
+        <h2>Aspect of Hope</h2>
+        <div class="prose">
+          <p>From level 3, every fight can awaken the Star within you. What counts is the healing you give: each hit point you restore to an ally during combat adds to a running total for that fight. Healing yourself doesn't count, and neither does healing past an ally's maximum hit points. Your progress towards the next tier appears as the <span class="kw">Awakening Progress</span> status, shown in percent.</p>
+          <p>Each goal is a multiple of your level. When your total reaches a goal, that tier awakens and stays until combat ends. Tiers awaken in order and stack, and you can only reach the tiers your level has unlocked: Tier I at level 3, Tier II at level 7, Tier III at level 12. When combat ends, the total and every tier reset.</p>
+          <p>Once awakened, the Aspect turns your support into damage. Every ally you heal, and every ally you target with an Arcane spell, receives the marks of your current tier for 2 turns. Each mark empowers that ally's next attack that hits, then fades.</p>
+        </div>
+
+        <div class="tiers">
+          <div class="tier">
+            <p class="tier-label">Tier I · Beacon</p>
+            <p class="tier-goal">Level 3 · restore 5 × your level</p>
+            <ul>
+              <li>Allies you heal or target become <strong>Moonlit</strong>: their next attack that hits deals an additional 1d4 Cold and reduces the target's movement speed by 3m for 1 turn.</li>
+              <li>You gain the spell <a href="#wish-upon-a-star">Wish Upon a Star</a>.</li>
+            </ul>
+          </div>
+          <div class="tier">
+            <p class="tier-label">Tier II · Sunrise</p>
+            <p class="tier-goal">Level 7 · restore 8 × your level</p>
+            <ul>
+              <li>Moonlit deals 2d4 Cold instead.</li>
+              <li>Allies also become <strong>Sunlit</strong>: their next attack that hits deals an additional 1d4 Fire and sets the target Burning for 2 turns.</li>
+            </ul>
+          </div>
+          <div class="tier">
+            <p class="tier-label">Tier III · Aspect of Hope</p>
+            <p class="tier-goal">Level 12 · restore 12 × your level</p>
+            <ul>
+              <li>Your Wisdom increases by 3.</li>
+              <li>Sunlit deals 2d4 Fire instead.</li>
+              <li>Allies also gain <strong>Eclipse</strong>: Resistant to Cold and Fire damage for 2 turns.</li>
+              <li>You and every ally in the fight gain <strong>Undying Hope</strong>: the first of you who would be downed instead regains half their hit points, and the protection ends for everyone.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="scaling">
+            <caption>Hit points to restore in one fight</caption>
+            <thead><tr><th>Your level</th><th>3</th><th>5</th><th>7</th><th>9</th><th>11</th><th>12</th><th>16</th><th>20</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tier I (5×)</th><td>15</td><td>25</td><td>35</td><td>45</td><td>55</td><td>60</td><td>80</td><td>100</td></tr>
+              <tr><th scope="row">Tier II (8×)</th><td>—</td><td>—</td><td>56</td><td>72</td><td>88</td><td>96</td><td>128</td><td>160</td></tr>
+              <tr><th scope="row">Tier III (12×)</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>144</td><td>192</td><td>240</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <article class="feature" id="wish-upon-a-star">
+          <div class="feature-icon blank"></div>
+          <div class="feature-head">
+            <h4 class="feature-name">Wish Upon a Star</h4>
+            <ul class="chips"><li class="chip-kind">Aspect Spell</li><li>Evocation</li></ul>
+          </div>
+          <dl class="statline">
+            <div><dt>Cast</dt><dd>Action</dd></div>
+            <div><dt>Range</dt><dd>Self</dd></div>
+            <div><dt>Area</dt><dd>18m radius</dd></div>
+            <div><dt>Recharge</dt><dd>Once per combat</dd></div>
+          </dl>
+          <div class="feature-body">
+            <p>Available while the Aspect of Hope is awakened. Grant your allies within 18m Advantage on their next Attack Roll. The blessing lasts 2 turns or until they attack, and costs no Woven Spell Slot.</p>
+          </div>
+        </article>
+
+        <aside class="aside">
+          <p class="aside-title">Awakening Faster</p>
+          <ul>
+            <li>Big heals on badly hurt allies count in full; topping up someone who is nearly full wastes the excess.</li>
+            <li>Wish heals everyone within 18m at once, so one bonus action can cover a large share of a goal.</li>
+            <li>Arcane spells you cast on allies, such as Lunar Aegis or Moon Gravity, also apply your marks once the Aspect is awake, even when they heal nothing.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- ===== GLOSSARY ===== -->
+      <section class="chapter" id="glossary">
+        <h2>Conditions &amp; Terms</h2>
+        <dl class="glossary">
+          <dt>Arcane spell</dt><dd>Any spell the Arcana class grants you, including every Starchild spell.</dd>
+          <dt>Rejuvenation</dt><dd>From Starcall, 2 turns. Your movement speed is increased by 30%, and you regain hit points equal to your Wisdom modifier at the end of each turn. While you have it, Astral Infusion costs you no hit points.</dd>
+          <dt>Slowed</dt><dd>From Starcall, 1 turn. The target's movement speed is decreased by 30%.</dd>
+          <dt>Lunar Wisp</dt><dd>Until Long Rest or until combat ends. When you heal an ally, they also gain temporary hit points equal to your Arcana level plus twice your Wisdom modifier.</dd>
+          <dt>Lunar Aegis</dt><dd>+2 bonus to Armour Class, for as long as you keep Concentration.</dd>
+          <dt>Singularity</dt><dd>The point of light from Lucent Singularity, 2 turns. Dispels darkness in a 15m radius; enemies within are revealed, caught in Difficult Terrain and encased in Faerie Fire.</dd>
+          <dt>Faerie Fire</dt><dd>Outlined in light: Attack Rolls against the affected creature have Advantage, and it can't turn Invisible.</dd>
+          <dt>Star Radiance</dt><dd>You and allies within your 9m aura deal an additional 1d4 Radiant damage with weapon attacks.</dd>
+          <dt>Moon Gravity</dt><dd>Movement speed can't be reduced by Difficult Terrain, spells or magical effects; can't be Paralysed or Restrained.</dd>
+          <dt>Silenced</dt><dd>From Equinox. Can't speak or cast spells with a verbal component, and is Immune to Thunder damage.</dd>
+          <dt>Restrained</dt><dd>Can't move; Attack Rolls against the creature have Advantage, and its own attacks have Disadvantage.</dd>
+          <dt>Astral Fortitude</dt><dd>Hit point maximum increased by the caster's Arcana level, until Long Rest.</dd>
+          <dt>Blinded</dt><dd>From Final Spark, 1 turn. Disadvantage on Attack Rolls and shortened range; Attack Rolls against it have Advantage.</dd>
+          <dt>Stunned</dt><dd>Can't move or take actions or reactions; fails Strength and Dexterity Saving Throws.</dd>
+          <dt>Burning</dt><dd>Takes Fire damage every turn until it ends.</dd>
+          <dt>Stellar Grace</dt><dd>Advantage on Wisdom Saving Throws and Death Saving Throws; healing received is always the maximum possible.</dd>
+          <dt>Cosmic Omen</dt><dd>The Weal or Woe omen you receive after each Long Rest. Weal raises allies' rolls; Woe lowers enemies' rolls.</dd>
+          <dt>Awakening Progress</dt><dd>Your progress towards the next Aspect tier, in percent. Disappears when combat ends.</dd>
+          <dt>Moonlit</dt><dd>Aspect mark, 2 turns. The next attack that hits deals an additional 1d4 Cold (2d4 from Tier II) and reduces the target's movement speed by 3m.</dd>
+          <dt>Sunlit</dt><dd>Aspect mark from Tier II, 2 turns. The next attack that hits deals an additional 1d4 Fire (2d4 at Tier III) and sets the target Burning.</dd>
+          <dt>Eclipse</dt><dd>Aspect mark from Tier III, 2 turns. Resistant to Cold and Fire damage.</dd>
+          <dt>Undying Hope</dt><dd>From Tier III, until combat ends. The first time this creature would be downed during the fight, it instead regains half its hit points. Once anyone uses it, it ends for everyone.</dd>
+          <dt>Wish Upon a Star</dt><dd>Advantage on the next Attack Roll, 2 turns.</dd>
+        </dl>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="page-foot">
+    <p class="eyebrow">The Arcana Player's Guide</p>
+    <nav class="foot-links" aria-label="Guide pages">
+      <a href="index.html">The Arcana</a>
+      <a href="unbound.html">The Unbound</a>
+      <a href="deceiver.html">The Deceiver</a>
+      <a href="starchild.html">The Starchild</a>
+      <a href="eternal.html">The Eternal</a>
+      <a href="heartweaver.html">The Heartweaver</a>
+    </nav>
+    <p class="foot-note">Arcana is a class mod for Baldur's Gate 3. Baldur's Gate 3 is a game by Larian Studios.</p>
+  </footer>
+</div>
+</body>
+</html>
