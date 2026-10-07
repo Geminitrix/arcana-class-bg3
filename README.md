@@ -1,144 +1,56 @@
-# The Arcana — a deck-building class for Baldur's Gate 3
+# The Arcana — Custom Class for Baldur's Gate 3
 
-A full custom class for Baldur's Gate 3 whose combat runs on a **deck of cards**: you build a deck out
-of camp, draw a hand when a fight starts, spend a per-turn energy to play cards, and discard what you
-do not use. Baldur's Gate 3 has no card system and no concept of a hand — every part of this is built
-out of engine primitives that were meant for other things.
+> **"We were chosen by the Lady of Mysteries, and the Weave answers when we pull on its threads."**
 
-We know of no other BG3 mod that does this, so most of what is written down here is a record of what
-the engine actually allows, found by trying it.
-
-> **Status: in development.** The class itself ships and is playable. The deck layer is written, has
-> 99 offline tests, and is being verified in game. See [Where it stands](#where-it-stands).
+**The Arcana** is a full custom class for *Baldur's Gate 3*. Bound to the Weave by Mystra's own hand, the Arcana are at once her chosen and her instruments. They draw upon mysteries granted to few, reshaping the flow of magic around them and turning it against those who would unravel it.
 
 ---
 
-## The idea
+## 🌟 Overview
 
-The class is **The Arcana**, a weaver of Mystra's Weave, with four subclasses (Deceiver, Starchild,
-Unbound, Eternal). Its spells are **cards**.
-
-| | Out of combat | In combat |
-|---|---|---|
-| What you spend | **Woven Spell Slots** — leveled, refill on a short rest, Warlock-style | **Threads** — flat, refill every turn, do not carry over |
-| What you can cast | anything you know | only what is **in your hand** |
-| How much it costs | one slot of the card's level | Threads equal to the card's level |
-
-A fight starts with an opening hand of 4, you draw 1 a turn, the hand holds 10, and Threads ramp with
-character level (1/turn early, up to 6 late) with 2 carried over at most.
-
-Design vocabulary, roughly borrowed from Legends of Runeterra: cards are **Created**, **Fleeting**,
-**Fated**, **Attuned**; played cards go to the **Frayed** pile and exiled ones to **Unravel**; the
-opening hand can be traded once with **Reweave**.
+The Arcana is a **seer and spellcaster** who perceives the invisible threads connecting every creature, roll, and spell in Faerûn:
+- **Divination & Foresight**: Foresee and manipulate d20 rolls with **Portent**, reveal unseen creatures and illusions with **Third Eye**, and master exploration with **Weave Knowledge** and **Arcane Gate**.
+- **Woven Spell Slots**: All spell slots automatically scale up to your highest slot level as you progress, ensuring that your core spells remain potent throughout the entire adventure.
+- **The Aspect Awakening**: In combat, call upon the divine essence of your patron card to undergo a temporary transformation, unlocking extraordinary powers.
 
 ---
 
-## Why it is unusual, technically
+## 🃏 The 5 Destinies (Subclasses)
 
-The engine gives no way to add, remove or hide a spell per turn without wrecking the spellbook. So the
-deck never touches the spellbook at all. Every card the character knows is always there, in the same
-place on the hotbar, and the deck only changes **how each one looks and what it costs**:
+At Level 1, every Arcana chooses their destiny among five **Major Arcana**:
 
-- **A card not in your hand is locked by making it unpayable.** It gains a cost in `ArcanaNotInHand`,
-  an action resource nobody is ever granted. The engine greys it out and refuses every route to
-  casting it — hotbar, character sheet, keyboard shortcut — with a tooltip that says why.
-- **The hand is an action resource.** `ArcanaHandCard` sits next to the spell slots and holds how many
-  cards you are holding. Every card costs 1 of it, so the engine itself enforces an empty hand, the
-  count is on screen, and "is this a card?" becomes a question about cost rather than a list of names
-  someone has to maintain.
-- **The slot cost turns into Threads through spell variants.** A status applied for the duration of a
-  fight carries one `UnlockSpellVariant` per spell level that zeroes the card's slot cost and adds the
-  Thread cost. The console edition never gets that status, so the same card data feeds both editions.
-- **Choices reuse the game's own spell containers.** Hemoplague offering six diseases is a vanilla
-  `SpellContainer`, not custom UI — so it works without the Script Extender, on console too.
-- **Reactions are gated by an exclusive resource.** Out of combat and on console the character simply
-  has it and the reaction behaves normally; in a fight it is zeroed, and a card gives it back.
+| Destiny | Tarot Archetype | Role & Identity |
+| :--- | :--- | :--- |
+| **[Unbound](Wiki/unbound.html)** | *0 — The Fool* | **Wind & Flow**: Agile martial-caster who flows through the battlefield like the wind, deflecting blows and striking with gale-force unarmed attacks. |
+| **[Deceiver](Wiki/deceiver.html)** | *II — The High Priestess* | **Illusion & Subterfuge**: Master of duplicates, mental traps, telepathy, and deceit who sows paranoia and turns foes against one another. |
+| **[Starchild](Wiki/starchild.html)** | *XVII — The Star* | **Astral Radiance & Healing**: Celestial conduit channeling stellar light and lunar wisps to heal allies, banish darkness, and call down solar flares. |
+| **[Eternal](Wiki/eternal.html)** | *XIII — Death* | **Blood & Undeath**: Resilient frontline wielder of blood magic and soul reaping who commands life essence, vampiric strikes, and death wards. |
+| **[Heartweaver](Wiki/heartweaver.html)** | *XIV — Temperance* | **Emotion & Harmony**: Empathic weaver who manipulates emotional frequencies, balancing boons and banes across the party and enemies alike. |
 
 ---
 
-## Two editions, one set of data
+## 📖 Complete Player Guide & Interactive Wiki
 
-The mod ships twice, which shapes every decision:
+All detailed progressions, spell descriptions, icons, damage formulas, and mechanics are compiled in the **[Arcana Wiki](Wiki/)** included directly in this repository:
 
-- **Nexus / PC** — uses [Norbyte's Script Extender](https://github.com/Norbyte/bg3se). Lua owns the
-  deck: the pool, the hand, the piles, which card is locked or lit.
-- **Console** — no Script Extender at all. No deck, no hand: the same cards are cast normally with
-  Woven Spell Slots.
+- 🏛️ **[Class Guide & Core Progression](Wiki/index.html)** — Level 1 to 12 traits, Woven Spell Slots, base features, and glossary.
+- 🍃 **[Unbound Guide](Wiki/unbound.html)** — Flow state, wind strikes, momentum, and Aspect of the Leaf.
+- 🪞 **[Deceiver Guide](Wiki/deceiver.html)** — Mirror images, ethereal chains, mental prison, and Aspect of the High Priestess.
+- ⭐ **[Starchild Guide](Wiki/starchild.html)** — Astral infusion, lunar aegis, starbreath, and Aspect of the Star.
+- 🩸 **[Eternal Guide](Wiki/eternal.html)** — Blood reaper, hemoplague, realm of death, and Aspect of Undeath.
+- 💖 **[Heartweaver Guide](Wiki/heartweaver.html)** — Emotional alchemy, resonance, and Aspect of Temperance.
 
-So **gameplay effects live in Stats, Osiris and Khonsu**, which both editions share, and Lua only ever
-manages the deck. A rule that only exists in Lua is a rule console players do not get.
-
----
-
-## Layout
-
-This repository is **the deck system, not the whole mod**. The class's own content — summon
-templates, Osiris goals, localisation, icons, VFX — is not part of how the deck works and is kept out.
-
-```
-mod/                              mirror of the source (see tools/sync-mod.sh)
-  ScriptExtender/Lua/             the deck, in Lua — PC edition only
-    Server/Core/                  pool, hand, piles, state, the lock/glow boosts
-    Server/Economy/               Threads, the hand resource, reactions, the combat status
-    Server/Cards/CardDB.lua       per-card data: cost, keywords, containers, what it creates
-    Server/Keywords/              one file per keyword
-    Tests/                        99 tests that run without the game
-  Scripts/thoth/                  Khonsu conditions the boosts ask questions with
-  Public/Stats/                   spell costs, and the status that converts them
-  Public/ActionResource*/         Threads, the hand, the class's own spell-slot group
-  Public/{Lists,Progressions}/    where cards and resources are granted
-  Editor/…                        the Toolkit's copy of the same data — must match Public/
-Docs/                             OSIRIS.md and KHONSU.md — what the engine actually does
-tools/sync-mod.sh                 copies the source out of the game directory into mod/
-tools/run_tests.lua               the offline test runner
-```
-
-**The game directory is authoritative.** The mod is installed loose, so the game and the Toolkit read
-and write the real files in `…/Baldur's Gate 3/Data/`; `mod/` here is a one-way mirror for history.
-Never edit `mod/` expecting the game to notice.
-
----
-
-## Working on it
-
+### Viewing the Wiki Locally
+You can view the Wiki simply by opening `Wiki/index.html` in any web browser, or launch the local dev server:
 ```bash
-# refresh the mirror after changing anything in the game directory
-tools/sync-mod.sh
-
-# run the deck's offline test suite (Lua 5.4, no game needed)
-lua tools/run_tests.lua "$BG3_DATA/Mods/AspectClass_<uuid>/ScriptExtender/Lua"
+node Wiki/_work/serve.js 8765
 ```
-
-In game, with the Script Extender console: `!arcanatest` runs the same suite, `!arcanahand` prints the
-hand with costs, `!arcanapool` the tracked spells, `!arcanathreads` the energy, `!arcanadeck` what is
-left to draw.
-
-Two rules worth repeating:
-
-1. **Never write to mod files while the game or the Toolkit is open.** Reading is always fine.
-2. **Every stats change is two files** — the generated `Public/…/*.txt` the game reads and the
-   `Editor/…/*.stats` the Toolkit owns. They must agree, or the next Toolkit save silently reverts you.
+Then navigate to `http://localhost:8765/index.html`.
 
 ---
 
-## Where it stands
+## 📜 Credits & Disclaimer
 
-Working and verified in game: Threads and their per-turn refill, the reserve carried between turns,
-the opening hand, Reweave.
-
-Written, tested offline, not yet confirmed in game: the slot-to-Thread conversion, the hand resource,
-the reaction gates, the Hemoplague container.
-
-Open questions, the design specs and the in-game test scripts live in the project folder alongside
-this repository and are not published here.
-
----
-
-## Credits and licence
-
-Built by **Lumox**. The Arcana's art, text and design are the author's. The mod depends on
-[Norbyte's BG3 Script Extender](https://github.com/Norbyte/bg3se) for the PC edition and on
-[LSLib](https://github.com/Norbyte/lslib) for converting the game's file formats.
-
-Baldur's Gate 3 is © Larian Studios. This is an unofficial fan modification, not affiliated with or
-endorsed by Larian.
+- **Author**: Lumox ([Geminitrix](https://github.com/Geminitrix))
+- Built for **Baldur's Gate 3**.
+- Baldur's Gate 3 is © Larian Studios. This is an unofficial fan modification not affiliated with or endorsed by Larian Studios or Wizards of the Coast.

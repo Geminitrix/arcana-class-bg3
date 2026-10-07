@@ -1,6 +1,12 @@
-# This repository holds the deck system, not the whole mod project. Everything below lives in the
-# project folder beside it and is deliberately not tracked: class design, published art, backups.
+# ==========================================
+# Arcana Class BG3 - Showcase & Wiki Repository
+# ==========================================
+# This repository is the public showcase and player-facing wiki for the Arcana Class mod.
+# Internal engine data, development scripts, and raw mod files are kept local and ignored.
 
+# --- Internal Mod Data & Development Tools ---
+/mod/
+/tools/
 /Design/
 /Gameplay/
 /Boons/
@@ -13,26 +19,23 @@
 /Lua/
 /CLAUDE.md
 /Context/
-/Docs/codex-src/
-/Docs/fingerprint.sh
+/Docs/
 
-# --- Backups and superseded copies ---
+# --- Backups & Superseded Copies ---
 *.bak
 *.bak-*
 *.orig
 
-# --- Packed builds and binary game assets ---
+# --- Game Packed Builds & Binary Assets ---
 *.pak
 *.gr2
 *.dds
 *.wem
 *.bin
 
-# --- The mirrored ScriptExtender folder keeps its own history in the game
-#     directory; the copy here must not carry a nested repository. ---
-mod/ScriptExtender/.git/
-
-# --- Editors and OS ---
+# --- OS & Editor Cache ---
 .obsidian/
 Thumbs.db
 desktop.ini
+.DS_Store
+node_modules/
