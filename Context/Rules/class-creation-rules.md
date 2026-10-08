@@ -477,8 +477,9 @@ metric (damage per round, rounds to win, resources left), and what result would 
   figures…).
 - **Tier bonuses push the theme of the engine.** Tier I: a change to how the engine runs. Tier II: the
   engine spreads or protects. Tier III: the theme at its peak, with a mechanic only this subclass could
-  have. A "+3 ability and its modifier to damage" bonus is allowed only as an addition to a thematic
-  bonus, never as the bonus itself.
+  have. **No tier gives an ability score bonus** (+3 to an ability, its modifier to damage), not even as
+  an addition: it is generic and makes every subclass's peak feel the same. Every tier bonus is a
+  mechanic of the engine.
 - **The Aspect card** (Tier I, Created, 0 Threads, 0 slots, once per combat) is the engine's climax:
   it releases or multiplies the state built up so far, so it grows with the level by itself.
 
@@ -540,7 +541,7 @@ other mods in `C:\Projetos\BG3 Modding\References\`, and `story_header.div` for 
 | Don't | Because | Do |
 |---|---|---|
 | Copy another subclass's card count or level layout | Each subclass is its own archetype (§7.1) | Derive the pool from the engine's axes and verbs |
-| Give a tier a generic stat bonus | Fails I2 and E7; every subclass would feel the same | Push the engine's theme (§9) |
+| Give a tier a stat bonus (+3 to an ability, even as an extra) | Fails I2 and E7; every subclass would feel the same | Push the engine's theme (§9) |
 | Use randomness in an engine built on foresight or planning | Breaks readability and the Aspect | Deterministic rules, visible state |
 | Design around choosing a slot level | Arcana always casts at its highest slot | Scale by slot level; vary by card |
 | Need two statuses per effect without a strong reason | Doubles the scope and the things to read | One status, its duration and stack type carry the logic |

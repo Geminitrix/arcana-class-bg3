@@ -53,6 +53,7 @@
 - ❓ Solar Flare and Final Spark run 3 copies — their damage is to be lowered.
 - ❓ Blood Offering numbers and Howl of the Dead's level (a free cantrip card at 13).
 - ❓ Flight for the Starchild as a separate passive (removed from Tier III, to come back on its own).
+- ❓ **Tier III ability bonuses go away** (author, 2026-10-08): Unbound +3 DEX, Deceiver +3 CHA and CHA to Arcane damage, Starchild +3 WIS, Eternal +3 CON. Each needs a thematic mechanic in its place, decided in that subclass's audit. The Resonant's is decided (Overflow in an area).
 
 ---
 

@@ -37,7 +37,7 @@ console edition.
   | Starchild | **Wisdom** | Rejuvenation, Lunar Wisp, Cosmic Omen, Star Tier III |
   | Eternal | **Constitution** | Hit points (the Sorrow ledger, Darkness Rise, Final Toll scale with max HP), Death Tier III |
 
-  Each Tier III Aspect gives +3 to the secondary ability.
+  Each Tier III Aspect gives +3 to the secondary ability. 🎯 Design intent: no tier gives an ability bonus any more (`Rules/class-creation-rules.md` §9); each subclass replaces it with a mechanic of its engine.
 - All class spells are **Always Prepared**; nothing is prepared or swapped on rest.
 - The base class has picks at levels 1, 2 and 4 (the Weaver Hand list and two utility choices, see
   `03-base-class.md`); every other spell arrives through the progression.
