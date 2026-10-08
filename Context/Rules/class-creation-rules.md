@@ -352,8 +352,8 @@ These are fixed by the class. A subclass designs *within* them; changing them is
   inventing new ones.
 - **Aspect Awakening:** three tiers at levels 3/7/12, a goal per tier counted in Osiris, the Aspect card
   at Tier I (§9).
-- **The template (§7.4):** every subclass has signature spells, rule passives, an ultimate at level 5
-  and a capstone at level 11, in the same slots.
+- **The template (§7.4):** every subclass has signature spells, rule passives, an ultimate (the key
+  signature spell that completes the kit) at level 5 and a capstone at level 11, in the same slots.
 - **Both editions:** every gameplay effect lives in Stats/Osiris/Khonsu/LSX. Lua only manages the deck.
 
 ---
@@ -416,9 +416,9 @@ Every subclass fills the same template. The slots don't move; the ranges leave r
 |---|---|
 | **Signature spell** (key ability) | A spell only this subclass has, which defines how it plays: it creates, changes or spends the engine's state |
 | **Rule passive** | Explains one rule of the engine, once, and unlocks it at its level (§7.5) |
-| **Ultimate** | The biggest effect of the kit. A resource the engine fills unlocks it, and the player chooses when to use it |
+| **Ultimate** | A signature spell, exclusive to the subclass and built on its engine, that **completes the kit**: the key piece that ties the whole engine together, the last thing it was missing. The name means *key*, not *strongest*: it needn't be the biggest effect, and it needn't be gated by a resource |
 | **Capstone** | The level-11 card: Long Rest, Unique. The end of the journey |
-| **Aspect card** | The Awakening's card at Tier I (§9) |
+| **Aspect card** | A spell granted by Awakening Tier I, usable once per combat (§9). It can turn a fight, but it needn't be the strongest thing in the kit |
 | **Tier bonuses** | Awakening Tiers I, II and III (§9) |
 | **Cantrip and utility** | The turn's baseline (§7.3) and at most one out-of-combat utility (§4.5) |
 
@@ -428,18 +428,18 @@ Every subclass fills the same template. The slots don't move; the ranges leave r
 |---|---|---|---|
 | 1 | 3–4 | 1–2: the core rule (the engine is playable, P1) and, if there is one, an identity rule | Cantrip; utility if any |
 | 3 | 1–3 | 1 new rule | Awakening Tier I and the Aspect card |
-| 5 | 1–3 | 1: the rule of the ultimate's resource | **The ultimate** |
+| 5 | 1–3 | 1 new rule (often the one the ultimate ties in) | **The ultimate** |
 | 7 | 1–3 | 1 new rule | Tier II |
 | 9 | 1–3 | 1 new rule | — |
 | 11 | 0–1 | — | **The capstone** |
 | 12 | — | — | Tier III |
 | Even levels | — | — | The base class's; a subclass uses one only when it has a reason |
 
-- **The ultimate's resource** fills by playing the engine, shows on a status with a count, and resets when
-  combat ends.
+- **If the ultimate uses a resource** (a meter, charges), it fills by playing the engine, shows on a status
+  with a count, and resets when combat ends.
 - **The ultimate and the Aspect card** both exist and never do the same thing. How they differ is the
   subclass's choice; the template doesn't fix their shape.
-- **Power peaks** at 5 (the ultimate) and 11 (the capstone) follow vanilla's own spikes (§4.5, §8.3).
+- **Power peaks** at 5 and 11 follow vanilla's own spikes (§4.5, §8.3).
 
 ### 7.5 Passives
 
@@ -483,8 +483,8 @@ arithmetic, declare assumptions, err weak.
   Paladin/Fighter. Use their real numbers from the vanilla files, not memory.
 - Sum the expected value per adventuring day of everything the subclass has at each band and plot it.
   Peaks are explosive levels, valleys are dead ones.
-- **Target:** every band at **90–100 %** of the benchmark of the same role. The levels of the ultimate (5)
-  and the capstone (11) may go a little above, as vanilla does. Below 90 % is a dead band; above 100 %
+- **Target:** every band at **90–100 %** of the benchmark of the same role. Levels 5 and 11, vanilla's own
+  spikes, may go a little above. Below 90 % is a dead band; above 100 %
   anywhere else is a spike.
 - Compare the subclasses of the Arcana with each other the same way.
 
@@ -519,9 +519,9 @@ metric (damage per round, rounds to win, resources left), and what result would 
   have. **No tier gives an ability score bonus** (+3 to an ability, its modifier to damage), not even as
   an addition: it is generic and makes every subclass's peak feel the same. Every tier bonus is a
   mechanic of the engine.
-- **The Aspect card** (Tier I, Created, 0 Threads, 0 slots, once per combat) is the engine's climax:
-  it releases or multiplies the state built up so far, so it grows with the level by itself. It never
-  does the same thing as the ultimate (§7.4).
+- **The Aspect card** (Tier I, Created, 0 Threads, 0 slots, once per combat) is a spell that plays the
+  engine. It can turn a fight, but it needn't be the strongest thing in the kit. It never does the same
+  thing as the ultimate (§7.4).
 
 ---
 
