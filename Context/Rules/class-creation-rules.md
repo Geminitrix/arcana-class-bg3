@@ -131,10 +131,10 @@ Every subclass fills every field. "To decide" is allowed during the brainstorm, 
 | **Aspect and why** | The Aspect's name, and why that word | The Aspect is **what the engine makes the player do or feel**. If the Aspect could be swapped with another subclass's without anyone noticing, it fails |
 | **Relation to Mystra and the Weave** | How this destiny was woven: which part of the Weave it holds or pulls | One sentence that could only be written about this subclass; uses the class's Weave vocabulary |
 | **Myth** | Greek mythology first (the class's planned boons are Greek), others where they fit better | A named figure or story that lends a specific rule, name or image |
-| **Science / real source** | A real-world model (psychology, physics, astronomy, biology…) when one exists | It structures the content (Plutchik's wheel gives the Resonant its states) rather than just naming them |
+| **Science / real source** | A real-world model (psychology, physics, astronomy, biology…) when one exists | It structures the content rather than just naming them: a model with N parts gives the subclass N pieces |
 | **Fictional characters** | 2–4 characters | Each lends something named: an ability, a fantasy, a visual |
 | **Reference powers** | The abilities borrowed and what became of each | Clear line from source to card |
-| **Archetype** | The role-playing image in a few words | Recognisable without the card ("the clockmaker of fate") |
+| **Archetype** | The role-playing image in a few words | Recognisable without the card: a stranger could picture it from the words alone |
 | **Fantasy line** | One sentence the player should feel | Short; would fit on the mod page |
 | **Role** | Primary and secondary role in a party of four | Fills a gap or plays a shared role in a new way (§2.3) |
 | **Play style** | What the player plans and decides | Names the main decision of a turn |
@@ -147,19 +147,19 @@ Every subclass fills every field. "To decide" is allowed during the brainstorm, 
 
 ### 2.1 Reading a tarot card for mechanics
 
-- Start from the **traditional meaning** (upright and reversed), then the **imagery** (Rider-Waite and
-  the older decks it adapts: Marseille, Thoth), then **number and astrology** (Golden Dawn correspondences).
-- Mechanics hide in the imagery: a figure rising and another falling, two cups pouring, a veil between
-  pillars. Name the image when using it.
+- Start from the **traditional meaning** (upright and reversed), then the **imagery** (the classic decks and
+  the older ones they adapt), then **number and astrology** (the traditional correspondences).
+- Mechanics hide in the imagery: a figure in motion, something passed
+  from one hand to another, something hidden behind something else. Name the image when using it.
 - Prefer a reading that **creates a decision** over one that creates a bonus.
 
 ### 2.2 References
 
-- **Myth:** look for the figure that *does* the card's idea (the Moirai spin, measure and cut; Nemesis
-  balances fortune), not only the one with the right name.
+- **Myth:** look for the figure that *does* the card's idea, not only the one
+  with the right name.
 - **Science:** a real model gives free structure: a fixed set of elements, distances, opposites, cycles.
   If the model has N parts, the content can have N pieces — and that justifies the size of the list.
-- **Fiction:** take characters whose *kit* expresses the idea (League of Legends, Dota, JoJo, anime,
+- **Fiction:** take characters whose *kit* expresses the idea (games, comics, anime,
   films). Borrowed ability names are fine when they become our own mechanic.
 
 ### 2.3 The axis — what makes a subclass different
@@ -198,7 +198,7 @@ looks like. The audit table in a spec or subclass file uses these ids.
 | I3 | **Real sources** | Does each reference lend a specific rule, name or image? | A list of names with nothing borrowed |
 | I4 | **Mystra and the Weave** | Is there one sentence on how this destiny was woven, unique to it? | Generic "Mystra chose them" |
 | I5 | **Own axis** | Is the axis (§2.3) free among the subclasses? | Plays like another subclass with new names |
-| I6 | **Own vocabulary** | Do its names belong to its theme and to no other subclass's? | A word that fits another subclass better (a wind word on a time mage) |
+| I6 | **Own vocabulary** | Do its names belong to its theme and to no other subclass's? | A word that fits another subclass's theme better |
 
 ### Engine (E)
 
@@ -371,7 +371,7 @@ Awakening framework. The subclasses carry the combat.
 
 There is **no standard number of cards** per subclass or per level. The pool is derived from the engine:
 
-1. **Content axis** — what varies between states (the 8 emotions; the elements; the forms). If a real
+1. **Content axis** — what varies between states (a fixed set of types, states or forms). If a real
    model fixes N parts, the pool may have N pieces of that kind.
 2. **Time / intensity axis** — short vs long, weak vs strong, if the engine has one.
 3. **Verbs** — what the player does to the state (create, move, change, copy, delay, spend). **One card
@@ -469,12 +469,12 @@ metric (damage per round, rounds to win, resources left), and what result would 
 
 ## 9. Aspect Awakening
 
-- **The goal counts the engine** (E7): Doubt applied, fates resolved, emotions triggered. Never a generic
+- **The goal counts the engine** (E7): the engine's own state created, spent or resolved. Never a generic
   metric the subclass would reach without playing its engine.
 - **Three goals, one per tier** (levels 3/7/12), cumulative within a fight. Check with §8 that Tier I is
   reachable in a normal fight at level 3 and Tier III in a long one at level 12.
-- **Tier names** come from the card or its myth, in order (the Rota Fortunae's positions, the card's
-  figures…).
+- **Tier names** come from the card or its myth, in order (the card's figures or positions,
+  the myth's characters in story order).
 - **Tier bonuses push the theme of the engine.** Tier I: a change to how the engine runs. Tier II: the
   engine spreads or protects. Tier III: the theme at its peak, with a mechanic only this subclass could
   have. **No tier gives an ability score bonus** (+3 to an ability, its modifier to damage), not even as
