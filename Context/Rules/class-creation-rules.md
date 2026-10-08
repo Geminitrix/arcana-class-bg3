@@ -242,6 +242,14 @@ looks like. The audit table in a spec or subclass file uses these ids.
 | T3 | **Generated at scale** | Do families of statuses or spells come from a generator? | Dozens of hand-copied entries |
 | T4 | **Conventions** | Ids, prefixes, `_TECH` helpers and markers follow the glossary? | New naming patterns |
 
+### Form (F)
+
+| # | Criterion | Test | Failure looks like |
+|---|---|---|---|
+| F1 | **Identity Sheet complete** | Is every field of §2 filled and does each meet its quality bar? | Fields missing or "to decide" in a spec; references with nothing borrowed; strengths and weaknesses only on the wiki |
+| F2 | **Ladder complete** | Does every rung of §7.4 hold what it must: level 1 plays the engine, 3/5/7/9 each bring a new rule or verb, 11 the capstone, 12 Tier III? | A dead odd level, several new rules piled on one level while the next is empty, an empty level 12 |
+| F3 | **Structure** | Does the spec follow §1.5 (sections, no audit inside), does `Context/subclasses/<name>.md` exist in the §1.7 order with its Depth audit, and do the spec, the Context, the wiki and the game files agree? | Decision logs or audits inside the design document; no subclass file; the wiki says one chassis and the spec another |
+
 ---
 
 ## 4. What Baldur's Gate 3 rewards and punishes
@@ -553,5 +561,6 @@ Engine      E1 own state · E2 one rule · E3 grows by rules · E4 G/C/P · E5 b
 Play        P1 level 1 · P2 fight length · P3 decisions · P4 readable · P5 vs AI · P6 weaknesses · P7 console
 Balance     B1 curve · B2 combos · B3 loops · B4 err weak
 Technical   T1 no SE · T2 proven · T3 generated · T4 conventions
-Identity Sheet complete · Ladder 1/3/5/7/9/11/12 · Awakening goal + tiers + card · Texts · Test plan
+Form        F1 Identity Sheet · F2 ladder 1/3/5/7/9/11/12 · F3 structure (spec · subclass file · sources agree)
+Also        Awakening goal + tiers + card · Texts · Test plan
 ```
