@@ -54,7 +54,7 @@
 - ❓ Blood Offering numbers and Howl of the Dead's level (a free cantrip card at 13).
 - ❓ Flight for the Starchild as a separate passive (removed from Tier III, to come back on its own).
 - ❓ **Tier III ability bonuses go away** (author, 2026-10-08): Unbound +3 DEX, Deceiver +3 CHA and CHA to Arcane damage, Starchild +3 WIS, Eternal +3 CON. Each needs a thematic mechanic in its place, decided in that subclass's audit. The Resonant's is decided (Overflow in an area).
-- ❓ **The template now asks for an ultimate at level 5** (`Rules/class-creation-rules.md` §7.4, 2026-10-08): the key signature spell that completes the kit and ties its engine together (not necessarily the strongest, not necessarily gated by a resource). Unbound, Deceiver, Starchild, Eternal and the Spinner have none yet; each is decided in that subclass's audit. The Resonant's is decided (Overflow, `Design/work/resonant/decisions.md`).
+- ❓ **A feature that ties the core mechanic together (the ultimate)** — question K3 of `Rules/class-creation-rules.md` (2026-10-08): the key signature spell that completes the kit, not necessarily the strongest. Unbound, Deceiver, Starchild, Eternal and the Spinner are checked for it in their audits. The Resonant's is decided (Overflow, `Design/work/resonant/decisions.md`).
 
 ---
 

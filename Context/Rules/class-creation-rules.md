@@ -1,30 +1,33 @@
-# Class Creation Rules — the Arcana design process
+# Subclass Design Criteria — how the Arcana designs and evaluates a subclass
 
-> The rules every design change to the **Arcana** follows: a new subclass, a rework of an existing one,
-> a new card or passive for a subclass, or a change to the **base class**. It holds the process, the
-> criteria a design is judged by, what Baldur's Gate 3 rewards and punishes, and how to balance.
+> How every design change to the **Arcana** is made and judged: a new subclass, a rework of an existing
+> one, a new card or passive for a subclass, or a change to the **base class**. At its heart is a set of
+> **evaluation questions** (§3): a game-design review that asks whether things make sense together. It is
+> not a template to copy. Around the questions sit the process, what Baldur's Gate 3 rewards and
+> punishes, how to balance, and what can be built.
 >
-> This file holds **rules and method only**. The current state of each subclass lives in
-> `Context/subclasses/<name>.md` (including its Depth audit); the current state of the base class in
-> `Context/03-base-class.md`. When a rule here proves wrong, rewrite the rule — don't append history.
+> This file holds **criteria and method only** — no subclass, card, myth or deck is named in it. The
+> current state of each subclass lives in `Context/subclasses/<name>.md` (including its Depth audit); the
+> current state of the base class in `Context/03-base-class.md`. When a rule here proves wrong, rewrite
+> the rule — don't append history.
 
 ---
 
 ## The golden rule
 
-**Fun comes first.** When rules pull in different directions, the design that best joins the card, the
-references, the archetype and the Aspect — the one that is most fun to play — wins, as long as it stays
-balanced (§8). Every rule below serves this one.
+**Fun comes first.** When the questions pull in different directions, the design that best joins the
+card, the references, the archetype and the Aspect — the one that is most fun to play — wins, as long as
+it stays balanced (§8). Every question below serves this one.
 
 ---
 
 ## 0. When this applies
 
-| The work | What it must go through |
+| The work | What it goes through |
 |---|---|
-| **New subclass** | The whole process (§1), every criterion (§3), a written spec |
+| **New subclass** | The whole process (§1), every question (§3), a written spec |
 | **Rework of a subclass** | Audit against §3 first; then the process from the phase the audit points at |
-| **New card, passive or tier bonus** for a subclass | §1.2 brainstorm (short), §3 criteria it touches, §7 placement, §8 balance |
+| **New card, passive or tier bonus** for a subclass | §1.2 brainstorm (short), the §3 questions it touches, §7 placement, §8 balance |
 | **Base class change** (chassis, resources, deck rules, Awakening framework, utilities) | §6 impact matrix across every subclass, then §3 and §8 for what it touches |
 | **Number-only tweak** | §8 (show the arithmetic) and a test plan |
 | **Text-only change** | §10 |
@@ -78,35 +81,35 @@ when it's already decided.
 
 | # | Rung | The question it answers |
 |---|---|---|
-| 1 | **The card** | What does the Arcanum really mean (tradition, imagery, numbers, reversed meaning)? Which readings can become mechanics? |
+| 1 | **The card** | What does the card really mean (tradition, imagery, numbers, reversed meaning)? Which readings can become mechanics? |
 | 2 | **References** | Myth, science, fiction and powers that carry the same idea (§2) |
 | 3 | **The axis** | Which question does the player answer that no other subclass asks? (§2.3) |
-| 4 | **The engine** | The state only this subclass creates and reads, and its one core rule |
-| 5 | **Engine rules** | Timing, stacking, targets, simultaneous events, what ends it |
+| 4 | **The mechanic** | The state only this subclass creates and reads, and its one core rule |
+| 5 | **Mechanic rules** | Timing, stacking, targets, simultaneous events, what ends it |
 | 6 | **Role** | Damage, control, support, tank: primary and secondary styles |
 | 7 | **Chassis** | Secondary ability, saves, armour, weapons, skills, preset, sound set, colour |
-| 8 | **Progression** | Which signature spell, rule, ultimate and capstone fills each slot of the template (§7.4) |
+| 8 | **Progression** | What arrives at each level, and which feature ties the mechanic together (§7.4) |
 | 9 | **Awakening** | Goal, three tiers, Aspect card (§9) |
-| 10 | **Spell and passive pool** | Derived from the axes and verbs of the engine (§7) |
+| 10 | **Spell and passive pool** | Derived from the axes and verbs of the mechanic (§7) |
 | 11 | **Texts** | Names, descriptions, tag line (§10) |
 | 12 | **Numbers** | Balance pass (§8) |
 
 ### 1.3 Synthesis
 
-Assemble the decisions into the **Identity Sheet** (§2) and an **engine description** (core rule, edge
-rules, worked example). Every decision has an id and a source (author / proposal accepted).
+Assemble the decisions into the **Identity Sheet** (§2) and a **description of the mechanic** (core
+rule, edge rules, worked example). Every decision has an id and a source (author / proposal accepted).
 
 ### 1.4 Analysis
 
-Run the design against **every criterion in §3** and the **BG3 checks in §4**. Present only what fails
-or is borderline, with a proposed fix. A failure in identity or engine sends the work back to the
-brainstorm rung it belongs to; a failure in numbers stays in §8.
+Run the design through **every question in §3** and the **BG3 facts in §4**. Present only what is
+missing or borderline, with a proposed fix. A gap in identity or in the mechanic sends the work back to
+the brainstorm rung it belongs to; a gap in numbers stays in §8.
 
 ### 1.5 Spec
 
 Write `Design/specs/YYYY-MM-DD-<subclass>-design.md` in English: the **design document**, a
 complete description of the subclass — everything it is and does, explained in full, with no audit in it.
-Sections: Identity · Chassis · Engine (rules, worked example, resolution order, edge cases) · the
+Sections: Identity · Chassis · Mechanic (rules, worked example, resolution order, edge cases) · the
 subclass's own systems · Spells · Passives · Aspect Awakening · Progression · How it plays · Text ·
 Technical pattern (statuses, Osiris, generator, ids) · Open · To test in game.
 Self-review it for placeholders, contradictions and ambiguity, then the author reviews it. The §3 audit
@@ -131,25 +134,27 @@ tarot and inspirations tables in `01`, `04-subclass-comparison.md`, `06-glossary
 
 ## 2. The Identity Sheet
 
-Every subclass fills every field. "To decide" is allowed during the brainstorm, never in a spec.
+The Identity Sheet records the answers to the descriptive questions of §3. "To decide" is fine during
+the brainstorm, not in a spec.
 
-| Field | What it must contain | Quality bar |
+| Field | What it contains | A good answer |
 |---|---|---|
-| **Arcanum and why** | Number, name, and the readings of the card that the subclass carries | Each carried reading points at a mechanic. A reading with no mechanic is decoration; drop it or give it one |
-| **Aspect and why** | The Aspect's name, and why that word | The Aspect is **what the engine makes the player do or feel**. If the Aspect could be swapped with another subclass's without anyone noticing, it fails |
+| **The card and why** | Number, name, and the readings of the card that the subclass carries | Each carried reading points at a mechanic. A reading with no mechanic is decoration; drop it or give it one |
+| **Aspect and why** | The Aspect's name, and why that word | The Aspect is **what the mechanic makes the player do or feel**; it couldn't be swapped with another subclass's without anyone noticing |
 | **Relation to Mystra and the Weave** | How this destiny was woven: which part of the Weave it holds or pulls | One sentence that could only be written about this subclass; uses the class's Weave vocabulary |
 | **Myth** | Greek mythology first (the class's planned boons are Greek), others where they fit better | A named figure or story that lends a specific rule, name or image |
-| **Science / real source** | A real-world model (psychology, physics, astronomy, biology…) when one exists | It structures the content rather than just naming them: a model with N parts gives the subclass N pieces |
-| **Fictional characters** | 2–4 characters | Each lends something named: an ability, a fantasy, a visual |
+| **Science / real source** | A real-world model (psychology, physics, astronomy, biology…) when one exists | It structures the content rather than just naming it: a model with N parts gives the subclass N pieces |
+| **Fictional characters** | The characters it draws on | Each lends something named: an ability, a fantasy, a visual |
 | **Reference powers** | The abilities borrowed and what became of each | Clear line from source to card |
 | **Archetype** | The role-playing image in a few words | Recognisable without the card: a stranger could picture it from the words alone |
 | **Fantasy line** | One sentence the player should feel | Short; would fit on the mod page |
 | **Role** | Primary and secondary role in a party of four | Fills a gap or plays a shared role in a new way (§2.3) |
+| **Specialist or versatile** | Whether it does one thing very well or many things well enough | Said plainly, and the kit matches it |
 | **Play style** | What the player plans and decides | Names the main decision of a turn |
 | **Combat style** | Range, position, action economy, tempo across a fight | Concrete: where they stand, what turn 1 and turn 3 look like |
-| **Strengths** | What it does best | At most three; each traceable to a mechanic |
+| **Strengths** | What it does best | A few, each traceable to a mechanic |
 | **Weaknesses** | What beats it | Real and visible in play: a weakness that never shows up isn't one |
-| **Chassis** | Secondary ability, saves, armour, weapons, skills list, preset, starting gear, sound set | Secondary ability serves the engine, not only the theme. Saves, armour and weapons match the role |
+| **Chassis** | Secondary ability, saves, armour, weapons, skills list, preset, starting gear, sound set | Secondary ability serves the mechanic, not only the theme. Saves, armour and weapons match the role |
 | **Colour, emoji, VFX** | Hex colour, emoji, Aspect VFX | Distinct from every other subclass's colour on black; matches the emblem art |
 | **Voice** | Class description, panel line, tag line (§10) | Same register as the other subclasses |
 
@@ -157,23 +162,22 @@ Every subclass fills every field. "To decide" is allowed during the brainstorm, 
 
 - Start from the **traditional meaning** (upright and reversed), then the **imagery** (the classic decks and
   the older ones they adapt), then **number and astrology** (the traditional correspondences).
-- Mechanics hide in the imagery: a figure in motion, something passed
-  from one hand to another, something hidden behind something else. Name the image when using it.
+- Mechanics hide in the imagery: a figure in motion, something passed from one hand to another,
+  something hidden behind something else. Name the image when using it.
 - Prefer a reading that **creates a decision** over one that creates a bonus.
 
 ### 2.2 References
 
-- **Myth:** look for the figure that *does* the card's idea, not only the one
-  with the right name.
+- **Myth:** look for the figure that *does* the card's idea, not only the one with the right name.
 - **Science:** a real model gives free structure: a fixed set of elements, distances, opposites, cycles.
   If the model has N parts, the content can have N pieces — and that justifies the size of the list.
-- **Fiction:** take characters whose *kit* expresses the idea (games, comics, anime,
-  films). Borrowed ability names are fine when they become our own mechanic.
+- **Fiction:** take characters whose *kit* expresses the idea (games, comics, anime, films). Borrowed
+  ability names are fine when they become our own mechanic.
 
 ### 2.3 The axis — what makes a subclass different
 
 Each subclass owns **one axis**: the question the player keeps answering. Two subclasses may share a role
-(two controllers) but never an axis. Examples of axes:
+(two controllers) but should not share an axis. Examples of axes:
 
 | Axis | The player's question |
 |---|---|
@@ -187,76 +191,120 @@ Each subclass owns **one axis**: the question the player keeps answering. Two su
 | Transformation | Which form am I in, and when do I switch? |
 
 The axis each subclass owns goes in the **Axis** row of `04-subclass-comparison.md` (filled when the
-subclass is designed or audited). A new subclass's axis must be free, or the overlap must be argued and
+subclass is designed or audited). A new subclass's axis should be free, or the overlap argued and
 accepted.
 
 ---
 
-## 3. The Depth Model — criteria
+## 3. Evaluation questions (the Depth Model)
 
-A design is **complete** when it passes every criterion. Each one has a test question and what failure
-looks like. The audit table in a spec or subclass file uses these ids.
+A game-design review: the questions ask whether the pieces make sense together and are fun. They don't
+prescribe a shape. Some questions are **descriptive** (which card, which characters) — their answers go
+in the Identity Sheet (§2). The others are **evaluative**: in an audit each gets ✅ yes · ⚠️ partly ·
+❌ no, with one line of evidence. A ❌ is a prompt for the brainstorm, not a veto; when a question and
+fun disagree, the golden rule decides.
 
-### Identity (I)
+### Identity and fun (I)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| I1 | **Card fidelity** | Can the link between the main mechanic and the card be explained in one sentence? | The card is only the name and the art |
-| I2 | **The Aspect is the engine** | Does using the engine *feel like* the Aspect? | The Aspect is a stat bonus with a mood word on it |
-| I3 | **Real sources** | Does each reference lend a specific rule, name or image? | A list of names with nothing borrowed |
-| I4 | **Mystra and the Weave** | Is there one sentence on how this destiny was woven, unique to it? | Generic "Mystra chose them" |
-| I5 | **Own axis** | Is the axis (§2.3) free among the subclasses? | Plays like another subclass with new names |
-| I6 | **Own vocabulary** | Do its names belong to its theme and to no other subclass's? | A word that fits another subclass's theme better |
+| # | Question | A good answer |
+|---|---|---|
+| I1 | **Is it cool and fun to play?** | The author and a playtester want to play it again; the turns feel good, not just efficient |
+| I2 | **Does it have a defined, striking characteristic?** | Someone who played it once can describe it in one sentence |
+| I3 | **What is its archetype, and how is it built into the abilities?** | The archetype shows in what the abilities *do*, not only in their names |
+| I4 | **Does playing the mechanic feel like its Aspect?** | Using the mechanic is the Aspect; it isn't a stat bonus with a mood word on it |
+| I5 | **Does it ask the player a question no other subclass asks?** | Its axis (§2.3) is free, or the overlap is argued |
+| I6 | **Do its names belong to its theme, and to no other subclass's?** | Every name comes from its card, its references or its science |
 
-### Engine (E)
+### Sources (S)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| E1 | **An engine of its own** | Is there a state only this subclass creates and reads? | Its cards are independent spells |
-| E2 | **One rule, explained once** | Can the core rule be stated in one sentence on one passive? | Each card carries its own exception |
-| E3 | **Grows by rules** | Do levels unlock *new rules*, not only bigger numbers? | Level 9 plays like level 3 with bigger dice |
-| E4 | **Three roles** | Are there generators (create state), converters (change state) and payoffs (spend state)? | Only generators, or a payoff that needs no setup |
-| E5 | **Allies and enemies** | Do both sides of the field take part in the engine? | The engine only touches enemies (or only allies) |
-| E6 | **Deterministic and bounded** | Is every chain finite and its resolution order defined, including simultaneous events? | Loops, double counting, order that depends on engine luck |
-| E7 | **Awakening is the climax** | Does the goal count uses of the engine, and do the tier bonuses push the engine's theme? | The goal counts something the engine doesn't do; tiers are generic stats |
+| # | Question | A good answer |
+|---|---|---|
+| S1 | **Which tarot card is it based on, and why?** | The link between the main mechanic and the card fits in one sentence |
+| S2 | **Which elements of the card are adapted into it?** | Each reading or image used points at a rule, a feature or a name |
+| S3 | **Which fictional characters is it based on?** | Characters whose kit or story carries the same idea |
+| S4 | **Which elements of those characters are adapted into it?** | Each character lends something named: an ability, a fantasy, a visual |
+| S5 | **Is it based on something real — a science, a field of study, something from life?** | A real model that gives the content its structure, when one fits |
+| S6 | **Does a myth lend it a rule, a name or an image?** | A named figure or story, Greek first, that does the card's idea |
+
+### Mystra and the Weave (W)
+
+| # | Question | A good answer |
+|---|---|---|
+| W1 | **What is its relation to Mystra's universe?** | One sentence on how this destiny was woven, which could only be written about this subclass |
+| W2 | **How does it weave the Weave into its features?** | The Weave shows in the mechanic and the texts — threads pulled, woven, cut, braided — not only in the lore |
+
+### The mechanic (M)
+
+| # | Question | A good answer |
+|---|---|---|
+| M1 | **Does it have a new, exclusive mechanic?** | A state only this subclass creates and reads |
+| M2 | **Can the core rule be said in one sentence, and is it explained once?** | One passive explains it; cards don't carry their own exceptions |
+| M3 | **Do its features work like gears that talk to each other?** | Some features create the state, some change it, some spend it, and each feeds or reads another |
+| M4 | **Does the mechanic grow along the journey, with something new at each odd level?** | The subclass at 9 plays differently from 3, not just with bigger dice |
+| M5 | **Do allies and enemies both take part?** | Both sides of the field matter to the mechanic, or leaving one out is a deliberate choice |
+| M6 | **Is every chain finite, with its order defined?** | No loops, no double counting; simultaneous events resolve in a stated order |
+
+### Key features and passives (K)
+
+A **key feature** is a signature spell: one only this subclass has, which defines how it plays by
+creating, changing or spending the mechanic's state.
+
+| # | Question | A good answer |
+|---|---|---|
+| K1 | **Does it have key features that drive the new mechanic?** | The mechanic is played through them, not beside them |
+| K2 | **Are its key features exclusive and unique?** | None of them would fit another subclass, or a vanilla class, unchanged |
+| K3 | **Does it have a feature that ties its core mechanic together completely?** | One key feature completes the kit and makes the gears turn as a whole — what the project calls the subclass's **ultimate**. *Key*, not necessarily the strongest |
+| K4 | **Do its passive features make sense with the mechanic?** | Each passive belongs to the mechanic or the identity, not to a generic list |
+| K5 | **Does it get passive features that drive the core of the mechanic?** | Passives unlock new rules of the mechanic, not only bigger numbers |
+| K6 | **Can a turn combine two plays early on, and is there something to fall back on?** | A bonus-action option early, and a cantrip (or equivalent) as the baseline turn |
 
 ### Play (P)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| P1 | **Plays from level 1** | Does a level-1 character already play the engine? | The identity arrives at level 5 |
-| P2 | **Fits the fight's length** | Does the setup pay back inside a typical fight (§4.2)? | The payoff arrives after the fight is over |
-| P3 | **A real decision most turns** | Is there usually a non-obvious choice? | One correct play every turn (solved = boring) |
-| P4 | **Readable in BG3's UI** | Is the state on the portrait or status icon, with a number when it counts, and named in the combat log? | The player has to remember hidden state |
-| P5 | **Works against the AI** | Does it work when enemies ignore it? | It needs the enemy to cooperate |
-| P6 | **Real weaknesses** | Do the listed weaknesses show up in normal play? | Unbeatable on paper, or weaknesses that never matter |
-| P7 | **Both editions** | Does the console edition (no deck, slots only) play the same engine? | The engine only works with the PC deck |
+| # | Question | A good answer |
+|---|---|---|
+| P1 | **What combat style is it focused on?** | Range, position and tempo are clear, and the kit supports them |
+| P2 | **Is it a specialist or versatile?** | The answer is deliberate and the kit matches it |
+| P3 | **What does it bring to the party that no one else does?** | Something the other three feel on their own turns |
+| P4 | **Does it play the mechanic from level 1?** | A level-1 character already uses it |
+| P5 | **Does the setup pay back inside a typical fight?** | The payoff lands while the fight still matters (§4.2) |
+| P6 | **Is there a real decision most turns?** | Usually more than one sensible play; never one solved answer |
+| P7 | **Can the player read the state in BG3's UI?** | On the portrait or status icon, with a number when it counts, named in the combat log |
+| P8 | **Does it work when the AI ignores it?** | No effect needs the enemy to cooperate |
+| P9 | **Are its weaknesses real and visible?** | The listed weaknesses show up in normal play |
+| P10 | **Does the console edition play the same mechanic?** | Nothing in the mechanic needs the PC deck |
+
+### Awakening (A)
+
+| # | Question | A good answer |
+|---|---|---|
+| A1 | **Does the Awakening goal count uses of the mechanic?** | It can only be reached by playing the mechanic |
+| A2 | **Do the tier bonuses push the theme of the mechanic?** | Each tier changes how the mechanic runs; no ability score bonus (§9) |
+| A3 | **Does the Aspect card play the mechanic, differently from the feature of K3?** | A once-per-combat spell that uses the mechanic in a way nothing else in the kit does |
 
 ### Balance (B)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| B1 | **On the curve** | Is its power in every level band at 90–100 % of the benchmark (§8.3)? | Spikes or dead levels |
-| B2 | **Combos costed** | Are payoffs priced at the best case minus the setup cost? | A combo that is free once assembled |
-| B3 | **Loops bounded** | Is every positive feedback loop capped? | Snowball that ends fights by itself |
-| B4 | **Err weak** | Where unsure, is it on the weak side? | "We'll nerf it later" |
+| # | Question | A good answer |
+|---|---|---|
+| B1 | **Is its power in each level band close to a vanilla class of the same role?** | No spikes or dead levels against the benchmark (§8.3) |
+| B2 | **Are combos priced at their best case minus the setup?** | No combo is free once assembled |
+| B3 | **Is every self-feeding loop capped?** | Per turn, per chain or a maximum count |
+| B4 | **Where unsure, does it lean weak?** | Nothing ships on "we'll nerf it later" |
 
 ### Technical (T)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| T1 | **No Script Extender in the engine** | Stats, Osiris, Khonsu and LSX only? | The engine needs Lua |
-| T2 | **Proven pattern** | Is there a vanilla example, or a cheap test planned? | Built from the schema alone |
-| T3 | **Generated at scale** | Do families of statuses or spells come from a generator? | Dozens of hand-copied entries |
-| T4 | **Conventions** | Ids, prefixes, `_TECH` helpers and markers follow the glossary? | New naming patterns |
+| # | Question | A good answer |
+|---|---|---|
+| T1 | **Does the mechanic run without Script Extender?** | Stats, Osiris, Khonsu and LSX only |
+| T2 | **Is there a vanilla example, or a cheap test, for each uncertain piece?** | Nothing is built from the schema alone |
+| T3 | **Do large families of statuses or spells come from a generator?** | One table, regenerated; nothing hand-copied by the dozen |
+| T4 | **Do ids, prefixes and helpers follow the glossary?** | No new naming patterns |
 
-### Form (F)
+### Documentation (D)
 
-| # | Criterion | Test | Failure looks like |
-|---|---|---|---|
-| F1 | **Identity Sheet complete** | Is every field of §2 filled and does each meet its quality bar? | Fields missing or "to decide" in a spec; references with nothing borrowed; strengths and weaknesses only on the wiki |
-| F2 | **Template filled** | Does the kit fill the template of §7.4: signature spells and rule passives within each level's range, the ultimate at 5, the capstone at 11, Tier III at 12? | A dead odd level, several new rules piled on one level while the next is empty, an empty level 12 |
-| F3 | **Structure** | Does the spec follow §1.5 (sections, no audit inside), does `Context/subclasses/<name>.md` exist in the §1.7 order with its Depth audit, and do the spec, the Context, the wiki and the game files agree? | Decision logs or audits inside the design document; no subclass file; the wiki says one chassis and the spec another |
+| # | Question | A good answer |
+|---|---|---|
+| D1 | **Is the Identity Sheet complete?** | Every field of §2 answered in the spec, nothing "to decide" |
+| D2 | **Do the spec, the subclass file, the wiki and the game files agree?** | The spec follows §1.5, `Context/subclasses/<name>.md` exists with its Depth audit, and no source contradicts another |
 
 ---
 
@@ -281,7 +329,7 @@ marked and get corrected by playtest.
 ### 4.2 The fight
 
 - **Typical length (estimate):** easy fights 1–2 rounds, normal 3–5, bosses 6–8. Rule of thumb: setup
-  must pay back by round 3, and nothing core should wait past round 4.
+  should pay back by round 3, and nothing core should wait past round 4.
 - **Turn 1 matters.** Every subclass needs something useful on its first turn; a pure-setup turn 1 must
   be paid back later with interest.
 - **Party of four.** A subclass shines by what it does for the other three, too: positioning allies,
@@ -325,7 +373,7 @@ marked and get corrected by playtest.
 
 ### 4.6 What to exploit
 
-- **Turn-based determinism** rewards engines the player can plan two turns ahead.
+- **Turn-based determinism** rewards mechanics the player can plan two turns ahead.
 - **Status durations as visible numbers** make timers and countdowns readable for free.
 - **Positioning** (allies included) is a decision players already enjoy.
 - **Status types and stack types** (`Additive`, `Overwrite`, `StackPriority`) carry a lot of logic without
@@ -338,7 +386,7 @@ marked and get corrected by playtest.
 These are fixed by the class. A subclass designs *within* them; changing them is a base-class change (§6).
 
 - **Spellcasting is Intelligence** for every subclass; each subclass has one secondary ability, the one
-  its engine leans on.
+  its mechanic leans on.
 - **Woven Spell Slots** all share one level and **every card is cast at the highest slot level**
   (Warlock-style). There is no "cast lower or higher" choice: designs that ask the player to pick a slot
   level do not work. Cards scale by slot level through generated upcast variants; statuses get one
@@ -352,8 +400,6 @@ These are fixed by the class. A subclass designs *within* them; changing them is
   inventing new ones.
 - **Aspect Awakening:** three tiers at levels 3/7/12, a goal per tier counted in Osiris, the Aspect card
   at Tier I (§9).
-- **The template (§7.4):** every subclass has signature spells, rule passives, an ultimate (the key
-  signature spell that completes the kit) at level 5 and a capstone at level 11, in the same slots.
 - **Both editions:** every gameplay effect lives in Stats/Osiris/Khonsu/LSX. Lua only manages the deck.
 
 ---
@@ -365,10 +411,10 @@ Awakening framework. The subclasses carry the combat.
 
 - **What belongs to the base class:** utilities, familiars, divination features, the Weaver Hand picks,
   resources and their curves, deck rules, keywords, the Awakening framework.
-- **What never belongs to it:** a combat engine. If a base feature starts doing a subclass's job, it
+- **What never belongs to it:** a combat mechanic. If a base feature starts doing a subclass's job, it
   takes away that subclass's identity (opportunity cost of design).
 - **Impact matrix — required for every base change.** One row per subclass: what the change does to its
-  engine, its numbers, its readability and its console version. A change that helps one subclass much
+  mechanic, its numbers, its readability and its console version. A change that helps one subclass much
   more than the others needs a reason.
 - Base-class changes go through the same brainstorm and approval; numbers through §8 against every
   subclass at once.
@@ -379,22 +425,23 @@ Awakening framework. The subclasses carry the combat.
 
 ### 7.1 The size is a consequence
 
-The template (§7.4) sets a **range** per level; inside it, the pool is derived from the engine:
+There is **no standard number of cards** per subclass or per level. The pool is derived from the
+mechanic:
 
 1. **Content axis** — what varies between states (a fixed set of types, states or forms). If a real
    model fixes N parts, the pool may have N pieces of that kind.
-2. **Time / intensity axis** — short vs long, weak vs strong, if the engine has one.
+2. **Time / intensity axis** — short vs long, weak vs strong, if the mechanic has one.
 3. **Verbs** — what the player does to the state (create, move, change, copy, delay, spend). **One card
    per verb at most**; a verb already covered by a rule doesn't need a card.
-4. **Roles** — check generators, converters and payoffs are all present (E4) and that the curve of the
-   level bands has something in each.
+4. **Roles** — check that something creates the state, something changes it and something spends it
+   (M3), and that every stretch of the journey has something new (M4).
 
-A caster whose variety *is* the engine can have a large pool; a martial subclass whose engine lives in
-its attacks needs few cards. Both are fine when the size is explained.
+A caster whose variety *is* the mechanic can have a large pool; a martial subclass whose mechanic lives
+in its attacks needs few cards. Both are fine when the size is explained.
 
 ### 7.2 Every card answers
 
-- Which axis or verb is it? Which role (generator / converter / payoff)?
+- Which axis or verb is it? Does it create, change or spend the state?
 - Which **action** (Action, Bonus Action, Reaction) and which **limiter** (none, Concentration,
   once per turn/round/combat, Short/Long Rest, Unique)?
 - Why at this level, and what does it add that the cards before it didn't?
@@ -402,44 +449,27 @@ its attacks needs few cards. Both are fine when the size is explained.
 
 ### 7.3 Spread of action types
 
-- At least one **bonus-action** option early, so turns combine two plays.
+- A **bonus-action** option early, so turns combine two plays.
 - A **cantrip** as the baseline when the subclass casts; it is what the turn falls back on.
 - Reactions are cards with a per-round limit (`02-systems.md` §8).
 
-### 7.4 The progression template
+### 7.4 The journey from level 1 to 12
 
-Every subclass fills the same template. The slots don't move; the ranges leave room for the engine.
+Guidance on where things tend to land; the mechanic decides the details.
 
-**Kinds of feature**
-
-| Kind | What it is |
-|---|---|
-| **Signature spell** (key ability) | A spell only this subclass has, which defines how it plays: it creates, changes or spends the engine's state |
-| **Rule passive** | Explains one rule of the engine, once, and unlocks it at its level (§7.5) |
-| **Ultimate** | A signature spell, exclusive to the subclass and built on its engine, that **completes the kit**: the key piece that ties the whole engine together, the last thing it was missing. The name means *key*, not *strongest*: it needn't be the biggest effect, and it needn't be gated by a resource |
-| **Capstone** | The level-11 card: Long Rest, Unique. The end of the journey |
-| **Aspect card** | A spell granted by Awakening Tier I, usable once per combat (§9). It can turn a fight, but it needn't be the strongest thing in the kit |
-| **Tier bonuses** | Awakening Tiers I, II and III (§9) |
-| **Cantrip and utility** | The turn's baseline (§7.3) and at most one out-of-combat utility (§4.5) |
-
-**Level by level**
-
-| Level | Signature spells | Rule passives | Also |
-|---|---|---|---|
-| 1 | 3–4 | 1–2: the core rule (the engine is playable, P1) and, if there is one, an identity rule | Cantrip; utility if any |
-| 3 | 1–3 | 1 new rule | Awakening Tier I and the Aspect card |
-| 5 | 1–3 | 1 new rule (often the one the ultimate ties in) | **The ultimate** |
-| 7 | 1–3 | 1 new rule | Tier II |
-| 9 | 1–3 | 1 new rule | — |
-| 11 | 0–1 | — | **The capstone** |
-| 12 | — | — | Tier III |
-| Even levels | — | — | The base class's; a subclass uses one only when it has a reason |
-
-- **If the ultimate uses a resource** (a meter, charges), it fills by playing the engine, shows on a status
-  with a count, and resets when combat ends.
-- **The ultimate and the Aspect card** both exist and never do the same thing. How they differ is the
-  subclass's choice; the template doesn't fix their shape.
-- **Power peaks** at 5 and 11 follow vanilla's own spikes (§4.5, §8.3).
+- **Level 1:** the mechanic is already playable, explained on one passive, with key features to play it
+  and a cantrip to fall back on.
+- **Odd levels:** each brings something new — a rule, a verb, a key feature — so the subclass changes as
+  it grows. Avoid piling several new things on one level while the next is empty.
+- **The feature that ties it together** (K3, the subclass's **ultimate**): an exclusive key feature built
+  on the mechanic, the piece that completes the kit. It needn't be the strongest thing in the kit, and
+  it lands where the kit needs it.
+- **Level 11:** the capstone, the end of the journey — typically Long Rest and Unique.
+- **Level 12:** Awakening Tier III.
+- **Even levels** belong mostly to the base class; a subclass uses one when it has a reason.
+- **A feature that uses a resource** (a meter, charges) fills it by playing the mechanic, shows it on a
+  status with a count, and resets it when combat ends.
+- **The ultimate and the Aspect card** never do the same thing; how they differ is the subclass's choice.
 
 ### 7.5 Passives
 
@@ -483,9 +513,8 @@ arithmetic, declare assumptions, err weak.
   Paladin/Fighter. Use their real numbers from the vanilla files, not memory.
 - Sum the expected value per adventuring day of everything the subclass has at each band and plot it.
   Peaks are explosive levels, valleys are dead ones.
-- **Target:** every band at **90–100 %** of the benchmark of the same role. Levels 5 and 11, vanilla's own
-  spikes, may go a little above. Below 90 % is a dead band; above 100 %
-  anywhere else is a spike.
+- **A good place to aim:** 90–100 % of the benchmark in every band, leaning weak; levels 5 and 11,
+  vanilla's own spikes, may go a little above.
 - Compare the subclasses of the Arcana with each other the same way.
 
 ### 8.4 Costing rules
@@ -508,20 +537,19 @@ metric (damage per round, rounds to win, resources left), and what result would 
 
 ## 9. Aspect Awakening
 
-- **The goal counts the engine** (E7): the engine's own state created, spent or resolved. Never a generic
-  metric the subclass would reach without playing its engine.
+- **The goal counts the mechanic** (A1): the mechanic's own state created, spent or resolved. Never a
+  generic metric the subclass would reach without playing its mechanic.
 - **Three goals, one per tier** (levels 3/7/12), cumulative within a fight. Check with §8 that Tier I is
   reachable in a normal fight at level 3 and Tier III in a long one at level 12.
-- **Tier names** come from the card or its myth, in order (the card's figures or positions,
-  the myth's characters in story order).
-- **Tier bonuses push the theme of the engine.** Tier I: a change to how the engine runs. Tier II: the
-  engine spreads or protects. Tier III: the theme at its peak, with a mechanic only this subclass could
-  have. **No tier gives an ability score bonus** (+3 to an ability, its modifier to damage), not even as
-  an addition: it is generic and makes every subclass's peak feel the same. Every tier bonus is a
-  mechanic of the engine.
+- **Tier names** come from the card or its myth, in order (the card's figures or positions, the myth's
+  characters in story order).
+- **Tier bonuses push the theme of the mechanic** (A2). Tier I: a change to how the mechanic runs.
+  Tier II: the mechanic spreads or protects. Tier III: the theme at its peak, with something only this
+  subclass could have. **No tier gives an ability score bonus** (+3 to an ability, its modifier to
+  damage), not even as an addition: it is generic and makes every subclass's peak feel the same.
 - **The Aspect card** (Tier I, Created, 0 Threads, 0 slots, once per combat) is a spell that plays the
-  engine. It can turn a fight, but it needn't be the strongest thing in the kit. It never does the same
-  thing as the ultimate (§7.4).
+  mechanic (A3). It can turn a fight, but it needn't be the strongest thing in the kit, and it never
+  does the same thing as the ultimate.
 
 ---
 
@@ -568,26 +596,27 @@ other mods in `C:\Projetos\BG3 Modding\References\`, and `story_header.div` for 
 
 ## 12. Auditing an existing subclass
 
-1. Fill the Identity Sheet (§2) from the subclass file and the game files.
-2. Score every criterion of §3: ✅ pass · ⚠️ partial · ❌ fail, one line of evidence each.
+1. Fill the Identity Sheet (§2) from the subclass file, the wiki and the game files.
+2. Answer every question of §3: the descriptive ones in the Identity Sheet, the evaluative ones with
+   ✅ yes · ⚠️ partly · ❌ no and one line of evidence each.
 3. Write the result in the subclass file under **Depth audit**, with the date.
 4. Each ❌ becomes a question for a raising brainstorm; the raising goes through the process (§1) and
    gets its own spec.
 
 ---
 
-## 13. Anti-patterns
+## 13. Traps
 
 | Don't | Because | Do |
 |---|---|---|
-| Copy another subclass's cards, engine or numbers | Each subclass is its own archetype | Fill the shared template (§7.4) with content derived from its own engine |
-| Give a tier a stat bonus (+3 to an ability, even as an extra) | Fails I2 and E7; every subclass would feel the same | Push the engine's theme (§9) |
-| Use randomness in an engine built on foresight or planning | Breaks readability and the Aspect | Deterministic rules, visible state |
+| Copy another subclass's cards, mechanic or numbers | Each subclass is its own archetype | Derive the kit from its own mechanic |
+| Give a tier a stat bonus (+3 to an ability, even as an extra) | Generic; every subclass's peak would feel the same (I4, A2) | Push the mechanic's theme (§9) |
+| Use randomness in a mechanic built on foresight or planning | Breaks readability and the Aspect | Deterministic rules, visible state |
 | Design around choosing a slot level | Arcana always casts at its highest slot | Scale by slot level; vary by card |
 | Need two statuses per effect without a strong reason | Doubles the scope and the things to read | One status, its duration and stack type carry the logic |
 | Leave simultaneous resolution undefined | Double counting, skipped effects, loops | Define the queue and the order (§11) |
 | Let a chain feed itself without a cap | Snowball (B3) | Cap per turn or per chain |
-| Rely on the AI reacting to the mechanic | It won't (P5) | Effects that work when ignored |
+| Rely on the AI reacting to the mechanic | It won't (P8) | Effects that work when ignored |
 | Borrow a word from another subclass's world | Muddles both identities (I6) | Names from the card, its myth or its science |
 | Ask several things in one brainstorm message | The author answers one and the rest get lost | One question per message |
 | Put numbers in the brainstorm | Anchors the discussion on placeholders | Numbers in §8, after the design is approved |
@@ -597,11 +626,15 @@ other mods in `C:\Projetos\BG3 Modding\References\`, and `story_header.div` for 
 ## 14. Checklist (use during analysis and audits)
 
 ```
-Identity    I1 card · I2 aspect · I3 sources · I4 Mystra · I5 axis · I6 vocabulary
-Engine      E1 own state · E2 one rule · E3 grows by rules · E4 G/C/P · E5 both sides · E6 bounded · E7 awakening
-Play        P1 level 1 · P2 fight length · P3 decisions · P4 readable · P5 vs AI · P6 weaknesses · P7 console
-Balance     B1 curve · B2 combos · B3 loops · B4 err weak
-Technical   T1 no SE · T2 proven · T3 generated · T4 conventions
-Form        F1 Identity Sheet · F2 template (§7.4: ultimate 5 · capstone 11) · F3 structure (spec · subclass file · sources agree)
-Also        Awakening goal + tiers + card · Texts · Test plan
+Identity & fun  I1 fun · I2 striking trait · I3 archetype · I4 aspect · I5 axis · I6 vocabulary
+Sources         S1 card · S2 card elements · S3 characters · S4 character elements · S5 real source · S6 myth
+Mystra          W1 relation to Mystra · W2 the Weave in the features
+Mechanic        M1 new & exclusive · M2 one rule · M3 gears · M4 grows · M5 both sides · M6 bounded
+Key features    K1 drive the mechanic · K2 exclusive · K3 ties it together · K4 passives fit · K5 passives drive · K6 two plays + fallback
+Play            P1 combat style · P2 specialist/versatile · P3 party · P4 level 1 · P5 fight length · P6 decisions · P7 readable · P8 vs AI · P9 weaknesses · P10 console
+Awakening       A1 goal · A2 tiers · A3 Aspect card
+Balance         B1 curve · B2 combos · B3 loops · B4 lean weak
+Technical       T1 no SE · T2 proven · T3 generated · T4 conventions
+Documentation   D1 Identity Sheet · D2 sources agree
+Also            Texts · Test plan
 ```

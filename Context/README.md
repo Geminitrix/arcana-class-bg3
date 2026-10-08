@@ -25,7 +25,7 @@ correct or extend the design.
 | [05 Project](05-project.md) | Editions, repository, paths, workflow, tools, test status, roadmap |
 | [06 Glossary](06-glossary.md) | In-game name ↔ code name ↔ meaning |
 | [07 Open Questions](07-open-questions.md) | Undecided design, known gaps, things still to verify in game |
-| [Rules · Class Creation](Rules/class-creation-rules.md) | **Mandatory process** for creating or changing a subclass or the base class: brainstorm method, Identity Sheet, Depth Model criteria, BG3 pacing, balance, feasibility, audits |
+| [Rules · Subclass Design Criteria](Rules/class-creation-rules.md) | How a subclass or the base class is designed and **evaluated**: the evaluation questions (a game-design review, not a template), the process, Identity Sheet, BG3 facts, balance, feasibility, audits |
 
 Start with **01** and **02** for any design conversation; open the subclass file before touching a
 subclass; open **05** before touching files.
