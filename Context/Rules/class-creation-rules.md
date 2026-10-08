@@ -10,6 +10,14 @@
 
 ---
 
+## The golden rule
+
+**Fun comes first.** When rules pull in different directions, the design that best joins the card, the
+references, the archetype and the Aspect — the one that is most fun to play — wins, as long as it stays
+balanced (§8). Every rule below serves this one.
+
+---
+
 ## 0. When this applies
 
 | The work | What it must go through |
@@ -77,7 +85,7 @@ when it's already decided.
 | 5 | **Engine rules** | Timing, stacking, targets, simultaneous events, what ends it |
 | 6 | **Role** | Damage, control, support, tank: primary and secondary styles |
 | 7 | **Chassis** | Secondary ability, saves, armour, weapons, skills, preset, sound set, colour |
-| 8 | **Progression ladder** | Which rule arrives at which level (§7.4) |
+| 8 | **Progression** | Which signature spell, rule, ultimate and capstone fills each slot of the template (§7.4) |
 | 9 | **Awakening** | Goal, three tiers, Aspect card (§9) |
 | 10 | **Spell and passive pool** | Derived from the axes and verbs of the engine (§7) |
 | 11 | **Texts** | Names, descriptions, tag line (§10) |
@@ -228,7 +236,7 @@ looks like. The audit table in a spec or subclass file uses these ids.
 
 | # | Criterion | Test | Failure looks like |
 |---|---|---|---|
-| B1 | **On the curve** | Is its power per level band near the benchmark (§8.3)? | Spikes or dead levels |
+| B1 | **On the curve** | Is its power in every level band at 90–100 % of the benchmark (§8.3)? | Spikes or dead levels |
 | B2 | **Combos costed** | Are payoffs priced at the best case minus the setup cost? | A combo that is free once assembled |
 | B3 | **Loops bounded** | Is every positive feedback loop capped? | Snowball that ends fights by itself |
 | B4 | **Err weak** | Where unsure, is it on the weak side? | "We'll nerf it later" |
@@ -247,7 +255,7 @@ looks like. The audit table in a spec or subclass file uses these ids.
 | # | Criterion | Test | Failure looks like |
 |---|---|---|---|
 | F1 | **Identity Sheet complete** | Is every field of §2 filled and does each meet its quality bar? | Fields missing or "to decide" in a spec; references with nothing borrowed; strengths and weaknesses only on the wiki |
-| F2 | **Ladder complete** | Does every rung of §7.4 hold what it must: level 1 plays the engine, 3/5/7/9 each bring a new rule or verb, 11 the capstone, 12 Tier III? | A dead odd level, several new rules piled on one level while the next is empty, an empty level 12 |
+| F2 | **Template filled** | Does the kit fill the template of §7.4: signature spells and rule passives within each level's range, the ultimate at 5, the capstone at 11, Tier III at 12? | A dead odd level, several new rules piled on one level while the next is empty, an empty level 12 |
 | F3 | **Structure** | Does the spec follow §1.5 (sections, no audit inside), does `Context/subclasses/<name>.md` exist in the §1.7 order with its Depth audit, and do the spec, the Context, the wiki and the game files agree? | Decision logs or audits inside the design document; no subclass file; the wiki says one chassis and the spec another |
 
 ---
@@ -344,6 +352,8 @@ These are fixed by the class. A subclass designs *within* them; changing them is
   inventing new ones.
 - **Aspect Awakening:** three tiers at levels 3/7/12, a goal per tier counted in Osiris, the Aspect card
   at Tier I (§9).
+- **The template (§7.4):** every subclass has signature spells, rule passives, an ultimate at level 5
+  and a capstone at level 11, in the same slots.
 - **Both editions:** every gameplay effect lives in Stats/Osiris/Khonsu/LSX. Lua only manages the deck.
 
 ---
@@ -369,7 +379,7 @@ Awakening framework. The subclasses carry the combat.
 
 ### 7.1 The size is a consequence
 
-There is **no standard number of cards** per subclass or per level. The pool is derived from the engine:
+The template (§7.4) sets a **range** per level; inside it, the pool is derived from the engine:
 
 1. **Content axis** — what varies between states (a fixed set of types, states or forms). If a real
    model fixes N parts, the pool may have N pieces of that kind.
@@ -396,14 +406,40 @@ its attacks needs few cards. Both are fine when the size is explained.
 - A **cantrip** as the baseline when the subclass casts; it is what the turn falls back on.
 - Reactions are cards with a per-round limit (`02-systems.md` §8).
 
-### 7.4 The progression ladder
+### 7.4 The progression template
 
-- **Level 1:** the engine is playable (P1). Explain the core rule on one passive.
-- **Levels 3 / 5 / 7 / 9:** each brings **a new rule** or a new verb (E3). Avoid stacking several new
-  rules on one level when the next ones are empty.
-- **Level 11:** the capstone card (Long Rest, Unique is typical).
-- **Level 12:** Tier III, and any passive cards.
-- Even levels belong mostly to the base class; a subclass may use them when it has a reason.
+Every subclass fills the same template. The slots don't move; the ranges leave room for the engine.
+
+**Kinds of feature**
+
+| Kind | What it is |
+|---|---|
+| **Signature spell** (key ability) | A spell only this subclass has, which defines how it plays: it creates, changes or spends the engine's state |
+| **Rule passive** | Explains one rule of the engine, once, and unlocks it at its level (§7.5) |
+| **Ultimate** | The biggest effect of the kit. A resource the engine fills unlocks it, and the player chooses when to use it |
+| **Capstone** | The level-11 card: Long Rest, Unique. The end of the journey |
+| **Aspect card** | The Awakening's card at Tier I (§9) |
+| **Tier bonuses** | Awakening Tiers I, II and III (§9) |
+| **Cantrip and utility** | The turn's baseline (§7.3) and at most one out-of-combat utility (§4.5) |
+
+**Level by level**
+
+| Level | Signature spells | Rule passives | Also |
+|---|---|---|---|
+| 1 | 3–4 | 1–2: the core rule (the engine is playable, P1) and, if there is one, an identity rule | Cantrip; utility if any |
+| 3 | 1–3 | 1 new rule | Awakening Tier I and the Aspect card |
+| 5 | 1–3 | 1: the rule of the ultimate's resource | **The ultimate** |
+| 7 | 1–3 | 1 new rule | Tier II |
+| 9 | 1–3 | 1 new rule | — |
+| 11 | 0–1 | — | **The capstone** |
+| 12 | — | — | Tier III |
+| Even levels | — | — | The base class's; a subclass uses one only when it has a reason |
+
+- **The ultimate's resource** fills by playing the engine, shows on a status with a count, and resets when
+  combat ends.
+- **The ultimate and the Aspect card** both exist and never do the same thing. How they differ is the
+  subclass's choice; the template doesn't fix their shape.
+- **Power peaks** at 5 (the ultimate) and 11 (the capstone) follow vanilla's own spikes (§4.5, §8.3).
 
 ### 7.5 Passives
 
@@ -447,6 +483,9 @@ arithmetic, declare assumptions, err weak.
   Paladin/Fighter. Use their real numbers from the vanilla files, not memory.
 - Sum the expected value per adventuring day of everything the subclass has at each band and plot it.
   Peaks are explosive levels, valleys are dead ones.
+- **Target:** every band at **90–100 %** of the benchmark of the same role. The levels of the ultimate (5)
+  and the capstone (11) may go a little above, as vanilla does. Below 90 % is a dead band; above 100 %
+  anywhere else is a spike.
 - Compare the subclasses of the Arcana with each other the same way.
 
 ### 8.4 Costing rules
@@ -481,7 +520,8 @@ metric (damage per round, rounds to win, resources left), and what result would 
   an addition: it is generic and makes every subclass's peak feel the same. Every tier bonus is a
   mechanic of the engine.
 - **The Aspect card** (Tier I, Created, 0 Threads, 0 slots, once per combat) is the engine's climax:
-  it releases or multiplies the state built up so far, so it grows with the level by itself.
+  it releases or multiplies the state built up so far, so it grows with the level by itself. It never
+  does the same thing as the ultimate (§7.4).
 
 ---
 
@@ -540,7 +580,7 @@ other mods in `C:\Projetos\BG3 Modding\References\`, and `story_header.div` for 
 
 | Don't | Because | Do |
 |---|---|---|
-| Copy another subclass's card count or level layout | Each subclass is its own archetype (§7.1) | Derive the pool from the engine's axes and verbs |
+| Copy another subclass's cards, engine or numbers | Each subclass is its own archetype | Fill the shared template (§7.4) with content derived from its own engine |
 | Give a tier a stat bonus (+3 to an ability, even as an extra) | Fails I2 and E7; every subclass would feel the same | Push the engine's theme (§9) |
 | Use randomness in an engine built on foresight or planning | Breaks readability and the Aspect | Deterministic rules, visible state |
 | Design around choosing a slot level | Arcana always casts at its highest slot | Scale by slot level; vary by card |
@@ -562,6 +602,6 @@ Engine      E1 own state · E2 one rule · E3 grows by rules · E4 G/C/P · E5 b
 Play        P1 level 1 · P2 fight length · P3 decisions · P4 readable · P5 vs AI · P6 weaknesses · P7 console
 Balance     B1 curve · B2 combos · B3 loops · B4 err weak
 Technical   T1 no SE · T2 proven · T3 generated · T4 conventions
-Form        F1 Identity Sheet · F2 ladder 1/3/5/7/9/11/12 · F3 structure (spec · subclass file · sources agree)
+Form        F1 Identity Sheet · F2 template (§7.4: ultimate 5 · capstone 11) · F3 structure (spec · subclass file · sources agree)
 Also        Awakening goal + tiers + card · Texts · Test plan
 ```
