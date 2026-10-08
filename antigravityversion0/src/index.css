@@ -68,7 +68,7 @@
   --f-display: "Alegreya SC", Georgia, serif;
   --f-body: "Alegreya", Georgia, serif;
   --f-data: "Alegreya Sans", system-ui, sans-serif;
-  /* Heartweaver wheel */
+  /* Resonant wheel */
   --w-joy: #f2c94c; --w-trust: #9bd36a; --w-fear: #4fc08d; --w-surprise: #5cc8e3;
   --w-sadness: #7c9df0; --w-disgust: #b58ee6; --w-anger: #f07a70; --w-anticipation: #f5a65e;
   --w-op-int: .55; --w-op-base: .34; --w-op-mood: .2;
@@ -77,7 +77,7 @@
 .codex[data-arcanum="deceiver"]    { --accent: #f77cbf; --wash: #33182a; }
 .codex[data-arcanum="starchild"]   { --accent: #8cc4fa; --wash: #15233a; }
 .codex[data-arcanum="eternal"]     { --accent: #7fd197; --wash: #14271b; }
-.codex[data-arcanum="heartweaver"] { --accent: #f39a78; --wash: #331d16; }
+.codex[data-arcanum="resonant"] { --accent: #f39a78; --wash: #331d16; }
 
 .codex-html { color: color-mix(in srgb, var(--ink) 88%, transparent); line-height: 1.7; }
 .codex-html > * + * { margin-top: .85em; }

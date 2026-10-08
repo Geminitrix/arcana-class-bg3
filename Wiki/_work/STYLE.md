@@ -10,7 +10,7 @@ Readers are **players** of the mod, not developers. Every page must read as one 
 | The Deceiver | `deceiver.html` | `deceiver` | II · THE HIGH PRIESTESS | `emblems/deceiver.png` |
 | The Starchild | `starchild.html` | `starchild` | XVII · THE STAR | `emblems/starchild.png` |
 | The Eternal | `eternal.html` | `eternal` | XIII · DEATH | `emblems/eternal.png` |
-| The Heartweaver | `heartweaver.html` | `heartweaver` | XIV · TEMPERANCE | none: draw an inline SVG (two cups pouring into each other, gold strokes) |
+| The Resonant | `resonant.html` | `resonant` | XIV · TEMPERANCE | none: draw an inline SVG (two cups pouring into each other, gold strokes) |
 
 Start from `Wiki/_work/template.html`. Use **only** the classes in `guide.css`. If you truly need a new
 component, post it on `BOARD.md` first; page-local `<style>` is allowed only for a diagram (e.g. the wheel).
@@ -24,7 +24,7 @@ component, post it on `BOARD.md` first; page-local `<style>` is allowed only for
 3. **Authorial work.** Never name inspirations or references: no other games, champions, films, books,
    psychologists, card decks by name ("Thoth", "Rider-Waite"), "inspired by", "based on". Tarot and
    Mystra/the Weave are the mod's own world, so they are fine. The wheel of emotions is explained as the
-   Heartweaver's own lore, without naming who drew it.
+   Resonant's own lore, without naming who drew it.
 4. **No development talk.** No code ids (`Target_…`, `ARCANA_…`, UUIDs), no "Script Extender", "Osiris",
    "Lua", "stats", "Toolkit", no editions, no "PC/console". **No deck building**: no Threads, hand, draw,
    discard, piles, Cards in Hand, Fated/Fleeting keywords. Spells are cast with **Woven Spell Slots**.
@@ -90,7 +90,7 @@ component, post it on `BOARD.md` first; page-local `<style>` is allowed only for
 | Player-facing text (handle → English) | `…\Data\Mods\AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7\Localization\English\english.xml` |
 | Aspect Awakening logic | `…\Data\Mods\AspectClass_…\Story\RawFiles\Goals\ARCANA_Aspect_*.txt` + statuses in `Status_*.txt` |
 | Map (verify everything) | `C:\Projetos\BG3 Modding\Arcana Class\Context\` (01–07 + `subclasses/*.md`) |
-| Heartweaver design for parts not yet in the files | `Design\Rework\specs\2026-10-06-heartweaver-design.md` (use it as if implemented; files win wherever they exist) |
+| Resonant design for parts not yet in the files | `Design\Rework\specs\2026-10-06-heartweaver-design.md` (use it as if implemented; files win wherever they exist) |
 
 **Never write** to anything under the game install. Write only your own page in `Wiki/` and the board.
 
@@ -111,5 +111,5 @@ these against the files and post the result on the board; subclass agents use wh
 
 ## 6. Colours
 
-Set by `data-arcanum`; never hard-code colours in a page. Heartweaver uses coral (`#bd4f2b` light /
+Set by `data-arcanum`; never hard-code colours in a page. Resonant uses coral (`#bd4f2b` light /
 `#f39a78` dark). The gold thread (`--gold`) is shared by all pages.

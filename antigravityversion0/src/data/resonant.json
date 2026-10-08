@@ -1,6 +1,6 @@
 {
-  "slug": "heartweaver",
-  "title": "The Heartweaver",
+  "slug": "resonant",
+  "title": "The Resonant",
   "hero": {
     "numeral": "XIV",
     "cardName": "TEMPERANCE",
@@ -10,9 +10,9 @@
     "eyebrow": "Arcana Subclass · XIV · Temperance · Aspect of Empathy",
     "epigraph": {
       "html": "We feel what you feel before you do, and the Weave lets us turn it into something else.",
-      "cite": "A Heartweaver"
+      "cite": "A Resonant"
     },
-    "ledeHtml": "<em>Mystra wove the Heartweaver from the feelings that pass between every living thing, a thread that tempers one emotion with another. They surge joy, trust or fear into a creature's Weave, then braid what lingers into stronger feelings that lift allies and break enemies from within.</em> The Heartweaver deals little damage of their own. They win by deciding what everyone on the field feels, and in what order: a surge now, a mood that lingers, and a second surge that turns the two into something stronger."
+    "ledeHtml": "<em>Mystra wove the Resonant from the feelings that pass between every living thing, a thread that tempers one emotion with another. They surge joy, trust or fear into a creature's Weave, then braid what lingers into stronger feelings that lift allies and break enemies from within.</em> The Resonant deals little damage of their own. They win by deciding what everyone on the field feels, and in what order: a surge now, a mood that lingers, and a second surge that turns the two into something stronger."
   },
   "sections": [
     {
@@ -22,7 +22,7 @@
       "blocks": [
         {
           "type": "prose",
-          "html": "<p>Temperance is the fourteenth card of the Major Arcana. It shows a winged figure with one foot in a stream and one on dry land, pouring water from one cup into another. The stream runs at an angle no water should follow, and not a drop is spilled. Nothing is added and nothing is lost: the two cups simply trade what they hold until they balance.</p>\n          <p>The card stands for moderation, patience and the art of blending. It is the alchemist's card, the slow work of mixing two things until they become a third. It follows Death in the Major Arcana, and its lesson is what comes after an ending: mixing again, gently, until the measure is right.</p>\n          <p>That is the Heartweaver's destiny. They do not create feelings out of nothing. They pour one emotion into a creature that already holds another, and the two become something new. Joy poured into trust becomes Love. Fear poured into surprise becomes Awe. Pour a feeling into its opposite and the cup cracks.</p>"
+          "html": "<p>Temperance is the fourteenth card of the Major Arcana. It shows a winged figure with one foot in a stream and one on dry land, pouring water from one cup into another. The stream runs at an angle no water should follow, and not a drop is spilled. Nothing is added and nothing is lost: the two cups simply trade what they hold until they balance.</p>\n          <p>The card stands for moderation, patience and the art of blending. It is the alchemist's card, the slow work of mixing two things until they become a third. It follows Death in the Major Arcana, and its lesson is what comes after an ending: mixing again, gently, until the measure is right.</p>\n          <p>That is the Resonant's destiny. They do not create feelings out of nothing. They pour one emotion into a creature that already holds another, and the two become something new. Joy poured into trust becomes Love. Fear poured into surprise becomes Awe. Pour a feeling into its opposite and the cup cracks.</p>"
         },
         {
           "type": "reading",
@@ -51,12 +51,12 @@
     },
     {
       "id": "overview",
-      "title": "Playing a Heartweaver",
+      "title": "Playing a Resonant",
       "kind": "blocks",
       "blocks": [
         {
           "type": "prose",
-          "html": "<p>The Heartweaver is a controller and a support caster. Each <a href=\"#the-wheel\">Weave Surge</a> fills a creature with one emotion for a single turn. When that emotion fades it leaves a milder mood behind, and the next Surge you cast on that creature reacts with the mood instead of landing on its own. Your turns alternate between laying moods and spending them: freeze an enemy with Fear now, then turn its lingering apprehension into Awe or Despair. The same rules work on your allies, so a single Surge can shut an enemy down on one side of the field and lift a friend on the other.</p>"
+          "html": "<p>The Resonant is a controller and a support caster. Each <a href=\"#the-wheel\">Weave Surge</a> fills a creature with one emotion for a single turn. When that emotion fades it leaves a milder mood behind, and the next Surge you cast on that creature reacts with the mood instead of landing on its own. Your turns alternate between laying moods and spending them: freeze an enemy with Fear now, then turn its lingering apprehension into Awe or Despair. The same rules work on your allies, so a single Surge can shut an enemy down on one side of the field and lift a friend on the other.</p>"
         },
         {
           "type": "aside",
@@ -67,7 +67,7 @@
     },
     {
       "id": "traits",
-      "title": "Core Heartweaver Traits",
+      "title": "Core Resonant Traits",
       "kind": "traits",
       "rows": [
         {
@@ -110,7 +110,7 @@
     },
     {
       "id": "progression",
-      "title": "Heartweaver Progression",
+      "title": "Resonant Progression",
       "kind": "progression",
       "intro": [
         {
@@ -255,7 +255,7 @@
       "blocks": [
         {
           "type": "prose",
-          "html": "<p>Heartweavers teach that every feeling a mind can hold is spun from eight threads: <strong>Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger</strong> and <strong>Anticipation</strong>. Laid out in a circle, each thread sits beside its closest kin and directly across from its opposite. Joy faces Sadness, Trust faces Disgust, Fear faces Anger, and Surprise faces Anticipation.</p>\n          <p>Every thread can be pulled gently or hard. Pulled gently, it becomes a <span class=\"kw\">mood</span>, a soft echo that lingers. Pulled hard, it becomes overwhelming. Two threads that touch braid into a <span class=\"kw\">feeling</span>, and the farther apart they sit, the stranger that feeling is.</p>"
+          "html": "<p>Resonants teach that every feeling a mind can hold is spun from eight threads: <strong>Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger</strong> and <strong>Anticipation</strong>. Laid out in a circle, each thread sits beside its closest kin and directly across from its opposite. Joy faces Sadness, Trust faces Disgust, Fear faces Anger, and Surprise faces Anticipation.</p>\n          <p>Every thread can be pulled gently or hard. Pulled gently, it becomes a <span class=\"kw\">mood</span>, a soft echo that lingers. Pulled hard, it becomes overwhelming. Two threads that touch braid into a <span class=\"kw\">feeling</span>, and the farther apart they sit, the stranger that feeling is.</p>"
         },
         {
           "type": "html",
@@ -267,7 +267,7 @@
         },
         {
           "type": "prose",
-          "html": "<p>Everything the Heartweaver does follows the same three steps.</p>\n          <ol>\n            <li><strong>Surge.</strong> A <span class=\"kw\">Weave Surge</span> fills a creature with one emotion for <strong>1 turn</strong>, such as Emotion: Fear. This is the peak, and it is the strongest effect a single Surge has.</li>\n            <li><strong>Mood.</strong> When the emotion fades on its own, it leaves the milder echo of itself behind for <strong>5 turns</strong>: Fear leaves the creature Apprehensive. If the emotion is removed early, it leaves no mood.</li>\n            <li><strong>Reaction.</strong> Cast another Weave Surge on a creature that carries a mood and the two threads react instead of surging. The mood is spent, and what you get depends on how far apart the two emotions sit on the wheel.</li>\n          </ol>\n          <p>A creature feels <strong>one emotion</strong> at a time and carries <strong>one mood</strong> at a time; a new one replaces the old. Feelings are different: each one is its own thread, so a creature can carry several different feelings at once.</p>"
+          "html": "<p>Everything the Resonant does follows the same three steps.</p>\n          <ol>\n            <li><strong>Surge.</strong> A <span class=\"kw\">Weave Surge</span> fills a creature with one emotion for <strong>1 turn</strong>, such as Emotion: Fear. This is the peak, and it is the strongest effect a single Surge has.</li>\n            <li><strong>Mood.</strong> When the emotion fades on its own, it leaves the milder echo of itself behind for <strong>5 turns</strong>: Fear leaves the creature Apprehensive. If the emotion is removed early, it leaves no mood.</li>\n            <li><strong>Reaction.</strong> Cast another Weave Surge on a creature that carries a mood and the two threads react instead of surging. The mood is spent, and what you get depends on how far apart the two emotions sit on the wheel.</li>\n          </ol>\n          <p>A creature feels <strong>one emotion</strong> at a time and carries <strong>one mood</strong> at a time; a new one replaces the old. Feelings are different: each one is its own thread, so a creature can carry several different feelings at once.</p>"
         },
         {
           "type": "table",
@@ -347,7 +347,7 @@
         },
         {
           "type": "prose",
-          "html": "<p>Pour an emotion into its opposite and the threads snap at once. An enemy takes <span class=\"dmg\">2d8 Psychic</span> damage; an ally (or you) regains <span class=\"dmg\">2d8</span> hit points. Every mood on the creature is spent. Catharsis is the Heartweaver's only real burst of damage, and it lands twice as hard on a creature already feeling Contempt.</p>"
+          "html": "<p>Pour an emotion into its opposite and the threads snap at once. An enemy takes <span class=\"dmg\">2d8 Psychic</span> damage; an ally (or you) regains <span class=\"dmg\">2d8</span> hit points. Every mood on the creature is spent. Catharsis is the Resonant's only real burst of damage, and it lands twice as hard on a creature already feeling Contempt.</p>"
         },
         {
           "type": "table",

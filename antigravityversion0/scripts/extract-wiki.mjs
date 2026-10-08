@@ -22,7 +22,7 @@ const PAGES = {
   deceiver: 'deceiver',
   starchild: 'starchild',
   eternal: 'eternal',
-  heartweaver: 'heartweaver',
+  resonant: 'resonant',
 };
 
 // ---------- helpers ----------
@@ -32,7 +32,7 @@ const clean = (s) => (s ?? '').replace(/\s+/g, ' ').trim();
 function fixHtml(html) {
   return (html ?? '')
     .replace(/(src|href)="assets\/img\//g, '$1="/img/')
-    .replace(/href="(index|unbound|deceiver|starchild|eternal|heartweaver)\.html(#[^"]*)?"/g,
+    .replace(/href="(index|unbound|deceiver|starchild|eternal|resonant)\.html(#[^"]*)?"/g,
       (_, page, hash = '') => `href="/${PAGES[page]}${hash}"`)
     .replace(/\s+\n/g, '\n')
     .trim();

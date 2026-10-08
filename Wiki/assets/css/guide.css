@@ -46,7 +46,7 @@
 :root[data-arcanum="deceiver"]    { --acc-l:#b51f72; --acc-d:#f77cbf; --wash-l:#fbe3ef; --wash-d:#33182a; }
 :root[data-arcanum="starchild"]   { --acc-l:#1f68b0; --acc-d:#8cc4fa; --wash-l:#e2eefb; --wash-d:#15233a; }
 :root[data-arcanum="eternal"]     { --acc-l:#287440; --acc-d:#7fd197; --wash-l:#e0f1e5; --wash-d:#14271b; }
-:root[data-arcanum="heartweaver"] { --acc-l:#bd4f2b; --acc-d:#f39a78; --wash-l:#fbe6dd; --wash-d:#331d16; }
+:root[data-arcanum="resonant"] { --acc-l:#bd4f2b; --acc-d:#f39a78; --wash-l:#fbe6dd; --wash-d:#331d16; }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -295,19 +295,19 @@ table.progression tr.is-subclass td:first-child { box-shadow: inset 3px 0 0 var(
 :root .destiny[data-arcanum="deceiver"]    { --d-acc: #b51f72; }
 :root .destiny[data-arcanum="starchild"]   { --d-acc: #1f68b0; }
 :root .destiny[data-arcanum="eternal"]     { --d-acc: #287440; }
-:root .destiny[data-arcanum="heartweaver"] { --d-acc: #bd4f2b; }
+:root .destiny[data-arcanum="resonant"] { --d-acc: #bd4f2b; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .destiny[data-arcanum="unbound"]     { --d-acc: #f2c939; }
   :root:not([data-theme="light"]) .destiny[data-arcanum="deceiver"]    { --d-acc: #f77cbf; }
   :root:not([data-theme="light"]) .destiny[data-arcanum="starchild"]   { --d-acc: #8cc4fa; }
   :root:not([data-theme="light"]) .destiny[data-arcanum="eternal"]     { --d-acc: #7fd197; }
-  :root:not([data-theme="light"]) .destiny[data-arcanum="heartweaver"] { --d-acc: #f39a78; }
+  :root:not([data-theme="light"]) .destiny[data-arcanum="resonant"] { --d-acc: #f39a78; }
 }
 :root[data-theme="dark"] .destiny[data-arcanum="unbound"]     { --d-acc: #f2c939; }
 :root[data-theme="dark"] .destiny[data-arcanum="deceiver"]    { --d-acc: #f77cbf; }
 :root[data-theme="dark"] .destiny[data-arcanum="starchild"]   { --d-acc: #8cc4fa; }
 :root[data-theme="dark"] .destiny[data-arcanum="eternal"]     { --d-acc: #7fd197; }
-:root[data-theme="dark"] .destiny[data-arcanum="heartweaver"] { --d-acc: #f39a78; }
+:root[data-theme="dark"] .destiny[data-arcanum="resonant"] { --d-acc: #f39a78; }
 
 /* ---------- Aspect Awakening: three tiers ---------- */
 .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; counter-reset: tier; }

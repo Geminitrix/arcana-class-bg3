@@ -5,12 +5,12 @@ import unbound from './unbound.json';
 import deceiver from './deceiver.json';
 import starchild from './starchild.json';
 import eternal from './eternal.json';
-import heartweaver from './heartweaver.json';
+import resonant from './resonant.json';
 
-export const PAGES = { arcana, unbound, deceiver, starchild, eternal, heartweaver };
+export const PAGES = { arcana, unbound, deceiver, starchild, eternal, resonant };
 
 // Navigation order: base class first, then the destinies in Major Arcana order.
-export const ORDER = ['arcana', 'unbound', 'deceiver', 'starchild', 'eternal', 'heartweaver'];
+export const ORDER = ['arcana', 'unbound', 'deceiver', 'starchild', 'eternal', 'resonant'];
 export const DESTINIES = ORDER.slice(1);
 
 // Accent colours from the original wiki (dark theme values).
@@ -20,7 +20,7 @@ export const ACCENT = {
   deceiver: '#f77cbf',
   starchild: '#8cc4fa',
   eternal: '#7fd197',
-  heartweaver: '#f39a78',
+  resonant: '#f39a78',
 };
 
 // Short label for the navbar.
@@ -30,7 +30,7 @@ export const NAV_LABEL = {
   deceiver: 'Deceiver',
   starchild: 'Starchild',
   eternal: 'Eternal',
-  heartweaver: 'Heartweaver',
+  resonant: 'Resonant',
 };
 
 /** All deck cards of a page, in level order (levels above 12 are already excluded). */

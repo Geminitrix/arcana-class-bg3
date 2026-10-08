@@ -40,12 +40,12 @@ const SUBCLASSES = [
     desc: 'Magia de sangue e controle sobre a vida e a morte. Roube a essência vital de quem ousar cruzar seu caminho.',
   },
   {
-    id: 'heartweaver',
-    title: 'Heartweaver',
+    id: 'resonant',
+    title: 'Resonant',
     numeral: 'XIV',
     archetype: 'Temperance',
-    // Fallback since heartweaver.png emblem might not exist yet; we'll try loading it, if it breaks we could handle it via onError, but let's assume it exists or will exist.
-    image: '/img/emblems/heartweaver.png',
+    // Fallback since resonant.png emblem might not exist yet; we'll try loading it, if it breaks we could handle it via onError, but let's assume it exists or will exist.
+    image: '/img/emblems/resonant.png',
     color: 'from-rose-400 to-orange-400',
     desc: 'Empatia e harmonia. Manipule as emoções para balancear curas no grupo e maldições nos inimigos.',
   },
@@ -107,7 +107,7 @@ function TarotCard({ card }) {
               src={card.image} 
               alt={card.title}
               onError={(e) => {
-                // If Heartweaver emblem is not yet imported, show a default visual
+                // If Resonant emblem is not yet imported, show a default visual
                 e.target.style.display = 'none';
                 e.target.parentElement.innerHTML = `<div class="w-full h-full rounded-full bg-gradient-to-br ${card.color} opacity-40"></div>`;
               }}

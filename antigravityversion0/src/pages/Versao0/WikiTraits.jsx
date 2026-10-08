@@ -17,7 +17,7 @@ export default function WikiTraits() {
             <tr className="hover:bg-white/5 transition-colors">
               <th scope="row" className="px-6 py-4 font-semibold text-white">Secondary Ability</th>
               <td className="px-6 py-4">
-                Set by your subclass: Unbound Dexterity · Deceiver Charisma · Starchild Wisdom · Eternal Constitution · Heartweaver Wisdom
+                Set by your subclass: Unbound Dexterity · Deceiver Charisma · Starchild Wisdom · Eternal Constitution · Resonant Wisdom
               </td>
             </tr>
             <tr className="hover:bg-white/5 transition-colors">
@@ -28,7 +28,7 @@ export default function WikiTraits() {
                 <strong className="text-arcana-gold">Deceiver</strong> Charisma, Intelligence<br/>
                 <strong className="text-arcana-gold">Starchild</strong> Wisdom, Constitution<br/>
                 <strong className="text-arcana-gold">Eternal</strong> Constitution, Strength<br/>
-                <strong className="text-arcana-gold">Heartweaver</strong> Wisdom, Charisma
+                <strong className="text-arcana-gold">Resonant</strong> Wisdom, Charisma
               </td>
             </tr>
             <tr className="hover:bg-white/5 transition-colors">
@@ -39,7 +39,7 @@ export default function WikiTraits() {
                 <strong className="text-arcana-gold">Deceiver</strong> Light Armour<br/>
                 <strong className="text-arcana-gold">Starchild</strong> Light Armour, Medium Armour, Shields<br/>
                 <strong className="text-arcana-gold">Eternal</strong> Light Armour, Medium Armour, Heavy Armour, Shields<br/>
-                <strong className="text-arcana-gold">Heartweaver</strong> Light Armour
+                <strong className="text-arcana-gold">Resonant</strong> Light Armour
               </td>
             </tr>
             <tr className="hover:bg-white/5 transition-colors">
@@ -50,7 +50,7 @@ export default function WikiTraits() {
                 <strong className="text-arcana-gold">Deceiver</strong> Daggers, Light Crossbows, Quarterstaffs; also Musical Instruments<br/>
                 <strong className="text-arcana-gold">Starchild</strong> Clubs, Daggers, Javelins, Maces, Quarterstaffs, Sickles, Spears<br/>
                 <strong className="text-arcana-gold">Eternal</strong> Light Hammers, Clubs, Maces, Greatclubs, Warhammers, Mauls<br/>
-                <strong className="text-arcana-gold">Heartweaver</strong> Daggers, Quarterstaffs, Light Crossbows, Darts
+                <strong className="text-arcana-gold">Resonant</strong> Daggers, Quarterstaffs, Light Crossbows, Darts
               </td>
             </tr>
             <tr className="hover:bg-white/5 transition-colors">
@@ -61,7 +61,7 @@ export default function WikiTraits() {
                 <strong className="text-arcana-gold">Deceiver</strong> Arcana, Deception, History, Insight, Investigation, Perception, Performance, Persuasion<br/>
                 <strong className="text-arcana-gold">Starchild</strong> Animal Handling, Arcana, History, Medicine, Nature, Perception, Religion, Survival<br/>
                 <strong className="text-arcana-gold">Eternal</strong> Arcana, Athletics, History, Intimidation, Medicine, Nature, Religion, Survival<br/>
-                <strong className="text-arcana-gold">Heartweaver</strong> Animal Handling, Insight, Intimidation, Medicine, Perception, Performance, Persuasion, Religion
+                <strong className="text-arcana-gold">Resonant</strong> Animal Handling, Insight, Intimidation, Medicine, Perception, Performance, Persuasion, Religion
               </td>
             </tr>
           </tbody>

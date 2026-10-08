@@ -10,7 +10,7 @@ no build step. Host it anywhere that serves static files (GitHub Pages, Netlify,
 | The Deceiver | `deceiver.html` |
 | The Starchild | `starchild.html` |
 | The Eternal | `eternal.html` |
-| The Heartweaver | `heartweaver.html` |
+| The Resonant | `resonant.html` |
 
 Shared look and behaviour: `assets/css/guide.css`, `assets/js/guide.js`. Images: `assets/img/`.
 

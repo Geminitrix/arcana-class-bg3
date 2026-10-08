@@ -1,6 +1,6 @@
 // Cross-page consistency check for the guide: node Wiki/_work/check.js
 const fs=require('fs'),path=require('path');const dir=path.resolve(__dirname,'..');
-const pages=['index','unbound','deceiver','starchild','eternal','heartweaver'];
+const pages=['index','unbound','deceiver','starchild','eternal','resonant'];
 const banned=/\b(threads?|deck|in hand|draw a|discard|previously|rework(ed)?|no longer|used to|inspired|league|leblanc|soraka|lux\b|aang|avatar|mordekaiser|vladimir|plutchik|inside out|thoth|bene gesserit|script extender|osiris|lua|console|pc edition|coming soon|planned|draft)\b/gi;
 const slotsRow=[2,4,6,8,10,12,14,16,18,20,21,22,22,22,22,22,22,22,22,22];
 for(const p of pages){const f=path.join(dir,p+'.html');if(!fs.existsSync(f)){console.log(p,'MISSING');continue;}

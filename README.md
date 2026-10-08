@@ -25,7 +25,7 @@ At Level 1, every Arcana chooses their destiny among five **Major Arcana**:
 | **[Deceiver](Wiki/deceiver.html)** | *II — The High Priestess* | **Illusion & Subterfuge**: Master of duplicates, mental traps, telepathy, and deceit who sows paranoia and turns foes against one another. |
 | **[Starchild](Wiki/starchild.html)** | *XVII — The Star* | **Astral Radiance & Healing**: Celestial conduit channeling stellar light and lunar wisps to heal allies, banish darkness, and call down solar flares. |
 | **[Eternal](Wiki/eternal.html)** | *XIII — Death* | **Blood & Undeath**: Resilient frontline wielder of blood magic and soul reaping who commands life essence, vampiric strikes, and death wards. |
-| **[Heartweaver](Wiki/heartweaver.html)** | *XIV — Temperance* | **Emotion & Harmony**: Empathic weaver who manipulates emotional frequencies, balancing boons and banes across the party and enemies alike. |
+| **[Resonant](Wiki/resonant.html)** | *XIV — Temperance* | **Emotion & Harmony**: Empathic weaver who manipulates emotional frequencies, balancing boons and banes across the party and enemies alike. |
 
 ---
 
@@ -38,7 +38,7 @@ All detailed progressions, spell descriptions, icons, damage formulas, and mecha
 - 🪞 **[Deceiver Guide](Wiki/deceiver.html)** — Mirror images, ethereal chains, mental prison, and Aspect of the High Priestess.
 - ⭐ **[Starchild Guide](Wiki/starchild.html)** — Astral infusion, lunar aegis, starbreath, and Aspect of the Star.
 - 🩸 **[Eternal Guide](Wiki/eternal.html)** — Blood reaper, hemoplague, realm of death, and Aspect of Undeath.
-- 💖 **[Heartweaver Guide](Wiki/heartweaver.html)** — Emotional alchemy, resonance, and Aspect of Temperance.
+- 💖 **[Resonant Guide](Wiki/resonant.html)** — Emotional alchemy, resonance, and Aspect of Temperance.
 
 ### Viewing the Wiki Locally
 You can view the Wiki simply by opening `Wiki/index.html` in any web browser, or launch the local dev server:
