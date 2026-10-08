@@ -1,0 +1,21 @@
+# 2026-09-29: desfaz as edicoes de debug do usuario (valores do commit d8116d4)
+@set Projectile_Arcana_Card_Spell_SigilofMalice SpellProperties DealDamage(LevelMapValue(SigilofMalice_Damage),Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice UseCosts ActionPoint:1;SpellSlotsGroup:1:1:1;
+@set Projectile_Arcana_Card_Spell_SigilofMalice_2 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:2;
+@set Projectile_Arcana_Card_Spell_SigilofMalice_3 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:3;
+@set Projectile_Arcana_Card_Spell_SigilofMalice_4 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:4;
+@set Projectile_Arcana_Card_Spell_SigilofMalice_5 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:5;
+@set Projectile_Arcana_Card_Spell_SigilofMalice_6 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:6;
+@set Projectile_Arcana_Card_Spell_Starcall UseCosts ActionPoint:1;SpellSlotsGroup:1:1:1;
+@set Projectile_Arcana_Card_Spell_Starcall_2 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:2;
+@set Projectile_Arcana_Card_Spell_Starcall_3 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:3;
+@set Projectile_Arcana_Card_Spell_Starcall_4 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:4;
+@set Projectile_Arcana_Card_Spell_Starcall_5 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:5;
+@set Projectile_Arcana_Card_Spell_Starcall_6 UseCosts ActionPoint:1;SpellSlotsGroup:1:1:6;
+@set Projectile_Deceiver_Clone_MirrorSigilofMalice TargetConditions not Self() and not Dead() and not HasPassive('ARCANA_IS_SPELL', context.Source)
+@set Target_Arcana_Card_Spell_AstralInfusion UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:1;
+@set Target_Arcana_Card_Spell_AstralInfusion_2 UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:2;
+@set Target_Arcana_Card_Spell_AstralInfusion_3 UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:3;
+@set Target_Arcana_Card_Spell_AstralInfusion_4 UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:4;
+@set Target_Arcana_Card_Spell_AstralInfusion_5 UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:5;
+@set Target_Arcana_Card_Spell_AstralInfusion_6 UseCosts BonusActionPoint:1;SpellSlotsGroup:1:1:6;

@@ -1,0 +1,11 @@
+# The clone's own Dismiss (2026-10-03). The vanilla Shout_Dismiss_Self sets no Sheathing, so once the
+# clone has cast a spell it first changes weapon stance (~2 s) and only then plays the Dismiss. DontChange
+# is what the base game gives actions that work in any stance (Dash, Disengage, Hide, Crouch).
+# ARCANA_Spell_MirrorImage.txt swaps it in for Shout_Dismiss_Self after the Transform.
+@file Spell_Shout
+@section Shout_DECEIVER SPELLS
+new entry "Shout_Deceiver_Clone_Dismiss"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Dismiss_Self"
+data "Sheathing" "DontChange"

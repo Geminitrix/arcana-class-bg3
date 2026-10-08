@@ -1,39 +1,35 @@
 # ==========================================
-# Arcana Class BG3 - Showcase & Wiki Repository
+# Arcana Class (BG3) — private project repository
 # ==========================================
-# This repository is the public showcase and player-facing wiki for the Arcana Class mod.
-# Internal engine data, development scripts, and raw mod files are kept local and ignored.
+# Tracked: the knowledge base (Context/), design documents (Design/ text), technical docs (Docs/),
+# tools, the mod mirror (mod/), the player guides (Wiki/, Codex/), publishing texts and CLAUDE.md.
+# Not tracked: heavy art, backups, the archive and scratch.
 
-# --- Internal Mod Data & Development Tools ---
-/mod/
-/tools/
-/Design/
-/Gameplay/
-/Boons/
-/Obsidian/
-/Pages/
-/Patch Notes/
-/Backup/
-/Old Patch/
-/Support/
-/Lua/
-/CLAUDE.md
-/Context/
-/Docs/
+# --- Heavy art and publishing images ---
+/Design/art/
+/Publishing/images/
+/Publishing/posters/
+/Publishing/feedback/
 
-# --- Backups & Superseded Copies ---
+# --- Safety copies and dead material ---
+/Backups/
+/_archive/
 *.bak
 *.bak-*
 *.orig
 
-# --- Game Packed Builds & Binary Assets ---
+# --- Scratch ---
+/.superpowers/
+/.claude/
+
+# --- Game packed builds & binary assets ---
 *.pak
 *.gr2
 *.dds
 *.wem
 *.bin
 
-# --- OS & Editor Cache ---
+# --- OS & editor cache ---
 .obsidian/
 Thumbs.db
 desktop.ini

@@ -1,0 +1,409 @@
+# Gerado uma vez por tools/gen_upcast_damage.pl (2026-10-01); daqui em diante este patch e a fonte da verdade.
+# 2026-10-01: Deceiver, Starchild e Eternal saem do LevelMapValue para o upcast (+1 dado por nivel).
+
+# Projectile_Arcana_Card_Spell_SigilofMalice: 1d6 no nivel 1, +1d6 por nivel
+@set Projectile_Arcana_Card_Spell_SigilofMalice DescriptionParams DealDamage(1d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice SpellProperties DealDamage(1d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice TooltipDamageList DealDamage(1d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_2 DescriptionParams DealDamage(2d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_2 SpellProperties DealDamage(2d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_2 TooltipDamageList DealDamage(2d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_3 DescriptionParams DealDamage(3d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_3 SpellProperties DealDamage(3d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_3 TooltipDamageList DealDamage(3d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_4 DescriptionParams DealDamage(4d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_4 SpellProperties DealDamage(4d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_4 TooltipDamageList DealDamage(4d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_5 DescriptionParams DealDamage(5d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_5 SpellProperties DealDamage(5d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_5 TooltipDamageList DealDamage(5d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_6 DescriptionParams DealDamage(6d6,Force)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_6 SpellProperties DealDamage(6d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);ApplyStatus(SELF,SIGIL_OF_MALICE_LAST_CASTED,100,-1)
+@set Projectile_Arcana_Card_Spell_SigilofMalice_6 TooltipDamageList DealDamage(6d6,Force)
+
+# Projectile_Arcana_Created_MimicSigilofMalice: 4d6 no nivel 1, +1d6 por nivel
+@set Projectile_Arcana_Created_MimicSigilofMalice DescriptionParams DealDamage(4d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice SpellProperties DealDamage(4d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice TooltipDamageList DealDamage(4d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_2 DescriptionParams DealDamage(5d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_2 SpellProperties DealDamage(5d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice_2 TooltipDamageList DealDamage(5d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_3 DescriptionParams DealDamage(6d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_3 SpellProperties DealDamage(6d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice_3 TooltipDamageList DealDamage(6d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_4 DescriptionParams DealDamage(7d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_4 SpellProperties DealDamage(7d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice_4 TooltipDamageList DealDamage(7d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_5 DescriptionParams DealDamage(8d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_5 SpellProperties DealDamage(8d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice_5 TooltipDamageList DealDamage(8d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_6 DescriptionParams DealDamage(9d6,Force)
+@set Projectile_Arcana_Created_MimicSigilofMalice_6 SpellProperties DealDamage(9d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);
+@set Projectile_Arcana_Created_MimicSigilofMalice_6 TooltipDamageList DealDamage(9d6,Force)
+
+# Projectile_Arcana_Distortion_Explosion: 3d8 no nivel 3; uma versao por nivel acima
+@set Projectile_Arcana_Distortion_Explosion SpellProperties DealDamage(3d8,Force,Magical);
+@file Spell_Projectile
+@section Projectile_DECEIVER SPELLS
+
+new entry "Projectile_Arcana_Distortion_Explosion_4"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_Distortion_Explosion"
+data "SpellProperties" "DealDamage(4d8,Force,Magical);"
+
+new entry "Projectile_Arcana_Distortion_Explosion_5"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_Distortion_Explosion"
+data "SpellProperties" "DealDamage(5d8,Force,Magical);"
+
+new entry "Projectile_Arcana_Distortion_Explosion_6"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_Distortion_Explosion"
+data "SpellProperties" "DealDamage(6d8,Force,Magical);"
+
+
+# Target_Arcana_Card_Spell_Distortion: 3d8 no nivel 3, +1d8 por nivel (a explosao de cada nivel)
+@set Target_Arcana_Card_Spell_Distortion TooltipDamageList DealDamage(3d8,Force)
+@set Target_Arcana_Card_Spell_Distortion_4 TooltipDamageList DealDamage(4d8,Force)
+@set Target_Arcana_Card_Spell_Distortion_4 SpellProperties GROUND:Summon(SELF,c3c514b2-152d-4a01-9e7d-e49d1062d2f0,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_Distortion_Explosion_4);GROUND:ApplyStatus(SELF,DISTORTION_LAST_CASTED,100,-1)
+@set Target_Arcana_Card_Spell_Distortion_5 TooltipDamageList DealDamage(5d8,Force)
+@set Target_Arcana_Card_Spell_Distortion_5 SpellProperties GROUND:Summon(SELF,c3c514b2-152d-4a01-9e7d-e49d1062d2f0,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_Distortion_Explosion_5);GROUND:ApplyStatus(SELF,DISTORTION_LAST_CASTED,100,-1)
+@set Target_Arcana_Card_Spell_Distortion_6 TooltipDamageList DealDamage(6d8,Force)
+@set Target_Arcana_Card_Spell_Distortion_6 SpellProperties GROUND:Summon(SELF,c3c514b2-152d-4a01-9e7d-e49d1062d2f0,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_Distortion_Explosion_6);GROUND:ApplyStatus(SELF,DISTORTION_LAST_CASTED,100,-1)
+
+# Projectile_Arcana_MimicDistortion_Explosion: 4d8 no nivel 2; uma versao por nivel acima
+@set Projectile_Arcana_MimicDistortion_Explosion SpellProperties DealDamage(4d8,Force,Magical);
+@file Spell_Projectile
+@section Projectile_DECEIVER SPELLS
+
+new entry "Projectile_Arcana_MimicDistortion_Explosion_3"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_MimicDistortion_Explosion"
+data "SpellProperties" "DealDamage(5d8,Force,Magical);"
+
+new entry "Projectile_Arcana_MimicDistortion_Explosion_4"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_MimicDistortion_Explosion"
+data "SpellProperties" "DealDamage(6d8,Force,Magical);"
+
+new entry "Projectile_Arcana_MimicDistortion_Explosion_5"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_MimicDistortion_Explosion"
+data "SpellProperties" "DealDamage(7d8,Force,Magical);"
+
+new entry "Projectile_Arcana_MimicDistortion_Explosion_6"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_MimicDistortion_Explosion"
+data "SpellProperties" "DealDamage(8d8,Force,Magical);"
+
+
+# Target_Arcana_Created_MimicDistortion: 4d8 no nivel 2, +1d8 por nivel (a explosao de cada nivel)
+@set Target_Arcana_Created_MimicDistortion TooltipDamageList DealDamage(4d8,Force)
+@set Target_Arcana_Created_MimicDistortion_3 TooltipDamageList DealDamage(5d8,Force)
+@set Target_Arcana_Created_MimicDistortion_3 SpellProperties GROUND:Summon(SELF,d88fb323-5015-4949-a65a-eb417a924d5d,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_MimicDistortion_Explosion_3);
+@set Target_Arcana_Created_MimicDistortion_4 TooltipDamageList DealDamage(6d8,Force)
+@set Target_Arcana_Created_MimicDistortion_4 SpellProperties GROUND:Summon(SELF,d88fb323-5015-4949-a65a-eb417a924d5d,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_MimicDistortion_Explosion_4);
+@set Target_Arcana_Created_MimicDistortion_5 TooltipDamageList DealDamage(7d8,Force)
+@set Target_Arcana_Created_MimicDistortion_5 SpellProperties GROUND:Summon(SELF,d88fb323-5015-4949-a65a-eb417a924d5d,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_MimicDistortion_Explosion_5);
+@set Target_Arcana_Created_MimicDistortion_6 TooltipDamageList DealDamage(8d8,Force)
+@set Target_Arcana_Created_MimicDistortion_6 SpellProperties GROUND:Summon(SELF,d88fb323-5015-4949-a65a-eb417a924d5d,2);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_MimicDistortion_Explosion_6);
+
+# ETHEREAL_CHAINS: 1d6 no nivel 2; uma versao por nivel acima (StackPriority = nivel)
+@set ETHEREAL_CHAINS DescriptionParams DealDamage(1d6,Force)
+@set ETHEREAL_CHAINS OnApplyFunctors DealDamage(1d6,Force,Magical)
+@set ETHEREAL_CHAINS TickFunctors DealDamage(1d6,Force,Magical)
+@set ETHEREAL_CHAINS StackPriority 2
+@file Status_BOOST
+@section DECEIVER STATUS
+
+new entry "ETHEREAL_CHAINS_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(2d6,Force)"
+data "OnApplyFunctors" "DealDamage(2d6,Force,Magical)"
+data "TickFunctors" "DealDamage(2d6,Force,Magical)"
+data "StackPriority" "3"
+
+new entry "ETHEREAL_CHAINS_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(3d6,Force)"
+data "OnApplyFunctors" "DealDamage(3d6,Force,Magical)"
+data "TickFunctors" "DealDamage(3d6,Force,Magical)"
+data "StackPriority" "4"
+
+new entry "ETHEREAL_CHAINS_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(4d6,Force)"
+data "OnApplyFunctors" "DealDamage(4d6,Force,Magical)"
+data "TickFunctors" "DealDamage(4d6,Force,Magical)"
+data "StackPriority" "5"
+
+new entry "ETHEREAL_CHAINS_6"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(5d6,Force)"
+data "OnApplyFunctors" "DealDamage(5d6,Force,Magical)"
+data "TickFunctors" "DealDamage(5d6,Force,Magical)"
+data "StackPriority" "6"
+
+
+# Target_Arcana_Card_Spell_EtherealChains: 1d6 no nivel 2, +1d6 por nivel (o status de cada nivel)
+@set Target_Arcana_Card_Spell_EtherealChains TooltipDamageList DealDamage(1d6,Force);DealDamage(1d6,Force)
+@set Target_Arcana_Card_Spell_EtherealChains_3 TooltipDamageList DealDamage(2d6,Force);DealDamage(2d6,Force)
+@set Target_Arcana_Card_Spell_EtherealChains_3 SpellSuccess ApplyStatus(ETHEREAL_CHAINS_3,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Card_Spell_EtherealChains_3 TooltipStatusApply ApplyStatus(ETHEREAL_CHAINS_3,100,1)
+@set Target_Arcana_Card_Spell_EtherealChains_4 TooltipDamageList DealDamage(3d6,Force);DealDamage(3d6,Force)
+@set Target_Arcana_Card_Spell_EtherealChains_4 SpellSuccess ApplyStatus(ETHEREAL_CHAINS_4,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Card_Spell_EtherealChains_4 TooltipStatusApply ApplyStatus(ETHEREAL_CHAINS_4,100,1)
+@set Target_Arcana_Card_Spell_EtherealChains_5 TooltipDamageList DealDamage(4d6,Force);DealDamage(4d6,Force)
+@set Target_Arcana_Card_Spell_EtherealChains_5 SpellSuccess ApplyStatus(ETHEREAL_CHAINS_5,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Card_Spell_EtherealChains_5 TooltipStatusApply ApplyStatus(ETHEREAL_CHAINS_5,100,1)
+@set Target_Arcana_Card_Spell_EtherealChains_6 TooltipDamageList DealDamage(5d6,Force);DealDamage(5d6,Force)
+@set Target_Arcana_Card_Spell_EtherealChains_6 SpellSuccess ApplyStatus(ETHEREAL_CHAINS_6,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Card_Spell_EtherealChains_6 TooltipStatusApply ApplyStatus(ETHEREAL_CHAINS_6,100,1)
+
+# MIMIC_ETHEREAL_CHAINS: 3d6 no nivel 1; uma versao por nivel acima (StackPriority = nivel)
+@set MIMIC_ETHEREAL_CHAINS DescriptionParams DealDamage(3d6,Force)
+@set MIMIC_ETHEREAL_CHAINS OnApplyFunctors DealDamage(3d6,Force,Magical)
+@set MIMIC_ETHEREAL_CHAINS TickFunctors DealDamage(3d6,Force,Magical)
+@set MIMIC_ETHEREAL_CHAINS StackPriority 1
+@file Status_BOOST
+@section DECEIVER STATUS
+
+new entry "MIMIC_ETHEREAL_CHAINS_2"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MIMIC_ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(4d6,Force)"
+data "OnApplyFunctors" "DealDamage(4d6,Force,Magical)"
+data "TickFunctors" "DealDamage(4d6,Force,Magical)"
+data "StackPriority" "2"
+
+new entry "MIMIC_ETHEREAL_CHAINS_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MIMIC_ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(5d6,Force)"
+data "OnApplyFunctors" "DealDamage(5d6,Force,Magical)"
+data "TickFunctors" "DealDamage(5d6,Force,Magical)"
+data "StackPriority" "3"
+
+new entry "MIMIC_ETHEREAL_CHAINS_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MIMIC_ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(6d6,Force)"
+data "OnApplyFunctors" "DealDamage(6d6,Force,Magical)"
+data "TickFunctors" "DealDamage(6d6,Force,Magical)"
+data "StackPriority" "4"
+
+new entry "MIMIC_ETHEREAL_CHAINS_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MIMIC_ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(7d6,Force)"
+data "OnApplyFunctors" "DealDamage(7d6,Force,Magical)"
+data "TickFunctors" "DealDamage(7d6,Force,Magical)"
+data "StackPriority" "5"
+
+new entry "MIMIC_ETHEREAL_CHAINS_6"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MIMIC_ETHEREAL_CHAINS"
+data "DescriptionParams" "DealDamage(8d6,Force)"
+data "OnApplyFunctors" "DealDamage(8d6,Force,Magical)"
+data "TickFunctors" "DealDamage(8d6,Force,Magical)"
+data "StackPriority" "6"
+
+
+# Target_Arcana_Created_MimicEtherealChains: 3d6 no nivel 1, +1d6 por nivel (o status de cada nivel)
+@set Target_Arcana_Created_MimicEtherealChains TooltipDamageList DealDamage(3d6,Force);DealDamage(3d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_2 TooltipDamageList DealDamage(4d6,Force);DealDamage(4d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_2 SpellSuccess ApplyStatus(MIMIC_ETHEREAL_CHAINS_2,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Created_MimicEtherealChains_2 TooltipStatusApply ApplyStatus(MIMIC_ETHEREAL_CHAINS_2,100,1)
+@set Target_Arcana_Created_MimicEtherealChains_3 TooltipDamageList DealDamage(5d6,Force);DealDamage(5d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_3 SpellSuccess ApplyStatus(MIMIC_ETHEREAL_CHAINS_3,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Created_MimicEtherealChains_3 TooltipStatusApply ApplyStatus(MIMIC_ETHEREAL_CHAINS_3,100,1)
+@set Target_Arcana_Created_MimicEtherealChains_4 TooltipDamageList DealDamage(6d6,Force);DealDamage(6d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_4 SpellSuccess ApplyStatus(MIMIC_ETHEREAL_CHAINS_4,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Created_MimicEtherealChains_4 TooltipStatusApply ApplyStatus(MIMIC_ETHEREAL_CHAINS_4,100,1)
+@set Target_Arcana_Created_MimicEtherealChains_5 TooltipDamageList DealDamage(7d6,Force);DealDamage(7d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_5 SpellSuccess ApplyStatus(MIMIC_ETHEREAL_CHAINS_5,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Created_MimicEtherealChains_5 TooltipStatusApply ApplyStatus(MIMIC_ETHEREAL_CHAINS_5,100,1)
+@set Target_Arcana_Created_MimicEtherealChains_6 TooltipDamageList DealDamage(8d6,Force);DealDamage(8d6,Force)
+@set Target_Arcana_Created_MimicEtherealChains_6 SpellSuccess ApplyStatus(MIMIC_ETHEREAL_CHAINS_6,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);
+@set Target_Arcana_Created_MimicEtherealChains_6 TooltipStatusApply ApplyStatus(MIMIC_ETHEREAL_CHAINS_6,100,1)
+
+# o Sigil detona com o dano das correntes, e o visual das correntes some sem elas: os dois aceitam todos os niveis
+@set SIGIL RemoveConditions (IsArcanaSpell() or HasAnyStatus({'ETHEREAL_CHAINS','ETHEREAL_CHAINS_3','ETHEREAL_CHAINS_4','ETHEREAL_CHAINS_5','ETHEREAL_CHAINS_6','MIMIC_ETHEREAL_CHAINS','MIMIC_ETHEREAL_CHAINS_2','MIMIC_ETHEREAL_CHAINS_3','MIMIC_ETHEREAL_CHAINS_4','MIMIC_ETHEREAL_CHAINS_5','MIMIC_ETHEREAL_CHAINS_6','MIRROR_ETHEREAL_CHAINS'})) and (HasStatus('SIGIL', context.Target, context.Source) or HasStatus('SIGIL', context.Target, GetSummoner(context.Source)))
+@set ETHEREAL_CHAINS_EFFECT RemoveConditions not HasAnyStatus({'ETHEREAL_CHAINS','ETHEREAL_CHAINS_3','ETHEREAL_CHAINS_4','ETHEREAL_CHAINS_5','ETHEREAL_CHAINS_6','MIMIC_ETHEREAL_CHAINS','MIMIC_ETHEREAL_CHAINS_2','MIMIC_ETHEREAL_CHAINS_3','MIMIC_ETHEREAL_CHAINS_4','MIMIC_ETHEREAL_CHAINS_5','MIMIC_ETHEREAL_CHAINS_6','MIRROR_ETHEREAL_CHAINS'})
+
+# Projectile_Arcana_Card_Spell_Starcall: 1d6 no nivel 1, +1d6 por nivel
+@set Projectile_Arcana_Card_Spell_Starcall SpellSuccess DealDamage(1d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall TooltipDamageList DealDamage(1d6,Radiant);
+@set Projectile_Arcana_Card_Spell_Starcall_2 SpellSuccess DealDamage(2d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall_2 TooltipDamageList DealDamage(2d6,Radiant);
+@set Projectile_Arcana_Card_Spell_Starcall_3 SpellSuccess DealDamage(3d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall_3 TooltipDamageList DealDamage(3d6,Radiant);
+@set Projectile_Arcana_Card_Spell_Starcall_4 SpellSuccess DealDamage(4d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall_4 TooltipDamageList DealDamage(4d6,Radiant);
+@set Projectile_Arcana_Card_Spell_Starcall_5 SpellSuccess DealDamage(5d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall_5 TooltipDamageList DealDamage(5d6,Radiant);
+@set Projectile_Arcana_Card_Spell_Starcall_6 SpellSuccess DealDamage(6d6,Radiant,Magical);ApplyStatus(STARCALL_SLOW,100,1);ApplyStatus(SELF,REJUVENATION,100,2);
+@set Projectile_Arcana_Card_Spell_Starcall_6 TooltipDamageList DealDamage(6d6,Radiant);
+
+# Target_Arcana_Card_Spell_AstralInfusion: 1d10 no nivel 1, +1d10 por nivel
+@set Target_Arcana_Card_Spell_AstralInfusion SpellProperties RegainHitPoints(1d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion TooltipDamageList RegainHitPoints(1d10)
+@set Target_Arcana_Card_Spell_AstralInfusion_2 SpellProperties RegainHitPoints(2d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion_2 TooltipDamageList RegainHitPoints(2d10)
+@set Target_Arcana_Card_Spell_AstralInfusion_3 SpellProperties RegainHitPoints(3d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion_3 TooltipDamageList RegainHitPoints(3d10)
+@set Target_Arcana_Card_Spell_AstralInfusion_4 SpellProperties RegainHitPoints(4d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion_4 TooltipDamageList RegainHitPoints(4d10)
+@set Target_Arcana_Card_Spell_AstralInfusion_5 SpellProperties RegainHitPoints(5d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion_5 TooltipDamageList RegainHitPoints(5d10)
+@set Target_Arcana_Card_Spell_AstralInfusion_6 SpellProperties RegainHitPoints(6d10);IF(not HasStatus('REJUVENATION',context.Source)):DealDamage(SELF,MaxHP/10,,);
+@set Target_Arcana_Card_Spell_AstralInfusion_6 TooltipDamageList RegainHitPoints(6d10)
+
+# Shout_Arcana_Card_Spell_Wish: 4d4 no nivel 4, +1d4 por nivel
+@set Shout_Arcana_Card_Spell_Wish SpellProperties RegainHitPoints(4d4);
+@set Shout_Arcana_Card_Spell_Wish TooltipDamageList RegainHitPoints(4d4)
+@set Shout_Arcana_Card_Spell_Wish_5 SpellProperties RegainHitPoints(5d4);
+@set Shout_Arcana_Card_Spell_Wish_5 TooltipDamageList RegainHitPoints(5d4)
+@set Shout_Arcana_Card_Spell_Wish_6 SpellProperties RegainHitPoints(6d4);
+@set Shout_Arcana_Card_Spell_Wish_6 TooltipDamageList RegainHitPoints(6d4)
+
+# Target_Arcana_Card_Spell_SolarFlare: 8d6 no nivel 6, +1d6 por nivel (nivel 6 e o ultimo: so troca o LevelMap pelo valor que ele ja dava)
+@set Target_Arcana_Card_Spell_SolarFlare SpellFail DealDamage((8d6)/2,Fire,Magical);ApplyStatus(BURNING,100,1);
+@set Target_Arcana_Card_Spell_SolarFlare SpellSuccess DealDamage(8d6,Fire,Magical);ApplyStatus(BURNING,100,3);ApplyStatus(STUNNED,100,1);
+@set Target_Arcana_Card_Spell_SolarFlare TooltipDamageList DealDamage(8d6,Fire);
+
+# Zone_Arcana_Card_Spell_FinalSpark: 6d6 no nivel 6, +1d6 por nivel (nivel 6 e o ultimo)
+@set Zone_Arcana_Card_Spell_FinalSpark SpellFail DealDamage((6d6)/2,Radiant,Magical);
+@set Zone_Arcana_Card_Spell_FinalSpark SpellSuccess DealDamage(6d6,Radiant,Magical);ApplyStatus(FINAL_SPARK,100,1);ApplyStatus(FAERIE_FIRE,100,1);
+@set Zone_Arcana_Card_Spell_FinalSpark TooltipDamageList DealDamage(6d6,Radiant)
+
+# Starbreath: revive com 10/30/60/100% da vida nos espacos 3/4/5/6 (o topo de cada faixa que o LevelMap dava)
+@set Teleportation_Arcana_Card_Spell_Starbreath OriginSpellProperties Resurrect(100,10);RestoreResource(Movement,100%,0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1);
+@set Teleportation_Arcana_Card_Spell_Starbreath DescriptionParams 10
+@set Teleportation_Arcana_Card_Spell_Starbreath_4 OriginSpellProperties Resurrect(100,30);RestoreResource(Movement,100%,0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1);
+@set Teleportation_Arcana_Card_Spell_Starbreath_4 DescriptionParams 30
+@set Teleportation_Arcana_Card_Spell_Starbreath_5 OriginSpellProperties Resurrect(100,60);RestoreResource(Movement,100%,0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1);
+@set Teleportation_Arcana_Card_Spell_Starbreath_5 DescriptionParams 60
+@set Teleportation_Arcana_Card_Spell_Starbreath_6 OriginSpellProperties Resurrect(100,100);RestoreResource(Movement,100%,0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1);
+@set Teleportation_Arcana_Card_Spell_Starbreath_6 DescriptionParams 100
+
+# Target_Arcana_Card_Spell_DeathsGrasp: 1d8 no nivel 2, +1d8 por nivel
+@set Target_Arcana_Card_Spell_DeathsGrasp DescriptionParams Distance(5);DealDamage(1d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp SpellSuccess Force(-5,OriginToTarget);DealDamage(1d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_DeathsGrasp TooltipDamageList DealDamage(1d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_3 DescriptionParams Distance(5);DealDamage(2d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_3 SpellSuccess Force(-5,OriginToTarget);DealDamage(2d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_DeathsGrasp_3 TooltipDamageList DealDamage(2d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_4 DescriptionParams Distance(5);DealDamage(3d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_4 SpellSuccess Force(-5,OriginToTarget);DealDamage(3d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_DeathsGrasp_4 TooltipDamageList DealDamage(3d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_5 DescriptionParams Distance(5);DealDamage(4d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_5 SpellSuccess Force(-5,OriginToTarget);DealDamage(4d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_DeathsGrasp_5 TooltipDamageList DealDamage(4d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_6 DescriptionParams Distance(5);DealDamage(5d8,Necrotic)
+@set Target_Arcana_Card_Spell_DeathsGrasp_6 SpellSuccess Force(-5,OriginToTarget);DealDamage(5d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_DeathsGrasp_6 TooltipDamageList DealDamage(5d8,Necrotic)
+
+# BLOOD_OFFERING: 2d8 no nivel 3; uma versao por nivel acima (StackPriority = nivel)
+@set BLOOD_OFFERING Boosts IF(IsCardSpell() or IsArcanaCantrip()):DamageBonus(2d8,Necrotic);
+@set BLOOD_OFFERING DescriptionParams DealDamage(2d8,Necrotic)
+@set BLOOD_OFFERING StackPriority 3
+@file Status_BOOST
+@section ETERNAL STATUS
+
+new entry "BLOOD_OFFERING_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLOOD_OFFERING"
+data "Boosts" "IF(IsCardSpell() or IsArcanaCantrip()):DamageBonus(3d8,Necrotic);"
+data "DescriptionParams" "DealDamage(3d8,Necrotic)"
+data "StackPriority" "4"
+
+new entry "BLOOD_OFFERING_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLOOD_OFFERING"
+data "Boosts" "IF(IsCardSpell() or IsArcanaCantrip()):DamageBonus(4d8,Necrotic);"
+data "DescriptionParams" "DealDamage(4d8,Necrotic)"
+data "StackPriority" "5"
+
+new entry "BLOOD_OFFERING_6"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLOOD_OFFERING"
+data "Boosts" "IF(IsCardSpell() or IsArcanaCantrip()):DamageBonus(5d8,Necrotic);"
+data "DescriptionParams" "DealDamage(5d8,Necrotic)"
+data "StackPriority" "6"
+
+
+# Shout_Arcana_Card_Spell_BloodOffering: 2d8 no nivel 3, +1d8 por nivel (o status de cada nivel)
+@set Shout_Arcana_Card_Spell_BloodOffering DescriptionParams DealDamage(2d8,Necrotic)
+@set Shout_Arcana_Card_Spell_BloodOffering_4 DescriptionParams DealDamage(3d8,Necrotic)
+@set Shout_Arcana_Card_Spell_BloodOffering_4 SpellProperties ApplyStatus(SELF,BLOOD_OFFERING_4,100,1);DealDamage(MaxHP/10,Necrotic,Magical)
+@set Shout_Arcana_Card_Spell_BloodOffering_4 TooltipStatusApply ApplyStatus(BLOOD_OFFERING_4,100,1)
+@set Shout_Arcana_Card_Spell_BloodOffering_5 DescriptionParams DealDamage(4d8,Necrotic)
+@set Shout_Arcana_Card_Spell_BloodOffering_5 SpellProperties ApplyStatus(SELF,BLOOD_OFFERING_5,100,1);DealDamage(MaxHP/10,Necrotic,Magical)
+@set Shout_Arcana_Card_Spell_BloodOffering_5 TooltipStatusApply ApplyStatus(BLOOD_OFFERING_5,100,1)
+@set Shout_Arcana_Card_Spell_BloodOffering_6 DescriptionParams DealDamage(5d8,Necrotic)
+@set Shout_Arcana_Card_Spell_BloodOffering_6 SpellProperties ApplyStatus(SELF,BLOOD_OFFERING_6,100,1);DealDamage(MaxHP/10,Necrotic,Magical)
+@set Shout_Arcana_Card_Spell_BloodOffering_6 TooltipStatusApply ApplyStatus(BLOOD_OFFERING_6,100,1)
+
+# Target_Arcana_Card_Spell_Obliterate: 1d8 no nivel 1, +1d8 por nivel
+@set Target_Arcana_Card_Spell_Obliterate DescriptionParams DealDamage(1d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(1d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(1d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_2 DescriptionParams DealDamage(2d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_2 SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(2d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate_2 TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(2d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_3 DescriptionParams DealDamage(3d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_3 SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(3d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate_3 TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(3d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_4 DescriptionParams DealDamage(4d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_4 SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(4d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate_4 TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(4d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_5 DescriptionParams DealDamage(5d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_5 SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(5d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate_5 TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(5d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_6 DescriptionParams DealDamage(6d8,Necrotic)
+@set Target_Arcana_Card_Spell_Obliterate_6 SpellSuccess DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(6d8,Necrotic,Magical);
+@set Target_Arcana_Card_Spell_Obliterate_6 TooltipDamageList DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(6d8,Necrotic)
+
+# Target_Arcana_Card_Spell_Transfusion: 1d6 no nivel 1, +1d6 por nivel
+@set Target_Arcana_Card_Spell_Transfusion DescriptionParams DealDamage(1d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion SpellSuccess DealDamage(1d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion TooltipDamageList DealDamage(1d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_2 DescriptionParams DealDamage(2d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_2 SpellSuccess DealDamage(2d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion_2 TooltipDamageList DealDamage(2d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_3 DescriptionParams DealDamage(3d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_3 SpellSuccess DealDamage(3d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion_3 TooltipDamageList DealDamage(3d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_4 DescriptionParams DealDamage(4d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_4 SpellSuccess DealDamage(4d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion_4 TooltipDamageList DealDamage(4d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_5 DescriptionParams DealDamage(5d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_5 SpellSuccess DealDamage(5d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion_5 TooltipDamageList DealDamage(5d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_6 DescriptionParams DealDamage(6d6,Necrotic)
+@set Target_Arcana_Card_Spell_Transfusion_6 SpellSuccess DealDamage(6d6,Necrotic,Magical);RegainHitPoints(SELF,(DamageDone));
+@set Target_Arcana_Card_Spell_Transfusion_6 TooltipDamageList DealDamage(6d6,Necrotic)

@@ -1,0 +1,66 @@
+# 2026-09-30: reacoes em carta, padronizadas nas duas edicoes.
+#
+# Cada reacao tem um limite de usos por rodada, que e tambem o maximo do seu recurso proprio:
+#   Gale Deflection   3 (o maximo de reacoes do Unbound desperto no Tier III)
+#   Hollow Image      1
+#   Instinctive Charm 1
+# Console (sem SE): 1 carta jogada = 1 carga, acumulando ate o limite. A progressao do nivel 3 (fb53cf40)
+# passou a dar ActionResource(ArcanaReactGaleDeflection,3,0) - editado direto no Progressions.lsx/.tbl.
+# SE: a carta nao e jogada. Segurar a carta na mao = ter a carga; o Lua (Economy/Reactions.lua) liga o
+# status _READY e acerta o recurso, e cada reacao usada descarta uma copia (status *_USED_TECH).
+
+# ---- console: o primeiro "Ready:" do combate zera as sobras (o recurso nao recarrega e comeca cheio)
+@set Shout_Arcana_Card_Passive_GaleDeflection SpellProperties IF(not HasStatus('GALE_DEFLECTION_READY')):UseActionResource(SELF,ArcanaReactGaleDeflection,100%,0);IF(not HasStatus('GALE_DEFLECTION_READY')):ApplyStatus(SELF,GALE_DEFLECTION_READY,100,-1);RestoreResource(SELF,ArcanaReactGaleDeflection,1,0)
+@loca hf77f8e6egab61g4904gb290gb7bc67941ee7 Pull a thread of wind back into your reach. Until combat ends, you gain <LSTag Type="Status" Tooltip="GALE_DEFLECTION_READY">Gale Deflection</LSTag> and one use of it. You can hold up to 3 uses.
+# A carta exige combate e o _READY sai no fim dele: "ate o descanso longo" nunca acontecia
+@loca h5fcbba23g4ed9g4fc2g891eg4b6214a32e28 Hang an empty likeness at your shoulder. Until combat ends, you gain <LSTag Type="Status" Tooltip="HOLLOW_IMAGE_READY">Hollow Image</LSTag> and one use of it.
+@loca hfae5f193gdcc7g46e5g8ec7gbf766b704871 Let the Weave settle over you like a second face. Until combat ends, you gain <LSTag Type="Status" Tooltip="INSTINCTIVE_CHARM_READY">Instinctive Charm</LSTag> and one use of it.
+
+# ---- SE: com o baralho (ARCANA_WEAVING so existe no SE) a carta de reacao nao se joga, se segura
+@set Shout_Arcana_Card_Passive_GaleDeflection RequirementConditions not HasStatus('ARCANA_WEAVING',context.Source) and not (HasStatus('GALE_DEFLECTION_READY',context.Source) and HasActionResource('ArcanaReactGaleDeflection',3,0,false,false,context.Source))
+@set Shout_Arcana_Card_Passive_HollowImage RequirementConditions not HasStatus('ARCANA_WEAVING',context.Source) and not (HasStatus('HOLLOW_IMAGE_READY',context.Source) and HasActionResource('ArcanaReactHollowImage',1,0,false,false,context.Source))
+@set Shout_Arcana_Card_Passive_InstinctiveCharm RequirementConditions not HasStatus('ARCANA_WEAVING',context.Source) and not (HasStatus('INSTINCTIVE_CHARM_READY',context.Source) and HasActionResource('ArcanaReactInstinctiveCharm',1,0,false,false,context.Source))
+
+# ---- cada reacao avisa o Lua que foi usada (no console o status nao faz nada)
+@set Interrupt_Arcana_Reaction_GaleDeflection Properties AdjustRoll(OBSERVER_OBSERVER,-(1d10+DexterityModifier+ClassLevel(Arcana)));ApplyStatus(OBSERVER_TARGET,INTERRUPT_GALE_DEFLECT_MISSILES_HIT,100,1);RestoreResource(ArcanaGaleDeflectReturn,1,0);ApplyStatus(OBSERVER_OBSERVER,GALE_DEFLECTION_USED_TECH,100,0);
+# (EX removido em 2026-10-01, 80_remove_ex.patch) @set Interrupt_Arcana_Reaction_GaleDeflection_EX Properties AdjustRoll(OBSERVER_OBSERVER,-(2d10+DexterityModifier+ClassLevel(Arcana)));ApplyStatus(OBSERVER_TARGET,INTERRUPT_GALE_DEFLECT_MISSILES_HIT,100,1);RestoreResource(ArcanaGaleDeflectReturn,1,0);ApplyStatus(OBSERVER_OBSERVER,GALE_DEFLECTION_USED_TECH,100,0);
+# o EX exigia a carga mas nao a gastava: 1 carta dava usos ilimitados
+# (EX removido em 2026-10-01, 80_remove_ex.patch) @set Interrupt_Arcana_Reaction_GaleDeflection_EX Cost ReactionActionPoint:1;ArcanaReactGaleDeflection:1
+@set Interrupt_Arcana_Reaction_HollowImage Properties SetRoll(1);ApplyStatus(INTERRUPT_HOLLOW_IMAGE,100,0);ApplyStatus(OBSERVER_OBSERVER,HOLLOW_IMAGE_USED_TECH,100,0)
+# (EX removido em 2026-10-01, 80_remove_ex.patch) @set Interrupt_Arcana_Reaction_HollowImage_EX Properties SetRoll(1);ApplyStatus(INTERRUPT_HOLLOW_IMAGE_EX,100,0);ApplyStatus(OBSERVER_SOURCE,SIGIL_TECH,100,0);ApplyStatus(OBSERVER_OBSERVER,HOLLOW_IMAGE_INVISIBLE,100,1);ApplyStatus(OBSERVER_OBSERVER,HOLLOW_IMAGE_USED_TECH,100,0);
+@set Interrupt_Arcana_Reaction_InstinctiveCharm Success Counterspell();UseSpell(OBSERVER_SOURCE,Target_Arcana_Reaction_InstinctiveCharm,true,true,true);IF(HasAnyExtraAttack(context.Source)):ApplyStatus(SELF,EXTRA_ATTACK_Q,100,1);IF(not HasAnyExtraAttack(context.Source)):ApplyStatus(SELF,EXTRA_ATTACK,100,1);ApplyStatus(SELF,INSTINCTIVE_CHARM_FERVOR,100,1);ApplyStatus(OBSERVER_OBSERVER,INSTINCTIVE_CHARM_USED_TECH,100,0);
+@set Interrupt_Arcana_Reaction_InstinctiveCharm Failure ApplyStatus(OBSERVER_SOURCE,INSTINCTIVE_CHARM_UNTARGETABLE, 100, -1);ApplyStatus(OBSERVER_OBSERVER,INSTINCTIVE_CHARM_USED_TECH,100,0)
+
+@file Status_BOOST
+@section ARCANA STATUS
+
+new entry "GALE_DEFLECTION_USED_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hbde3b28fgfb7fg967cgfb95g98b5d38881cf}}"
+data "StackId" "GALE_DEFLECTION_USED_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "HOLLOW_IMAGE_USED_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hbde3b28fgfb7fg967cgfb95g98b5d38881cf}}"
+data "StackId" "HOLLOW_IMAGE_USED_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "INSTINCTIVE_CHARM_USED_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hbde3b28fgfb7fg967cgfb95g98b5d38881cf}}"
+data "StackId" "INSTINCTIVE_CHARM_USED_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+# Empty State: a metade do dano ja vem do Boost; o gasto automatico de reacao a cada dano sofrido saia
+# de graca e comia as reacoes do Gale Deflection e do Wind Riposte.
+@unset Arcana_Passive_EmptyState TooltipUseCosts
+@unset Arcana_Passive_EmptyState StatsFunctorContext
+@unset Arcana_Passive_EmptyState Conditions
+@unset Arcana_Passive_EmptyState StatsFunctors

@@ -1,0 +1,15 @@
+# Os capstones de nivel 20 viram o Tier III. Friends: Faux Amis e Howl of the Dead passam a vir pela
+# lista de nivel 13 (aspect_structure.pl).
+@remove Arcana_Passive_TheFool_EX
+@remove Arcana_Passive_TheFool_EX_Tech
+@remove Arcana_Passive_TheEmpress_EX
+@remove Arcana_Passive_TheEmpress_EX_Tech_I
+@remove Arcana_Passive_TheEmpress_EX_Tech_II
+@remove Arcana_Passive_TheEmpress_EX_Unlock
+@remove Arcana_Passive_TheStar_EX
+@remove Arcana_Passive_TheStar_EX_Tech
+@remove Arcana_Passive_TheStar_EX_Unlock
+@remove Arcana_Passive_Death_EX
+@remove Arcana_Passive_Death_EX_Unlock
+# o voo da The Star agora vem do Tier III (Projectile_Fly_Spell do vanilla)
+@remove Projectile_Arcana_Card_Ability_Fly_TheStarchild
