@@ -1,0 +1,7 @@
+# Git LFS for heavy binaries (spec §12). These types are still listed in .gitignore until ADR-0006
+# confirms the GitHub LFS quota; once un-ignored, they go to LFS automatically.
+*.pak filter=lfs diff=lfs merge=lfs -text
+*.dds filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.wem filter=lfs diff=lfs merge=lfs -text
+/40_ART_AND_UI/**/*.png filter=lfs diff=lfs merge=lfs -text

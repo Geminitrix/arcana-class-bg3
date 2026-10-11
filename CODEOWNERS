@@ -1,0 +1,17 @@
+# Who approves changes in each area. Solo studio: every path is owned by the Owner account.
+# The department director named in each folder's _AGENT.md is the agent-level owner; locally the
+# jt-gate hook enforces the rules this file states on GitHub.
+
+*                               @Geminitrix
+/00_GOVERNANCE/                 @Geminitrix
+/05_LIVE_CONTEXT/               @Geminitrix
+/10_PRODUCTION/                 @Geminitrix
+/20_GAME_DESIGN/                @Geminitrix
+/30_NARRATIVE_AND_LORE/         @Geminitrix
+/40_ART_AND_UI/                 @Geminitrix
+/50_ENGINEERING/                @Geminitrix
+/60_QA_AND_TESTING/             @Geminitrix
+/70_RELEASE_AND_DISTRIBUTION/   @Geminitrix
+/80_TOOLS_AND_PIPELINE/         @Geminitrix
+/90_ARCHIVE/                    @Geminitrix
+/.claude/                       @Geminitrix

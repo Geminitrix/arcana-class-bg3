@@ -1,37 +1,64 @@
 # ==========================================
-# Arcana Class (BG3) — private project repository
+# Lumox Studios · Arcana Class — private repository
 # ==========================================
-# Tracked: the knowledge base (Context/), design documents (Design/ text), technical docs (Docs/),
-# tools, the mod mirror (mod/), the player guides (Wiki/, Codex/), publishing texts and CLAUDE.md.
-# Not tracked: heavy art, backups, the archive and scratch.
+# Tracked: all authored material (docs, master data, specs, tickets, context, GDD, lore, glossary),
+# the synchronized copy of the mod (51), scripts (82) and .claude/ (except local files).
+# Not tracked: Larian content, regenerable output, machine files, secrets, and — until ADR-0006
+# opens Git LFS after a quota check — every heavy binary (.pak, .dds, .psd, art folders).
 
-# --- Heavy art and publishing images ---
-/Design/art/
-/Publishing/images/
-/Publishing/posters/
-/Publishing/feedback/
+# --- Pre-migration copy (same files are in git history) and art still to migrate ---
+/_LEGACY/
+/Art Design/
 
-# --- Safety copies and dead material ---
-/Backups/
-/_archive/
+# --- Larian content: local only (spec §12, §32.4) ---
+/30_NARRATIVE_AND_LORE/31_Arcana_Lore/31.04_Vanilla_Loca_Reference/*
+!/30_NARRATIVE_AND_LORE/31_Arcana_Lore/31.04_Vanilla_Loca_Reference/.gitkeep
+/50_ENGINEERING/56_Vanilla_Code_Reference/*/*
+!/50_ENGINEERING/56_Vanilla_Code_Reference/*/.gitkeep
+/70_RELEASE_AND_DISTRIBUTION/76_Patch_Notes/76.01_Published_Baseline/**/extracted/
+
+# --- Third-party asset references: local only ---
+/40_ART_AND_UI/41_Art_Direction/41.02_References/*
+!/40_ART_AND_UI/41_Art_Direction/41.02_References/.gitkeep
+
+# --- Regenerable output ---
+/50_ENGINEERING/53_Build_and_Versioning/53.04_Build_Output/*
+!/50_ENGINEERING/53_Build_and_Versioning/53.04_Build_Output/.gitkeep
+Generated/
+node_modules/
+dist/
+
+# --- Safety copies ---
+/90_ARCHIVE/94_Safety_Backups/*
+!/90_ARCHIVE/94_Safety_Backups/.gitkeep
+!/90_ARCHIVE/94_Safety_Backups/_INDEX.md
+!/90_ARCHIVE/94_Safety_Backups/_AGENT.md
 *.bak
 *.bak-*
 *.orig
 
-# --- Scratch ---
-/.superpowers/
-/.claude/
-
-# --- Game packed builds & binary assets ---
+# --- Heavy binaries: wait for ADR-0006 (Git LFS) ---
 *.pak
-*.gr2
 *.dds
+*.psd
+*.gr2
 *.wem
 *.bin
+*.xlsx
 
-# --- OS & editor cache ---
+# --- Machine / tool files ---
+/.claude/settings.local.json
+/.claude/.superpowers/
+/.superpowers/
+/.tmp.driveupload/
 .obsidian/
 Thumbs.db
 desktop.ini
 .DS_Store
-node_modules/
+*.log
+
+# --- Secrets: never ---
+.env
+*.key
+*.pem
+/secrets/
