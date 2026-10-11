@@ -30,7 +30,8 @@ progression → class/subclass → localization → icon.
 
 ## 01 · <Type> `<internal entry>`
 
-- **File:** `Public/AspectClass_…/Stats/Generated/Data/<file>.txt`
+- **Files:** `Public/AspectClass_…/Stats/Generated/Data/<file>.txt` + its editor twin `Editor/Mods/AspectClass_…/Stats/…/<file>.stats`
+  (LSX tables: `Public/…/*.lsx` + `Editor/Mods/…/*.tbl`) — both change together
 - **Inherits (`using`):** — / `<parent entry>`
 - **Vanilla anchor:** `<entry>` in `<vanilla file>` (grounding, spec §32.1)
 

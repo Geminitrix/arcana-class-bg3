@@ -10,4 +10,4 @@
   3. Same output, check 3 → no line `Deceiver level 20`.
   4. `git diff --stat 50_ENGINEERING/51_Mod_Source` → only the Deceiver progression file(s) changed.
   5. `grep -c 'new entry "Arcana_Passive_UnlockFriends"'` in `Passive.txt` → `1`.
-- **Result:** _pending_
+- **Result (2026-10-11): PASS 5/5** — 0 validator errors; no "Deceiver level 20" in the expansion list; diff = 1 line removed in `Progressions.lsx` and 1 in `Progressions.tbl`; `Arcana_Passive_UnlockFriends` still defined; both files parse as XML.

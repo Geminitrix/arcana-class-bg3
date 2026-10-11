@@ -25,6 +25,10 @@ origin (`25` id) table, vanilla anchor, approved text, and how to verify in game
   a published entry.
 - `implementation: owner` → after the Owner implements: `sync_data`, validators, compare item by item with
   the spec, open bugs in `62` — never fix on your own.
+- Change the ticket field (`implementation: claude`) in its own step **before** touching the game files — the hook
+  checks the ticket at the moment of each write.
+- Outside the Toolkit, every table has two copies (`Public/…/*.lsx` + `Editor/Mods/…/*.tbl`; Stats `.txt` + `.stats`):
+  change both, back them up first in `94_Safety_Backups/ARC-####_<date>/`.
 - `implementation: claude` → one layer at a time, each with the verification command and its result; then
   `sync_data`, commit (ticket id first), handoff to the Context Keeper.
 - Osiris: the Owner compiles in the Story Editor; you read `Story/log.txt` after.

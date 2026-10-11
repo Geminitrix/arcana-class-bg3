@@ -1,7 +1,7 @@
 # Migration Plan — Lumox Studios Repository Architecture
 
-*Stage A ✔ 2026-10-11 (dd3e297) · Stage B ✔ · Stage C ✔ · Stage D ✔ 2026-10-11 — see MIGRATION_MANIFEST.md · Source spec: "Arcana Class Studio — Arquitetura de
-Repositório e Fluxo Ágil" v0.4 · Status: **approved by the Owners**; next stage E (Sprint 0).*
+*Stage A ✔ 2026-10-11 (dd3e297) · Stage B ✔ · Stage C ✔ · Stage D ✔ · Stage E ✔ 2026-10-11 (ARC-0001) — MIGRATION COMPLETE — see MIGRATION_MANIFEST.md · Source spec: "Arcana Class Studio — Arquitetura de
+Repositório e Fluxo Ágil" v0.4 · Status: **approved by the Owners**; Sprint 0 running.*
 
 Decisions already given in chat: root = `C:\Lumox Studios\Arcana Class`; **full** structure (all
 categories, all `_INDEX.md`/`_AGENT.md`); **English** folder and file names; Git = commit + push to

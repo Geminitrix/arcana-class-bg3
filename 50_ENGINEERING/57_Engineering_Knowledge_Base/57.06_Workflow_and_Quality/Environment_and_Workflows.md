@@ -39,6 +39,10 @@ There is no in-Toolkit script editor. Author files externally, then reload.
   `story_orphanqueries_found.txt` lists the same thing. Compiling needs the Toolkit open, so the cycle is:
   edit with `[fechado]` → the Owner compiles → next message `[aberto]` → read `log.txt`.
 - **LSX data** (Progressions, ClassDescriptions, Lists, Levelmaps) → the Toolkit's **UUID Object Editor**.
+- **Two copies of every table.** The Toolkit keeps what the game reads in `Public/<Mod>/…/*.lsx` **and** what its
+  editor shows in `Editor/Mods/<Mod>/…/*.tbl` (Stats: `Editor/Mods/<Mod>/Stats/…/*.stats`). An edit made outside the
+  Toolkit must change **both**, or the next Toolkit save restores the old value. A field the Toolkit leaves empty is
+  simply absent in both files. (Learned in ARC-0001, 2026-10-11.)
 
 ## 3. Environment gotchas
 

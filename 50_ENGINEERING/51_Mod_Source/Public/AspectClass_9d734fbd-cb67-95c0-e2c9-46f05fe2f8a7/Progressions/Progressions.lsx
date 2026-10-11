@@ -579,7 +579,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="20"/>
                     <attribute id="Name" type="LSString" value="Deceiver"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_UnlockFriends"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
                     <attribute id="UUID" type="guid" value="2c4887f9-d4f8-4a95-974c-519643440029"/>

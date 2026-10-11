@@ -68,7 +68,7 @@
 | 4 | Arcane Recovery | Cooldown is `OncePerRest` (Long Rest); the patch notes say "once per Short Rest" |
 | 5 | `DefaultValues/Passives.lsx` | Default familiar is `ArcaneFamiliar_Cat`; the passive is now `Arcana_Passive_ArcaneFamiliar_Cat` |
 | 6 | Eternal L17 | `PassivesRemoved: Arcana_Passive_Unbroken` — Unbroken is now a card; the removal does nothing |
-| 7 | Deceiver L20 | `PassivesRemoved: Arcana_Passive_UnlockFriends` — harmless since 2026-10-07: Friends now comes from the list "Deceiver Level 1"; the row can go |
+| 7 | Deceiver L20 | ✅ Resolved 2026-10-11 by ARC-0001 — the dead `PassivesRemoved: Arcana_Passive_UnlockFriends` was removed (LSX + editor table) |
 | 8 | Spell list `87872209-…` | Named "Unboung Level 7" (typo) |
 | 9 | Lua `CardDB.CostOf` | Returns 0 for cantrips; `ARCANA_WEAVING` charges 1 Thread. Only previews (`!arcanahand`) are off |
 | 11 | `LevelMapValues` | `Starbreath_Heal` has no values for 13–20 (Starbreath now scales by slot; the series may be unused) |

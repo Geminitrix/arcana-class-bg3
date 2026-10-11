@@ -1,8 +1,8 @@
 ---
 id: SPEC_ARC-0001
 ticket: ARC-0001
-status: ready
-implementation: owner
+status: verified
+implementation: claude
 author: Mod Engineer
 updated: 2026-10-11
 ---

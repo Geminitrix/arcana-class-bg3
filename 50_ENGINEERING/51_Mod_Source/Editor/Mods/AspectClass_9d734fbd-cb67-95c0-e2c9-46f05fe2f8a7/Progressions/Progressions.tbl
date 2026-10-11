@@ -715,7 +715,6 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Deceiver" />
         <field name="Level" type="ByteTableFieldDefinition" value="20" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
-        <field name="PassivesRemoved" type="StringTableFieldDefinition" value="Arcana_Passive_UnlockFriends" />
       </fields>
     </stat_object>
     <stat_object color="#FF000000" is_substat="false">

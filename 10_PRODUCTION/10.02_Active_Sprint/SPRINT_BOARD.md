@@ -8,13 +8,13 @@
 ## In Progress (0)
 
 
-## Spec Ready (1)
+## Spec Ready (0)
 
-- **ARC-0001** Remove the dead PassivesRemoved at Deceiver level 20
 
 ## In QA (0)
 
 
-## Done (0)
+## Done (1)
 
+- **ARC-0001** Remove the dead PassivesRemoved at Deceiver level 20
 
