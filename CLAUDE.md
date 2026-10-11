@@ -20,8 +20,9 @@ Aspect** in combat. Casts with **Woven Spell Slots**; the PC edition (Script Ext
    `50_ENGINEERING/51_Mod_Source/` is a synchronized **copy**, filled only by `sync_data`.
    The folder name and the `ARCANA_` / `Arcana_` / `<Type>_Arcana_Card_*` prefixes are fixed (ADR-0002).
 2. **Game/Toolkit gate.** Every task message starts with `[fechado]` (game and Toolkit closed) or
-   `[aberto]`; no tag = open; the tag covers that message only. Without `[fechado]`, mod files are
-   read-only — hand over copy-paste blocks. The `jt-gate` hook enforces it; never work around it.
+   `[aberto]`; no tag = open; the tag covers that message only. Writing the game copy of the mod needs
+   `[fechado]` **and** a ticket named in the message with `implementation: claude`; otherwise hand over
+   copy-paste blocks or a spec. The `jt-gate` hook enforces both (ADR-0007); never work around it.
 3. **Implementation on demand** (00.07). The team delivers specs (`55`); code is written in `51`/Data
    only when the Owner asks and the ticket says `implementation: claude`.
 4. **Two editions.** PC edition = Script Extender (Lua only manages the deck). Console edition = no SE.
@@ -51,4 +52,5 @@ that ships is in **English** (the master spec in `00.01` stays in Portuguese).
 | Paths, Toolkit workflows, environment gotchas, Divine recipes | `57.06_Workflow_and_Quality/Environment_and_Workflows.md` |
 | Tickets, sprint, board | `10.01_Product_Backlog`, `10.02_Active_Sprint` |
 | Decisions | `00.04_Decisions_ADR` |
+| Agents, slash commands, hook | `.claude/` — registry in `00.05_Agent_Registry`; commands: `/novo-ticket` `/iniciar-sprint` `/handoff` `/fechar-ticket` `/retro` `/sync-contexto` `/patch-notes` `/commit-e-push` (load when the session starts in this folder) |
 | Migration status (until Stage E) | `00.04_Decisions_ADR/MIGRATION_PLAN.md` |

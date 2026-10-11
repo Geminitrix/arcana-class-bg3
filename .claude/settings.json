@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(perl 80_TOOLS_AND_PIPELINE/82_Automation/*)",
+      "Bash(bash 80_TOOLS_AND_PIPELINE/82_Automation/*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)"
+    ]
+  }
+}

@@ -50,7 +50,7 @@ New here? Read `CLAUDE.md`, `AGENTS.md`, then `05_LIVE_CONTEXT/05.00_READ_FIRST.
 
 ## Migration status
 
-Stages A (skeleton), B (copy migration, live context) and C (standards, knowledge cards) done on 2026-10-11. Next: Stage D (agents and automation) —
+Stages A (skeleton), B (copy migration, live context), C (standards) and D (agents, commands, hook, scripts) done on 2026-10-11. Next: Stage E (Sprint 0 pilot) —
 see `00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`.
 
 ## Credits & disclaimer

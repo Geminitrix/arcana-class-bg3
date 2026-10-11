@@ -20,3 +20,8 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | `stats/*.pl` | Stats helpers: `stats_add` (patch files), `gen_upcast_variants`, `sort_stats`, `check_cards`, `subclass_texts`, `gen_emotion_alchemy` |
 | `gen_type_catalog.pl` | Vanilla extraction + schema → `55.00_Type_Catalog.md` (spell / status subtypes with vanilla examples) |
 | `verify_context.pl` | Every spell / passive a progression grants must appear in its `05` file; every id in a `05` file must exist. Matches by id or in-game name — features described under another name show up as false positives, so read the list |
+| `update_board.pl` | Tickets → `10.01/BACKLOG.md` and `10.02/SPRINT_BOARD.md` |
+| `check_readme.pl` | README version and subclass states vs `05.00` (run by `/commit-e-push`) |
+| `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
+| `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |
+| `compare_versions.pl` | Two versions → markdown diff: Stats entries (field `old ⇒ new`), English texts, other files (feeds `76.02`) |
