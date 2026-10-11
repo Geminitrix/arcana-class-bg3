@@ -14,5 +14,7 @@ The Toolkit's four numbers, `Major.Minor.Revision.Build`:
 
 Published today: **3.1.0.28** (first patch-notes baseline). Patch notes carry the first three numbers.
 
-## To verify
-How the Toolkit writes the version into `meta.lsx` and mod.io — confirm before the first 4.0 build.
+## Verified 2026-10-11
+The Toolkit writes the version into `meta.lsx` as one integer, `Version64`: major = v >> 55, minor = (v >> 47) & 0xFF,
+revision = (v >> 31) & 0xFFFF, build = v & 0x7FFFFFFF. The published `.pak` decodes to 3.1.0.28; the working copy in
+Data is 3.1.0.44 (details in `76.01_Published_Baseline/v3.1.0.28/BASELINE.md`).

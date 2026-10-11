@@ -33,7 +33,9 @@ my ($lo, $ln) = (loca($OLD), loca($NEW));
 my $name = sub { my ($e, $s) = @_; my $h = $s->{$e}{DisplayName} // ''; $h =~ s/;\d+$//; my $n = $ln->{$h} // $lo->{$h} // ''; $n =~ s/&lt;[^&]*?&gt;//g; $n ? " ($n)" : '' };
 
 my $o = "# Version diff\n\n- Old: `$OLD`\n- New: `$NEW`\n\n## Stats entries\n";
-my %types; $types{ $sn->{$_}{_type} || $so->{$_}{_type} }++ for (keys %$so, keys %$sn);
+my %types;   # read without autovivifying entries of the other version
+$types{ $so->{$_}{_type} }++ for keys %$so;
+$types{ $sn->{$_}{_type} }++ for keys %$sn;
 my ($na, $nr, $nc) = (0, 0, 0);
 for my $t (sort keys %types) {
   my @add = sort grep { !$so->{$_} && $sn->{$_}{_type} eq $t } keys %$sn;

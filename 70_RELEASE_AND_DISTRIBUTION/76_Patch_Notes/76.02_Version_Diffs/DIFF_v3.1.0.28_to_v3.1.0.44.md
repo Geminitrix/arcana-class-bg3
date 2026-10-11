@@ -1,0 +1,1675 @@
+# Version diff
+
+- Old: `70_RELEASE_AND_DISTRIBUTION/76_Patch_Notes/76.01_Published_Baseline/v3.1.0.28/extracted`
+- New: `50_ENGINEERING/51_Mod_Source`
+
+**Summary:** Stats: 799 new, 282 removed, 56 changed · texts: 534/32/78 · files: 167/86/51
+
+## Stats entries
+
+### Armor
+
+- NEW `ARCANA_ARM_Heavy_Everheart`
+- NEW `ARCANA_CC_ARM_Heavy_Eternal`
+- NEW `ARCANA_CC_ARM_Robe_Deceiver`
+- NEW `ARCANA_CC_ARM_Robe_Starchild`
+- NEW `ARCANA_CC_ARM_Robe_Unbound`
+- NEW `ARCANA_EQP_Amulet_Moonstone`
+- NEW `ARCANA_EQP_Ring_Communion`
+- NEW `BOON ITEMS`
+- REMOVED `IND_ARM_Heavy_Everheart`
+- REMOVED `IND_CC_EQP_Heavy_Eternal`
+- REMOVED `IND_CC_EQP_Robe_Deceiver`
+- REMOVED `IND_CC_EQP_Robe_Starchild`
+- REMOVED `IND_CC_EQP_Robe_Unbound`
+- REMOVED `IND_EQP_Amulet_Moonstone`
+- REMOVED `IND_EQP_Ring_Communion`
+- REMOVED `NEW ITEMS`
+
+### Character
+
+- CHANGED `Clone_1`
+    - `ActionResources`: ActionPoint:1;BonusActionPoint:1;Movement:9;ReactionActionPoint:1 ⇒ **ActionPoint:1;Movement:9**
+    - `Armor`: 10 ⇒ **11**
+    - `DefaultBoosts`: ProficiencyBonus(Skill,Insight);ProficiencyBonus(Skill,Stealth);ProficiencyBonus(Skill,Perception);ProficiencyBonus(Skill,Deception);ProficiencyBonus(Skill,Investigation);BlockRegainHP(Undead;Construct); ⇒ **ProficiencyBonus(Skill,Insight);ProficiencyBonus(Skill,Stealth);ProficiencyBonus(Skill,Perception);ProficiencyBonus(Skill,Deception);ProficiencyBonus(Skill,Investigation);BlockRegainHP(Undead;Construct;Living);**
+    - `DifficultyStatuses`: STATUS_EASY: HEALTHREDUCTION_EASYMODE; STATUS_HARD: HEALTHBOOST_HARDCORE ⇒ **—**
+    - `Passives`: AttackOfOpportunity;DarknessRules ⇒ **Arcana_Passive_DoubleOfTheVeil;DarknessRules**
+    - `Vitality`: 8 ⇒ **1**
+
+### InterruptData
+
+- NEW `AWAKEN INTERRUPTS`
+- NEW `DECEIVER INTERRUPTS`
+- NEW `Interrupt_Arcana_Aspect_FoolsLuck` (Fool's Luck)
+- NEW `Interrupt_Arcana_Aspect_WhichOne` (Which One?)
+- NEW `Interrupt_Arcana_Reaction_GaleDeflection` (Gale Deflection)
+- NEW `Interrupt_Arcana_Reaction_GaleDeflection_Return` (Gale Deflection: Redirect)
+- NEW `Interrupt_Arcana_WindWhispers_Riposte` (Wind Riposte)
+- NEW `UNBOUND INTERRUPTS`
+- REMOVED `IND_Interrupt_InstinctiveCharm` (Instinctive Charm)
+- REMOVED `Interrupt_GaleDeflectMissiles` (Gale Deflection)
+- REMOVED `Interrupt_GaleDeflectMissiles_EX` (Tempest Riposte)
+- REMOVED `Interrupt_GaleDeflectMissiles_EX_Return` (Tempest Riposte: Redirect)
+- REMOVED `Interrupt_GaleDeflectMissiles_Return` (Gale Deflection: Redirect)
+- REMOVED `Interrupt_HollowImage` (Hollow Image)
+- REMOVED `Interrupt_HollowImage_EX` (Hollow Image: Final Veil)
+
+### PassiveData
+
+- NEW `AWAKEN PASSIVES`
+- NEW `Arcana_Passive_ArcaneAvatar` (Arcane Avatar)
+- NEW `Arcana_Passive_ArcaneFamiliar_Cat` (Arcane Familiar: Cat)
+- NEW `Arcana_Passive_ArcaneFamiliar_Crab` (Arcane Familiar: Crab)
+- NEW `Arcana_Passive_ArcaneFamiliar_Dog` (Arcane Familiar: Dog)
+- NEW `Arcana_Passive_ArcaneFamiliar_Frog` (Arcane Familiar: Frog)
+- NEW `Arcana_Passive_ArcaneFamiliar_Rat` (Arcane Familiar: Rat)
+- NEW `Arcana_Passive_ArcaneFamiliar_Raven` (Arcane Familiar: Raven)
+- NEW `Arcana_Passive_ArcaneFamiliar_Spider` (Arcane Familiar: Spider)
+- NEW `Arcana_Passive_ArcaneMastery` (Arcane Mastery)
+- NEW `Arcana_Passive_ArcaneOverflow` (Arcane Overflow)
+- NEW `Arcana_Passive_ArcaneVeil` (Arcane Veil)
+- NEW `Arcana_Passive_Aspect_Death_Awakened_III` (Aspect of Sorrow)
+- NEW `Arcana_Passive_Aspect_Death_Awakening` (13 - Death: Awakening)
+- NEW `Arcana_Passive_Aspect_Death_I` (Sorrow)
+- NEW `Arcana_Passive_Aspect_Death_II` (Mourning)
+- NEW `Arcana_Passive_Aspect_Death_III` (Aspect of Sorrow)
+- NEW `Arcana_Passive_Aspect_Empress_Awakened_III` (Aspect of Doubt)
+- NEW `Arcana_Passive_Aspect_Empress_Awakened_III_Damage` (Aspect of Doubt)
+- NEW `Arcana_Passive_Aspect_Empress_Awakening` (2 - The High Priestess: Awakening)
+- NEW `Arcana_Passive_Aspect_Empress_I` (Veiled)
+- NEW `Arcana_Passive_Aspect_Empress_II` (Two Pillars)
+- NEW `Arcana_Passive_Aspect_Empress_III` (Aspect of Doubt)
+- NEW `Arcana_Passive_Aspect_Fool_Awakened_I` (Wanderlust)
+- NEW `Arcana_Passive_Aspect_Fool_Awakened_II` (Restless Wind)
+- NEW `Arcana_Passive_Aspect_Fool_Awakened_III` (Aspect of Curiosity)
+- NEW `Arcana_Passive_Aspect_Fool_Awakening` (0 - The Fool: Awakening)
+- NEW `Arcana_Passive_Aspect_Fool_I` (Wanderlust)
+- NEW `Arcana_Passive_Aspect_Fool_II` (Restless Wind)
+- NEW `Arcana_Passive_Aspect_Fool_III` (Aspect of Curiosity)
+- NEW `Arcana_Passive_Aspect_Star_Awakened_Heal` (Beacon)
+- NEW `Arcana_Passive_Aspect_Star_Awakened_III` (Aspect of Hope)
+- NEW `Arcana_Passive_Aspect_Star_Awakening` (17 - The Star: Awakening)
+- NEW `Arcana_Passive_Aspect_Star_I` (Beacon)
+- NEW `Arcana_Passive_Aspect_Star_II` (Sunrise)
+- NEW `Arcana_Passive_Aspect_Star_III` (Aspect of Hope)
+- NEW `Arcana_Passive_BetheLeaf` (Be the Leaf)
+- NEW `Arcana_Passive_ComplexFeelings` (Complex Feelings)
+- NEW `Arcana_Passive_DoubleOfTheVeil` (Double of the Veil)
+- NEW `Arcana_Passive_Doubt` (Doubt)
+- NEW `Arcana_Passive_EmotionalAlchemy` (Emotional Alchemy)
+- NEW `Arcana_Passive_EmpathicSight` (Empathic Sight)
+- NEW `Arcana_Passive_EmptyState` (Empty State)
+- NEW `Arcana_Passive_Equip_BastionbreakerDamage` (Bastionbreaker's Bonus Damage)
+- NEW `Arcana_Passive_Equip_BastionbreakerVitality` (Bastionbreaker's Vitality)
+- NEW `Arcana_Passive_Equip_CommunionBuff` (Communion)
+- NEW `Arcana_Passive_Equip_EverheartVitality` (Everheart's Vitality)
+- NEW `Arcana_Passive_Equip_MoonstoneHeal` (Moonstone's Healing)
+- NEW `Arcana_Passive_EyeOfTheStorm`
+- NEW `Arcana_Passive_EyeOfTheStorm_UI` (Eye of the Storm)
+- NEW `Arcana_Passive_FeelingMorbidness` (Morbidness)
+- NEW `Arcana_Passive_FeelingRemorse` (Remorse)
+- NEW `Arcana_Passive_FlowingAssault` (Flowing Assault)
+- NEW `Arcana_Passive_FlowingStrikeZephyr` (Flowing Strikes: Zephyr)
+- NEW `Arcana_Passive_FlowingStrikesAgility` (Flowing Strikes: Agility)
+- NEW `Arcana_Passive_FlowingStrikesPrecision` (Flowing Strikes: Precision)
+- NEW `Arcana_Passive_GaleDeflection` (Gale Deflection)
+- NEW `Arcana_Passive_ImmortalBlood` (Immortal Blood)
+- NEW `Arcana_Passive_LunarWisp` (Lunar Wisp)
+- NEW `Arcana_Passive_MagicStrikes` (Magic Strikes)
+- NEW `Arcana_Passive_MirroredCharm` (Mirrored Self)
+- NEW `Arcana_Passive_MixedFeelings` (Mixed Feelings)
+- NEW `Arcana_Passive_Momentum`
+- NEW `Arcana_Passive_Momentum_UI` (Momentum)
+- NEW `Arcana_Passive_Overwhelm` (Overwhelm)
+- NEW `Arcana_Passive_Star_Moonlit` (Moonlit)
+- NEW `Arcana_Passive_Star_Moonlit_II` (Moonlit)
+- NEW `Arcana_Passive_Star_Sunlit` (Sunlit)
+- NEW `Arcana_Passive_Star_Sunlit_II` (Sunlit)
+- NEW `Arcana_Passive_StellarAnchor` (Stellar Anchor)
+- NEW `Arcana_Passive_Telepathy` (Telepathy)
+- NEW `Arcana_Passive_TheVeil` (The Veil)
+- NEW `Arcana_Passive_Thunderclap` (Thunderclap)
+- NEW `Arcana_Passive_TwinkleToes_1` (Twinkle Toes)
+- NEW `Arcana_Passive_TwinkleToes_11`
+- NEW `Arcana_Passive_TwinkleToes_12`
+- NEW `Arcana_Passive_TwinkleToes_13`
+- NEW `Arcana_Passive_TwinkleToes_15`
+- NEW `Arcana_Passive_TwinkleToes_17`
+- NEW `Arcana_Passive_TwinkleToes_19`
+- NEW `Arcana_Passive_TwinkleToes_20`
+- NEW `Arcana_Passive_TwinkleToes_3`
+- NEW `Arcana_Passive_TwinkleToes_5`
+- NEW `Arcana_Passive_TwinkleToes_7`
+- NEW `Arcana_Passive_TwinkleToes_9`
+- NEW `Arcana_Passive_TwoTruths` (Two Truths)
+- NEW `Arcana_Passive_Unbroken` (Unbroken)
+- NEW `Arcana_Passive_UnlockFriends` (Friends)
+- NEW `Arcana_Passive_Unveil` (Unveil)
+- NEW `Arcana_Passive_VeilCap4` (The Veil: Four Doubles)
+- NEW `Arcana_Passive_VeilCap5` (The Veil: Five Doubles)
+- NEW `Arcana_Passive_Weightless_11`
+- NEW `Arcana_Passive_Weightless_12`
+- NEW `Arcana_Passive_Weightless_5` (Feather Fall)
+- NEW `Arcana_Passive_Weightless_7`
+- NEW `Arcana_Passive_Weightless_9`
+- NEW `Arcana_Passive_WhichOne` (Which One?)
+- NEW `RESONANT PASSIVES`
+- REMOVED `ArcaneAvatar` (Arcane Avatar)
+- REMOVED `ArcaneFamiliar_Cat` (Arcane Familiar: Cat)
+- REMOVED `ArcaneFamiliar_Crab` (Arcane Familiar: Crab)
+- REMOVED `ArcaneFamiliar_Dog` (Arcane Familiar: Dog)
+- REMOVED `ArcaneFamiliar_Frog` (Arcane Familiar: Frog)
+- REMOVED `ArcaneFamiliar_Rat` (Arcane Familiar: Rat)
+- REMOVED `ArcaneFamiliar_Raven` (Arcane Familiar: Raven)
+- REMOVED `ArcaneFamiliar_Spider` (Arcane Familiar: Spider)
+- REMOVED `ArcaneMastery` (Arcane Mastery)
+- REMOVED `ArcaneOverflow` (Arcane Overflow)
+- REMOVED `ArcaneShards` (Arcane Shards)
+- REMOVED `ArcaneShards_Remove` (Arcane Shards Removed)
+- REMOVED `ArcaneSpells_Deceiver` (Arcane Spells: The Deceiver)
+- REMOVED `ArcaneSpells_Eternal` (Arcane Spells: The Eternal)
+- REMOVED `ArcaneSpells_Starchild` (Arcane Spells: The Starchild)
+- REMOVED `ArcaneSpells_Unbound` (Arcane Spells: The Unbound)
+- REMOVED `ArcaneVeil` (Arcane Veil)
+- REMOVED `BastionbreakerDamage` (Bastionbreaker's Bonus Damage)
+- REMOVED `BastionbreakerVitality` (Bastionbreaker's Vitality)
+- REMOVED `BetheLeaf` (Be the Leaf)
+- REMOVED `CommunionBuff` (Communion)
+- REMOVED `DarknessRise` (Darkness Rise)
+- REMOVED `Death_EX` (13 - Death)
+- REMOVED `Death_EX_Unlock` (13 - Death)
+- REMOVED `EX SPELLS GLOW`
+- REMOVED `EmptyState` (Empty State)
+- REMOVED `EverheartVitality` (Everheart's Vitality)
+- REMOVED `EyeOfTheStorm`
+- REMOVED `EyeOfTheStorm_UI` (Eye of the Storm)
+- REMOVED `FlowingAssault` (Flowing Assault)
+- REMOVED `FlowingStrikeZephyr` (Flowing Strikes: Zephyr)
+- REMOVED `FlowingStrikesAgility` (Flowing Strikes: Agility)
+- REMOVED `FlowingStrikesPrecision` (Flowing Strikes: Precision)
+- REMOVED `GaleDeflectMissiles` (Gale Deflection)
+- REMOVED `GaleDeflectMissiles_EX` (Gale Deflection: Tempest Riposte)
+- REMOVED `Hemoplague_EX` (Hemoplague: Brain Eater)
+- REMOVED `HollowImage` (Hollow Image)
+- REMOVED `HollowImage_EX` (Hollow Image: Final Veil)
+- REMOVED `IND_AstralFortitude_EX_Glow`
+- REMOVED `IND_DeathsGrasp_EX_Glow`
+- REMOVED `IND_EvasiveFlow_EX_Glow` (%%% EMPTY)
+- REMOVED `IND_Faceless_Copy_EX_Glow`
+- REMOVED `IND_FlowState_EX_Glow`
+- REMOVED `IND_GaleDeflectMissiles_EX_Glow`
+- REMOVED `IND_Hemoplague_EX_Glow`
+- REMOVED `IND_HostileTakeover_EX_Glow`
+- REMOVED `IND_HowlOfTheDead_EX_Glow`
+- REMOVED `IND_InstinctiveCharm` (Instinctive Charm)
+- REMOVED `IND_LunarAegis_EX_Glow`
+- REMOVED `IND_MirrorImage_EX_Glow`
+- REMOVED `IND_RealmOfDeath_EX_Glow`
+- REMOVED `IND_StarRadiance_EX_Glow`
+- REMOVED `IND_Starcall_EX_Glow`
+- REMOVED `IND_StormFists_EX_Glow`
+- REMOVED `IND_Transfusion_EX_Glow`
+- REMOVED `ImmortalBlood` (Immortal Blood)
+- REMOVED `LunarWisp` (Lunar Wisp)
+- REMOVED `MagicStrikes` (Magic Strikes)
+- REMOVED `MirroredCharm` (Mirrored Self)
+- REMOVED `MirroredSpell` (Mirrored Spell)
+- REMOVED `Momentum`
+- REMOVED `Momentum_UI` (Momentum)
+- REMOVED `MoonstoneHeal` (Moonstone's Healing)
+- REMOVED `Nemesis_Owner` (Nemesis Target)
+- REMOVED `Nemesis_Target` (Nemesis Target)
+- REMOVED `StarRadiance_EX` (Star Radiance EX)
+- REMOVED `StellarAnchor` (Stellar Anchor)
+- REMOVED `Telepathy` (Telepathy)
+- REMOVED `TheEmpress_EX` (3 - The Empress)
+- REMOVED `TheEmpress_EX_Tech_I` (3 - The Empress)
+- REMOVED `TheEmpress_EX_Tech_II` (3 - The Empress)
+- REMOVED `TheEmpress_EX_Unlock` (3 - The Empress)
+- REMOVED `TheFool_EX` (0 - The Fool)
+- REMOVED `TheFool_EX_Tech` (0 - The Fool)
+- REMOVED `TheStar_EX` (17 - The Star)
+- REMOVED `TheStar_EX_Tech` (17 - The Star)
+- REMOVED `TheStar_EX_Unlock` (17 - The Star)
+- REMOVED `Thunderclap` (Thunderclap)
+- REMOVED `TwinkleToes_1` (Twinkle Toes)
+- REMOVED `TwinkleToes_11`
+- REMOVED `TwinkleToes_12`
+- REMOVED `TwinkleToes_13`
+- REMOVED `TwinkleToes_15`
+- REMOVED `TwinkleToes_17`
+- REMOVED `TwinkleToes_19`
+- REMOVED `TwinkleToes_20`
+- REMOVED `TwinkleToes_3`
+- REMOVED `TwinkleToes_5`
+- REMOVED `TwinkleToes_7`
+- REMOVED `TwinkleToes_9`
+- REMOVED `Unbroken` (Unbroken)
+- REMOVED `Unbroken_EX` (Unbroken: Physical Resilience)
+- REMOVED `UnlockFriends` (Friends)
+- REMOVED `Weightless_11`
+- REMOVED `Weightless_12`
+- REMOVED `Weightless_5` (Feather Fall)
+- REMOVED `Weightless_7`
+- REMOVED `Weightless_9`
+
+### SpellData
+
+- NEW `Projectile_Arcana_Card_Ability_Fly_Untethered`
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice` (Sigil of Malice)
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice_2`
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice_3`
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice_4`
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice_5`
+- NEW `Projectile_Arcana_Card_Spell_SigilofMalice_6`
+- NEW `Projectile_Arcana_Card_Spell_Starcall` (Starcall)
+- NEW `Projectile_Arcana_Card_Spell_Starcall_2`
+- NEW `Projectile_Arcana_Card_Spell_Starcall_3`
+- NEW `Projectile_Arcana_Card_Spell_Starcall_4`
+- NEW `Projectile_Arcana_Card_Spell_Starcall_5`
+- NEW `Projectile_Arcana_Card_Spell_Starcall_6`
+- NEW `Projectile_Arcana_Created_MimicSigilofMalice` (Mimic: Sigil of Malice)
+- NEW `Projectile_Arcana_Created_MimicSigilofMalice_4`
+- NEW `Projectile_Arcana_Created_MimicSigilofMalice_5`
+- NEW `Projectile_Arcana_Created_MimicSigilofMalice_6`
+- NEW `Projectile_Arcana_Distortion_Explosion`
+- NEW `Projectile_Arcana_Distortion_Explosion_4`
+- NEW `Projectile_Arcana_Distortion_Explosion_5`
+- NEW `Projectile_Arcana_Distortion_Explosion_6`
+- NEW `Projectile_Arcana_Equip_Moonstone` (Moonstone's Healing)
+- NEW `Projectile_Arcana_MimicDistortion_Explosion`
+- NEW `Projectile_Arcana_MimicDistortion_Explosion_3`
+- NEW `Projectile_Arcana_MimicDistortion_Explosion_4`
+- NEW `Projectile_Arcana_MimicDistortion_Explosion_5`
+- NEW `Projectile_Arcana_MimicDistortion_Explosion_6`
+- NEW `Projectile_Arcana_Reaction_GaleDeflection` (Gale Deflection: Redirect)
+- NEW `Projectile_DEBUG SPELLS`
+- NEW `Projectile_DEBUG_SigilofMalice`
+- NEW `Projectile_DEBUG_Starcall`
+- NEW `Projectile_Deceiver_Double_MirrorSigil` (Mirror: Sigil of Malice)
+- NEW `Projectile_Deceiver_Double_MirrorSigil_Slot3`
+- NEW `Projectile_Deceiver_Double_MirrorSigil_Slot4`
+- NEW `Projectile_Deceiver_Double_MirrorSigil_Slot5`
+- NEW `Projectile_Deceiver_Double_MirrorSigil_Slot6`
+- NEW `Rush_AWAKEN SPELLS`
+- NEW `Rush_Arcana_Created_Aspect_LeapOfFaith` (Leap of Faith)
+- NEW `Shout_AWAKEN SPELLS`
+- NEW `Shout_Arcana_Card_Ability_Untethered` (Untethered)
+- NEW `Shout_Arcana_Card_Ability_Untethered_6`
+- NEW `Shout_Arcana_Card_Passive_GaleDeflection` (Ready: Gale Deflection)
+- NEW `Shout_Arcana_Card_Passive_GaleDeflection_3`
+- NEW `Shout_Arcana_Card_Passive_GaleDeflection_4`
+- NEW `Shout_Arcana_Card_Passive_GaleDeflection_5`
+- NEW `Shout_Arcana_Card_Passive_GaleDeflection_6`
+- NEW `Shout_Arcana_Card_Passive_ImmortalBlood` (Immortal Blood)
+- NEW `Shout_Arcana_Card_Passive_ImmortalBlood_3`
+- NEW `Shout_Arcana_Card_Passive_ImmortalBlood_4`
+- NEW `Shout_Arcana_Card_Passive_ImmortalBlood_5`
+- NEW `Shout_Arcana_Card_Passive_ImmortalBlood_6`
+- NEW `Shout_Arcana_Card_Passive_InescapableDestruction`
+- NEW `Shout_Arcana_Card_Passive_InescapableDestruction_3`
+- NEW `Shout_Arcana_Card_Passive_InescapableDestruction_4`
+- NEW `Shout_Arcana_Card_Passive_InescapableDestruction_5`
+- NEW `Shout_Arcana_Card_Passive_InescapableDestruction_6`
+- NEW `Shout_Arcana_Card_Passive_InuredToUndeath`
+- NEW `Shout_Arcana_Card_Passive_InuredToUndeath_6`
+- NEW `Shout_Arcana_Card_Passive_LunarWisp` (Lunar Wisp)
+- NEW `Shout_Arcana_Card_Passive_LunarWisp_2`
+- NEW `Shout_Arcana_Card_Passive_LunarWisp_3`
+- NEW `Shout_Arcana_Card_Passive_LunarWisp_4`
+- NEW `Shout_Arcana_Card_Passive_LunarWisp_5`
+- NEW `Shout_Arcana_Card_Passive_LunarWisp_6`
+- NEW `Shout_Arcana_Card_Passive_MirroredCharm` (Mirrored Self)
+- NEW `Shout_Arcana_Card_Passive_MirroredCharm_6`
+- NEW `Shout_Arcana_Card_Passive_MirroredSpell` (Mirrored Spell)
+- NEW `Shout_Arcana_Card_Passive_MirroredSpell_6`
+- NEW `Shout_Arcana_Card_Passive_Unbroken` (Unbroken)
+- NEW `Shout_Arcana_Card_Passive_Unbroken_5`
+- NEW `Shout_Arcana_Card_Passive_Unbroken_6`
+- NEW `Shout_Arcana_Card_Passive_WhichOne` (Ready: Which One?)
+- NEW `Shout_Arcana_Card_Passive_WhichOne_4`
+- NEW `Shout_Arcana_Card_Passive_WhichOne_5`
+- NEW `Shout_Arcana_Card_Passive_WhichOne_6`
+- NEW `Shout_Arcana_Card_Spell_AstralFortitude` (Astral Fortitude)
+- NEW `Shout_Arcana_Card_Spell_AstralFortitude_6`
+- NEW `Shout_Arcana_Card_Spell_BloodOffering` (Blood Offering)
+- NEW `Shout_Arcana_Card_Spell_BloodOffering_4`
+- NEW `Shout_Arcana_Card_Spell_BloodOffering_5`
+- NEW `Shout_Arcana_Card_Spell_BloodOffering_6`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated` ([DEBUG] Fated Card)
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated_2`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated_3`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated_4`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated_5`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fated_6`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting` ([DEBUG] Fleeting Card)
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting_2`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting_3`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting_4`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting_5`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Fleeting_6`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler` ([DEBUG] Tangler Card)
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler_2`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler_3`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler_4`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler_5`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Tangler_6`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique` ([DEBUG] Unique Card)
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique_2`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique_3`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique_4`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique_5`
+- NEW `Shout_Arcana_Card_Spell_DEBUG_Unique_6`
+- NEW `Shout_Arcana_Card_Spell_DeathsAspect` (Death's Aspect)
+- NEW `Shout_Arcana_Card_Spell_DeathsAspect_5`
+- NEW `Shout_Arcana_Card_Spell_DeathsAspect_6`
+- NEW `Shout_Arcana_Card_Spell_EvasiveFlow` (Evasive Flow)
+- NEW `Shout_Arcana_Card_Spell_EvasiveFlow_5`
+- NEW `Shout_Arcana_Card_Spell_EvasiveFlow_6`
+- NEW `Shout_Arcana_Card_Spell_FlowState` (Flow State)
+- NEW `Shout_Arcana_Card_Spell_FlowState_3`
+- NEW `Shout_Arcana_Card_Spell_FlowState_4`
+- NEW `Shout_Arcana_Card_Spell_FlowState_5`
+- NEW `Shout_Arcana_Card_Spell_FlowState_6`
+- NEW `Shout_Arcana_Card_Spell_GrandDeception` (Grand Deception)
+- NEW `Shout_Arcana_Card_Spell_GrandDeception_6`
+- NEW `Shout_Arcana_Card_Spell_HowlOfTheDead` (Howl of the Dead)
+- NEW `Shout_Arcana_Card_Spell_Indestructible` (Indestructible)
+- NEW `Shout_Arcana_Card_Spell_Indestructible_3`
+- NEW `Shout_Arcana_Card_Spell_Indestructible_4`
+- NEW `Shout_Arcana_Card_Spell_Indestructible_5`
+- NEW `Shout_Arcana_Card_Spell_Indestructible_6`
+- NEW `Shout_Arcana_Card_Spell_StarRadiance` (Star Radiance)
+- NEW `Shout_Arcana_Card_Spell_StarRadiance_4`
+- NEW `Shout_Arcana_Card_Spell_StarRadiance_5`
+- NEW `Shout_Arcana_Card_Spell_StarRadiance_6`
+- NEW `Shout_Arcana_Card_Spell_StellarGrace` (Stellar Grace)
+- NEW `Shout_Arcana_Card_Spell_StormFists` (Storm Fists)
+- NEW `Shout_Arcana_Card_Spell_StormFists_5`
+- NEW `Shout_Arcana_Card_Spell_StormFists_6`
+- NEW `Shout_Arcana_Card_Spell_Thunderclap` (Thunderclap)
+- NEW `Shout_Arcana_Card_Spell_Thunderclap_6`
+- NEW `Shout_Arcana_Card_Spell_WindWhispers` (Wind Whispers)
+- NEW `Shout_Arcana_Card_Spell_WindWhispers_4`
+- NEW `Shout_Arcana_Card_Spell_WindWhispers_5`
+- NEW `Shout_Arcana_Card_Spell_WindWhispers_6`
+- NEW `Shout_Arcana_Card_Spell_Wish` (Wish)
+- NEW `Shout_Arcana_Card_Spell_Wish_5`
+- NEW `Shout_Arcana_Card_Spell_Wish_6`
+- NEW `Shout_Arcana_Created_Aspect_VeilLifts` (The Veil Lifts)
+- NEW `Shout_Arcana_Created_Aspect_WishUponAStar` (Wish Upon a Star)
+- NEW `Shout_Arcana_Created_MimicWithdraw` (Mimic: Withdraw)
+- NEW `Shout_Arcana_Created_Reweave` (Reweave)
+- NEW `Shout_Arcana_Created_Tangle_DEBUG` ([DEBUG] Tangle)
+- NEW `Shout_Arcana_Created_Withdraw` (Withdraw)
+- NEW `Shout_Arcana_Created_Withdraw_3`
+- NEW `Shout_Arcana_Created_Withdraw_4`
+- NEW `Shout_Arcana_Created_Withdraw_5`
+- NEW `Shout_Arcana_Created_Withdraw_6`
+- NEW `Shout_Arcana_Util_ArcaneRecovery` (Arcane Recovery)
+- NEW `Shout_Arcana_Util_ComprehendArt` (Weave Knowledge: Art)
+- NEW `Shout_Arcana_Util_ComprehendArt_2`
+- NEW `Shout_Arcana_Util_ComprehendArt_3`
+- NEW `Shout_Arcana_Util_ComprehendArt_4`
+- NEW `Shout_Arcana_Util_ComprehendArt_5`
+- NEW `Shout_Arcana_Util_ComprehendArt_6`
+- NEW `Shout_Arcana_Util_ComprehendHistory` (Weave Knowledge: History)
+- NEW `Shout_Arcana_Util_ComprehendHistory_2`
+- NEW `Shout_Arcana_Util_ComprehendHistory_3`
+- NEW `Shout_Arcana_Util_ComprehendHistory_4`
+- NEW `Shout_Arcana_Util_ComprehendHistory_5`
+- NEW `Shout_Arcana_Util_ComprehendHistory_6`
+- NEW `Shout_Arcana_Util_ComprehendMedicine` (Weave Knowledge: Medicine)
+- NEW `Shout_Arcana_Util_ComprehendMedicine_2`
+- NEW `Shout_Arcana_Util_ComprehendMedicine_3`
+- NEW `Shout_Arcana_Util_ComprehendMedicine_4`
+- NEW `Shout_Arcana_Util_ComprehendMedicine_5`
+- NEW `Shout_Arcana_Util_ComprehendMedicine_6`
+- NEW `Shout_Arcana_Util_ComprehendMind` (Weave Knowledge: Mind)
+- NEW `Shout_Arcana_Util_ComprehendMind_2`
+- NEW `Shout_Arcana_Util_ComprehendMind_3`
+- NEW `Shout_Arcana_Util_ComprehendMind_4`
+- NEW `Shout_Arcana_Util_ComprehendMind_5`
+- NEW `Shout_Arcana_Util_ComprehendMind_6`
+- NEW `Shout_Arcana_Util_ComprehendMistery` (Weave Knowledge: Mistery)
+- NEW `Shout_Arcana_Util_ComprehendMistery_2`
+- NEW `Shout_Arcana_Util_ComprehendMistery_3`
+- NEW `Shout_Arcana_Util_ComprehendMistery_4`
+- NEW `Shout_Arcana_Util_ComprehendMistery_5`
+- NEW `Shout_Arcana_Util_ComprehendMistery_6`
+- NEW `Shout_Arcana_Util_ComprehendNature` (Weave Knowledge: Nature)
+- NEW `Shout_Arcana_Util_ComprehendNature_2`
+- NEW `Shout_Arcana_Util_ComprehendNature_3`
+- NEW `Shout_Arcana_Util_ComprehendNature_4`
+- NEW `Shout_Arcana_Util_ComprehendNature_5`
+- NEW `Shout_Arcana_Util_ComprehendNature_6`
+- NEW `Shout_Arcana_Util_ComprehendRobbery` (Weave Knowledge: Robbery)
+- NEW `Shout_Arcana_Util_ComprehendRobbery_2`
+- NEW `Shout_Arcana_Util_ComprehendRobbery_3`
+- NEW `Shout_Arcana_Util_ComprehendRobbery_4`
+- NEW `Shout_Arcana_Util_ComprehendRobbery_5`
+- NEW `Shout_Arcana_Util_ComprehendRobbery_6`
+- NEW `Shout_Arcana_Util_ComprehendSupernatural` (Weave Knowledge: Supernatural)
+- NEW `Shout_Arcana_Util_ComprehendSupernatural_2`
+- NEW `Shout_Arcana_Util_ComprehendSupernatural_3`
+- NEW `Shout_Arcana_Util_ComprehendSupernatural_4`
+- NEW `Shout_Arcana_Util_ComprehendSupernatural_5`
+- NEW `Shout_Arcana_Util_ComprehendSupernatural_6`
+- NEW `Shout_Arcana_Util_DEBUG_Resonant` ([DEBUG] Resonant Passives)
+- NEW `Shout_Arcana_Util_Faceless` (Faceless)
+- NEW `Shout_Arcana_Util_Faceless_Cancel` (Faceless: Revert)
+- NEW `Shout_Arcana_Util_Faceless_Dragonborn_Female` (Faceless: Femme Dragonborn)
+- NEW `Shout_Arcana_Util_Faceless_Dragonborn_Male` (Faceless: Masc Dragonborn)
+- NEW `Shout_Arcana_Util_Faceless_Drow_Female` (Faceless: Femme Drow)
+- NEW `Shout_Arcana_Util_Faceless_Drow_Male` (Faceless: Masc Drow)
+- NEW `Shout_Arcana_Util_Faceless_Drow_Strong_Female` (Faceless: Femme Strong Drow)
+- NEW `Shout_Arcana_Util_Faceless_Drow_Strong_Male` (Faceless: Masc Strong Drow)
+- NEW `Shout_Arcana_Util_Faceless_Dwarf_Female` (Faceless: Femme Dwarf)
+- NEW `Shout_Arcana_Util_Faceless_Dwarf_Male` (Faceless: Masc Dwarf)
+- NEW `Shout_Arcana_Util_Faceless_Elf_Female` (Faceless: Femme Elf)
+- NEW `Shout_Arcana_Util_Faceless_Elf_Male` (Faceless: Masc Elf)
+- NEW `Shout_Arcana_Util_Faceless_Elf_Strong_Female` (Faceless: Femme Strong Elf)
+- NEW `Shout_Arcana_Util_Faceless_Elf_Strong_Male` (Faceless: Masc Strong Elf)
+- NEW `Shout_Arcana_Util_Faceless_Githyanki_Female` (Faceless: Femme Githyanki)
+- NEW `Shout_Arcana_Util_Faceless_Githyanki_Male` (Faceless: Masc Githyanki)
+- NEW `Shout_Arcana_Util_Faceless_Gnome_Female` (Faceless: Femme Gnome)
+- NEW `Shout_Arcana_Util_Faceless_Gnome_Male` (Faceless: Masc Gnome)
+- NEW `Shout_Arcana_Util_Faceless_HalfElf_Female` (Faceless: Femme Half-Elf)
+- NEW `Shout_Arcana_Util_Faceless_HalfElf_Male` (Faceless: Masc Half-Elf)
+- NEW `Shout_Arcana_Util_Faceless_HalfElf_Strong_Female` (Faceless: Femme Strong Half-Elf)
+- NEW `Shout_Arcana_Util_Faceless_HalfElf_Strong_Male` (Faceless: Masc Strong Half-Elf)
+- NEW `Shout_Arcana_Util_Faceless_HalfOrc_Female` (Faceless: Femme Half-Orc)
+- NEW `Shout_Arcana_Util_Faceless_HalfOrc_Male` (Faceless: Masc Half-Orc)
+- NEW `Shout_Arcana_Util_Faceless_Halfling_Female` (Faceless: Femme Halfling)
+- NEW `Shout_Arcana_Util_Faceless_Halfling_Male` (Faceless: Masc Halfling)
+- NEW `Shout_Arcana_Util_Faceless_Human_Female` (Faceless: Femme Human)
+- NEW `Shout_Arcana_Util_Faceless_Human_Male` (Faceless: Masc Human)
+- NEW `Shout_Arcana_Util_Faceless_Human_Strong_Female` (Faceless: Femme Strong Human)
+- NEW `Shout_Arcana_Util_Faceless_Human_Strong_Male` (Faceless: Masc Strong Human)
+- NEW `Shout_Arcana_Util_Faceless_Tiefling_Female` (Faceless: Femme Tiefling)
+- NEW `Shout_Arcana_Util_Faceless_Tiefling_Male` (Faceless: Masc Tiefling)
+- NEW `Shout_Arcana_Util_Faceless_Tiefling_Strong_Female` (Faceless: Femme Strong Tiefling)
+- NEW `Shout_Arcana_Util_Faceless_Tiefling_Strong_Male` (Faceless: Masc Strong Tiefling)
+- NEW `Shout_Arcana_Util_ProduceFlame` (Weaver Hand: Flame)
+- NEW `Shout_Arcana_Util_ThirdEye` (Third Eye)
+- NEW `Shout_DEBUG SPELLS`
+- NEW `Shout_DEBUG_BloodOffering`
+- NEW `Shout_Deceiver_Clone_Dismiss`
+- NEW `Shout_Deceiver_Double_Shatter` (Shatter)
+- NEW `Target_AWAKEN SPELLS`
+- NEW `Target_Arcana_Card_Spell_AstralInfusion` (Astral Infusion)
+- NEW `Target_Arcana_Card_Spell_AstralInfusion_2`
+- NEW `Target_Arcana_Card_Spell_AstralInfusion_3`
+- NEW `Target_Arcana_Card_Spell_AstralInfusion_4`
+- NEW `Target_Arcana_Card_Spell_AstralInfusion_5`
+- NEW `Target_Arcana_Card_Spell_AstralInfusion_6`
+- NEW `Target_Arcana_Card_Spell_BladeWard` (Weaver Hand: Protect)
+- NEW `Target_Arcana_Card_Spell_BloodReaper` (Blood Reaper)
+- NEW `Target_Arcana_Card_Spell_BloodReaper_2`
+- NEW `Target_Arcana_Card_Spell_BloodReaper_3`
+- NEW `Target_Arcana_Card_Spell_BloodReaper_4`
+- NEW `Target_Arcana_Card_Spell_BloodReaper_5`
+- NEW `Target_Arcana_Card_Spell_BloodReaper_6`
+- NEW `Target_Arcana_Card_Spell_ChillTouch` (Weaver Hand: Chill)
+- NEW `Target_Arcana_Card_Spell_ChillTouch_2`
+- NEW `Target_Arcana_Card_Spell_ChillTouch_3`
+- NEW `Target_Arcana_Card_Spell_ChillTouch_4`
+- NEW `Target_Arcana_Card_Spell_ChillTouch_5`
+- NEW `Target_Arcana_Card_Spell_ChillTouch_6`
+- NEW `Target_Arcana_Card_Spell_Command` (Weaver Hand: Command)
+- NEW `Target_Arcana_Card_Spell_Command_2`
+- NEW `Target_Arcana_Card_Spell_Command_3`
+- NEW `Target_Arcana_Card_Spell_Command_4`
+- NEW `Target_Arcana_Card_Spell_Command_5`
+- NEW `Target_Arcana_Card_Spell_Command_6`
+- NEW `Target_Arcana_Card_Spell_DeathWard` (Death Ward)
+- NEW `Target_Arcana_Card_Spell_DeathWard_4`
+- NEW `Target_Arcana_Card_Spell_DeathWard_5`
+- NEW `Target_Arcana_Card_Spell_DeathWard_6`
+- NEW `Target_Arcana_Card_Spell_DeathsGrasp` (Death's Grasp)
+- NEW `Target_Arcana_Card_Spell_DeathsGrasp_3`
+- NEW `Target_Arcana_Card_Spell_DeathsGrasp_4`
+- NEW `Target_Arcana_Card_Spell_DeathsGrasp_5`
+- NEW `Target_Arcana_Card_Spell_DeathsGrasp_6`
+- NEW `Target_Arcana_Card_Spell_Distortion` (Distortion)
+- NEW `Target_Arcana_Card_Spell_Distortion_4`
+- NEW `Target_Arcana_Card_Spell_Distortion_5`
+- NEW `Target_Arcana_Card_Spell_Distortion_6`
+- NEW `Target_Arcana_Card_Spell_EmotionAnger` (Weave Surge: Anger)
+- NEW `Target_Arcana_Card_Spell_EmotionAnger_2`
+- NEW `Target_Arcana_Card_Spell_EmotionAnger_3`
+- NEW `Target_Arcana_Card_Spell_EmotionAnger_4`
+- NEW `Target_Arcana_Card_Spell_EmotionAnger_5`
+- NEW `Target_Arcana_Card_Spell_EmotionAnger_6`
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation` (Weave Surge: Anticipation)
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation_2`
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation_3`
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation_4`
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation_5`
+- NEW `Target_Arcana_Card_Spell_EmotionAnticipation_6`
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust` (Weave Surge: Disgust)
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust_2`
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust_3`
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust_4`
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust_5`
+- NEW `Target_Arcana_Card_Spell_EmotionDisgust_6`
+- NEW `Target_Arcana_Card_Spell_EmotionFear` (Weave Surge: Fear)
+- NEW `Target_Arcana_Card_Spell_EmotionFear_2`
+- NEW `Target_Arcana_Card_Spell_EmotionFear_3`
+- NEW `Target_Arcana_Card_Spell_EmotionFear_4`
+- NEW `Target_Arcana_Card_Spell_EmotionFear_5`
+- NEW `Target_Arcana_Card_Spell_EmotionFear_6`
+- NEW `Target_Arcana_Card_Spell_EmotionJoy` (Weave Surge: Joy)
+- NEW `Target_Arcana_Card_Spell_EmotionJoy_2`
+- NEW `Target_Arcana_Card_Spell_EmotionJoy_3`
+- NEW `Target_Arcana_Card_Spell_EmotionJoy_4`
+- NEW `Target_Arcana_Card_Spell_EmotionJoy_5`
+- NEW `Target_Arcana_Card_Spell_EmotionJoy_6`
+- NEW `Target_Arcana_Card_Spell_EmotionSadness` (Weave Surge: Sadness)
+- NEW `Target_Arcana_Card_Spell_EmotionSadness_2`
+- NEW `Target_Arcana_Card_Spell_EmotionSadness_3`
+- NEW `Target_Arcana_Card_Spell_EmotionSadness_4`
+- NEW `Target_Arcana_Card_Spell_EmotionSadness_5`
+- NEW `Target_Arcana_Card_Spell_EmotionSadness_6`
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise` (Weave Surge: Surprise)
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise_2`
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise_3`
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise_4`
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise_5`
+- NEW `Target_Arcana_Card_Spell_EmotionSurprise_6`
+- NEW `Target_Arcana_Card_Spell_EmotionTrust` (Weave Surge: Trust)
+- NEW `Target_Arcana_Card_Spell_EmotionTrust_2`
+- NEW `Target_Arcana_Card_Spell_EmotionTrust_3`
+- NEW `Target_Arcana_Card_Spell_EmotionTrust_4`
+- NEW `Target_Arcana_Card_Spell_EmotionTrust_5`
+- NEW `Target_Arcana_Card_Spell_EmotionTrust_6`
+- NEW `Target_Arcana_Card_Spell_Enlarge` (Weaver Hand: Transmute)
+- NEW `Target_Arcana_Card_Spell_Equinox` (Equinox)
+- NEW `Target_Arcana_Card_Spell_Equinox_6`
+- NEW `Target_Arcana_Card_Spell_EtherealChains` (Ethereal Chains)
+- NEW `Target_Arcana_Card_Spell_EtherealChains_3`
+- NEW `Target_Arcana_Card_Spell_EtherealChains_4`
+- NEW `Target_Arcana_Card_Spell_EtherealChains_5`
+- NEW `Target_Arcana_Card_Spell_EtherealChains_6`
+- NEW `Target_Arcana_Card_Spell_GaleBurst` (Gale Burst)
+- NEW `Target_Arcana_Card_Spell_GaleBurst_2`
+- NEW `Target_Arcana_Card_Spell_GaleBurst_3`
+- NEW `Target_Arcana_Card_Spell_GaleBurst_4`
+- NEW `Target_Arcana_Card_Spell_GaleBurst_5`
+- NEW `Target_Arcana_Card_Spell_GaleBurst_6`
+- NEW `Target_Arcana_Card_Spell_Hemoplague` (Hemoplague)
+- NEW `Target_Arcana_Card_Spell_Hemoplague_5`
+- NEW `Target_Arcana_Card_Spell_Hemoplague_6`
+- NEW `Target_Arcana_Card_Spell_Hemorrhage` (Hemorrhage)
+- NEW `Target_Arcana_Card_Spell_LucentSingularity` (Lucent Singularity)
+- NEW `Target_Arcana_Card_Spell_LucentSingularity_4`
+- NEW `Target_Arcana_Card_Spell_LucentSingularity_5`
+- NEW `Target_Arcana_Card_Spell_LucentSingularity_6`
+- NEW `Target_Arcana_Card_Spell_LunarAegis` (Lunar Aegis)
+- NEW `Target_Arcana_Card_Spell_LunarAegis_3`
+- NEW `Target_Arcana_Card_Spell_LunarAegis_4`
+- NEW `Target_Arcana_Card_Spell_LunarAegis_5`
+- NEW `Target_Arcana_Card_Spell_LunarAegis_6`
+- NEW `Target_Arcana_Card_Spell_MaliciousWhispers` (Malicious Whispers)
+- NEW `Target_Arcana_Card_Spell_Marionette` (Marionette)
+- NEW `Target_Arcana_Card_Spell_Marionette_6`
+- NEW `Target_Arcana_Card_Spell_MirrorImage` (Mirror Image)
+- NEW `Target_Arcana_Card_Spell_MirrorImage_2`
+- NEW `Target_Arcana_Card_Spell_MirrorImage_3`
+- NEW `Target_Arcana_Card_Spell_MirrorImage_4`
+- NEW `Target_Arcana_Card_Spell_MirrorImage_5`
+- NEW `Target_Arcana_Card_Spell_MirrorImage_6`
+- NEW `Target_Arcana_Card_Spell_MoonGravity` (Moon Gravity)
+- NEW `Target_Arcana_Card_Spell_MoonGravity_5`
+- NEW `Target_Arcana_Card_Spell_MoonGravity_6`
+- NEW `Target_Arcana_Card_Spell_Obliterate` (Obliterate)
+- NEW `Target_Arcana_Card_Spell_Obliterate_2`
+- NEW `Target_Arcana_Card_Spell_Obliterate_3`
+- NEW `Target_Arcana_Card_Spell_Obliterate_4`
+- NEW `Target_Arcana_Card_Spell_Obliterate_5`
+- NEW `Target_Arcana_Card_Spell_Obliterate_6`
+- NEW `Target_Arcana_Card_Spell_RealmOfDeath` (Realm of Death)
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp` (Weaver Hand: Electrify)
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp_2`
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp_3`
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp_4`
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp_5`
+- NEW `Target_Arcana_Card_Spell_ShockingGrasp_6`
+- NEW `Target_Arcana_Card_Spell_SolarFlare` (Solar Flare)
+- NEW `Target_Arcana_Card_Spell_SolarPurge` (Solar Purge)
+- NEW `Target_Arcana_Card_Spell_SolarPurge_3`
+- NEW `Target_Arcana_Card_Spell_SolarPurge_4`
+- NEW `Target_Arcana_Card_Spell_SolarPurge_5`
+- NEW `Target_Arcana_Card_Spell_SolarPurge_6`
+- NEW `Target_Arcana_Card_Spell_Transfusion` (Transfusion)
+- NEW `Target_Arcana_Card_Spell_Transfusion_2`
+- NEW `Target_Arcana_Card_Spell_Transfusion_3`
+- NEW `Target_Arcana_Card_Spell_Transfusion_4`
+- NEW `Target_Arcana_Card_Spell_Transfusion_5`
+- NEW `Target_Arcana_Card_Spell_Transfusion_6`
+- NEW `Target_Arcana_Card_Spell_VeiledPrison` (Veiled Prison)
+- NEW `Target_Arcana_Card_Spell_VeiledPrison_3`
+- NEW `Target_Arcana_Card_Spell_VeiledPrison_4`
+- NEW `Target_Arcana_Card_Spell_VeiledPrison_5`
+- NEW `Target_Arcana_Card_Spell_VeiledPrison_6`
+- NEW `Target_Arcana_Created_Aspect_FinalToll` (The Final Toll)
+- NEW `Target_Arcana_Created_Command_Approach` (Weaver Hand: Approach)
+- NEW `Target_Arcana_Created_Command_Approach_2`
+- NEW `Target_Arcana_Created_Command_Approach_3`
+- NEW `Target_Arcana_Created_Command_Approach_4`
+- NEW `Target_Arcana_Created_Command_Approach_5`
+- NEW `Target_Arcana_Created_Command_Approach_6`
+- NEW `Target_Arcana_Created_Command_Drop` (Weaver Hand: Drop)
+- NEW `Target_Arcana_Created_Command_Drop_2`
+- NEW `Target_Arcana_Created_Command_Drop_3`
+- NEW `Target_Arcana_Created_Command_Drop_4`
+- NEW `Target_Arcana_Created_Command_Drop_5`
+- NEW `Target_Arcana_Created_Command_Drop_6`
+- NEW `Target_Arcana_Created_Command_Flee` (Weaver Hand: Flee)
+- NEW `Target_Arcana_Created_Command_Flee_2`
+- NEW `Target_Arcana_Created_Command_Flee_3`
+- NEW `Target_Arcana_Created_Command_Flee_4`
+- NEW `Target_Arcana_Created_Command_Flee_5`
+- NEW `Target_Arcana_Created_Command_Flee_6`
+- NEW `Target_Arcana_Created_Command_Grovel` (Weaver Hand: Grovel)
+- NEW `Target_Arcana_Created_Command_Grovel_2`
+- NEW `Target_Arcana_Created_Command_Grovel_3`
+- NEW `Target_Arcana_Created_Command_Grovel_4`
+- NEW `Target_Arcana_Created_Command_Grovel_5`
+- NEW `Target_Arcana_Created_Command_Grovel_6`
+- NEW `Target_Arcana_Created_Command_Halt` (Weaver Hand: Halt)
+- NEW `Target_Arcana_Created_Command_Halt_2`
+- NEW `Target_Arcana_Created_Command_Halt_3`
+- NEW `Target_Arcana_Created_Command_Halt_4`
+- NEW `Target_Arcana_Created_Command_Halt_5`
+- NEW `Target_Arcana_Created_Command_Halt_6`
+- NEW `Target_Arcana_Created_Hemoplague_BlindingSickness` (Hemoplague: Blinding Sickness)
+- NEW `Target_Arcana_Created_Hemoplague_BlindingSickness_5`
+- NEW `Target_Arcana_Created_Hemoplague_BlindingSickness_6`
+- NEW `Target_Arcana_Created_Hemoplague_FilthFever` (Hemoplague: Filth Fever)
+- NEW `Target_Arcana_Created_Hemoplague_FilthFever_5`
+- NEW `Target_Arcana_Created_Hemoplague_FilthFever_6`
+- NEW `Target_Arcana_Created_Hemoplague_FleshRot` (Hemoplague: Flesh Rot)
+- NEW `Target_Arcana_Created_Hemoplague_FleshRot_5`
+- NEW `Target_Arcana_Created_Hemoplague_FleshRot_6`
+- NEW `Target_Arcana_Created_Hemoplague_Mindfire` (Hemoplague: Mindfire)
+- NEW `Target_Arcana_Created_Hemoplague_Mindfire_5`
+- NEW `Target_Arcana_Created_Hemoplague_Mindfire_6`
+- NEW `Target_Arcana_Created_Hemoplague_Seizure` (Hemoplague: Seizure)
+- NEW `Target_Arcana_Created_Hemoplague_Seizure_5`
+- NEW `Target_Arcana_Created_Hemoplague_Seizure_6`
+- NEW `Target_Arcana_Created_Hemoplague_SlimyDoom` (Hemoplague: Slimy Doom)
+- NEW `Target_Arcana_Created_Hemoplague_SlimyDoom_5`
+- NEW `Target_Arcana_Created_Hemoplague_SlimyDoom_6`
+- NEW `Target_Arcana_Created_Mimic` (Mimic)
+- NEW `Target_Arcana_Created_MimicDistortion` (Mimic: Distortion)
+- NEW `Target_Arcana_Created_MimicDistortion_4`
+- NEW `Target_Arcana_Created_MimicDistortion_5`
+- NEW `Target_Arcana_Created_MimicDistortion_6`
+- NEW `Target_Arcana_Created_MimicEtherealChains` (Mimic: Ethereal Chains)
+- NEW `Target_Arcana_Created_MimicEtherealChains_4`
+- NEW `Target_Arcana_Created_MimicEtherealChains_5`
+- NEW `Target_Arcana_Created_MimicEtherealChains_6`
+- NEW `Target_Arcana_Created_ZephyrStrike` (Zephyr Strike)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Cat` (Arcane Familiar: Cat)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Crab` (Arcane Familiar: Crab)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Dog` (Arcane Familiar: Dog)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Frog` (Arcane Familiar: Frog)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Rat` (Arcane Familiar: Rat)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Raven` (Arcane Familiar: Raven)
+- NEW `Target_Arcana_Util_ArcaneFamiliar_Spider` (Arcane Familiar: Spider)
+- NEW `Target_Arcana_Util_ArcaneLock` (Arcane Lock)
+- NEW `Target_Arcana_Util_ArcaneUnlock` (Arcane Unlock)
+- NEW `Target_Arcana_Util_DEBUG_AddDoubt` ([DEBUG] Add Doubt)
+- NEW `Target_Arcana_Util_DeadWhispers` (Dead Whispers)
+- NEW `Target_Arcana_Util_DispelMagic` (Dispel Magic)
+- NEW `Target_Arcana_Util_Faceless_Copy` (Faceless: Copy)
+- NEW `Target_Arcana_Util_Friends` (Friends)
+- NEW `Target_Arcana_Util_Friends_2`
+- NEW `Target_Arcana_Util_Friends_3`
+- NEW `Target_Arcana_Util_Friends_4`
+- NEW `Target_Arcana_Util_Friends_5`
+- NEW `Target_Arcana_Util_Friends_6`
+- NEW `Target_Arcana_Util_Guidance` (Weaver Hand: Guide)
+- NEW `Target_Arcana_Util_Guidance_2`
+- NEW `Target_Arcana_Util_Guidance_3`
+- NEW `Target_Arcana_Util_Guidance_4`
+- NEW `Target_Arcana_Util_Guidance_5`
+- NEW `Target_Arcana_Util_Guidance_6`
+- NEW `Target_Arcana_Util_MageHand` (Weaver Hand: Summon)
+- NEW `Target_Arcana_Util_SealWounds` (Weave Knowledge: Medicine)
+- NEW `Target_Arcana_Util_ThirdEyeProjection` (Third Eye: Projection)
+- NEW `Target_Arcana_WindRiposte` (Wind Riposte)
+- NEW `Target_DEBUG_AstralInfusion`
+- NEW `Target_DEBUG_Obliterate`
+- NEW `Target_Deceiver_Double_MirrorChains` (Mirror: Ethereal Chains)
+- NEW `Target_Deceiver_Double_MirrorChains_Slot3`
+- NEW `Target_Deceiver_Double_MirrorChains_Slot4`
+- NEW `Target_Deceiver_Double_MirrorChains_Slot5`
+- NEW `Target_Deceiver_Double_MirrorChains_Slot6`
+- NEW `Target_Deceiver_Double_Unveil` (Unveil)
+- NEW `Target_RESONANT SPELLS`
+- NEW `Teleportation_Arcana_Card_Spell_Starbreath` (Starbreath)
+- NEW `Teleportation_Arcana_Card_Spell_Starbreath_4`
+- NEW `Teleportation_Arcana_Card_Spell_Starbreath_5`
+- NEW `Teleportation_Arcana_Card_Spell_Starbreath_6`
+- NEW `Teleportation_Arcana_Util_ArcaneGate` (Arcane Gate)
+- NEW `Zone_ARCANA SPELLS`
+- NEW `Zone_Arcana_Card_Spell_BurningHands` (Weaver Hand: Burn)
+- NEW `Zone_Arcana_Card_Spell_BurningHands_2`
+- NEW `Zone_Arcana_Card_Spell_BurningHands_3`
+- NEW `Zone_Arcana_Card_Spell_BurningHands_4`
+- NEW `Zone_Arcana_Card_Spell_BurningHands_5`
+- NEW `Zone_Arcana_Card_Spell_BurningHands_6`
+- NEW `Zone_Arcana_Card_Spell_ColorSpray` (Weaver Hand: Blind)
+- NEW `Zone_Arcana_Card_Spell_ColorSpray_2`
+- NEW `Zone_Arcana_Card_Spell_ColorSpray_3`
+- NEW `Zone_Arcana_Card_Spell_ColorSpray_4`
+- NEW `Zone_Arcana_Card_Spell_ColorSpray_5`
+- NEW `Zone_Arcana_Card_Spell_ColorSpray_6`
+- NEW `Zone_Arcana_Card_Spell_FinalSpark` (Final Spark)
+- NEW `Zone_Arcana_Card_Spell_WindBlast` (Wind Blast)
+- NEW `Zone_Arcana_Card_Spell_WindBlast_3`
+- NEW `Zone_Arcana_Card_Spell_WindBlast_4`
+- NEW `Zone_Arcana_Card_Spell_WindBlast_5`
+- NEW `Zone_Arcana_Card_Spell_WindBlast_6`
+- NEW `Zone_Arcana_Created_FinalSpark_Recreate` (Recast Final Spark)
+- REMOVED `Projectile_IND_Distortion_Explosion`
+- REMOVED `Projectile_IND_Fly_TheStarchild` (Fly)
+- REMOVED `Projectile_IND_Fly_Untethered` (Fly)
+- REMOVED `Projectile_IND_Fly_Untethered_Spell`
+- REMOVED `Projectile_IND_GaleDeflectMissiles` (Gale Deflection: Redirect)
+- REMOVED `Projectile_IND_GaleDeflectMissiles_EX` (Tempest Riposte: Redirect)
+- REMOVED `Projectile_IND_MimicDistortion_Explosion`
+- REMOVED `Projectile_IND_MimicSigilofMalice` (Mimic: Sigil of Malice)
+- REMOVED `Projectile_IND_MirrorDistortion_Explosion`
+- REMOVED `Projectile_IND_MirrorSigilofMalice` (Mirror: Sigil of Malice)
+- REMOVED `Projectile_IND_Moonstone` (Moonstone's Healing)
+- REMOVED `Projectile_IND_SigilofMalice` (Sigil of Malice)
+- REMOVED `Projectile_IND_Starcall` (Starcall)
+- REMOVED `Projectile_IND_Starcall_EX` (Starcall: Guiding Star)
+- REMOVED `Shout_IND_ArcaneRecovery` (Arcane Recovery)
+- REMOVED `Shout_IND_AstralFortitude` (Astral Fortitude)
+- REMOVED `Shout_IND_AstralFortitude_EX` (Astral Fortitude: Starlight Bastion)
+- REMOVED `Shout_IND_ComprehendLanguages` (Weave Knowledge: History)
+- REMOVED `Shout_IND_DeathsAspect` (Death's Aspect)
+- REMOVED `Shout_IND_DetectSupernatural` (Weave Knowledge: Supernatural)
+- REMOVED `Shout_IND_EvasiveFlow` (Evasive Flow)
+- REMOVED `Shout_IND_EvasiveFlow_EX` (Evasive Flow: Fool's Gale)
+- REMOVED `Shout_IND_Faceless` (Faceless)
+- REMOVED `Shout_IND_Faceless_Cancel` (Faceless: Revert)
+- REMOVED `Shout_IND_Faceless_Dragonborn_Female` (Faceless: Femme Dragonborn)
+- REMOVED `Shout_IND_Faceless_Dragonborn_Male` (Faceless: Masc Dragonborn)
+- REMOVED `Shout_IND_Faceless_Drow_Female` (Faceless: Femme Drow)
+- REMOVED `Shout_IND_Faceless_Drow_Male` (Faceless: Masc Drow)
+- REMOVED `Shout_IND_Faceless_Drow_Strong_Female` (Faceless: Femme Strong Drow)
+- REMOVED `Shout_IND_Faceless_Drow_Strong_Male` (Faceless: Masc Strong Drow)
+- REMOVED `Shout_IND_Faceless_Dwarf_Female` (Faceless: Femme Dwarf)
+- REMOVED `Shout_IND_Faceless_Dwarf_Male` (Faceless: Masc Dwarf)
+- REMOVED `Shout_IND_Faceless_Elf_Female` (Faceless: Femme Elf)
+- REMOVED `Shout_IND_Faceless_Elf_Male` (Faceless: Masc Elf)
+- REMOVED `Shout_IND_Faceless_Elf_Strong_Female` (Faceless: Femme Strong Elf)
+- REMOVED `Shout_IND_Faceless_Elf_Strong_Male` (Faceless: Masc Strong Elf)
+- REMOVED `Shout_IND_Faceless_Githyanki_Female` (Faceless: Femme Githyanki)
+- REMOVED `Shout_IND_Faceless_Githyanki_Male` (Faceless: Masc Githyanki)
+- REMOVED `Shout_IND_Faceless_Gnome_Female` (Faceless: Femme Gnome)
+- REMOVED `Shout_IND_Faceless_Gnome_Male` (Faceless: Masc Gnome)
+- REMOVED `Shout_IND_Faceless_HalfElf_Female` (Faceless: Femme Half-Elf)
+- REMOVED `Shout_IND_Faceless_HalfElf_Male` (Faceless: Masc Half-Elf)
+- REMOVED `Shout_IND_Faceless_HalfElf_Strong_Female` (Faceless: Femme Strong Half-Elf)
+- REMOVED `Shout_IND_Faceless_HalfElf_Strong_Male` (Faceless: Masc Strong Half-Elf)
+- REMOVED `Shout_IND_Faceless_HalfOrc_Female` (Faceless: Femme Half-Orc)
+- REMOVED `Shout_IND_Faceless_HalfOrc_Male` (Faceless: Masc Half-Orc)
+- REMOVED `Shout_IND_Faceless_Halfling_Female` (Faceless: Femme Halfling)
+- REMOVED `Shout_IND_Faceless_Halfling_Male` (Faceless: Masc Halfling)
+- REMOVED `Shout_IND_Faceless_Human_Female` (Faceless: Femme Human)
+- REMOVED `Shout_IND_Faceless_Human_Male` (Faceless: Masc Human)
+- REMOVED `Shout_IND_Faceless_Human_Strong_Female` (Faceless: Femme Strong Human)
+- REMOVED `Shout_IND_Faceless_Human_Strong_Male` (Faceless: Masc Strong Human)
+- REMOVED `Shout_IND_Faceless_Tiefling_Female` (Faceless: Femme Tiefling)
+- REMOVED `Shout_IND_Faceless_Tiefling_Male` (Faceless: Masc Tiefling)
+- REMOVED `Shout_IND_Faceless_Tiefling_Strong_Female` (Faceless: Femme Strong Tiefling)
+- REMOVED `Shout_IND_Faceless_Tiefling_Strong_Male` (Faceless: Masc Strong Tiefling)
+- REMOVED `Shout_IND_FlowState` (Flow State)
+- REMOVED `Shout_IND_FlowState_EX` (Flow State: Inner Tempest)
+- REMOVED `Shout_IND_HowlOfTheDead_EX` (Howl of the Dead)
+- REMOVED `Shout_IND_Indestructible` (Indestructible)
+- REMOVED `Shout_IND_MimicWithdraw` (Mimic: Withdraw)
+- REMOVED `Shout_IND_MirrorWithdraw` (Mirror: Withdraw)
+- REMOVED `Shout_IND_StarRadiance` (Star Radiance)
+- REMOVED `Shout_IND_StarRadiance_EX` (Star Radiance: Celestial Chorus)
+- REMOVED `Shout_IND_StellarGrace` (Stellar Grace)
+- REMOVED `Shout_IND_StormFists` (Storm Fists)
+- REMOVED `Shout_IND_StormFists_EX` (Storm Fists: Tempest's Edge)
+- REMOVED `Shout_IND_ThirdEye` (Third Eye)
+- REMOVED `Shout_IND_Thunderclap` (Thunderclap)
+- REMOVED `Shout_IND_Untethered` (Untethered)
+- REMOVED `Shout_IND_WindWhispers` (Wind Whispers)
+- REMOVED `Shout_IND_Wish` (Wish)
+- REMOVED `Shout_IND_Withdraw` (Withdraw)
+- REMOVED `Target_DEBUG_InfiniteCards` (DEBUG: Infinite Arcane Cards)
+- REMOVED `Target_DEBUG_InfiniteShards` (DEBUG: Infinite Arcane Shards)
+- REMOVED `Target_IND_ArcaneFamiliar_Cat` (Arcane Familiar: Cat)
+- REMOVED `Target_IND_ArcaneFamiliar_Crab` (Arcane Familiar: Crab)
+- REMOVED `Target_IND_ArcaneFamiliar_Dog` (Arcane Familiar: Dog)
+- REMOVED `Target_IND_ArcaneFamiliar_Frog` (Arcane Familiar: Frog)
+- REMOVED `Target_IND_ArcaneFamiliar_Rat` (Arcane Familiar: Rat)
+- REMOVED `Target_IND_ArcaneFamiliar_Raven` (Arcane Familiar: Raven)
+- REMOVED `Target_IND_ArcaneFamiliar_Spider` (Arcane Familiar: Spider)
+- REMOVED `Target_IND_ArcaneLock` (Arcane Lock)
+- REMOVED `Target_IND_ArcaneUnlock` (Arcane Unlock)
+- REMOVED `Target_IND_AstralInfusion` (Astral Infusion)
+- REMOVED `Target_IND_BloodReaper` (Blood Reaper)
+- REMOVED `Target_IND_DeadWhispers` (Dead Whispers)
+- REMOVED `Target_IND_DeathWard` (Death Ward)
+- REMOVED `Target_IND_DeathsGrasp` (Death's Grasp)
+- REMOVED `Target_IND_DeathsGrasp_EX` (Death's Grasp: Reaper's Pull)
+- REMOVED `Target_IND_DispelMagic` (Dispel Magic)
+- REMOVED `Target_IND_Distortion` (Distortion)
+- REMOVED `Target_IND_Equinox` (Equinox)
+- REMOVED `Target_IND_EtherealChains` (Ethereal Chains)
+- REMOVED `Target_IND_Faceless_Copy` (Faceless: Copy)
+- REMOVED `Target_IND_Faceless_Copy_EX` (Faceless: Rival's Mask)
+- REMOVED `Target_IND_Friends` (Friends)
+- REMOVED `Target_IND_Friends_EX` (Friends: Faux Amis)
+- REMOVED `Target_IND_GaleBurst` (Gale Burst)
+- REMOVED `Target_IND_Hemoplague` (Hemoplague)
+- REMOVED `Target_IND_Hemoplague_BlindingSickness` (Hemoplague: Blinding Sickness)
+- REMOVED `Target_IND_Hemoplague_EX` (Hemoplague: Brain Eater)
+- REMOVED `Target_IND_Hemoplague_FilthFever` (Hemoplague: Filth Fever)
+- REMOVED `Target_IND_Hemoplague_FleshRot` (Hemoplague: Flesh Rot)
+- REMOVED `Target_IND_Hemoplague_Mindfire` (Hemoplague: Mindfire)
+- REMOVED `Target_IND_Hemoplague_Seizure` (Hemoplague: Seizure)
+- REMOVED `Target_IND_Hemoplague_SlimyDoom` (Hemoplague: Slimy Doom)
+- REMOVED `Target_IND_Hemorrhage` (Hemorrhage)
+- REMOVED `Target_IND_HostileTakeover` (Hostile Takeover)
+- REMOVED `Target_IND_HostileTakeover_EX` (Hostile Takeover: Coup d'État)
+- REMOVED `Target_IND_HypnoticGaze` (Hypnotic Gaze)
+- REMOVED `Target_IND_HypnoticGaze_Maintain` (Maintain Hypnotic Gaze)
+- REMOVED `Target_IND_InstinctiveCharm` (Instinctive Charm)
+- REMOVED `Target_IND_LucentSingularity` (Lucent Singularity)
+- REMOVED `Target_IND_LunarAegis` (Lunar Aegis)
+- REMOVED `Target_IND_LunarAegis_EX`
+- REMOVED `Target_IND_MageHand` (Weaver Hand: Summon)
+- REMOVED `Target_IND_MaliciousWhispers` (Malicious Whispers)
+- REMOVED `Target_IND_Marionette` (Marionette)
+- REMOVED `Target_IND_MentalPrison` (Mental Prison)
+- REMOVED `Target_IND_Mimic` (Mimic)
+- REMOVED `Target_IND_MimicDistortion` (Mimic: Distortion)
+- REMOVED `Target_IND_MimicEtherealChains` (Mimic: Ethereal Chains)
+- REMOVED `Target_IND_MirrorDistortion` (Mirror: Distortion)
+- REMOVED `Target_IND_MirrorEtherealChains` (Mirror: Ethereal Chains)
+- REMOVED `Target_IND_MirrorImage` (Mirror Image)
+- REMOVED `Target_IND_MirrorImage_EX` (Mirror Image: Hall of Mirrors)
+- REMOVED `Target_IND_MoonGravity` (Moon Gravity)
+- REMOVED `Target_IND_Obliterate` (Obliterate)
+- REMOVED `Target_IND_RealmOfDeath` (Realm of Death)
+- REMOVED `Target_IND_RealmOfDeath_EX` (Realm of Death: Sovereign of the Grave)
+- REMOVED `Target_IND_SolarFlare` (Solar Flare)
+- REMOVED `Target_IND_SolarPurge` (Solar Purge)
+- REMOVED `Target_IND_Terrify` (Terrify)
+- REMOVED `Target_IND_ThirdEyeProjection` (Third Eye: Projection)
+- REMOVED `Target_IND_Transfusion` (Transfusion)
+- REMOVED `Target_IND_Transfusion_EX` (Transfusion: Deathless Exchange)
+- REMOVED `Target_IND_ZephyrStrike` (Zephyr Strike)
+- REMOVED `Teleportation_IND_ArcaneGate` (Arcane Gate)
+- REMOVED `Teleportation_IND_Starbreath` (Starbreath)
+- REMOVED `Zone_IND_FinalSpark` (Final Spark)
+- REMOVED `Zone_IND_FinalSpark_Recreate` (Recast Final Spark)
+- REMOVED `Zone_IND_WindBlast` (Wind Blast)
+- CHANGED `Target_DEBUG_IncreaseHP (DEBUG: Increase Hit Points)`
+    - `UseCosts`: ActionPoint:1; ⇒ ****
+
+### StatusData
+
+- NEW `ARCANA_WEAVING` (Weaving)
+- NEW `ARCANE_OVERFLOW_USED` (Arcane Overflow)
+- NEW `ASPECT_AWAKENED_DEATH` (13 - Death)
+- NEW `ASPECT_AWAKENED_DEATH_I` (13 - Death: Awakened I)
+- NEW `ASPECT_AWAKENED_DEATH_II` (13 - Death: Awakened II)
+- NEW `ASPECT_AWAKENED_DEATH_III` (13 - Death: Awakened III)
+- NEW `ASPECT_AWAKENED_EMPRESS` (2 - The High Priestess)
+- NEW `ASPECT_AWAKENED_EMPRESS_I` (2 - The High Priestess: Awakened I)
+- NEW `ASPECT_AWAKENED_EMPRESS_II` (2 - The High Priestess: Awakened II)
+- NEW `ASPECT_AWAKENED_EMPRESS_III` (2 - The High Priestess: Awakened III)
+- NEW `ASPECT_AWAKENED_FOOL` (0 - The Fool)
+- NEW `ASPECT_AWAKENED_FOOL_I` (0 - The Fool: Awakened I)
+- NEW `ASPECT_AWAKENED_FOOL_II` (0 - The Fool: Awakened II)
+- NEW `ASPECT_AWAKENED_FOOL_III` (0 - The Fool: Awakened III)
+- NEW `ASPECT_AWAKENED_STAR` (17 - The Star)
+- NEW `ASPECT_AWAKENED_STAR_I` (17 - The Star: Awakened I)
+- NEW `ASPECT_AWAKENED_STAR_II` (17 - The Star: Awakened II)
+- NEW `ASPECT_AWAKENED_STAR_III` (17 - The Star: Awakened III)
+- NEW `ASPECT_PROGRESS_DEATH` (Awakening Progress)
+- NEW `ASPECT_PROGRESS_EMPRESS` (Awakening Progress)
+- NEW `ASPECT_PROGRESS_FOOL` (Awakening Progress)
+- NEW `ASPECT_PROGRESS_STAR` (Awakening Progress)
+- NEW `AWAKEN DOWNED STATUS`
+- NEW `AWAKEN STATUS`
+- NEW `BEACON_HEAL_TECH` (Aspect)
+- NEW `BLOOD_OFFERING` (Blood Offering)
+- NEW `BLOOD_OFFERING_4`
+- NEW `BLOOD_OFFERING_5`
+- NEW `BLOOD_OFFERING_6`
+- NEW `CATHARSIS` (Catharsis)
+- NEW `COMPREHEND_ART` (Weave Knowledge: Art)
+- NEW `COMPREHEND_HISTORY` (Weave Knowledge: History)
+- NEW `COMPREHEND_MEDICINE` (Weave Knowledge: Medicine)
+- NEW `COMPREHEND_MIND` (Weave Knowledge: Mind)
+- NEW `COMPREHEND_MISTERY` (Weave Knowledge: Mistery)
+- NEW `COMPREHEND_NATURE` (Weave Knowledge: Nature)
+- NEW `COMPREHEND_ROBBERY` (Weave Knowledge: Robbery)
+- NEW `COMPREHEND_SUPERNATURAL` (Weave Knowledge: Supernatural)
+- NEW `DECEIVER EFFECT STATUS`
+- NEW `DECEIVER INCAPACITATED STATUS`
+- NEW `DECEIVER INVISIBLE STATUS`
+- NEW `DECEIVER POLYMORPHED STATUS` (DECEIVER STATUS)
+- NEW `DELUDED` (Deluded)
+- NEW `DOUBLE_OF_THE_VEIL` (Double of the Veil)
+- NEW `DOUBLE_OF_THE_VEIL_TECH` (Double of the Veil)
+- NEW `DOUBT_1` (Doubt (1))
+- NEW `DOUBT_2` (Doubt (2))
+- NEW `DOUBT_3` (Doubt (3))
+- NEW `DOUBT_ADD_TECH` (Doubt)
+- NEW `EMOTION_ADMIRATION` (Emotion: Admiration)
+- NEW `EMOTION_AMAZEMENT` (Emotion: Amazement)
+- NEW `EMOTION_ANGER` (Emotion: Anger)
+- NEW `EMOTION_ANTICIPATION` (Emotion: Anticipation)
+- NEW `EMOTION_DISGUST` (Emotion: Disgust)
+- NEW `EMOTION_ECSTASY` (Emotion: Ecstasy)
+- NEW `EMOTION_FEAR` (Emotion: Fear)
+- NEW `EMOTION_GRIEF` (Emotion: Grief)
+- NEW `EMOTION_JOY` (Emotion: Joy)
+- NEW `EMOTION_LOATHING` (Emotion: Loathing)
+- NEW `EMOTION_RAGE` (Emotion: Rage)
+- NEW `EMOTION_SADNESS` (Emotion: Sadness)
+- NEW `EMOTION_SURPRISE` (Emotion: Surprise)
+- NEW `EMOTION_TERROR` (Emotion: Terror)
+- NEW `EMOTION_TRUST` (Emotion: Trust)
+- NEW `EMOTION_VIGILANCE` (Emotion: Vigilance)
+- NEW `ETERNAL_DREAD` (Dread)
+- NEW `ETERNAL_DREAD_AURA` (Aspect)
+- NEW `ETERNAL_UNDYING` (Mourning)
+- NEW `ETERNAL_UNDYING_DOWNED` (Mourning)
+- NEW `ETHEREAL_CHAINS_3`
+- NEW `ETHEREAL_CHAINS_4`
+- NEW `ETHEREAL_CHAINS_5`
+- NEW `ETHEREAL_CHAINS_6`
+- NEW `EVASIVE_FLOW_OPENING` (Opening)
+- NEW `FEELING_AGGRESSIVENESS` (Feeling: Aggressiveness)
+- NEW `FEELING_ANXIETY` (Feeling: Anxiety)
+- NEW `FEELING_AWE` (Feeling: Awe)
+- NEW `FEELING_CONTEMPT` (Feeling: Contempt)
+- NEW `FEELING_CURIOSITY` (Feeling: Curiosity)
+- NEW `FEELING_CYNICISM` (Feeling: Cynicism)
+- NEW `FEELING_DELIGHT` (Feeling: Delight)
+- NEW `FEELING_DESPAIR` (Feeling: Despair)
+- NEW `FEELING_DISAPPROVAL` (Feeling: Disapproval)
+- NEW `FEELING_DISAPPROVED` (Disapproved)
+- NEW `FEELING_DOMINANCE` (Feeling: Dominance)
+- NEW `FEELING_ENVY` (Feeling: Envy)
+- NEW `FEELING_GUILT` (Feeling: Guilt)
+- NEW `FEELING_HOPE` (Feeling: Hope)
+- NEW `FEELING_LOVE` (Feeling: Love)
+- NEW `FEELING_MORBIDNESS` (Feeling: Morbidness)
+- NEW `FEELING_MORBIDNESS_TECH` (Morbidness)
+- NEW `FEELING_OPTIMISM` (Feeling: Optimism)
+- NEW `FEELING_OUTRAGE` (Feeling: Outrage)
+- NEW `FEELING_PESSIMISM` (Feeling: Pessimism)
+- NEW `FEELING_PRIDE` (Feeling: Pride)
+- NEW `FEELING_REMORSE` (Feeling: Remorse)
+- NEW `FEELING_REMORSE_TECH` (Remorse)
+- NEW `FEELING_SENTIMENTALITY` (Feeling: Sentimentality)
+- NEW `FEELING_SHAME` (Feeling: Shame)
+- NEW `FEELING_SUBMISSION` (Feeling: Submission)
+- NEW `FEELING_UNBELIEF` (Feeling: Unbelief)
+- NEW `FINAL_TOLL_TECH` (Aspect)
+- NEW `FLOW_STATE_3`
+- NEW `FLOW_STATE_4`
+- NEW `FLOW_STATE_5`
+- NEW `FLOW_STATE_6`
+- NEW `FOOL_ZEPHYR_FREE` (Restless Wind)
+- NEW `GALE_DEFLECTION_READY` (Gale Deflection)
+- NEW `GALE_DEFLECTION_USED_TECH` (Aspect)
+- NEW `GRAND_DECEPTION_TECH` (Grand Deception)
+- NEW `GUIDANCE_2`
+- NEW `GUIDANCE_3`
+- NEW `GUIDANCE_4`
+- NEW `GUIDANCE_5`
+- NEW `GUIDANCE_6`
+- NEW `HARVEST_ACTION` (Harvest)
+- NEW `HARVEST_SPENT` (Aspect)
+- NEW `IMMORTAL_BLOOD_ACTIVE` (Immortal Blood)
+- NEW `INESCAPABLE_DESTRUCTION_ACTIVE`
+- NEW `INURED_TO_UNDEATH_ACTIVE`
+- NEW `LUNAR_WISP_BLESSING` (Lunar Wisp)
+- NEW `MIMIC_ETHEREAL_CHAINS_2`
+- NEW `MIMIC_ETHEREAL_CHAINS_3`
+- NEW `MIMIC_ETHEREAL_CHAINS_4`
+- NEW `MIMIC_ETHEREAL_CHAINS_5`
+- NEW `MIMIC_ETHEREAL_CHAINS_6`
+- NEW `MIRRORED_SELF` (Mirrored Self)
+- NEW `MOOD_ACCEPTING` (Mood: Accepting)
+- NEW `MOOD_ANNOYED` (Mood: Annoyed)
+- NEW `MOOD_APPREHENSIVE` (Mood: Apprehensive)
+- NEW `MOOD_BORED` (Mood: Bored)
+- NEW `MOOD_DISTRACTED` (Mood: Distracted)
+- NEW `MOOD_INTERESTED` (Mood: Interested)
+- NEW `MOOD_PENSIVE` (Mood: Pensive)
+- NEW `MOOD_SERENE` (Mood: Serene)
+- NEW `RESONANT FEAR STATUS`
+- NEW `RESONANT INCAPACITATED STATUS`
+- NEW `RESONANT STATUS`
+- NEW `RESONANT_DEBUG` ([DEBUG] Resonant)
+- NEW `SIGIL_DETONATED_TECH` (Aspect)
+- NEW `STAR_ECLIPSE` (Eclipse)
+- NEW `STAR_MOONLIT` (Moonlit)
+- NEW `STAR_MOONLIT_II`
+- NEW `STAR_SUNLIT` (Sunlit)
+- NEW `STAR_SUNLIT_II`
+- NEW `STORM_FISTS_5`
+- NEW `STORM_FISTS_6`
+- NEW `UNBOUND EFFECT STATUS`
+- NEW `UNBROKEN_ACTIVE` (Unbroken)
+- NEW `UNDYING_HOPE` (Undying Hope)
+- NEW `UNDYING_HOPE_DOWNED` (Undying Hope)
+- NEW `UNVEIL_USED_TECH` (Unveiled)
+- NEW `VEILED_PRISON` (Veiled Prison)
+- NEW `VEIL_LAYER_1` (The Veil (1))
+- NEW `VEIL_LAYER_2` (The Veil (2))
+- NEW `VEIL_LAYER_3` (The Veil (3))
+- NEW `VEIL_LAYER_4` (The Veil (4))
+- NEW `VEIL_LAYER_5` (The Veil (5))
+- NEW `VEIL_LIFTS_TECH` (The Veil Lifts)
+- NEW `WANDERLUST_HIT_TECH` (Aspect)
+- NEW `WHICH_ONE_READY` (Which One?)
+- NEW `WHICH_ONE_TECH` (Which One?)
+- NEW `WHICH_ONE_USED_TECH` (Which One?)
+- NEW `WHISPERED_PARANOIA` (Paranoia)
+- NEW `WISH_UPON_A_STAR` (Wish Upon a Star)
+- REMOVED `ARCANE_LANGUAGES` (Weave Knowledge: History)
+- REMOVED `ARCANE_SHARDS` (Arcane Shards)
+- REMOVED `ASTRAL_FORTITUDE_EX` (Astral Fortitude: Starlight Bastion)
+- REMOVED `DARKNESS_RISE_TECH_1` (Darkness Rise: 1)
+- REMOVED `DARKNESS_RISE_TECH_2` (Darkness Rise: 2)
+- REMOVED `DEBUG_INFINITE_SHARDS` (Infinite Shards)
+- REMOVED `DECIEVER STATUS` (DECEIVER STATUS)
+- REMOVED `DETECT_SUPERNATURAL` (Weave Knowledge: Supernatural)
+- REMOVED `EVASIVE_FLOW_EX` (Evasive Flow: Fool's Gale)
+- REMOVED `FACELESS_COPY_EX`
+- REMOVED `FLOW_STATE_EX` (Flow State: Inner Tempest)
+- REMOVED `HOLLOW_IMAGE_INVISIBLE`
+- REMOVED `INTERRUPT_HOLLOW_IMAGE`
+- REMOVED `INTERRUPT_HOLLOW_IMAGE_EX`
+- REMOVED `LUNAR_AEGIS_EX` (Lunar Aegis: Moon Grace)
+- REMOVED `MIRROR_DISTORTION_HELPER` (Mirror Distortion Helper)
+- REMOVED `MIRROR_ETHEREAL_CHAINS` (Mirror: Ethereal Chains)
+- REMOVED `MIRROR_IMAGE_CLONE_SCALING`
+- REMOVED `MIRROR_IMAGE_TECHNICAL` (MIRROR_IMAGE_TECHNICAL)
+- REMOVED `NEMESIS` (Deceiver's Nemesis)
+- REMOVED `NEMESIS_OWNER` (Nemesis Owner)
+- REMOVED `REJUVENATION_EX_TECH`
+- REMOVED `STAR_RADIANCE_AURA_EX` (Star Radiance: Celestial Chorus)
+- REMOVED `STAR_RADIANCE_EX` (Star Radiance: Celestial Chorus Aura)
+- REMOVED `STORM_FISTS_EX` (Storm Fists: Tempest's Edge)
+- CHANGED `DEBUG_INFINITE_CARDS (Infinite Cards)`
+    - `Boosts`: ActionResource(ArcaneEssence,999,0); ⇒ **ActionResource(ArcanaThread,999,0);**
+- CHANGED `DETECT_SUPERNATURAL_ABERRATION (Detected: Aberration)`
+    - `ApplyEffect`: — ⇒ **54d3e1a2-7513-4f46-bb46-53dec4e83b8d**
+    - `Description`: hf8b91199gf478g426fg802dg1c43b37014ab;1 ⇒ **hf8b91199gf478g426fg802dg1c43b37014ab;2**
+    - `DisplayName`: hc727d150gb49eg8bb5g103ag30baadb3a31f;1 ⇒ **hc727d150gb49eg8bb5g103ag30baadb3a31f;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `StatusEffect`: — ⇒ **372f12fd-d95c-43ca-9cc6-096ecf421704**
+- CHANGED `DETECT_SUPERNATURAL_CELESTIAL (Detected: Celestial)`
+    - `Description`: h89183e45g153fg3e4cg6343g3e1fb9087c93;1 ⇒ **h89183e45g153fg3e4cg6343g3e1fb9087c93;2**
+    - `DisplayName`: h7d873639gf474gac1bg017cg83438e990b76;1 ⇒ **h7d873639gf474gac1bg017cg83438e990b76;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `Icon`: Spell_Divination_DetectEvilAndGood ⇒ **—**
+    - `StatusGroups`: SG_RemoveOnRespec ⇒ **—**
+    - `using`: — ⇒ **DETECT_SUPERNATURAL_ABERRATION**
+- CHANGED `DETECT_SUPERNATURAL_ELEMENTAL (Detected: Elemental)`
+    - `Description`: h1e16a534g275ege859g3568g9ee80e8b833d;1 ⇒ **h1e16a534g275ege859g3568g9ee80e8b833d;2**
+    - `DisplayName`: hb967f971g6e6fgca34g6fb2gc654d9a2f47e;1 ⇒ **hb967f971g6e6fgca34g6fb2gc654d9a2f47e;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `Icon`: Spell_Divination_DetectEvilAndGood ⇒ **—**
+    - `StatusGroups`: SG_RemoveOnRespec ⇒ **—**
+    - `using`: — ⇒ **DETECT_SUPERNATURAL_ABERRATION**
+- CHANGED `DETECT_SUPERNATURAL_FEY (Detected: Fey)`
+    - `Description`: h56e5a1d1g33f2gbb9bgde3dgd9cf7a7d17f1;1 ⇒ **h56e5a1d1g33f2gbb9bgde3dgd9cf7a7d17f1;2**
+    - `DisplayName`: h31087f35g4d83g3843gc5b9g2e54cbb974f1;1 ⇒ **h31087f35g4d83g3843gc5b9g2e54cbb974f1;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `Icon`: Spell_Divination_DetectEvilAndGood ⇒ **—**
+    - `StatusGroups`: SG_RemoveOnRespec ⇒ **—**
+    - `using`: — ⇒ **DETECT_SUPERNATURAL_ABERRATION**
+- CHANGED `DETECT_SUPERNATURAL_FIEND (Detected: Fiend)`
+    - `Description`: h5ff8ecb5gea15g55ebgd884g78b70381d1f1;1 ⇒ **h5ff8ecb5gea15g55ebgd884g78b70381d1f1;2**
+    - `DisplayName`: h7a692af6g1a2dgf55agf397g49bcb129ec40;1 ⇒ **h7a692af6g1a2dgf55agf397g49bcb129ec40;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `Icon`: Spell_Divination_DetectEvilAndGood ⇒ **—**
+    - `StatusGroups`: SG_RemoveOnRespec ⇒ **—**
+    - `using`: — ⇒ **DETECT_SUPERNATURAL_ABERRATION**
+- CHANGED `DETECT_SUPERNATURAL_UNDEAD (Detected: Undead)`
+    - `Description`: h193f1e89g3414g369fg6075gd756121de74a;1 ⇒ **h193f1e89g3414g369fg6075gd756121de74a;2**
+    - `DisplayName`: h35a12157g6f88g43fcgbd58ga1a00a46721f;1 ⇒ **h35a12157g6f88g43fcgbd58ga1a00a46721f;2**
+    - `FormatColor`: Purple ⇒ **—**
+    - `Icon`: Spell_Divination_DetectEvilAndGood ⇒ **—**
+    - `StatusGroups`: SG_RemoveOnRespec ⇒ **—**
+    - `using`: — ⇒ **DETECT_SUPERNATURAL_ABERRATION**
+- CHANGED `ETHEREAL_CHAINS (Ethereal Chains)`
+    - `DescriptionParams`: DealDamage(Cause.LevelMapValue(EtherealChains_Damage),Force) ⇒ **DealDamage(1d6,Force)**
+    - `OnApplyFunctors`: DealDamage(Cause.LevelMapValue(EtherealChains_Damage),Force,Magical) ⇒ **DealDamage(1d6,Force,Magical)**
+    - `StackPriority`: — ⇒ **2**
+    - `TickFunctors`: DealDamage(Cause.LevelMapValue(EtherealChains_Damage),Force,Magical) ⇒ **DealDamage(1d6,Force,Magical)**
+- CHANGED `ETHEREAL_CHAINS_EFFECT (Ethereal Chains Effect)`
+    - `RemoveConditions`: not HasStatus('ETHEREAL_CHAINS') ⇒ **not HasAnyStatus({'ETHEREAL_CHAINS','ETHEREAL_CHAINS_3','ETHEREAL_CHAINS_4','ETHEREAL_CHAINS_5','ETHEREAL_CHAINS_6','MIMIC_ETHEREAL_CHAINS','MIMIC_ETHEREAL_CHAINS_2','MIMIC_ETHEREAL_CHAINS_3','MIMIC_ETHEREAL_CHAINS_4','MIMIC_ETHEREAL_CHAINS_5','MIMIC_ETHEREAL_CHAINS_6'})**
+- CHANGED `EVASIVE_FLOW (Evasive Flow)`
+    - `Boosts`: UnlockSpellVariant(SpellId('Projectile_Jump'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint));IgnoreLeaveAttackRange(); ⇒ **UnlockSpellVariant(SpellId('Projectile_Jump'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint));**
+    - `Description`: hb2cbdec3g90c8g7e43g9d01g7c45f6af7a6a;4 ⇒ **hb2cbdec3g90c8g7e43g9d01g7c45f6af7a6a;5**
+    - `RemoveEvents`: OnEquip ⇒ **OnEquip;OnCombatEnded**
+- CHANGED `FACELESS_COPY (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DRAGONBORN_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DRAGONBORN_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DROW_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DROW_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DROW_STRONG_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DROW_STRONG_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DWARF_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_DWARF_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_ELF_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_ELF_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_ELF_STRONG_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_ELF_STRONG_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_GITHYANKI_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_GITHYANKI_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_GNOME_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_GNOME_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFELF_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFELF_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFELF_STRONG_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFELF_STRONG_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFLING_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFLING_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFORC_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HALFORC_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HUMAN_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HUMAN_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HUMAN_STRONG_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_HUMAN_STRONG_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_TIEFLING_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_TIEFLING_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_TIEFLING_STRONG_FEMALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FACELESS_TIEFLING_STRONG_MALE (Faceless)`
+    - `Boosts`: UnlockSpell(Shout_IND_Faceless_Cancel); ⇒ **UnlockSpell(Shout_Arcana_Util_Faceless_Cancel);**
+- CHANGED `FINAL_SPARK_OWNER (Final Spark)`
+    - `Boosts`: UnlockSpell(Zone_IND_FinalSpark_Recreate);GameplayLight(9,false,0.1,true); ⇒ **UnlockSpell(Zone_Arcana_Created_FinalSpark_Recreate);GameplayLight(9,false,0.1,true);**
+- CHANGED `FLOW_STATE (Flow State)`
+    - `Description`: h36b715acgf8cbg4d33g6b9cge5c3b5baa321;4 ⇒ **h36b715acgf8cbg4d33g6b9cge5c3b5baa321;5**
+    - `DescriptionParams`: GainTemporaryHitPoints(ClassLevel(Arcana)*3) ⇒ **GainTemporaryHitPoints(ClassLevel(Arcana)*2)**
+    - `RemoveEvents`: OnEquip ⇒ **OnEquip;OnCombatEnded**
+    - `StackPriority`: 1 ⇒ **2**
+- CHANGED `FLY_UNTETHERED`
+    - `Boosts`: UnlockSpell(Projectile_IND_Fly_Untethered_Spell); ⇒ **UnlockSpell(Projectile_Arcana_Card_Ability_Fly_Untethered);**
+    - `Passives`: EyeOfTheStorm; ⇒ **Arcana_Passive_EyeOfTheStorm;**
+    - `RemoveEvents`: OnEquip ⇒ **OnEquip;OnCombatEnded**
+- CHANGED `MIMIC_ETHEREAL_CHAINS (Mimic: Ethereal Chains)`
+    - `DescriptionParams`: DealDamage(Cause.LevelMapValue(MimicEtherealChains_Damage),Force) ⇒ **DealDamage(1d6,Force)**
+    - `OnApplyFunctors`: DealDamage(Cause.LevelMapValue(MimicEtherealChains_Damage),Force,Magical) ⇒ **DealDamage(1d6,Force,Magical)**
+    - `StackPriority`: — ⇒ **1**
+    - `TickFunctors`: DealDamage(Cause.LevelMapValue(MimicEtherealChains_Damage),Force,Magical) ⇒ **DealDamage(1d6,Force,Magical)**
+- CHANGED `MIRRORED_SPELL_ON (Mirrored Spell)`
+    - `Description`: — ⇒ **he90aacc4g6866g4063gb0c8g54dc6d444509;1**
+    - `DescriptionParams`: — ⇒ **Distance(18)**
+    - `DisplayName`: haa5e063cga90egac8cg9e75gb55fc8aa24e3;1 ⇒ **h1c6805e2gef72gde13g0ac7g7d9b19112b25;1**
+    - `Icon`: — ⇒ **Spell_Abjuration_Counterspell**
+    - `RemoveEvents`: — ⇒ **OnCombatEnded**
+    - `StatusPropertyFlags`: DisableOverhead;DisableCombatlog;DisablePortraitIndicator ⇒ **RemoveOnLongRest**
+- CHANGED `REALM_OF_DEATH_START (Realm of Death)`
+    - `Description`: h0f2dd2cdg9ca6g8dafg9341g534bcacb4d3a;5 ⇒ **h0f2dd2cdg9ca6g8dafg9341g534bcacb4d3a;6**
+- CHANGED `SIGIL (Sigil)`
+    - `Description`: h28e6ebc5g3632g32ddgd3d7ge688706a5796;10 ⇒ **h28e6ebc5g3632g32ddgd3d7ge688706a5796;11**
+    - `OnRemoveFunctors`: IF(not IsKillingBlow()):DealDamage(Cause.LevelMapValue(Sigil_MarkDamage),Psychic,Magical) ⇒ **IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(SIGIL_DETONATED_TECH,100,0);IF(RemoveCause(StatusRemoveCause.Condition) and not IsKillingBlow()):DealDamage(Cause.LevelMapValue(Sigil_MarkDamage),Psychic,Magical)**
+    - `RemoveConditions`: SpellId('Target_IND_MaliciousWhispers') or SpellId('Projectile_IND_SigilofMalice') or SpellId('Projectile_IND_MimicSigilofMalice') or SpellId('Projectile_IND_MirrorSigilofMalice') or SpellId('Projectile_IND_Distortion_Explosion') or SpellId('Projectile_IND_MimicDistortion_Explosion') or SpellId('Projectile_IND_MirrorDistortion_Explosion') or HasAnyStatus({'ETHEREAL_CHAINS','MIMIC_ETHEREAL_CHAINS','MIRROR_ETHEREAL_CHAINS'}) ⇒ **(IsArcanaSpell() or HasAnyStatus({'ETHEREAL_CHAINS','ETHEREAL_CHAINS_3','ETHEREAL_CHAINS_4','ETHEREAL_CHAINS_5','ETHEREAL_CHAINS_6','MIMIC_ETHEREAL_CHAINS','MIMIC_ETHEREAL_CHAINS_2','MIMIC_ETHEREAL_CHAINS_3','MIMIC_ETHEREAL_CHAINS_4','MIMIC_ETHEREAL_CHAINS_5','MIMIC_ETHEREAL_CHAINS_6'})) and (HasStatus('SIGIL', context.Target, context.Source) or HasStatus('SIGIL', context.Target, GetSummoner(context.Source)))**
+- CHANGED `STORM_FISTS (Storm Fists)`
+    - `Boosts`: IF(IsMeleeUnarmedAttack()):DamageBonus(LevelMapValue(StormFists_Damage)+WisdomModifier,Thunder); ⇒ **IF(IsMeleeUnarmedAttack()):DamageBonus(1d4+DexterityModifier,Thunder);**
+    - `DescriptionParams`: DealDamage(LevelMapValue(StormFists_Damage)+WisdomModifier,Thunder) ⇒ **DealDamage(1d4+DexterityModifier,Thunder)**
+    - `RemoveEvents`: OnEquip ⇒ **OnEquip;OnCombatEnded**
+    - `StackPriority`: 1 ⇒ **4**
+- CHANGED `THUNDERCLAP (Thunderclap)`
+    - `Passives`: Thunderclap;Momentum; ⇒ **Arcana_Passive_Thunderclap;Arcana_Passive_Momentum;**
+    - `RemoveEvents`: OnEquip ⇒ **OnEquip;OnCombatEnded**
+    - `StackPriority`: — ⇒ **4**
+- CHANGED `WIND_WHISPERS (Wind Whispers)`
+    - `Boosts`: Disadvantage(AttackTarget);Advantage(SavingThrow, Dexterity); ⇒ **Disadvantage(AttackTarget);UnlockInterrupt(Interrupt_Arcana_WindWhispers_Riposte);**
+    - `Description`: hba599070gc262gfacfg3f31geafbde30b608;5 ⇒ **hba599070gc262gfacfg3f31geafbde30b608;7**
+    - `RemoveEvents`: OnStatusApplied;OnEquip ⇒ **OnStatusApplied;OnEquip;OnCombatEnded**
+    - `TickType`: EndTurn ⇒ **StartTurn**
+- CHANGED `ZEPHYR_STRIKE (Zephyr Strike)`
+    - `Boosts`: UnlockSpell(Target_IND_ZephyrStrike); ⇒ **UnlockSpell(Target_Arcana_Created_ZephyrStrike);**
+    - `Description`: h56efad21g20d8gbfd6g293dg4e2c421af268;3 ⇒ **h56efad21g20d8gbfd6g293dg4e2c421af268;4**
+
+### Weapon
+
+- NEW `ARCANA_WPN_Maul_Bastionbreaker`
+- REMOVED `IND_WPN_Maul_Bastionbreaker`
+
+## English texts
+
+534 new, 32 removed, 78 changed.
+
+- `h09199a5cgad67gfd29gefbeg8d703eeece16`: "Until the spell ends, you can &lt;LSTag Type="Spell" Tooltip="Zone_IND_FinalSpark_Recreate"&gt;Recast Final Spark&lt;/LSTag&gt; without expending &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Cards&lt;/LSTag&gt;." ⇒ "Until the spell ends, you can &lt;LSTag Type="Spell" Tooltip="Zone_Arcana_Created_FinalSpark_Recreate"&gt;Recast Final Spark&lt;/LSTag&gt;."
+- `h0a542144g9bdfg4162g651dg4cad9452df41`: "Detect Supernatural" ⇒ "Weave Knowledge: Supernatural"
+- `h0dae60d6g9f46g25a0gcb51g715871fe028c`: "The Eternal commands the Arcana where life yields to death, enduring hardship while turning suffering and fading essence into unwavering strength." ⇒ "The Eternal holds the Weave where life gives way to death, enduring every wound and turning its own pain into strength."
+- `h0f2dd2cdg9ca6g8dafg9341g534bcacb4d3a`: "Standing inside the realm of death, a region of cold blackness infested with unknown horrors.&lt;br&gt;&lt;br&gt;The affected entity is &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to [1].. It takes [2] at the start of its turn and [3] at the end of its turn.&lt;br&gt;&lt;br&gt;The area is &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt;." ⇒ "Standing inside the realm of death, a region of cold blackness infested with unknown horrors.&lt;br&gt;&lt;br&gt;The affected entity is &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to [1]. It takes [2] at the start of its turn and [3] at the end of its turn.&lt;br&gt;&lt;br&gt;The area is &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt;."
+- `h109466bcgc911g6210gc459g04b8e29932cc`: "Use your reaction to reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level. If the damage is reduced to 0, you can &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles_EX"&gt;Deflect the Missile: Tempest Riposte&lt;/LSTag&gt; for [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneShards"&gt;Arcane Shard&lt;/LSTag&gt;." ⇒ "Use your reaction to reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level. If the damage is reduced to 0, you can &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection_EX"&gt;Deflect the Missile: Tempest Riposte&lt;/LSTag&gt; for [1] &lt;LSTag Type="ActionResource" Tooltip="ArcanaSpellSlot"&gt;Arcana Spell Slot&lt;/LSTag&gt;."
+- `h16b813eegcb5agd60bg8e29gae9496f7d05c`: "Can &lt;LSTag Type="Spell" Tooltip="Zone_IND_FinalSpark_Recreate"&gt;Recast Final Spark&lt;/LSTag&gt;." ⇒ "Can &lt;LSTag Type="Spell" Tooltip="Zone_Arcana_Created_FinalSpark_Recreate"&gt;Recast Final Spark&lt;/LSTag&gt;."
+- `h19148393g43edg142eg8af8gc41f2c6b60f9`: "Bind a creature with a weakened version of &lt;LSTag Type="Spell" Tooltip="Target_IND_EtherealChains"&gt;Ethereal Chains&lt;/LSTag&gt;. At the end of its turn, it becomes &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Restrained&lt;/LSTag&gt;." ⇒ "Bind a creature with a weakened &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;Ethereal Chains&lt;/LSTag&gt;. If it fails the &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, it takes [1] and becomes &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Restrained&lt;/LSTag&gt; for [2]."
+- `h193f1e89g3414g369fg6075gd756121de74a`: "Third Eye: Creature is an undead." ⇒ "This creature is an undead."
+- `h1e16a534g275ege859g3568g9ee80e8b833d`: "Third Eye: Creature is an elemental." ⇒ "This creature is an elemental."
+- `h1e5b5d84gf8fag7d7bgc878g960616bd7ae2`: "After making an unarmed attack, you can make another unarmed attack as a &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt;." ⇒ "After making an unarmed attack or casting an Arcane spell, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `h20d9faaeg4370g67d2g7274gb7934d4e49de`: "The living bridge between mortal soul and divine aspect, weaving the raw threads of the cosmos into a chosen path across the fabric of reality." ⇒ "Bound to the Weave by Mystra's own hand, the Arcana are at once her chosen and her instruments. They draw upon mysteries granted to few, reshaping the flow of magic around them and turning it against those who would unravel it."
+- `h28e6ebc5g3632g32ddgd3d7ge688706a5796`: "The affected entity is marked by the Deceiver and takes additional [1] from their Arcane spells." ⇒ "The affected entity is marked by the Deceiver and takes additional [1] from their Arcane spells. Triggering the mark also inflicts &lt;LSTag Type="Status" Tooltip="DOUBT_1"&gt;Doubt&lt;/LSTag&gt;."
+- `h31087f35g4d83g3843gc5b9g2e54cbb974f1`: "Fey" ⇒ "Detected: Fey"
+- `h358611e4gab01gee5dg782ag87ac7ba30c60`: "Invade a creature's mind with malicious whispers, imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;." ⇒ "Invade a creature's mind with malicious whispers, imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;. A creature marked with your &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt; also suffers &lt;LSTag Type="Status" Tooltip="WHISPERED_PARANOIA"&gt;Paranoia&lt;/LSTag&gt; and gains &lt;LSTag Type="Status" Tooltip="DOUBT_1"&gt;Doubt&lt;/LSTag&gt;."
+- `h35a12157g6f88g43fcgbd58ga1a00a46721f`: "Undead" ⇒ "Detected: Undead"
+- `h36b715acgf8cbg4d33g6b9cge5c3b5baa321`: "You gained [1] and have an extra &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect." ⇒ "You gained [1] and an additional &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect."
+- `h402ace5bgf1e8g2fe1gf6e4g220b7505458b`: "Reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level.&lt;br&gt;&lt;br&gt;If the damage is reduced to 0, you use an Arcane Card to &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles"&gt;Deflect the Missile&lt;/LSTag&gt;." ⇒ "Reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level.&lt;br&gt;&lt;br&gt;If the damage is reduced to 0, you use an Arcane Card to &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection"&gt;Deflect the Missile&lt;/LSTag&gt;."
+- `h423f92f6g70a2g7981gaee3g28242f114799`: "The affected entity is engulfed by an aura of decay. It takes [1] equal to 5% of The Eternal's &lt;LSTag Tooltip="HitPoints"&gt;maximum hit points&lt;/LSTag&gt; each turn, and its &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; is halved." ⇒ "The affected entity is engulfed by an aura of decay. It takes [1] equal to 10% of The Eternal's &lt;LSTag Tooltip="HitPoints"&gt;maximum hit points&lt;/LSTag&gt; each turn, and its &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; is halved."
+- `h456b6976gfa1cg7d54geb90g1660c0e4606b`: "The wind flows through your hands. Your unarmed attacks deal an additional [1]." ⇒ "The wind flows through your hands. Your unarmed attacks deal an additional [1].&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `h4d2c7825gb331gaf07gcd46g2c58bd100639`: "Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;." ⇒ "Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `h4d8e58d1g9816g64c0geebag689df505140a`: "We stand unbroken before the endless cycle, enduring where others fade." ⇒ "We have crossed our own ending, and the Weave turns every wound we take into strength."
+- `h4fd7f564gdfa8g9648g4365g06168df1faf6`: "The veil thins, revealing what does not belong. You gain the ability to detect supernatural creatures in a range of [1], such as Aberrations, Celestials, Elementals, Fey, Fiends, and Undead." ⇒ "Gain the ability to detect supernatural creatures in a range of [1], and also to recognise magic and interact with enchanted items. When you make an &lt;LSTag Tooltip="Arcana"&gt;Arcana&lt;/LSTag&gt; check, you automatically roll a Critical Success."
+- `h518e5fd0g2c0eg9de0gc683gbbce71317ab6`: "Whenever you cast a spell, recover [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Card&lt;/LSTag&gt;." ⇒ "Once per turn in combat, when you cast an Arcane spell, you regain 1 &lt;LSTag Type="ActionResource" Tooltip="ArcanaThread"&gt;Thread&lt;/LSTag&gt; and 1 &lt;LSTag Type="ActionResource" Tooltip="ArcanaSpellSlot"&gt;Woven Spell Slot&lt;/LSTag&gt;."
+- `h52bed8b8gccd7g1387ga514g36175f58ef1b`: "Comprehend Languages" ⇒ "Weave Knowledge: History"
+- `h56bc27caga588g2b1agc487ge918b523cedf`: "Unarmed Strike" ⇒ "Zephyr Strike"
+- `h56e5a1d1g33f2gbb9bgde3dgd9cf7a7d17f1`: "Third Eye: Creature is a fey." ⇒ "This creature is a fey."
+- `h56efad21g20d8gbfd6g293dg4e2c421af268`: "You can make an unarmed attack as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect." ⇒ "You can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect."
+- `h57cbb238gde4cg3ff9g326dg47d822a7058b`: "Comprehend Languages" ⇒ "Weave Knowledge: History"
+- `h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5`: "Enter a temporary state of flow where you gain &lt;LSTag Tooltip="TemporaryHitPoints"&gt;temporary hit points&lt;/LSTag&gt;, and an extra &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt;." ⇒ "Enter a temporary state of flow where you gain &lt;LSTag Tooltip="TemporaryHitPoints"&gt;temporary hit points&lt;/LSTag&gt;, and an additional &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `h5ff8ecb5gea15g55ebgd884g78b70381d1f1`: "Third Eye: Creature is a fiend." ⇒ "This creature is a fiend."
+- `h62eccccagdbe3g230bg3715g97e90882e0c1`: "Teleport to your previous position." ⇒ "Swap places with the Double you left behind."
+- `h64279279ga897g3b4bgc173gcc1156e709e0`: "You can sense movement in the air. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;, and you have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;." ⇒ "You can sense movement in the air. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;, and when an enemy's melee attack misses you, you use your &lt;LSTag Type="ActionResource" Tooltip="ReactionActionPoint"&gt;reaction&lt;/LSTag&gt; to strike back with an unarmed attack.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `h65e864dfg6fabg0d32gef8bgf8558787ab9c`: "We move with the wandering wind, never bound to any path, free beneath the open sky." ⇒ "We leap before we look, and the Weave catches us wherever we land."
+- `h73964a1ag6fb8gf74cg4e8bg869c1c2ead5f`: "In the stillness, your essence flows back. Replenish your &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Cards&lt;/LSTag&gt; by [1]." ⇒ "In the stillness, the Weave draws itself taut again. Regain 1 &lt;LSTag Type="ActionResource" Tooltip="ArcanaSpellSlot"&gt;Woven Spell Slot&lt;/LSTag&gt;."
+- `h759e0860g058eg3b3cg9db9g676e24da5bbc`: "The Starchild channels the Arcana through the light of the heavens, guiding allies with celestial magic that restores, protects, and illuminates the path ahead." ⇒ "Mystra wove the Starchild from the light that remains after disaster, a thread of hope that never stops shining. They mend wounds that should have been fatal, shelter their allies beneath solar and lunar wards, and call the fallen back from the edge of death."
+- `h788a0c7ag5701g7c02g5a26g246b007cbb1a`: "Gain the ability to understand the literal meaning of any spoken or written language that you hear or see, and also to speak with animals and beasts." ⇒ "Gain the ability to recognise deities and understand holy rites, and also to remember the past of the world and its people. When you make an &lt;LSTag Tooltip="History"&gt;History&lt;/LSTag&gt; or &lt;LSTag Tooltip="Religion"&gt;Religion&lt;/LSTag&gt; check, you automatically roll a Critical Success."
+- `h7a692af6g1a2dgf55agf397g49bcb129ec40`: "Fiend" ⇒ "Detected: Fiend"
+- `h7c05d104g3fcbg6d47gb72ag0e846ae53e82`: "Change the cost of the next Arcane spell you cast to 0 &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Cards&lt;/LSTag&gt;." ⇒ "The next Arcane spell you cast costs no &lt;LSTag Type="ActionResource" Tooltip="ArcanaThread"&gt;Threads&lt;/LSTag&gt; and no &lt;LSTag Type="ActionResource" Tooltip="ArcanaSpellSlot"&gt;Woven Spell Slot&lt;/LSTag&gt;."
+- `h7ce24c2bg5830g1f25gda97gc927f6e8e6b1`: "Clone" ⇒ "Double of the Veil"
+- `h7d873639gf474gac1bg017cg83438e990b76`: "Celestial" ⇒ "Detected: Celestial"
+- `h805db51fg1ce6g5aa9g3a26g99b6279b2218`: "Create a duplicate that can mirror some of your damaging Arcane spells." ⇒ "Summon a Double of the Veil: an illusion of you with 1 &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt; that acts on its own turn and can &lt;LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter"&gt;Shatter&lt;/LSTag&gt;."
+- `h858daf1egc1d7gac8ega25fg58232679746e`: "Reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level.&lt;br&gt;&lt;br&gt;If the damage is reduced to 0, you use an Arcane Shard to &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles_EX"&gt;Deflect the Missile: Tempest Riposte&lt;/LSTag&gt;." ⇒ "Reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level.&lt;br&gt;&lt;br&gt;If the damage is reduced to 0, you use an Arcane Shard to &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection_EX"&gt;Deflect the Missile: Tempest Riposte&lt;/LSTag&gt;."
+- `h89183e45g153fg3e4cg6343g3e1fb9087c93`: "Third Eye: Creature is a celestial." ⇒ "This creature is a celestial."
+- `h8b19f5f0ge250g11dag5e72ge061bcb595b7`: "The Deceiver wields the Arcana through illusion and psychic influence, disguising themselves, clouding minds, and manipulating friend and foe alike." ⇒ "The Deceiver walks the veil of the Weave, scattering Doubles and sowing Doubt until no enemy can tell which of them is real."
+- `h8fe6cd2dg1a92gcfa9gd3e0ga2961a78196b`: "Create an invisible hand that can manipulate and interact with objects." ⇒ "Summon an invisible hand that can manipulate and interact with objects."
+- `h91f28c87g52b1g5bccg9ba6g7f8c47b3c9e1`: "Death is your domain. Protect a creature from it. The next time damage would reduce it to 0 &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;, the creature remains conscious with 1 hit point left." ⇒ "Death is your domain. Protect an ally from it. The next time damage would reduce the ally to 0 &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;, they remain conscious with 1 hit point left."
+- `h954ca604g57b2g3440gdfb5g59a0b3091dd5`: "The Starchild channels the Arcana through the light of the heavens, guiding allies with celestial magic that restores, protects, and illuminates the path ahead." ⇒ "The Starchild carries the light of the Weave after every fall, mending wounds and sheltering allies beneath solar and lunar wards."
+- `h98433cefgd6dfg3e06g3791g33bdfcb25951`: "Bind a creature with a powerful version of &lt;LSTag Type="Spell" Tooltip="Target_IND_EtherealChains"&gt;Ethereal Chains&lt;/LSTag&gt;. At the end of its turn, it becomes &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Restrained&lt;/LSTag&gt;." ⇒ "Recast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;Ethereal Chains&lt;/LSTag&gt; on a creature. At the end of its turn, it becomes &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Restrained&lt;/LSTag&gt;."
+- `h9a3184f7g73a8g6169g04a6g6dc398547d7f`: "The Unbound embraces the Arcana as a force without limits, harnessing the freedom of the wind to outpace enemies and roam wherever fate calls." ⇒ "The Unbound follows the Weave into the unknown, striking with open hands and moving air and never standing where an enemy expects."
+- `h9dd95e32gd1f4g9b57g9df7g7706c0b3938e`: "This spell can be cast while you are &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenced&lt;/LSTag&gt;." ⇒ "This spell can be cast while you are &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenced&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;At level 6, it doesn't require &lt;LSTag Tooltip="Concentration"&gt;Concentration&lt;/LSTag&gt;, the target won't know you've enchanted them and it doesn't change in higher difficulty modes."
+- `h9f0b264cgfbe5g9544g296dg0d621ef7d5a0`: "The Eternal commands the Arcana where life yields to death, enduring hardship while turning suffering and fading essence into unwavering strength." ⇒ "Mystra wove the Eternal from an ending they refused to accept, a thread that crossed death and came back changed. They take the blows meant for others and grow harder to kill for it, draining the life from their foes and calling the grave to finish what their hammer began."
+- `ha600849fgd60bg0304g0ae8gd0576ef7fa29`: "Dash through space, dealing damage where you arrive. For 2 turns, you can teleport back to your original position by casting &lt;LSTag Type="Spell" Tooltip="Shout_IND_Withdraw"&gt;Withdraw&lt;/LSTag&gt;." ⇒ "Dash through space, dealing damage where you arrive, and leave a Double standing where you were. For 2 turns, you can cast &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Withdraw"&gt;Withdraw&lt;/LSTag&gt; to swap places with it."
+- `hb105d67eg40dbg01acg5623ga43f37396ed5`: "Arcane Hand" ⇒ "Weaver Hand: Summon"
+- `hb219f10eg73cfg5fc6gad9egabed7b0400f0`: "Detect Supernatural" ⇒ "Weave Knowledge: Supernatural"
+- `hb2cbdec3g90c8g7e43g9d01g7c45f6af7a6a`: "Jumping no longer requires a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;, and you can move without provoking &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect." ⇒ "Jumping no longer requires a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect."
+- `hb967f971g6e6fgca34g6fb2gc654d9a2f47e`: "Elemental" ⇒ "Detected: Elemental"
+- `hba599070gc262gfacfg3f31geafbde30b608`: "Focusing on avoiding attacks. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;, and you have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect." ⇒ "Focusing on avoiding attacks. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;. When a melee attack misses, strikes back with an unarmed attack as a &lt;LSTag Type="ActionResource" Tooltip="ReactionActionPoint"&gt;reaction&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect."
+- `hbec0c1e5g4648g9671g5329g17403f153608`: "You can retreat to safety by &lt;LSTag Type="Spell" Tooltip="Shout_Disengage"&gt;Disengaging&lt;/LSTag&gt;, and jumping no longer requires a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;." ⇒ "Leap into an opening. Jumping no longer requires a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;, and your next unarmed attack this turn has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `hbed8fbf2g6f7eg2d19g364eg6672fb7a4313`: "The living bridge between mortal soul and divine aspect, weaving the raw threads of the cosmos into a chosen path across the fabric of reality." ⇒ "Chosen by the Mystra itself, the Arcana are the living bridge between mortal soul and divine aspect, weaving the raw threads of the cosmos into a chosen path across the fabric of reality."
+- `hc27cd946g92a0g2987g3dd1g84ed4d9cc824`: "We are the shadow behind every decision, wearing faces the world never questions." ⇒ "We keep the veil between what is and what seems, and the Weave lets us stand on either side of it."
+- `hc3b60f05g2de4ge349g47cdgbfd318148ba4`: "Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;." ⇒ "Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `hc4bdf824ge0f9gd52fg2db7g310ec3b8489e`: "Can &lt;LSTag Type="Spell" Tooltip="Projectile_IND_Fly_Untethered"&gt;Fly&lt;/LSTag&gt; to a target position.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect." ⇒ "Can &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Ability_Fly_Untethered"&gt;Fly&lt;/LSTag&gt; to a target position.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect."
+- `hc722a395gc58egeaa3g741ag3ed8de7bb01f`: "Freed from earthly ties, gain the ability to &lt;LSTag Type="Spell" Tooltip="Projectile_IND_Fly_Untethered"&gt;Fly&lt;/LSTag&gt;." ⇒ "Freed from earthly ties, gain the ability to &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Ability_Fly_Untethered"&gt;Fly&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `hc727d150gb49eg8bb5g103ag30baadb3a31f`: "Aberration" ⇒ "Detected: Aberration"
+- `hcf1e5160g3e20g0953g6e16gd8b38b0e15f7`: "The Deceiver wields the Arcana through illusion and psychic influence, disguising themselves, clouding minds, and manipulating friend and foe alike." ⇒ "Mystra wove the Deceiver from the veil between what is and what seems, a thread that no one watching can follow. They scatter Doubles that shatter when struck, sow Doubt until enemies can't trust their own eyes, and bind them with Sigils and chains."
+- `hcfea4405g7556g969dg0f13gdb93207a863d`: "Use your reaction to reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level. If the damage is reduced to 0, you can &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles"&gt;Deflect the Missile&lt;/LSTag&gt; for [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Card&lt;/LSTag&gt;." ⇒ "Use your reaction to reduce the damage from a ranged weapon attack by 1d10 + your Dexterity &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; + your Arcana level. If the damage is reduced to 0, you can &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection"&gt;Deflect the Missile&lt;/LSTag&gt;."
+- `hd264d2c3g3d31geeeag9a53g0a1a187689e2`: "When you deal [1], inflict 2 turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt; upon the target." ⇒ "When you deal [1], inflict 2 turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt; upon the target.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;."
+- `hd468e1b5g4b69g1987gb8cfg39bdb89caf47`: "Understand the literal meaning of any spoken or written language that you hear or see, even the language of animals and beasts." ⇒ "Understand ancient texts, obscure lore, and forgotten languages. When you make an &lt;LSTag Tooltip="Arcana"&gt;Arcana&lt;/LSTag&gt;, &lt;LSTag Tooltip="History"&gt;History&lt;/LSTag&gt;, &lt;LSTag Tooltip="Nature"&gt;Nature&lt;/LSTag&gt; or &lt;LSTag Tooltip="Religion"&gt;Religion&lt;/LSTag&gt; check, you automatically roll a Critical Success."
+- `hdca4f038gd1fdg32a6g1364g118707c3d893`: "Bolster your allies within [1] with celestial energy to increase their &lt;LSTag Tooltip="HitPoints"&gt;hit point maximum&lt;/LSTag&gt; by [2]." ⇒ "Bolster your allies within [1] with celestial energy to increase their &lt;LSTag Tooltip="HitPoints"&gt;hit point maximum&lt;/LSTag&gt; by an amount equal to your Arcana level."
+- `hde71b0a3gc617gb8d2ga14fgb29bea7aa3d7`: "We walk beneath the turning sky, carrying the light that restores the wounded." ⇒ "We keep a light burning after every fall, and the Weave lets us pour it into the wounded."
+- `he624619ag7ba5gd55fge4dfgc5905104b8f4`: "Hurl a powerful version of &lt;LSTag Type="Spell" Tooltip="Projectile_IND_SigilofMalice"&gt;Sigil of Malice&lt;/LSTag&gt; at a creature, dealing [1] and marking it with a &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt;." ⇒ "Recast &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;Sigil of Malice&lt;/LSTag&gt; at a creature, dealing [1] and marking it with a &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt;."
+- `hea3258c7g78a8g47c1g40cbg1263fd6d0156`: "Dash through space with a powerful version of &lt;LSTag Type="Spell" Tooltip="Target_IND_Distortion"&gt;Distortion&lt;/LSTag&gt;, dealing damage where you arrive. For 2 turns, you can teleport back to your original position by casting &lt;LSTag Type="Spell" Tooltip="Shout_IND_Withdraw"&gt;Withdraw&lt;/LSTag&gt;." ⇒ "Recast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion"&gt;Distortion&lt;/LSTag&gt; to dash through space, dealing damage where you arrive, and leave a Double standing where you were. For 2 turns, you can cast &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_MimicWithdraw"&gt;Withdraw&lt;/LSTag&gt; to swap places with it."
+- `hebe50e8bg943eg9487gb9c1g7e016fb544ab`: "You have mastered the art of mirrors. Arcane spells that normally target only one creature can instead target two creatures, consuming 1 additional &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Arcane Card&lt;/LSTag&gt;." ⇒ "You have mastered the art of mirrors. Arcane spells that normally target only one creature can instead target two creatures."
+- `hf22a0eedgbc8dgc316g2434g51c6f4982dc4`: "Hurl a weakened version of &lt;LSTag Type="Spell" Tooltip="Projectile_IND_SigilofMalice"&gt;Sigil of Malice&lt;/LSTag&gt; at a creature, dealing [1] and marking it with a &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt;." ⇒ "Hurl a sliver of &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;Sigil of Malice&lt;/LSTag&gt; at a creature, dealing [1] and marking it with the Deceiver's &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt;."
+- `hf46d76b0g0b09g9071ga64dg229bd9e5c3b0`: "Detecting supernatural creatures." ⇒ "Can detect supernatural creatures in a range of [1], and also recognise magic and interact with enchanted items. When you make an &lt;LSTag Tooltip="Arcana"&gt;Arcana&lt;/LSTag&gt; check, you automatically roll a Critical Success."
+- `hf756bce1g79bag5985ga624gb4cc6e843978`: "The Unbound embraces the Arcana as a force without limits, harnessing the freedom of the wind to outpace enemies and roam wherever fate calls." ⇒ "Mystra wove the Unbound from the first step of every journey, a thread that answers only to curiosity and the open road. They wear no armour and strike with open hands and moving air, slipping past every blow until the ground itself stops holding them down."
+- `hf8b91199gf478g426fg802dg1c43b37014ab`: "Third Eye: Creature is an aberration." ⇒ "This creature is an aberration."
+- `hfda61488g9163gb8a3ga2c2g4f7401c5be55`: "You've become the Aspect of Love.&lt;br&gt;&lt;br&gt;Your &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; is increased by [1], and you can cast &lt;LSTag Type="Spell" Tooltip="Target_IND_Friends_EX"&gt;Friends: Faux Amis&lt;/LSTag&gt;. When you deal damage with your Arcane spells, you add your Charisma &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to it." ⇒ "You've become the Aspect of Love.&lt;br&gt;&lt;br&gt;Your &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; is increased by [1], and you can cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Util_Friends_EX"&gt;Friends: Faux Amis&lt;/LSTag&gt;. When you deal damage with your Arcane spells, you add your Charisma &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to it."
+
+## Other files (LSX, Lua, Khonsu, Osiris goals, icons…)
+
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ActionResourceDefinitions/ActionResourceDefinitions.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ActionResourceGroupDefinitions/ActionResourceGroupDefinitions.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Animation/ShortNames.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/AnimationOverrides/AnimationSetPriorities.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Assets/Effects/AspectClass/ARCANA_VFX_Status_DarknessRise.lsefx`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/CharacterCreationPresets/AbilityDistributionPresets.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/CharacterCreationPresets/CharacterCreationPresets.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ClassDescriptions/ClassDescriptions.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Abilities.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Equipments.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Passives.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Skills.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Spells.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ErrorDescriptions/ConditionErrors.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Levelmaps/LevelMapValues.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/AbilityLists.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/PassiveLists.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/SkillLists.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/SpellLists.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/MultiEffectInfos/1b098c3e-a94d-42ce-8a75-e4b0900f982c.mei`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Progressions/ProgressionDescriptions.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Progressions/Progressions.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Shapeshift/Rulebook.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Equipment/Equipment.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Projectile.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Rush.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Shout.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/SpellSet.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Target.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Teleportation.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/SpellData/Zone.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Armor.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Character.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Interrupt.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Object.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Passive.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Stats/Weapon.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_BOOST.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_DOWNED.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_EFFECT.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_FEAR.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_INCAPACITATED.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_INVISIBLE.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_KNOCKED_DOWN.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/StatusData/Status_POLYMORPHED.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/TreasureTable/TreasureGroups.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/TreasureTable/TreasureTable.stats`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/TooltipExtras/TooltipExtraTexts.tbl`
+- NEW `Editor/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tutorials/TutorialEvents.tbl`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Highlight/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Missing/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Resources/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Resources/Highlight/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Resources/Missing/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Resources/Used/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ActionResources_c/Icons/Used/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/CC/icons_resources/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Deceiver.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Eternal.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Resonant.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Spinner.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Starchild.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Titan.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Unbound.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Resonant.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Spinner.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/Shared/Resources/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/Shared/Resources/Highlight/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/Shared/Resources/Missing/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/Shared/Resources/Used/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Highlight/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Missing/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Resources/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Resources/Highlight/Default.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Resources/Missing/Default.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Resources/Used/Default.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ActionResources_c/Icons/Used/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Deceiver.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Eternal.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Resonant.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Spinner.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Starchild.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Titan.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Unbound.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Resonant.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Spinner.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/Shared/Resources/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/Shared/Resources/Highlight/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/Shared/Resources/Missing/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/Shared/Resources/Used/ArcanaSpellSlot.DDS`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Config.json`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/BootstrapServer.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Cards/CardDB.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Const.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Events.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Flow.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Piles.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Pool.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/State.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Sync.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Core/Util.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Debug/Commands.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Deck/Grants.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Deck/List.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/CombatResources.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/HandCards.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/Reactions.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/Resources.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/Threads.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Economy/Weaving.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Feedback/Overhead.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Hooks/Osiris.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Conjured.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Fated.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Fleeting.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Reweave.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Tangle.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Server/Keywords/Unique.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/All.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/CardDBTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/CombatResourcesTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/DestinationTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/EventsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/FlowTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/GrantsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/HandCardsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/KeywordsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/ListTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/OverheadTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/PilesTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/PoolTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/ReactionsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/SmokeTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/StateTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/SyncTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/T.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/ThreadsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/UtilTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ScriptExtender/Lua/Tests/WeaponActionsTest.lua`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsCardSpell.khn`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsIsolatedFoe.khn`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsMirroredSelfSpell.khn`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Aspect_Common.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Aspect_Death.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Aspect_Empress.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Aspect_Fool.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Aspect_Star.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_CardFamilies.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Deceiver_Doubles.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Deceiver_Doubt.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Passive_MirroredSpell.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_PreCombatBuffs.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Spell_FacelessCopy.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Spell_MimicWithdraw.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Spell_MirrorWithdraw.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Spell_Withdraw.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Status_Hemorrhage.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/ARCANA_Status_Sigil.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/story_definitions.div`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/log.txt`
+- NEW `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story_orphanqueries_found.txt`
+- NEW `Projects/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/meta.lsx`
+- NEW `Projects/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/thumbnail.png`
+- NEW `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ActionResourceGroupDefinitions/ActionResourceGroupDefinitions.lsx`
+- NEW `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Assets/Effects/Effects_Banks/AspectClass/ARCANA_VFX_Status_DarknessRise.lsfx`
+- NEW `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/TooltipExtras/TooltipExtraTexts.lsx`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/metadata.lsx`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/BrazilianPortuguese/brazilianportuguese.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/BrazilianPortuguese/brazilianportuguese.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/BrazilianPortuguese/brazilianportuguese.xml.bak-20260906-sync3`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/BrazilianPortuguese/brazilianportuguese.xml.bak-20260907-catchup`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Chinese/chinese.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Chinese/chinese.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Chinese/chinese.xml.bak-20260906-sync2`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Chinese/chinese.xml.bak-20260907-catchup`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/ChineseTraditional/chinesetraditional.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/ChineseTraditional/chinesetraditional.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/ChineseTraditional/chinesetraditional.xml.bak-20260906-sync2`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/ChineseTraditional/chinesetraditional.xml.bak-20260907-catchup`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/English/english.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/English/english.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/English/english.xml.bak-englishaudit-20260906`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/French/french.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/French/french.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/French/french.xml.bak-20260906-sync3`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/French/french.xml.bak-20260907-catchup`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/German/german.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/German/german.xml.bak-20260906-sync4`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Italian/italian.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Italian/italian.xml.bak-20260906-sync4`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Japanese/japanese.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Japanese/japanese.xml.bak-20260907-sync6`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Korean/korean.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Korean/korean.xml.bak-20260907-sync6`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/LatinSpanish/latinspanish.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/LatinSpanish/latinspanish.xml.bak-20260906-sync5`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Polish/polish.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Polish/polish.xml.bak-20260907-sync6`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Russian/russian.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Russian/russian.xml.bak-20260906-orphanremoval`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Russian/russian.xml.bak-20260906-sync3`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Russian/russian.xml.bak-20260907-catchup`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Spanish/spanish.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Spanish/spanish.xml.bak-20260906-sync5`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Turkish/turkish.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Turkish/turkish.xml.bak-20260907-sync7`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Ukrainian/ukrainian.xml.bak-20260906-crlfbom`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Ukrainian/ukrainian.xml.bak-20260907-sync7`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsDeceiverOneTargetSpell.khn`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Passive_DarknessRise.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Passive_MirroredSpell.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_FacelessCopy.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_FacelessCopy_EX.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_MimicWithdraw.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_Mimic_Last_Casted.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_MirrorImage.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_MirrorWithdraw.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Spell_Withdraw.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Status_Hemorrhage.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/RawFiles/Goals/IND_Status_Sigil.txt`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/goals.raw`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story.div`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story.div.osi`
+- REMOVED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story_ac.dat`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Assets/Effects/Effects_Banks/AspectClass/IND_VFX_Status_DarknessRise.lsfx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Assets/Effects/Effects_Banks/AspectClass/IND_VFX_Status_DarknessRise.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Content/[PAK]_AspectClass/66bf062c-0265-7ecc-ff68-55080fcd73e0.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Content/[PAK]_CharacterVisuals/462456f9-6a9e-ae6f-e76a-d7989c7c85cc.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/MultiEffectInfos/1b098c3e-a94d-42ce-8a75-e4b0900f982c.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/14dc9ac7-2545-41f0-91b6-d9eb25454e43.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/416937cd-a4d4-4279-a794-7a3925e2d344.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/4267f207-3e8b-4431-99e0-ba91eb29a836.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/4441890b-a8c1-4c6d-8309-ec505adc7acc.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/6963f5c1-bd42-4751-8339-fa9a7ca02925.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/8807d230-d0f5-4aa5-b6e4-4b36e9da2ec8.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/9f883428-f130-486d-aad3-3b4084a24ab3.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/ac599fe4-4d97-4161-8b3d-003fa0e0e13b.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/bc2df116-5ab9-422f-b6d8-e6ed3b670455.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/c3c514b2-152d-4a01-9e7d-e49d1062d2f0.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/c55ef028-1883-416a-8e23-eb34bbc01618.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/c7887784-543f-4b28-b996-ea57fa6a1812.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/d586b188-7b1d-4932-b585-1ec982333a60.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/d88fb323-5015-4949-a65a-eb417a924d5d.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/d98b75d0-1423-4478-82b3-84a54a004e08.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/da0186fc-37a9-4a8e-aff7-552162d0c945.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/RootTemplates/ffa1b1ca-903c-4508-96d4-bc3068013d84.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/020d9098-6b48-4396-8e63-237f36ff07b1.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/1901f3df-a4aa-4633-80eb-13e9148c2928.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/363da7f8-2e60-434d-a377-6c1add09ea72.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/5bc93bef-894c-43c5-94c4-e8a0b8dbfb5e.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/bf67fef0-0e13-48a8-8434-5572652d45ad.lsx`
+- REMOVED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tags/dfa945dd-b8ef-466a-865f-bfe78af969d5.lsx`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/Arcana.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Arcana.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Deceiver.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Eternal.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Starchild.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Titan.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/Assets/ClassIcons/hotbar/Unbound.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/Arcana.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Arcana.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Deceiver.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Eternal.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Starchild.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Titan.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/GUI/AssetsLowRes/ClassIcons/hotbar/Unbound.DDS`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/BrazilianPortuguese/brazilianportuguese.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Chinese/chinese.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/ChineseTraditional/chinesetraditional.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/French/french.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/German/german.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Italian/italian.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Japanese/japanese.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Korean/korean.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/LatinSpanish/latinspanish.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Polish/polish.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Russian/russian.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Spanish/spanish.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Turkish/turkish.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Localization/Ukrainian/ukrainian.xml`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsArcanaAttackSpell.khn`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsArcanaCantrip.khn`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsArcanaSaveSpell.khn`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Scripts/thoth/helpers/IsArcanaSpell.khn`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story_orphanqueries_ignore.txt`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Story/story_orphanqueries_ignore_local.txt`
+- CHANGED `Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/meta.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ActionResourceDefinitions/ActionResourceDefinitions.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/CharacterCreationPresets/AbilityDistributionPresets.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ClassDescriptions/ClassDescriptions.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Abilities.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Skills.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/DefaultValues/Spells.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/ErrorDescriptions/ConditionErrors.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Levelmaps/LevelMapValues.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/PassiveLists.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/SkillLists.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Lists/SpellLists.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Progressions/ProgressionDescriptions.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Progressions/Progressions.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Shapeshift/Rulebook.lsx`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Stats/Generated/Equipment.txt`
+- CHANGED `Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7/Tutorials/TutorialEvents.lsx`

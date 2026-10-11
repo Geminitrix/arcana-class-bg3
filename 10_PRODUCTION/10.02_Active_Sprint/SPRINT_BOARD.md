@@ -1,5 +1,20 @@
-# Sprint board
+# Sprint board — S00
 
 *Generated 2026-10-11 by `82_Automation/update_board.pl` — do not edit.*
 
-_No active sprint (`SPRINT_GOAL.md` has no `sprint: S##` line)._
+## To Do (0)
+
+
+## In Progress (0)
+
+
+## Spec Ready (1)
+
+- **ARC-0001** Remove the dead PassivesRemoved at Deceiver level 20
+
+## In QA (0)
+
+
+## Done (0)
+
+

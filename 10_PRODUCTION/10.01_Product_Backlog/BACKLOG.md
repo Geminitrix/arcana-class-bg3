@@ -4,7 +4,6 @@
 
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
-
-_No open tickets._
+| [ARC-0001](stories/ARC-0001_Deceiver_L20_Dead_PassivesRemoved.md) | Remove the dead PassivesRemoved at Deceiver level 20 | chore | Engineering | should | 2/1 | spec_ready | owner | S00 |
 
 Done tickets: 0.

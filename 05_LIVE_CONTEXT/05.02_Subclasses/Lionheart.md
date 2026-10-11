@@ -1,14 +1,14 @@
 ---
-source: 51 Progressions (dump_progression.pl)
+source: 51 Progressions (dump_progression.pl); Owner confirmation 2026-10-11
 synced_at: 2026-10-11
-state: stale — the link Titan ↔ Lionheart is an assumption to confirm with the Owner
+state: synced
 ---
 
-# Lionheart
+# 🦁 Lionheart
 
-**New — in design.** No design document yet in `21.04_Subclasses/Lionheart/`.
+**New — being defined.** No design document yet in `21.04_Subclasses/Lionheart/`.
 
 ## In the game today
-A **placeholder** progression named **Titan** (VIII · Strength in the old roster) exists (levels 1–12
-rows). It grants only a copy of the **Resonant level 1 kit** (proficiencies, Emotional Alchemy, Empathic
-Sight, Weave Surge: Joy / Trust / Fear). Assumed to be the slot reserved for Lionheart — **to confirm**.
+Its slot is the progression named **Titan** (internal name; VIII · Strength in the old roster). It exists for
+levels 1–12 but grants only a placeholder copy of the **Resonant level-1 kit** (proficiencies, Emotional
+Alchemy, Empathic Sight, Weave Surge: Joy / Trust / Fear). Not in the published version 3.1.0.28.

@@ -37,7 +37,12 @@ for my $s (sort keys %grant) {
   for my $g (@{ $grant{$s} }) {
     my ($l, $k, $id, $name) = @$g; next if $seen{$id}++;
     (my $base = $id) =~ s/_\d+$//;
-    next if index($t, $id) >= 0 || index($t, $base) >= 0 || ($name ne '' && index($t, $name) >= 0);
+    # vanilla entries have no mod loca name: also try the id as words ("Target_Light" → "Light",
+    # "CosmicOmen_Rest" → "Cosmic Omen")
+    (my $words = $base) =~ s/^(?:Target|Shout|Projectile|Zone|Rush|Teleportation|Throw|Wall|ProjectileStrike)_//;
+    $words =~ s/_(?:Rest|Ability|Action|Bonus|Passive)$//; $words =~ s/_/ /g; $words =~ s/([a-z])([A-Z])/$1 $2/g;
+    next if index($t, $id) >= 0 || index($t, $base) >= 0 || ($name ne '' && index($t, $name) >= 0)
+         || (length $words > 3 && index(lc $t, lc $words) >= 0);
     push @miss, sprintf "L%-2s %-7s %s \"%s\"", $l, $k, $id, $name;
   }
   my @ghost;

@@ -1,7 +1,7 @@
 ---
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
-synced_at: 2026-10-02 (last verified against the game files; migrated 2026-10-11)
-state: stale — Cosmic Omen (CosmicOmen, _Rest, _Ability) and Light, granted at level 1, are not described here
+synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
+state: synced
 ---
 
 # 🌟 The Starchild — XVII · The Star · Aspect of Hope

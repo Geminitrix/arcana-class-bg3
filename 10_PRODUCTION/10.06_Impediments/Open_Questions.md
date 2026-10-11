@@ -97,12 +97,11 @@
 
 ## Found during the repository migration (2026-10-11)
 
-- ❓ **Titan ↔ Lionheart.** The game files hold a placeholder progression named *Titan* (copy of the
-  Resonant level-1 kit). Is it the slot reserved for Lionheart?
-- ❓ **Spinner placeholder.** The *Spinner* progression also grants only the Resonant level-1 kit — keep as
-  a placeholder until Spinner is built, or clear it so a player can't pick an empty subclass?
-- ❓ **Starchild Cosmic Omen.** Level 1 grants the vanilla `CosmicOmen`, `CosmicOmen_Rest`,
-  `CosmicOmen_Ability` and `Target_Light`; `05.02_Subclasses/Starchild.md` doesn't describe them. Intended?
+- ✅ **Titan = Lionheart** (Owner, 2026-10-11). The progression keeps the internal name *Titan*.
+- ❓ **Placeholder progressions before the 4.0 release.** *Spinner* and *Titan* (Lionheart) are still being defined
+  and today grant a copy of the Resonant level-1 kit. They are **not** in the published 3.1.0.28, so no player
+  sees them now. Before the 4.0 build ships: each is finished, or hidden from character creation.
+- ✅ **Starchild Cosmic Omen** is intended (Owner, 2026-10-11) and already described in `05.02_Subclasses/Starchild.md` — the earlier flag was a verifier false positive (fixed).
 - ❓ **Eternal card passives with vanilla names.** `Shout_Arcana_Card_Passive_InescapableDestruction` and
   `…_InuredToUndeath` use DisplayName handles that are not in the mod's `english.xml` (they reuse vanilla
   loca). Check the names show in game and in all 16 languages.
