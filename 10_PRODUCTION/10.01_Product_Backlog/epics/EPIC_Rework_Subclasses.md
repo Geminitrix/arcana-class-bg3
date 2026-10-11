@@ -7,3 +7,4 @@ stats found in `10.06_Impediments/Open_Questions.md`.
 | Ticket | Subclass | Title | Status |
 |---|---|---|---|
 | ARC-0001 | Deceiver | Remove the dead `PassivesRemoved` at Deceiver level 20 | done (S00 pilot) |
+| ARC-0002 | Resonant | Raise the Resonant to the subclass standard (design) | in_progress |

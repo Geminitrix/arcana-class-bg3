@@ -4,7 +4,6 @@
 
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
-
-_No open tickets._
+| [ARC-0002](stories/ARC-0002_Resonant_Design_Raise.md) | Raise the Resonant to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 
 Done tickets: 1.
