@@ -6,5 +6,7 @@ on reaction, Shared Heart capstone, Emotional Overload, Tier I Resonance); raisi
 
 **Blocked:** nothing (design only; no game files touched).
 
-**Next:** balance pass into `25_Master_Data`; in-game tests (spec §15); Toolkit renames (Owner); player
+**Then:** balance pass approved (numbers in `25.01`–`25.03`, report in `22.05`).
+
+**Next:** in-game tests (spec §15); Toolkit renames (Owner); player
 guide `75.02` update.

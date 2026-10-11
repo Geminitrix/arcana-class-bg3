@@ -1,0 +1,11 @@
+id: STA_Resonant_Catharsis
+kind: status
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §5.5"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+game_ids: [CATHARSIS]
+values:
+  damage:  { value: 2d8, unit: damage, type: Psychic, by_level: { 1: 2d8, 5: 3d8, 10: 4d8 }, note: "non-ally" }
+  healing: { value: 2d8, unit: healing, by_level: { 1: 2d8, 5: 3d8, 10: 4d8 }, note: "ally" }
+  tier1_bonus: { value: 1d8, unit: damage, note: "Tier I Resonance adds it to damage and healing" }

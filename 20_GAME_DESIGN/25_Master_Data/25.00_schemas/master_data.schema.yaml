@@ -1,0 +1,24 @@
+# Schema for every hand-written master-data file in 25.01–25.04 (ADR-0005).
+# One file per spell (SPL_), feature or passive (FEAT_), or status family (STA_).
+# A file holds only numbers and the ids they apply to; the design lives in the spec it cites.
+
+file:
+  required: [id, kind, subclass, ticket, design, balance_report, values]
+  fields:
+    id:             { type: string, pattern: "^(SPL|FEAT|STA|CLS)_[A-Za-z0-9_]+$", note: "equals the file name without .yaml" }
+    kind:           { type: enum, values: [spell, feature, status, class] }
+    subclass:       { type: string, note: "subclass name, or Arcana for the base class" }
+    ticket:         { type: string, pattern: "^ARC-[0-9]{4}$" }
+    design:         { type: string, note: "path of the spec section that describes the feature" }
+    balance_report: { type: string, note: "path of the 22.05 report that shows the arithmetic" }
+    game_ids:       { type: list, items: string, optional: true, note: "Stats / Osiris ids the numbers go into; empty until built" }
+    values:         { type: map, note: "name -> value entry" }
+
+value_entry:
+  required: [value]
+  fields:
+    value:    { type: "string | number", note: "dice (2d8), a number, or a formula in words (3 x slot level + 2)" }
+    unit:     { type: enum, optional: true, values: [damage, healing, temp_hp, turns, metres, count, points, bonus, penalty] }
+    type:     { type: string, optional: true, note: "damage type, e.g. Psychic" }
+    by_level: { type: map, optional: true, note: "character level -> value, when it scales" }
+    note:     { type: string, optional: true }

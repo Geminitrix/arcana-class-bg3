@@ -5,13 +5,14 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R23 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
+> decisions R1–R24 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
 > `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
 >
-> **Numbers are not set here.** Wherever a value says *TBD* it is decided in the balance pass and lives
-> in `25_Master_Data` (ADR-0005). Durations in turns and ranges in metres are design and are final unless
+> **Numbers live in `25_Master_Data`** (ADR-0005): where a value is needed, the spec names the file that
+> holds it (`STA_Resonant_*`, `FEAT_Resonant_*`, `SPL_Resonant_*`). The arithmetic is in
+> `22.05/2026-10-11_ARC-0002_Resonant_Balance.md`. Durations in turns and ranges in metres are design and are final unless
 > a test proves them wrong. Names marked *(working name)* are settled in the text pass.
 
 ---
@@ -279,9 +280,9 @@ creature other than you.
 | Submission | Trust + Fear | I | Knocked Prone; can't harm the Resonant |
 | Awe | Fear + Surprise | I | **INCAPACITATED** until it takes damage (`using HYPNOTIC_PATTERN`) |
 | Disapproval | Surprise + Sadness | I | Its allies within 3 m have Disadvantage on Attack Rolls |
-| Remorse | Sadness + Disgust | I | The first time it deals damage each turn, it takes Psychic damage (TBD) |
+| Remorse | Sadness + Disgust | I | The first time it deals damage each turn, it takes Psychic damage (`STA_Resonant_Feelings`) |
 | Contempt | Disgust + Anger | I | Vulnerable to Psychic |
-| Aggressiveness | Anger + Anticipation | A | Extra weapon damage (TBD), +1 reaction |
+| Aggressiveness | Anger + Anticipation | A | Extra weapon damage (`STA_Resonant_Feelings`), +1 reaction |
 
 **Secondary** (distance 2)
 
@@ -300,18 +301,18 @@ creature other than you.
 
 | Feeling | Blend | | Effect |
 |---|---|---|---|
-| Delight | Joy + Surprise | A | Regains hit points at the end of each turn (TBD) |
+| Delight | Joy + Surprise | A | Regains hit points at the end of each turn (`STA_Resonant_Feelings`) |
 | Sentimentality | Trust + Sadness | A | Resistant to Psychic; immune to Charmed |
 | Shame | Fear + Disgust | I | No reactions; Disadvantage on Attack Rolls |
 | Outrage | Surprise + Anger | I | Disadvantage on Attack Rolls; attacks against it have Advantage |
-| Pessimism | Sadness + Anticipation | I | Penalty to Saving Throws and Ability Checks (TBD) |
-| Morbidness | Disgust + Joy | A | The first weapon hit each turn restores hit points (TBD) |
+| Pessimism | Sadness + Anticipation | I | Penalty to Saving Throws and Ability Checks (`STA_Resonant_Feelings`) |
+| Morbidness | Disgust + Joy | A | The first weapon hit each turn restores hit points (`STA_Resonant_Feelings`) |
 | Dominance | Anger + Trust | A | Advantage on Athletics and Intimidation; +1 AC |
 | Anxiety | Anticipation + Fear | I | Loses Concentration; no reactions; Disadvantage on Concentration saves |
 
 ### 5.5 Catharsis — `CATHARSIS`, instant
 
-Opposing threads snap. A non-ally takes Psychic damage; an ally regains hit points (both TBD). Spends
+Opposing threads snap. A non-ally takes Psychic damage; an ally regains hit points (`STA_Resonant_Catharsis`; both scale with level). Spends
 the mood. Shows in the combat log.
 
 ---
@@ -322,9 +323,10 @@ the mood. Shows in the combat log.
 
 - **The meter** (`OVERLOAD`, a status on the Resonant with a visible count) fills by **+1** for each peak
   that lands and **+2** for each reaction (feeling, Intensify, Catharsis) (R12). A failed save adds
-  nothing. Its size is TBD.
+  nothing. Its size grows with the slot level (`FEAT_Resonant_Overload`), so it fills around the fourth
+  turn at every level.
 - **It resets when combat ends.**
-- **Full:** at the start of each of the Resonant's turns they take Psychic damage (TBD) until they
+- **Full:** at the start of each of the Resonant's turns they take Psychic damage (`FEAT_Resonant_Overload`) until they
   release it (R11). The decision: release now, or hold for the right target.
 - **Shared Heart** (§7.6) counts **once per Surge**, however many linked allies react (R19).
 
@@ -333,7 +335,7 @@ the mood. Shows in the combat log.
 The key feature that ties the mechanic together: everything the Resonant braided, poured into one enemy.
 
 **Action, only with the meter full; the full meter is its cost — no slot, no Thread** (R22). One enemy within 18 m, no saving throw:
-- every **feeling** it carries is spent, and it takes Psychic damage for each (TBD);
+- every **feeling** it carries is spent, and it takes Psychic damage for each (`SPL_Resonant_EmotionalOverload`);
 - it is **Paralysed for 2 turns**;
 - the meter empties.
 
@@ -371,10 +373,11 @@ Trust on it (it can trigger Alchemy). Once per round.
 
 ### 7.6 Shared Heart — capstone (level 11) — R18
 
-**Action · Long Rest · Unique.** You and every ally within 18 m are **linked** for a few turns (TBD). A
+**Action · Long Rest · Unique.** You and every ally within 18 m are **linked** until combat ends. A
 Weave Surge on one linked ally lands on **all** of them, and they share the same mood: one Surge: Joy
 makes the whole party contagious, one reaction braids Love or Hope into everyone. The Surge counts as one
-reaction for the refund, the Overload and the Awakening (R19).
+reaction for the refund, the Overload and the Awakening (R19). **A Surge whose main target is a linked
+ally spends no slot and no Thread** (R24) — the capstone lets the Resonant braid the party for free.
 
 ---
 
@@ -399,9 +402,9 @@ Counted in Osiris (`ARCANA_Aspect_Temperance`). Tiers stack and last until comba
 
 | Tier | Level | Goal | Name | Bonus |
 |---|---|---|---|---|
-| I | 3 | 3 reactions (TBD) | **Resonance** (R21) | Catharsis deals or restores more (TBD); moods you create last 2 turns longer; the Aspect card **The Two Cups** |
-| II | 7 | 5 reactions (TBD) | **Harmony** (R8) | Once per turn, when you braid a feeling, the nearest other creature within 6 m gains the mood of one of that feeling's two emotions (it replaces, §4.7) |
-| III | 12 | 7 reactions (TBD) | **Aspect of Empathy** (R14) | **Emotional Overload reaches an area:** the target and every enemy within 6 m carrying one of your feelings lose their feelings and are Paralysed — the target 2 turns, the others 1. No ability bonus |
+| I | 3 | `FEAT_Resonant_AspectAwakening` | **Resonance** (R21) | Catharsis deals or restores more (`STA_Resonant_Catharsis`); moods you create last 2 turns longer; the Aspect card **The Two Cups** |
+| II | 7 | `FEAT_Resonant_AspectAwakening` | **Harmony** (R8) | Once per turn, when you braid a feeling, the nearest other creature within 6 m gains the mood of one of that feeling's two emotions (it replaces, §4.7) |
+| III | 12 | `FEAT_Resonant_AspectAwakening` | **Aspect of Empathy** (R14) | **Emotional Overload reaches an area:** the target and every enemy within 6 m carrying one of your feelings lose their feelings and are Paralysed — the target 2 turns, the others 1. No ability bonus |
 
 ### 9.1 The Two Cups — the Aspect card (Tier I)
 
@@ -529,7 +532,6 @@ of §5.1.
 
 | Item | Decided in |
 |---|---|
-| Catharsis value and the Tier I bonus; Overload size and damage when full; Emotional Overload damage per feeling; Shared Heart duration; feeling values marked TBD; Awakening goals | Balance pass (`25_Master_Data`) |
 | Plan B for each T2 peak if its test fails (§5.1) | After the tests |
 | Every *(working name)*; the peak descriptions | Text pass |
 | Aspect VFX per emotion | Author |
@@ -548,5 +550,5 @@ of §5.1.
 | Overload count | Peaks add 1, reactions 2, failed saves 0; resets at combat end |
 | Overload full | Psychic damage at the start of each of the Resonant's turns |
 | Emotional Overload | Only castable at full; spends feelings, paralyses 2 turns with no save, empties the meter |
-| Shared Heart | A Surge on one linked ally lands on all; counts once |
+| Shared Heart | A Surge on one linked ally lands on all, counts once, and spends no slot or Thread |
 | The engine test of the first version | Its rows still pass (peaks → moods, reactions, locked rings, R9 StackId) |

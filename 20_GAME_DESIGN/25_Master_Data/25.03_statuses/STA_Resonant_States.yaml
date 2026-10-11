@@ -1,0 +1,12 @@
+id: STA_Resonant_States
+kind: status
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §4.2"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+game_ids: [EMOTION_*, MOOD_*, FEELING_*]
+values:
+  peak_duration:     { value: 1, unit: turns }
+  mood_duration:     { value: 5, unit: turns }
+  feeling_duration:  { value: 2, unit: turns }
+  intense_duration:  { value: 1, unit: turns, note: "then the mood returns" }

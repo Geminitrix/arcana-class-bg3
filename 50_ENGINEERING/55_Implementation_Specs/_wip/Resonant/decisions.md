@@ -34,6 +34,7 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R21 | **Tier I is renamed Resonance** (replaces Attunement from R8): the same tuning idea (R1), named after the subclass, and no clash with the deck keyword Attuned. Tier II stays Harmony | author, 2026-10-11 |
 | R22 | **Emotional Overload costs an Action and no slot or Thread:** the full meter is its cost | author, 2026-10-11 |
 | R23 | **Rage follows Anger's grudge:** the intense ring attacks the last creature that hurt it, with Advantage | author, 2026-10-11 |
+| R24 | **Shared Heart lasts until combat ends, and a Surge whose main target is a linked ally spends no slot and no Thread** (balance pass: the first version only saved targets the level-11 upcast already gives) | author, 2026-10-11 |
 
 ## Audit state before the rules rewrite
 

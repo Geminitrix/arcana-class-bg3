@@ -1,0 +1,12 @@
+id: FEAT_Resonant_AspectAwakening
+kind: feature
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §9"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+game_ids: [ARCANA_Aspect_Temperance]
+values:
+  goal_tier1: { value: 3, unit: count, note: "reactions in one fight" }
+  goal_tier2: { value: 6, unit: count }
+  goal_tier3: { value: 15, unit: count }
+  tier2_harmony_range: { value: 6, unit: metres }

@@ -1,0 +1,12 @@
+id: SPL_Resonant_EmotionalOverload
+kind: spell
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §6.1, §9"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+values:
+  range:              { value: 18, unit: metres }
+  damage_per_feeling: { value: 1d6, unit: damage, type: Psychic }
+  paralysed:          { value: 2, unit: turns, note: "no saving throw" }
+  tier3_area:         { value: 6, unit: metres, note: "enemies carrying one of the Resonant's feelings" }
+  tier3_paralysed_others: { value: 1, unit: turns }

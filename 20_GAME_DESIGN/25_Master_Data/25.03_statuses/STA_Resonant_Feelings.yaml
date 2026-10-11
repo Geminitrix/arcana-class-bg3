@@ -1,0 +1,14 @@
+id: STA_Resonant_Feelings
+kind: status
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §5.4"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+game_ids: [FEELING_REMORSE, FEELING_AGGRESSIVENESS, FEELING_DELIGHT, FEELING_PESSIMISM, FEELING_MORBIDNESS, FEELING_OPTIMISM]
+values:
+  remorse_damage:          { value: 1d6, unit: damage, type: Psychic, note: "first time it deals damage each turn" }
+  aggressiveness_damage:   { value: 1d4, unit: damage, note: "extra weapon damage" }
+  delight_regeneration:    { value: 1d6, unit: healing, note: "end of each turn" }
+  pessimism_penalty:       { value: 1d6, unit: penalty, note: "Saving Throws and Ability Checks" }
+  morbidness_healing:      { value: 1d6, unit: healing, note: "first weapon hit each turn" }
+  optimism_temp_hp:        { value: "Intelligence modifier", unit: temp_hp, note: "each turn" }
