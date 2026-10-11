@@ -18,3 +18,5 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | `gen_catalog.pl` | `51` → `05.03`, `05.04` catalogues and the `25.05_inventory` YAML (ADR-0005) |
 | `dump_progression.pl` | Prints every progression level from the game files, names and texts resolved |
 | `stats/*.pl` | Stats helpers: `stats_add` (patch files), `gen_upcast_variants`, `sort_stats`, `check_cards`, `subclass_texts`, `gen_emotion_alchemy` |
+| `gen_type_catalog.pl` | Vanilla extraction + schema → `55.00_Type_Catalog.md` (spell / status subtypes with vanilla examples) |
+| `verify_context.pl` | Every spell / passive a progression grants must appear in its `05` file; every id in a `05` file must exist. Matches by id or in-game name — features described under another name show up as false positives, so read the list |

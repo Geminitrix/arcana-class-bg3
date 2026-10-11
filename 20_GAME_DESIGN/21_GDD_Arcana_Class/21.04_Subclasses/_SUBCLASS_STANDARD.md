@@ -1,3 +1,10 @@
+---
+id: 21.04/_SUBCLASS_STANDARD
+status: proposed — awaiting Owner approval before any rework starts (spec §1)
+owner: Lead Class Designer
+updated: 2026-10-11
+---
+
 # Subclass Design Criteria — how the Arcana designs and evaluates a subclass
 
 > How every design change to the **Arcana** is made and judged: a new subclass, a rework of an existing
@@ -638,3 +645,34 @@ Technical       T1 no SE · T2 proven · T3 generated · T4 conventions
 Documentation   D1 Identity Sheet · D2 sources agree
 Also            Texts · Test plan
 ```
+
+---
+
+## 15. Studio gates this standard feeds (spec §9, §17.4, §18.8)
+
+A feature reaches **Spec Ready** only after both gates are recorded in its ticket.
+
+**Design gate** — each question answered in one or two lines:
+
+| # | Question | Answers it |
+|---|---|---|
+| 1 | Is it tied to a pillar (`21.01`) and to the subclass fantasy? | Lead Class Designer |
+| 2 | Is its role clear, without duplicating another subclass (matrix `21.08`)? | Lead Class Designer |
+| 3 | Which resource pays for it, and how does that resource recharge (`26`)? | Spell Designer |
+| 4 | Where does its power sit on the curve (virtual damage, sustained / nova DPR, `22`)? | Balance Designer |
+| 5 | Does it explain itself in one tooltip read? Does the subclass stay inside its complexity budget? | Lead Class Designer |
+| 6 | Interactions checked: concentration, bonus action, stacking, resource loops? | Balance Designer |
+| 7 | Does the 1–12 core work without the 13–20 module? | Validator (`53.03`) |
+| 8 | Is the intent of the change written in one sentence (it feeds the patch notes)? | Spell Designer |
+
+**Complexity budget** — asked as questions, not fixed numbers: How many new active actions does the
+subclass add by level 12, and does each earn its slot on the hotbar? How many distinct resources must the
+player track, and does each have a visible counter? Could a new player name the subclass's signature after
+one combat?
+
+**Narrative gate** — name, description and flavour approved and recorded in `32.04`; numbers in the text
+come from `25`, never typed by hand.
+
+**Open for the Owners:** the spec suggests at most 3 new active actions per subclass by level 12 and one
+main plus one secondary resource; and a ±15 % DPR band around the reference curve of the same role. These
+stay suggestions until an ADR fixes them.

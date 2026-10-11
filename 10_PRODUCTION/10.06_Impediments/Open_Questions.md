@@ -92,3 +92,19 @@
 - Reweave from Lua (2026-10-04): `Grants.lua` teaches it on load / level-up / fight start; check it shows
   up in the spellbook of a new and of an existing save, and that it still reaches the hand on turn 1.
 - Blood Offering credits the ledger on cast because `AttackedBy` seemed not to fire on self-damage (2026-10-02 test). If it does fire in some case, that cast counts twice.
+
+---
+
+## Found during the repository migration (2026-10-11)
+
+- ❓ **Titan ↔ Lionheart.** The game files hold a placeholder progression named *Titan* (copy of the
+  Resonant level-1 kit). Is it the slot reserved for Lionheart?
+- ❓ **Spinner placeholder.** The *Spinner* progression also grants only the Resonant level-1 kit — keep as
+  a placeholder until Spinner is built, or clear it so a player can't pick an empty subclass?
+- ❓ **Starchild Cosmic Omen.** Level 1 grants the vanilla `CosmicOmen`, `CosmicOmen_Rest`,
+  `CosmicOmen_Ability` and `Target_Light`; `05.02_Subclasses/Starchild.md` doesn't describe them. Intended?
+- ❓ **Eternal card passives with vanilla names.** `Shout_Arcana_Card_Passive_InescapableDestruction` and
+  `…_InuredToUndeath` use DisplayName handles that are not in the mod's `english.xml` (they reuse vanilla
+  loca). Check the names show in game and in all 16 languages.
+- ❓ **Owner approvals pending:** `_SUBCLASS_STANDARD` (21.04), DoR/DoD (00.03), mod licence (00.06),
+  ADR-0006 (Git LFS quota), mod.io guidelines summary (00.06 `PLATFORM_RULES.md`).

@@ -50,7 +50,7 @@ New here? Read `CLAUDE.md`, `AGENTS.md`, then `05_LIVE_CONTEXT/05.00_READ_FIRST.
 
 ## Migration status
 
-Stages A (skeleton) and B (copy migration, first live-context load) done on 2026-10-11. Next: Stage C (standards) —
+Stages A (skeleton), B (copy migration, live context) and C (standards, knowledge cards) done on 2026-10-11. Next: Stage D (agents and automation) —
 see `00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`.
 
 ## Credits & disclaimer
@@ -58,3 +58,5 @@ see `00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`.
 - **Author:** Lumox ([Geminitrix](https://github.com/Geminitrix)) — Lumox Studios.
 - Baldur's Gate 3 is © Larian Studios. This is an unofficial fan modification not affiliated with or
   endorsed by Larian Studios or Wizards of the Coast.
+- Arcana Class is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by
+  Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
