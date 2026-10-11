@@ -1,0 +1,45 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+PROC_ARCANA_PreCombatBuffs_Init();
+
+KBSECTION
+// Buffs que podem ser lancados fora de combate mas nao podem entrar nele (2026-09-30): quem entra em
+// combate perde estes status. Lancados ja em combate, ficam. Nao ha RemoveEvents de inicio de combate
+// (o enum StatusEvent so tem OnCombatEnded), por isso o Osiris -- que tambem roda no console.
+// As cartas de buff do Unbound viraram "so em combate" (Requirements Combat); sobrou o voo do Untethered.
+
+//REGION Tabela
+// Limpa antes de preencher: um save antigo guarda as linhas que sairam da tabela.
+PROC
+PROC_ARCANA_PreCombatBuffs_Init()
+AND
+DB_ARCANA_PreCombatBuff(_Status)
+THEN
+NOT DB_ARCANA_PreCombatBuff(_Status);
+
+PROC
+PROC_ARCANA_PreCombatBuffs_Init()
+THEN
+DB_ARCANA_PreCombatBuff("FLY_UNTETHERED");
+
+// INITSECTION nao roda de novo em save existente
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_PreCombatBuffs_Init();
+//END_REGION
+
+//REGION Entrou em combate: perde os buffs preparados antes
+IF
+EnteredCombat((CHARACTER)_Char, _)
+AND
+DB_ARCANA_PreCombatBuff(_Status)
+AND
+HasActiveStatus(_Char, _Status, 1)
+THEN
+RemoveStatus(_Char, _Status, _Char);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

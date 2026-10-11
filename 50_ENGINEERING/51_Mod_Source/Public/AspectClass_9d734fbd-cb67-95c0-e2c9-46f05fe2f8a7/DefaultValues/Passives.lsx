@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="ArcaneFamiliar_Cat"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="SelectorId" type="LSString" value="ArcaneFamiliar"/>
+                    <attribute id="TableUUID" type="guid" value="99f583de-f62e-43a7-b8f7-4aa29812709f"/>
+                    <attribute id="UUID" type="guid" value="dd1c10ef-6b2b-42db-9959-b17234618bdc"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

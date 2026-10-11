@@ -1,0 +1,1 @@
+DB_CasterTest 1DB_ARCANA_Copy_Active 1DB_ARCANA_MirroredSpell 2

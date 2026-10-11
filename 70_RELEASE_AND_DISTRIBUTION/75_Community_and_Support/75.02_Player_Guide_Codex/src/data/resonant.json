@@ -1,0 +1,1166 @@
+{
+  "slug": "resonant",
+  "title": "The Resonant",
+  "hero": {
+    "numeral": "XIV",
+    "cardName": "TEMPERANCE",
+    "emblem": null,
+    "emblemAlt": "",
+    "emblemSvg": "<svg viewBox=\"0 0 120 160\" fill=\"none\" stroke=\"#d8ac64\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" role=\"img\" aria-label=\"Two golden cups pouring a stream into each other\">\n            <path d=\"M60 8 L62.4 15.6 L70 18 L62.4 20.4 L60 28 L57.6 20.4 L50 18 L57.6 15.6 Z\" stroke-width=\"1.6\"></path>\n            <g transform=\"translate(36 52) rotate(32)\"><ellipse cx=\"0\" cy=\"0\" rx=\"15\" ry=\"4\"></ellipse><path d=\"M-15 0 C-15 16 -7 23 0 23 C7 23 15 16 15 0\"></path><path d=\"M0 23 V35\"></path><path d=\"M-10 40 C-5 35 5 35 10 40 Z\"></path></g>\n            <path d=\"M49 60 C61 70 55 92 76 109\"></path>\n            <path d=\"M52 58 C65 68 60 90 79 108\" stroke-width=\"1\" opacity=\".55\"></path>\n            <circle cx=\"70\" cy=\"86\" r=\"1.3\" fill=\"#d8ac64\" stroke=\"none\"></circle><circle cx=\"47\" cy=\"84\" r=\"1\" fill=\"#d8ac64\" stroke=\"none\"></circle><circle cx=\"88\" cy=\"94\" r=\"1\" fill=\"#d8ac64\" stroke=\"none\"></circle>\n            <g transform=\"translate(82 112) rotate(-14)\"><ellipse cx=\"0\" cy=\"0\" rx=\"15\" ry=\"4\"></ellipse><path d=\"M-15 0 C-15 16 -7 23 0 23 C7 23 15 16 15 0\"></path><path d=\"M0 23 V35\"></path><path d=\"M-10 40 C-5 35 5 35 10 40 Z\"></path></g>\n          </svg>",
+    "eyebrow": "Arcana Subclass · XIV · Temperance · Aspect of Empathy",
+    "epigraph": {
+      "html": "We feel what you feel before you do, and the Weave lets us turn it into something else.",
+      "cite": "A Resonant"
+    },
+    "ledeHtml": "<em>Mystra wove the Resonant from the feelings that pass between every living thing, a thread that tempers one emotion with another. They surge joy, trust or fear into a creature's Weave, then braid what lingers into stronger feelings that lift allies and break enemies from within.</em> The Resonant deals little damage of their own. They win by deciding what everyone on the field feels, and in what order: a surge now, a mood that lingers, and a second surge that turns the two into something stronger."
+  },
+  "sections": [
+    {
+      "id": "the-card",
+      "title": "The Card",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>Temperance is the fourteenth card of the Major Arcana. It shows a winged figure with one foot in a stream and one on dry land, pouring water from one cup into another. The stream runs at an angle no water should follow, and not a drop is spilled. Nothing is added and nothing is lost: the two cups simply trade what they hold until they balance.</p>\n          <p>The card stands for moderation, patience and the art of blending. It is the alchemist's card, the slow work of mixing two things until they become a third. It follows Death in the Major Arcana, and its lesson is what comes after an ending: mixing again, gently, until the measure is right.</p>\n          <p>That is the Resonant's destiny. They do not create feelings out of nothing. They pour one emotion into a creature that already holds another, and the two become something new. Joy poured into trust becomes Love. Fear poured into surprise becomes Awe. Pour a feeling into its opposite and the cup cracks.</p>"
+        },
+        {
+          "type": "reading",
+          "upright": {
+            "title": "Upright",
+            "keywords": [
+              "Balance",
+              "Moderation",
+              "Patience",
+              "Blending",
+              "Healing"
+            ],
+            "html": "Your allies feel the right thing at the right moment. Trust steadies them, joy sharpens them, and the feelings you braid from both carry them through the fight."
+          },
+          "reversed": {
+            "title": "Reversed",
+            "keywords": [
+              "Excess",
+              "Imbalance",
+              "Clashing extremes"
+            ],
+            "html": "Your enemies feel too much, all at once. Their emotions overflow into Terror and Grief, and opposites forced together snap into Catharsis."
+          }
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "title": "Playing a Resonant",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>The Resonant is a controller and a support caster. Each <a href=\"#the-wheel\">Weave Surge</a> fills a creature with one emotion for a single turn. When that emotion fades it leaves a milder mood behind, and the next Surge you cast on that creature reacts with the mood instead of landing on its own. Your turns alternate between laying moods and spending them: freeze an enemy with Fear now, then turn its lingering apprehension into Awe or Despair. The same rules work on your allies, so a single Surge can shut an enemy down on one side of the field and lift a friend on the other.</p>"
+        },
+        {
+          "type": "aside",
+          "title": "At a Glance",
+          "html": "<ul>\n            <li><strong>Role:</strong> controller and support. Low damage, with spikes of Catharsis.</li>\n            <li><strong>Strengths:</strong> strong control from level 1 spells, buffs and debuffs from the same spell, more targets with every slot level, and allies never need to roll against you.</li>\n            <li><strong>Weaknesses:</strong> needs a turn of setup, enemies resist with Wisdom Saving Throws, and creatures with Intelligence 4 or lower feel nothing at all.</li>\n            <li><strong>Tip:</strong> Surge an ally with Trust before the fight turns ugly. Next turn it is Accepting, and a Weave Surge: Joy braids it into Love.</li>\n          </ul>"
+        }
+      ]
+    },
+    {
+      "id": "traits",
+      "title": "Core Resonant Traits",
+      "kind": "traits",
+      "rows": [
+        {
+          "label": "Hit Points",
+          "html": "6 + your Constitution modifier at level 1, then 4 + your Constitution modifier per level"
+        },
+        {
+          "label": "Spellcasting Ability",
+          "html": "Intelligence"
+        },
+        {
+          "label": "Secondary Ability",
+          "html": "Wisdom"
+        },
+        {
+          "label": "Saving Throws",
+          "html": "Wisdom, Charisma"
+        },
+        {
+          "label": "Armour",
+          "html": "Light armour"
+        },
+        {
+          "label": "Weapons",
+          "html": "Daggers, Quarterstaffs, Light Crossbows, Darts"
+        },
+        {
+          "label": "Skills",
+          "html": "Choose 4 from Animal Handling, Insight, Intimidation, Medicine, Perception, Performance, Persuasion and Religion. Then gain Expertise in 2 of them."
+        },
+        {
+          "label": "Suggested Abilities",
+          "html": "Strength 8, Dexterity 10, Constitution 10, Intelligence 15, Wisdom 15, Charisma 13, then +2 and +1 to the abilities of your choice"
+        },
+        {
+          "label": "Starting Equipment",
+          "html": "Leather Armour, a Dagger, Darts, 2 Potions of Healing, a Scroll of Revivify, an Alchemy Pouch, camp clothes and camp supplies"
+        }
+      ]
+    },
+    {
+      "id": "progression",
+      "title": "Resonant Progression",
+      "kind": "progression",
+      "intro": [
+        {
+          "type": "note",
+          "html": "The base class features of the Arcana (Weaver Hand, Weave Knowledge, Arcane Recovery and the rest) are on <a href=\"/arcana#progression\">the Arcana page</a>. All your Woven Spell Slots share one level, so every spell you cast uses the Slot Level shown here."
+        }
+      ],
+      "columns": [
+        "Level",
+        "Prof.",
+        "Features",
+        "Slot Level",
+        "Woven Slots"
+      ],
+      "rows": [
+        {
+          "subclass": true,
+          "cells": [
+            "1",
+            "+2",
+            "<a href=\"#emotional-alchemy\">Emotional Alchemy</a>, <a href=\"#empathic-sight\">Empathic Sight</a>, <a href=\"#weave-surge-joy\">Weave Surge: Joy</a>, <a href=\"#weave-surge-trust\">Trust</a>, <a href=\"#weave-surge-fear\">Fear</a>, <a href=\"#heartstring\">Heartstring</a>, <a href=\"#read-the-room\">Read the Room</a>",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "2",
+            "+2",
+            "—",
+            "1",
+            "4"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "3",
+            "+2",
+            "<a href=\"#temperance-awakening\">14 - Temperance: Awakening</a>, <a href=\"#weave-surge-anticipation\">Weave Surge: Anticipation</a>, <a href=\"#weave-surge-surprise\">Surprise</a>, <a href=\"#weave-surge-sadness\">Sadness</a>, <a href=\"#the-two-cups\">The Two Cups</a>",
+            "2",
+            "6"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "4",
+            "+2",
+            "<span class=\"none\">—</span> <span class=\"tag-sub tag-feat\">Feat</span>",
+            "2",
+            "8"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "5",
+            "+3",
+            "<a href=\"#complex-feelings\">Complex Feelings</a>, <a href=\"#weave-surge-disgust\">Weave Surge: Disgust</a>, <a href=\"#weave-surge-anger\">Anger</a>",
+            "3",
+            "10"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "6",
+            "+3",
+            "—",
+            "3",
+            "12"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "7",
+            "+3",
+            "<a href=\"#overwhelm\">Overwhelm</a>, <a href=\"#turn-the-wheel\">Turn the Wheel</a>, <a href=\"#awakening\">Tier II: Harmony</a>",
+            "4",
+            "14"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "8",
+            "+3",
+            "<span class=\"none\">—</span> <span class=\"tag-sub tag-feat\">Feat</span>",
+            "4",
+            "16"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "9",
+            "+4",
+            "<a href=\"#mixed-feelings\">Mixed Feelings</a>, <a href=\"#emotional-contagion\">Emotional Contagion</a>",
+            "5",
+            "18"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "10",
+            "+4",
+            "—",
+            "5",
+            "20"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "11",
+            "+4",
+            "<a href=\"#ready-compassion\">Ready: Compassion</a>, <a href=\"#equanimity\">Equanimity</a>",
+            "6",
+            "21"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "12",
+            "+4",
+            "<a href=\"#awakening\">Tier III: Aspect of Empathy</a> <span class=\"tag-sub tag-feat\">Feat</span>",
+            "6",
+            "22"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-wheel",
+      "title": "The Wheel of Emotions",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>Resonants teach that every feeling a mind can hold is spun from eight threads: <strong>Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger</strong> and <strong>Anticipation</strong>. Laid out in a circle, each thread sits beside its closest kin and directly across from its opposite. Joy faces Sadness, Trust faces Disgust, Fear faces Anger, and Surprise faces Anticipation.</p>\n          <p>Every thread can be pulled gently or hard. Pulled gently, it becomes a <span class=\"kw\">mood</span>, a soft echo that lingers. Pulled hard, it becomes overwhelming. Two threads that touch braid into a <span class=\"kw\">feeling</span>, and the farther apart they sit, the stranger that feeling is.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<figure class=\"figure wheel-figure\">\n          <svg viewBox=\"0 0 840 720\" role=\"img\" aria-labelledby=\"wheel-title wheel-desc\">\n            <title id=\"wheel-title\">The Wheel of Emotions</title>\n            <desc id=\"wheel-desc\">Eight petals in clockwise order from the top: Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, Anticipation. Each petal has three rings: the overwhelming emotion at the centre, the emotion in the middle, and its mood at the edge. Opposite emotions face each other. Between neighbouring petals sits the feeling they braid into.</desc>\n            <line class=\"w-axis\" x1=\"420\" y1=\"56\" x2=\"420\" y2=\"664\"></line>\n            <line class=\"w-axis\" x1=\"205\" y1=\"145\" x2=\"635\" y2=\"575\"></line>\n            <line class=\"w-axis\" x1=\"116\" y1=\"360\" x2=\"724\" y2=\"360\"></line>\n            <line class=\"w-axis\" x1=\"205\" y1=\"575\" x2=\"635\" y2=\"145\"></line>\n            <g class=\"w-petal w-joy\">\n              <path class=\"w-int\" d=\"M369.9 231.4A138 138 0 0 1 470.1 231.4L438.9 311.6A52 52 0 0 0 401.1 311.6Z\"></path>\n              <path class=\"w-base\" d=\"M342.6 161.5A213 213 0 0 1 497.4 161.5L470.9 229.6A140 140 0 0 0 369.1 229.6Z\"></path>\n              <path class=\"w-mood\" d=\"M311.0 80.5A300 300 0 0 1 529.0 80.5L498.1 159.7A215 215 0 0 0 341.9 159.7Z\"></path>\n              <text class=\"w-t-int\" x=\"420.0\" y=\"268.0\">Ecstasy</text>\n              <text class=\"w-t-base\" x=\"420.0\" y=\"192.5\">Joy</text>\n              <text class=\"w-t-mood\" x=\"420.0\" y=\"122.5\">Serene</text>\n            </g>\n            <g class=\"w-petal w-trust\">\n              <path class=\"w-int\" d=\"M475.5 233.6A138 138 0 0 1 546.4 304.5L467.6 339.1A52 52 0 0 0 440.9 312.4Z\"></path>\n              <path class=\"w-base\" d=\"M505.6 165.0A213 213 0 0 1 615.0 274.4L548.2 303.7A140 140 0 0 0 476.3 231.8Z\"></path>\n              <path class=\"w-mood\" d=\"M540.6 85.3A300 300 0 0 1 694.7 239.4L616.9 273.6A215 215 0 0 0 506.4 163.1Z\"></path>\n              <text class=\"w-t-int\" x=\"490.7\" y=\"293.3\">Admiration</text>\n              <text class=\"w-t-base\" x=\"545.5\" y=\"239.5\">Trust</text>\n              <text class=\"w-t-mood\" x=\"603.5\" y=\"180.5\">Accepting</text>\n            </g>\n            <g class=\"w-petal w-fear\">\n              <path class=\"w-int\" d=\"M548.6 309.9A138 138 0 0 1 548.6 410.1L468.4 378.9A52 52 0 0 0 468.4 341.1Z\"></path>\n              <path class=\"w-base\" d=\"M618.5 282.6A213 213 0 0 1 618.5 437.4L550.4 410.9A140 140 0 0 0 550.4 309.1Z\"></path>\n              <path class=\"w-mood\" d=\"M699.5 251.0A300 300 0 0 1 699.5 469.0L620.3 438.1A215 215 0 0 0 620.3 281.9Z\"></path>\n              <text class=\"w-t-int\" x=\"508.0\" y=\"364.0\">Terror</text>\n              <text class=\"w-t-base\" x=\"584.5\" y=\"366.5\">Fear</text>\n              <text class=\"w-t-mood\" x=\"662.0\" y=\"364.0\">Apprehensive</text>\n            </g>\n            <g class=\"w-petal w-surprise\">\n              <path class=\"w-int\" d=\"M546.4 415.5A138 138 0 0 1 475.5 486.4L440.9 407.6A52 52 0 0 0 467.6 380.9Z\"></path>\n              <path class=\"w-base\" d=\"M615.0 445.6A213 213 0 0 1 505.6 555.0L476.3 488.2A140 140 0 0 0 548.2 416.3Z\"></path>\n              <path class=\"w-mood\" d=\"M694.7 480.6A300 300 0 0 1 540.6 634.7L506.4 556.9A215 215 0 0 0 616.9 446.4Z\"></path>\n              <text class=\"w-t-int\" x=\"490.7\" y=\"434.7\">Amazement</text>\n              <text class=\"w-t-base\" x=\"545.5\" y=\"490.5\">Surprise</text>\n              <text class=\"w-t-mood\" x=\"603.5\" y=\"547.5\">Distracted</text>\n            </g>\n            <g class=\"w-petal w-sadness\">\n              <path class=\"w-int\" d=\"M470.1 488.6A138 138 0 0 1 369.9 488.6L401.1 408.4A52 52 0 0 0 438.9 408.4Z\"></path>\n              <path class=\"w-base\" d=\"M497.4 558.5A213 213 0 0 1 342.6 558.5L369.1 490.4A140 140 0 0 0 470.9 490.4Z\"></path>\n              <path class=\"w-mood\" d=\"M529.0 639.5A300 300 0 0 1 311.0 639.5L341.9 560.3A215 215 0 0 0 498.1 560.3Z\"></path>\n              <text class=\"w-t-int\" x=\"420.0\" y=\"460.0\">Grief</text>\n              <text class=\"w-t-base\" x=\"420.0\" y=\"535.5\">Sadness</text>\n              <text class=\"w-t-mood\" x=\"420.0\" y=\"608.5\">Pensive</text>\n            </g>\n            <g class=\"w-petal w-disgust\">\n              <path class=\"w-int\" d=\"M364.5 486.4A138 138 0 0 1 293.6 415.5L372.4 380.9A52 52 0 0 0 399.1 407.6Z\"></path>\n              <path class=\"w-base\" d=\"M334.4 555.0A213 213 0 0 1 225.0 445.6L291.8 416.3A140 140 0 0 0 363.7 488.2Z\"></path>\n              <path class=\"w-mood\" d=\"M299.4 634.7A300 300 0 0 1 145.3 480.6L223.1 446.4A215 215 0 0 0 333.6 556.9Z\"></path>\n              <text class=\"w-t-int\" x=\"349.3\" y=\"434.7\">Loathing</text>\n              <text class=\"w-t-base\" x=\"294.5\" y=\"490.5\">Disgust</text>\n              <text class=\"w-t-mood\" x=\"236.5\" y=\"547.5\">Bored</text>\n            </g>\n            <g class=\"w-petal w-anger\">\n              <path class=\"w-int\" d=\"M291.4 410.1A138 138 0 0 1 291.4 309.9L371.6 341.1A52 52 0 0 0 371.6 378.9Z\"></path>\n              <path class=\"w-base\" d=\"M221.5 437.4A213 213 0 0 1 221.5 282.6L289.6 309.1A140 140 0 0 0 289.6 410.9Z\"></path>\n              <path class=\"w-mood\" d=\"M140.5 469.0A300 300 0 0 1 140.5 251.0L219.7 281.9A215 215 0 0 0 219.7 438.1Z\"></path>\n              <text class=\"w-t-int\" x=\"332.0\" y=\"364.0\">Rage</text>\n              <text class=\"w-t-base\" x=\"255.5\" y=\"366.5\">Anger</text>\n              <text class=\"w-t-mood\" x=\"178.0\" y=\"364.0\">Annoyed</text>\n            </g>\n            <g class=\"w-petal w-anticipation\">\n              <path class=\"w-int\" d=\"M293.6 304.5A138 138 0 0 1 364.5 233.6L399.1 312.4A52 52 0 0 0 372.4 339.1Z\"></path>\n              <path class=\"w-base\" d=\"M225.0 274.4A213 213 0 0 1 334.4 165.0L363.7 231.8A140 140 0 0 0 291.8 303.7Z\"></path>\n              <path class=\"w-mood\" d=\"M145.3 239.4A300 300 0 0 1 299.4 85.3L333.6 163.1A215 215 0 0 0 223.1 273.6Z\"></path>\n              <text class=\"w-t-int\" x=\"349.3\" y=\"293.3\">Vigilance</text>\n              <text class=\"w-t-base\" x=\"294.5\" y=\"239.5\">Anticipation</text>\n              <text class=\"w-t-mood\" x=\"236.5\" y=\"180.5\">Interested</text>\n            </g>\n            <circle class=\"w-core\" cx=\"420\" cy=\"360\" r=\"44\"></circle>\n            <text class=\"w-core-num\" x=\"420\" y=\"368\">XIV</text>\n            <text class=\"w-t-dyad\" text-anchor=\"middle\" x=\"541.7\" y=\"70.2\">Love</text>\n            <text class=\"w-t-dyad\" text-anchor=\"start\" x=\"713.8\" y=\"242.3\">Submission</text>\n            <text class=\"w-t-dyad\" text-anchor=\"start\" x=\"713.8\" y=\"485.7\">Awe</text>\n            <text class=\"w-t-dyad\" text-anchor=\"middle\" x=\"541.7\" y=\"657.8\">Disapproval</text>\n            <text class=\"w-t-dyad\" text-anchor=\"middle\" x=\"298.3\" y=\"657.8\">Remorse</text>\n            <text class=\"w-t-dyad\" text-anchor=\"end\" x=\"126.2\" y=\"485.7\">Contempt</text>\n            <text class=\"w-t-dyad\" text-anchor=\"end\" x=\"126.2\" y=\"242.3\">Aggressiveness</text>\n            <text class=\"w-t-dyad\" text-anchor=\"middle\" x=\"298.3\" y=\"70.2\">Optimism</text>\n          </svg>\n          <figcaption>Inner ring: the overwhelming emotions. Middle ring: the eight emotions. Outer ring: their moods. Between two neighbours, in italics, the feeling they braid into. The dotted lines join opposites.</figcaption>\n        </figure>"
+        },
+        {
+          "type": "heading",
+          "text": "Surge, mood, reaction"
+        },
+        {
+          "type": "prose",
+          "html": "<p>Everything the Resonant does follows the same three steps.</p>\n          <ol>\n            <li><strong>Surge.</strong> A <span class=\"kw\">Weave Surge</span> fills a creature with one emotion for <strong>1 turn</strong>, such as Emotion: Fear. This is the peak, and it is the strongest effect a single Surge has.</li>\n            <li><strong>Mood.</strong> When the emotion fades on its own, it leaves the milder echo of itself behind for <strong>5 turns</strong>: Fear leaves the creature Apprehensive. If the emotion is removed early, it leaves no mood.</li>\n            <li><strong>Reaction.</strong> Cast another Weave Surge on a creature that carries a mood and the two threads react instead of surging. The mood is spent, and what you get depends on how far apart the two emotions sit on the wheel.</li>\n          </ol>\n          <p>A creature feels <strong>one emotion</strong> at a time and carries <strong>one mood</strong> at a time; a new one replaces the old. Feelings are different: each one is its own thread, so a creature can carry several different feelings at once.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>The eight emotions and their moods</caption>\n            <thead><tr><th scope=\"col\">Emotion (1 turn)</th><th scope=\"col\">Effect</th><th scope=\"col\">Mood (5 turns)</th><th scope=\"col\">Effect</th><th scope=\"col\">Without a mood, targets</th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Joy</th><td>Advantage on Attack Rolls and Ability Checks</td><td>Serene</td><td>Advantage on Wisdom Saving Throws</td><td>Allies and you</td></tr>\n              <tr><th scope=\"row\">Trust</th><td>+2 Armour Class, Advantage on Saving Throws</td><td>Accepting</td><td>+1 Armour Class</td><td>Allies and you</td></tr>\n              <tr><th scope=\"row\">Fear</th><td>Can't move; Disadvantage on Ability Checks and Attack Rolls</td><td>Apprehensive</td><td>−1d4 to Wisdom Saving Throws</td><td>Enemies</td></tr>\n              <tr><th scope=\"row\">Surprise</th><td>Can't take reactions or bonus actions; Disadvantage on Dexterity Saving Throws</td><td>Distracted</td><td>Disadvantage on Saving Throws to maintain Concentration</td><td>Enemies</td></tr>\n              <tr><th scope=\"row\">Sadness</th><td>Movement speed halved; can take either an action or a bonus action</td><td>Pensive</td><td>Movement speed reduced by 3m</td><td>Enemies</td></tr>\n              <tr><th scope=\"row\">Disgust</th><td>Can't take actions; Disadvantage on Constitution Saving Throws</td><td>Bored</td><td>Can't take reactions</td><td>Enemies</td></tr>\n              <tr><th scope=\"row\">Anger</th><td>Attacks the nearest creature other than you</td><td>Annoyed</td><td>−1 Armour Class</td><td>Enemies</td></tr>\n              <tr><th scope=\"row\">Anticipation</th><td>An additional reaction; movement speed doubled</td><td>Interested</td><td>Movement speed increased by 3m</td><td>Allies and you</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "heading",
+          "text": "Distance decides the reaction"
+        },
+        {
+          "type": "prose",
+          "html": "<p>Count the steps around the wheel from the emotion you surge to the mood the creature carries. There are never more than four, because past four you are counting back the other way.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <thead><tr><th scope=\"col\" class=\"num\">Distance</th><th scope=\"col\">The threads…</th><th scope=\"col\">Result</th><th scope=\"col\">Lasts</th><th scope=\"col\" class=\"num\">From level</th></tr></thead>\n            <tbody>\n              <tr><td class=\"num\">0</td><td>are the same emotion and pull tight</td><td><strong>Overwhelming emotion</strong>, such as Ecstasy or Terror</td><td>1 turn, then the mood returns for 5 turns</td><td class=\"num\">7 · <a href=\"#overwhelm\">Overwhelm</a></td></tr>\n              <tr><td class=\"num\">1</td><td>are neighbours and braid</td><td><strong>Feeling</strong>, such as Love or Awe</td><td>2 turns</td><td class=\"num\">1 · <a href=\"#emotional-alchemy\">Emotional Alchemy</a></td></tr>\n              <tr><td class=\"num\">2</td><td>sit two apart and braid into something complex</td><td><strong>Complex feeling</strong>, such as Hope or Despair</td><td>2 turns</td><td class=\"num\">5 · <a href=\"#complex-feelings\">Complex Feelings</a></td></tr>\n              <tr><td class=\"num\">3</td><td>sit three apart and braid into something mixed</td><td><strong>Mixed feeling</strong>, such as Delight or Shame</td><td>2 turns</td><td class=\"num\">9 · <a href=\"#mixed-feelings\">Mixed Feelings</a></td></tr>\n              <tr><td class=\"num\">4</td><td>are opposites and snap</td><td><strong>Catharsis</strong></td><td>Instant</td><td class=\"num\">1 · <a href=\"#emotional-alchemy\">Emotional Alchemy</a></td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Measured from Joy</caption>\n            <thead><tr><th scope=\"col\" class=\"num\">0</th><th scope=\"col\" class=\"num\">1</th><th scope=\"col\" class=\"num\">2</th><th scope=\"col\" class=\"num\">3</th><th scope=\"col\" class=\"num\">4</th></tr></thead>\n            <tbody>\n              <tr><td class=\"num\">Joy</td><td class=\"num\">Trust · Anticipation</td><td class=\"num\">Fear · Anger</td><td class=\"num\">Surprise · Disgust</td><td class=\"num\">Sadness</td></tr>\n              <tr><td class=\"num\"><em>Ecstasy</em></td><td class=\"num\">Love · Optimism</td><td class=\"num\">Guilt · Pride</td><td class=\"num\">Delight · Morbidness</td><td class=\"num\"><strong>Catharsis</strong></td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "aside",
+          "title": "Every Weave Surge",
+          "html": "<ul>\n            <li>Is a level 1 Enchantment spell cast as an action, with a range of 18m.</li>\n            <li>Touches one creature, plus one more for every slot level above 1: 3 creatures with a level 3 slot, 6 with a level 6 slot.</li>\n            <li>Can target any creature that carries a mood, friend or foe. A creature without a mood can only receive Joy, Trust and Anticipation if it is your ally (or you), and only Fear, Surprise, Sadness, Disgust and Anger if it is not.</li>\n            <li>Asks a Wisdom Saving Throw only of creatures that aren't your allies. Allies never roll.</li>\n            <li>Needs a mind to work on: creatures with Intelligence 4 or lower can't be targeted.</li>\n            <li>Lands as a plain emotion if its reaction isn't unlocked yet. The old mood stays until the new emotion fades and replaces it.</li>\n          </ul>"
+        }
+      ]
+    },
+    {
+      "id": "reactions",
+      "title": "Reactions",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>Find the Surge you cast on the left and the mood the creature carries along the top. A small number marks the level at which that reaction unlocks; reactions without one work from level 1. Overwhelming emotions are in italics.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Reaction chart</caption>\n            <thead><tr><th scope=\"col\">Surge ↓ · Mood →</th><th scope=\"col\" class=\"num\">Serene<br><span class=\"subtle\">Joy</span></th><th scope=\"col\" class=\"num\">Accepting<br><span class=\"subtle\">Trust</span></th><th scope=\"col\" class=\"num\">Apprehensive<br><span class=\"subtle\">Fear</span></th><th scope=\"col\" class=\"num\">Distracted<br><span class=\"subtle\">Surprise</span></th><th scope=\"col\" class=\"num\">Pensive<br><span class=\"subtle\">Sadness</span></th><th scope=\"col\" class=\"num\">Bored<br><span class=\"subtle\">Disgust</span></th><th scope=\"col\" class=\"num\">Annoyed<br><span class=\"subtle\">Anger</span></th><th scope=\"col\" class=\"num\">Interested<br><span class=\"subtle\">Anticipation</span></th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Joy</th><td class=\"num\"><em>Ecstasy</em> <span class=\"subtle\">7</span></td><td class=\"num\">Love</td><td class=\"num\">Guilt <span class=\"subtle\">5</span></td><td class=\"num\">Delight <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Morbidness <span class=\"subtle\">9</span></td><td class=\"num\">Pride <span class=\"subtle\">5</span></td><td class=\"num\">Optimism</td></tr>\n              <tr><th scope=\"row\">Trust</th><td class=\"num\">Love</td><td class=\"num\"><em>Admiration</em> <span class=\"subtle\">7</span></td><td class=\"num\">Submission</td><td class=\"num\">Curiosity <span class=\"subtle\">5</span></td><td class=\"num\">Sentimentality <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Dominance <span class=\"subtle\">9</span></td><td class=\"num\">Hope <span class=\"subtle\">5</span></td></tr>\n              <tr><th scope=\"row\">Fear</th><td class=\"num\">Guilt <span class=\"subtle\">5</span></td><td class=\"num\">Submission</td><td class=\"num\"><em>Terror</em> <span class=\"subtle\">7</span></td><td class=\"num\">Awe</td><td class=\"num\">Despair <span class=\"subtle\">5</span></td><td class=\"num\">Shame <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Anxiety <span class=\"subtle\">9</span></td></tr>\n              <tr><th scope=\"row\">Surprise</th><td class=\"num\">Delight <span class=\"subtle\">9</span></td><td class=\"num\">Curiosity <span class=\"subtle\">5</span></td><td class=\"num\">Awe</td><td class=\"num\"><em>Amazement</em> <span class=\"subtle\">7</span></td><td class=\"num\">Disapproval</td><td class=\"num\">Unbelief <span class=\"subtle\">5</span></td><td class=\"num\">Outrage <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td></tr>\n              <tr><th scope=\"row\">Sadness</th><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Sentimentality <span class=\"subtle\">9</span></td><td class=\"num\">Despair <span class=\"subtle\">5</span></td><td class=\"num\">Disapproval</td><td class=\"num\"><em>Grief</em> <span class=\"subtle\">7</span></td><td class=\"num\">Remorse</td><td class=\"num\">Envy <span class=\"subtle\">5</span></td><td class=\"num\">Pessimism <span class=\"subtle\">9</span></td></tr>\n              <tr><th scope=\"row\">Disgust</th><td class=\"num\">Morbidness <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Shame <span class=\"subtle\">9</span></td><td class=\"num\">Unbelief <span class=\"subtle\">5</span></td><td class=\"num\">Remorse</td><td class=\"num\"><em>Loathing</em> <span class=\"subtle\">7</span></td><td class=\"num\">Contempt</td><td class=\"num\">Cynicism <span class=\"subtle\">5</span></td></tr>\n              <tr><th scope=\"row\">Anger</th><td class=\"num\">Pride <span class=\"subtle\">5</span></td><td class=\"num\">Dominance <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Outrage <span class=\"subtle\">9</span></td><td class=\"num\">Envy <span class=\"subtle\">5</span></td><td class=\"num\">Contempt</td><td class=\"num\"><em>Rage</em> <span class=\"subtle\">7</span></td><td class=\"num\">Aggressiveness</td></tr>\n              <tr><th scope=\"row\">Anticipation</th><td class=\"num\">Optimism</td><td class=\"num\">Hope <span class=\"subtle\">5</span></td><td class=\"num\">Anxiety <span class=\"subtle\">9</span></td><td class=\"num\"><strong>Catharsis</strong></td><td class=\"num\">Pessimism <span class=\"subtle\">9</span></td><td class=\"num\">Cynicism <span class=\"subtle\">5</span></td><td class=\"num\">Aggressiveness</td><td class=\"num\"><em>Vigilance</em> <span class=\"subtle\">7</span></td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "heading",
+          "text": "Feelings"
+        },
+        {
+          "type": "prose",
+          "html": "<p>A feeling lasts <strong>2 turns</strong> and leaves no mood behind. It does the same thing whoever carries it, so some feelings are gifts for your allies and others are traps for your enemies. The order of the two Surges doesn't matter: Joy on Accepting and Trust on Serene both braid Love.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Feelings: neighbours (distance 1, from level 1)</caption>\n            <thead><tr><th scope=\"col\">Feeling</th><th scope=\"col\">Braided from</th><th scope=\"col\">Effect</th><th scope=\"col\">Best on</th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Love</th><td>Joy + Trust</td><td>+1 to Armour Class and Saving Throws, and Resistant to all damage. The spellcaster takes the same damage.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Submission</th><td>Trust + Fear</td><td>Knocked Prone, and can't harm the spellcaster.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Awe</th><td>Fear + Surprise</td><td>Incapacitated: can't move or take actions, bonus actions or reactions. Taking damage ends the effect.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Disapproval</th><td>Surprise + Sadness</td><td>Its allies within 3m have Disadvantage on Attack Rolls.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Remorse</th><td>Sadness + Disgust</td><td>The first time it deals damage each turn, it takes <span class=\"dmg\">1d6 Psychic</span> damage.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Contempt</th><td>Disgust + Anger</td><td>Vulnerable to Psychic damage.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Aggressiveness</th><td>Anger + Anticipation</td><td>Weapon attacks deal an additional <span class=\"dmg\">1d4</span> damage, and an additional reaction.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Optimism</th><td>Anticipation + Joy</td><td>Can't be Frightened, and gains temporary hit points each turn.</td><td>Ally</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Complex feelings: two apart (distance 2, from level 5)</caption>\n            <thead><tr><th scope=\"col\">Feeling</th><th scope=\"col\">Braided from</th><th scope=\"col\">Effect</th><th scope=\"col\">Best on</th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Guilt</th><td>Joy + Fear</td><td>Can't take bonus actions; Disadvantage on Wisdom Saving Throws.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Curiosity</th><td>Trust + Surprise</td><td>Advantage on Ability Checks, movement speed increased by 3m, and can see Invisible creatures.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Despair</th><td>Fear + Sadness</td><td>Subtracts 1d4 from Attack Rolls and Saving Throws.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Unbelief</th><td>Surprise + Disgust</td><td>Can't cast spells.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Envy</th><td>Sadness + Anger</td><td>Attacks the nearest creature other than the spellcaster, its own allies included.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Cynicism</th><td>Disgust + Anticipation</td><td>Can't regain hit points.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Pride</th><td>Anger + Joy</td><td>Scores a Critical Hit on a roll of 19 or 20.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Hope</th><td>Anticipation + Trust</td><td>Adds 1d4 to Attack Rolls and Saving Throws.</td><td>Ally</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Mixed feelings: three apart (distance 3, from level 9)</caption>\n            <thead><tr><th scope=\"col\">Feeling</th><th scope=\"col\">Braided from</th><th scope=\"col\">Effect</th><th scope=\"col\">Best on</th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Delight</th><td>Joy + Surprise</td><td>Regains <span class=\"dmg\">1d6</span> hit points at the end of each turn.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Sentimentality</th><td>Trust + Sadness</td><td>Resistant to Psychic damage, and can't be Charmed.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Shame</th><td>Fear + Disgust</td><td>Can't take reactions; Disadvantage on Attack Rolls.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Outrage</th><td>Surprise + Anger</td><td>Disadvantage on Attack Rolls, and attacks against it have Advantage.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Pessimism</th><td>Sadness + Anticipation</td><td>Subtracts 1d6 from Saving Throws and Ability Checks.</td><td>Enemy</td></tr>\n              <tr><th scope=\"row\">Morbidness</th><td>Disgust + Joy</td><td>The first time it deals damage with a weapon each turn, it regains <span class=\"dmg\">1d6</span> hit points.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Dominance</th><td>Anger + Trust</td><td>Advantage on Athletics and Intimidation checks; +1 Armour Class.</td><td>Ally</td></tr>\n              <tr><th scope=\"row\">Anxiety</th><td>Anticipation + Fear</td><td>Loses Concentration. Can't take reactions, and has Disadvantage on Saving Throws to maintain Concentration.</td><td>Enemy</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "heading",
+          "text": "Overwhelming emotions"
+        },
+        {
+          "type": "prose",
+          "html": "<p>From level 7, a Surge on a creature whose mood echoes the same emotion pulls the thread tight. The overwhelming emotion lasts <strong>1 turn</strong>; when it passes, the creature settles back into the same mood for another 5 turns, ready to react again.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Overwhelming emotions (distance 0, from level 7)</caption>\n            <thead><tr><th scope=\"col\">Overwhelming emotion</th><th scope=\"col\">Surge + mood</th><th scope=\"col\">Effect</th></tr></thead>\n            <tbody>\n              <tr><th scope=\"row\">Ecstasy</th><td>Joy on Serene</td><td>An additional action.</td></tr>\n              <tr><th scope=\"row\">Admiration</th><td>Trust on Accepting</td><td>Resistant to all damage. Can't be Charmed or Frightened.</td></tr>\n              <tr><th scope=\"row\">Terror</th><td>Fear on Apprehensive</td><td>Flees in terror. Disadvantage on Ability Checks and Attack Rolls.</td></tr>\n              <tr><th scope=\"row\">Amazement</th><td>Surprise on Distracted</td><td>Stunned: can't move or take actions or reactions, automatically fails Strength and Dexterity Saving Throws, and attacks against it have Advantage.</td></tr>\n              <tr><th scope=\"row\">Grief</th><td>Sadness on Pensive</td><td>Incapacitated: can't move or take actions, bonus actions or reactions.</td></tr>\n              <tr><th scope=\"row\">Loathing</th><td>Disgust on Bored</td><td>Can't take actions or bonus actions. Disadvantage on Attack Rolls and Ability Checks.</td></tr>\n              <tr><th scope=\"row\">Rage</th><td>Anger on Annoyed</td><td>Attacks the nearest creature other than the spellcaster, with Advantage. Attacks against it also have Advantage.</td></tr>\n              <tr><th scope=\"row\">Vigilance</th><td>Anticipation on Interested</td><td>2 additional reactions; Advantage on Dexterity Saving Throws.</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "heading",
+          "text": "Catharsis"
+        },
+        {
+          "type": "prose",
+          "html": "<p>Pour an emotion into its opposite and the threads snap at once. An enemy takes <span class=\"dmg\">2d8 Psychic</span> damage; an ally (or you) regains <span class=\"dmg\">2d8</span> hit points. Every mood on the creature is spent. Catharsis is the Resonant's only real burst of damage, and it lands twice as hard on a creature already feeling Contempt.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <thead><tr><th scope=\"col\">Surge</th><th scope=\"col\">on the mood</th><th scope=\"col\">Surge</th><th scope=\"col\">on the mood</th></tr></thead>\n            <tbody>\n              <tr><td>Joy</td><td>Pensive</td><td>Sadness</td><td>Serene</td></tr>\n              <tr><td>Trust</td><td>Bored</td><td>Disgust</td><td>Accepting</td></tr>\n              <tr><td>Fear</td><td>Annoyed</td><td>Anger</td><td>Apprehensive</td></tr>\n              <tr><td>Surprise</td><td>Interested</td><td>Anticipation</td><td>Distracted</td></tr>\n            </tbody>\n          </table>"
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "Features by Level",
+      "kind": "features",
+      "intro": [],
+      "levels": [
+        {
+          "level": 1,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "emotional-alchemy",
+                  "name": "Emotional Alchemy",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.</p>\n              <p>Neighbouring emotions braid into a feeling, such as Love, that lasts 2 turns.</p>\n              <p>Opposing emotions snap into Catharsis: an enemy takes <span class=\"dmg\">2d8 Psychic</span> damage and an ally regains <span class=\"dmg\">2d8</span> hit points.</p>\n              <p class=\"subtle\">See <a href=\"#the-wheel\">The Wheel of Emotions</a> and the <a href=\"#reactions\">reaction chart</a>.</p>"
+                },
+                {
+                  "id": "empathic-sight",
+                  "name": "Empathic Sight",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p class=\"flavour\">You read the threads of feeling in others.</p>\n              <p>You have Advantage on Insight checks.</p>"
+                },
+                {
+                  "id": "weave-surge-joy",
+                  "name": "Weave Surge: Joy",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Pluck a bright thread of joy in an ally's Weave.</p>\n              <p>The target has Advantage on Attack Rolls and Ability Checks. When the surge fades, it leaves the target <span class=\"kw\">Serene</span> for 5 turns, with Advantage on Wisdom Saving Throws.</p>\n              <p class=\"subtle\">Reacts with: Accepting into Love, Interested into Optimism · Apprehensive into Guilt, Annoyed into Pride (level 5) · Distracted into Delight, Bored into Morbidness (level 9) · Pensive into Catharsis · Serene into Ecstasy (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "weave-surge-trust",
+                  "name": "Weave Surge: Trust",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Steady an ally with a thread of trust.</p>\n              <p>The target gains a +2 bonus to Armour Class and has Advantage on Saving Throws. When the surge fades, it leaves the target <span class=\"kw\">Accepting</span> for 5 turns, with a +1 bonus to Armour Class.</p>\n              <p class=\"subtle\">Reacts with: Serene into Love, Apprehensive into Submission · Distracted into Curiosity, Interested into Hope (level 5) · Pensive into Sentimentality, Annoyed into Dominance (level 9) · Bored into Catharsis · Accepting into Admiration (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "weave-surge-fear",
+                  "name": "Weave Surge: Fear",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Wrap a creature in a cold thread of fear.</p>\n              <p>The target can't move and has Disadvantage on Ability Checks and Attack Rolls. When the surge fades, it leaves the target <span class=\"kw\">Apprehensive</span> for 5 turns, subtracting 1d4 from its Wisdom Saving Throws.</p>\n              <p class=\"subtle\">Reacts with: Accepting into Submission, Distracted into Awe · Serene into Guilt, Pensive into Despair (level 5) · Bored into Shame, Interested into Anxiety (level 9) · Annoyed into Catharsis · Apprehensive into Terror (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "heartstring",
+                  "name": "Heartstring",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Cantrip",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom"
+                    }
+                  ],
+                  "bodyHtml": "<p>Tug a single string of a creature's heart. The target takes <span class=\"dmg\">1d4 Psychic</span> damage. If it carries a mood, the mood lasts 2 turns longer.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> <span class=\"dmg\">2d4 Psychic</span> at level 5 and <span class=\"dmg\">3d4 Psychic</span> at level 10.</p>"
+                },
+                {
+                  "id": "read-the-room",
+                  "name": "Read the Room",
+                  "level": 1,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Utility",
+                      "kind": true
+                    },
+                    {
+                      "text": "Concentration",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "10 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p>Out of combat only. You have Advantage on Insight and Persuasion checks against a creature that isn't hostile to you.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "temperance-awakening",
+                  "name": "14 - Temperance: Awakening",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Cause reactions with Emotional Alchemy during a fight to awaken the Aspect of Empathy until combat ends. Each goal you reach awakens one more tier.</p>\n              <p>Level 3: cause 3 reactions to gain Attunement. Level 7: cause 5 reactions to also gain Harmony. Level 12: cause 7 reactions to awaken as the Aspect of Empathy.</p>\n              <p class=\"subtle\">The tiers and what they grant are under <a href=\"#awakening\">Aspect of Empathy</a>.</p>"
+                },
+                {
+                  "id": "weave-surge-anticipation",
+                  "name": "Weave Surge: Anticipation",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Pull a taut thread of anticipation through an ally's Weave.</p>\n              <p>The target gains an additional reaction, and its movement speed is doubled. When the surge fades, it leaves the target <span class=\"kw\">Interested</span> for 5 turns, with its movement speed increased by 3m.</p>\n              <p class=\"subtle\">Reacts with: Serene into Optimism, Annoyed into Aggressiveness · Accepting into Hope, Bored into Cynicism (level 5) · Apprehensive into Anxiety, Pensive into Pessimism (level 9) · Distracted into Catharsis · Interested into Vigilance (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "weave-surge-surprise",
+                  "name": "Weave Surge: Surprise",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Snap a thread of surprise before a creature's eyes.</p>\n              <p>The target can't take reactions or bonus actions and has Disadvantage on Dexterity Saving Throws. When the surge fades, it leaves the target <span class=\"kw\">Distracted</span> for 5 turns, with Disadvantage on Saving Throws to maintain Concentration.</p>\n              <p class=\"subtle\">Reacts with: Apprehensive into Awe, Pensive into Disapproval · Accepting into Curiosity, Bored into Unbelief (level 5) · Serene into Delight, Annoyed into Outrage (level 9) · Interested into Catharsis · Distracted into Amazement (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "weave-surge-sadness",
+                  "name": "Weave Surge: Sadness",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Weigh a creature down with a grey thread of sorrow.</p>\n              <p>The target's movement speed is halved, and it can only take either an action or a bonus action. When the surge fades, it leaves the target <span class=\"kw\">Pensive</span> for 5 turns, with its movement speed reduced by 3m.</p>\n              <p class=\"subtle\">Reacts with: Distracted into Disapproval, Bored into Remorse · Apprehensive into Despair, Annoyed into Envy (level 5) · Accepting into Sentimentality, Interested into Pessimism (level 9) · Serene into Catharsis · Pensive into Grief (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "the-two-cups",
+                  "name": "The Two Cups",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Aspect Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Area",
+                      "value": "18m around you"
+                    },
+                    {
+                      "label": "Recharge",
+                      "value": "Once per combat"
+                    }
+                  ],
+                  "bodyHtml": "<p>Tip every cup in the room at once. Every creature within 18m that carries a mood undergoes Catharsis: enemies take <span class=\"dmg\">2d8 Psychic</span> damage and allies regain <span class=\"dmg\">2d8</span> hit points, plus Attunement's extra <span class=\"dmg\">1d8</span>. Every mood is spent.</p>\n              <p>Costs no Woven Spell Slot. You can cast it only while the Aspect of Empathy is awakened (Tier I or higher). Each Catharsis it causes counts towards your next tier.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "complex-feelings",
+                  "name": "Complex Feelings",
+                  "level": 5,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Emotions two steps apart on the wheel now braid into complex feelings, such as Hope or Despair.</p>"
+                },
+                {
+                  "id": "weave-surge-disgust",
+                  "name": "Weave Surge: Disgust",
+                  "level": 5,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Twist a creature's Weave into revulsion.</p>\n              <p>The target can't take actions and has Disadvantage on Constitution Saving Throws. When the surge fades, it leaves the target <span class=\"kw\">Bored</span> for 5 turns, unable to take reactions.</p>\n              <p class=\"subtle\">Reacts with: Pensive into Remorse, Annoyed into Contempt · Distracted into Unbelief, Interested into Cynicism (level 5) · Serene into Morbidness, Apprehensive into Shame (level 9) · Accepting into Catharsis · Bored into Loathing (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                },
+                {
+                  "id": "weave-surge-anger",
+                  "name": "Weave Surge: Anger",
+                  "level": 5,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "1 turn"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Set a red thread of fury alight in a creature's mind.</p>\n              <p>The target attacks the nearest creature other than you. When the surge fades, it leaves the target <span class=\"kw\">Annoyed</span> for 5 turns, with its Armour Class reduced by 1.</p>\n              <p class=\"subtle\">Reacts with: Bored into Contempt, Interested into Aggressiveness · Serene into Pride, Pensive into Envy (level 5) · Accepting into Dominance, Distracted into Outrage (level 9) · Apprehensive into Catharsis · Annoyed into Rage (level 7).</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> one more target per slot level above 1, up to 6 targets with a level 6 slot.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "overwhelm",
+                  "name": "Overwhelm",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>A Weave Surge on a creature whose mood echoes the same emotion pulls the thread tight into its overwhelming form, such as Ecstasy or Terror.</p>\n              <p class=\"subtle\">The overwhelming emotion lasts 1 turn, then the mood returns for 5 turns. See <a href=\"#reactions\">Overwhelming emotions</a>.</p>"
+                },
+                {
+                  "id": "turn-the-wheel",
+                  "name": "Turn the Wheel",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 3 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Bonus action"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (enemies)"
+                    }
+                  ],
+                  "bodyHtml": "<p>Choose a creature that carries a mood and a direction. Its mood turns one step around the wheel, clockwise or anticlockwise: Serene becomes Accepting or Interested, Apprehensive becomes Accepting or Distracted. An enemy can resist with a Wisdom Saving Throw.</p>\n              <p class=\"subtle\">Use it to line up the reaction you want before your Surge lands, such as turning a mood into the opposite of the Surge you are about to cast.</p>"
+                },
+                {
+                  "id": "harmony-tier",
+                  "name": "Aspect of Empathy: Tier II",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Your Awakening can now reach Tier II, Harmony, after 5 reactions in a fight. See <a href=\"#awakening\">Aspect of Empathy</a>.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 9,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "mixed-feelings",
+                  "name": "Mixed Feelings",
+                  "level": 9,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Emotions three steps apart on the wheel now braid into mixed feelings, such as Delight or Shame.</p>"
+                },
+                {
+                  "id": "emotional-contagion",
+                  "name": "Emotional Contagion",
+                  "level": 9,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 5 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    },
+                    {
+                      "text": "Concentration",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Area",
+                      "value": "6m around the target"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom (non-allies)"
+                    }
+                  ],
+                  "bodyHtml": "<p>Choose a creature that carries an emotion, a mood or a feeling, and one of them spreads. Every other creature within 6m of it catches the same state. Creatures that aren't your allies can resist with a Wisdom Saving Throw.</p>\n              <p class=\"subtle\">The copies last while you keep Concentration.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 11,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "ready-compassion",
+                  "name": "Ready: Compassion",
+                  "level": 11,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 2 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Duration",
+                      "value": "Until combat ends"
+                    },
+                    {
+                      "label": "Recharge",
+                      "value": "Once per round"
+                    }
+                  ],
+                  "bodyHtml": "<p>Until combat ends, when an ally within 9m takes damage, you can use your reaction to cast Weave Surge: Trust on it. The Surge reacts with the ally's mood as usual through Emotional Alchemy.</p>"
+                },
+                {
+                  "id": "equanimity",
+                  "name": "Equanimity",
+                  "level": 11,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 5 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Area",
+                      "value": "9m around you"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "3 turns"
+                    },
+                    {
+                      "label": "Recharge",
+                      "value": "Long Rest"
+                    }
+                  ],
+                  "bodyHtml": "<p>Still every cup around you. Allies within 9m lose every hindering emotion, mood and feeling, and are immune to hostile Surges for 3 turns.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 12,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "aspect-of-empathy-tier",
+                  "name": "Aspect of Empathy: Tier III",
+                  "level": 12,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Your Awakening can now reach Tier III after 7 reactions in a fight, and you awaken as the Aspect of Empathy. See <a href=\"#awakening\">Aspect of Empathy</a>.</p>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "awakening",
+      "title": "Aspect of Empathy",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>Temperance awakens through mixing. Every reaction you cause during a fight counts towards your next tier: each feeling you braid, each overwhelming emotion and each Catharsis counts as 1, on allies and enemies alike, and every Catharsis caused by The Two Cups counts separately. Each goal you reach awakens one more tier, and everything lasts until combat ends. Your count shows on the Awakening Progress status.</p>"
+        },
+        {
+          "type": "tiers",
+          "tiers": [
+            {
+              "label": "Tier I · Attunement",
+              "goal": "Level 3 · cause 3 reactions",
+              "level": 3,
+              "itemsHtml": [
+                "Catharsis deals or restores an additional <span class=\"dmg\">1d8</span>.",
+                "Moods you create last 2 turns longer.",
+                "You can cast <a href=\"#the-two-cups\">The Two Cups</a>."
+              ]
+            },
+            {
+              "label": "Tier II · Harmony",
+              "goal": "Level 7 · cause 5 reactions",
+              "level": 7,
+              "itemsHtml": [
+                "Once per turn, when you braid a feeling, the nearest other creature within 6m gains the mood of one of that feeling's two emotions."
+              ]
+            },
+            {
+              "label": "Tier III · Aspect of Empathy",
+              "goal": "Level 12 · cause 7 reactions",
+              "level": 12,
+              "itemsHtml": [
+                "Your Wisdom increases by 3.",
+                "Your Weave Surges touch one more target.",
+                "Every reaction you cause on an ally also grants it temporary hit points."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "aside",
+          "title": "Pouring for the Aspect",
+          "html": "<p>Harmony feeds itself: each feeling you braid leaves a fresh mood on the creature next to it, ready for your next Surge. At Tier III, a Surge cast with a level 6 slot touches 7 creatures, so a single action can braid, overwhelm and snap across half the battlefield.</p>"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "Conditions & Terms",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "glossary",
+          "items": [
+            {
+              "term": "Weave Surge",
+              "html": "The eight level 1 spells that fill a creature with one emotion: Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger and Anticipation."
+            },
+            {
+              "term": "Emotion",
+              "html": "The peak a Weave Surge creates, shown as Emotion: Joy, Emotion: Fear and so on. Lasts 1 turn. A creature feels one emotion at a time; a new one replaces the old."
+            },
+            {
+              "term": "Mood",
+              "html": "The milder echo an emotion leaves when it fades on its own, shown as Mood: Serene and so on. Lasts 5 turns. A creature carries one mood at a time. A reaction spends it."
+            },
+            {
+              "term": "Reaction",
+              "html": "What happens when a Weave Surge touches a creature that carries a mood: an overwhelming emotion, a feeling or Catharsis, decided by distance. Not the reaction you spend in combat."
+            },
+            {
+              "term": "Distance",
+              "html": "The number of steps around the wheel between two emotions, from 0 (the same emotion) to 4 (opposites)."
+            },
+            {
+              "term": "Opposites",
+              "html": "Joy and Sadness, Trust and Disgust, Fear and Anger, Surprise and Anticipation."
+            },
+            {
+              "term": "Feeling",
+              "html": "Two emotions braided into one, shown as Feeling: Love and so on. Lasts 2 turns and leaves no mood. A creature can carry several different feelings at once."
+            },
+            {
+              "term": "Overwhelming emotion",
+              "html": "An emotion surged onto its own mood: Ecstasy, Admiration, Terror, Amazement, Grief, Loathing, Rage, Vigilance. Lasts 1 turn, then the mood returns for 5 turns."
+            },
+            {
+              "term": "Catharsis",
+              "html": "Opposing emotions, snapped at once. An enemy takes <span class=\"dmg\">2d8 Psychic</span> damage, an ally regains <span class=\"dmg\">2d8</span> hit points, and every mood is spent."
+            },
+            {
+              "term": "Disapproved",
+              "html": "Shaken by an ally's Disapproval. Has Disadvantage on Attack Rolls."
+            },
+            {
+              "term": "Incapacitated",
+              "html": "Can't move or take actions, bonus actions or reactions."
+            },
+            {
+              "term": "Stunned",
+              "html": "Can't move or take actions or reactions. Automatically fails Strength and Dexterity Saving Throws, and attacks against it have Advantage."
+            },
+            {
+              "term": "Prone",
+              "html": "Knocked to the ground. Melee attacks against a Prone creature have Advantage."
+            },
+            {
+              "term": "Awakening Progress",
+              "html": "The reactions you have caused this fight, towards your next tier of the Aspect of Empathy."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

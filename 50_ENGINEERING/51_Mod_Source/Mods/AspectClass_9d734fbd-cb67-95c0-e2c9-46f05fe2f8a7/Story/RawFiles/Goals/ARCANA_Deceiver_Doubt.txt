@@ -1,0 +1,160 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Type-pinning for every DB this goal owns (declare, then delete the dummy row).
+DB_ARCANA_DoubtCount((CHARACTER)00000000-0000-0000-0000-000000000000, 0);
+NOT DB_ARCANA_DoubtCount((CHARACTER)00000000-0000-0000-0000-000000000000, 0);
+DB_ARCANA_DoubtStep((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0);
+NOT DB_ARCANA_DoubtStep((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0);
+
+KBSECTION
+// The Veil (Deceiver): the Doubt counter.
+//
+// Every source of Doubt (Shatter, a Double destroyed by an enemy, her Sigil detonating, Malicious Whispers,
+// Grand Deception, the DEBUG spell...) applies ONE status with duration 0: ApplyStatus(DOUBT_ADD_TECH,100,0).
+// This goal turns each application into one stack: none -> DOUBT_1 -> DOUBT_2 -> DOUBT_3. DOUBT_3 never
+// lingers: on landing it becomes DELUDED (Confused, 1 turn) and the stacks start again from none.
+//
+// DBs:
+//   DB_ARCANA_DoubtCount(Foe, Stack)       authoritative stack count (1 or 2) of a Foe that has Doubt.
+//                                          Absent = no Doubt. The statuses are only the display; the count
+//                                          lives here so two applications in the same instant still raise twice.
+//   DB_ARCANA_DoubtStep(Owner, Foe, Stack) EVENT ROW for the Awakening, one per raise (Stack = the new stack,
+//                                          1..3; the raise that triggers Deluded is a 3). Owner is the Deceiver
+//                                          (a Double's raise is credited to the Double's owner). The Awakening
+//                                          goal consumes it: see 10_doubt.md "DB contract".
+
+//REGION Entry point
+IF
+StatusApplied((CHARACTER)_Foe, "DOUBT_ADD_TECH", (CHARACTER)_Cause, _)
+THEN
+PROC_ARCANA_Doubt_Add(_Foe, _Cause);
+
+// Who gets the credit: a Double counts for its owner. First the mod's own registry (Doubles register in
+// DB_ARCANA_MirrorImageOf), then the engine's summon owner (in case the registry row is already gone),
+// and anything that is not a summon counts for itself.
+PROC
+PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
+AND
+DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, (CHARACTER)_Owner)
+THEN
+PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
+
+PROC
+PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
+AND
+NOT DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, _)
+AND
+IsSummon(_Cause, 1)
+AND
+CharacterGetOwner(_Cause, (CHARACTER)_Owner)
+THEN
+PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
+
+PROC
+PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
+AND
+NOT DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, _)
+AND
+IsSummon(_Cause, 0)
+THEN
+PROC_ARCANA_Doubt_Raise(_Foe, _Cause);
+//END_REGION
+
+//REGION Raise
+// Rules of one PROC run in order and see each other's changes, so the first definition makes sure a row
+// exists (0 = no Doubt) and the second one reads it, deletes it and hands the OLD value to PROC_..._Go,
+// whose definitions are exclusive on that value (a parameter, not a DB, so they cannot cascade).
+PROC
+PROC_ARCANA_Doubt_Raise((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+NOT DB_ARCANA_DoubtCount(_Foe, _)
+THEN
+DB_ARCANA_DoubtCount(_Foe, 0);
+
+PROC
+PROC_ARCANA_Doubt_Raise((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+DB_ARCANA_DoubtCount(_Foe, _Old)
+THEN
+NOT DB_ARCANA_DoubtCount(_Foe, _Old);
+PROC_ARCANA_Doubt_Go(_Foe, _Owner, _Old);
+
+// none -> 1
+PROC
+PROC_ARCANA_Doubt_Go((CHARACTER)_Foe, (CHARACTER)_Owner, (INTEGER)_Old)
+AND
+_Old == 0
+THEN
+DB_ARCANA_DoubtCount(_Foe, 1);
+ApplyStatus(_Foe, "DOUBT_1", 18.0, 1, _Owner);
+DB_ARCANA_DoubtStep(_Owner, _Foe, 1);
+
+// 1 -> 2 (remove the lower status, apply the next: 3 turns again)
+PROC
+PROC_ARCANA_Doubt_Go((CHARACTER)_Foe, (CHARACTER)_Owner, (INTEGER)_Old)
+AND
+_Old == 1
+THEN
+DB_ARCANA_DoubtCount(_Foe, 2);
+RemoveStatus(_Foe, "DOUBT_1", _Owner);
+ApplyStatus(_Foe, "DOUBT_2", 18.0, 1, _Owner);
+DB_ARCANA_DoubtStep(_Owner, _Foe, 2);
+
+// 2 -> 3: the stacks reset at once (no row is written back); DOUBT_3 is only the trigger for Deluded
+PROC
+PROC_ARCANA_Doubt_Go((CHARACTER)_Foe, (CHARACTER)_Owner, (INTEGER)_Old)
+AND
+_Old == 2
+THEN
+RemoveStatus(_Foe, "DOUBT_2", _Owner);
+ApplyStatus(_Foe, "DOUBT_3", 6.0, 1, _Owner);
+DB_ARCANA_DoubtStep(_Owner, _Foe, 3);
+
+// The third stack lands: Deluded for 1 turn (6.0 s) in the Deceiver's name, so the Wisdom save to end it
+// uses her spell DC. Force 0: a creature immune to Confusion stays unaffected. Then the stack goes.
+IF
+StatusApplied((CHARACTER)_Foe, "DOUBT_3", (CHARACTER)_Owner, _)
+THEN
+RemoveStatus(_Foe, "DOUBT_3", _Owner);
+ApplyStatus(_Foe, "DELUDED", 6.0, 0, _Owner);
+//END_REGION
+
+//REGION Keeping the count honest
+// A stack that ends by itself (3 turns), is dispelled or is replaced by hand: the row only goes if it still
+// names THAT stack. When this goal replaces a stack the row already holds the new value, so it is kept.
+IF
+StatusRemoved((CHARACTER)_Foe, "DOUBT_1", _, _)
+AND
+DB_ARCANA_DoubtCount(_Foe, 1)
+THEN
+NOT DB_ARCANA_DoubtCount(_Foe, 1);
+
+IF
+StatusRemoved((CHARACTER)_Foe, "DOUBT_2", _, _)
+AND
+DB_ARCANA_DoubtCount(_Foe, 2)
+THEN
+NOT DB_ARCANA_DoubtCount(_Foe, 2);
+
+IF
+Died((CHARACTER)_Foe)
+AND
+DB_ARCANA_DoubtCount(_Foe, _N)
+THEN
+NOT DB_ARCANA_DoubtCount(_Foe, _N);
+//END_REGION
+
+//REGION Cleanup of the Awakening rows
+// Safety net: the Awakening goal deletes each DB_ARCANA_DoubtStep row when it consumes it. A row nobody
+// consumed (the Deceiver has no Awakening, or the consumer is missing) goes when the owner leaves combat.
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_DoubtStep(_Char, _Foe, _Stack)
+THEN
+NOT DB_ARCANA_DoubtStep(_Char, _Foe, _Stack);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

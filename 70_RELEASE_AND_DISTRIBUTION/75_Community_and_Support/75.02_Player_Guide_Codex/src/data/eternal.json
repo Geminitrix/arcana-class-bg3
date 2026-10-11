@@ -1,0 +1,1158 @@
+{
+  "slug": "eternal",
+  "title": "The Eternal",
+  "hero": {
+    "numeral": "XIII",
+    "cardName": "DEATH",
+    "emblem": "/img/emblems/eternal.png",
+    "emblemAlt": "A golden arm raising a skull, wrapped in a green ribbon",
+    "emblemSvg": null,
+    "eyebrow": "Arcana Subclass · XIII · Death · Aspect of Sorrow",
+    "epigraph": {
+      "html": "We have crossed our own ending, and the Weave turns every wound we take into strength.",
+      "cite": "An Eternal"
+    },
+    "ledeHtml": "<em>Mystra wove the Eternal from an ending they refused to accept, a thread that crossed death and came back changed. They take the blows meant for others and grow harder to kill for it, draining the life from their foes and calling the grave to finish what their hammer began.</em> The Eternal stands in the front line in armour, swings a hammer or a maul twice a turn and adds Necrotic damage to every hit. The more it bleeds in a fight, the stronger it becomes: losing hit points is how it awakens its Aspect. Pick it if you want to be the wall your party hides behind, and the one that does not fall."
+  },
+  "sections": [
+    {
+      "id": "the-card",
+      "title": "The Card",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>The thirteenth card of the Major Arcana is Death. It usually shows a skeleton in black armour riding a pale horse and carrying a banner marked with a white rose. Kings and beggars fall before it alike, and behind it the sun rises between two towers.</p>\n          <p>For all its look, the card almost never means a death. It means an ending: a door that closes so that another can open, a life that has to finish before the next one starts. The rider does not stop; it passes through, and what it leaves behind is never the same.</p>\n          <p>That is the Eternal. Its life reached the end that every life reaches, and Mystra did not let it break. The Eternal walked through its own death and came back on the other side, carrying the grief of it as a weapon. It does not fear the blow that should kill it. It counts it.</p>"
+        },
+        {
+          "type": "reading",
+          "upright": {
+            "title": "Upright",
+            "keywords": [
+              "Endings",
+              "Transformation",
+              "Transition",
+              "Letting go"
+            ],
+            "html": "The Eternal lives through what should have been its end and comes back harder. Every wound it takes is counted towards its Awakening."
+          },
+          "reversed": {
+            "title": "Reversed",
+            "keywords": [
+              "Decay",
+              "Stagnation",
+              "Fear of the end"
+            ],
+            "html": "Enemies live the reversed card: their wounds fester with disease and stored pain, Darkness Rise slows them to a crawl, and fear roots them where they stand."
+          }
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "title": "Playing an Eternal",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>You are the front line. Walk into the enemy, pull the ones that run back to you with Death's Grasp, and strike with Obliterate or two weapon attacks. Bonus actions open wounds with Blood Reaper or wrap you in Indestructible. You are meant to be hit: every hit point you lose brings the Aspect of Sorrow closer, and once it wakes, the enemies around you rot in Darkness Rise while you turn your pain on them with The Final Toll. Transfusion and temporary hit points keep you standing long enough to finish the job.</p>"
+        },
+        {
+          "type": "aside",
+          "title": "At a Glance",
+          "html": "<ul>\n            <li><strong>Role:</strong> frontline juggernaut and necromantic bruiser.</li>\n            <li><strong>Strengths:</strong> armour and shields, temporary hit points, life drain, resistances and immunities, Extra Attack with Necrotic damage on top, and an Awakening that grows by itself on the front line.</li>\n            <li><strong>Weaknesses:</strong> no way to move itself beyond walking, little support for allies besides Death Ward, thin utility outside combat, and a careful party that keeps it unhurt delays its Aspect.</li>\n            <li><strong>Tip:</strong> Immortal Blood and Inescapable Destruction can be cast before a fight. They cost no action and last until combat ends.</li>\n          </ul>"
+        }
+      ]
+    },
+    {
+      "id": "traits",
+      "title": "Core Eternal Traits",
+      "kind": "traits",
+      "rows": [
+        {
+          "label": "Hit Points",
+          "html": "6 + your Constitution modifier at level 1, then 4 + your Constitution modifier per level"
+        },
+        {
+          "label": "Spellcasting Ability",
+          "html": "Intelligence"
+        },
+        {
+          "label": "Secondary Ability",
+          "html": "Constitution"
+        },
+        {
+          "label": "Saving Throws",
+          "html": "Constitution, Strength"
+        },
+        {
+          "label": "Armour",
+          "html": "Light Armour, Medium Armour, Heavy Armour, Shields"
+        },
+        {
+          "label": "Weapons",
+          "html": "Light Hammers, Clubs, Maces, Greatclubs, Warhammers, Mauls"
+        },
+        {
+          "label": "Skills",
+          "html": "Choose 4 from Athletics, Arcana, History, Intimidation, Medicine, Nature, Religion and Survival. Then gain Expertise in 2 of them."
+        },
+        {
+          "label": "Suggested Abilities",
+          "html": "Strength 13 · Dexterity 8 · Constitution 15 · Intelligence 15 · Wisdom 10 · Charisma 10, then +2 and +1 to two abilities"
+        },
+        {
+          "label": "Starting Equipment",
+          "html": "Eternal's Plate (Breastplate, Armour Class 16), Maul, Shoes, 2 Potions of Healing, Scroll of Revivify, camp clothes"
+        }
+      ]
+    },
+    {
+      "id": "progression",
+      "title": "Eternal Progression",
+      "kind": "progression",
+      "intro": [
+        {
+          "type": "note",
+          "html": "This table shows the Eternal's own features. You also gain every feature of the base class: see <a href=\"/arcana#progression\">Arcana Progression</a>. All Eternal spells are Always Prepared and are cast with a Woven Spell Slot of your current Slot Level."
+        }
+      ],
+      "columns": [
+        "Level",
+        "Prof.",
+        "Features",
+        "Slot Level",
+        "Woven Slots"
+      ],
+      "rows": [
+        {
+          "subclass": true,
+          "cells": [
+            "1",
+            "+2",
+            "<a href=\"#blood-reaper\">Blood Reaper</a>, <a href=\"#obliterate\">Obliterate</a>, <a href=\"#transfusion\">Transfusion</a>, <a href=\"#dead-whispers\">Dead Whispers</a>",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "2",
+            "+2",
+            "—",
+            "1",
+            "4"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "3",
+            "+2",
+            "<a href=\"#death-awakening\">13 - Death: Awakening</a>, <a href=\"#deaths-grasp\">Death's Grasp</a>, <a href=\"#indestructible\">Indestructible</a>, <a href=\"#immortal-blood\">Immortal Blood</a>",
+            "2",
+            "6"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "4",
+            "+2",
+            "— <span class=\"tag-sub tag-feat\">Feat</span>",
+            "2",
+            "8"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "5",
+            "+3",
+            "<a href=\"#extra-attack\">Extra Attack</a>, <a href=\"#death-ward\">Death Ward</a>, <a href=\"#inescapable-destruction\">Inescapable Destruction</a>",
+            "3",
+            "10"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "6",
+            "+3",
+            "—",
+            "3",
+            "12"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "7",
+            "+3",
+            "<a href=\"#mourning\">Mourning</a>, <a href=\"#unbroken\">Unbroken</a>, <a href=\"#blood-offering\">Blood Offering</a>",
+            "4",
+            "14"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "8",
+            "+3",
+            "— <span class=\"tag-sub tag-feat\">Feat</span>",
+            "4",
+            "16"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "9",
+            "+4",
+            "<a href=\"#deaths-aspect\">Death's Aspect</a>, <a href=\"#hemoplague\">Hemoplague</a>",
+            "5",
+            "18"
+          ]
+        },
+        {
+          "subclass": false,
+          "cells": [
+            "10",
+            "+4",
+            "—",
+            "5",
+            "20"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "11",
+            "+4",
+            "<a href=\"#hemorrhage\">Hemorrhage</a>, <a href=\"#inured-to-undeath\">Inured to Undeath</a>",
+            "6",
+            "21"
+          ]
+        },
+        {
+          "subclass": true,
+          "cells": [
+            "12",
+            "+4",
+            "<a href=\"#aspect-of-sorrow\">Aspect of Sorrow</a>, <a href=\"#realm-of-death\">Realm of Death</a> <span class=\"tag-sub tag-feat\">Feat</span>",
+            "6",
+            "22"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sorrow",
+      "title": "Sorrow",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>The Eternal keeps count of what a fight takes from it. From level 3, every hit point you lose to damage during combat is added to a total of <strong>hit points lost this combat</strong>. Healing does not lower it: you can fall to half, heal back to full, and the loss still stands. The hit points you pay for <a href=\"#blood-offering\">Blood Offering</a> count too.</p>\n          <p>The total is measured against your hit point maximum. Lose <strong>30%</strong> and you awaken Tier I of the Aspect of Sorrow; <strong>50%</strong> awakens Tier II; <strong>70%</strong> awakens Tier III. Each tier also needs its level (3, 7 and 12), and each one stacks on the last. Everything resets when combat ends, so every fight starts from zero.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<figure class=\"figure\">\n          <svg class=\"sorrow-track\" viewBox=\"0 0 560 150\" role=\"img\" aria-label=\"A bar from 0% to 100% of your hit point maximum lost this combat. Marks at 30% (Sorrow, level 3), 50% (Mourning, level 7, also the most The Final Toll can deal) and 70% (Aspect of Sorrow, level 12).\">\n            <rect x=\"20\" y=\"58\" width=\"520\" height=\"16\" rx=\"8\" style=\"fill:var(--paper-3)\"></rect>\n            <rect x=\"20\" y=\"58\" width=\"364\" height=\"16\" rx=\"8\" style=\"fill:var(--accent);opacity:.25\"></rect>\n            <rect x=\"20\" y=\"58\" width=\"260\" height=\"16\" rx=\"8\" style=\"fill:var(--accent);opacity:.35\"></rect>\n            <rect x=\"20\" y=\"58\" width=\"156\" height=\"16\" rx=\"8\" style=\"fill:var(--accent);opacity:.55\"></rect>\n            <g style=\"stroke:var(--gold);stroke-width:2\">\n              <line x1=\"176\" y1=\"48\" x2=\"176\" y2=\"84\"></line>\n              <line x1=\"280\" y1=\"48\" x2=\"280\" y2=\"84\"></line>\n              <line x1=\"384\" y1=\"48\" x2=\"384\" y2=\"84\"></line>\n            </g>\n            <g style=\"fill:var(--ink);font-size:13px;font-weight:700\" text-anchor=\"middle\">\n              <text x=\"176\" y=\"40\">30%</text>\n              <text x=\"280\" y=\"40\">50%</text>\n              <text x=\"384\" y=\"40\">70%</text>\n            </g>\n            <g style=\"fill:var(--ink-soft);font-size:12px\" text-anchor=\"middle\">\n              <text x=\"20\" y=\"100\">0%</text>\n              <text x=\"540\" y=\"100\">100%</text>\n              <text x=\"176\" y=\"104\">Sorrow</text>\n              <text x=\"176\" y=\"120\">level 3</text>\n              <text x=\"280\" y=\"104\">Mourning</text>\n              <text x=\"280\" y=\"120\">level 7</text>\n              <text x=\"384\" y=\"104\">Aspect of Sorrow</text>\n              <text x=\"384\" y=\"120\">level 12</text>\n            </g>\n            <g style=\"fill:var(--accent);font-size:11px\" text-anchor=\"middle\">\n              <text x=\"280\" y=\"140\">The Final Toll reaches its cap here</text>\n            </g>\n          </svg>\n          <figcaption>Hit points lost this combat, as a share of your hit point maximum. Healing never moves you back along the bar.</figcaption>\n        </figure>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <caption>Example: an Eternal with 60 maximum hit points</caption>\n            <thead><tr><th>Goal</th><th class=\"num\">Share</th><th class=\"num\">Hit points lost</th><th>Awakens</th></tr></thead>\n            <tbody>\n              <tr><td>Tier I</td><td class=\"num\">30%</td><td class=\"num\">18</td><td>Sorrow: you emanate Darkness Rise and gain The Final Toll</td></tr>\n              <tr><td>Tier II</td><td class=\"num\">50%</td><td class=\"num\">30</td><td>Mourning: you drop to 1 hit point instead of 0, once; isolated enemies suffer Dread</td></tr>\n              <tr><td>Tier III</td><td class=\"num\">70%</td><td class=\"num\">42</td><td>Aspect of Sorrow: +3 Constitution and Harvest</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "aside",
+          "title": "Awakening Progress",
+          "html": "<p>While a tier is still ahead of you, the status <strong>Awakening Progress</strong> shows how far you are towards it, in percent. It counts only the stretch between one goal and the next: after Sorrow at 30%, losing 40% of your hit point maximum reads as 50% towards Mourning.</p>"
+        },
+        {
+          "type": "prose",
+          "html": "<h3>Paying in blood</h3>\n          <p>Several Eternal tools grow with your hit points, which makes Constitution worth more than it looks. <a href=\"#blood-offering\">Blood Offering</a> costs a tenth of your hit point maximum and feeds the count directly. <span class=\"kw\">Darkness Rise</span> deals 10% of your hit point maximum to every enemy in its aura each turn. <a href=\"#the-final-toll\">The Final Toll</a> deals damage equal to the hit points you have lost this combat, up to half your hit point maximum, so it hits hardest once you have bled past Mourning.</p>\n          <h3>Staying standing</h3>\n          <p>Losing hit points on purpose only works if you survive it. The Eternal layers its defences so the loss is slow and the last blow never lands.</p>"
+        },
+        {
+          "type": "table",
+          "html": "<table>\n            <thead><tr><th>Defence</th><th class=\"num\">Level</th><th>What it does</th></tr></thead>\n            <tbody>\n              <tr><td><a href=\"#transfusion\">Transfusion</a></td><td class=\"num\">1</td><td>Regain hit points equal to the Necrotic damage it deals.</td></tr>\n              <tr><td><a href=\"#indestructible\">Indestructible</a></td><td class=\"num\">3</td><td>Temporary hit points equal to 5 × your Arcana level, then a heal of 2 × your Arcana level.</td></tr>\n              <tr><td><a href=\"#immortal-blood\">Immortal Blood</a></td><td class=\"num\">3</td><td>Immune to Disease, Bleeding and Gaping Wounds.</td></tr>\n              <tr><td><a href=\"#unbroken\">Unbroken</a></td><td class=\"num\">7</td><td>Half damage from non-magical Bludgeoning, Piercing and Slashing while above 80% of your maximum hit points.</td></tr>\n              <tr><td><a href=\"#mourning\">Mourning</a></td><td class=\"num\">7</td><td>Once per fight, drop to 1 hit point instead of 0.</td></tr>\n              <tr><td><a href=\"#inured-to-undeath\">Inured to Undeath</a></td><td class=\"num\">11</td><td>Resistant to Necrotic damage; your hit point maximum cannot be reduced.</td></tr>\n            </tbody>\n          </table>"
+        },
+        {
+          "type": "note",
+          "html": "Unbroken guards the top fifth of your health. Once your losses pass 20% of your hit point maximum it stops helping, so it does its work early in a fight, before Sorrow wakes."
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "Features by Level",
+      "kind": "features",
+      "intro": [],
+      "levels": [
+        {
+          "level": 1,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "blood-reaper",
+                  "name": "Blood Reaper",
+                  "level": 1,
+                  "icon": "/img/icons/eternal/blood-reaper.webp",
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Bonus action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Melee (1.5m)"
+                    },
+                    {
+                      "label": "Attack",
+                      "value": "Melee spell attack"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "2 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p>On a hit, the target is <span class=\"kw\">Bleeding</span> for 2 turns: it takes <span class=\"dmg\">2 Slashing</span> damage at the start of each turn and has Disadvantage on Constitution Saving Throws. Healing removes it.</p>"
+                },
+                {
+                  "id": "obliterate",
+                  "name": "Obliterate",
+                  "level": 1,
+                  "icon": "/img/icons/eternal/obliterate.webp",
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Melee weapon range"
+                    },
+                    {
+                      "label": "Attack",
+                      "value": "Melee weapon attack"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Strike an enemy with your weapon, dealing an additional 1d8 Necrotic damage.</p>\n              <p>Make a melee weapon attack. On a hit, it deals your weapon's damage plus <span class=\"dmg\">1d8 Necrotic</span>.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> 2d8 with a level 2 slot, 3d8 with a level 3 slot, 4d8 with a level 4 slot, 5d8 with a level 5 slot, 6d8 with a level 6 slot.</p>"
+                },
+                {
+                  "id": "transfusion",
+                  "name": "Transfusion",
+                  "level": 1,
+                  "icon": "/img/icons/eternal/transfusion.webp",
+                  "chips": [
+                    {
+                      "text": "Level 1 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "9m"
+                    },
+                    {
+                      "label": "Attack",
+                      "value": "Ranged spell attack"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Siphon the life force of an enemy, dealing damage and regaining as many hit points.</p>\n              <p>On a hit, deals <span class=\"dmg\">1d6 Necrotic</span> damage and you regain hit points equal to the damage dealt.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> 2d6 with a level 2 slot, 3d6 with a level 3 slot, 4d6 with a level 4 slot, 5d6 with a level 5 slot, 6d6 with a level 6 slot.</p>"
+                },
+                {
+                  "id": "dead-whispers",
+                  "name": "Dead Whispers",
+                  "level": 1,
+                  "icon": "/img/icons/eternal/dead-whispers.webp",
+                  "chips": [
+                    {
+                      "text": "Cantrip",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    },
+                    {
+                      "text": "Out of combat",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "9m"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Grant a semblance of life to a humanoid corpse, allowing it to answer up to 5 questions.</p>\n              <p>Skeletons and creatures killed with Acid, Fire, Lightning, Necrotic or Radiant damage no longer have a mouth and can't be made to talk. Doesn't work on Undead or beasts.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "death-awakening",
+                  "name": "13 - Death: Awakening",
+                  "level": 3,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Lose hit points during a fight to awaken the Aspect of Sorrow until combat ends. Healing doesn't undo the loss. Each goal you reach awakens one more tier.</p>\n              <p>Level 3: lose 30% of your hit point maximum to gain <strong>Sorrow</strong>. Level 7: lose 50% to also gain <strong>Mourning</strong>. Level 12: lose 70% to awaken as the <strong>Aspect of Sorrow</strong>. See <a href=\"#sorrow\">Sorrow</a> and <a href=\"#awakening\">Aspect of Sorrow</a>.</p>"
+                },
+                {
+                  "id": "deaths-grasp",
+                  "name": "Death's Grasp",
+                  "level": 3,
+                  "icon": "/img/icons/eternal/death-s-grasp.webp",
+                  "chips": [
+                    {
+                      "text": "Level 2 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Constitution"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Pull a creature 5m towards you, dealing 1d8 Necrotic damage.</p>\n              <p>If the target fails the Saving Throw, it is pulled 5m towards you and takes <span class=\"dmg\">1d8 Necrotic</span> damage. On a success, nothing happens.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> 2d8 with a level 3 slot, 3d8 with a level 4 slot, 4d8 with a level 5 slot, 5d8 with a level 6 slot.</p>"
+                },
+                {
+                  "id": "indestructible",
+                  "name": "Indestructible",
+                  "level": 3,
+                  "icon": "/img/icons/eternal/indestructible.webp",
+                  "chips": [
+                    {
+                      "text": "Level 2 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Bonus action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "2 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Call upon your undying nature to gain temporary hit points for 2 turns. At the end of the duration, or when the temporary hit points are removed, regain hit points.</p>\n              <p>Gain temporary hit points equal to <strong>5 × your Arcana level</strong> for 2 turns. When the duration ends, or the temporary hit points are gone, you regain hit points equal to <strong>2 × your Arcana level</strong>. At level 3 that is 15 temporary hit points and a heal of 6.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> no change; the values follow your level, not the slot.</p>"
+                },
+                {
+                  "id": "immortal-blood",
+                  "name": "Immortal Blood",
+                  "level": 3,
+                  "icon": "/img/icons/eternal/immortal-blood.webp",
+                  "chips": [
+                    {
+                      "text": "Level 2 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "No action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until Long Rest or combat ends"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Let death's patience settle in your veins.</p>\n              <p>You gain <span class=\"kw\">Immortal Blood</span>: your blood defies corruption. You are Immune to Disease, Bleeding and Gaping Wounds. Can be cast outside combat; it ends when your next combat does.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "extra-attack",
+                  "name": "Extra Attack",
+                  "level": 5,
+                  "icon": "/img/icons/eternal/extra-attack.webp",
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Can make an additional free attack after making an unarmed or weapon attack. If you gain the Extra Attack feature from more than one class, they don't add together.</p>"
+                },
+                {
+                  "id": "death-ward",
+                  "name": "Death Ward",
+                  "level": 5,
+                  "icon": "/img/icons/eternal/death-ward.webp",
+                  "chips": [
+                    {
+                      "text": "Level 3 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Abjuration",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Melee (1.5m)"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until triggered"
+                    },
+                    {
+                      "label": "Recharge",
+                      "value": "Short Rest"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Death is your domain. Protect an ally from it.</p>\n              <p>Touch an ally other than yourself. The next time damage would reduce the ally to 0 hit points, they remain conscious with 1 hit point left. Once per Short Rest.</p>"
+                },
+                {
+                  "id": "inescapable-destruction",
+                  "name": "Inescapable Destruction",
+                  "level": 5,
+                  "icon": "/img/icons/eternal/inescapable-destruction.webp",
+                  "chips": [
+                    {
+                      "text": "Level 2 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "No action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until Long Rest or combat ends"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Bind your necrotic power to the end of all things.</p>\n              <p>You gain <span class=\"kw\">Inescapable Destruction</span>: spells you cast ignore Resistance to Necrotic damage. Can be cast outside combat; it ends when your next combat does.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "mourning",
+                  "name": "Mourning",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    },
+                    {
+                      "text": "Aspect · Tier II",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Unlocks Tier II of the Aspect of Sorrow. Once you have lost 50% of your hit point maximum in a fight, the first time you would drop to 0 hit points, you drop to 1 instead, and an isolated enemy within 3m of you has Disadvantage on Attack Rolls against you. See <a href=\"#awakening\">Aspect of Sorrow</a>.</p>"
+                },
+                {
+                  "id": "unbroken",
+                  "name": "Unbroken",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 4 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    },
+                    {
+                      "text": "Combat only",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "No action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until Long Rest or combat ends"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Harden your flesh against the living world.</p>\n              <p>You gain <span class=\"kw\">Unbroken</span>: unbroken and unyielding, you take half damage from all non-magical Bludgeoning, Piercing and Slashing damage while above 80% of your maximum hit points.</p>"
+                },
+                {
+                  "id": "blood-offering",
+                  "name": "Blood Offering",
+                  "level": 7,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Level 3 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    },
+                    {
+                      "text": "Combat only",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Bonus action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until the end of your turn"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Open your veins to the dark.</p>\n              <p>Lose a tenth of your hit point maximum as Necrotic damage, and your Arcane spells and cantrips deal an additional <span class=\"dmg\">2d8 Necrotic</span> until the end of your turn. The hit points you lose count towards <a href=\"#sorrow\">Sorrow</a>.</p>\n              <p class=\"upcast\"><strong>At higher levels:</strong> 3d8 with a level 4 slot, 4d8 with a level 5 slot, 5d8 with a level 6 slot.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 9,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "deaths-aspect",
+                  "name": "Death's Aspect",
+                  "level": 9,
+                  "icon": "/img/icons/eternal/death-aspect.webp",
+                  "chips": [
+                    {
+                      "text": "Level 4 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Enchantment",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Area",
+                      "value": "9m radius"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Wisdom"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "2 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Let your fearsome presence erupt in a menacing pulse, Frightening nearby enemies.</p>\n              <p>Each enemy within 9m that fails the Saving Throw is <span class=\"kw\">Frightened</span> for 2 turns: it can't move and has Disadvantage on Ability Checks and Attack Rolls.</p>"
+                },
+                {
+                  "id": "hemoplague",
+                  "name": "Hemoplague",
+                  "level": 9,
+                  "icon": "/img/icons/eternal/hemoplague.webp",
+                  "chips": [
+                    {
+                      "text": "Level 4 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Melee (1.5m)"
+                    },
+                    {
+                      "label": "Attack",
+                      "value": "Melee spell attack"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "3 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Poison the blood of a target and possibly afflict it with a disease of your choice.</p>\n              <p>When you cast it, choose one of six diseases. On a hit, the target becomes <span class=\"kw\">Hemoplague Poisoned: Stage 1</span>: it has Disadvantage on Attack Rolls and Ability Checks. Each turn it must succeed a Constitution Saving Throw against your spell save DC, or the poisoning worsens to Stage 2, then Stage 3. On 3 successes, it recovers. On 3 failures, it contracts the disease you chose.</p>\n              <div class=\"table-wrap\">\n                <table>\n                  <thead><tr><th>Disease</th><th>Effect</th></tr></thead>\n                  <tbody>\n                    <tr><td>Blinding Sickness</td><td>Disadvantage on Wisdom Checks and Saving Throws, and Blinded.</td></tr>\n                    <tr><td>Filth Fever</td><td>Disadvantage on Strength Checks, Saving Throws and Attack Rolls that use Strength.</td></tr>\n                    <tr><td>Flesh Rot</td><td>Disadvantage on Charisma Checks and Vulnerability to all damage.</td></tr>\n                    <tr><td>Mindfire</td><td>Disadvantage on Intelligence Checks and Saving Throws, and Befuddled.</td></tr>\n                    <tr><td>Seizure</td><td>Disadvantage on Dexterity Checks, Saving Throws and Attack Rolls.</td></tr>\n                    <tr><td>Slimy Doom</td><td>Disadvantage on Constitution Checks and Saving Throws. Whenever it is hit, it becomes Stunned.</td></tr>\n                  </tbody>\n                </table>\n              </div>\n              <p class=\"upcast\"><strong>At higher levels:</strong> no change.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 11,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "hemorrhage",
+                  "name": "Hemorrhage",
+                  "level": 11,
+                  "icon": "/img/icons/eternal/hemorrhage.webp",
+                  "chips": [
+                    {
+                      "text": "Level 6 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "18m"
+                    },
+                    {
+                      "label": "Area",
+                      "value": "9m radius"
+                    },
+                    {
+                      "label": "Save",
+                      "value": "Constitution"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "2 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Sculpt a massive sphere of entropic energy in a target location. Devastate the area and all surrounding creatures, inflicting Hemorrhage and Gaping Wounds upon them for 2 turns.</p>\n              <p>Every creature in the area that is not your ally takes <span class=\"dmg\">2d10 Necrotic</span> damage, or half as much on a successful Saving Throw. Either way, it suffers <span class=\"kw\">Gaping Wounds</span> and <span class=\"kw\">Hemorrhage</span> for 2 turns.</p>\n              <p>While Hemorrhage lasts, every hit point the creature loses, from any source, is stored. When it ends, the creature takes the whole stored amount again as Necrotic damage.</p>"
+                },
+                {
+                  "id": "inured-to-undeath",
+                  "name": "Inured to Undeath",
+                  "level": 11,
+                  "icon": "/img/icons/eternal/inured-to-undeath.webp",
+                  "chips": [
+                    {
+                      "text": "Level 3 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    },
+                    {
+                      "text": "Combat only",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "No action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "Self"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Until Long Rest or combat ends"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Close your soul to the grave's touch.</p>\n              <p>You gain <span class=\"kw\">Inured to Undeath</span>: you have steeped yourself so completely in death that you are Resistant to Necrotic damage, and your hit point maximum cannot be reduced.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 12,
+          "groups": [
+            {
+              "id": null,
+              "note": null,
+              "features": [
+                {
+                  "id": "aspect-of-sorrow",
+                  "name": "Aspect of Sorrow",
+                  "level": 12,
+                  "icon": null,
+                  "chips": [
+                    {
+                      "text": "Passive",
+                      "kind": true
+                    },
+                    {
+                      "text": "Aspect · Tier III",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [],
+                  "bodyHtml": "<p>Unlocks Tier III of the Aspect of Sorrow. Once you have lost 70% of your hit point maximum in a fight, your Constitution increases by 3, and once per turn, when a hostile creature dies within 9m of you, you gain an additional action. See <a href=\"#awakening\">Aspect of Sorrow</a>.</p>"
+                },
+                {
+                  "id": "realm-of-death",
+                  "name": "Realm of Death",
+                  "level": 12,
+                  "icon": "/img/icons/eternal/realm-of-death.webp",
+                  "chips": [
+                    {
+                      "text": "Level 6 Spell",
+                      "kind": true
+                    },
+                    {
+                      "text": "Necromancy",
+                      "kind": false
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Cast",
+                      "value": "Action"
+                    },
+                    {
+                      "label": "Range",
+                      "value": "6m"
+                    },
+                    {
+                      "label": "Duration",
+                      "value": "Realm 4 turns · Banished 3 turns"
+                    }
+                  ],
+                  "bodyHtml": "<p class=\"flavour\">Bring one enemy to the realm of death, Banishing all other creatures nearby.</p>\n              <p>Every other creature nearby is <span class=\"kw\">Banished</span> for 3 turns, leaving you alone with your target. For 4 turns the realm of death, a region of cold blackness, fills everything within 6m of the spot: inside it the enemy is Vulnerable to Necrotic damage, takes <span class=\"dmg\">2d6 Cold</span> damage at the start of its turn and <span class=\"dmg\">2d6 Acid</span> damage at the end of its turn, and the area is Difficult Terrain.</p>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "awakening",
+      "title": "Aspect of Sorrow",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "prose",
+          "html": "<p>From level 3, the Eternal awakens the Aspect of Death, the Aspect of Sorrow, by suffering. What is counted is the share of your hit point maximum you have lost during the current fight, and healing never takes it back (see <a href=\"#sorrow\">Sorrow</a>). Each goal you reach awakens one more tier, as long as your level allows it. The tiers stack and last until combat ends; while awakened you carry the status <strong>13 - Death: Awakened I</strong>, <strong>II</strong> or <strong>III</strong>.</p>"
+        },
+        {
+          "type": "tiers",
+          "tiers": [
+            {
+              "label": "Tier I · Sorrow",
+              "goal": "Lose 30% of your hit point maximum · level 3",
+              "level": null,
+              "itemsHtml": [
+                "You emanate <strong>Darkness Rise</strong>, a 3m aura of decay. Your movement speed increases by 50%.",
+                "Each enemy that stays in the aura takes Necrotic damage equal to 10% of your maximum hit points at the start of its turn, and its movement speed is halved.",
+                "You gain the Aspect spell <a href=\"#the-final-toll\">The Final Toll</a>."
+              ]
+            },
+            {
+              "label": "Tier II · Mourning",
+              "goal": "Lose 50% · level 7",
+              "level": null,
+              "itemsHtml": [
+                "The first time you would drop to 0 hit points this fight, you drop to 1 instead.",
+                "An isolated enemy within 3m of you suffers <strong>Dread</strong>: it has Disadvantage on Attack Rolls against you."
+              ]
+            },
+            {
+              "label": "Tier III · Aspect of Sorrow",
+              "goal": "Lose 70% · level 12",
+              "level": null,
+              "itemsHtml": [
+                "Your Constitution increases by 3.",
+                "<strong>Harvest:</strong> once per turn, when a hostile creature dies within 9m of you, you gain an additional action."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "feature",
+          "feature": {
+            "id": "the-final-toll",
+            "name": "The Final Toll",
+            "level": null,
+            "icon": null,
+            "chips": [
+              {
+                "text": "Cantrip",
+                "kind": true
+              },
+              {
+                "text": "Necromancy",
+                "kind": false
+              },
+              {
+                "text": "Aspect · Tier I",
+                "kind": false
+              }
+            ],
+            "stats": [
+              {
+                "label": "Cast",
+                "value": "Action"
+              },
+              {
+                "label": "Range",
+                "value": "18m"
+              },
+              {
+                "label": "Recharge",
+                "value": "Once per combat"
+              }
+            ],
+            "bodyHtml": "<p class=\"flavour\">Turn your suffering on a foe.</p>\n            <p>Deals Necrotic damage equal to the hit points you have lost this combat, up to half your hit point maximum. A creature killed this way rises as a zombie. Available only while the Aspect is awakened, and costs no Woven Spell Slot.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "Conditions & Terms",
+      "kind": "blocks",
+      "blocks": [
+        {
+          "type": "glossary",
+          "items": [
+            {
+              "term": "Arcane spells",
+              "html": "The spells and cantrips of the Arcana class, the ones you cast with Woven Spell Slots. Blood Offering adds its damage to these."
+            },
+            {
+              "term": "Awakening Progress",
+              "html": "Shows, in percent, how close you are to your next tier of the Aspect of Sorrow. Disappears when no tier is left to awaken, or when combat ends."
+            },
+            {
+              "term": "Banished",
+              "html": "Banished from this plane of existence. Can't be targeted. Can't move or take actions, bonus actions or reactions."
+            },
+            {
+              "term": "Bleeding",
+              "html": "Takes 2 Slashing damage at the start of each turn and has Disadvantage on Constitution Saving Throws. Removed by healing."
+            },
+            {
+              "term": "Blood Offering",
+              "html": "Your Arcane spells deal additional Necrotic damage until the end of your turn."
+            },
+            {
+              "term": "Darkness Rise",
+              "html": "Your Tier I aura (3m). You gain 50% movement speed; enemies within take Necrotic damage equal to 10% of your maximum hit points each turn and have their movement speed halved."
+            },
+            {
+              "term": "Death Ward",
+              "html": "The next time damage would reduce the creature to 0 hit points, it remains conscious with 1 hit point left."
+            },
+            {
+              "term": "Dread",
+              "html": "Isolated and afraid. Has Disadvantage on Attack Rolls against the Eternal."
+            },
+            {
+              "term": "Frightened",
+              "html": "Cannot move. Has Disadvantage on Ability Checks and Attack Rolls."
+            },
+            {
+              "term": "Gaping Wounds",
+              "html": "Attacks against this creature deal an additional 2 Piercing damage. Removed by healing."
+            },
+            {
+              "term": "Harvest",
+              "html": "Tier III. Has an additional action, gained when a hostile creature dies within 9m of you; once per turn."
+            },
+            {
+              "term": "Hemoplague Poisoned",
+              "html": "Stages 1 to 3. Disadvantage on Attack Rolls and Ability Checks. Each turn a failed Constitution Saving Throw worsens it; 3 failures bring the chosen disease, 3 successes end it."
+            },
+            {
+              "term": "Hemorrhage",
+              "html": "Stores all damage taken for 2 turns. When the duration ends, the creature suffers the accumulated damage again as Necrotic damage."
+            },
+            {
+              "term": "Hit points lost this combat",
+              "html": "The running total that drives Sorrow and The Final Toll. Damage you take in combat adds to it, as does Blood Offering's cost; healing does not reduce it. Resets when combat ends."
+            },
+            {
+              "term": "Immortal Blood",
+              "html": "Immune to Disease, Bleeding and Gaping Wounds. Ends on a Long Rest or when combat ends."
+            },
+            {
+              "term": "Indestructible",
+              "html": "Temporary hit points equal to 5 × your Arcana level. At the end of the duration, or when the temporary hit points are removed, regain 2 × your Arcana level in hit points."
+            },
+            {
+              "term": "Inescapable Destruction",
+              "html": "Spells you cast ignore Resistance to Necrotic damage. Ends on a Long Rest or when combat ends."
+            },
+            {
+              "term": "Inured to Undeath",
+              "html": "Resistant to Necrotic damage; your hit point maximum cannot be reduced. Ends on a Long Rest or when combat ends."
+            },
+            {
+              "term": "Isolated",
+              "html": "An enemy is isolated when it is the only enemy within 3m of you and none of its allies is within 6m of it."
+            },
+            {
+              "term": "Mourning",
+              "html": "Tier II. The first time you would drop to 0 hit points during this fight, you drop to 1 instead."
+            },
+            {
+              "term": "Numbed",
+              "html": "Movement speed halved. The spellcaster has Advantage on Attack Rolls against the creature. Removed by Help, or when hit by the spellcaster."
+            },
+            {
+              "term": "Realm of Death",
+              "html": "A region of cold blackness. Creatures inside are Vulnerable to Necrotic damage, take 2d6 Cold damage at the start of their turn and 2d6 Acid damage at the end of it. The area is Difficult Terrain."
+            },
+            {
+              "term": "Unbroken",
+              "html": "Half damage from non-magical Bludgeoning, Piercing and Slashing damage while above 80% of your maximum hit points. Ends on a Long Rest or when combat ends."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

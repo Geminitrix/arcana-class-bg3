@@ -1,0 +1,244 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// The Fool (Unbound). Objetivo Wanderlust: acertar inimigos diferentes numa mesma rodada. Desde 2026-10-02 cada
+// tier tem a sua meta (3 / 4 / 5, tabela no Common) e acorda sozinho na mesma rodada: 3 acertos dao o Tier I,
+// 4 o Tier II, 5 o Tier III. O que acordou fica ate o fim do combate; o que faltou pode vir numa rodada seguinte.
+// A rodada vai do inicio do turno do Unbound ao inicio do proximo, entao as reacoes nos turnos dos inimigos contam.
+// Meta por meta: se no inicio do turno ha menos inimigos vivos do que ela pede, qualquer acerto conta para ela
+// (inclusive no mesmo inimigo); senao, so inimigo ainda nao acertado na rodada.
+// A passiva Arcana_Passive_Aspect_Fool_I aplica WANDERLUST_HIT_TECH no inimigo acertado, com o Unbound de origem.
+
+//REGION Rodada
+IF
+TurnStarted((CHARACTER)_Unbound)
+AND
+HasPassive(_Unbound, "Arcana_Passive_Aspect_Fool_I", 1)
+THEN
+PROC_ARCANA_Fool_NewRound(_Unbound);
+
+PROC
+PROC_ARCANA_Fool_NewRound((CHARACTER)_Unbound)
+THEN
+PROC_ARCANA_Fool_ClearRound(_Unbound);
+DB_ARCANA_WanderCount(_Unbound, 0);
+DB_ARCANA_WanderAll(_Unbound, 0);
+PROC_ARCANA_Fool_CountFoes(_Unbound);
+RemoveStatus(_Unbound, "ASPECT_PROGRESS_FOOL", _Unbound);
+
+PROC
+PROC_ARCANA_Fool_ClearRound((CHARACTER)_Unbound)
+AND
+DB_ARCANA_WanderHit(_Unbound, _Foe)
+THEN
+NOT DB_ARCANA_WanderHit(_Unbound, _Foe);
+
+PROC
+PROC_ARCANA_Fool_ClearRound((CHARACTER)_Unbound)
+AND
+DB_ARCANA_WanderCount(_Unbound, _N)
+THEN
+NOT DB_ARCANA_WanderCount(_Unbound, _N);
+
+PROC
+PROC_ARCANA_Fool_ClearRound((CHARACTER)_Unbound)
+AND
+DB_ARCANA_WanderAll(_Unbound, _N)
+THEN
+NOT DB_ARCANA_WanderAll(_Unbound, _N);
+
+PROC
+PROC_ARCANA_Fool_ClearRound((CHARACTER)_Unbound)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+THEN
+NOT DB_ARCANA_WanderFoes(_Unbound, _Foes);
+
+// inimigos vivos no combate, contados no inicio do turno
+PROC
+PROC_ARCANA_Fool_CountFoes((CHARACTER)_Unbound)
+THEN
+DB_ARCANA_WanderFoes(_Unbound, 0);
+
+PROC
+PROC_ARCANA_Fool_CountFoes((CHARACTER)_Unbound)
+AND
+DB_ARCANA_Aspect_InCombat(_Unbound, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Foe, _Combat)
+AND
+IsEnemy(_Unbound, _Foe, 1)
+AND
+IsDead(_Foe, 0)
+THEN
+PROC_ARCANA_Fool_AddFoe(_Unbound);
+
+PROC
+PROC_ARCANA_Fool_AddFoe((CHARACTER)_Unbound)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+AND
+IntegerSum(_Foes, 1, _More)
+THEN
+NOT DB_ARCANA_WanderFoes(_Unbound, _Foes);
+DB_ARCANA_WanderFoes(_Unbound, _More);
+//END_REGION
+
+//REGION Acertos: dois contadores por rodada (inimigos diferentes e todos os acertos)
+IF
+StatusApplied((CHARACTER)_Foe, "WANDERLUST_HIT_TECH", (CHARACTER)_Unbound, _)
+THEN
+PROC_ARCANA_Fool_EnsureRound(_Unbound);
+PROC_ARCANA_Fool_Hit(_Unbound, _Foe);
+PROC_ARCANA_Fool_Evaluate(_Unbound);
+
+// um acerto antes do primeiro turno dele no combate (uma reacao) abre a rodada
+PROC
+PROC_ARCANA_Fool_EnsureRound((CHARACTER)_Unbound)
+AND
+NOT DB_ARCANA_WanderFoes(_Unbound, _)
+THEN
+PROC_ARCANA_Fool_NewRound(_Unbound);
+
+PROC
+PROC_ARCANA_Fool_Hit((CHARACTER)_Unbound, (CHARACTER)_Foe)
+AND
+DB_ARCANA_WanderAll(_Unbound, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_WanderAll(_Unbound, _Old);
+DB_ARCANA_WanderAll(_Unbound, _New);
+
+PROC
+PROC_ARCANA_Fool_Hit((CHARACTER)_Unbound, (CHARACTER)_Foe)
+AND
+NOT DB_ARCANA_WanderHit(_Unbound, _Foe)
+AND
+DB_ARCANA_WanderCount(_Unbound, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+DB_ARCANA_WanderHit(_Unbound, _Foe);
+NOT DB_ARCANA_WanderCount(_Unbound, _Old);
+DB_ARCANA_WanderCount(_Unbound, _New);
+//END_REGION
+
+//REGION Metas: cada tier com o seu contador
+PROC
+PROC_ARCANA_Fool_Evaluate((CHARACTER)_Unbound)
+THEN
+PROC_ARCANA_Fool_OfferTier(_Unbound, 1);
+PROC_ARCANA_Fool_OfferTier(_Unbound, 2);
+PROC_ARCANA_Fool_OfferTier(_Unbound, 3);
+PROC_ARCANA_Aspect_FindNext(_Unbound, "FOOL");
+PROC_ARCANA_Fool_ShowNext(_Unbound);
+
+// menos inimigos vivos do que a meta pede: todo acerto conta para ela
+PROC
+PROC_ARCANA_Fool_OfferTier((CHARACTER)_Unbound, (INTEGER)_Tier)
+AND
+DB_ARCANA_AspectTier("FOOL", _Tier, _, _, _Goal)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+AND
+_Foes < _Goal
+AND
+DB_ARCANA_WanderAll(_Unbound, _Hits)
+THEN
+PROC_ARCANA_Aspect_Offer(_Unbound, "FOOL", _Tier, _Hits);
+
+// inimigos suficientes: so conta inimigo diferente
+PROC
+PROC_ARCANA_Fool_OfferTier((CHARACTER)_Unbound, (INTEGER)_Tier)
+AND
+DB_ARCANA_AspectTier("FOOL", _Tier, _, _, _Goal)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+AND
+_Foes >= _Goal
+AND
+DB_ARCANA_WanderCount(_Unbound, _Distinct)
+THEN
+PROC_ARCANA_Aspect_Offer(_Unbound, "FOOL", _Tier, _Distinct);
+
+// o icone mostra o contador que vale para o proximo tier; sem proximo tier, some
+PROC
+PROC_ARCANA_Fool_ShowNext((CHARACTER)_Unbound)
+AND
+NOT DB_ARCANA_AspectNext(_Unbound, _)
+THEN
+PROC_ARCANA_Aspect_Display(_Unbound, "FOOL", 0);
+
+PROC
+PROC_ARCANA_Fool_ShowNext((CHARACTER)_Unbound)
+AND
+DB_ARCANA_AspectNext(_Unbound, _Tier)
+AND
+DB_ARCANA_AspectTier("FOOL", _Tier, _, _, _Goal)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+AND
+_Foes < _Goal
+AND
+DB_ARCANA_WanderAll(_Unbound, _Hits)
+THEN
+PROC_ARCANA_Aspect_Display(_Unbound, "FOOL", _Hits);
+
+PROC
+PROC_ARCANA_Fool_ShowNext((CHARACTER)_Unbound)
+AND
+DB_ARCANA_AspectNext(_Unbound, _Tier)
+AND
+DB_ARCANA_AspectTier("FOOL", _Tier, _, _, _Goal)
+AND
+DB_ARCANA_WanderFoes(_Unbound, _Foes)
+AND
+_Foes >= _Goal
+AND
+DB_ARCANA_WanderCount(_Unbound, _Distinct)
+THEN
+PROC_ARCANA_Aspect_Display(_Unbound, "FOOL", _Distinct);
+//END_REGION
+
+//REGION Tier II: Zephyr sem Bonus Action uma vez por turno
+PROC
+PROC_ARCANA_Aspect_OnTier((CHARACTER)_Unbound, (STRING)_Aspect, (INTEGER)_Tier)
+AND
+_Aspect == "FOOL"
+AND
+_Tier == 2
+THEN
+ApplyStatus(_Unbound, "FOOL_ZEPHYR_FREE", 6.0, 1, _Unbound);
+
+IF
+TurnStarted((CHARACTER)_Unbound)
+AND
+DB_ARCANA_AspectReached(_Unbound, 2)
+AND
+HasPassive(_Unbound, "Arcana_Passive_Aspect_Fool_II", 1)
+THEN
+ApplyStatus(_Unbound, "FOOL_ZEPHYR_FREE", 6.0, 1, _Unbound);
+
+IF
+CastedSpell((CHARACTER)_Unbound, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Created_ZephyrStrike")
+AND
+HasActiveStatus(_Unbound, "FOOL_ZEPHYR_FREE", 1)
+THEN
+RemoveStatus(_Unbound, "FOOL_ZEPHYR_FREE", _Unbound);
+//END_REGION
+
+//REGION Limpeza
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Unbound)
+THEN
+PROC_ARCANA_Fool_ClearRound(_Unbound);
+RemoveStatus(_Unbound, "FOOL_ZEPHYR_FREE", _Unbound);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

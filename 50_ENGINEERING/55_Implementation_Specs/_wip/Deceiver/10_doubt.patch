@@ -1,0 +1,95 @@
+# ===== The Veil, task 1: Doubt (statuses, Deluded, the single entry point, a DEBUG spell) =====
+# Doubt is raised by Osiris (goals/ARCANA_Deceiver_Doubt.txt). Every source applies DOUBT_ADD_TECH and nothing else.
+
+@loca DOUBT_1_NAME Doubt (1)
+@loca DOUBT_2_NAME Doubt (2)
+@loca DOUBT_3_NAME Doubt (3)
+@loca DOUBT_DESC Unable to tell what is real. Reduces Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> by [1], and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against the Deceiver and her Doubles by [1].<br><br>A third stack leaves the creature <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>.
+@loca DELUDED_NAME Deluded
+@loca DELUDED_DESC <LSTag Type="Status" Tooltip="CONFUSION">Confused</LSTag> by illusions that cannot be told from the real thing. Acts at random and may lose its turn.<br><br>At the start of each turn, can end the effect with a Wisdom <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>.
+@loca DOUBT_TECH_NAME Doubt
+@loca DOUBT_DEBUG_NAME [DEBUG] Add Doubt
+@loca DOUBT_DEBUG_DESC Add one stack of Doubt to the target, as if the Deceiver had applied it. Cast it three times on the same creature to make it Deluded.
+
+@file Status_BOOST
+@section DECEIVER STATUS
+
+# One StackId, one status per stack. Osiris removes the lower status and applies the next, so a new stack
+# also refreshes the 3 turns (18.0 s in ApplyStatus). Same StackPriority on purpose: the last one applied wins.
+# Attack Rolls: the second term is a boost on the AFFECTED creature, so context.Target is whoever it attacks.
+# That is the MULTIATTACKDEFENSE shape (vanilla Status_BOOST: IF(HasStatus(...,context.Target)):RollBonus(Attack,-4)).
+new entry "DOUBT_1"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DOUBT_1_NAME}}"
+data "Description" "{{DOUBT_DESC}}"
+data "DescriptionParams" "1"
+data "Icon" "Spell_Illusion_PhantasmalForce"
+data "StackId" "DOUBT"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "RollBonus(SavingThrow,-1,Wisdom);IF(HasPassive('Arcana_Passive_TheVeil',context.Target) or HasPassive('Arcana_Passive_DoubleOfTheVeil',context.Target)):RollBonus(Attack,-1);"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "DOUBT_2"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DOUBT_2_NAME}}"
+data "Description" "{{DOUBT_DESC}}"
+data "DescriptionParams" "2"
+data "Icon" "Spell_Illusion_PhantasmalForce"
+data "StackId" "DOUBT"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "RollBonus(SavingThrow,-2,Wisdom);IF(HasPassive('Arcana_Passive_TheVeil',context.Target) or HasPassive('Arcana_Passive_DoubleOfTheVeil',context.Target)):RollBonus(Attack,-2);"
+data "StatusPropertyFlags" "ForceOverhead"
+
+# The third stack never lingers: the goal turns it into DELUDED the moment it lands (and removes it).
+new entry "DOUBT_3"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DOUBT_3_NAME}}"
+data "Description" "{{DOUBT_DESC}}"
+data "DescriptionParams" "3"
+data "Icon" "Spell_Illusion_PhantasmalForce"
+data "StackId" "DOUBT"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "RollBonus(SavingThrow,-3,Wisdom);IF(HasPassive('Arcana_Passive_TheVeil',context.Target) or HasPassive('Arcana_Passive_DoubleOfTheVeil',context.Target)):RollBonus(Attack,-3);"
+data "StatusPropertyFlags" "ForceOverhead"
+
+# Deluded = vanilla CONFUSION (a BOOST, parent MADNESS; groups SG_Confused). Own StackId so it never fights MADNESS.
+# OnTickFail is rewritten: the inherited one tests HasStatus('CONFUSION'), which a child status never has.
+# RemoveConditions (Wisdom save against SourceSpellDC()) is inherited: the goal applies it in the Deceiver's name.
+new entry "DELUDED"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CONFUSION"
+data "DisplayName" "{{DELUDED_NAME}}"
+data "Description" "{{DELUDED_DESC}}"
+data "StackId" "DELUDED"
+data "OnTickFail" "IF(HasStatus('DELUDED')):ApplyStatus(CONFUSION_SKIP,100,1,,,,,true)"
+
+# The single entry point. Every card, Shatter, Sigil detonation... applies this with duration 0
+# (ApplyStatus(DOUBT_ADD_TECH,100,0)); the goal reacts to StatusApplied and raises the stack. Hidden.
+new entry "DOUBT_ADD_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DOUBT_TECH_NAME}}"
+data "StackId" "DOUBT_ADD_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+@file Spell_Target
+@section Target_DEBUG SPELLS
+
+# Test tool for Tasks 1-3 before the cards exist. Inherits Target_DEBUG_IncreaseHP (Character() target, no cost).
+new entry "Target_Arcana_Util_DEBUG_AddDoubt"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DEBUG_IncreaseHP"
+data "DisplayName" "{{DOUBT_DEBUG_NAME}}"
+data "Description" "{{DOUBT_DEBUG_DESC}}"
+data "Icon" "Spell_Illusion_PhantasmalForce"
+data "TargetRadius" "18"
+data "SpellProperties" "ApplyStatus(DOUBT_ADD_TECH,100,0);"

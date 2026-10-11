@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="db45b32f-877a-45bd-afb5-32e7d415d1e6">
+  <stat_objects>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ef8ac8d8-da0d-4e5d-89b0-2d0068759958" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Acrobatics;AnimalHandling;Nature;Perception;Survival;Stealth;SleightOfHand;Athletics" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Unbound" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFFF69B4" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="03763d8b-61de-4b66-ba89-10420152d6f5" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Deception;Insight;Intimidation;Performance;Persuasion;Perception;History;Investigation" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Deceiver" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6495ED" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ba6ed455-9749-4c5e-980b-5e5aa9490013" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="464a3bfd-859a-43d5-a20d-d6a9270ce6eb" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Arcana;History;Medicine;Nature;Religion;Perception;Survival;AnimalHandling" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Starchild" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF228B22" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e07d8ae4-3c82-4435-98a7-8583c0e4ef98" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="b5a43d76-fd80-4c29-b149-7690e1e1e18f" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Athletics;Intimidation;Medicine;History;Nature;Investigation;Religion;Survival" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Eternal" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFFA8072" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5d8da67e-1488-c928-7d74-68f0ca6f94d8" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Insight;Persuasion;Medicine;Performance;Perception;Religion;AnimalHandling;Intimidation" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Resonant" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF008080" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a389eb39-c184-4fc3-b17b-fa5ac1c943f9" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Insight;Persuasion;Medicine;Performance;Perception;Religion;AnimalHandling;Intimidation" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Spinner" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFA52A2A" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8a13765c-7bdb-4c80-a159-fc6cf0cd7fd6" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="7643bf5a-62fa-44c4-ab73-572e655554d2" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Athletics;Intimidation;Medicine;History;Nature;Investigation;Religion;Survival" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Titan" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

@@ -1,0 +1,52 @@
+# 2026-10-01: os EX deixam de existir (decisao do usuario). Saem as magias, variantes, status, passivas e
+# reacoes EX; o Friends EX (Faux Amis, Deceiver 13) fica -- e uma magia de progressao, nao um EX de carta.
+# As listas e as passivas das progressoes saem pelo aspect_structure.pl; a loca dos EX fica orfa no english.xml.
+# O goal ARCANA_Spell_FacelessCopy_EX fica (decisao do usuario), sem nada que o dispare.
+@remove ASTRAL_FORTITUDE_EX
+@remove Arcana_Passive_GaleDeflection_EX
+@remove Arcana_Passive_Hemoplague_EX
+@remove Arcana_Passive_HollowImage_EX
+@remove Arcana_Passive_StarRadiance_EX
+@remove Arcana_Passive_Unbroken_EX
+@remove EVASIVE_FLOW_EX
+@remove FACELESS_COPY_EX
+@remove INTERRUPT_HOLLOW_IMAGE_EX
+@remove Interrupt_Arcana_Reaction_GaleDeflection_EX
+@remove Interrupt_Arcana_Reaction_GaleDeflection_EX_Return
+@remove Interrupt_Arcana_Reaction_HollowImage_EX
+@remove LUNAR_AEGIS_EX
+@remove Projectile_Arcana_Card_Spell_Starcall_EX
+@remove Projectile_Arcana_Card_Spell_Starcall_EX_4
+@remove Projectile_Arcana_Card_Spell_Starcall_EX_5
+@remove Projectile_Arcana_Card_Spell_Starcall_EX_6
+@remove Projectile_Arcana_Reaction_GaleDeflection_EX
+@remove REJUVENATION_EX_TECH
+@remove STAR_RADIANCE_AURA_EX
+@remove STAR_RADIANCE_EX
+@remove Shout_Arcana_Card_Spell_AstralFortitude_EX
+@remove Shout_Arcana_Card_Spell_StarRadiance_EX
+@remove Shout_Arcana_Card_Spell_StarRadiance_EX_6
+@remove Target_Arcana_Card_Spell_DeathsGrasp_EX
+@remove Target_Arcana_Card_Spell_DeathsGrasp_EX_5
+@remove Target_Arcana_Card_Spell_DeathsGrasp_EX_6
+@remove Target_Arcana_Card_Spell_Faceless_Copy_EX
+@remove Target_Arcana_Card_Spell_Faceless_Copy_EX_5
+@remove Target_Arcana_Card_Spell_Faceless_Copy_EX_6
+@remove Target_Arcana_Card_Spell_Hemoplague_EX
+@remove Target_Arcana_Card_Spell_HostileTakeover_EX
+@remove Target_Arcana_Card_Spell_LunarAegis_EX
+@remove Target_Arcana_Card_Spell_LunarAegis_EX_5
+@remove Target_Arcana_Card_Spell_LunarAegis_EX_6
+@remove Target_Arcana_Card_Spell_MirrorImage_EX
+@remove Target_Arcana_Card_Spell_RealmOfDeath_EX
+@remove Target_Arcana_Card_Spell_Transfusion_EX
+@remove Target_Arcana_Card_Spell_Transfusion_EX_4
+@remove Target_Arcana_Card_Spell_Transfusion_EX_5
+@remove Target_Arcana_Card_Spell_Transfusion_EX_6
+
+# Gale Burst (editado no Toolkit): o SpellFail tinha os parenteses quebrados, "DealDamage(1d10)/2,Thunder);"
+@set Target_Arcana_Card_Spell_GaleBurst SpellFail DealDamage((1d10)/2,Thunder);
+@set Target_Arcana_Card_Spell_GaleBurst_3 SpellFail DealDamage((2d10)/2,Thunder);
+@set Target_Arcana_Card_Spell_GaleBurst_4 SpellFail DealDamage((2d10)/2,Thunder);
+@set Target_Arcana_Card_Spell_GaleBurst_5 SpellFail DealDamage((3d10)/2,Thunder);
+@set Target_Arcana_Card_Spell_GaleBurst_6 SpellFail DealDamage((3d10)/2,Thunder);

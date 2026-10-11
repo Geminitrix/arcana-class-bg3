@@ -1,7 +1,7 @@
 # Migration Plan — Lumox Studios Repository Architecture
 
-*Phase 0 output (audit, read-only) · 2026-10-11 · Source spec: "Arcana Class Studio — Arquitetura de
-Repositório e Fluxo Ágil" v0.4 · Status: **awaiting Owner approval** — nothing has been moved yet.*
+*Stage A ✔ 2026-10-11 (dd3e297) · Stage B ✔ 2026-10-11 — see MIGRATION_MANIFEST.md · Source spec: "Arcana Class Studio — Arquitetura de
+Repositório e Fluxo Ágil" v0.4 · Status: **approved by the Owners**; next stage C.*
 
 Decisions already given in chat: root = `C:\Lumox Studios\Arcana Class`; **full** structure (all
 categories, all `_INDEX.md`/`_AGENT.md`); **English** folder and file names; Git = commit + push to

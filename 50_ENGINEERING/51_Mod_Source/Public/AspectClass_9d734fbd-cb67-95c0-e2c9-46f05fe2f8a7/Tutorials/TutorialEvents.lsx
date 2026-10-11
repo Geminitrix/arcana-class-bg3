@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="TutorialEvents">
+        <node id="root">
+            <children>
+                <node id="TutorialEvent">
+                    <attribute id="ActionResource" type="guid" value="25d3f3a7-f097-4e33-813c-54a1ef79ba8e"/>
+                    <attribute id="EventType" type="uint8" value="1"/>
+                    <attribute id="Name" type="LSString" value="LongRest_Replenishable_Depleted_ArcanaSpellSlot"/>
+                    <attribute id="UUID" type="guid" value="98f0e032-bb77-4cf5-be74-95074d32c9a6"/>
+                    <attribute id="UserAction" type="uint8" value="0"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

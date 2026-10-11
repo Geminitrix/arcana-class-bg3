@@ -1,0 +1,92 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION Hemorrhage - procedures
+PROC
+PROC_Hemorrhage_ClearTotal((GUIDSTRING)_TheEternal, (GUIDSTRING)_Defender)
+AND
+DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _OldTotal)
+THEN
+NOT DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _OldTotal);
+
+PROC
+PROC_Hemorrhage_ClearHP((GUIDSTRING)_Defender)
+AND
+DB_Hemorrhage_LastHP(_Defender, _OldHP)
+THEN
+NOT DB_Hemorrhage_LastHP(_Defender, _OldHP);
+
+PROC
+PROC_Hemorrhage_Burst((GUIDSTRING)_TheEternal, (GUIDSTRING)_Defender, (INTEGER)_TotalDamage)
+AND
+_TotalDamage > 0
+THEN
+ApplyDamage(_Defender, _TotalDamage, "Necrotic", _TheEternal);
+//END_REGION
+
+//REGION Hemorrhage - inicializacao idempotente
+IF
+StatusApplied(_Defender, "HEMORRHAGE", _TheEternal, _)
+AND
+GetHitpoints(_Defender, _HP)
+THEN
+PROC_Hemorrhage_ClearTotal(_TheEternal, _Defender);
+PROC_Hemorrhage_ClearHP(_Defender);
+DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, 0);
+DB_Hemorrhage_LastHP(_Defender, _HP);
+//END_REGION
+
+//REGION Hemorrhage - acumulacao por perda de HP (qualquer origem)
+IF
+HitpointsChanged(_Defender, _)
+AND
+HasActiveStatus(_Defender, "HEMORRHAGE", 1)
+AND
+DB_Hemorrhage_LastHP(_Defender, _OldHP)
+AND
+GetHitpoints(_Defender, _NewHP)
+AND
+_NewHP < _OldHP
+AND
+DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _CurrentTotal)
+AND
+IntegerSubtract(_OldHP, _NewHP, _Lost)
+AND
+IntegerSum(_CurrentTotal, _Lost, _NewTotal)
+THEN
+NOT DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _CurrentTotal);
+DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _NewTotal);
+NOT DB_Hemorrhage_LastHP(_Defender, _OldHP);
+DB_Hemorrhage_LastHP(_Defender, _NewHP);
+
+// HP subiu (cura) - so atualiza a referencia, nao acumula
+IF
+HitpointsChanged(_Defender, _)
+AND
+HasActiveStatus(_Defender, "HEMORRHAGE", 1)
+AND
+DB_Hemorrhage_LastHP(_Defender, _OldHP)
+AND
+GetHitpoints(_Defender, _NewHP)
+AND
+_NewHP > _OldHP
+THEN
+NOT DB_Hemorrhage_LastHP(_Defender, _OldHP);
+DB_Hemorrhage_LastHP(_Defender, _NewHP);
+//END_REGION
+
+//REGION Hemorrhage - estouro ao expirar
+IF
+StatusRemoved(_Defender, "HEMORRHAGE", _, _)
+AND
+DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _TotalDamage)
+THEN
+NOT DB_Hemorrhage_Pos_Damage(_TheEternal, _Defender, _TotalDamage);
+PROC_Hemorrhage_ClearHP(_Defender);
+PROC_Hemorrhage_Burst(_TheEternal, _Defender, _TotalDamage);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="1b098c3e-a94d-42ce-8a75-e4b0900f982c" OwnerUUID="00000000-0000-0000-0000-000000000000" Name="DARKNESS_RISE_StatusEffect">
+  <EffectInfo UUID="8248ee1b-fb92-49c1-9d55-38ed87f02f68" EffectResourceGuid="66bf062c-0265-7ecc-ff68-55080fcd73e0" DetachSource="false" DetachTarget="false" KeepRotation="true" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" SourceCheckEquipmentTagConditions="true" TargetCheckEquipmentTagConditions="true" />
+</MultiEffectInfos>

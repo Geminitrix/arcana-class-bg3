@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <content contentuid="h20d9faaeg4370g67d2g7274gb7934d4e49de" version="4">Il ponte vivente tra l'anima mortale e l'aspetto divino, che intreccia i fili grezzi del cosmo in un cammino scelto attraverso il tessuto della realtà.</content>
+  <content contentuid="h6b9b470bg80f2ga862g4fefgc1fa06fec406" version="2">Arcana</content>
+  <content contentuid="h8bcf3e57gbc72gd8bbg1503g0762e93077a9" version="4">Lo Svincolato</content>
+  <content contentuid="h17e10ddcg8d37gee2bgee13g1b721edc0e1d" version="4">Il Figlio delle Stelle</content>
+  <content contentuid="h9977b07fg8a24ge934g93a5gdf8f23333ac1" version="2">Infusione Astrale</content>
+  <content contentuid="he9e90fb4g4e50g8850g39ceg8935a7a7e0cb" version="18">Trasferisci una parte della tua forza vitale attraverso un legame astrale. Se non hai &lt;LSTag Type="Status" Tooltip="REJUVENATION"&gt;Ringiovanimento&lt;/LSTag&gt;, sacrifica il 10% dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita&lt;/LSTag&gt; massimi per curare un alleato.</content>
+  <content contentuid="h894ce09fg4c14ga414g8e3cg9e8cc21aa41f" version="3">Respiro Stellare</content>
+  <content contentuid="hc794a392g942age43cg6f1cg9906a442e207" version="12">Incanala una scintilla di potere stellare in un alleato caduto. Questi torna in vita con &lt;LSTag Tooltip="HitPoints"&gt;il [1]% dei suoi punti ferita massimi&lt;/LSTag&gt;.</content>
+  <content contentuid="h5786ee66g8df9g2a6fg7b61g6008d5af6a3b" version="1">Richiamo Stellare</content>
+  <content contentuid="hb7218eb2gc770g110ag4f3ege5159a7e07dd" version="16">Scaglia una stella radiosa contro un bersaglio. La &lt;LSTag Tooltip="MovementSpeed"&gt;Velocità di Movimento&lt;/LSTag&gt; del bersaglio è ridotta del 30% per 1 turno. Ottieni &lt;LSTag Type="Status" Tooltip="REJUVENATION"&gt;Ringiovanimento&lt;/LSTag&gt;.</content>
+  <content contentuid="ha0b7512fgf0ffg48b6ga85bga6f41b12c1aa" version="1">Silenziato</content>
+  <content contentuid="h63b86b59g8ecbgb058g92efg50feec44593a" version="4">Non puoi parlare né lanciare incantesimi con una componente verbale, e sei &lt;LSTag Tooltip="Immune"&gt;Immune&lt;/LSTag&gt; a [1].</content>
+  <content contentuid="h62ec9c14g48a6g04feg39c8g9688252a1204" version="1">Aura d'Equinozio</content>
+  <content contentuid="habc64bdcgc349gfbfag904agf5a4000a950b" version="4">Finché rimane nella zona, il nemico colpito è &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenziato&lt;/LSTag&gt;.</content>
+  <content contentuid="hb1ed6bbagccfeg22b9g65e0g9dc9cf02dfd4" version="1">Equinozio</content>
+  <content contentuid="ha503216age4dbg9da4gf79bg3f0254166340" version="13">Manifesta una zona di equilibrio celeste. I nemici all'interno dell'area sono &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenziati&lt;/LSTag&gt;. Quando il campo si dissolve dopo 1 turno, i nemici ancora al suo interno diventano &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuti&lt;/LSTag&gt;.</content>
+  <content contentuid="hc9c5b556g9949g4386gd81eg0a8a76b3d16b" version="1">Desiderio</content>
+  <content contentuid="h3a017519g8cd2g60e6g973ag5484edd5458a" version="7">Invoca le stelle, curando te stesso e gli alleati vicini.</content>
+  <content contentuid="hf9d22151g4c43gde01g86efg3e8eb1ea8e06" version="1">Ringiovanimento</content>
+  <content contentuid="hc5c06288g5d6fg29fcgd0a9gd4e42eef10a8" version="10">La tua &lt;LSTag Tooltip="MovementSpeed"&gt;velocità di movimento&lt;/LSTag&gt; aumenta del 30%, e recuperi [1] alla fine di ogni turno.</content>
+  <content contentuid="h99b4e6fbgd121g2dadgcdbega0865d4f75af" version="2">Rallentato</content>
+  <content contentuid="hf87bf80ag4c48g051bgf620g171b53c8f274" version="3">La &lt;LSTag Tooltip="MovementSpeed"&gt;velocità di movimento&lt;/LSTag&gt; dell'entità colpita è ridotta del 30%.</content>
+  <content contentuid="hf8219083g6cb4gb9fdg03b0g4b24d8fd6ff5" version="3">Spirito Lunare</content>
+  <content contentuid="hcbf1a97cgc4bbg8eb9gc917gc68c2b0a693f" version="11">Infondi le tue cure con un bagliore lunare protettivo. Quando curi un alleato, questi ottiene anche &lt;LSTag Tooltip="TemporaryHitPoints"&gt;[1]&lt;/LSTag&gt;.</content>
+  <content contentuid="hb52a4413g4e2ag6094ga648gd1f61d96db59" version="3">Spirito Lunare</content>
+  <content contentuid="hb33ae590gae47gde31g9b6cg0ff23d30f1c2" version="4">Spirito Lunare</content>
+  <content contentuid="hc5c847f0gd0ecg3892geacega4f16f8e7f92" version="5">Ottieni &lt;LSTag Tooltip="TemporaryHitPoints"&gt;punti ferita temporanei&lt;/LSTag&gt;.</content>
+  <content contentuid="h08f0e50eg29dfg347bg2b83ga4b1795dc6f0" version="5">Purga Solare</content>
+  <content contentuid="h62d04cf4gdae4g1ca7gf625g344125bf869c" version="11">Incanala il calore purificante del sole per eliminare effetti e condizioni negative, tra cui &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Fascino&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FEARED"&gt;Paura&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Terrore&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="SLEEPING"&gt;Sonno&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="CONFUSION"&gt;Confusione&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PETRIFIED"&gt;Pietrificazione&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralisi&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stordimento&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Bruciatura&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Veleno&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;Raffreddamento&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FROZEN"&gt;Congelamento&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="SHOCKED"&gt;Folgorazione&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Sanguinamento&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Cecità&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Immobilizzazione&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="POLYMORPHED"&gt;Trasformazione&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="DAZED"&gt;Frastornamento&lt;/LSTag&gt;, Malattia o Maledizione.</content>
+  <content contentuid="hb81e98eega13fg6615g76c0g3efacc02c3f3" version="2">L'Ingannatore</content>
+  <content contentuid="h27b8c57dgb514g9be6g886cged6de78bc4fc" version="1">Singolarità Lucente</content>
+  <content contentuid="h23fb83d6ga7fcgba6eg4c4ag360bc335c7c8" version="10">Condensa luce radiosa in un punto gravitazionale che dissolve l'oscurità magica. L'attrazione della singolarità crea &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt;, mentre il suo bagliore avvolge i nemici nel &lt;LSTag Type="Status" Tooltip="FAERIE_FIRE"&gt;Fuoco Fatuo&lt;/LSTag&gt;.</content>
+  <content contentuid="h099f8fcbgeff8gac06gca86g55cb21fa8d29" version="2">Singolarità</content>
+  <content contentuid="h99445d09gd1cdg56c1gc003g8ab311b4904a" version="3">Risplende della luce di una stella. Dissolve l'oscurità in un raggio di [1], i nemici al suo interno si trovano in &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt;, sono visibili, e i &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; contro di loro hanno &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt;.</content>
+  <content contentuid="hdf4c6ec8gf2e0g1821g8215g020deb935959" version="1">Brillamento Solare</content>
+  <content contentuid="he742e437gc26eg20d9g11f8g3162a96fa3d3" version="11">Invoca un pilastro di fuoco solare che può &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stordire&lt;/LSTag&gt; e &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Bruciare&lt;/LSTag&gt; i nemici nell'area.</content>
+  <content contentuid="h8fb2e85cg662ag5f4bg13d4g97fe5e00a44d" version="1">Singolarità Lucente</content>
+  <content contentuid="hbf042947g78d1g6378g53ceg7edae93506ed" version="1">Dissolve l'oscurità in un raggio di [1].</content>
+  <content contentuid="h1bf3b9ecg8389g9771g2d2dg6bbefab12c4c" version="1">Una sfera di luce potente, splendente come il sole.</content>
+  <content contentuid="h33176909g769eg05e5g9450g23c4ed9c7073" version="1">Scintilla Finale</content>
+  <content contentuid="h6bbf7c26gd27cg4d5fg4e6dge1d4fd9d8928" version="10">Rilascia un fascio concentrato di pura energia radiosa. Tutte le creature colpite dal suo percorso sono &lt;LSTag Type="Status" Tooltip="FINAL_SPARK"&gt;Accecate&lt;/LSTag&gt; e avvolte nel &lt;LSTag Type="Status" Tooltip="FAERIE_FIRE"&gt;Fuoco Fatuo&lt;/LSTag&gt;.</content>
+  <content contentuid="hba7df2c8gc7c1gedf4g6be8g6d60752f43fd" version="3">Amicizia</content>
+  <content contentuid="h5d0c74dag8bfbgd0fege79bgbd32c751cb1a" version="5">Ottieni &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Carisma contro una creatura non ostile.</content>
+  <content contentuid="h9dd95e32gd1f4g9b57g9df7g7706c0b3938e" version="3">Questo incantesimo può essere lanciato mentre sei &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenziato&lt;/LSTag&gt;.</content>
+  <content contentuid="he9ce7070g7529g7835ga365gf087009b761f" version="1">Catene Eteree</content>
+  <content contentuid="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13">Lega una creatura con &lt;LSTag Type="Status" Tooltip="ETHEREAL_CHAINS"&gt;Catene Eteree&lt;/LSTag&gt;. Alla fine del suo turno, diventa &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuta&lt;/LSTag&gt;.</content>
+  <content contentuid="h61aa29d1ga943g2882g51b8gdd450c37b7a8" version="1">Catene Eteree</content>
+  <content contentuid="h27ab0da9g39aagf457g6a30g6d1955451372" version="10">L'entità colpita è legata da catene eteree che infliggono [1] due volte, e la fanno diventare &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuta&lt;/LSTag&gt; alla fine del turno.</content>
+  <content contentuid="h5a9834b3g29bfg7f21g71c4ga9b6a3271088" version="4">Sigillo</content>
+  <content contentuid="h28e6ebc5g3632g32ddgd3d7ge688706a5796" version="10">L'entità colpita è marchiata dall'Ingannatore, e subisce [1] aggiuntivi dai suoi incantesimi Arcani.</content>
+  <content contentuid="h629833b0gfc8dg4921g4f7fged5030c535cf" version="2">Sigillo di Malizia</content>
+  <content contentuid="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5">Scaglia un'ondata di forza arcana contro una creatura, infliggendo [1] e marchiandola con un &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigillo&lt;/LSTag&gt;.</content>
+  <content contentuid="hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef" version="3">Immagine Speculare</content>
+  <content contentuid="h805db51fg1ce6g5aa9g3a26g99b6279b2218" version="11">Crea un duplicato in grado di rispecchiare alcuni dei tuoi incantesimi Arcani dannosi.</content>
+  <content contentuid="h7ce24c2bg5830g1f25gda97gc927f6e8e6b1" version="36">Clone</content>
+  <content contentuid="ha8568072g88bdg20b7gf7efgc89983eaefa7" version="1">Imitazione</content>
+  <content contentuid="hf6f23e41g5956g17e3g304aged825fa90bb1" version="7">Rilancia i tuoi ultimi incantesimi Arcani dannosi come &lt;LSTag Tooltip="BonusAction"&gt;Azione Bonus&lt;/LSTag&gt;, una volta per turno.</content>
+  <content contentuid="h83eeda77g48f1g0e23g3be8g736fb97f917f" version="1">Imitazione: Catene Eteree</content>
+  <content contentuid="hac42a29bg29bagffcfgad6bg0f22776658d4" version="1">Imitazione: Catene Eteree</content>
+  <content contentuid="hfde409a6gdc0eg96deg50a5g4285eae83cb1" version="2">Imitazione: Sigillo di Malizia</content>
+  <content contentuid="hb680e413ga782gddaag9097gbeaa9b35c6a9" version="2">Ritirata</content>
+  <content contentuid="h62eccccagdbe3g230bg3715g97e90882e0c1" version="4">Teletrasportati nella tua posizione precedente.</content>
+  <content contentuid="h2bfb3759ga241g9495g65ddg9e2d6f843aab" version="1">Distorsione</content>
+  <content contentuid="ha600849fgd60bg0304g0ae8gd0576ef7fa29" version="8">Scatta attraverso lo spazio, infliggendo danni nel punto in cui arrivi. Per 2 turni, puoi teletrasportarti nella tua posizione originale lanciando &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Withdraw"&gt;Ritirata&lt;/LSTag&gt;.</content>
+  <content contentuid="hb619d7e4g5900gda93ge912g6a66824f4016" version="1">Imitazione: Distorsione</content>
+  <content contentuid="h87105db1gb18ag4156gf9abgd43725d9eb27" version="1">Telepatia</content>
+  <content contentuid="h7842e27dg8735g34a2g4b1eg277ee1e249ea" version="3">Puoi leggere nel pensiero e usare &lt;LSTag Type="Status" Tooltip="DETECT_THOUGHTS"&gt;Individuazione dei Pensieri&lt;/LSTag&gt;.</content>
+  <content contentuid="h0db13da4g344bgb137g2b93g6763e962d74a" version="4">Senza Volto</content>
+  <content contentuid="h1b6e7f99g71bbg55c0gcc5fge4cf122bf667" version="4">Assumi l'identità di un'altra persona, alterando il tuo aspetto.</content>
+  <content contentuid="h36902036gba6fg9fbcg3679g45098214a404" version="1">Senza Volto: Tiefling Masch.</content>
+  <content contentuid="h421e3bc7g5cf4g8b80g97efg3aa5fa0be1f3" version="1">Senza Volto: Tiefling Femm.</content>
+  <content contentuid="hd5bfceb5gfd28g621ege553gc7898d6b0622" version="1">Senza Volto: Drow Masch.</content>
+  <content contentuid="h4ea7a418g3a3cgcfc8g6d60gf2e487cc0655" version="1">Senza Volto: Drow Femm.</content>
+  <content contentuid="ha3861fd1gf001g8e9dga2cbg72c2e589b10e" version="1">Senza Volto: Umano Masch.</content>
+  <content contentuid="h351865a6g1528g1ca7g1ca5ge7dadd029f20" version="1">Senza Volto: Umana Femm.</content>
+  <content contentuid="h84604335ge5c9g5768g8441g0f061f1b8bbf" version="1">Senza Volto: Githyanki Masch.</content>
+  <content contentuid="h40b7f50agd0deg3f25gb1fag7af31038ddd0" version="1">Senza Volto: Githyanki Femm.</content>
+  <content contentuid="hf63a6d8eg187bgd38fg081ag33019c38a4bd" version="1">Senza Volto: Nano Masch.</content>
+  <content contentuid="h232cbb59gc04bg3892gd4d5g5550c7cecb29" version="1">Senza Volto: Nana Femm.</content>
+  <content contentuid="h89712c9dg66c2g26eeg7865gbf5bd0772f2d" version="1">Senza Volto: Elfo Masch.</content>
+  <content contentuid="ha699bf80ga928g0646ga23dg3aae63262a79" version="1">Senza Volto: Elfa Femm.</content>
+  <content contentuid="h13904e8dg4001g48f3g7e60g374b6877a036" version="1">Senza Volto: Mezzelfo Masch.</content>
+  <content contentuid="hd032d094gdecbg6e87g0f45g78557698db43" version="1">Senza Volto: Mezzelfa Femm.</content>
+  <content contentuid="h52ab7568g18a2gce28gc7ceg32c91bd655e4" version="1">Senza Volto: Halfling Masch.</content>
+  <content contentuid="hf173badbg3657ga131g3f63gc44c9a41eb31" version="1">Senza Volto: Halfling Femm.</content>
+  <content contentuid="hda89c764g6b96g7d93g2c6ag5cc3e2012b7c" version="1">Senza Volto: Gnomo Masch.</content>
+  <content contentuid="h77892213g63c7g4377g4115g08f32415788a" version="1">Senza Volto: Gnoma Femm.</content>
+  <content contentuid="h207e8325g84f1g4e06g753dg6d1daca16c27" version="1">Senza Volto: Draconico Masch.</content>
+  <content contentuid="hfa0f1080gb8a5gbde9g8dc6g7b8def65c9c3" version="1">Senza Volto: Draconica Femm.</content>
+  <content contentuid="hf4a9442agbc24g0477gb57dg018368f122e6" version="1">Senza Volto: Mezzorco Masch.</content>
+  <content contentuid="h46848abag5f9dg2336gaaa7g0ce2a5bf2d03" version="1">Senza Volto: Mezzorca Femm.</content>
+  <content contentuid="h6d70012ag32fag54cfg53c9gf423da9a9002" version="1">Senza Volto: Umano Muscoloso Masch.</content>
+  <content contentuid="hc9f3237bgf3aagca6dg7a16g14e6ae165c68" version="1">Senza Volto: Umana Muscolosa Femm.</content>
+  <content contentuid="h2eac5830gf170g1c67g3e93g099b2f635cef" version="1">Senza Volto: Drow Muscoloso Masch.</content>
+  <content contentuid="hb44c06acg61e6gc808g0625ga48d131c2dca" version="1">Senza Volto: Drow Muscolosa Femm.</content>
+  <content contentuid="h9370305dg1d90g80e7g982ag3de45ee81f78" version="1">Senza Volto: Elfo Muscoloso Masch.</content>
+  <content contentuid="h59032ce4g8e03g8a68ge408gbe31ee8598b7" version="1">Senza Volto: Elfa Muscolosa Femm.</content>
+  <content contentuid="h23fc6229g02aeg3e10g32fcg0d8adba5367c" version="1">Senza Volto: Mezzelfo Muscoloso Masch.</content>
+  <content contentuid="h4e367146ga1dag26cdg785egb0ad29fce9f5" version="1">Senza Volto: Mezzelfa Muscolosa Femm.</content>
+  <content contentuid="h7e28d43egce01g8c40g1741gfd85f1638809" version="1">Senza Volto: Tiefling Muscoloso Masch.</content>
+  <content contentuid="head39749g15bcgf16ege614gd369a47d4830" version="1">Senza Volto: Tiefling Muscolosa Femm.</content>
+  <content contentuid="he1f7142eg2ed6g23f4g585fgdbde34296e94" version="2">Senza Volto: Ripristino</content>
+  <content contentuid="h4afcec65g5e50gd9edg501cg04c5e4f3b171" version="1">Senza Volto</content>
+  <content contentuid="h908cf57dgccc1g7c51g1e7fgd93665babd9c" version="1">Senza Volto</content>
+  <content contentuid="hd8b2e77cgc895g9427gc876g1f0e6d5de051" version="1">Senza Volto</content>
+  <content contentuid="he9540a84g3633g4c96gc592gbec6a163a363" version="1">Senza Volto</content>
+  <content contentuid="h10a85008gb7b6g3424gee4bg81faf0d88286" version="1">Senza Volto</content>
+  <content contentuid="hd5d20bd7gca3bge540gc69bg504a674902a2" version="1">Senza Volto</content>
+  <content contentuid="h506ce9c7g4245ga0c1g7e3fge7e118dccf74" version="1">Senza Volto</content>
+  <content contentuid="h2d42aa4eg8c73g3d2cgd16dg2ddfc25f3880" version="1">Senza Volto</content>
+  <content contentuid="hbff9845ag9823g8029g911ag6891810f31ff" version="1">Senza Volto</content>
+  <content contentuid="h7bcad91cg4104g55b5gbb38gf7bc7238d6db" version="1">Senza Volto</content>
+  <content contentuid="h66f0cb84g12eag61d8gc87dg68753e880251" version="1">Senza Volto</content>
+  <content contentuid="h0c2ebc46g08cbgc479ge208g7ca25b46193f" version="1">Senza Volto</content>
+  <content contentuid="h70b66d5fg4284g9f65gb33egc8150d2ba4a7" version="1">Senza Volto</content>
+  <content contentuid="he11da77ag5898g0227g2594g12715bf6928f" version="1">Senza Volto</content>
+  <content contentuid="h12abb9a4gb515g6f75g690cgd1b85c52ded1" version="1">Senza Volto</content>
+  <content contentuid="he59899c8g273eg4bd2gffcegb3231442df6d" version="1">Senza Volto</content>
+  <content contentuid="h9e1579aag77acg0ab3gc1edge7fdaa241586" version="1">Senza Volto</content>
+  <content contentuid="he49dad81gba95g73d8gae74gae9a52d04526" version="1">Senza Volto</content>
+  <content contentuid="h5010b3acgf47bg4f34gb8a4g412f11527a67" version="1">Senza Volto</content>
+  <content contentuid="hc817249ega02bg728egc81eg29fca11cb55c" version="1">Senza Volto</content>
+  <content contentuid="h2e8ae805g9e8dg4340g9801g8fc0fcc749f3" version="1">Senza Volto</content>
+  <content contentuid="hbbfefa9agfc7dg3c14g3f7bg14bca61a1359" version="1">Senza Volto</content>
+  <content contentuid="h036ecbe2g602ag7ae4g975bge4c6e2e312df" version="1">Senza Volto</content>
+  <content contentuid="hf882c606g701bgdf93g9a6fg5b1074506b61" version="1">Senza Volto</content>
+  <content contentuid="he894a9fdg3ee7gcbe2g9bc9g0ddb3f3b5602" version="1">Senza Volto</content>
+  <content contentuid="h8da10f27gf965gb165g5ea0g8a8300bdec13" version="1">Senza Volto</content>
+  <content contentuid="h0e6f48a4g70e2g3abegef58gd564163b4874" version="1">Senza Volto</content>
+  <content contentuid="hb78473c6g59cfg4bf4gb312g87036e978440" version="1">Senza Volto</content>
+  <content contentuid="h58945d5ag388dg6b63gab02g64f386b1044e" version="1">Senza Volto</content>
+  <content contentuid="h3a5235d0gc457g0376g7f37g426d569a2abe" version="1">Senza Volto</content>
+  <content contentuid="h6182ccb2g049bgb6b4g818fgb66ff274ec37" version="1">Senza Volto</content>
+  <content contentuid="h8c903a3cgde5eg547agf1c3g0fcc6c6e6a65" version="1">Senza Volto</content>
+  <content contentuid="he7c6e77eg2128g88a9g53a1g2876bc575722" version="2">Marionetta</content>
+  <content contentuid="h34b65968g7b65g1e09g641egcc03c51bd254" version="6">&lt;LSTag Type="Status" Tooltip="DOMINATE_PERSON"&gt;Manipola&lt;/LSTag&gt; la realtà di una creatura, costringendola a combattere al tuo fianco. Ogni volta che subisce danni, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt; su Saggezza o liberarsi.</content>
+  <content contentuid="h2a5ce6aagbeb9g21d3gabf9ge12dae34d4f4" version="4">Sii la Foglia</content>
+  <content contentuid="h80210a1ag08f6gf70fgdf96g821b0e1e8847" version="4">I tuoi riflessi sono efficaci quanto un'armatura. Aggiungi il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Saggezza alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="h4a4b43fbg28a3gc56eg69dagc0943f2f97ae" version="4">Questo effetto non si cumula con Armatura del Mago. Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h1ba838c3g370dg9b9bg6d16g0eb49acae2dc" version="4">Piedi Scintillanti</content>
+  <content contentuid="h0614b7e4g7058g77e7g56f6gcce080d6b012" version="5">Ti muovi con leggerezza e rapidità. La tua &lt;LSTag Tooltip="MovementSpeed"&gt;Velocità di Movimento&lt;/LSTag&gt; aumenta di [1].</content>
+  <content contentuid="h8afe9a3egd0f3gd5eeg8830gbd89287c750a" version="6">Colpi Fluenti: Agilità</content>
+  <content contentuid="h16c02162gb8e2gf643g16d0g34e947b2cef4" version="6">I tuoi attacchi senz'armi si basano sulla &lt;LSTag Tooltip="Dexterity"&gt;Destrezza&lt;/LSTag&gt; invece che sulla &lt;LSTag Tooltip="Strength"&gt;Forza&lt;/LSTag&gt; se la tua Destrezza è più alta.</content>
+  <content contentuid="h29256540g41cbg9af9g02b8g45b6ba6061ec" version="5">Colpi Fluenti: Precisione</content>
+  <content contentuid="h82f0b0cdgfdb3g745eg23dag378da16f37e6" version="4">I tuoi attacchi senz'armi infliggono [1], a meno che il loro danno normale non sia superiore. </content>
+  <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="6">Colpo Fluente: Zefiro</content>
+  <content contentuid="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="5">Dopo aver eseguito un attacco senz'armi, puoi eseguirne un altro come &lt;LSTag Tooltip="BonusAction"&gt;Azione Bonus&lt;/LSTag&gt;.</content>
+  <content contentuid="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3">Colpo dello Zefiro</content>
+  <content contentuid="h56efad21g20d8gbfd6g293dg4e2c421af268" version="3">Puoi eseguire un attacco senz'armi come &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt; questo turno.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h56bc27caga588g2b1agc487ge918b523cedf" version="3">Colpo Senz'Armi</content>
+  <content contentuid="h4ad067bag1d03g5cc6g3769g9cbf6fb2a8f2" version="4">Colpisci rapidamente un nemico come azione bonus.</content>
+  <content contentuid="h3573cf98gd7cfgeb2bg2460g5420d9e37565" version="3">Raffica di Vento</content>
+  <content contentuid="h4d2c7825gb331gaf07gcd46g2c58bd100639" version="4">Piega l'aria per scatenare una forte raffica di vento che disperde le nubi e respinge le creature di [1], lasciandole &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Sbilanciate&lt;/LSTag&gt;.</content>
+  <content contentuid="hae58e242ga07bg1a74gc70egc6ee3b198aa3" version="3">Flusso Evasivo</content>
+  <content contentuid="h1f25c9bcg7038g651eg5355g0ec1a353b525" version="4">Puoi ritirarti in sicurezza. Muoviti senza provocare &lt;LSTag Tooltip="OpportunityAttack"&gt;Attacchi di Opportunità&lt;/LSTag&gt;.</content>
+  <content contentuid="hb6c89cf0gd8fdg9fcfg2585g5e66cf2b6a10" version="3">Assalto Fluente</content>
+  <content contentuid="h40cb878eg7c78g34a3gb7b8gab06afc7c5c5" version="3">Puoi eseguire un attacco gratuito aggiuntivo dopo aver effettuato un attacco senz'armi o con un'arma.</content>
+  <content contentuid="h7a0f4464g064dga2f4g6829g74b01a39ad54" version="2">Colpi Magici</content>
+  <content contentuid="hb35d3680gccd0gf84dg1f35gcacee27b19c7" version="3">I tuoi attacchi senz'armi contano come magici, ignorando &lt;LSTag Tooltip="Resistant"&gt;Resistenza&lt;/LSTag&gt; e &lt;LSTag Tooltip="Immune"&gt;Immunità&lt;/LSTag&gt; ai danni non magici.</content>
+  <content contentuid="h6fef1a63g79abg53efga735g6c856277ad83" version="3">Pugni della Tempesta</content>
+  <content contentuid="h9a0203e2gaf2dg4f59g0579g74b8fecadec8" version="6">Il vento scorre attraverso i tuoi colpi, potenziandoli. I tuoi attacchi senz'armi infliggono [1] aggiuntivi.</content>
+  <content contentuid="hc092b976gce1bg4ffbgd905g2647dbd52ffe" version="4">Stato di Flusso</content>
+  <content contentuid="h8d9db3d0gf465gf4f4gf932g3e79904f6567" version="7">Ottieni un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt; extra.</content>
+  <content contentuid="h1a1d6433gb602g695fg3d4bg2e4e18cd7b55" version="6">Senza Peso</content>
+  <content contentuid="h65ef85c9gd36cg180ag5806g096ce970af16" version="4">Subisci solo il 50% dei danni da caduta, e la tua distanza di &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Salto&lt;/LSTag&gt; è moltiplicata per [1].</content>
+  <content contentuid="h4f6fcb05g4085gfdcfg2308g712317547400" version="3">Sei &lt;LSTag Tooltip="Immune"&gt;Immune&lt;/LSTag&gt; ai danni da caduta, e la tua distanza di &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Salto&lt;/LSTag&gt; è moltiplicata per [1].</content>
+  <content contentuid="hdc2013a0gccbag12ffg0f92g78ae668e75d5" version="4">Subisci solo il 20% dei danni da caduta, e la tua distanza di &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Salto&lt;/LSTag&gt; è moltiplicata per [1].</content>
+  <content contentuid="he4ddc23cg3ec3g839agc72fgf56ff590b05c" version="4">Subisci solo il 30% dei danni da caduta, e la tua distanza di &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Salto&lt;/LSTag&gt; è moltiplicata per [1].</content>
+  <content contentuid="h988e84a1g143fgec9eg481cg4f82a3c6aa7a" version="4">Subisci solo il 40% dei danni da caduta, e la tua distanza di &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Salto&lt;/LSTag&gt; è moltiplicata per [1].</content>
+  <content contentuid="h5775c6e0gd0a5gf4b1g3317g6c116c7406d8" version="1">Lavoro al Secondo Piano</content>
+  <content contentuid="hcfce9c02g4f51gcbadg9017ge3ac72796ac7" version="1">Hai padroneggiato l'arte della caduta e ottieni resistenza ai danni da caduta.</content>
+  <content contentuid="ha1d20ebfg95efg1facgc436g703daa6a4b4a" version="1">Mani Veloci</content>
+  <content contentuid="h5465d206g428egdfb0gd82eg193bf8326070" version="1">Ottieni un'azione bonus aggiuntiva.</content>
+  <content contentuid="ha3f6fcebgab84g97fdgccfcgd52148b8b010" version="2">L'Ingannatore</content>
+  <content contentuid="hc27cd946g92a0g2987g3dd1g84ed4d9cc824" version="2">Siamo l'ombra dietro ogni decisione, indossiamo volti che il mondo non mette mai in discussione.</content>
+  <content contentuid="h7c761189gcf97gfb58g58a7g348c4e40689e" version="2">Il Figlio delle Stelle</content>
+  <content contentuid="hde71b0a3gc617gb8d2ga14fgb29bea7aa3d7" version="2">Camminiamo sotto il cielo che ruota, portando la luce che risana i feriti.</content>
+  <content contentuid="hf4767ceag7e98g7466g81cdg572e1744f0aa" version="2">Lo Svincolato</content>
+  <content contentuid="h65e864dfg6fabg0d32gef8bgf8558787ab9c" version="2">Ci muoviamo con il vento errante, mai legati ad alcun sentiero, liberi sotto il cielo aperto.</content>
+  <content contentuid="hdb9aca65g1d8ag0b4fg4907g7797d5506932" version="2">Sigillo Tecnico</content>
+  <content contentuid="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="3">Scaglia una versione potente di &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;Sigillo di Malizia&lt;/LSTag&gt; contro una creatura, infliggendo [1] e marchiandola con un &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigillo&lt;/LSTag&gt;.</content>
+  <content contentuid="h200724afg96c5gcdcegbc15g5d898fa0a99e" version="4">L'entità colpita è legata da catene eteree indebolite che infliggono [1] due volte, e la fanno diventare &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuta&lt;/LSTag&gt; alla fine del turno.</content>
+  <content contentuid="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="4">Lega una creatura con una versione potente di &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;Catene Eteree&lt;/LSTag&gt;. Alla fine del suo turno, diventa &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuta&lt;/LSTag&gt;.</content>
+  <content contentuid="ha88ea3afg2012g59e5g8455gb13b526c3109" version="1">Imitazione: Ritirata</content>
+  <content contentuid="ha9ab263dg2d5ag59d8ge6ebg41fd212787aa" version="3">Grazia Stellare</content>
+  <content contentuid="h9c380e04gfe24g4f57gbb0fg8e317ec95eae" version="3">Lega il destino dei tuoi compagni alla luce perenne del cosmo. I tuoi alleati recupereranno il massimo dei &lt;LSTag Tooltip="HitPoints"&gt;punti ferita&lt;/LSTag&gt; possibili quando vengono curati. Ottengono anche &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Saggezza e ai Tiri Salvezza contro la Morte.</content>
+  <content contentuid="h8a752a2dg2e98gcdfdgb6b2g180b20a39076" version="5">Stato di Vuoto</content>
+  <content contentuid="h3b8e85c6gcf8ag4de0g5897gcfc8734a7cba" version="8">La tua agilità ti permette di schivare gli attacchi in arrivo e alcuni incantesimi. Quando un attacco ti colpisce, subisci solo metà del danno.&lt;br&gt;Quando un incantesimo o un effetto concede un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt; su Destrezza per dimezzare il danno, non subisci alcun danno in caso di successo, e solo metà danno in caso di fallimento.</content>
+  <content contentuid="h6693458aga404g29cdg6025g75ddd2960218" version="1">Puoi &lt;LSTag Type="Spell" Tooltip="Target_HypnoticGaze_Maintain"&gt;Mantenere&lt;/LSTag&gt; il tuo Sguardo Ipnotico ogni turno per prolungarne la durata.</content>
+  <content contentuid="h0c4a8ee2gfe2fg31begbc4agc98b2cce5a6c" version="1">Mantieni Sguardo Ipnotico</content>
+  <content contentuid="hc07dc50dgffa3g5cceg4396gdf94e1bdc268" version="1">Mantieni il tuo &lt;LSTag Type="Spell" Tooltip="Target_HypnoticGaze"&gt;Sguardo Ipnotico&lt;/LSTag&gt; per prolungarne la durata.</content>
+  <content contentuid="h1db9d360g745dg3fd1g0586g868dfb79601e" version="2">Io Riflesso</content>
+  <content contentuid="hebe50e8bg943eg9487gb9c1g7e016fb544ab" version="6">Hai padroneggiato l'arte degli specchi. Gli incantesimi Arcani che normalmente colpiscono una sola creatura possono invece colpirne due, consumando 1 &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carta Arcana&lt;/LSTag&gt; aggiuntiva.</content>
+  <content contentuid="he00a1f96g87f9g4f9dg87b3ga147297a6d7d" version="1">Specchio: Catene Eteree</content>
+  <content contentuid="hd66f5137g5a56g8f90g2a7eg143cdc0b770e" version="1">Specchio: Sigillo di Malizia</content>
+  <content contentuid="h82392b3bg213dg4c12gb6c6g5f651139d12d" version="2">Pugni della Tempesta</content>
+  <content contentuid="h456b6976gfa1cg7d54geb90g1660c0e4606b" version="4">Il vento scorre attraverso le tue mani. I tuoi attacchi senz'armi infliggono [1] aggiuntivi.</content>
+  <content contentuid="h8bcd2367gbc99g6e35g8b3fgb058a3a0ecb2" version="2">Pugni della Tempesta</content>
+  <content contentuid="h4126aefbgab9bg78e3gbbc7g4054d670e393" version="3">Il vento scorre attraverso le tue mani. I tuoi attacchi senz'armi infliggono [1] aggiuntivi.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h8288db8fg32dfg6e3dgda26gcd08aedf318a" version="2">Stato di Flusso</content>
+  <content contentuid="h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5" version="10">Entra in uno stato temporaneo di flusso in cui ottieni &lt;LSTag Tooltip="TemporaryHitPoints"&gt;punti ferita temporanei&lt;/LSTag&gt; e un'&lt;LSTag Tooltip="BonusAction"&gt;Azione Bonus&lt;/LSTag&gt; extra.</content>
+  <content contentuid="h5ee20bbdg123bg422egf3a7g0a16dc836ce4" version="2">Stato di Flusso</content>
+  <content contentuid="h36b715acgf8cbg4d33g6b9cge5c3b5baa321" version="4">Hai un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt; extra e hai ottenuto [1].&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h2277287bgc28fg41bbg5c59g3203bee0c5ed" version="2">Raffica di Bufera</content>
+  <content contentuid="hc3b60f05g2de4ge349g47cdgbfd318148ba4" version="4">Incanala l'aria nel tuo pugno e rilasciala in una raffica concentrata, scagliando il bersaglio all'indietro di [1] e facendolo cadere &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prono&lt;/LSTag&gt;.</content>
+  <content contentuid="hcdfd3b7cg0631gd830gcd0bg8bb006deb09c" version="2">Sussurri del Vento</content>
+  <content contentuid="h8a0bdbe9gf412g6a3dg9816g99ca63d43767" version="5">I &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; contro di te hanno &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt;, e hai &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Destrezza.</content>
+  <content contentuid="he348b9b5g4bffgf77cgaa79g953924869067" version="2">Sussurri del Vento</content>
+  <content contentuid="h64279279ga897g3b4bgc173gcc1156e709e0" version="3">Percepisci il movimento nell'aria. I &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; contro di te hanno &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt;, e hai &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Destrezza.</content>
+  <content contentuid="ha6e2a33cg8bfegd011g0398g42ce5a73e62a" version="2">Sussurri del Vento</content>
+  <content contentuid="hba599070gc262gfacfg3f31geafbde30b608" version="5">Concentrato nell'evitare gli attacchi. I &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; contro di te hanno &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt;, e hai &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Destrezza.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="hb29aa0aegb636g3a54gd23fg07eb5b76c615" version="1">Flusso Evasivo</content>
+  <content contentuid="hbec0c1e5g4648g9671g5329g17403f153608" version="4">Puoi ritirarti in sicurezza &lt;LSTag Type="Spell" Tooltip="Shout_Disengage"&gt;Disimpegnandoti&lt;/LSTag&gt;, e saltare non richiede più un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt;.</content>
+  <content contentuid="hfc6bed09g45f7g9b09g610dg64b5319c158a" version="1">Flusso Evasivo</content>
+  <content contentuid="hb2cbdec3g90c8g7e43g9d01g7c45f6af7a6a" version="4">Saltare non richiede più un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt;, e ti muovi senza provocare &lt;LSTag Tooltip="OpportunityAttack"&gt;Attacchi di Opportunità&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="hac64f642g15ceg953bg5c5dg968035a9c035" version="2">Scoppio di Tuono</content>
+  <content contentuid="h42d97786gd85cgbd45gba2eg3351e2dc1151" version="5">Quando infliggi [1], applica al bersaglio 2 turni di &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Riverbero&lt;/LSTag&gt;.</content>
+  <content contentuid="hba1f43ccg5c79g67bdg3e95g58ca95fe3c21" version="2">Scoppio di Tuono</content>
+  <content contentuid="hd264d2c3g3d31geeeag9a53g0a1a187689e2" version="6">Quando infliggi [1], applica al bersaglio 2 turni di &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Riverbero&lt;/LSTag&gt;.</content>
+  <content contentuid="hdf9911b0g4a12g09cag26c5g724e5f8934b5" version="2">Scoppio di Tuono</content>
+  <content contentuid="h2dfe7cbegb7b2ga50fg66a1g977ba65938a2" version="2">Quando infliggi [1], applica al bersaglio 2 turni di &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Riverbero&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h94dc251dg6368g4dc3g26c2ge10e89cd4fcc" version="1">Slancio</content>
+  <content contentuid="h080cb0d7g6441gbe91g70e6g470498843e91" version="3">Finché &lt;LSTag Type="Status" Tooltip="THUNDERCLAP"&gt;Scoppio di Tuono&lt;/LSTag&gt; è attivo, ottieni un bonus di +[1] alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="h88a26c08gdb8cg7a3dg5251g81180bc36a14" version="2">Carte Arcane</content>
+  <content contentuid="h6677dfefge374g0e7eg2f5cg2ef6f64de15f" version="2">Tratte dai fili primordiali della Trama, le Carte Arcane possiedono un'eco mistica che alimenta i tuoi doni, adattando il proprio potere al cammino scelto dall'Arcana.</content>
+  <content contentuid="h2a0b5783gffb9gab5cge25fg40567d09d2ab" version="2">Deviazione della Bufera: Rimbalzo</content>
+  <content contentuid="hc7a1320ag001bg324fg456fg54638e396870" version="1">Usa i tuoi riflessi per intercettare un proiettile scagliato con un attacco a distanza e rispedirlo verso chi ti ha attaccato.</content>
+  <content contentuid="h6d997ff6g83a9g9559g93e2g130982ccf79b" version="2">Deviazione della Bufera</content>
+  <content contentuid="h402ace5bgf1e8g2fe1gf6e4g220b7505458b" version="5">Riduci il danno di un attacco a distanza con armi di 1d10 + il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Destrezza + il tuo livello di Arcana.&lt;br&gt;&lt;br&gt;Se il danno viene ridotto a 0, usi una Carta Arcana per &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection"&gt;Deviare il Proiettile&lt;/LSTag&gt;.</content>
+  <content contentuid="h2837f023g0194gbdcbga128g045992bece74" version="1">Puoi solo ridurre il danno dell'attacco - eventuali effetti aggiuntivi non possono essere annullati.</content>
+  <content contentuid="h897a14fdg9fe4g57c0gf872g62928fc7b142" version="1">Deviazione della Bufera</content>
+  <content contentuid="hcfea4405g7556g969dg0f13gdb93207a863d" version="8">Usa la tua reazione per ridurre il danno di un attacco a distanza con armi di 1d10 + il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Destrezza + il tuo livello di Arcana. Se il danno viene ridotto a 0, puoi &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Reaction_GaleDeflection"&gt;Deviare il Proiettile&lt;/LSTag&gt; per [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carta Arcana&lt;/LSTag&gt;.</content>
+  <content contentuid="hf3063b7ag3bb9ga30cgc8eagde1503cab63f" version="5">Puoi solo ridurre il danno dell'attacco, eventuali effetti aggiuntivi non possono essere annullati. Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h505342d8g9905g2f9cg6775g4562b770bc96" version="2">Deviazione della Bufera: Rimbalzo</content>
+  <content contentuid="hac5f848fg4cc0g9eb9gf88eg9cf5e9a17da8" version="1">Piega l'aria per deviare un proiettile scagliato con un attacco a distanza e rispedirlo verso chi ti ha attaccato.</content>
+  <content contentuid="hc00e61ffgd138g2aebg1ae3gb2ebd101cfe7" version="1">Bufera: Devia Proiettili</content>
+  <content contentuid="h8b8eeebagfe2cg497bg39ffgac01155dafec" version="1">Puoi usare la tua reazione per deviare i proiettili degli attacchi a distanza con armi. Quando lo fai, il danno è ridotto di 1d10 + [1] + il tuo livello nella classe Arcana.</content>
+  <content contentuid="h9ea9a38eg055fg1436g4aa5g9f803436c957" version="1">Attiva/Disattiva Bufera: Devia Proiettili</content>
+  <content contentuid="hc4bdf824ge0f9gd52fg2db7g310ec3b8489e" version="3">Può &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Ability_Fly_Untethered"&gt;Volare&lt;/LSTag&gt; verso una posizione bersaglio.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h7afe5150gfa19g346agcf0cge62a82e32513" version="1">Vola</content>
+  <content contentuid="h0e663f8bg9fdcgca3cg0a62g0046a8609552" version="1">Vola verso una posizione bersaglio.</content>
+  <content contentuid="ha4615c56gf178gd9b4g85ffgb044857109de" version="2">Svincolato</content>
+  <content contentuid="hc722a395gc58egeaa3g741ag3ed8de7bb01f" version="3">Libero dai legami terreni, ottieni la capacità di &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Ability_Fly_Untethered"&gt;Volare&lt;/LSTag&gt;.</content>
+  <content contentuid="h862291ffg0dcagc01agff59g3707148c1f0c" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h82844638g0047g3b7cg19d4g22048d1b74e0" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="he1334bc7g6336gf33fg3a0bg9b16c790118a" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h220a199fg83b7ge1d0gf593g6654fbde831c" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="hf42c12f5g68c3g33d6g1283gdb0b20f96472" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h1e336867gd053g4125g3c76g6b6c7299e2d8" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo. Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="h06f18064gdcd5g4464gbee0gab72e005995d" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h4a038e8cgc2f9g8253g204cgb76df1551ab8" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h1dffa85age0e0g509ag1771gad2f3f881cac" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h803a2ba1gc998gd7ddgece2gcc331969da3f" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="hc7733150gf4e1g9a9cg011fg286a6f075168" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h73613d54g9e1dg231dg03c1gcb8d2ba41166" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="hf07d5c65gd688gc817ge591ga88a0fc7763d" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h71738a68g50b6gdf5fg56a4g10daa08a15ce" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="hf25f1c1agf997g691bga7dfg3f7cef9bd90b" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h7afc138egf60eg8d83g8da3g9033d031a101" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="he654fdc1gc5c1g7dc4g4c0fg327929fda7b4" version="2">Occhio della Tempesta</content>
+  <content contentuid="he07d5133g66ecgc4ebg45a4g40ba6a5fc3c4" version="3">Finché &lt;LSTag Type="Status" Tooltip="FLY_UNTETHERED"&gt;Svincolato&lt;/LSTag&gt; è attivo, l'aria avvolge il tuo corpo, proteggendoti. Ottieni un bonus di +[1] alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="h3ec4c70dg36a7gf48fg1dabg4dc910bc963e" version="1">Può essere usato solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h441f9630g05f4g9574g1534g1adc76b15b48" version="1">Piedi Scintillanti II</content>
+  <content contentuid="he7741453gbc3cg97dcgf0b0gda4fa414cd22" version="1">Piedi Scintillanti III</content>
+  <content contentuid="h7569f410g04aagb8f7gacf4g54cd2d2a5bc6" version="1">Piedi Scintillanti IV</content>
+  <content contentuid="h1fc488bdgfdfbg03c5gdeb1g713f84412fe2" version="1">Piedi Scintillanti V</content>
+  <content contentuid="ha142519fgd06cg6575g286fg85a8b2035020" version="1">Piedi Scintillanti VI</content>
+  <content contentuid="h4749018fga224g471bg6ca7g92b3417e5e37" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="he8cd83d9g66c6g9f6fg54a6g19a9a00f3a0a" version="1">Senza Peso II</content>
+  <content contentuid="h7858fb35g1643g3030g4ea1g1bde82728935" version="1">Senza Peso III</content>
+  <content contentuid="h50317eb2gad44g2122gfc50gc9f7609c39aa" version="1">Senza Peso IV</content>
+  <content contentuid="h6b87442cgc995ge003g1ccbg00a4be080962" version="1">Senza Peso V</content>
+  <content contentuid="hcb3c0979gdff9g160fgb5eegbd64bc413b80" version="2">Ancora Stellare</content>
+  <content contentuid="h38e9c179g6dddg1fd0g04cfg1c3f6df231aa" version="2">La tua coscienza è ancorata alle posizioni immutabili delle stelle. Hai &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; per mantenere la &lt;LSTag Tooltip="Concentration"&gt;Concentrazione&lt;/LSTag&gt; su un incantesimo.</content>
+  <content contentuid="hc99b54acgaf93g4dc9g9c0dg5bf465ed59ed" version="1">Egida Lunare</content>
+  <content contentuid="h29cfccefg84c4g5665gac96g39f0a25d1e55" version="4">Ottieni un bonus di +2 alla &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="h14c4d491g3813g9a20g0925gc51acaebc42b" version="1">Egida Lunare</content>
+  <content contentuid="h8445f20fg0212g6d50g6358ga1717ad0fbde" version="1">Manifesta una resiliente aura lunare attorno a un alleato, aumentando la sua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt; di 2.</content>
+  <content contentuid="h88149281g5bcdg485ag5226g7ed29bfeafd2" version="1">Aura di Radianza Stellare</content>
+  <content contentuid="hd1a7ca51g35e4g4491g6095g49c39585fb92" version="2">Emana una brillante aura di luce stellare. I tuoi attacchi con le armi e quelli degli alleati vicini infliggono [1] aggiuntivi.</content>
+  <content contentuid="hdaf9fcafg58f2gdd06g5533gf2d70d167bea" version="1">Radianza Stellare</content>
+  <content contentuid="hcb30e5aeg8dddgce8bg5a74g165ac8673c84" version="3">Possiedi la brillante aura di luce stellare del Figlio delle Stelle. Gli attacchi con le armi infliggono [1] aggiuntivi.</content>
+  <content contentuid="h7603ad1dg50c4g41f3g3c46g5776a872aef4" version="1">Radianza Stellare</content>
+  <content contentuid="hcb12ce17g46eeg2e8bgdd40g7011751e3672" version="1">Emana una brillante aura di luce stellare che potenzia te e gli alleati vicini. I tuoi attacchi con le armi e quelli dei tuoi alleati infliggono [1] aggiuntivi.</content>
+  <content contentuid="h035b114dg0843g0528gfa1fg473507d22d44" version="1">Gravità Lunare</content>
+  <content contentuid="h5822c1b0g5b87gec6bg2914gfb5c281653d8" version="1">Manipola la gravità per concedere a un alleato totale libertà di movimento. Rimuove istantaneamente lo &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stordimento&lt;/LSTag&gt;. Il bersaglio non è influenzato dal &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt; e non può essere magicamente &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralizzato&lt;/LSTag&gt; o &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuto&lt;/LSTag&gt;.</content>
+  <content contentuid="h8d8836e2g9682ga824gb292g1fac60338fbc" version="1">Le costrizioni non magiche possono essere eluse spendendo [1] di movimento.</content>
+  <content contentuid="h63ab1200g95f3g14dcgd0fagf6a77575101e" version="1">Gravità Lunare</content>
+  <content contentuid="h2f5c886ag21c9g1111g4c50gb24dbbe4b619" version="3">La tua &lt;LSTag Tooltip="MovementSpeed"&gt;velocità di movimento&lt;/LSTag&gt; non può essere ridotta da &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt;, incantesimi o effetti magici. Inoltre, non puoi essere &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralizzato&lt;/LSTag&gt; o &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuto&lt;/LSTag&gt;.</content>
+  <content contentuid="h258cb18bg6203gefdcg4a77gb1bc2cf69a88" version="1">Fortitudine Astrale</content>
+  <content contentuid="h4da8ddebgf92fgcc86g8f10g3016eec36a03" version="4">Il tuo &lt;LSTag Tooltip="HitPoints"&gt;massimo dei punti ferita&lt;/LSTag&gt; è aumentato del livello di Arcana di chi lancia l'incantesimo.</content>
+  <content contentuid="h2e8d2eaag1698g31b4g57d9g1a725571a841" version="1">Fortitudine Astrale</content>
+  <content contentuid="hdca4f038gd1fdg32a6g1364g118707c3d893" version="4">Rinvigorisci i tuoi alleati entro [1] con energia celeste per aumentare il loro &lt;LSTag Tooltip="HitPoints"&gt;massimo dei punti ferita&lt;/LSTag&gt; di [2].</content>
+  <content contentuid="he3844060gb03cg37c2g9b2agb69b0d7ca3e3" version="1">Grazia Stellare</content>
+  <content contentuid="h2af540ceg3270g135dgfac9gb0872364a141" version="2">Hai &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Saggezza e ai Tiri Salvezza contro la Morte, e recuperi il massimo dei &lt;LSTag Tooltip="HitPoints"&gt;punti ferita&lt;/LSTag&gt; possibili quando vieni curato.</content>
+  <content contentuid="h5296a561g6657gcebfg01c3gec467e5b2184" version="3">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt;. La portata di attacchi e incantesimi è ridotta a [1]. &lt;br&gt;&lt;br&gt;I Tiri per Colpire contro creature Accecate hanno &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt;.</content>
+  <content contentuid="hdbb31595g0281g9e7bg1712g83c20871fd72" version="1">Scintilla Finale</content>
+  <content contentuid="h16b813eegcb5agd60bg8e29gae9496f7d05c" version="1">Puoi &lt;LSTag Type="Spell" Tooltip="Zone_Arcana_Created_FinalSpark_Recreate"&gt;Rilanciare Scintilla Finale&lt;/LSTag&gt;.</content>
+  <content contentuid="h3e550559g7fedg8941g3cdfg7fde0c29c41b" version="1">Recupero Arcano</content>
+  <content contentuid="h73964a1ag6fb8gf74cg4e8bg869c1c2ead5f" version="8">Nella quiete, la tua essenza rifluisce. Ripristina le tue &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carte Arcane&lt;/LSTag&gt; di [1].</content>
+  <content contentuid="h09199a5cgad67gfd29gefbeg8d703eeece16" version="3">Finché l'incantesimo non termina, puoi &lt;LSTag Type="Spell" Tooltip="Zone_Arcana_Created_FinalSpark_Recreate"&gt;Rilanciare Scintilla Finale&lt;/LSTag&gt; senza consumare &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carte Arcane&lt;/LSTag&gt;.</content>
+  <content contentuid="hd726110ega7a4g12edgd5fcgd40ea4f34da9" version="1">Rilancia Scintilla Finale</content>
+  <content contentuid="h5f437c8cgbae1g20dag761bg9934569dad1d" version="1">Rilascia un altro fascio concentrato di pura energia radiosa. Tutte le creature colpite dal suo percorso sono &lt;LSTag Type="Status" Tooltip="FINAL_SPARK"&gt;Accecate&lt;/LSTag&gt; e avvolte nel &lt;LSTag Type="Status" Tooltip="FAERIE_FIRE"&gt;Fuoco Fatuo&lt;/LSTag&gt;. Se una creatura viene uccisa da questo potere arcano, tutti i tempi di recupero delle tue abilità vengono azzerati.</content>
+  <content contentuid="h75d3c039g8f97g2447gebeeg60b248ba98bf" version="3">Terzo Occhio</content>
+  <content contentuid="h82b6b111ge219gc8b0gafd1ge0f59813a411" version="5">Svela i segreti nascosti nell'oscurità e dietro il velo. Ottieni la capacità di vedere normalmente al buio, sia magico che non magico, fino a una distanza di [1], e anche la capacità di vedere creature e oggetti &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisibili&lt;/LSTag&gt;.</content>
+  <content contentuid="hb219f10eg73cfg5fc6gad9egabed7b0400f0" version="4">Individua Sovrannaturale</content>
+  <content contentuid="h4fd7f564gdfa8g9648g4365g06168df1faf6" version="3">Il velo si assottiglia, rivelando ciò che non appartiene a questo mondo. Ottieni la capacità di individuare creature sovrannaturali entro un raggio di [1], come Aberrazioni, Celestiali, Elementali, Fatati, Immondi e Non Morti.</content>
+  <content contentuid="h52bed8b8gccd7g1387ga514g36175f58ef1b" version="2">Comprendere i Linguaggi</content>
+  <content contentuid="h788a0c7ag5701g7c02g5a26g246b007cbb1a" version="4">Ottieni la capacità di comprendere il significato letterale di qualsiasi lingua parlata o scritta che senti o vedi, e anche di parlare con animali e bestie.</content>
+  <content contentuid="h0a542144g9bdfg4162g651dg4cad9452df41" version="3">Individua Sovrannaturale</content>
+  <content contentuid="hf46d76b0g0b09g9071ga64dg229bd9e5c3b0" version="4">Individuazione di creature sovrannaturali.</content>
+  <content contentuid="h2157cbbcg5b76g2be0g21e6g3f48a847fa81" version="1">L'Eterno</content>
+  <content contentuid="h4d8e58d1g9816g64c0geebag689df505140a" version="1">Restiamo indomiti dinanzi al ciclo infinito, resistendo laddove altri svaniscono.</content>
+  <content contentuid="h7ac7eac9gbf5agecf6ga785g9a2ba2671a13" version="1">L'Eterno</content>
+  <content contentuid="h1d24074cg8302g78dcgc534ga85961e8f8c9" version="1">Mietitore di Sangue</content>
+  <content contentuid="h9071f4ddg387bg3700g7565g733c32e38ab7" version="1">Lacera la carne ed estrai un frammento sanguinante, lasciando il tuo nemico &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Sanguinante&lt;/LSTag&gt;.</content>
+  <content contentuid="h9cbae5ffgf20fg45e2g38c0gdf797b42e8e2" version="1">Annienta</content>
+  <content contentuid="h14cfd19eg65b5g097cgca0fg7be9e6364a06" version="3">Colpisci un nemico con la tua arma infliggendo [1] aggiuntivi.</content>
+  <content contentuid="h6cfefb21g998bg19cbg5b57ga58fdd09f7c5" version="1">Trasfusione</content>
+  <content contentuid="h9bc7886ag2c44g53fag1c6bg1ed7bc83a40d" version="2">Sifona la forza vitale di un nemico infliggendo [1] e recuperando altrettanti &lt;LSTag Tooltip="HitPoints"&gt;punti ferita&lt;/LSTag&gt;.</content>
+  <content contentuid="h202e0218g0ecbgdbc9g3a3cg066f57b5e6a5" version="1">Sussurri dei Morti</content>
+  <content contentuid="h4c06a80egc3cfg1039geac5g4428834988db" version="1">Concedi una parvenza di vita a un cadavere umanoide, permettendogli di rispondere fino a 5 domande.</content>
+  <content contentuid="h2f650b02g3629gc496g4885g6d0a2d8fb53c" version="1">Scheletri e creature uccise con danni da Acido, Fuoco, Fulmine, Necrotici o Radiosi non hanno più una bocca e non possono essere fatte parlare con questo incantesimo.&lt;br&gt;&lt;br&gt;Non funziona sui Non Morti. </content>
+  <content contentuid="hc3ab6a1fg30b4g2857g0019gf9954e3d5d3d" version="1">Ascesa dell'Oscurità</content>
+  <content contentuid="h9087eb3bg3e46gf1cag0ea8gd51ff60d79b3" version="6">Quando fai [1] [2] volte entro 3 turni, ricevi &lt;LSTag Type="Status" Tooltip="DARKNESS_RISE_AURA"&gt;Ascesa dell'Oscurità&lt;/LSTag&gt; per 3 turni.</content>
+  <content contentuid="h82329935gd7d5gf6b9ga68dg08422ca1203c" version="2">Ascesa dell'Oscurità Tecnico 1</content>
+  <content contentuid="h09b571dbg4a3fg3a4bgdf87g8b4b25cffde5" version="3">Ascesa dell'Oscurità Tecnico 2</content>
+  <content contentuid="h726500d4gfb2cg8c52g0beegbc477cc62509" version="1">Ascesa dell'Oscurità</content>
+  <content contentuid="h97d3f3d7g6b30g53c2g2f66g00b3c1b13aee" version="4">Emani un'aura di decadimento, la tua &lt;LSTag Tooltip="MovementSpeed"&gt;Velocità di Movimento&lt;/LSTag&gt; aumenta del 50%, e infliggi [1] pari al 10% dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;Punti Ferita Massimi&lt;/LSTag&gt; ogni turno ai nemici che rimangono all'interno dell'aura. Inoltre, la &lt;LSTag Tooltip="MovementSpeed"&gt;Velocità di Movimento&lt;/LSTag&gt; dei nemici è dimezzata.</content>
+  <content contentuid="h66318b73g6650gb886g8527gc31bf1af3aff" version="1">Ascesa dell'Oscurità</content>
+  <content contentuid="h423f92f6g70a2g7981gaee3g28242f114799" version="3">L'entità colpita è avvolta da un'aura di decadimento. Subisce [1] pari al 5% dei &lt;LSTag Tooltip="HitPoints"&gt;Punti Ferita Massimi&lt;/LSTag&gt; dell'Eterno ogni turno, e la sua &lt;LSTag Tooltip="MovementSpeed"&gt;Velocità di Movimento&lt;/LSTag&gt; è dimezzata.</content>
+  <content contentuid="h786a9d12g2767g7456g54a5g066d1c985765" version="1">Sangue Immortale</content>
+  <content contentuid="hb703800eg5dc8g1818gaab0gb5f60c532174" version="2">Il tuo sangue sfida la corruzione. Sei &lt;LSTag Tooltip="Immune"&gt;Immune&lt;/LSTag&gt; a Malattia, &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Sanguinamento&lt;/LSTag&gt; e &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Ferita Aperta&lt;/LSTag&gt;.</content>
+  <content contentuid="hbbaeefbcga16dge5aeg8fefg8ff767299236" version="1">Aspetto della Morte</content>
+  <content contentuid="h8e3f8b8dga129ge47bgb92fg1d8c26c65cf0" version="2">Lascia che la tua presenza spaventosa erompa in un impulso minaccioso, &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Spaventando&lt;/LSTag&gt; i nemici vicini.</content>
+  <content contentuid="h49e6e370g74c0g3933g003dgb3a050a7bdd5" version="1">Presa della Morte</content>
+  <content contentuid="h9a4e9261gc22eg00e8g3af4g54467f30828d" version="3">Trascina una creatura verso di te di [1], infliggendo [2].</content>
+  <content contentuid="he8e72ecdgb717gadc6ga550g6fc7c31393af" version="1">Arcana</content>
+  <content contentuid="h3b83909bgdf5ag45c0gb469gf85768156c96" version="1">L'Ingannatore</content>
+  <content contentuid="hb97edef5g7f05ga482g383dg9155aa77bbf5" version="1">Il Figlio delle Stelle</content>
+  <content contentuid="h869a34deg0c99gfa1bg8672g22a4fb8339b4" version="1">Lo Svincolato</content>
+  <content contentuid="ha8846a18g2d8egbd60gbffeg102f49b39fe7" version="1">L'Eterno</content>
+  <content contentuid="h9c27e82cg442ag5cfag6ec6g1c48772f010b" version="1">Strumento Iniziale</content>
+  <content contentuid="h339537c3g4f87g64a4ga457gd9561f13278f" version="1">Scegli lo strumento che vuoi usare. Può essere cambiato in seguito equipaggiando uno strumento diverso.</content>
+  <content contentuid="h3469d7f5g66c7ge0ffg256fg71bb3f2e969e" version="5">Carte Arcane Aggiuntive</content>
+  <content contentuid="hcd9bc488g4623g55f9g7c60gb983f2950c2e" version="7">Ottieni due &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carte Arcane&lt;/LSTag&gt; aggiuntive, che ti permettono di pescare più carte mistiche per usare i tuoi incantesimi arcani.</content>
+  <content contentuid="hbed8fbf2g6f7eg2d19g364eg6672fb7a4313" version="1">Il ponte vivente tra l'anima mortale e l'aspetto divino, che intreccia i fili grezzi del cosmo in un cammino scelto attraverso il tessuto della realtà.</content>
+  <content contentuid="h8b19f5f0ge250g11dag5e72ge061bcb595b7" version="2">L'Ingannatore impugna l'Arcana attraverso l'illusione e l'influenza psichica, travestendosi, offuscando le menti e manipolando amici e nemici allo stesso modo.</content>
+  <content contentuid="h954ca604g57b2g3440gdfb5g59a0b3091dd5" version="2">Il Figlio delle Stelle incanala l'Arcana attraverso la luce dei cieli, guidando gli alleati con una magia celeste che risana, protegge e illumina il cammino da percorrere.</content>
+  <content contentuid="h9a3184f7g73a8g6169g04a6g6dc398547d7f" version="2">Lo Svincolato abbraccia l'Arcana come una forza senza limiti, sfruttando la libertà del vento per superare i nemici e vagare ovunque il destino chiami.</content>
+  <content contentuid="h0dae60d6g9f46g25a0gcb51g715871fe028c" version="2">L'Eterno comanda l'Arcana laddove la vita cede alla morte, sopportando le avversità mentre trasforma la sofferenza e l'essenza che svanisce in una forza incrollabile.</content>
+  <content contentuid="h05fdcc8fgba28g74e4g5838g08b1eb0ba109" version="1">Indistruttibile</content>
+  <content contentuid="he7170321g106fgbbc6gc0f7gca54ebcf4216" version="7">Invoca la tua natura immortale per ottenere [1] per 2 turni. Alla fine della durata, o quando i punti ferita temporanei vengono rimossi, recuperi [2].</content>
+  <content contentuid="h3958dff0g6ed7g36dbg508cgc510c6c19bb4" version="1">Indistruttibile</content>
+  <content contentuid="h5065e847gd147g1bbfg0c67g3716d964190b" version="4">Hai ottenuto [1]. Alla fine della durata, o quando i punti ferita temporanei vengono rimossi, recuperi [2].</content>
+  <content contentuid="h6a342a42g1ffdg200fgff51ge630b4d9e977" version="1">Sigillo della Morte</content>
+  <content contentuid="h91f28c87g52b1g5bccg9ba6g7f8c47b3c9e1" version="3">La morte è il tuo dominio, proteggi una creatura da essa. La prossima volta che un danno la ridurrebbe a 0 &lt;LSTag Tooltip="HitPoints"&gt;punti ferita&lt;/LSTag&gt;, la creatura rimane cosciente con 1 punto ferita rimasto.</content>
+  <content contentuid="hf5598813gc42dg82a6g5aeeg45205b473ac8" version="1">Indomito</content>
+  <content contentuid="hccce35feg6fb3g6500gb04dgc702028577e2" version="2">Indomito e irremovibile, subisci &lt;LSTag Tooltip="Resistant"&gt;metà del danno&lt;/LSTag&gt; di tutti i danni non magici da [1], [2] e [3] finché ti trovi sopra l'80% dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt;.</content>
+  <content contentuid="h1b82585dgf06ag6902ga53fg174a2e759d7e" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h1ad503e7gb9d5g3809g3f75g372326a836e0" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="hc37487fdg883bg29efg82d2g918ffb81156a" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="h74d2da26gf6cag752dga51fg15354d4885e6" version="1">Colpito da Malattia Accecante</content>
+  <content contentuid="h22def6c0ga9bega987g0d39gee5fa8476393" version="1">Unghie di dolore bruciante si conficcano negli occhi dell'entità colpita. Ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Saggezza e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;, ed è inoltre &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Accecata&lt;/LSTag&gt;.</content>
+  <content contentuid="h03e12db5ge585ga1a5g669agf6beabc68a1c" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="h198b9224g2c43g7464gde3eg88d714d6661f" version="1">Colpito da Febbre Immonda</content>
+  <content contentuid="ha7fce7b8gcda6g892egfb7dg9e2d03ec50d3" version="1">Imperlata e grondante di un sudore denso e oleoso, l'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;, ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; che usano Forza.</content>
+  <content contentuid="heaf5af12g42bfg940cg4b41g78ce706912fa" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="h83aef2ebg77dcga5a7g4c1eg87f8dab07851" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="h1709e4dega0a5g418bg4c31g1e36201ddb0c" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h34d7e139ga42bgb886g3b1eg9c4972b9be9d" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="hc9d510b2gd373g86beg846cg4b9ddeac65ae" version="1">Colpito da Marcescenza</content>
+  <content contentuid="hbdb0b73dg8907g9c1cg19d6g3385b6856ccf" version="1">Marcendo nel proprio involucro di pelle maleodorante, l'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Carisma e &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabilità&lt;/LSTag&gt; a tutti i danni.</content>
+  <content contentuid="hc1fe550fg19begb600g5825g4ac7255bddee" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="hf12b4e16gc873g0f36gf02bg4bd3e2ce010a" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="h1913a413g49c6ged05gc518gf8b66268db94" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h71100587g9cacg0b16g17cbge28dbb019fbe" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="h4d9a8a5dgaf45g9bceg1c3fg35f5c9e66420" version="1">Colpito da Febbre Mentale</content>
+  <content contentuid="h8c5a2c99gf828g3668gc0cbg0f468f2a6dfc" version="2">Il cervello dell'entità colpita cuoce in uno stufato di sangue bollente.&lt;br&gt;&lt;br&gt;Ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Intelligenza e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;, e si comporta come se fosse &lt;LSTag Type="Status" Tooltip="TIMMASK_SPORES"&gt;Frastornata&lt;/LSTag&gt; in combattimento.</content>
+  <content contentuid="h80f6eab0gb3a2gcae3ga27dgba210bbbe70d" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="h20fb8098g75c2gc042gd3abge3331b0cae87" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="h3349f704gfd12gec27gbee9ge670c7f3f510" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h435e6194gab81g7c62g3f72gcc3eb11e123a" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="h72e8e1e6g450cgb53fg3fe2gf29127343eaf" version="1">Colpito da Convulsioni</content>
+  <content contentuid="h933d128bg6b86g1be8g953bg48e5c171b3aa" version="1">Convulsioni involontarie scuotono l'entità colpita, conferendole &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove di Caratteristica&lt;/LSTag&gt;, ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; che usano Destrezza.</content>
+  <content contentuid="hfa358240g81a6g0797g2cbdgfba038dcb932" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="h29021139g01c5g3e46g824eg35cb4204bc38" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="hd074aaadgdde0g7672g9cd1g9244c343f4a6" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h1f49e678g4704gf2beg08ecg9db38fe57e52" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="h5044bf7eg0e72gc2a3geb46g2185f80bd090" version="1">Colpito da Morte Melmosa</content>
+  <content contentuid="hae6371dbg26b0ga0feg8c1ege2cd1d20c998" version="2">L'entità colpita trasuda un sangue ceroso e globulare. Ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Costituzione e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Inoltre, ogni volta che subisce danni, viene &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stordita&lt;/LSTag&gt; fino alla fine del suo prossimo turno.</content>
+  <content contentuid="h0eb9285cgb3cdg5805gd454g0ccc67afd386" version="1">Emopiaga Avvelenata: Stadio 1</content>
+  <content contentuid="h176e7ba4g47c5gdbaegfd00gc9486e90084d" version="2">L'entità colpita ha &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; e alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Ogni turno, deve superare un &lt;LSTag Tooltip="SavingThrow"&gt;Tiro Salvezza&lt;/LSTag&gt;, o l'avvelenamento peggiorerà. Con 3 successi, guarisce. Con 3 fallimenti, contrae una malattia.</content>
+  <content contentuid="hb890aceag1ad0g06d4g51f6gc9a032b77bfa" version="1">Emopiaga Avvelenata: Stadio 2</content>
+  <content contentuid="h62713971g1bfagebd8g188cg18d4b5c2d7b3" version="1">Emopiaga Avvelenata: Stadio 3</content>
+  <content contentuid="he815586age12fg4869g6e13gb5b1a72ca004" version="1">Emopiaga</content>
+  <content contentuid="h276a5604ga0acg878egb686g255d9902838c" version="1">&lt;LSTag Type="Status" Tooltip="POISONED"&gt;Avvelena&lt;/LSTag&gt; il sangue di un bersaglio e infliggigli possibilmente una malattia a tua scelta. </content>
+  <content contentuid="h1c30fa82gd7dag1983ge387g0165a09a54d4" version="1">Emopiaga: Malattia Accecante</content>
+  <content contentuid="h97349cdcg9d00g25bdgf86eg3211a86a33fe" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Wisdom"&gt;Saggezza&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;, ed è &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Accecato&lt;/LSTag&gt;.</content>
+  <content contentuid="h94c7808dgb6f2g8c5fgb901g82ceb99d6d61" version="1">Dita ardenti di dolore si spingono attraverso gli occhi della creatura, compromettendone la &lt;LSTag Tooltip="Wisdom"&gt;Saggezza&lt;/LSTag&gt;.</content>
+  <content contentuid="he2d94c7dgdcb8gca78gc03dg0600fead5de9" version="1">Emopiaga: Febbre Immonda</content>
+  <content contentuid="ha5bb4e23g8c07g7223g8953g721441eab5c3" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Strength"&gt;Forza&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;, ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt; che usano Forza.</content>
+  <content contentuid="h23c2dd11g2703g7a81g8464g549467961c7a" version="1">La febbre spreme grosse gocce di sudore denso e oleoso dai pori della creatura, compromettendone la &lt;LSTag Tooltip="Strength"&gt;Forza&lt;/LSTag&gt;.</content>
+  <content contentuid="h8ac9e466gb6bag1f26g0ac7g27729e82a8d3" version="1">Emopiaga: Marcescenza</content>
+  <content contentuid="h3eee34a2gca69ge047g7af4g049a90ddd113" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Charisma"&gt;Carisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; ed è afflitto da &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabilità&lt;/LSTag&gt; a tutti i danni.</content>
+  <content contentuid="h1fc55202gd9fag4890g523cg8d7d865a54a2" version="1">La creatura inizia a mortificarsi, diventando un sacco di carne suppurante sorretto dalle ossa, compromettendone il &lt;LSTag Tooltip="Charisma"&gt;Carisma&lt;/LSTag&gt;.</content>
+  <content contentuid="h392303cbgf1e7g3da5g257cg6e5f75f002d5" version="1">Emopiaga: Febbre Mentale</content>
+  <content contentuid="ha66a2418g2563g1a8bg4146gb0b602c351a0" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Intelligence"&gt;Intelligenza&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;, ed è &lt;LSTag Type="Status" Tooltip="TIMMASK_SPORES"&gt;Frastornato&lt;/LSTag&gt;.</content>
+  <content contentuid="he1f7ebbcgc54cg023dg7ed1g53b4d1cee6b5" version="1">Il cervello della creatura inizia a cuocere in uno stufato rancido di sangue caldo e acido, compromettendone l'&lt;LSTag Tooltip="Intelligence"&gt;Intelligenza&lt;/LSTag&gt;.</content>
+  <content contentuid="h25fab40bgc14fgbffegb51bg124542899313" version="1">Emopiaga: Convulsione</content>
+  <content contentuid="hc1914afagfe46g7789g9248g00620345cd81" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Dexterity"&gt;Destrezza&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt;, ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt;.</content>
+  <content contentuid="h07b46bb9gc69fgf359gfcfdg598fc049ecc3" version="1">Spasmi scuotono la creatura, compromettendone la &lt;LSTag Tooltip="Dexterity"&gt;Destrezza&lt;/LSTag&gt;.</content>
+  <content contentuid="h662cd2f5g910bg7d88g20b6gf9ca81eceb7a" version="1">Emopiaga: Morte Melmosa</content>
+  <content contentuid="hf5a04a12g5932g46ebgf3efg9f291508be3b" version="1">Il bersaglio riceve &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="Constitution"&gt;Costituzione&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; e ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt;. Ogni volta che viene colpito, diventa &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stordito&lt;/LSTag&gt;.</content>
+  <content contentuid="h3dfc43bdgbac3g2d4dg8b5cg7422df118302" version="1">La febbre spreme grosse gocce di sudore denso e oleoso dai pori della creatura, compromettendone la &lt;LSTag Tooltip="Constitution"&gt;Costituzione&lt;/LSTag&gt;.</content>
+  <content contentuid="h3775b901g4667g16bcgec6dg207c22e7ac74" version="1">Emorragia</content>
+  <content contentuid="h9ee75806gdefeg1532g5cffgdd2aaaa39cd3" version="1">Plasma una massiccia sfera di energia entropica in un punto bersaglio. Devasta l'area e tutte le creature circostanti, infliggendo [1] e provocando loro &lt;LSTag Type="Status" Tooltip="HEMORRHAGE"&gt;Emorragia&lt;/LSTag&gt; e &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Ferite Aperte&lt;/LSTag&gt; per 2 turni.</content>
+  <content contentuid="h00dd3e1cg9b20gd40cgfb47ga9172538a1c0" version="1">Emorragia</content>
+  <content contentuid="hf44df102ge7d3g06a0gfa8ag4741ae33ddee" version="2">L'entità colpita accumula tutti i danni subiti per 2 turni. Quando la durata termina, subisce nuovamente il danno accumulato come [1].</content>
+  <content contentuid="h76442ce7g58fagec1fg63c0g2edef4132130" version="2">Reame della Morte</content>
+  <content contentuid="h9f280d6dg780cg9802gc6f1gb9f2300b52d1" version="3">Trascina un nemico nel reame della morte, &lt;LSTag Type="Status" Tooltip="BANISHED"&gt;Bandendo&lt;/LSTag&gt; tutte le altre creature vicine.&lt;br&gt;&lt;br&gt;All'interno del reame della morte, il nemico è &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabile&lt;/LSTag&gt; a [1], subisce [2] all'inizio del suo turno, e [3] alla fine del suo turno.</content>
+  <content contentuid="h95b379bagd24eg72b6gac8fg9a8fce02221b" version="2">Reame della Morte</content>
+  <content contentuid="h28988a54gb276gcc17ga0a6g0958594b959a" version="2">In piedi all'interno del reame della morte, una regione di gelida oscurità infestata da orrori sconosciuti.&lt;br&gt;&lt;br&gt;L'entità colpita è &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabile&lt;/LSTag&gt; a [1], subisce [2] all'inizio del suo turno, e [3] alla fine del suo turno.&lt;br&gt;&lt;br&gt;L'area è &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt;.</content>
+  <content contentuid="he66e1417ga270g0cdcg75f2g36abbc2abbc7" version="1">Reame della Morte</content>
+  <content contentuid="h0f2dd2cdg9ca6g8dafg9341g534bcacb4d3a" version="5">In piedi all'interno del reame della morte, una regione di gelida oscurità infestata da orrori sconosciuti.&lt;br&gt;&lt;br&gt;L'entità colpita è &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabile&lt;/LSTag&gt; a [1], subisce [2] all'inizio del suo turno, e [3] alla fine del suo turno.&lt;br&gt;&lt;br&gt;L'area è &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Terreno Difficile&lt;/LSTag&gt;.</content>
+  <content contentuid="h66873293g821fg7dfeg6355gdee0fecb7958" version="1">Reame della Morte</content>
+  <content contentuid="h8edda7dcge3begd84bg8b65g4f98b264ba92" version="2">Danno Finale</content>
+  <content contentuid="h966f4aafgb1beg01edg12dag3474a0440e0b" version="1">Reame della Morte</content>
+  <content contentuid="h0bf84725gae98g47e3gaf1agc98d598233fb" version="1">Vulnerabile ai Necrotici</content>
+  <content contentuid="h6e872746gde88g4642g586cg42196ec3c5e0" version="2">Carte Arcane</content>
+  <content contentuid="hacc6b7bcga552g9088g1254g9c359074a2c4" version="3">Tratte dai fili primordiali della Trama, le Carte Arcane possiedono un'eco mistica che alimenta i tuoi doni, adattando il proprio potere al cammino scelto dall'Arcana.</content>
+  <content contentuid="he2c1dcf5gd5ebgc59bgc26fg8baf4f7c70ea" version="2">Ottieni &lt;LSTag Tooltip="TemporaryHitPoints"&gt;punti ferita temporanei&lt;/LSTag&gt;.</content>
+  <content contentuid="hf756bce1g79bag5985ga624gb4cc6e843978" version="1">Lo Svincolato abbraccia l'Arcana come una forza senza limiti, sfruttando la libertà del vento per superare i nemici e vagare ovunque il destino chiami.</content>
+  <content contentuid="hcf1e5160g3e20g0953g6e16gd8b38b0e15f7" version="1">L'Ingannatore impugna l'Arcana attraverso l'illusione e l'influenza psichica, travestendosi, offuscando le menti e manipolando amici e nemici allo stesso modo.</content>
+  <content contentuid="h759e0860g058eg3b3cg9db9g676e24da5bbc" version="1">Il Figlio delle Stelle incanala l'Arcana attraverso la luce dei cieli, guidando gli alleati con una magia celeste che risana, protegge e illumina il cammino da percorrere.</content>
+  <content contentuid="h9f0b264cgfbe5g9544g296dg0d621ef7d5a0" version="1">L'Eterno comanda l'Arcana laddove la vita cede alla morte, sopportando le avversità mentre trasforma la sofferenza e l'essenza che svanisce in una forza incrollabile.</content>
+  <content contentuid="hf622c457g3c49g8705g5bd1g046d6735ad9c" version="2">Spezzabastioni</content>
+  <content contentuid="h8db81eb3g095cg8614gd061g83539f9eae7b" version="2">Con 2 cariche, il tuo prossimo attacco infligge [1] bonus pari alla metà dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt;.</content>
+  <content contentuid="h51f16939g8c60gbdd1ge788gf57c1a3c2223" version="2">Spezzabastioni Tecnico</content>
+  <content contentuid="h09efc98dg488fgac13gbae2g7ec8a8309867" version="2">Dopo due turni, rimuovi lo stato Spezzabastioni.</content>
+  <content contentuid="h199dcb23gb845gcffag1545ga4583ab4b207" version="12">Mazza Spezzabastioni</content>
+  <content contentuid="heaa8fd07gbe66g3fc5gdedeg005b23f462b8" version="12" />
+  <content contentuid="h6c7c3a5eg262eg9b14g4265ge373100baf31" version="12">Un tempo impugnata da un conquistatore il cui nome è stato a lungo sepolto sotto le rovine che si è lasciato alle spalle, quest'arma ha ancora fame di mura, torri, e di chiunque osi ripararsi dietro di esse.</content>
+  <content contentuid="h2cc62cc5gbaadg9f00gb84ega9b6e615290d" version="3">Danno Bonus dello Spezzabastioni</content>
+  <content contentuid="h654eb796g431cg827fg2f2eg1b18e5a7f2ba" version="5">Ogni volta che colpisci una creatura con lo Spezzabastioni, ottieni 1 carica di &lt;LSTag Type="Status" Tooltip="BASTIONBREAKER"&gt;Danno Bonus dello Spezzabastioni&lt;/LSTag&gt; per 2 turni. Con 2 cariche, il tuo prossimo attacco infligge [1] bonus pari alla metà dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt;.</content>
+  <content contentuid="h6878cecfg84f5g3665g852eg3a3444b48783" version="1">Aumenta PF</content>
+  <content contentuid="h18a91523g0787ge049g74f8g0914ec6bc603" version="1">PF Aumentati.</content>
+  <content contentuid="hf46dd36eg2d29g444cga963gf9151ed1ca72" version="11">Quest'arma infligge [1] pari ai tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt; a oggetti e strutture.</content>
+  <content contentuid="h79907d4eg09f2g7849geec6ga80730d44281" version="8">Armatura del Cuore Eterno</content>
+  <content contentuid="hc7caf2dag8276g3984g45cagd3ec99e226b8" version="8" />
+  <content contentuid="hd77625a3g8aa6g9f6fgea59g590e276ad84f" version="8" />
+  <content contentuid="h29fc1695g4b51gb7f7g7bb7g3523aee71d56" version="8">Mentre questa armatura è equipaggiata, hai &lt;LSTag Type="Status" Tooltip="WARMOG"&gt;Rigenerazione del Cuore Eterno&lt;/LSTag&gt;.</content>
+  <content contentuid="h85060060g56d7gc0ecgf1c8g326d80acfdc2" version="8">Pesanti ossa e denti d'acciaio racchiudono il petto e il collo dell'armatura come un grottesco esoscheletro che al tempo stesso inghiotte e protegge chi la indossa.</content>
+  <content contentuid="h95eb41a7gf13dgfbc8gff41g10759d975319" version="2">Vitalità dello Spezzabastioni</content>
+  <content contentuid="ha751f196g7520g7706ge31dgadfc9eb838df" version="1">Aumenta i tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt; di [1].</content>
+  <content contentuid="h5d6d3d1bgc7fbg0d36g9e31g140f652d3e47" version="2">Vitalità del Cuore Eterno</content>
+  <content contentuid="h5bb13410g1490gb9c9g7bd4g505123785777" version="1">Aumenta i tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt; di [1].</content>
+  <content contentuid="heb8dbd1egfdd9ge353g050fg315692337770" version="3">Rigenerazione Debole del Cuore Eterno</content>
+  <content contentuid="h4a6d512eg061dga995gfcbfg855f2c9b52f8" version="2">Hai subito danni.</content>
+  <content contentuid="h8ccce428gd3d3g1705g3bddgf5876964f9cf" version="2">Rigenerazione del Cuore Eterno</content>
+  <content contentuid="h162270ebg9391g547egf776g58a43eb45c3e" version="4">Dopo 2 turni senza subire danni, recuperi il 20% dei tuoi &lt;LSTag Tooltip="HitPoints"&gt;punti ferita massimi&lt;/LSTag&gt; per turno. Se subisci danni, recuperi invece il 5%.</content>
+  <content contentuid="h4ad1b3dbgfc6eg4361gb82fg576a1dc0cccd" version="2">Cura della Pietra di Luna</content>
+  <content contentuid="h890ee0e8g3d47gd431g51cfg8d9575e39841" version="6">Quando curi un alleato con un incantesimo, i due alleati più vicini entro [2] vengono curati anch'essi per [1] (in base al tuo Modificatore di Saggezza).</content>
+  <content contentuid="h053aa305g97acg595ag9055g24968a7118b2" version="2">Cura della Pietra di Luna</content>
+  <content contentuid="h708b4899g999agec78g225ag6e257dea59b6" version="2">Amuleto della Pietra di Luna</content>
+  <content contentuid="hb71f4abag2941g409egc7feg095ecdf27d1b" version="2">Dozzine di minuscole perle adornano questa collana, annodate al loro posto da abili mani gnomiche.</content>
+  <content contentuid="h81881d42ga5ffg8d1fgde25gf9c09eaab295" version="1">Assistente Pietra di Luna</content>
+  <content contentuid="hc6cb74eeg5e8cg6498g18d1gff03ed4c7fa5" version="2">DEBUG: Aumenta PF</content>
+  <content contentuid="hae1c64b9g4d5dgfbc5gd0degfadb14d09c4d" version="2">DEBUG: Cura PF</content>
+  <content contentuid="h0542c684g2cadg6e97g1480g9bb8032718dc" version="2">Carte Arcane Infinite</content>
+  <content contentuid="ha2cb849dg2308g180fgdc20gc157d0434182" version="4">DEBUG: Carte Arcane Infinite</content>
+  <content contentuid="h07399403gc0b8g569eg907cgd4a5e7ae0d24" version="2">Anello di Comunione</content>
+  <content contentuid="h8cda5334gf6bcg6bf3g2bb4g3f540c66845d" version="2">La montatura attorno al rubino è scheggiata e graffiata, come se qualcuno avesse cercato di far leva per staccare la gemma.</content>
+  <content contentuid="h2f198cb2g5b7cgd12agd361gc9136a201a52" version="1">Comunione</content>
+  <content contentuid="h7b24fe7fg9647geff4g6648g23f9e01da1d6" version="3">Quando curi un alleato con un incantesimo, riceve cure aggiuntive per [1] (in base al tuo Modificatore di Saggezza), recupera il proprio &lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;Punto Azione&lt;/LSTag&gt;, e riceve &lt;LSTag Type="Status" Tooltip="COMMUNION"&gt;Potenziamento della Comunione&lt;/LSTag&gt;.</content>
+  <content contentuid="hb4b90112g4136gb998g6026g93e30162ef57" version="1">Potenziamento della Comunione</content>
+  <content contentuid="h00dea741g88c5g05cfg5f1fg872b1ed116d8" version="2">I tuoi attacchi con armi e senz'armi infliggono [1] bonus. Questo danno ignora &lt;LSTag Tooltip="Resistant"&gt;Resistenza&lt;/LSTag&gt; e &lt;LSTag Tooltip="Immune"&gt;Immunità&lt;/LSTag&gt;.</content>
+  <content contentuid="h5d46f657gd3cagb03fg67dag1f7a5b715b41" version="3">Maschera del Giustiziere Oscuro</content>
+  <content contentuid="hb35e3cd3g679bg1904g3d1fg199426dd2100" version="3">Indossata dai più fedeli zeloti di Shar, la sola vista di essa incute terrore nel cuore anche delle anime più coraggiose.</content>
+  <content contentuid="h7f74fbf1g7419g8dbbgdebeg54f1be600ad5" version="1">Slancio</content>
+  <content contentuid="h8c66393cgf6a1g9ae2g20bcg7b25db6aaaf0" version="1">Finché &lt;LSTag Type="Status" Tooltip="THUNDERCLAP"&gt;Scoppio di Tuono&lt;/LSTag&gt; è attivo, ottieni un bonus di +[1] alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="h25c0dab4gfdd5g4994g5e11gf50c7d56bef5" version="1">Occhio della Tempesta</content>
+  <content contentuid="h34166bc9gc540g5a19g6f47g58397a7a25fb" version="1">Finché &lt;LSTag Type="Status" Tooltip="FLY_UNTETHERED"&gt;Svincolato&lt;/LSTag&gt; è attivo, l'aria avvolge il tuo corpo, proteggendoti. Ottieni un bonus di +[1] alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;.</content>
+  <content contentuid="ha9e8e453g7630gfeceg3f8dgf95cf3d97db7" version="2">Terzo Occhio: Proiezione</content>
+  <content contentuid="h206ffa4dgd0b7g2f7ag9090g47b840052e6c" version="5">Proietta il tuo Terzo Occhio come un occhio magico e invisibile per esplorare il cammino davanti a te.</content>
+  <content contentuid="hc727d150gb49eg8bb5g103ag30baadb3a31f" version="1">Aberrazione</content>
+  <content contentuid="hf8b91199gf478g426fg802dg1c43b37014ab" version="1">Terzo Occhio: la creatura è un'aberrazione.</content>
+  <content contentuid="h7d873639gf474gac1bg017cg83438e990b76" version="1">Celestiale</content>
+  <content contentuid="h89183e45g153fg3e4cg6343g3e1fb9087c93" version="1">Terzo Occhio: la creatura è un celestiale.</content>
+  <content contentuid="hb967f971g6e6fgca34g6fb2gc654d9a2f47e" version="1">Elementale</content>
+  <content contentuid="h1e16a534g275ege859g3568g9ee80e8b833d" version="1">Terzo Occhio: la creatura è un elementale.</content>
+  <content contentuid="h31087f35g4d83g3843gc5b9g2e54cbb974f1" version="1">Fatato</content>
+  <content contentuid="h56e5a1d1g33f2gbb9bgde3dgd9cf7a7d17f1" version="1">Terzo Occhio: la creatura è un fatato.</content>
+  <content contentuid="h7a692af6g1a2dgf55agf397g49bcb129ec40" version="1">Immondo</content>
+  <content contentuid="h5ff8ecb5gea15g55ebgd884g78b70381d1f1" version="1">Terzo Occhio: la creatura è un immondo.</content>
+  <content contentuid="h35a12157g6f88g43fcgbd58ga1a00a46721f" version="1">Non Morto</content>
+  <content contentuid="h193f1e89g3414g369fg6075gd756121de74a" version="1">Terzo Occhio: la creatura è un non morto.</content>
+  <content contentuid="h57cbb238gde4cg3ff9g326dg47d822a7058b" version="1">Comprendere i Linguaggi</content>
+  <content contentuid="hd468e1b5g4b69g1987gb8cfg39bdb89caf47" version="1">Comprendi il significato letterale di qualsiasi lingua parlata o scritta che senti o vedi, persino il linguaggio di animali e bestie.</content>
+  <content contentuid="h9ab357dcg7e62g0fceg3497g07facea10621" version="1">Serratura Arcana</content>
+  <content contentuid="h5cceeefag4995gfef9g6db4g25087901b2f5" version="1">Chiudi una porta o un contenitore con una serratura magica. Non può più essere scassinato o aperto con &lt;LSTag Type="Spell" Tooltip="Target_Knock"&gt;Scasso&lt;/LSTag&gt;.</content>
+  <content contentuid="h7d5d8023ga13fg27dag028ega28b316272ba" version="1">Apertura Arcana</content>
+  <content contentuid="hb5b993aag9c78g8fc2gcaa9g944b27f7f5d3" version="3">Apri un oggetto tenuto chiuso da una serratura comune o magica.</content>
+  <content contentuid="h59a8236dg8fd5gdc54g923eg149c51e3efde" version="1">Portale Arcano</content>
+  <content contentuid="h473d4c2dg9fbbg06ddgd7e7g92ad0f9fb21e" version="1">Crea due portali di teletrasporto collegati.</content>
+  <content contentuid="hb3a63fa8gb0f0g2851g760bg8934504d9510" version="1">Dissolvi Magie</content>
+  <content contentuid="h856ee80ag4765gbdefge1e2geb9189f59307" version="3">Dissolvi le energie magiche che circondano un personaggio o un oggetto.</content>
+  <content contentuid="hb105d67eg40dbg01acg5623ga43f37396ed5" version="3">Mano Arcana</content>
+  <content contentuid="h8fe6cd2dg1a92gcfa9gd3e0ga2961a78196b" version="2">Crea una mano invisibile in grado di manipolare e interagire con gli oggetti.</content>
+  <content contentuid="h2889bf3bgfc8cgd642gc647g31aa7b5c99ff" version="5">Terzo Occhio</content>
+  <content contentuid="h716f72begfc0cge6e4gc920g9d053869f88d" version="1">Terzo Occhio</content>
+  <content contentuid="h8b7cc20bg8cfdg2873gfe45g0e7917e285ae" version="1">Può vedere normalmente al buio, sia magico che non magico, fino a una distanza di [1], e anche creature e oggetti &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisibili&lt;/LSTag&gt;.</content>
+  <content contentuid="hc8cea66ag323cgaf72ga741g7e629575fe19" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h1cfa0018g8621g6137g50fdg62d4b47f3c15" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="he863a958g3eb3g71c8g7a6dgfd1a5436bb73" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="hc885570cgeed4g3b4bg10c1gda02bbf3e4a8" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="haf5e7d21g3772g9642g4cb9g59f01044eb2b" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h1a088301gc59bg55b8g5520gf7ed3be5d17f" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h8db03496gc1e4g2343g6f20gf951a4afda58" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h6507b6e7g5e30g5a89g923dg11f8b4e5735e" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h795d3f9bg4693g7095gaeeeg14daa8dec939" version="1">Attivo solo se non indossi armatura o non usi uno scudo.</content>
+  <content contentuid="h19148393g43edg142eg8af8gc41f2c6b60f9" version="2">Lega una creatura con una versione indebolita di &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;Catene Eteree&lt;/LSTag&gt;. Alla fine del suo turno, diventa &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;Trattenuta&lt;/LSTag&gt;.</content>
+  <content contentuid="he3d63e7ege30bg4ab2gb047ga84261db272b" version="2">Veste dello Svincolato</content>
+  <content contentuid="h8e552a9cgcf9bg0600g43bbg028d56c53aa7" version="4">Corazza dell'Eterno</content>
+  <content contentuid="h5579f51ega301g3a6dgd1e8g6ef02575405c" version="4">L'acciaio annerito porta i segni smorzati di battaglie da tempo dimenticate, la sua superficie mai toccata da inutile lucidatura. L'armatura appare fredda persino sotto il sole di mezzogiorno, come se fosse riluttante a rivelare ciò a cui ha assistito. La morte ricorda ogni nome, anche quando i vivi non lo fanno.</content>
+  <content contentuid="hcebcfc0dge1a4geec6g303dgd382fe859a53" version="3">Veste del Figlio delle Stelle</content>
+  <content contentuid="hd2192734gab71g0230g3bf1g2c980e11a2d1" version="2">Veste dell'Ingannatore</content>
+  <content contentuid="hab0f3e56gf669g9237gdfa7gd1fdd5c05211" version="1">Il tessuto cattura la luce in modi curiosi, mutando la propria tonalità a ogni sguardo prolungato. Un fine ricamo si snoda lungo le cuciture come pensieri incompiuti, invitando ogni osservatore a trovarvi un significato diverso. Alcune verità sono più facili da credere quando non vengono mai pronunciate ad alta voce.</content>
+  <content contentuid="h93d55580g5fb5g2ecagd1a8ga4fadcbf92e3" version="1">Minuscoli fili d'argento scintillano lungo il tessuto come stelle lontane intraviste in un cielo senza nuvole. Il loro disegno appare casuale, sebbene occhi pazienti giurino spesso che muti da una notte all'altra. Alcuni credono che i cieli lascino silenziosi segnali per chi è disposto a guardare verso l'alto.</content>
+  <content contentuid="h36bc35fdgf534g3ddfgf4f6g17b193f39219" version="1">Il tessuto è straordinariamente leggero, e si muove al più lieve soffio d'aria anche nella più perfetta immobilità. La sua trama larga non fu scelta per comodità, ma per muoversi senza resistenza. Un maestro errante affermò una volta che il vento favorisce chi non cerca mai di trattenerlo.</content>
+  <content contentuid="h075eaf74ge607g11a5ga164gc44b5e3b6ea8" version="1">Sussurri Malevoli</content>
+  <content contentuid="h358611e4gab01gee5dg782ag87ac7ba30c60" version="1">Invadi la mente di una creatura con sussurri malevoli, imponendo &lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; al suo prossimo &lt;LSTag Tooltip="AttackRoll"&gt;Tiro per Colpire&lt;/LSTag&gt;.</content>
+  <content contentuid="h102688c9g4f28g7964g6a2egce309743711b" version="1">Sussurri Malevoli</content>
+  <content contentuid="hed54c98bg1a92gdaebgaec8g310009116774" version="1">&lt;LSTag Tooltip="Disadvantage"&gt;Svantaggio&lt;/LSTag&gt; al prossimo &lt;LSTag Tooltip="AttackRoll"&gt;Tiro per Colpire&lt;/LSTag&gt;.</content>
+  <content contentuid="hd2a94f2dga9e8g3c10g54b0g8624b9247bdd" version="1">Aura di Dissolvi Magie</content>
+  <content contentuid="h7782d59cg19e4g3d2dg3641g0e8154121af9" version="1">Prosciugamento di energia magica.</content>
+  <content contentuid="h5f3d3a9bgb3f3g8694g6fc9g0a3d81c5dd92" version="1">Dissolvi Magie</content>
+  <content contentuid="hcd8363fcg26d5g79efge93agf52238e68760" version="1">Una forza arcana sta prosciugando l'entità delle sue energie magiche.</content>
+  <content contentuid="h50e0e457g54b7g93e9g6394g7b3f1dbc6262" version="1">Effetto Catene Eteree</content>
+  <content contentuid="h91204c3eg4991g8a74g1fbag430deb2b7292" version="1">Trasposizione Benigna: Teletrasporto</content>
+  <content contentuid="h72eb795ag3467g7f1fgc44egcec30955d1d7" version="1">Teletrasportati in uno spazio vicino non occupato, oppure scambia posizione con un alleato.</content>
+  <content contentuid="h7818484agf19bg32c9g12b8gb2585dea008e" version="6">Posizione</content>
+  <content contentuid="h291787b7gc111g0277gc662g7310e35db610" version="6">Posizione</content>
+  <content contentuid="h11de6bf4gabc4ge366g4043g00b80bcdcfb0" version="4">Posizione</content>
+  <content contentuid="hf54e07afgeaf3g1067g8cc0gfcd69d5c4994" version="1">Senza Volto: Copia</content>
+  <content contentuid="hfab01313g4bbdg761dgb00cg78d9235ee864" version="3">Assumi l'identità di un'altra persona.</content>
+  <content contentuid="h5697f689gb509g43b7g1f9fgc0a93d630d7a" version="1">Senza Volto</content>
+  <content contentuid="h5c8dcb26g8c73gd48fga708g5a722cad2c15" version="1">Senza Volto: Tiefling Masch.</content>
+  <content contentuid="hdc0403b3g3e59gdbf9ge54bgb1416ae261c7" version="1">%%% EMPTY</content>
+  <content contentuid="h2c6cd129gd5cega18dg258dgfeda1d787710" version="1">%%% EMPTY</content>
+  <content contentuid="hb13711c4gf09dgf9ddg178bgd022a7b41e72" version="1">%%% EMPTY</content>
+  <content contentuid="h5ea38b1ageb8bgbbf3g8ba7g9f34c9b1b1ea" version="1">%%% EMPTY</content>
+  <content contentuid="hf4e59586g9e6dg2176g46a7g8d8473ae8b1e" version="1">%%% EMPTY</content>
+  <content contentuid="h99c412c1g5750g734agae2bg492af97b6d38" version="1">Timer Specchio: Ritirata</content>
+  <content contentuid="haf283608gcd44g528eg31acgbdb12e23ba2b" version="1">Timer Imitazione: Ritirata</content>
+  <content contentuid="hfed34aaeg7703g6c7dga63fg744706fe3e37" version="1">Timer Ritirata</content>
+  <content contentuid="hbbe87a54g9882ga869g13a3g51d491fb409e" version="1">Assistente Distorsione</content>
+  <content contentuid="h74931156g68e6g78c3g675fgcd9196f71a0c" version="1">Assistente Imitazione: Distorsione</content>
+  <content contentuid="h57eca00agcff4g213egb196ge7559da316b7" version="1">Dissolvi il tuo travestimento e ritorna alla tua forma originale.</content>
+  <content contentuid="h2a283036g31f4ga58bgc5d4g83b36478a82e" version="1">Ultimo Lanciato: Sigillo di Malizia</content>
+  <content contentuid="hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f" version="1">Ultimo Lanciato: Catene Eteree</content>
+  <content contentuid="h3c4edb12g2741g4fd0g7808g1b880efe0603" version="1">Ultimo Lanciato: Distorsione</content>
+  <content contentuid="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="1">Scaglia una versione indebolita di &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;Sigillo di Malizia&lt;/LSTag&gt; contro una creatura, infliggendo [1] e marchiandola con un &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigillo&lt;/LSTag&gt;.</content>
+  <content contentuid="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="1">Scatta attraverso lo spazio con una versione potente di &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion"&gt;Distorsione&lt;/LSTag&gt;, infliggendo danni nel punto in cui arrivi. Per 2 turni, puoi teletrasportarti nella tua posizione originale lanciando &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_MimicWithdraw"&gt;Ritirata&lt;/LSTag&gt;.</content>
+  <content contentuid="h1c6805e2gef72gde13g0ac7g7d9b19112b25" version="1">Incantesimo Specchiato</content>
+  <content contentuid="haa5e063cga90egac8cg9e75gb55fc8aa24e3" version="1">Incantesimo Specchiato Attivo</content>
+  <content contentuid="h34f46efbg619ag290ag7eddg2383b122a86a" version="1">Assistente Incantesimo Specchiato</content>
+  <content contentuid="hd1b4c14fg68b2g2642g9a32gc052f2f749b1" version="3">Hai padroneggiato l'arte degli specchi. Quando qualcuno lancia un incantesimo entro [1], aggiungi quell'incantesimo alla tua riserva per 3 turni.</content>
+  <content contentuid="h1b869741g97a3g7d84g3fe0ga2aafa055f56" version="1">%%% EMPTY</content>
+  <content contentuid="h75b888d9gfb47g2bc1ge9b9gb7555ade89f3" version="2">Schegge Arcane</content>
+  <content contentuid="hf2380d02g4523g5595ge459g914a7fc4f4f0" version="4">In combattimento, ogni volta che lanci un incantesimo Arcano, ottieni un numero di Schegge Arcane pari al livello dell'incantesimo.</content>
+  <content contentuid="h29c86812g92e4g6c36g1518g26f86501eefc" version="1">Ogni volta che lanci un incantesimo, il numero di Schegge Arcane attorno a te aumenta del livello dell'incantesimo.&lt;br&gt;&lt;br&gt;Ogni volta che subisci danni, le schegge bloccano una quantità di danno pari al loro numero, che poi diminuisce di [1].&lt;br&gt;&lt;br&gt;Dopo ogni &lt;LSTag Tooltip="LongRest"&gt;Riposo Lungo&lt;/LSTag&gt;, le schegge si ripristinano a un numero pari al tuo livello di Arcana.</content>
+  <content contentuid="h772bf924gcc05g108bgfe48g11dad2952466" version="1">Scheggia Arcana: Lancio</content>
+  <content contentuid="h939fd681g70c3ge520gf339gfbce849c69e6" version="1">Interdizione Arcana</content>
+  <content contentuid="h9a644542gc8cbge8e9gb247g33c864012ce3" version="1">La magia residua dei tuoi incantesimi forma un'interdizione attorno a te che ti protegge dai danni.</content>
+  <content contentuid="h927837a9g70aeg342bg182ag8f89b1c66f74" version="1">Ogni volta che lanci un incantesimo di Abiurazione, l'intensità dell'interdizione aumenta del livello dell'incantesimo.&lt;br&gt;&lt;br&gt;Ogni volta che subisci danni, l'interdizione blocca una quantità di danno pari alla sua intensità, che poi diminuisce di [1].&lt;br&gt;&lt;br&gt;Dopo ogni &lt;LSTag Tooltip="LongRest"&gt;Riposo Lungo&lt;/LSTag&gt;, l'intensità dell'interdizione si ripristina, tornando pari al tuo livello di Arcana.</content>
+  <content contentuid="haceaac84gad0bgeaf3g2e29gaadfd072993e" version="1">%%% Assistente Interdizione Arcana</content>
+  <content contentuid="hc7452b6eg40e0gf350g404fgb7b29c8326e4" version="1">%%% Assistente Interdizione Arcana</content>
+  <content contentuid="he4faf778g6e9cgabc8g9295g7db46e9210bd" version="1">Scheggia Arcana: Danno</content>
+  <content contentuid="ha05c5f37geb5dg0250g773ag10c26aa7b963" version="1">Slot Incantesimo Infiniti</content>
+  <content contentuid="ha5838c62g3bbag4fceg823dg6bc1af99e09c" version="1">Schegge Arcane</content>
+  <content contentuid="h7b9af7c0g98b2gc06ag71acg82b967e7b24a" version="1">Magia residua ottenuta lanciando i tuoi incantesimi.</content>
+  <content contentuid="hbe1ae4f1gc94eg24dbg8136g3afe3dc4863e" version="1">Schegge Arcane</content>
+  <content contentuid="h791dc544gcdebgac96gaf0bg2c39240cb74e" version="1">Il residuo magico dei tuoi incantesimi si accumula attorno a te.</content>
+  <content contentuid="hdd3640b1ga727ga91eg1bb0gbf5d19f7e023" version="1">Interdizione Arcana</content>
+  <content contentuid="ha0b7558bg4125ge9c3ga136g8531f45393ed" version="1">La tua interdizione arcana blocca una quantità di danno pari alle sue cariche, per poi perdere 1 carica. Lanciare incantesimi di Abiurazione aggiunge cariche pari al livello dell'incantesimo.</content>
+  <content contentuid="h1fac2fe9gd90eg4c65gf141gf976547245f0" version="1">Famiglio Arcano: Gatto</content>
+  <content contentuid="hf066f78cg4771gf741g37bdg87ce976efc1e" version="1">Evoca un famiglio gatto in grado di &lt;LSTag Type="Spell" Tooltip="Shout_Distract_Cat_Summon"&gt;Miagolare&lt;/LSTag&gt; per distrarre i tuoi nemici.</content>
+  <content contentuid="h51c3ed98gbf6eg69c5gc50ege622e1b8fad1" version="1">Famiglio Arcano: Granchio</content>
+  <content contentuid="h963f2a99g7ba2ge704g93b0g32d0227088b9" version="1">Evoca un famiglio granchio in grado di rallentare i nemici con la sua &lt;LSTag Type="Spell" Tooltip="Target_CripplingPinch_Crab_Summon"&gt;Presa Debilitante&lt;/LSTag&gt;.</content>
+  <content contentuid="hdea4f75bg33ceg9f7cg0fe0ge153edae6a02" version="1">Famiglio Arcano: Rana</content>
+  <content contentuid="h3798e57dg8727geca0geaecgebd211655001" version="1">Evoca un famiglio rana in grado di diffondere la sua &lt;LSTag Type="Spell" Tooltip="Target_Bufotoxin_Frog_Summon"&gt;Bufotossina&lt;/LSTag&gt; sui nemici.</content>
+  <content contentuid="ha0f9ddb3g0ccag6f85g9277g9dac6cb69f62" version="1">Famiglio Arcano: Ratto</content>
+  <content contentuid="h7b4172d3g82acg3945g6c73g65237e234985" version="1">Evoca un famiglio ratto con un &lt;LSTag Type="Spell" Tooltip="Target_Bite_Rat_Summon"&gt;Morso Infettivo&lt;/LSTag&gt;.</content>
+  <content contentuid="h0c3a2cebgcf86ge6edg1b22gdd898ae57b0b" version="1">Famiglio Arcano: Corvo</content>
+  <content contentuid="hdc554051g08e6g43bbg6394gb4ff7d5b8b51" version="1">Evoca un famiglio corvo in grado di &lt;LSTag Type="Spell" Tooltip="Target_RendVision_RavenFamiliar_Summon"&gt;Accecare&lt;/LSTag&gt; i nemici con il suo becco.</content>
+  <content contentuid="h57f25b13g2bdeg370bg22f1gcf49d45f7211" version="1">Famiglio Arcano: Ragno</content>
+  <content contentuid="had2f963cg9b41g0712g6002gecdfb3811ae5" version="1">Evoca un famiglio ragno con un &lt;LSTag Type="Spell" Tooltip="Target_Bite_TinySpider_Familiar"&gt;Morso&lt;/LSTag&gt; velenoso.</content>
+  <content contentuid="h43c503cdg3beagbd71ge474g316fcf13151e" version="1">Famiglio Arcano: Cane</content>
+  <content contentuid="h0cb4d697g6b6egad2cg9aefg91184d3dc66d" version="2">Evoca un famiglio cane in grado di scoprire molte cose nascoste per il mondo e di &lt;LSTag Type="Spell" Tooltip="Target_Bite_Dog"&gt;Mordere&lt;/LSTag&gt; i nemici.</content>
+  <content contentuid="hdb35b25dg221eg32f2g2365gd93be8a3a163" version="1">Famiglio Arcano</content>
+  <content contentuid="hd6edf6ceg9c21g5ff0g7899g41fa8efd78cd" version="2">Hai sempre tenuto vicino un Famiglio Arcano.</content>
+  <content contentuid="he6a0247fgeae3g6a50g059bg0da9b9a12eb0" version="2">Cane Evocato</content>
+  <content contentuid="h402065f4g0017gee56g42f6g7a4d806a474d" version="1">Famiglio Arcano: Ratto</content>
+  <content contentuid="h890d8c07ga230gc58ag227cg83362b35fa33" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="h9e0030b1gdf1ag8b33g2becg7d7edfad25dc" version="1">Famiglio Arcano: Rana</content>
+  <content contentuid="h59b97232g4014g0df2g396agc719f72958bc" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="ha7691790g013ag5833gf67fg17f7bec8a0d4" version="1">Famiglio Arcano: Granchio</content>
+  <content contentuid="hb3f06b50gaf5cga941g112cg5299e8090aea" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="h1b14a100g0498g8260ga8f9g9986ed0207f6" version="1">Famiglio Arcano: Cane</content>
+  <content contentuid="hf8f0eda9gd0d3g3117g4893g1d1d3d88308d" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="h6ffff10bg370dgfdddg8076ga1375e4f1c89" version="1">Famiglio Arcano: Gatto</content>
+  <content contentuid="h120ce142g5686gb513g61e0g3712b93a065f" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="hffc68b09g0f02g2910g4510g2c6accdce62e" version="1">Famiglio Arcano: Corvo</content>
+  <content contentuid="ha451900bg3eb4g2660gd262g7b21c58b0822" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="h47cdf24cg3ab3gcb12g6b06ge182780db6b4" version="1">Famiglio Arcano: Ragno</content>
+  <content contentuid="hdfa25fe3g3b7dgcaa2g2d62g9d47fffc98ab" version="2">Ovunque tu vada, puoi evocare il tuo Famiglio Arcano al tuo fianco.</content>
+  <content contentuid="h4bf754ddg1e5dgd684gf115g576f1521c6d0" version="1">Livello di Arcana 1</content>
+  <content contentuid="h563fda14ge9b7g5700gd7b8g745792e339ce" version="1">Livello di Arcana 1</content>
+  <content contentuid="hbc507ad3g4d3fg1c5agebe8gc2ca72609748" version="2">Incantesimi Arcani: L'Ingannatore</content>
+  <content contentuid="he47f970fgdf96g0a61g6657gc42a6e90061b" version="9">La tua magia scaturisce dalle correnti grezze dell'Arcano e scorre attraverso il cammino che hai scelto.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Caratteristica di Lancio&lt;/LSTag&gt; per tutti i tuoi incantesimi Arcani è il &lt;LSTag Tooltip="Charisma"&gt;Carisma&lt;/LSTag&gt;.</content>
+  <content contentuid="h2667abfag50d3gd991g364cge7a153673e32" version="1">Incantesimi Arcani: Il Figlio delle Stelle</content>
+  <content contentuid="h3e73ec69g2f3cg3906ga4cdg5c61b60de819" version="6">La tua magia scaturisce dalle correnti grezze dell'Arcano e scorre attraverso il cammino che hai scelto.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Caratteristica di Lancio&lt;/LSTag&gt; per tutti i tuoi incantesimi Arcani è la &lt;LSTag Tooltip="Wisdom"&gt;Saggezza&lt;/LSTag&gt;.</content>
+  <content contentuid="ha2ea0973g6f74gb769g793egaaa9f2b4885f" version="1">Incantesimi Arcani: L'Eterno</content>
+  <content contentuid="h0cbaf4aegaa94g8f07g35e5gd49f3c84a6e1" version="6">La tua magia scaturisce dalle correnti grezze dell'Arcano e scorre attraverso il cammino che hai scelto.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Caratteristica di Lancio&lt;/LSTag&gt; per tutti i tuoi incantesimi Arcani è la &lt;LSTag Tooltip="Constitution"&gt;Costituzione&lt;/LSTag&gt;.</content>
+  <content contentuid="hd9d08b83g0a51g6c77g9187g4e63243b7a82" version="1">Incantesimi Arcani: Lo Svincolato</content>
+  <content contentuid="hc1b00abbgc1f4g732dg3900gac5dbffc24fc" version="6">La tua magia scaturisce dalle correnti grezze dell'Arcano e scorre attraverso il cammino che hai scelto.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Caratteristica di Lancio&lt;/LSTag&gt; per tutti i tuoi incantesimi Arcani è la &lt;LSTag Tooltip="Dexterity"&gt;Destrezza&lt;/LSTag&gt;.</content>
+  <content contentuid="he3f3b236gaab8g745cg0d02gecea5ed8dce3" version="1">INTERRUPT_GALE_DEFLECT_MISSILES_HIT</content>
+  <content contentuid="h3bfdd005g57d2g6a5cg4102g925e75e4e81b" version="1">DEBUG STATUS</content>
+  <content contentuid="hf64cfeeagad8eg8b6bg5ae9g548b803e2402" version="1">ARCANA STATUS</content>
+  <content contentuid="h73970ebbgc151g8e43g7aa8g637db01cdbe0" version="1">STARCHILD STATUS</content>
+  <content contentuid="h9ca2a3d3ge14bg059bg07c7g52304791be00" version="1">DECEIVER STATUS</content>
+  <content contentuid="h8779aba9g2bb2gbaceg207cg29baeb374193" version="1">UNBOUND STATUS</content>
+  <content contentuid="ha1eb42d4gdcafg4e0fge9d4g5c67d2c19579" version="1">ETERNAL STATUS</content>
+  <content contentuid="h54ce9c84ga168g0213gaf75g7a78a50a5190" version="1">EQUIPMENT STATUS</content>
+  <content contentuid="h1c17a198ga773gc4c7g6039gbe223ceb016d" version="1">DECEIVER STATUS</content>
+  <content contentuid="he478c9eagee78g8da6g5481g5763e893c95c" version="1">Schegge Arcane Rimosse</content>
+  <content contentuid="h71b3f330g7b33ga878g3ac0g527527edc741" version="1">Sovraccarico Arcano</content>
+  <content contentuid="h518e5fd0g2c0eg9de0gc683gbbce71317ab6" version="1">Ogni volta che lanci un incantesimo, recuperi [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carta Arcana&lt;/LSTag&gt;.</content>
+  <content contentuid="h5815027egb91cg59c1g2a67g0a088f6f2d14" version="1">Maestria Arcana</content>
+  <content contentuid="h7c05d104g3fcbg6d47gb72ag0e846ae53e82" version="4">Riduci a 0 &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carte Arcane&lt;/LSTag&gt; il costo del prossimo incantesimo Arcano che lanci.</content>
+  <content contentuid="hf174193dg471ag790egdbe6g1f54f44c2c5a" version="1">Libertà di Lancio</content>
+  <content contentuid="h40e78ee4g5ed1ged45g9f6cg48c3dc43c642" version="1">Hai scoperto in te stesso una straordinaria capacità di adattamento. Gli slot incantesimo, le cariche e i costi in risorse simili per la tua prossima azione o incantesimo vengono azzerati. Si ripristina dopo un &lt;LSTag Tooltip="LongRest"&gt;Riposo Lungo&lt;/LSTag&gt;.</content>
+  <content contentuid="hceaf804eg8ad2gd0c0g2c3ag467a2df326ee" version="1">Maestria Arcana Utilizzata</content>
+  <content contentuid="hb89d9471g80ecg262cg140dg493a0ab7d891" version="2">Velo Arcano</content>
+  <content contentuid="h339381e8g1413g29cbg87c3g0f1a380da8c4" version="1">La Trama ti avvolge, conferendoti protezione e &lt;LSTag Tooltip="Resistant"&gt;Resistenza&lt;/LSTag&gt; a tutti i danni magici.</content>
+  <content contentuid="h19a4180ag7d57gb8e8geb42g8f9fff833615" version="2">Avatar Arcano</content>
+  <content contentuid="h51ee83c2gbaaag66c0g8c19gf1213fd33652" version="2">Hai trasceso il piano materiale e sei diventato la vera Arcana. Ottieni un bonus di +[1] ai tuoi &lt;LSTag Tooltip="AttackRoll"&gt;Tiri per Colpire&lt;/LSTag&gt;, alla &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Classe Difficoltà degli Incantesimi&lt;/LSTag&gt; e al punteggio di &lt;LSTag Tooltip="Intelligence"&gt;Intelligenza&lt;/LSTag&gt;. Inoltre, ottieni &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; per mantenere la &lt;LSTag Tooltip="Concentration"&gt;Concentrazione&lt;/LSTag&gt; su un incantesimo.</content>
+  <content contentuid="h7c41b8f2g0624g9983gadddg3bd797691f2b" version="1">Carte Arcane Aggiuntive</content>
+  <content contentuid="h5919e2c0g8d16gd8adgb748gc88870c0f015" version="1">Ottieni due &lt;LSTag Type="ActionResource" Tooltip="ArcaneEssence"&gt;Carte Arcane&lt;/LSTag&gt; aggiuntive, che ti permettono di pescare più carte mistiche per alimentare i tuoi incantesimi Arcani.</content>
+  <content contentuid="h55ec2e4ag5fb7g8999gbda3gc2eded75f733" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="hdec30939ge065gb2b6g576fg2207b4e1d5cb" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="h1295e946g8ed9g7d7fga55bg7d8fd0a91bd5" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="h8f95c2c7g0c28g59b9g4f6egbbd24225531e" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="h81f13026gb4b6gae50g6a83g98210969d6f3" version="1">Piedi Scintillanti VII</content>
+  <content contentuid="h8c6b7876gf5f3gbb5agc0c4g1b62e2aee160" version="1">Flusso Evasivo: Bufera del Matto</content>
+  <content contentuid="h4dbb7566gdd31gff75g84cdg8c8248770bd4" version="1">Stato di Flusso: Tempesta Interiore</content>
+  <content contentuid="hf88dd4e1g25d1ga8f8g9110g2762e1f6f3ad" version="1">Hai ottenuto [1] e hai due &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azioni Bonus&lt;/LSTag&gt; extra.&lt;br&gt;&lt;br&gt;Indossare un'armatura o usare uno scudo termina questo effetto.</content>
+  <content contentuid="hbfcb231ag4df1g7a2bg2703g2fa296827afc" version="1">Flusso Evasivo: Bufera del Matto</content>
+  <content contentuid="h9fc57967g4730gffbdgd22ag4c915fd1a308" version="1">Stato di Flusso: Tempesta Interiore</content>
+  <content contentuid="h04017904g1ca4g79b6g8664geeb058f3a132" version="1">Pugni della Tempesta: Filo della Tempesta</content>
+  <content contentuid="h08916b1cg67b4g4e8eg592eg3f57db122bd3" version="2">I tuoi attacchi senz'armi infliggono anche 2 turni di &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Riverbero&lt;/LSTag&gt;.</content>
+  <content contentuid="ha3445f40gfef0g3daag6f29g5b5636b21467" version="1">Pugni della Tempesta: Filo della Tempesta</content>
+  <content contentuid="h8fd1319agc2c5g8064g5e77gf71fb51a448f" version="1">Il vento scorre attraverso le tue mani. I tuoi attacchi senz'armi infliggono [1] aggiuntivi e infliggono al bersaglio 2 turni di &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Riverbero&lt;/LSTag&gt;.</content>
+  <content contentuid="h2a2b0510g387bg714agb0begdc10098a8648" version="1">Deviazione della Bufera: Riposta della Tempesta</content>
+  <content contentuid="h109466bcgc911g6210gc459g04b8e29932cc" version="5">Usa la tua reazione per ridurre il danno di un attacco a distanza con armi di 1d10 + il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Destrezza + il tuo livello di Arcana. Se il danno viene ridotto a 0, puoi &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles_EX"&gt;Deviare il Proiettile: Riposta della Tempesta&lt;/LSTag&gt; per [1] &lt;LSTag Type="ActionResource" Tooltip="ArcaneShards"&gt;Scheggia Arcana&lt;/LSTag&gt;.</content>
+  <content contentuid="h6d86759agda3dg4012ga417ga9c7128c3dca" version="1">Riposta della Tempesta</content>
+  <content contentuid="h858daf1egc1d7gac8ega25fg58232679746e" version="1">Riduci il danno di un attacco a distanza con armi di 1d10 + il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Destrezza + il tuo livello di Arcana.&lt;br&gt;&lt;br&gt;Se il danno viene ridotto a 0, usi una Scheggia Arcana per &lt;LSTag Type="Spell" Tooltip="Projectile_IND_GaleDeflectMissiles_EX"&gt;Deviare il Proiettile: Riposta della Tempesta&lt;/LSTag&gt;.</content>
+  <content contentuid="hc1639d1fg5ef6g7a95gb562g4ab4ded6664e" version="1">Riposta della Tempesta: Rimbalzo</content>
+  <content contentuid="h90a0239fg9207g37b2gbceag1d64f466c00a" version="1">Piega l'aria attorno a un proiettile scagliato con un attacco a distanza e rispediscilo verso chi ti ha attaccato come [1].</content>
+  <content contentuid="h976e89e8g0538g60e6g14edgddfa9feefa35" version="1">0 - Il Matto</content>
+  <content contentuid="h07bdc113g937dg373bg06d2gf334eca8a40d" version="3">Sei diventato l'Aspetto della Curiosità.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="Dexterity"&gt;Destrezza&lt;/LSTag&gt; aumenta di [1], la tua Iniziativa aumenta di [2], e ottieni due &lt;LSTag Type="ActionResource" Tooltip="ReactionActionPoint"&gt;Reazioni&lt;/LSTag&gt; extra.</content>
+  <content contentuid="h59c8c82dgc19dg7f6fgfdbfg305144a26e0d" version="1">DEBUG: Schegge Arcane Infinite</content>
+  <content contentuid="heaa828bfgdb1ege0aag3a9bgefe1e753ddea" version="1">DEBUG: Slot Incantesimo Infiniti</content>
+  <content contentuid="h69a23d86g5302gf355ga7bega083f87f14bd" version="1">Carte Infinite</content>
+  <content contentuid="h1c06b9ceg70abgaed3gb36ag1599a56ed6f5" version="1">Schegge Infinite</content>
+  <content contentuid="h9d3c40eag0ffcg884aga25fgab3d115b8baf" version="1">Incantesimi Infiniti</content>
+  <content contentuid="he85f974dg0b39g4a7dg3492g2799bb0ea60e" version="1">Usa i tuoi riflessi per intercettare un proiettile scagliato con un attacco a distanza e rispedirlo verso chi ti ha attaccato come [1].</content>
+  <content contentuid="haf0fffb6g2e15g69bdg3f0fg6bfdfd6a641d" version="1">Riposta della Tempesta: Rimbalzo</content>
+  <content contentuid="hf3e38760gebc2g904ag39f4ge4667d159623" version="2">%%% EMPTY</content>
+  <content contentuid="hf40b5b2eg63a9ga439g0507ga085e0ff380c" version="1">%%% EMPTY</content>
+  <content contentuid="hea7dd819g81bcg81bfge931ga47b47c90c75" version="1">%%% EMPTY</content>
+  <content contentuid="h6c2b1638g7a95g04c5g55cegffdc0445d549" version="1">%%% EMPTY</content>
+  <content contentuid="h81753807g62edg64c5g7a22gd9c33319cf98" version="1">Riverbero</content>
+  <content contentuid="h77a0b7fag9825gb91eg9494gb82c23b065db" version="1">L'entità colpita subisce una penalità di -1 ai &lt;LSTag Tooltip="SavingThrow"&gt;Tiri Salvezza&lt;/LSTag&gt; su Forza, Destrezza e Costituzione per ogni turno rimanente.&lt;br&gt;&lt;br&gt;Quando l'entità ha [1] o più turni di Riverbero, subisce [2] e potrebbe cadere &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prona&lt;/LSTag&gt;. La condizione viene poi rimossa.&lt;br&gt;&lt;br&gt;Le creature &lt;LSTag Tooltip="Immune"&gt;Immuni&lt;/LSTag&gt; ai danni da Tuono non possono subire il Riverbero.</content>
+  <content contentuid="hc6e7ce9fg044cg10b4ga0c1g0e7f957d603c" version="1">Senza Volto: Maschera del Rivale</content>
+  <content contentuid="h7ca1779bg251cgd7e9g169cga4bdce93b2c7" version="2">Li marchi anche come tua &lt;LSTag Type="Status" Tooltip="NEMESIS"&gt;Nemesi&lt;/LSTag&gt;.</content>
+  <content contentuid="h2ae1ad59g4446ga303g4248g9cfc579d2175" version="1">Assistente Nemesi</content>
+  <content contentuid="hb6ddcdecgf2d4gef8bg52fdg685590346780" version="3">Incantesimo Copiato</content>
+  <content contentuid="h2860887eg2cbbg4642gc1d1g2e42a82f8c7a" version="1">Presa Ostile: Coup d'État</content>
+  <content contentuid="hbf65a8a0g8472g6450ged91g838380afe396" version="2">Vengono anche marchiati con &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigillo&lt;/LSTag&gt;.</content>
+  <content contentuid="h55a93e30g7951g4942g0751gc81cf26497da" version="1">Assumi l'identità di un'altra persona che riesci a vedere.</content>
+  <content contentuid="hb3d9a78bg92ccg41faga257g7382d53daaf9" version="2">Immagine Vuota: Velo Finale</content>
+  <content contentuid="hba73e0bdgd0e0g20b8ge1bbgd5b671159403" version="2">Li marchi anche con &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigillo&lt;/LSTag&gt;, e diventi &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisibile&lt;/LSTag&gt;.</content>
+  <content contentuid="h7b05ee1dg6b73g13d9g1979gcbe131d1e1aa" version="1">Devi effettuare un &lt;LSTag Tooltip="ShortRest"&gt;Riposo Breve&lt;/LSTag&gt; per usare di nuovo questa abilità.</content>
+  <content contentuid="heb03bacdg1288gf8c6g7dc5g18567f139417" version="1">Devi effettuare un Riposo Lungo.</content>
+  <content contentuid="h559873e2g715cg7dc4g1136g7eff482bacb8" version="2">Immagine Vuota: Velo Finale</content>
+  <content contentuid="h06794c35g0d0bg171bg257ag41dd2850a171" version="1">Li marchi anche con Sigillo, e diventi Invisibile.</content>
+  <content contentuid="hf9febea7g3060g3d1eg7657g23352aa094f2" version="1">Immagine Speculare: Sala degli Specchi</content>
+  <content contentuid="h648f69c1g8f76g09f2gab54g3b17bfec6003" version="1">Crea un altro duplicato.</content>
+  <content contentuid="h091e2391g5f87gb416g69d8gdb5651238af0" version="2">Clone</content>
+  <content contentuid="h3874ddc7g1c9eg6dafgbdb2gbcbcfb8f14e0" version="2">3 - L'Imperatrice</content>
+  <content contentuid="hfda61488g9163gb8a3ga2c2g4f7401c5be55" version="4">Sei diventato l'Aspetto dell'Amore.&lt;br&gt;&lt;br&gt;Il tuo &lt;LSTag Tooltip="Charisma"&gt;Carisma&lt;/LSTag&gt; aumenta di [1], e puoi lanciare &lt;LSTag Type="Spell" Tooltip="Target_IND_Friends_EX"&gt;Amici: Falsi Amici&lt;/LSTag&gt;. Quando infliggi danni con i tuoi incantesimi Arcani, vi aggiungi il tuo &lt;LSTag Tooltip="AbilityModifier"&gt;Modificatore&lt;/LSTag&gt; di Carisma.</content>
+  <content contentuid="h6e6068e2g201cg7f0bg2e5cg49ed5c57b692" version="1">0 - Il Matto</content>
+  <content contentuid="hef9df044g0f98g86c7gf05dg844b7e9823fb" version="1">Amici: Falsi Amici</content>
+  <content contentuid="he6c82a0fg9891gb564g6c3cgd0e2b8669f44" version="1">Ha &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Carisma dirette contro la creatura bersaglio.</content>
+  <content contentuid="h8709ef7ag7a77ge454g2615g595ec90f59ad" version="2">Amici</content>
+  <content contentuid="h98b757efg4469geffag71c3gba969e88a1a8" version="1">%%% EMPTY</content>
+  <content contentuid="hbc9d5362g919agbda0g5dfdg922aee752aba" version="2">Imperatrice Tecnico</content>
+  <content contentuid="h993d0dd7g36f7gb0a7g2c39ge58082c746f1" version="1">%%% EMPTY</content>
+  <content contentuid="hc51c6591g7a7cga154g0cc0ga05749af67d5" version="1">%%% EMPTY</content>
+  <content contentuid="h74b1ce07gffdbgf84fgf853gddb733fa8f51" version="1">Ottieni &lt;LSTag Tooltip="Advantage"&gt;Vantaggio&lt;/LSTag&gt; alle &lt;LSTag Tooltip="AbilityCheck"&gt;Prove&lt;/LSTag&gt; di Carisma contro una creatura non ostile.&lt;br&gt;&lt;br&gt;Non cambia nelle modalità di difficoltà superiori. Il bersaglio non saprà di essere stato incantato. Non richiede &lt;LSTag Tooltip="Concentration"&gt;Concentrazione&lt;/LSTag&gt;.</content>
+  <content contentuid="h1aee5dd3ge60egb464g3346gdaca282279a3" version="1">Tu e i tuoi alleati nel raggio d'azione ottenete &lt;LSTag Type="Status" Tooltip="REJUVENATION"&gt;Ringiovanimento&lt;/LSTag&gt;.</content>
+  <content contentuid="hc6553d66g51eeg3893g8d3ag39a394bb57c8" version="1">Richiamo Stellare: Stella Guida</content>
+  <content contentuid="h017e38fcgbde3g30a3gad81g2c3f78d55899" version="1">Richiamo Stellare: Stella Guida</content>
+  <content contentuid="h84244ffdg36b3gad4fg1411gb381ad2251fb" version="2">Invece, tu e i tuoi alleati entro [1] ottenete &lt;LSTag Type="Status" Tooltip="REJUVENATION"&gt;Ringiovanimento&lt;/LSTag&gt;.</content>
+  <content contentuid="hc335ef5bg182fg6650gc229g837fdd1d40ba" version="1">Invece, ottieni il doppio dei &lt;LSTag Tooltip="TemporaryHitPoints"&gt;punti ferita temporanei&lt;/LSTag&gt; e due &lt;LSTag Tooltip="BonusAction"&gt;Azioni Bonus&lt;/LSTag&gt; aggiuntive.</content>
+  <content contentuid="h8d30072ag6d0ag3e85g26f9gc5299ae7b981" version="1">Invece, la durata aumenta a 10 turni.</content>
+  <content contentuid="hf397a353ga3dfg7bb9ga675gc4b7755d667e" version="1">Radianza Stellare: Coro Celestiale</content>
+  <content contentuid="h2a8546a7g5ae9gbb0cga231gd0b00424e74d" version="2">Invece, gli attacchi con armi dei tuoi alleati infliggono [1] aggiuntivi, e ottengono [2].</content>
+  <content contentuid="hab13c472g7f21g127bga14egc4e8bb5c47f5" version="1">Radianza Stellare EX</content>
+  <content contentuid="h394e22fdgef7fgb0c8ga45eg16de78b5aa66" version="2">Invece, i tuoi attacchi con armi e quelli degli alleati vicini infliggono [1] aggiuntivi, e ottengono [2] quando attaccano.</content>
+  <content contentuid="h4854ccf3g3172g494bg97a0g1440ad360358" version="1">Invece, i tuoi attacchi con armi infliggono [1] aggiuntivi, e ottieni [2].</content>
+  <content contentuid="h47ba9578g58cfga5b1g9f3bgab0dc96a1596" version="1">Radianza Stellare: Aura del Coro Celestiale</content>
+  <content contentuid="hd4017449g1cf9g8f29g233eg72e1e481be09" version="1">Radianza Stellare: Coro Celestiale</content>
+  <content contentuid="hadbff058gc760g3d88gef59gca028c5c9006" version="3">Invece, la portata è [1] e l'aumento dei punti ferita raddoppia. Inoltre, concedi ai tuoi alleati &lt;LSTag Type="Status" Tooltip="REJUVENATION"&gt;Ringiovanimento&lt;/LSTag&gt;.</content>
+  <content contentuid="h913d3544g887fg5a6ag93aagc1f68b656ca3" version="1">Fortitudine Astrale: Bastione della Luce Stellare</content>
+  <content contentuid="h862b75bege21cg74f8gab01g170edafda320" version="1">Fortitudine Astrale: Bastione della Luce Stellare</content>
+  <content contentuid="hd80e53ccg0337g8c82gc449gdefc254821d7" version="1">Il tuo &lt;LSTag Tooltip="HitPoints"&gt;massimo dei punti ferita&lt;/LSTag&gt; aumenta del doppio del livello di Arcana di chi lancia l'incantesimo.</content>
+  <content contentuid="hf9e41595g6ff9g1919gcc51g0b8c4e0dc1f0" version="2">Invece, aumenti la loro &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt; di 4. Inoltre, raddoppi la loro &lt;LSTag Tooltip="MovementSpeed"&gt;velocità di movimento&lt;/LSTag&gt;, e fai in modo che &lt;LSTag Type="Spell" Tooltip="Shout_Disengage"&gt;Disimpegnarsi&lt;/LSTag&gt; e &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Saltare&lt;/LSTag&gt; non richiedano più un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt;.</content>
+  <content contentuid="hf707e812ge03fg61edge368gf07cb335052f" version="1">Egida Lunare: Grazia Lunare</content>
+  <content contentuid="h0eec38b7g00b8gefe0gbfa9g084ec031faae" version="1">Ottieni un bonus di +4 alla tua &lt;LSTag Tooltip="ArmourClass"&gt;Classe Armatura&lt;/LSTag&gt;, raddoppi la tua &lt;LSTag Tooltip="MovementSpeed"&gt;velocità di movimento&lt;/LSTag&gt;, puoi &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;saltare&lt;/LSTag&gt; senza spendere un'&lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Azione Bonus&lt;/LSTag&gt;, e ti muovi senza provocare &lt;LSTag Tooltip="OpportunityAttack"&gt;Attacchi di Opportunità&lt;/LSTag&gt;.</content>
+  <content contentuid="h027a092fgfef2g587bg6879ge39b7a6009c8" version="1">Vola</content>
+  <content contentuid="hd8634f68ged5bg368bg9552g5630e8cacb0b" version="1">Vola verso una posizione bersaglio.</content>
+  <content contentuid="hab9ca3c3geea6g61d9g224dgade740d7c923" version="1">17 - La Stella</content>
+  <content contentuid="h17f7faabg6da9ged49g17d6g51a8d177e6f6" version="3">Sei diventato l'Aspetto della Speranza.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="Wisdom"&gt;Saggezza&lt;/LSTag&gt; aumenta di [1], e ottieni la capacità di &lt;LSTag Type="Spell" Tooltip="Projectile_IND_Fly_Untethered"&gt;Volare&lt;/LSTag&gt;.</content>
+  <content contentuid="hcc4be9e8g30f9g23e1gdb2bg76724f34d521" version="1">Trasfusione: Scambio Immortale</content>
+  <content contentuid="h2a3b2223ga5f5g13a3g5581g68e27bc8393c" version="4">Invece, la portata è ridotta a [1], ma puoi sifonare la forza vitale di fino a 5 nemici.</content>
+  <content contentuid="h45bc2309g9928g2422g3031gcd27a27d7fd9" version="1">Invece, trascini verso di te fino a 3 creature di [1].</content>
+  <content contentuid="h6f5dab18g9eeag83c3gb6aeg425481610ef7" version="1">Presa della Morte: Trazione del Mietitore</content>
+  <content contentuid="h83c6147agb5abg57d2ged56g14c502da5a74" version="1">Presa della Morte: Trazione del Mietitore</content>
+  <content contentuid="hc30ba6f4g435bg63cagaa3eg320f1becba03" version="2">Invece, trascini verso di te fino a 2 creature di [1], e le marchi con il &lt;LSTag Type="Status" Tooltip="REAPER_MARK"&gt;Marchio del Mietitore&lt;/LSTag&gt;.</content>
+  <content contentuid="h4f39d7ceg97fdg6e68g3c2dg52903c4a147a" version="1">Marchio del Mietitore</content>
+  <content contentuid="h6f0b17b4g7cd1gf020g3a89ga13bfd912ba9" version="1">L'entità colpita è &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerabile&lt;/LSTag&gt; a [1].</content>
+  <content contentuid="h881c86a7gfd44g2265g8db0gf1fec085ae16" version="1">Indomito: Resilienza Fisica</content>
+  <content contentuid="h170243acg828fg42bfg1f43g74757f02d56b" version="1">Indomito e irremovibile, subisci &lt;LSTag Tooltip="Resistant"&gt;metà del danno&lt;/LSTag&gt; di tutti i danni non magici da [1], [2] e [3].</content>
+  <content contentuid="h312b368fgf5f9gab57g51b4gf5b7a569017a" version="1">13 - La Morte</content>
+  <content contentuid="h718218cag1da8gb8c6g6b87g1756dcd6c412" version="5">Sei diventato l'Aspetto del Dolore.&lt;br&gt;&lt;br&gt;La tua &lt;LSTag Tooltip="Constitution"&gt;Costituzione&lt;/LSTag&gt; aumenta di [1], e puoi lanciare &lt;LSTag Type="Spell" Tooltip="Shout_IND_HowlOfTheDead_EX"&gt;Ululato della Morte&lt;/LSTag&gt;.</content>
+  <content contentuid="h9c70f653g99edg7788g3d15gc16642476a64" version="2">Reame della Morte: Sovrano della Tomba</content>
+  <content contentuid="h0deb2f19gc48bg9372g8836g786b19d5e8bb" version="1">Richiama dal reame della morte fino a 3 scheletri specializzati nel combattimento a distanza.</content>
+  <content contentuid="h0500c21dg2f9eg82abgd9f9g5ed72c8c804e" version="1">Ululato della Morte</content>
+  <content contentuid="h27ab23acgfffcgd987ga506g041fdb961f1d" version="1">Emetti un ululato agghiacciante che &lt;LSTag Type="Status" Tooltip="MOO_MAG_KETHERIC_STUPEFIED"&gt;Intorpidisce&lt;/LSTag&gt; tutte le creature vicine.</content>
+  <content contentuid="hfbd150bfg3e7bg4183gf9a7gde72809241a0" version="1">Emopiaga: Divoratore di Cervelli</content>
+  <content contentuid="he3fb611eg67feg97aeg8efdge4e81b2b111f" version="2">Puoi infettare una creatura con una malattia che la trasforma in uno zombie.</content>
+  <content contentuid="h9e89f3f4gb0a9g0974ga280gb58c7a39b361" version="1">Emopiaga: Divoratore di Cervelli</content>
+  <content contentuid="h35dba62cgbc67gd6d6gfbb0g6a8a4e88225f" version="1">Il bersaglio è infettato dalla malattia &lt;LSTag Type="Status" Tooltip="CRAWLING_GNAW_SWITCH"&gt;Rodimento Strisciante&lt;/LSTag&gt;.</content>
+  <content contentuid="hce0e0836g6fefgfe3eg4efag44b9d0411f6b" version="1">%%% EMPTY</content>
+  <content contentuid="h73a45314gc73cg2375gf20eg45b9d8771647" version="1">%%% EMPTY</content>
+  <content contentuid="h77babee2ga01cgfd02g87d6gb52c4962ee9c" version="1">%%% EMPTY</content>
+  <content contentuid="hbc25d2f6g7041ge67age822gf933362082c9" version="1">%%% EMPTY</content>
+  <content contentuid="h38adee27gd8f6g3ad1g7cddgb631765f1d57" version="1">%%% EMPTY</content>
+  <content contentuid="hf8dcafa0g2f72g1169g3bbeg8fdc35798db9" version="1">%%% EMPTY</content>
+  <content contentuid="h35b60e43gff04gac9dgb6abg16b15343028e" version="1">%%% EMPTY</content>
+  <content contentuid="h3885797egcf5cg290ag79adg6ddb1438505b" version="1">3 - L'Imperatrice</content>
+  <content contentuid="h499c49fcgb971g1d87gf2f2g92fa28c06637" version="1">3 - L'Imperatrice</content>
+  <content contentuid="h0f62d1c8g8980gedbbg76ddg264ca2b1238a" version="1">17 - La Stella</content>
+  <content contentuid="h61ea75beg1203gb416gc68fgb1b3a4690e96" version="1">13 - La Morte</content>
+  <content contentuid="h7595f02ag65c1g799dg2737g477a21fc0df5" version="1">17 - La Stella</content>
+  <content contentuid="hc5fef976g7380g34e1g0a13g935ce7e83d75" version="1">3 - L'Imperatrice</content>
+  <content contentuid="h9865c597ge695g0333ga73bg52a27215c862" version="1">0 - Il Matto</content>
+</contentList>

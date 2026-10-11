@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Dexterity;Intelligence"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
+                    <attribute id="UUID" type="guid" value="7632c647-7773-4402-9ceb-b59d8dadbbac"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Intelligence;Charisma"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
+                    <attribute id="UUID" type="guid" value="05989372-abc0-4599-977e-9818b426e6b8"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Wisdom;Intelligence"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="464a3bfd-859a-43d5-a20d-d6a9270ce6eb"/>
+                    <attribute id="UUID" type="guid" value="c2fd9930-2ff0-4888-830e-518636f1111a"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Constitution;Intelligence"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="b5a43d76-fd80-4c29-b149-7690e1e1e18f"/>
+                    <attribute id="UUID" type="guid" value="773aa843-849e-4cf7-b886-35f9d68ef73c"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Intelligence;Wisdom"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
+                    <attribute id="UUID" type="guid" value="f354c70e-c34e-44b1-8e51-42f9cfff9ea6"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Intelligence;Charisma"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
+                    <attribute id="UUID" type="guid" value="b12e3a18-3baa-4a3a-9934-7d4db45efebf"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Constitution;Intelligence"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="7643bf5a-62fa-44c4-ab73-572e655554d2"/>
+                    <attribute id="UUID" type="guid" value="22551513-7ce1-43e0-b25c-d8c1ea4e7f1e"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

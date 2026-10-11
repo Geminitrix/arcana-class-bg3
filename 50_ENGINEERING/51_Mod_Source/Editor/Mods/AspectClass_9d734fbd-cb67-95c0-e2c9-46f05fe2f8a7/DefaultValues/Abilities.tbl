@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="f01245cf-d242-4f5b-af85-f795d310ac2c">
+  <stat_objects>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="7632c647-7773-4402-9ceb-b59d8dadbbac" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Dexterity;Intelligence" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Unbound Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFFF69B4" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="05989372-abc0-4599-977e-9818b426e6b8" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Intelligence;Charisma" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Deceiver Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6495ED" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c2fd9930-2ff0-4888-830e-518636f1111a" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="464a3bfd-859a-43d5-a20d-d6a9270ce6eb" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Wisdom;Intelligence" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Starchild Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF228B22" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="773aa843-849e-4cf7-b886-35f9d68ef73c" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="b5a43d76-fd80-4c29-b149-7690e1e1e18f" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Constitution;Intelligence" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Eternal Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFFA8072" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f354c70e-c34e-44b1-8e51-42f9cfff9ea6" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Intelligence;Wisdom" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Resonant Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF008080" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="b12e3a18-3baa-4a3a-9934-7d4db45efebf" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Intelligence;Charisma" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Spinner Default Abilities" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFA52A2A" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="22551513-7ce1-43e0-b25c-d8c1ea4e7f1e" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="7643bf5a-62fa-44c4-ab73-572e655554d2" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Constitution;Intelligence" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Titan Default Abilities" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

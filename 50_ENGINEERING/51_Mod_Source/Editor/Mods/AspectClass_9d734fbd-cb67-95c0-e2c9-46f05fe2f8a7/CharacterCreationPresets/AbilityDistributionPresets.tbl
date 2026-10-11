@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="fdd75d80-796f-401a-ac7d-faf77bfe5464">
+  <stat_objects>
+    <stat_object color="#FFFF69B4" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_13" />
+        <field name="UUID" type="IdTableFieldDefinition" value="be230978-7458-4157-9c4a-acc1df8d15ec" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="4831bb91-b13e-4740-b205-0227dbdddd12" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Deceiver INT / CHA" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6495ED" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="af937d9f-a1ba-499d-af82-964896e1420c" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="31b64a26-a650-4ef1-aeec-c2872f48ec14" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Starchild INT / WIS" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e611f20a-75c8-47ac-8323-c9e65898c1ec" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="dc2e68d3-5577-4a9f-be4f-1a71707c1995" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Unbound INT / DEX" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6B8E23" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d4c53470-66dd-413a-96f4-e0c246aaaa99" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="c229d522-d294-43e1-8a05-1967e15c17e8" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Eternal INT / CON" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFE9967A" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="49685db3-953d-48e0-b570-1ddbd0aecd36" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="4d95b491-8ba9-d55f-7d28-7550e4369c95" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Resonant INT / WIS" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF008080" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6d9d9bc2-5b07-4909-8001-d19123561a19" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="bf046347-57d5-4774-87a6-13a4ebdddb0a" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="Spinner CHA / DEX" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFA52A2A" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ad784f71-735e-4d91-97ec-49087757a4a2" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="4aeb16da-0119-4ba3-98df-34a0c1517be9" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="13" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="TITAN STR / DEX" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

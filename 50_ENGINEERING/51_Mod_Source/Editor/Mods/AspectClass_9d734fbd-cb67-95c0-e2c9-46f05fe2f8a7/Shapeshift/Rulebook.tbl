@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="4a20cc05-eed3-46b0-bd19-62b9954ffd5e">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="3eb3fee7-67b4-46b5-a81a-2ac2da66bff7" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="FacelessCopy" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="False" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="False" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="False" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="Weight" type="ModifierTableFieldDefinition">
+          <modifier value="" type="Template" />
+        </field>
+        <field name="RetainCanSeeThrough" type="BoolTableFieldDefinition" value="True" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="21aacde3-d14d-7a32-7dbb-5418cc3bdf9d" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot3" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot3;Target_Deceiver_Double_MirrorChains_Slot3" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot4" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot4;Target_Deceiver_Double_MirrorChains_Slot4" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot5" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5;Target_Deceiver_Double_Unveil" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot6" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6;Target_Deceiver_Double_Unveil" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot5_NoUnveil" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot5_NoUnveil" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot6_NoUnveil" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot6_NoUnveil" />
+        <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+        <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeBodyType" type="BoolTableFieldDefinition" value="True" />
+        <field name="UseShapeshiftIdentity" type="BoolTableFieldDefinition" value="False" />
+        <field name="ApplyVisual" type="BoolTableFieldDefinition" value="True" />
+        <field name="IgnoreCustomLooks" type="BoolTableFieldDefinition" value="False" />
+        <field name="RetainDisplayName" type="BoolTableFieldDefinition" value="True" />
+        <field name="ChangeIcon" type="BoolTableFieldDefinition" value="True" />
+        <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
+        <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
+        <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6" />
+        <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
+        <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
+        <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
+        <field name="DefaultBoostsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="SpellCastingAbilityInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceTypeNoMerge" version="1" />
+        <field name="PassivesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ResistancesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="DifficultyStatusesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="PersonalStatusImmunitiesInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="ProficiencyGroupsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
+        <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
+        <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

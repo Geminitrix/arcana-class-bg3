@@ -50,7 +50,7 @@ New here? Read `CLAUDE.md`, `AGENTS.md`, then `05_LIVE_CONTEXT/05.00_READ_FIRST.
 
 ## Migration status
 
-Stage A (skeleton) done on 2026-10-11. Content is being copied from `_LEGACY/` (local only) in Stage B —
+Stages A (skeleton) and B (copy migration, first live-context load) done on 2026-10-11. Next: Stage C (standards) —
 see `00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`.
 
 ## Credits & disclaimer

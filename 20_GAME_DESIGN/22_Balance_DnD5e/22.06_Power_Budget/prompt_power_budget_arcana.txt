@@ -1,0 +1,252 @@
+Atue como um Game Designer especialista em balanceamento de sistemas para Baldur's Gate 3 (D&D 5e), com experiência em mods de classe.
+
+Seu objetivo é criar um esquema completo de balanceamento baseado em "Orçamento de Poder" (Power Budget). Atribua valores numéricos (pontos positivos para benefícios e negativos para custos/requisitos/limitações) a cada elemento mecânico do jogo, de modo que seja possível somar os pontos de uma habilidade, magia, passiva, item, subclasse ou classe e determinar se ela está balanceada, fraca ou forte.
+
+O esquema será usado principalmente para balancear o meu mod de classe "The Arcana" (detalhes no bloco ARCANA abaixo), mas deve funcionar também para conteúdo vanilla, que serve de régua de comparação.
+
+==================================================
+REGRAS DO ESQUEMA (leia antes de atribuir valores)
+==================================================
+
+A. Âncora da unidade: defina o que vale 1 ponto. Sugestão: 1 ponto ≈ 1 de dano médio esperado contra 1 alvo, já descontada a chance de acerto. Converta todo o resto (controle, cura, defesa, mobilidade) para essa mesma moeda e mostre a conversão.
+
+B. Referências de calibração: calibre a tabela para que estes casos fiquem perto de "balanceado" e mostre a soma de cada um:
+   - Fire Bolt (cantrip de ataque, 1d10, alvo único)
+   - Magic Missile (nível 1, acerto automático, força)
+   - Burning Hands (nível 1, cone, teste de DEX com metade no sucesso)
+   - Hold Person (nível 2, controle forte com concentração e novo teste por turno)
+   - Fireball (nível 3, referência de área)
+   Os valores vanilla citados precisam ser conferidos no jogo; não invente números vanilla.
+
+C. Suposições de "dia de aventura": declare e use explicitamente
+   - E = encontros por descanso longo (sugestão: 4)
+   - T = turnos por encontro (sugestão: 3 a 4)
+   - R = descansos curtos por descanso longo (BG3: até 2)
+   - Número médio de alvos numa área (sugestão: 2 a 3), e quanto isso muda com E e alvos diferentes.
+
+D. Chance de sucesso: use CA e CD típicas por tier (ex.: CA inimiga 13/15/17, bônus de resistência +2/+4/+6) e mostre a fórmula:
+   - Ataque: p = (21 − (CA − bônus)) / 20, limitado a [0,05; 0,95]
+   - Teste de resistência: p_falha = (CD − bônus − 1) / 20
+   - Vantagem: 1 − (1 − q)²
+
+E. Custo vs frequência: o valor total de algo = valor por uso × usos por dia (U). Tabela de U:
+   1x/turno ≈ E×T (limitado pela ação), 1x/combate ≈ E, 1x/descanso curto ≈ R+1, 1x/descanso longo = 1.
+   Quando um efeito tem recurso E cooldown ao mesmo tempo, conte os dois limitadores, mas avise se estiverem sobrepostos (efeito fica abaixo da curva).
+
+F. Faixas de veredito: defina uma tolerância (ex.: ±10% do teto = balanceado; +10% a +25% = forte; acima de +25% = quebrado; −10% a −25% = fraco; abaixo de −25% = armadilha).
+
+G. Na dúvida, erre para o fraco. Uma opção fraca só é ignorada; uma forte anula todas as outras da lista.
+
+==================================================
+CATEGORIAS DE VARIÁVEIS
+==================================================
+
+1. Economia de Ação
+- Ação Principal
+- Ação Bônus
+- Reação (e negar a reação do alvo)
+- Movimento (custo por metro; Dash, Disengage, Jump)
+- Ações Livres / Interrupts (gatilhos automáticos vs. prompt de reação)
+- Ação extra (efeitos tipo Haste / Action Surge)
+- Ataque Extra (Extra Attack) e ataques adicionais por ação bônus
+- Magias rituais / uso fora de combate (sem custo de ação relevante)
+- Magia lançada como ação bônus (custo de oportunidade: no BG3 não há a regra de "só cantrip na ação principal" — confirme e explique o impacto)
+
+2. Recursos e Recargas (Custos e Frequência)
+- Uso Ilimitado (à vontade / cantrip)
+- Cooldown por turnos (1 turno, 2 turnos, 3+ turnos)
+- 1x por turno / 1x por combate
+- Cargas por Descanso Curto
+- Cargas por Descanso Longo
+- Slots de Magia (níveis 1 ao 6)
+- Recursos de Classe (Pontos de Feitiçaria, Fúria, Ki, Superioridade, Canalizar Divindade, Cargas Especiais)
+- Custo de Vida Própria (auto-dano, sacrifício de PV, gastar Dados de Vida)
+- Recurso que só existe em combate (some ao final do combate)
+- Recurso gerado por uso (a habilidade gera recurso ao ser usada = feedback positivo)
+- Reembolso de recurso (recuperar parte do custo ao lançar)
+- Custo zero ocasional (próxima magia grátis)
+- Recuperação de recurso no descanso curto (tipo Arcane Recovery)
+- Custo de componente/consumível (pergaminho, poção, material)
+- Taxa de câmbio entre recursos (ex.: quantas unidades de recurso de classe valem 1 slot de nível N)
+
+3. Dano e Ofensiva
+- Dano médio por dado (1d4 = 2,5 / 1d6 = 3,5 / 1d8 = 4,5 / 1d10 = 5,5 / 1d12 = 6,5)
+- Modificadores fixos (+1, +2, modificador de atributo somado ao dano)
+- Tipos de dano e frequência de resistência no BG3 (Físico / Veneno / Fogo / Frio / Relâmpago / Trovão / Ácido / Necrótico / Radiante / Força / Psíquico)
+- Ignorar resistência / imunidade
+- Acerto automático (nunca erra)
+- Crítico: faixa ampliada (19-20), dados extras no crítico, crítico automático em alvos paralisados/adormecidos
+- Escalonamento (upcast por nível de slot, scaling por nível de personagem ou de classe, scaling por modificador)
+- Alvo Único vs Múltiplos Alvos (2, 3, projéteis distribuíveis) vs Área de Efeito (Cone, Raio/Esfera, Linha, por tamanho)
+- Fogo amigo (área que atinge aliados: custo)
+- Dano ao entrar/terminar o turno numa zona
+- Dano extra condicional (vs. marcado, vs. condição, vs. tipo de criatura)
+- Execução / dano bônus em alvo com pouca vida
+- Alcance (toque, corpo a corpo 1,5 m, 9 m, 18 m) e necessidade de linha de visão
+
+4. Defesa e Sobrevivência
+- Vida Máxima / Dado de Vida (d6, d8, d10, d12) e PV extras por nível
+- Vida Temporária
+- Cura instantânea vs. por turno (regeneração) vs. roubo de vida
+- Reviver / impedir a morte / cair com 1 PV
+- Classe de Armadura (bônus fixo, CA mínima, bônus por reação tipo Shield)
+- Resistências, Imunidades e Vulnerabilidades (por tipo de dano e por condição)
+- Vantagem/Desvantagem em testes de resistência (e proficiência em testes)
+- Evasão (nenhum dano no sucesso de DEX)
+- Imagens / desvio de ataques (Mirror Image, Blink, Deflect Missiles)
+- Redução de dano fixa
+- Desvantagem para quem te ataca
+- Proteção de concentração (vantagem em testes de concentração, War Caster)
+- Proteger aliados / dividir dano (Warding Bond)
+
+5. Condições, Controle de Grupo (CC) e Efeitos
+- Hard CC: Paralisado, Atordoado, Incapacitado, Banido, Adormecido, Petrificado, Enfeitiçado (inimigo vira aliado / ataca aliados)
+- Soft CC: Caído, Cego, Amedrontado, Lento, Silenciado, Enraizado/Preso, Off Balance, Enjoado, perder a reação
+- Debuffs / Buffs numéricos (+1d4/−1d4 em ataques e testes, ±CA, ±CD)
+- Marcação / revelar invisíveis / impedir esconder
+- Negar cura
+- Quebrar concentração do inimigo
+- Dano Contínuo (DoT: Sangrando, Queimando, Envenenado, Ácido)
+- Requisito de Concentração (custo de ocupar o slot de concentração vs. sem concentração; risco de perder ao tomar dano)
+- Duração do efeito (1 turno, 2-3 turnos, 10 turnos/combate inteiro, até Descanso Longo)
+- Novo teste a cada turno (duração esperada ≈ 1 / chance de o alvo passar, com teto)
+- Efeito que termina ao tomar dano (Sleep, Hideous Laughter)
+- Restrição de alvo: só humanoides, limite por PV total (Colour Spray / Sleep), tamanho, imunidade comum (mortos-vivos, constructos, imunes a charme/medo)
+- Efeito aleatório (tabela de buffs/debuffs, chance por projétil): valor esperado + pior caso comum
+
+6. Resolução e Confiabilidade
+- Jogada de ataque vs. Teste de resistência (FOR, DES, CON, INT, SAB, CAR), com o peso de cada teste conforme o bônus médio dos inimigos do BG3
+- Efeito em sucesso (metade do dano, efeito parcial, anulado completamente)
+- Vantagem/Desvantagem garantida na rolagem
+- Acerto garantido / falha garantida no próximo teste
+- Manipulação de dados (Portent, rolar de novo, substituir resultado)
+- Resistência Lendária / chefes (desconto no valor de controle forte contra chefes)
+- Bônus/penalidade de CD e ataque mágico
+
+7. Interação Ambiental
+- Criação de superfícies (Fogo, Gelo, Ácido, Água, Graxa, Eletrificada, Veneno, Sangue, Névoa/Nuvem)
+- Efeitos de superfície (escorregar, Molhado dobra relâmpago/frio, fogo em graxa, apagar fogo)
+- Terreno difícil
+- Empurrão / puxão / deslocamento forçado (valor extra se houver queda ou superfície perigosa)
+- Queda e dano de queda, vantagem de altura
+- Escuridão, obscurecimento e luz
+- Paredes e bloqueio de passagem (divisão do campo de batalha)
+- Zonas persistentes (quantos turnos) e armadilhas ativadas por inimigo
+- Limite de efeitos simultâneos ativos (ex.: máx. 2 glifos)
+
+8. Mobilidade e Posicionamento
+- Teletransporte (alcance, precisa de linha de visão, leva aliados)
+- Voo / levitar
+- Salto ampliado, escalar
+- Troca de posição com aliado/inimigo
+- Movimento sem provocar ataque de oportunidade
+
+9. Invocações e Companheiros
+- Invocação que age no turno próprio (valor ≈ ações extras por combate)
+- PV e CA da invocação, duração, limite de invocações
+- Familiar (ajuda/distração, exploração)
+- Clones e cópias (inclusive cópia de magias)
+
+10. Passivas e Gatilhos
+- Sempre ativa vs. condicional
+- Gatilho ao acertar / ao lançar magia / ao matar / ao ser atingido / no início do turno
+- Limite de gatilho (1x por turno etc.)
+- Empilhamento (a passiva soma com outras? com ela mesma?)
+- Sinergia / combo com outras habilidades da classe (custeie no melhor caso, descontando o custo de montar o combo)
+
+11. Utilidade Fora de Combate (peso reduzido, mas não zero)
+- Diálogo e testes sociais (Telepatia, Charm, disfarce)
+- Exploração (detectar, destrancar, invisibilidade, Feather Fall)
+- Ritual sem custo
+- Escolha que substitui um item ou um companheiro
+
+12. Progressão por Tiers de Nível
+O Arcana vai até o nível 20, então inclua 5 tiers:
+- Tier 1 (níveis 1-4)
+- Tier 2 (níveis 5-8)
+- Tier 3 (níveis 9-12, teto do vanilla)
+- Tier 4 (níveis 13-16, mods de nível 20)
+- Tier 5 (níveis 17-20, capstones)
+Para cada tier, sugira: teto de orçamento por habilidade, teto por turno (dano por rodada de referência de uma classe vanilla bem aceita, ex.: Wizard/Sorcerer), e o orçamento total esperado da classe.
+Considere também os marcos de poder: feats (níveis 4, 8, 12, 16, 19), Ataque Extra (5), novos níveis de magia, e a regra de não empilhar desbloqueios grandes no mesmo nível.
+
+==================================================
+BLOCO ARCANA (variáveis específicas do meu mod)
+==================================================
+
+Contexto: "The Arcana" é uma classe custom de BG3, temática da Trama/Mystra e dos Arcanos Maiores (sem citar tarô diretamente). Classe base com núcleo de Adivinhação (Portent no nível 2, Expert Divination no nível 4). Quatro subclasses, cada uma com seu atributo de conjuração:
+- Deceiver (CAR) — ilusão, charme, cópias (Faceless: Copy, Mirrored Self/Spell, Hollow Image, Mental Prison, Hostile Takeover, Terrify)
+- Starchild (SAB) — evocação, cura e radiante (Starcall, Star Radiance, Astral Fortitude, Lunar Aegis, Stellar Grace, Cosmic Omen, Lunar Wisp)
+- Unbound (DES) — monge arcano, mobilidade e ataques desarmados (Flow State, Storm Fists, Evasive Flow, Deflect Missiles, Momentum, Eye of the Storm, Empty State)
+- Eternal (CON) — necromancia, sangue e tanque corpo a corpo (Death's Grasp, Transfusion, Hemoplague, Hemorrhage, Realm of Death, Immortal Blood, Unbroken, Extra Attack no 5)
+
+Restrição de implementação: o mod precisa ser compatível com console, então nada de Script Extender. Marque qualquer ideia que dependa dele como inviável.
+
+A1. Arcane Cards (recurso principal, interno: ArcaneEssence)
+- Quantidade: 8 no nível 1, +2 por nível (12 no 3, 16 no 5, 24 no 9, 46 no 20)
+- Recarrega no descanso longo
+- Arcane Recovery: 1x por descanso curto, recupera 2 × nível de Arcana
+- Arcane Overflow (nível 14): recupera 1 carta sempre que lança uma magia (reembolso)
+- Arcane Mastery (nível 16): a próxima magia Arcana custa 0 cartas, 1x por descanso longo
+- A classe tem 1 slot de magia nível 1 só no nível 1 (removido no nível 2); todo o resto usa cartas
+- Custo atual por nível original da magia: cantrip 0 · nível 1 = 1 · nível 2 = 2 · nível 3 = 2 a 3 (3 se for controle em área) · nível 4 = 3 · nível 5-6 = 4 (teto, igual a Hemorrhage e Realm of Death)
+- Tessituras (metamagia do próximo patch): custo extra em cartas por cima do custo da magia, 1 por magia e 1x por turno (Careful/Distant/Extended/Transmuted/Empowered = 1; Heightened/Quickened = 3)
+Peça: valor em pontos de 1 Arcane Card; taxa de câmbio Card ↔ slot de magia de nível N (compare com Pontos de Feitiçaria do Sorcerer); se a curva de custo 0/1/2/2-3/3/4 está linear, triangular ou achatada demais no topo; e o impacto do Overflow (feedback positivo) e do Recovery no orçamento diário.
+
+A2. Arcane Shards (recurso secundário, só em combate)
+- Desbloqueio no nível 13
+- Em combate, sempre que lança uma magia Arcana, ganha Shards iguais ao nível da magia
+- Não recarrega com descanso e zera ao fim do combate (recurso de "construção" dentro da luta)
+- Gasto nas versões EX (aprimoradas) das habilidades de subclasse, liberadas nos níveis 13, 15, 17 e 19, e nos capstones do nível 20 (The Fool, The Empress, The Star, Death). Custos atuais entre 1 e 6 Shards, com Ação, Ação Bônus ou Reação.
+- Também usado em reações (ex.: Deflect Missiles EX = Reação + 1 Shard; Hollow Image = Reação + 2 Shards + carga por turno)
+- Selo da Senhora dos Mistérios (ideia do patch): 3 Shards, 1x por descanso curto, reação que anula magia inimiga e devolve 1 Card
+Peça: valor de 1 Shard; ritmo esperado de geração por turno (depende do nível médio das magias lançadas); em que turno do combate cada EX fica disponível; se o fato de zerar ao fim do combate justifica um desconto no custo; e o risco de loop (magia gera Shard → EX forte → mais magias).
+
+A3. Outras cargas e limitadores da classe
+- GaleDeflectMissiles_Charge (Unbound): recarrega no descanso curto
+- HollowImage_Charge (Deceiver): recarrega por turno
+- Portent (dados pré-rolados) e Expert Divination (recuperação ao gastar slot/carta, conferir comportamento no mod)
+- Cosmic Omen (Starchild), recarga no descanso
+- Status "usado" que limita 1x por descanso longo (ex.: ARCANE_MASTERY_USED)
+
+A4. Listas de escolha do próximo patch ("escolha N")
+Listas: Hand (3), Sentimentos (2 ou 3), Sensações (2), Tessituras (2), Glifos (2, máx. 2 ativos, 2 cartas cada), Muralhas (1, todas com concentração), Destino (1-2), Tempo (1-2), Elementos (1 pacote), Mistérios (1 no nível 15 e 1 no 19). Troca de 1 escolha por lista ao subir de nível.
+Regras a incluir no esquema:
+- A força de uma lista = força das N melhores opções (o jogador escolhe as melhores)
+- Opções da mesma lista devem ficar com valor parecido; mostre qual seria "armadilha"
+- Opção que repete algo que a subclasse já tem vale menos para ela (retorno decrescente)
+- Opção que imita a identidade de uma subclasse tem custo de design (reduz o valor daquela subclasse)
+- Poder trocar a escolha ao subir de nível aumenta o valor de opções de nicho
+- Valor da versatilidade (mais escolhas = mais poder e mais adaptação)
+
+A5. Afinidade de Escola
+Cada subclasse tem uma escola fixa (Deceiver = Ilusão, Starchild = Evocação, Unbound = Transmutação, Eternal = Necromancia) e a classe base escolhe 1 escola extra (Abjuração, Conjuração ou Encantamento). Bônus em avaliação: (A) −1 carta no custo, mínimo 1; ou (B) +1 na CD e no ataque mágico. Compare as duas opções em pontos por dia.
+
+A6. Efeitos customizados do mod que precisam de peso
+Sete Estrelas (7 projéteis de 1d4 força que nunca erram, cada um com um efeito de escola), Glifos com efeito extra (−2 CA, gelo, Queimando, salto de relâmpago, empurrão, Off Balance, Enraizado, Marcado, Farol), Rasgo na Trama (zona anti-magia), Eco de Magia (50% do dano no próximo turno), Pressentimento, Fio do Destino, Destino Selado, Roda da Fortuna, Déjà Vu, Retroceder, Pausa, Fogo Prateado.
+
+==================================================
+FORMATO DE ENTREGA
+==================================================
+
+1. Uma seção por categoria (1 a 12 + bloco Arcana), cada uma com uma tabela Markdown com as colunas:
+   [Elemento Mecânico] | [Valor em Pontos / Peso] | [Justificativa do Peso]
+   Quando o valor depender de algo (nível, número de alvos, duração), use fórmula em vez de número fixo.
+
+2. Uma tabela de modificadores multiplicadores (ex.: concentração ×0,8, área ×alvos esperados, teste com metade no sucesso ×0,75) separada dos valores somados, explicando quando somar e quando multiplicar.
+
+3. A fórmula final da planilha, passo a passo:
+   Valor = (benefício base × multiplicadores de alvo/duração/confiabilidade) − custos de ação − custos de recurso − limitações
+
+4. Tabela de tetos por tier (1 a 5) com as faixas de veredito (fraco / balanceado / forte / quebrado).
+
+5. Exemplos resolvidos mostrando a conta completa:
+   - as 5 referências vanilla da regra B;
+   - 3 habilidades do Arcana: Sete Estrelas, Glifo de Raízes e Rasgo na Trama;
+   - 1 versão EX paga em Shards (escolha uma e diga quais suposições usou).
+
+6. Lista de riscos: loops de recurso, combos, extremos (nível 1 e nível 20), multiclasse (o esquema deve assumir a classe pura e avisar onde multiclasse quebra a conta).
+
+7. Plano de playtest: encontros padronizados (1 contra 1, em inferioridade, em superioridade), métricas a coletar (dano por turno, turnos para vencer, cartas e Shards restantes ao fim do combate e do dia, taxa de escolha de cada opção das listas) e o critério que confirmaria ou refutaria cada peso.
+
+Declare todas as suposições no início. Marque com "(conferir no jogo)" qualquer valor vanilla que você citar.

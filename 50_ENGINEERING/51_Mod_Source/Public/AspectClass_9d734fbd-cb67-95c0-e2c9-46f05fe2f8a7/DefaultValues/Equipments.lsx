@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="ARM_Instrument_Violin"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="SelectorId" type="LSString" value="BardInstrument"/>
+                    <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
+                    <attribute id="UUID" type="guid" value="1ff164ca-46bb-4aeb-b7ee-4fd08368cf67"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

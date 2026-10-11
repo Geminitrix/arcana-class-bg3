@@ -1,0 +1,72 @@
+PATCH NOTES 3.1.0.28 - 2026.09.07
+
+[General]
+Adjusted
+- Status "Comprehend Languages" no longer appears in the Combat Log
+- Status "Detect Supernatural" no longer appears in the Combat Log
+- Status "Third Eye" no longer appears in the Combat Log
+- Status "Dispel Magic" no longer appears in the Combat Log
+- Passive "Gale Deflection" description reference updated: "Arcane Essence" -> "Arcane Card"
+New
+- Spells "Arcane Hand" and "Comprehend Languages" added to Level 1 Character Creation UI
+- Passive "Arcane Spells" to display the Spellcasting Ability
+
+[Arcana]
+New
+- Spell "Arcane Familiar"
+- Action Resource "Arcane Shards"
+- Passive "Arcane Shards" - Lvl 13
+- Passive "Arcane Overflow" - Lvl 14
+- Passive "Arcane Mastery" - Lvl 16
+- Passive "Arcane Veil" - Lvl 18
+- Passive "Arcane Avatar" - Lvl 20
+Adjusted
+- Spell "Arcane Hand" target distance: 9m -> 18m
+- Spell "Third Eye: Projection" target distance: 9m -> 18m
+
+[Deceiver]
+New
+- Spell "Faceless: Rival's Mask" - Lvl 13
+- Spell "Hostile Takeover: Coup d'État" - Lvl 15
+- Spell "Hollow Image: Final Veil" - Lvl 17
+- Spell "Mirror Image: Hall of Mirrors" - Lvl 19
+- Spell "Friends: Faux Amis" - Lvl 20
+- Passive "3 — The Empress" - Lvl 20
+Adjusted
+- Spell "Mental Prison" cooldown: None -> Short Rest
+- Spell "Mimic" description updated
+
+[Starchild]
+New
+- Spell "Starcall: Guiding Star" - Lvl 13
+- Spell "Star Radiance: Celestial Chorus" - Lvl 15
+Adjusted
+- Status "Rejuvenation": Arcana Level + Wisdom Modifier -> Wisdom Modifier only
+- Spell "Wish" cooldown: None -> Combat
+- Spell "Astral Infusion": now only lose 10% of your health if you don't have Rejuvenation
+- Spell "Astral Fortitude": range 18m -> 6m; now requires concentration; no longer affects yourself
+
+[Unbound]
+New
+- Passive "Twinkle Toes" - Lvl 13, 15, 17, 19, 20
+- Spell "Evasive Flow: Fool's Gale" - Lvl 13
+- Spell "Flow State: Inner Tempest" - Lvl 15
+- Spell "Storm Fists: Tempest's Edge" - Lvl 17
+- Spell "Gale Deflection: Tempest Riposte" - Lvl 19
+- Passive "0 — The Fool" - Lvl 20
+Adjusted
+- Passive "Weightless" -> renamed "Feather Fall", now also increases Jump distance
+
+[Eternal]
+New
+- Spell "Transfusion: Deathless Exchange" - Lvl 13
+- Spell "Death's Grasp: Reaper's Pull" - Lvl 15
+- Passive "Unbroken: Physical Resilience" - Lvl 17
+- Passive "Hemoplague: Brain Eater" - Lvl 17
+- Spell "Realm of Death: Sovereign of the Grave" - Lvl 19
+- Passive "13 — Death" - Lvl 20
+Adjusted
+- Passive "Unbroken": resistance threshold: above 50% HP -> above 80% HP
+
+[Bugfixes]
+- The Eternal was missing its class TAG -> now correctly has the Paladin of Mystra TAG

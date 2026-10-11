@@ -1,0 +1,264 @@
+# ===== Death (Eternal) =====
+@loca DEATH_AWAKE_NAME 13 - Death: Awakening
+@loca DEATH_AWAKE_DESC Lose <LSTag Tooltip="HitPoints">hit points</LSTag> during a fight to awaken the Aspect of Sorrow until combat ends. Healing doesn't undo the loss. Each goal you reach awakens one more tier.<br><br>Level 3: lose 30% of your hit point maximum to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Death_I">Sorrow</LSTag>.<br><br>Level 7: lose 50% to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Death_II">Mourning</LSTag>.<br><br>Level 12: lose 70% to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Death_III">Aspect of Sorrow</LSTag>.
+@loca DEATH_I_NAME Sorrow
+@loca DEATH_I_DESC You emanate <LSTag Type="Status" Tooltip="DARKNESS_RISE_AURA">Darkness Rise</LSTag>.
+@loca DEATH_II_NAME Mourning
+@loca DEATH_II_DESC The first time you would drop to 0 <LSTag Tooltip="HitPoints">hit points</LSTag>, you drop to 1 instead, and an isolated enemy within [1] of you has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against you.
+@loca DEATH_II_EXTRA An enemy is isolated when it is the only enemy within [1] of you and none of its allies is within [2] of it.
+@loca DEATH_III_NAME Aspect of Sorrow
+@loca DEATH_III_DESC Your Constitution increases by [1]. Once per turn, when a hostile creature dies within [2] of you, you gain an additional action.
+@loca DEATH_AWAKENED_NAME 13 - Death
+@loca DEATH_AWAKENED_DESC Awakened as the Aspect of Sorrow until combat ends.
+@loca DEATH_PROGRESS_NAME Awakening Progress
+@loca DEATH_PROGRESS_DESC Progress towards your next Awakening tier, in percent.
+@loca MOURNING_NAME Mourning
+@loca MOURNING_DESC The first time this creature would drop to 0 <LSTag Tooltip="HitPoints">hit points</LSTag> during this fight, it drops to 1 instead.
+@loca DREAD_NAME Dread
+@loca DREAD_DESC Isolated and afraid. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against the Eternal.
+@loca HARVEST_NAME Harvest
+@loca HARVEST_DESC Has an additional action.
+@loca FINALTOLL_NAME The Final Toll
+@loca FINALTOLL_DESC Turn your suffering on a foe, dealing [1] equal to the <LSTag Tooltip="HitPoints">hit points</LSTag> you have lost this combat, up to half your hit point maximum. A creature killed this way rises as a zombie.
+@loca BLOOD_NAME Blood Offering
+@loca BLOOD_DESC Open your veins to the dark. Lose a tenth of your hit point maximum, and your Arcane spells deal an additional [1] until the end of your turn.
+@loca BLOOD_STATUS_DESC Arcane spells deal an additional [1].
+@loca h91f28c87g52b1g5bccg9ba6g7f8c47b3c9e1 Death is your domain. Protect an ally from it. The next time damage would reduce the ally to 0 <LSTag Tooltip="HitPoints">hit points</LSTag>, they remain conscious with 1 hit point left.
+
+@file Passive
+@section ETERNAL PASSIVES
+
+@remove Arcana_Passive_DarknessRise
+
+# so UI: explica o objetivo do Despertar; a contagem continua no Tier I e no Osiris
+new entry "Arcana_Passive_Aspect_Death_Awakening"
+type "PassiveData"
+data "DisplayName" "{{DEATH_AWAKE_NAME}}"
+data "Description" "{{DEATH_AWAKE_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_Death_I"
+type "PassiveData"
+data "DisplayName" "{{DEATH_I_NAME}}"
+data "Description" "{{DEATH_I_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_Death_II"
+type "PassiveData"
+data "DisplayName" "{{DEATH_II_NAME}}"
+data "Description" "{{DEATH_II_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "ExtraDescription" "{{DEATH_II_EXTRA}}"
+data "ExtraDescriptionParams" "Distance(3);Distance(6)"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_Death_III"
+type "PassiveData"
+data "DisplayName" "{{DEATH_III_NAME}}"
+data "Description" "{{DEATH_III_DESC}}"
+data "DescriptionParams" "3;Distance(9)"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_Death_Awakened_III"
+type "PassiveData"
+data "DisplayName" "{{DEATH_III_NAME}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "Properties" "IsHidden"
+data "BoostConditions" "HasPassive('Arcana_Passive_Aspect_Death_III', context.Source);"
+data "Boosts" "Ability(Constitution,3);"
+
+@file Status_BOOST
+@section ETERNAL STATUS
+
+@remove DARKNESS_RISE_ACTIVE
+@remove DARKNESS_RISE_TECH_1
+@remove DARKNESS_RISE_TECH_2
+
+new entry "ASPECT_PROGRESS_DEATH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DEATH_PROGRESS_NAME}}"
+data "Description" "{{DEATH_PROGRESS_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "StackId" "ASPECT_PROGRESS_DEATH"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+# sem StatusEffect: o Tier I e a aura do Darkness Rise, que ja tem o seu
+new entry "ASPECT_AWAKENED_DEATH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DEATH_AWAKENED_NAME}}"
+data "Description" "{{DEATH_AWAKENED_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "StackId" "ASPECT_AWAKENED_DEATH"
+data "StackType" "Ignore"
+data "Boosts" "UnlockSpell(Target_Arcana_Created_Aspect_FinalToll);"
+data "Passives" "Arcana_Passive_Aspect_Death_Awakened_III"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ETERNAL_UNDYING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{MOURNING_NAME}}"
+data "Description" "{{MOURNING_DESC}}"
+data "Icon" "Spell_Abjuration_DeathWard"
+data "StackId" "ETERNAL_UNDYING"
+data "StackType" "Ignore"
+data "Boosts" "DownedStatus(ETERNAL_UNDYING_DOWNED,10)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ETERNAL_DREAD_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{ASPECT_TECH_NAME}}"
+data "StackId" "ETERNAL_DREAD_AURA"
+data "StackType" "Ignore"
+data "AuraRadius" "3"
+data "AuraStatuses" "TARGET:IF(Enemy() and not Dead() and IsIsolatedFoe()):ApplyStatus(ETERNAL_DREAD,100,1)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "ETERNAL_DREAD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{DREAD_NAME}}"
+data "Description" "{{DREAD_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "StackId" "ETERNAL_DREAD"
+data "StackType" "Overwrite"
+data "Boosts" "IF(HasStatus('ETERNAL_DREAD', context.Source, context.Target)):Disadvantage(AttackRoll);"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "HARVEST_ACTION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HARVEST_NAME}}"
+data "Description" "{{HARVEST_DESC}}"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "StackId" "HARVEST_ACTION"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "ActionResource(ActionPoint,1,0)"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "HARVEST_SPENT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{ASPECT_TECH_NAME}}"
+data "StackId" "HARVEST_SPENT"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "FINAL_TOLL_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{ASPECT_TECH_NAME}}"
+data "StackId" "FINAL_TOLL_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "BLOOD_OFFERING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{BLOOD_NAME}}"
+data "Description" "{{BLOOD_STATUS_DESC}}"
+data "DescriptionParams" "DealDamage(LevelMapValue(DeathsGrasp_Damage),Necrotic)"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "StackId" "BLOOD_OFFERING"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "IF(IsCardSpell() or IsArcanaCantrip()):DamageBonus(LevelMapValue(DeathsGrasp_Damage),Necrotic);"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+@file Status_DOWNED
+@section -
+
+new entry "ETERNAL_UNDYING_DOWNED"
+type "StatusData"
+data "StatusType" "DOWNED"
+using "SURVIVAL_INSTINCT_DOWNED"
+data "DisplayName" "{{MOURNING_NAME}}"
+data "Description" ""
+data "Icon" "Spell_Abjuration_DeathWard"
+data "AnimationStart" "7e811df9-74e7-4515-bd02-7043164dbf33(STAT_Fallen_Peace_01_Start)"
+data "AnimationLoop" "d7b7cf53-fe71-4a23-8011-9675a6e1d902(STAT_Fallen_Peace_01_Loop)"
+data "AnimationEnd" "ade4cf7f-a34a-40c4-b810-096f0c186bc2(STAT_Fallen_Peace_01_End)"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "RemoveStatus(ETERNAL_UNDYING);RegainHitPoints(1,Guaranteed)"
+data "StatusGroups" "SG_Incapacitated"
+data "ApplyEffect" "5508ea40-3f23-436d-980d-0b8143f6e2f3"
+data "HideOverheadUI" "1"
+
+@file Spell_Shout
+@section Shout_ETERNAL SPELLS
+
+@remove Shout_Arcana_Card_Passive_DarknessRise
+@remove Shout_Arcana_Card_Passive_DarknessRise_4
+@remove Shout_Arcana_Card_Passive_DarknessRise_5
+@remove Shout_Arcana_Card_Passive_DarknessRise_6
+
+new entry "Shout_Arcana_Card_Spell_BloodOffering"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "3"
+data "SpellSchool" "Necromancy"
+data "SpellProperties" "ApplyStatus(SELF,BLOOD_OFFERING,100,1);DealDamage(MaxHP/10,Necrotic,Magical)"
+data "TargetConditions" "Self() and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "DisplayName" "{{BLOOD_NAME}}"
+data "Description" "{{BLOOD_DESC}}"
+data "DescriptionParams" "DealDamage(LevelMapValue(DeathsGrasp_Damage),Necrotic)"
+data "TooltipStatusApply" "ApplyStatus(BLOOD_OFFERING,100,1)"
+data "CastSound" "Spell_Cast_Monk_WholenessOfBody_L1to3"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:3;"
+data "SpellAnimation" "355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasVerbalComponent"
+data "HitAnimationType" "None"
+data "Requirements" "Combat"
+
+@file Spell_Target
+@section Target_ETERNAL SPELLS
+
+new entry "Target_Arcana_Created_Aspect_FinalToll"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Necromancy"
+data "Cooldown" "OncePerCombat"
+data "SpellProperties" "IF(not Tagged('UNDEAD') and not Tagged('PLAYABLE') and not Tagged('CONSTRUCT') and not Tagged('ELEMENTAL') and not Tagged('PLANT') and not Tagged('OOZE')):ApplyStatus(CRAWLING_GNAW_SWITCH,100,1);ApplyStatus(FINAL_TOLL_TECH,100,0)"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Spell_Conjuration_ArmsOfHadar"
+data "DisplayName" "{{FINALTOLL_NAME}}"
+data "Description" "{{FINALTOLL_DESC}}"
+data "DescriptionParams" "DealDamage(,Necrotic)"
+data "CastSound" "Spell_Cast_Damage_Necrotic_VampiricTouch_L4to5"
+data "TargetSound" "Spell_Impact_Damage_Necrotic_VampiricTouch_L4to5"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "CycleConditions" "Enemy() and not Dead()"
+data "UseCosts" "ActionPoint:1;"
+data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;c17a3562-3758-4c4a-96e8-790cebed1df4,,;a8012b19-b279-45ec-89b0-86a1b73ad584,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+data "VerbalIntent" "Damage"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;IsHarmful;HasVerbalComponent;HasSomaticComponent"
+data "HitAnimationType" "MagicalDamage_Internal"
+data "Requirements" "Combat"
+
+# Death Ward passa a mirar so aliados (o Tier II ja salva o Eternal)
+@set Target_Arcana_Card_Spell_DeathWard TargetConditions Character() and Ally() and not Self() and not HasPassive('ARCANA_IS_CARD', context.Source)

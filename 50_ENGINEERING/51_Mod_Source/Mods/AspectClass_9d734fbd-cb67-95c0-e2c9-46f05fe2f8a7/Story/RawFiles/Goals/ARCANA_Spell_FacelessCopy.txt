@@ -1,0 +1,53 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION Faceless Copy - procedures
+PROC
+PROC_ARCANA_FacelessCopy_Clear((CHARACTER)_Caster)
+AND
+DB_ARCANA_Copy_Active(_Caster, _Old)
+THEN
+NOT DB_ARCANA_Copy_Active(_Caster, _Old);
+
+PROC
+PROC_ARCANA_FacelessCopy_End((CHARACTER)_Caster)
+THEN
+ObjectTimerCancel(_Caster, "ARCANA_FacelessCopy_Timer");
+PROC_ARCANA_FacelessCopy_Clear(_Caster);
+RemoveTransforms(_Caster);
+//END_REGION
+
+//REGION Copy - assume a aparencia do alvo
+IF
+UsingSpellOnTarget((CHARACTER)_Caster, _Target, "Target_Arcana_Util_Faceless_Copy", _, _, _)
+AND
+IsCharacter(_Target, 1)
+AND
+_Target != _Caster
+THEN
+PROC_ARCANA_FacelessCopy_Clear(_Caster);
+DB_ARCANA_Copy_Active(_Caster, _Target);
+ObjectTimerCancel(_Caster, "ARCANA_FacelessCopy_Timer");
+RealtimeObjectTimerLaunch(_Caster, "ARCANA_FacelessCopy_Timer", 800);
+
+IF
+ObjectTimerFinished((CHARACTER)_Caster, "ARCANA_FacelessCopy_Timer")
+AND
+DB_ARCANA_Copy_Active(_Caster, _Target)
+THEN
+Transform(_Caster, _Target, (SHAPESHIFTRULE)FacelessCopy_3eb3fee7-67b4-46b5-a81a-2ac2da66bff7);
+//END_REGION
+
+//REGION Copy - volta a aparencia original
+IF
+StatusRemoved((CHARACTER)_Caster, "FACELESS_COPY", _, _)
+AND
+DB_ARCANA_Copy_Active(_Caster, _)
+THEN
+PROC_ARCANA_FacelessCopy_End(_Caster);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

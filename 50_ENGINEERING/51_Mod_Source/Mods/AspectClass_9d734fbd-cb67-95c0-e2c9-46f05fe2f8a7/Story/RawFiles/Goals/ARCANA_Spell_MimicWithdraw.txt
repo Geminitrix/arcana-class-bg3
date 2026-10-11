@@ -1,0 +1,142 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Type-pinning for every DB this goal owns (declare, then delete the dummy row).
+DB_ARCANA_MimicWithdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
+NOT DB_ARCANA_MimicWithdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
+DB_ARCANA_MimicWithdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_MimicWithdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+KBSECTION
+// The Veil (Deceiver), Task 4: Mimic: Distortion also leaves a Double where she stood; Mimic: Withdraw swaps places with
+// THAT Double. Same design as ARCANA_Spell_Withdraw.txt (read its header), with the Mimic ids: family
+// Target_Arcana_Created_MimicDistortion, spell Shout_Arcana_Created_MimicWithdraw, helper MIMIC_DISTORTION_HELPER, own DBs
+// and timers. The Distortion and Mimic windows are independent; both Doubles count toward the cap.
+//
+// DBs:
+//   DB_ARCANA_MimicWithdraw_Awaiting(Caster, X, Y, Z)  she just cast Mimic: Distortion from (X, Y, Z); the next Double
+//                                                      she summons is the one. Dropped by the first Double or after 6 s.
+//   DB_ARCANA_MimicWithdraw_Link(Caster, Double)       the Double Mimic: Withdraw swaps with. One row per Deceiver.
+// Read from ARCANA_Deceiver_Doubles.txt: DB_ARCANA_Double and DB_ARCANA_DoubleGone. Written for it: DB_ARCANA_DoubleHome.
+
+//REGION Shared cleanup
+// Closes the window. Never touches MIMIC_DISTORTION_HELPER (the swap and the timer have their own reasons).
+PROC
+PROC_ARCANA_MimicWithdraw_Reset((CHARACTER)_Caster)
+THEN
+ObjectTimerCancel(_Caster, "ARCANA_MimicWithdraw_Timer");
+RealtimeObjectTimerCancel(_Caster, "ARCANA_MimicWithdraw_Await");
+RemoveSpell(_Caster, "Shout_Arcana_Created_MimicWithdraw", 0);
+
+PROC
+PROC_ARCANA_MimicWithdraw_Reset((CHARACTER)_Caster)
+AND
+DB_ARCANA_MimicWithdraw_Awaiting(_Caster, _X, _Y, _Z)
+THEN
+NOT DB_ARCANA_MimicWithdraw_Awaiting(_Caster, _X, _Y, _Z);
+
+PROC
+PROC_ARCANA_MimicWithdraw_Reset((CHARACTER)_Caster)
+AND
+DB_ARCANA_MimicWithdraw_Link(_Caster, _Double)
+THEN
+NOT DB_ARCANA_MimicWithdraw_Link(_Caster, _Double);
+
+// The window ended without a swap (timer, or its Double is gone): Mimic: Withdraw is lost and Mimic: Distortion is free again.
+PROC
+PROC_ARCANA_MimicWithdraw_Lost((CHARACTER)_Caster)
+THEN
+PROC_ARCANA_MimicWithdraw_Reset(_Caster);
+RemoveStatus(_Caster, "MIMIC_DISTORTION_HELPER", _Caster);
+//END_REGION
+
+//REGION She cast Mimic: Distortion: remember the origin and wait for the Double it summons
+IF
+UsingSpell((CHARACTER)_Caster, _ArcanaSpell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_ArcanaSpell, "Target_Arcana_Created_MimicDistortion")
+AND
+GetPosition(_Caster, _X, _Y, _Z)
+THEN
+PROC_ARCANA_MimicWithdraw_Reset(_Caster);
+DB_ARCANA_MimicWithdraw_Awaiting(_Caster, _X, _Y, _Z);
+RealtimeObjectTimerLaunch(_Caster, "ARCANA_MimicWithdraw_Await", 6000);
+
+// Mimic: Distortion's Summon never produced a Double (the summon failed): nothing was bound, nothing was offered.
+IF
+ObjectTimerFinished((CHARACTER)_Caster, "ARCANA_MimicWithdraw_Await")
+AND
+DB_ARCANA_MimicWithdraw_Awaiting(_Caster, _X, _Y, _Z)
+THEN
+NOT DB_ARCANA_MimicWithdraw_Awaiting(_Caster, _X, _Y, _Z);
+//END_REGION
+
+//REGION The Double arrives: bind it, send it to the origin, open the window
+// Same StatusApplied that ARCANA_Deceiver_Doubles.txt registers the Double on (cause = the Deceiver).
+IF
+StatusApplied((CHARACTER)_Double, "DOUBLE_OF_THE_VEIL_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_MimicWithdraw_Awaiting(_Owner, _X, _Y, _Z)
+THEN
+NOT DB_ARCANA_MimicWithdraw_Awaiting(_Owner, _X, _Y, _Z);
+RealtimeObjectTimerCancel(_Owner, "ARCANA_MimicWithdraw_Await");
+DB_ARCANA_MimicWithdraw_Link(_Owner, _Double);
+DB_ARCANA_DoubleHome(_Double, _X, _Y, _Z);
+AddSpell(_Owner, "Shout_Arcana_Created_MimicWithdraw", 1, 0);
+ApplyStatus(_Owner, "MIMIC_DISTORTION_HELPER", 12.0, 1, _Owner);
+ObjectTimerCancel(_Owner, "ARCANA_MimicWithdraw_Timer");
+ObjectTimerLaunch(_Owner, "ARCANA_MimicWithdraw_Timer", 12000, 1);
+//END_REGION
+
+//REGION The window ends
+// Two turns passed.
+IF
+ObjectTimerFinished((CHARACTER)_Caster, "ARCANA_MimicWithdraw_Timer")
+THEN
+PROC_ARCANA_MimicWithdraw_Lost(_Caster);
+
+// THAT Double is gone, whatever the reason (the Doubles goal inserts this row on every way out).
+IF
+DB_ARCANA_DoubleGone(_Double, _Owner)
+AND
+DB_ARCANA_MimicWithdraw_Link(_Owner, _Double)
+THEN
+PROC_ARCANA_MimicWithdraw_Lost(_Owner);
+//END_REGION
+
+//REGION Mimic: Withdraw: swap places with the Double
+// The spell itself only removes MIMIC_DISTORTION_HELPER and costs the bonus action and the slot. It cannot be cast without
+// the helper (RequirementConditions), and the helper goes the moment the Double goes, so a Double that is already gone
+// never reaches this rule; the checks below are a second net.
+IF
+CastSpell((CHARACTER)_Caster, _ArcanaSpell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_ArcanaSpell, "Shout_Arcana_Created_MimicWithdraw")
+AND
+DB_ARCANA_MimicWithdraw_Link(_Caster, _Double)
+AND
+DB_ARCANA_Double(_Double, _Caster, _)
+AND
+IsDead(_Double, 0)
+THEN
+PROC_ARCANA_MimicWithdraw_Swap(_Caster, _Double);
+
+// Both positions are read BEFORE either character moves, then each goes to the other's spot.
+PROC
+PROC_ARCANA_MimicWithdraw_Swap((CHARACTER)_Caster, (CHARACTER)_Double)
+AND
+GetPosition(_Caster, _CX, _CY, _CZ)
+AND
+GetPosition(_Double, _DX, _DY, _DZ)
+THEN
+TeleportToPosition(_Caster, _DX, _DY, _DZ, "ARCANA_MimicWithdraw_Swap", 0, 0, 0, 0, 1);
+TeleportToPosition(_Double, _CX, _CY, _CZ, "ARCANA_MimicWithdraw_Swap", 0, 0, 0, 0, 1);
+
+// The Mimic: Withdraw is used up either way.
+PROC
+PROC_ARCANA_MimicWithdraw_Swap((CHARACTER)_Caster, (CHARACTER)_Double)
+THEN
+PROC_ARCANA_MimicWithdraw_Reset(_Caster);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

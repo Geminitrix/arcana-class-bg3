@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="7267fd2e-9ac9-41e2-a6a1-a0c3664aaf1d">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="LongRest_Replenishable_Depleted_ArcanaSpellSlot" />
+        <field name="UUID" type="IdTableFieldDefinition" value="98f0e032-bb77-4cf5-be74-95074d32c9a6" />
+        <field name="EventType" type="EnumerationTableFieldDefinition" value="ActionResource_Depleted" enumeration_type_name="TutorialEventType" version="1" />
+        <field name="ActionResource" type="GuidTableFieldDefinition" value="25d3f3a7-f097-4e33-813c-54a1ef79ba8e" />
+        <field name="UserAction" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="TutorialUserAction" version="1" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

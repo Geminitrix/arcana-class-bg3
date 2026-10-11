@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="Rulebook">
+        <node id="root">
+            <children>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="true"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="false"/>
+                    <attribute id="ChangeBodyType" type="bool" value="false"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="false"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="false"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainCanSeeThrough" type="bool" value="true"/>
+                    <attribute id="RetainDisplayName" type="bool" value="false"/>
+                    <attribute id="RuleName" type="LSString" value="FacelessCopy"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="UUID" type="guid" value="3eb3fee7-67b4-46b5-a81a-2ac2da66bff7"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="true"/>
+                    <children>
+                        <node id="Weight">
+                            <attribute id="type" type="uint8" value="4"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss"/>
+                    <attribute id="UUID" type="guid" value="21aacde3-d14d-7a32-7dbb-5418cc3bdf9d"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot3"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot3;Target_Deceiver_Double_MirrorChains_Slot3"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot4"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot4;Target_Deceiver_Double_MirrorChains_Slot4"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot5"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5;Target_Deceiver_Double_Unveil"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot6"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6;Target_Deceiver_Double_Unveil"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot5_NoUnveil"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
+                    <attribute id="BlockLevelUp" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
+                    <attribute id="DefaultBoostsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DifficultyStatusesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="DisableEquipmentSlots" type="bool" value="true"/>
+                    <attribute id="FlagsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="IgnoreCustomLooks" type="bool" value="false"/>
+                    <attribute id="MuteEquipmentSound" type="bool" value="true"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="PersonalStatusImmunitiesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="ProficiencyGroupsInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RemoveOldTags" type="bool" value="false"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="RetainDisplayName" type="bool" value="true"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot6_NoUnveil"/>
+                    <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6"/>
+                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="WildShapeHotBar" type="bool" value="false"/>
+                    <children>
+                        <node id="TagsAdd">
+                            <attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41"/>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

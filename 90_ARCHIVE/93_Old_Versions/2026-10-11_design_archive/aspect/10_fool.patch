@@ -1,0 +1,353 @@
+# ===== The Fool (Unbound) =====
+@loca FOOL_AWAKE_NAME 0 - The Fool: Awakening
+@loca FOOL_AWAKE_DESC Strike different enemies with attacks within a single round to awaken the Aspect of Curiosity until combat ends. Each goal you reach awakens one more tier.<br><br>If fewer enemies stand when your turn begins than a goal asks for, strikes on any enemy count towards that goal instead.<br><br>Level 3: strike 3 different enemies to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_I">Wanderlust</LSTag>.<br><br>Level 7: strike 4 different enemies to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_II">Restless Wind</LSTag>.<br><br>Level 12: strike 5 different enemies to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_III">Aspect of Curiosity</LSTag>.
+@loca FOOL_I_NAME Wanderlust
+@loca FOOL_I_DESC Your <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increases by [1], you can move without provoking <LSTag Tooltip="OpportunityAttack">Opportunity Attacks</LSTag>, and your unarmed attacks deal an additional [2].
+@loca FOOL_II_NAME Restless Wind
+@loca FOOL_II_DESC You have <LSTag Tooltip="Advantage">Advantage</LSTag> on Dexterity <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> and an additional <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>. Once per turn, Zephyr Strike doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca FOOL_III_NAME Aspect of Curiosity
+@loca FOOL_III_DESC Your Dexterity increases by [1] and you have another additional <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>. Once per round, the first attack against you misses.
+@loca FOOL_AWAKENED_NAME 0 - The Fool
+@loca FOOL_AWAKENED_DESC Awakened as the Aspect of Curiosity until combat ends.
+@loca FOOL_TIER_I_NAME 0 - The Fool: Awakened I
+@loca FOOL_TIER_I_DESC Wanderlust: Your <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increases by [1], you can move without provoking <LSTag Tooltip="OpportunityAttack">Opportunity Attacks</LSTag>, and your unarmed attacks deal an additional [2].<br><br>Only active while not wearing armour or using a shield.
+@loca FOOL_TIER_II_NAME 0 - The Fool: Awakened II
+@loca FOOL_TIER_II_DESC Wanderlust: Your <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increases by [1], you can move without provoking <LSTag Tooltip="OpportunityAttack">Opportunity Attacks</LSTag>, and your unarmed attacks deal an additional [2].<br><br>Restless Wind: You have <LSTag Tooltip="Advantage">Advantage</LSTag> on Dexterity <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> and an additional <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>. Once per turn, Zephyr Strike doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.<br><br>Only active while not wearing armour or using a shield.
+@loca FOOL_TIER_III_NAME 0 - The Fool: Awakened III
+@loca FOOL_TIER_III_DESC Wanderlust: Your <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increases by [1], you can move without provoking <LSTag Tooltip="OpportunityAttack">Opportunity Attacks</LSTag>, and your unarmed attacks deal an additional [2].<br><br>Restless Wind: You have <LSTag Tooltip="Advantage">Advantage</LSTag> on Dexterity <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> and an additional <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>. Once per turn, Zephyr Strike doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.<br><br>Aspect of Curiosity: Your Dexterity increases by [3] and you have another additional <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>. Once per round, the first attack against you misses.<br><br>Only active while not wearing armour or using a shield.
+@loca FOOL_PROGRESS_NAME Awakening Progress
+@loca FOOL_PROGRESS_DESC Hits that count towards your next Awakening tier this round. Resets when your turn begins.
+@loca h56bc27caga588g2b1agc487ge918b523cedf Zephyr Strike
+@loca FOOL_ZEPHYR_NAME Restless Wind
+@loca FOOL_ZEPHYR_DESC The next Zephyr Strike this turn doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca h1e5b5d84gf8fag7d7bgc878g960616bd7ae2 After making an unarmed attack or casting an Arcane spell, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca WIND_RIPOSTE_NAME Wind Riposte
+@loca WIND_RIPOSTE_DESC When an enemy's melee attack misses you while Wind Whispers is active, use your <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag> to strike back with an unarmed attack.
+@loca FOOLS_LUCK_NAME Fool's Luck
+@loca FOOLS_LUCK_DESC Once per round, the first attack against you misses.
+@loca LEAP_NAME Leap of Faith
+@loca LEAP_DESC Dash through the fray, striking every creature in your path with an unarmed attack that also deals [1].<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca EVASIVE_OPENING_NAME Opening
+@loca EVASIVE_OPENING_DESC Has <LSTag Tooltip="Advantage">Advantage</LSTag> on the next unarmed <LSTag Tooltip="AttackRoll">Attack Roll</LSTag> this turn.
+# textos existentes que mudam (versao +1 em todo lugar que os cita)
+@loca hb2cbdec3g90c8g7e43g9d01g7c45f6af7a6a Jumping no longer requires a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.<br><br>Equipping armour or a shield ends this effect.
+@loca hba599070gc262gfacfg3f31geafbde30b608 Focusing on avoiding attacks. <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against you have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag>. When a melee attack misses, strikes back with an unarmed attack as a <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag>.<br><br>Equipping armour or a shield ends this effect.
+
+@file Passive
+@section UNBOUND PASSIVES
+
+# unica passiva visivel do Despertar: objetivo e progressao, com LSTag para as passivas de tier (escondidas)
+new entry "Arcana_Passive_Aspect_Fool_Awakening"
+type "PassiveData"
+data "DisplayName" "{{FOOL_AWAKE_NAME}}"
+data "Description" "{{FOOL_AWAKE_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_Fool_I"
+type "PassiveData"
+data "DisplayName" "{{FOOL_I_NAME}}"
+data "Description" "{{FOOL_I_DESC}}"
+data "DescriptionParams" "Distance(3);DealDamage(1d4,Thunder)"
+data "ExtraDescription" "{{h73613d54g9e1dg231dg03c1gcb8d2ba41166}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "Combat() and IsAttack() and IsHit() and Enemy() and not HasStatus('ASPECT_AWAKENED_FOOL', context.Source) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);"
+data "StatsFunctors" "ApplyStatus(WANDERLUST_HIT_TECH,100,0)"
+
+new entry "Arcana_Passive_Aspect_Fool_II"
+type "PassiveData"
+data "DisplayName" "{{FOOL_II_NAME}}"
+data "Description" "{{FOOL_II_DESC}}"
+data "ExtraDescription" "{{h73613d54g9e1dg231dg03c1gcb8d2ba41166}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+
+new entry "Arcana_Passive_Aspect_Fool_III"
+type "PassiveData"
+data "DisplayName" "{{FOOL_III_NAME}}"
+data "Description" "{{FOOL_III_DESC}}"
+data "DescriptionParams" "3"
+data "ExtraDescription" "{{h73613d54g9e1dg231dg03c1gcb8d2ba41166}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+
+new entry "Arcana_Passive_Aspect_Fool_Awakened_I"
+type "PassiveData"
+data "DisplayName" "{{FOOL_I_NAME}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+data "BoostConditions" "not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);"
+data "Boosts" "ActionResource(Movement,3,0);IgnoreLeaveAttackRange();IF(IsMeleeUnarmedAttack()):DamageBonus(1d4,Thunder);"
+
+new entry "Arcana_Passive_Aspect_Fool_Awakened_II"
+type "PassiveData"
+data "DisplayName" "{{FOOL_II_NAME}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+data "BoostConditions" "HasPassive('Arcana_Passive_Aspect_Fool_II', context.Source) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);"
+data "Boosts" "Advantage(SavingThrow, Dexterity);ActionResource(ReactionActionPoint,1,0);"
+
+new entry "Arcana_Passive_Aspect_Fool_Awakened_III"
+type "PassiveData"
+data "DisplayName" "{{FOOL_III_NAME}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "IsHidden"
+data "BoostConditions" "HasPassive('Arcana_Passive_Aspect_Fool_III', context.Source) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);"
+data "Boosts" "Ability(Dexterity,3);ActionResource(ReactionActionPoint,1,0);UnlockInterrupt(Interrupt_Arcana_Aspect_FoolsLuck);ActionResource(ArcanaFoolsLuck,1,0);"
+
+# o revide do Wind Whispers virou reacao (Interrupt_Arcana_WindWhispers_Riposte)
+@remove Arcana_Passive_WindWhispers_Counter
+
+@file Status_BOOST
+@section UNBOUND STATUS
+
+new entry "ASPECT_PROGRESS_FOOL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_PROGRESS_NAME}}"
+data "Description" "{{FOOL_PROGRESS_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ASPECT_PROGRESS_FOOL"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+# Tecnico: e o que o Osiris, a passiva do Tier I e o CardDB olham, e carrega os bonus e o VFX. Nao aparece
+# no retrato; quem aparece e o status do tier (ASPECT_AWAKENED_FOOL_I/II/III), que ele aplica e remove.
+new entry "ASPECT_AWAKENED_FOOL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_AWAKENED_NAME}}"
+data "Description" "{{FOOL_AWAKENED_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ASPECT_AWAKENED_FOOL"
+data "StackType" "Ignore"
+data "Boosts" "UnlockSpell(Rush_Arcana_Created_Aspect_LeapOfFaith);"
+data "Passives" "Arcana_Passive_Aspect_Fool_Awakened_I;Arcana_Passive_Aspect_Fool_Awakened_II;Arcana_Passive_Aspect_Fool_Awakened_III"
+data "OnApplyFunctors" "IF(HasPassive('Arcana_Passive_Aspect_Fool_III')):ApplyStatus(ASPECT_AWAKENED_FOOL_III,100,-1);IF(HasPassive('Arcana_Passive_Aspect_Fool_II') and not HasPassive('Arcana_Passive_Aspect_Fool_III')):ApplyStatus(ASPECT_AWAKENED_FOOL_II,100,-1);IF(not HasPassive('Arcana_Passive_Aspect_Fool_II')):ApplyStatus(ASPECT_AWAKENED_FOOL_I,100,-1)"
+data "OnRemoveFunctors" "RemoveStatus(ASPECT_AWAKENED_FOOL_I);RemoveStatus(ASPECT_AWAKENED_FOOL_II);RemoveStatus(ASPECT_AWAKENED_FOOL_III)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+data "StatusEffect" "b79270c7-13cd-44d9-82f5-11eb41ca5f8a"
+
+# Status de tier: so mostram o que o Unbound tem. Mesmo StackId com prioridade, como o ENCUMBERED do jogo
+# base: nunca ficam dois juntos, o de tier maior vence.
+new entry "ASPECT_AWAKENED_FOOL_I"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_TIER_I_NAME}}"
+data "Description" "{{FOOL_TIER_I_DESC}}"
+data "DescriptionParams" "Distance(3);DealDamage(1d4,Thunder)"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ASPECT_AWAKENED_FOOL_TIER"
+data "StackPriority" "1"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ASPECT_AWAKENED_FOOL_II"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_TIER_II_NAME}}"
+data "Description" "{{FOOL_TIER_II_DESC}}"
+data "DescriptionParams" "Distance(3);DealDamage(1d4,Thunder)"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ASPECT_AWAKENED_FOOL_TIER"
+data "StackPriority" "2"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ASPECT_AWAKENED_FOOL_III"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_TIER_III_NAME}}"
+data "Description" "{{FOOL_TIER_III_DESC}}"
+data "DescriptionParams" "Distance(3);DealDamage(1d4,Thunder);3"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ASPECT_AWAKENED_FOOL_TIER"
+data "StackPriority" "3"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+# o Osiris guarda quem ja foi acertado na rodada; a marca no inimigo nao existe mais
+@remove WANDERLUST_MARK
+
+new entry "WANDERLUST_HIT_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{ASPECT_TECH_NAME}}"
+data "StackId" "WANDERLUST_HIT_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "FOOL_ZEPHYR_FREE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{FOOL_ZEPHYR_NAME}}"
+data "Description" "{{FOOL_ZEPHYR_DESC}}"
+data "Icon" "PassiveFeature_MartialArts_BonusUnarmedStrike"
+data "StackId" "FOOL_ZEPHYR_FREE"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "UnlockSpellVariant(SpellId('Target_Arcana_Created_ZephyrStrike'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint));"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "EVASIVE_FLOW_OPENING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{EVASIVE_OPENING_NAME}}"
+data "Description" "{{EVASIVE_OPENING_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "EVASIVE_FLOW_OPENING"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "IF(IsMeleeUnarmedAttack()):Advantage(AttackRoll);"
+data "RemoveConditions" "IsMeleeUnarmedAttack()"
+data "RemoveEvents" "OnAttack"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+# Tier I tira o ataque de oportunidade; o Evasive Flow fica com o pulo gratis e ganha a abertura
+@set EVASIVE_FLOW Boosts UnlockSpellVariant(SpellId('Projectile_Jump'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint));
+# Duracoes menores (2026-09-30): o Unbound gasta mais cartas. As EX ficam como estao (vao mudar).
+@set Shout_Arcana_Card_Spell_FlowState SpellProperties ApplyStatus(SELF,FLOW_STATE,100,2);
+@set Shout_Arcana_Card_Spell_FlowState TooltipStatusApply ApplyStatus(FLOW_STATE,100,2)
+# (removida no Toolkit, 2026-10-01) @set Shout_Arcana_Card_Spell_FlowState_EX SpellProperties ApplyStatus(SELF,FLOW_STATE_EX,100,20);
+@set FLOW_STATE DescriptionParams GainTemporaryHitPoints(ClassLevel(Arcana)*2)
+@set Shout_Arcana_Card_Spell_StormFists SpellProperties ApplyStatus(SELF,STORM_FISTS,100,3);
+@set Shout_Arcana_Card_Spell_StormFists TooltipStatusApply ApplyStatus(STORM_FISTS,100,3)
+@set Shout_Arcana_Card_Spell_Thunderclap SpellProperties ApplyStatus(SELF,THUNDERCLAP,100,3);
+@set Shout_Arcana_Card_Spell_Thunderclap TooltipStatusApply ApplyStatus(THUNDERCLAP,100,3)
+# Zephyr depois de golpe desarmado OU de qualquer carta Arcana ou True Strike
+@set Arcana_Passive_FlowingStrikeZephyr Conditions ((IsMeleeAttack() and IsMonkWeaponAttack() and not SpellId('Target_UnarmedStrike_Monk')) or IsCardSpell() or SpellId('Target_TrueStrike')) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);
+@set Shout_Arcana_Card_Spell_EvasiveFlow SpellProperties ApplyStatus(SELF,EVASIVE_FLOW,100,1);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,1);
+# (removida no Toolkit, 2026-10-01) @set Shout_Arcana_Card_Spell_EvasiveFlow_EX SpellProperties ApplyStatus(SELF,EVASIVE_FLOW_EX,100,5);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,1);
+# Tier II da Vantagem em DES; o Wind Whispers troca a dele por contra-ataque
+@set WIND_WHISPERS Boosts Disadvantage(AttackTarget);UnlockInterrupt(Interrupt_Arcana_WindWhispers_Riposte);
+@set WIND_WHISPERS TickType StartTurn
+@unset WIND_WHISPERS Passives
+
+@file Interrupt
+@section -
+
+new entry "Interrupt_Arcana_WindWhispers_Riposte"
+type "InterruptData"
+data "DisplayName" "{{WIND_RIPOSTE_NAME}}"
+data "Description" "{{WIND_RIPOSTE_DESC}}"
+data "Icon" "PassiveFeature_DangerSense"
+data "InterruptContext" "OnCastHit"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and IsMiss() and not HasStatus('INVISIBILITY') and not AnyEntityIsItem() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source) and HasLastAttackTriggered() and not WearingArmor(context.Observer) and not HasShieldEquipped(context.Observer)"
+data "Properties" "UseSpell(SWAP,Target_Arcana_WindRiposte,true,true,true)"
+data "Cost" "ReactionActionPoint:1"
+data "InterruptDefaultValue" "Enabled"
+
+new entry "Interrupt_Arcana_Aspect_FoolsLuck"
+type "InterruptData"
+data "DisplayName" "{{FOOLS_LUCK_NAME}}"
+data "Description" "{{FOOLS_LUCK_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "InterruptContext" "OnPostRoll"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "Self(context.Target,context.Observer) and HasInterruptedAttack() and not AnyEntityIsItem() and IsSetInterruptInteresting(1, context.Source)"
+data "Properties" "SetRoll(1)"
+data "Cost" "ArcanaFoolsLuck:1"
+data "InterruptDefaultValue" "Ask;Enabled"
+data "EnableCondition" "HasActionResource('ArcanaFoolsLuck', 1, 0, false, false, context.Source);"
+data "EnableContext" "OnActionResourcesChanged"
+
+# golpe do revide: o Zephyr Strike sem custo e sem marca de carta (magia auxiliar, prefixo <Tipo>_Arcana_)
+@file Spell_Target
+@section Target_UNBOUND SPELLS
+
+new entry "Target_Arcana_WindRiposte"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Arcana_Created_ZephyrStrike"
+data "TargetConditions" "not Self() and not Dead() and not HasPassive('ARCANA_IS_SPELL', context.Source)"
+data "Icon" "PassiveFeature_DangerSense"
+data "DisplayName" "{{WIND_RIPOSTE_NAME}}"
+data "Description" "{{WIND_RIPOSTE_DESC}}"
+data "UseCosts" ""
+
+@file Spell_Rush
+@section -
+
+new entry "Rush_Arcana_Created_Aspect_LeapOfFaith"
+type "SpellData"
+data "SpellType" "Rush"
+using "Rush_SpringAttack"
+data "Level" "0"
+data "SpellSchool" "Evocation"
+data "Cooldown" "OncePerCombat"
+data "SpellProperties" "GROUND:ApplyStatus(SELF,ZEPHYR_STRIKE,100,1)"
+data "TargetRadius" "18"
+data "MovementSpeed" "60000"
+data "SpellRoll" "Attack(AttackType.MeleeUnarmedAttack)"
+data "SpellSuccess" "DealDamage(UnarmedDamage,Bludgeoning);DealDamage(LevelMapValue(GaleBurst_Damage),Thunder,Magical)"
+data "TargetConditions" "((Character() and not Ally() and not Dead()) or Item()) and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "DisplayName" "{{LEAP_NAME}}"
+data "Description" "{{LEAP_DESC}}"
+data "DescriptionParams" "DealDamage(LevelMapValue(GaleBurst_Damage),Thunder)"
+data "TooltipDamageList" "DealDamage(UnarmedDamage,Bludgeoning);DealDamage(LevelMapValue(GaleBurst_Damage),Thunder)"
+data "TooltipAttackSave" "MeleeUnarmedAttack"
+data "Requirements" "Combat;!Immobile"
+data "RequirementConditions" "not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "UseCosts" "ActionPoint:1;"
+data "WeaponTypes" ""
+data "RechargeValues" ""
+data "SpellFlags" "IsSpell;IsHarmful;HasSomaticComponent"
+data "OnlyHit1Target" "0"
+data "DamageType" "Thunder"
+data "Sheathing" "DontChange"
+
+# ---- 2026-09-30: textos das cartas que liberam o Zephyr Strike (frase padrao no fim) ----
+@loca h4d2c7825gb331gaf07gcd46g2c58bd100639 Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them <LSTag Type="Status" Tooltip="OFF_BALANCED">Off Balance</LSTag>.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5 Enter a temporary state of flow where you gain <LSTag Tooltip="TemporaryHitPoints">temporary hit points</LSTag>, and an additional <LSTag Tooltip="BonusAction">bonus action</LSTag>.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca h456b6976gfa1cg7d54geb90g1660c0e4606b The wind flows through your hands. Your unarmed attacks deal an additional [1].<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca hd264d2c3g3d31geeeag9a53g0a1a187689e2 When you deal [1], inflict 2 turns of <LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION">Reverberation</LSTag> upon the target.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca h64279279ga897g3b4bgc173gcc1156e709e0 You can sense movement in the air. <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against you have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag>, and when an enemy's melee attack misses you, you use your <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reaction</LSTag> to strike back with an unarmed attack.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca hc3b60f05g2de4ge349g47cdgbfd318148ba4 Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it <LSTag Type="Status" Tooltip="PRONE">Prone</LSTag>.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca hbec0c1e5g4648g9671g5329g17403f153608 Leap into an opening. Jumping no longer requires a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>, and your next unarmed attack this turn has <LSTag Tooltip="Advantage">Advantage</LSTag>.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca hc722a395gc58egeaa3g741ag3ed8de7bb01f Freed from earthly ties, gain the ability to <LSTag Type="Spell" Tooltip="Projectile_Arcana_Resource_Fly_Untethered">Fly</LSTag>.<br><br>Afterwards, you can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>.
+@loca h56efad21g20d8gbfd6g293dg4e2c421af268 You can make a <LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike">Zephyr Strike</LSTag> as a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag> this turn.<br><br>Equipping armour or a shield ends this effect.
+
+# ---- 2026-09-30: Zephyr Strike sem espaco de magia. Nivel 1, entao no SE o ARCANA_WEAVING cobra 1 Thread
+# (o mesmo caso do Final Spark: Recreate); fora do SE e de graca, so a acao bonus.
+@set Target_Arcana_Created_ZephyrStrike UseCosts BonusActionPoint:1;
+@remove Target_Arcana_Created_ZephyrStrike_2
+@remove Target_Arcana_Created_ZephyrStrike_3
+@remove Target_Arcana_Created_ZephyrStrike_4
+@remove Target_Arcana_Created_ZephyrStrike_5
+@remove Target_Arcana_Created_ZephyrStrike_6
+
+# ---- 2026-09-30, rodada 3 ----
+# Feitas pelo usuario no Toolkit e incorporadas aqui: estas cartas so podem ser usadas em combate, e o
+# Flow State perdeu o OncePerCombat.
+@set Shout_Arcana_Card_Spell_EvasiveFlow Requirements Combat
+@set Shout_Arcana_Card_Spell_FlowState Requirements Combat
+@unset Shout_Arcana_Card_Spell_FlowState Cooldown
+@set Shout_Arcana_Card_Spell_StormFists Requirements Combat
+@set Shout_Arcana_Card_Spell_Thunderclap Requirements Combat
+@set Shout_Arcana_Card_Spell_WindWhispers Requirements Combat
+# Efeitos de combate acabam com o combate (o Flow State ficava ate a duracao acabar). As versoes EX herdam.
+@set FLOW_STATE RemoveEvents OnEquip;OnCombatEnded
+@set STORM_FISTS RemoveEvents OnEquip;OnCombatEnded
+@set THUNDERCLAP RemoveEvents OnEquip;OnCombatEnded
+@set WIND_WHISPERS RemoveEvents OnStatusApplied;OnEquip;OnCombatEnded
+@set EVASIVE_FLOW RemoveEvents OnEquip;OnCombatEnded
+@set EVASIVE_FLOW_OPENING RemoveEvents OnAttack;OnCombatEnded
+# O Untethered segue usavel fora de combate: perde o voo ao entrar (ARCANA_PreCombatBuffs) e ao sair dele.
+@set FLY_UNTETHERED RemoveEvents OnEquip;OnCombatEnded
