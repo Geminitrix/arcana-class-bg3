@@ -39,4 +39,4 @@ Surges, an overload meter and its Overflow — without running out of slots.
 ## Log
 
 - 2026-10-08 — audit and decisions R1–R14 (before the project migration).
-- 2026-10-11 — created; decisions R15–R17 (behaviour peaks, slot refund on reaction), R18–R19 (Shared Heart capstone).
+- 2026-10-11 — created; decisions R15–R17 (behaviour peaks, slot refund on reaction), R18–R19 (Shared Heart capstone), R20–R21 (names: Emotional Overload, Tier I Resonance).
