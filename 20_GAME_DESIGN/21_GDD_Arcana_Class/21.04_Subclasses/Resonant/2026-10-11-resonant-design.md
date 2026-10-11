@@ -5,7 +5,7 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R21 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
+> decisions R1–R23 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
 > `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
@@ -266,7 +266,7 @@ creature other than you.
 | Amazement | I | **INCAPACITATED** (`using STUNNED`) | Stunned |
 | Grief | I | **INCAPACITATED** | Incapacitated, no movement |
 | Loathing | I | BOOST | No action or bonus action; Disadvantage on Attack Rolls and Ability Checks |
-| Rage | I | BOOST | Attacks the nearest creature with Advantage; attacks against it also have Advantage |
+| Rage | I | BOOST | **Grudge, overwhelming:** attacks the last creature that hurt it, with Advantage; attacks against it also have Advantage (R23) |
 
 ### 5.4 Feelings — `FEELING_*`, 2 turns
 
@@ -332,7 +332,7 @@ the mood. Shows in the combat log.
 
 The key feature that ties the mechanic together: everything the Resonant braided, poured into one enemy.
 
-**Action, only with the meter full; the full meter is its cost.** One enemy within 18 m, no saving throw:
+**Action, only with the meter full; the full meter is its cost — no slot, no Thread** (R22). One enemy within 18 m, no saving throw:
 - every **feeling** it carries is spent, and it takes Psychic damage for each (TBD);
 - it is **Paralysed for 2 turns**;
 - the meter empties.
@@ -510,7 +510,7 @@ of §5.1.
 | **Refund** (§4.4) | In each reaction branch of the Surge's `SpellSuccess`: `RestoreResource(SELF,ArcanaSpellSlot,1,<level>)` by class level, plus `RestoreResource(SELF,ArcanaThread,1,0)`, guarded by a used-this-turn status — the pattern of `Arcana_Passive_ArcaneOverflow` (`Passive.txt`) |
 | **Overload meter** | Osiris counts peaks applied (+1) and reaction statuses applied (+2) per Resonant, as `PROC_ARCANA_Aspect_Progress` does; shows the count on `OVERLOAD`; at full applies `OVERLOAD_FULL` (TickFunctors: Psychic damage at turn start); `CombatEnded` resets |
 | **Emotional Overload** | Requirement: `HasStatus('OVERLOAD_FULL')`; removes every `FEELING_*` on the target with damage per feeling; Paralysed 2 turns; Osiris empties the meter. Tier III variant with a 6 m area filter on targets carrying the Resonant's feelings |
-| **Anger's grudge** | Osiris records the last creature that damaged the target and points the peak at it — **T2** |
+| **Anger's and Rage's grudge** | Osiris records the last creature that damaged the target and points the peak (or Rage) at it — **T2** |
 | **Shared Heart** | `SHARED_HEART` on the linked creatures; Osiris copies a Surge's result from one linked ally to the others and counts it once — **T2** |
 | **Temper** | Removes the mood and applies its neighbour with the same remaining turns (`GetStatusTurns`) |
 
@@ -530,8 +530,6 @@ of §5.1.
 | Item | Decided in |
 |---|---|
 | Catharsis value and the Tier I bonus; Overload size and damage when full; Emotional Overload damage per feeling; Shared Heart duration; feeling values marked TBD; Awakening goals | Balance pass (`25_Master_Data`) |
-| Emotional Overload's cost (Action, no slot or Thread — the meter pays) | Author to confirm |
-| Whether Rage follows Anger's grudge (attacks the last creature that hurt it) | Author |
 | Plan B for each T2 peak if its test fails (§5.1) | After the tests |
 | Every *(working name)*; the peak descriptions | Text pass |
 | Aspect VFX per emotion | Author |
@@ -546,7 +544,7 @@ of §5.1.
 | Trust's follow-up attack | When you attack an enemy, the Trusting ally gets a reaction attack on it |
 | Anticipation's guard | An enemy entering the ally's reach is attacked first |
 | Disgust's recoil | The enemy moves away and makes no melee attack |
-| Anger's grudge | The enemy attacks whoever hurt it last, even its own ally |
+| Anger's and Rage's grudge | The enemy attacks whoever hurt it last, even its own ally (Rage with Advantage) |
 | Overload count | Peaks add 1, reactions 2, failed saves 0; resets at combat end |
 | Overload full | Psychic damage at the start of each of the Resonant's turns |
 | Emotional Overload | Only castable at full; spends feelings, paralyses 2 turns with no save, empties the meter |

@@ -40,4 +40,4 @@ Surges, an overload meter and its Overflow — without running out of slots.
 
 - 2026-10-08 — audit and decisions R1–R14 (before the project migration).
 - 2026-10-11 — created; decisions R15–R17 (behaviour peaks, slot refund on reaction), R18–R19 (Shared Heart capstone), R20–R21 (names: Emotional Overload, Tier I Resonance).
-- 2026-10-11 — raising spec `21.04/Resonant/2026-10-11-resonant-design.md` written; Depth audit handed to the Context Keeper. Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).
+- 2026-10-11 — raising spec `21.04/Resonant/2026-10-11-resonant-design.md` written; Depth audit handed to the Context Keeper. R22–R23 (Emotional Overload cost, Rage grudge) confirmed by the Owner. Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).

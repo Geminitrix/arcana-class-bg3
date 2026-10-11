@@ -32,6 +32,8 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R19 | **Shared Heart counts once per Surge:** however many linked allies react, the Surge counts one reaction (+2 overload, +1 Awakening, one refund) | author, 2026-10-11 |
 | R20 | **The ultimate is named Emotional Overload; the meter is named Overload.** "Overflow" leaves the Resonant's vocabulary; the base class's Arcane Overflow keeps its name (I6) | author, 2026-10-11 |
 | R21 | **Tier I is renamed Resonance** (replaces Attunement from R8): the same tuning idea (R1), named after the subclass, and no clash with the deck keyword Attuned. Tier II stays Harmony | author, 2026-10-11 |
+| R22 | **Emotional Overload costs an Action and no slot or Thread:** the full meter is its cost | author, 2026-10-11 |
+| R23 | **Rage follows Anger's grudge:** the intense ring attacks the last creature that hurt it, with Advantage | author, 2026-10-11 |
 
 ## Audit state before the rules rewrite
 
