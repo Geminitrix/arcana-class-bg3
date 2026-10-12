@@ -168,4 +168,28 @@ like($pk->('Trust'), qr/"TickType" "StartTurn".*"StatusPropertyFlags" "[^"]*Tick
 none('Anger and Rage keep their reaction (opportunity attacks, P4)', grep { $pk->($_) =~ /ActionResourceBlock\(ReactionActionPoint\)/ } qw(Anger Rage));
 none('every Surge tooltip tells the refund', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') !~ /<br><br>Any reaction gives back the spell slot this surge used\. Once per turn\.$/ } @W);
 
+# ---- stage 2: Overload
+like(block($p, 'RESONANT_OVERLOAD'), qr/"StackType" "Overwrite".*"RemoveEvents" "OnCombatEnded".*"StatusPropertyFlags" "FreezeDuration;IgnoreResting"/s, 'the meter shows a frozen count, gone after combat');
+my $full = block($p, 'RESONANT_OVERLOAD_FULL');
+like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn');
+is(scalar(() = $full =~ /DealDamage\(\d,Psychic,Magical\)/g), 4, 'full: one damage per slot-level bracket (5-6, 7-8, 9-10, 11+)');
+like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
+like(block($p, 'Arcana_Passive_Overload'), qr/"DisplayName"/, 'the Overload passive exists');
+like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the passive names the ultimate');
+like(block($p, 'RESONANT_DEBUG'), qr/Arcana_Passive_Overload.*UnlockSpell\(Target_Arcana_Created_EmotionalOverload\)/s, 'DEBUG grants the passive and the ultimate');
+my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
+like($eo, qr/"UseCosts" "ActionPoint:1"\n/, 'Emotional Overload: an action, no slot or Thread (R22)');
+like($eo, qr/HasStatus\('RESONANT_OVERLOAD_FULL', ?context\.Source\)/, 'only with the meter full');
+unlike($eo, qr/"SpellRoll"/, 'no saving throw');
+is(scalar(() = $eo =~ /IF\(HasStatus\('FEELING_\w+'\)\):DealDamage\(1d6,Psychic,Magical\)/g), 24, '1d6 Psychic per feeling, all 24');
+like($eo, qr/ApplyStatus\(PARALYZED,100,2\)/, 'Paralysed 2 turns (vanilla PARALYZED)');
+like($eo, qr/ApplyStatus\(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0\)/, 'tells Osiris to empty the meter');
+my $g = Alchemy::overload_goal();
+is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("EMOTION_\w+", 1\)/g), 8, '+1 for each of the 8 peaks');
+is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)", 2\)/g), 33, '+2 for 24 feelings, 8 intense, Catharsis');
+like($g, qr/DB_ARCANA_Resonant_OverloadMax\(5, 11\).*DB_ARCANA_Resonant_OverloadMax\(20, 20\)/s, 'size by level from 25');
+like($g, qr/HasPassive\(_Resonant, "Arcana_Passive_Overload", 1\)/, 'counts only for a Resonant with the passive');
+unlike($g, qr/[^\x00-\x7F]/, 'ASCII only');
+like($g, qr/\r\n/, 'CRLF, like the other goals');
+
 done_testing();

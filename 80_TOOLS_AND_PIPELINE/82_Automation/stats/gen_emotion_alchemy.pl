@@ -418,6 +418,23 @@ sub build_statuses {
     push @out, hidden_status('FEELING_MORBIDNESS_TECH', 'Morbidness', 'OnApplyFunctors', 'RegainHitPoints(1d6)');
     push @out, hidden_status('RESONANT_REFUND_TECH', 'Refund', 'OnApplyFunctors', refund_functors());
     push @out, hidden_status('RESONANT_REFUND_USED', 'Refund used', 'TickType', 'StartTurn');
+    # Stage 2: the Overload meter -- a count shown as a frozen duration, like ASPECT_PROGRESS_* (ARCANA_Aspect_Common.txt)
+    push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD', 'StatusData', StatusType => 'BOOST',
+        DisplayName => loca(key('RESONANT_OVERLOAD', 'NAME'), 'Overload'),
+        Description => loca(key('RESONANT_OVERLOAD', 'DESC'), 'Everything you made others feel this fight, felt again. When it is full, you suffer at the start of each turn until you release it with Emotional Overload.'),
+        Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD', StackType => 'Overwrite',
+        RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'FreezeDuration;IgnoreResting', StatusGroups => 'SG_RemoveOnRespec')];
+    # full: Psychic damage equal to the slot level at the start of each turn (25: FEAT_Resonant_Overload#full_damage),
+    # by class-level bracket as Arcana_Passive_ArcaneOverflow; flat TickFunctors damage as vanilla ORI_GALE_AURANECROSIS
+    my $tick = join ';', map { my ($dmg, $lo, $hi) = @$_; my @c = ("ClassLevelHigherOrEqualThan($lo,'Arcana')");
+        push @c, "not ClassLevelHigherOrEqualThan($hi,'Arcana')" if $hi; 'IF(' . join(' and ', @c) . "):DealDamage($dmg,Psychic,Magical)" }
+        ([3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
+    push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD_FULL', 'StatusData', StatusType => 'BOOST',
+        DisplayName => loca(key('RESONANT_OVERLOAD_FULL', 'NAME'), 'Overloaded'),
+        Description => loca(key('RESONANT_OVERLOAD_FULL', 'DESC'), 'You can release Emotional Overload. Until you do, you take Psychic damage at the start of each of your turns.'),
+        Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD_FULL', TickType => 'StartTurn',
+        TickFunctors => $tick, RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'IgnoreResting')];
+    push @out, hidden_status('RESONANT_OVERLOAD_SPENT_TECH', 'Overload spent', 'StackId', 'RESONANT_OVERLOAD_SPENT_TECH');
     # R17 helpers. Contagion: Advantage(AttackRoll) + RemoveEvents OnAttack (vanilla MAG_MONK_SWIFT_AS_THE_WIND).
     # Opening: Advantage(AttackTarget) + RemoveEvents OnAttacked (vanilla GUIDING_BOLT). Grudge: vanilla TAUNTED's
     # flags and group; Osiris (ARCANA_Resonant_Grudge) applies it with the last attacker as its source.
@@ -458,6 +475,9 @@ sub build_passives {
     $out .= passive('Arcana_Passive_EmotionalAlchemy', 'Emotional Alchemy',
         "When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as $love, that lasts $FEELING_TURNS turns.<br><br>Opposing emotions snap into $catharsis: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.",
         'Spell_Enchantment_CalmEmotions', DescriptionParams => "DealDamage($CATHARSIS_DICE,Psychic);RegainHitPoints($CATHARSIS_DICE)");
+    $out .= passive('Arcana_Passive_Overload', 'Overload',
+        'You feel what you make others feel. Each emotion that takes hold adds 1 to your Overload, and each reaction adds 2. When it is full, you take Psychic damage at the start of each turn until you release it with Emotional Overload.',
+        'Spell_Enchantment_CalmEmotions');
     $out .= passive('Arcana_Passive_EmpathicSight', 'Empathic Sight',
         tag_terms('You read the threads of feeling in others. You have Advantage on Insight checks.'),
         'Spell_Divination_SeeInvisibility', Boosts => 'Advantage(Skill,Insight)');
@@ -548,7 +568,7 @@ sub build_spells {
 }
 
 sub build_debug {
-    my $passives = 'Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings';
+    my $passives = 'Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings;Arcana_Passive_Overload';
     my $shout = entry('Shout_Arcana_Util_DEBUG_Resonant', 'SpellData',
         SpellType => 'Shout', Level => 0, SpellSchool => 'Divination', TargetConditions => 'Self()',
         SpellProperties => 'ApplyStatus(RESONANT_DEBUG,100,-1)', Icon => 'GenericIcon_Intent_Buff',
@@ -559,7 +579,9 @@ sub build_debug {
         VerbalIntent => 'Utility', SpellStyleGroup => 'Class', SpellFlags => 'IsSpell');
     my $status = entry('RESONANT_DEBUG', 'StatusData', StatusType => 'BOOST',
         DisplayName => loca('HW_DEBUG_STATUS_NAME', '[DEBUG] Resonant'), Icon => 'Spell_Divination_DetectEvilAndGood',
-        StackId => 'RESONANT_DEBUG', Passives => $passives, RemoveEvents => 'OnLongRest');
+        StackId => 'RESONANT_DEBUG', Passives => $passives,
+        Boosts => 'UnlockSpell(Target_Arcana_Created_EmotionalOverload)',   # stage 2: testable before the progression (stage 6)
+        RemoveEvents => 'OnLongRest');
     ($shout, $status);
 }
 
@@ -620,7 +642,7 @@ sub build_interrupts {
 }
 sub build_engine_patch {
     @LOCA = ();
-    my $spells   = build_spells();
+    my $spells   = build_spells() . build_overload_spell();
     my @statuses = build_statuses();
     my $passives = build_passives();
     my ($shout, $debugst) = build_debug();
@@ -669,6 +691,79 @@ sub build_upcast_patch {
 
 sub write_file { my ($path, $s) = @_; make_path(dirname($path)); open my $h, '>:raw', $path or die "$path: $!"; print $h $s; close $h }
 
+# ---------------------------------------------------------------- stage 2: the ultimate and the Overload counter
+# Emotional Overload (R9, R10, R20, R22): only with the meter full, no save, no slot. Created: never in the deck.
+# Paralysis: vanilla PARALYZED (INCAPACITATED, no RemoveConditions). Numbers: 25 SPL_Resonant_EmotionalOverload.
+sub build_overload_spell {
+    my $id = 'Target_Arcana_Created_EmotionalOverload';
+    my $dmg = master('SPL_Resonant_EmotionalOverload', 'damage_per_feeling')->{value};
+    my $turns = master('SPL_Resonant_EmotionalOverload', 'paralysed')->{value};
+    my @feel = map { 'FEELING_' . uc $FEELING{$_}{name} } sort { $FEELING{$a}{name} cmp $FEELING{$b}{name} } keys %FEELING;
+    my $success = join ';', (map { "IF(HasStatus('$_')):DealDamage($dmg,Psychic,Magical);IF(HasStatus('$_')):RemoveStatus($_)" } @feel),
+        "ApplyStatus(PARALYZED,100,$turns)", 'ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)';
+    entry($id, 'SpellData',
+        SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
+        TargetRadius => master('SPL_Resonant_EmotionalOverload', 'range')->{value}, AmountOfTargets => 1,
+        SpellSuccess => $success,
+        TargetConditions => "Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and HasStatus('RESONANT_OVERLOAD_FULL', context.Source)",
+        Icon => 'Spell_Enchantment_CalmEmotions',
+        DisplayName => loca(key($id, 'NAME'), 'Emotional Overload'),
+        Description => loca(key($id, 'DESC'), tag_terms("Pour everything you have felt this fight into one creature. Every feeling it carries tears at it for [1] Psychic damage and is spent, and it is Paralysed for $turns turns. No saving throw.")),
+        DescriptionParams => "DealDamage($dmg,Psychic)",
+        TooltipStatusApply => "ApplyStatus(PARALYZED,100,$turns)",
+        @CAST, PreviewCursor => 'Cast', CastTextEvent => 'Cast',
+        CycleConditions => 'Enemy() and not Dead()', UseCosts => 'ActionPoint:1',
+        VerbalIntent => 'Control', SpellStyleGroup => 'Class',
+        SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful', HitAnimationType => 'None');
+}
+
+# The Overload counter (R12): +1 per peak that lands, +2 per reaction, size by level (25: FEAT_Resonant_Overload).
+# Generated from the wheel table so the status lists never drift. Patterns: ARCANA_Aspect_Common.txt (tables
+# rebuilt in Init + SavegameLoaded, count shown as a frozen duration of N x 6 s, IntegerSum / IntegerToReal).
+sub overload_goal {
+    my $peak  = master('FEAT_Resonant_Overload', 'fill_peak')->{value};
+    my $react = master('FEAT_Resonant_Overload', 'fill_reaction')->{value};
+    my $by = master('FEAT_Resonant_Overload', 'size')->{by_level};
+    my @th = sort { $a <=> $b } keys %$by;
+    my @rows;
+    push @rows, map { qq{DB_ARCANA_Resonant_OverloadPoints("} . peak_id($_) . qq{", $peak);} } @WHEEL;
+    push @rows, map { qq{DB_ARCANA_Resonant_OverloadPoints("} . intense_id($_) . qq{", $react);} } @WHEEL;
+    push @rows, map { qq{DB_ARCANA_Resonant_OverloadPoints("FEELING_} . uc($FEELING{$_}{name}) . qq{", $react);} } sort keys %FEELING;
+    push @rows, qq{DB_ARCANA_Resonant_OverloadPoints("CATHARSIS", $react);};
+    for my $L (1 .. 20) { my ($t) = grep { $_ <= $L } reverse @th; $t //= $th[0]; push @rows, "DB_ARCANA_Resonant_OverloadMax($L, $by->{$t});" }
+    my $g = join "\n", 'Version 1', 'SubGoalCombiner SGC_AND', 'INITSECTION', 'PROC_ARCANA_Resonant_Overload_Init();', '', 'KBSECTION',
+        '//REGION Resonant - Overload tables (GENERATED by gen_emotion_alchemy.pl -- do not edit by hand)',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Init()', 'AND', 'DB_ARCANA_Resonant_OverloadPoints(_Status, _Pts)', 'THEN', 'NOT DB_ARCANA_Resonant_OverloadPoints(_Status, _Pts);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Init()', 'AND', 'DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max)', 'THEN', 'NOT DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Init()', 'THEN', @rows, '',
+        'IF', 'SavegameLoaded()', 'THEN', 'PROC_ARCANA_Resonant_Overload_Init();', '//END_REGION', '',
+        '//REGION Resonant - Overload count: +1 per peak that lands, +2 per reaction, only in combat (R12)',
+        'IF', 'StatusApplied(_Target, _Status, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_OverloadPoints(_Status, _Pts)',
+        'AND', 'HasPassive(_Resonant, "Arcana_Passive_Overload", 1)', 'AND', 'IsInCombat(_Resonant, 1)', 'AND', 'NOT DB_ARCANA_Resonant_OverloadFull(_Resonant)',
+        'THEN', 'PROC_ARCANA_Resonant_Overload_Add(_Resonant, _Pts);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Add((CHARACTER)_Resonant, (INTEGER)_Pts)', 'AND', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _)', 'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, 0);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Add((CHARACTER)_Resonant, (INTEGER)_Pts)', 'AND', 'DB_ARCANA_Resonant_Overload(_Resonant, _Old)',
+        'AND', 'IntegerSum(_Old, _Pts, _New)', 'AND', 'GetLevel(_Resonant, _Lvl)', 'AND', 'DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max)',
+        'THEN', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _Old);', 'PROC_ARCANA_Resonant_Overload_Set(_Resonant, _New, _Max);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)', 'AND', '_New < _Max',
+        'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, _New);', 'PROC_ARCANA_Resonant_Overload_Show(_Resonant, _New);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)', 'AND', '_New >= _Max',
+        'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, _Max);', 'DB_ARCANA_Resonant_OverloadFull(_Resonant);',
+        'PROC_ARCANA_Resonant_Overload_Show(_Resonant, _Max);', 'ApplyStatus(_Resonant, "RESONANT_OVERLOAD_FULL", -1.0, 1, _Resonant);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Show((CHARACTER)_Resonant, (INTEGER)_N)', 'AND', 'IntegerProduct(_N, 6, _Secs)', 'AND', 'IntegerToReal(_Secs, _Dur)',
+        'THEN', 'ApplyStatus(_Resonant, "RESONANT_OVERLOAD", _Dur, 1, _Resonant);', '//END_REGION', '',
+        '//REGION Resonant - Overload reset: Emotional Overload released, or the combat left',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Reset((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_Overload(_Resonant, _N)', 'THEN', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _N);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Reset((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_OverloadFull(_Resonant)', 'THEN', 'NOT DB_ARCANA_Resonant_OverloadFull(_Resonant);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Reset((CHARACTER)_Resonant)', 'THEN',
+        'RemoveStatus(_Resonant, "RESONANT_OVERLOAD", _Resonant);', 'RemoveStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant);', '',
+        'IF', 'StatusApplied((CHARACTER)_Resonant, "RESONANT_OVERLOAD_SPENT_TECH", _, _)', 'THEN', 'PROC_ARCANA_Resonant_Overload_Reset(_Resonant);', '',
+        'IF', 'LeftCombat((CHARACTER)_Resonant, _)', 'THEN', 'PROC_ARCANA_Resonant_Overload_Reset(_Resonant);', '//END_REGION',
+        'EXITSECTION', '', 'ENDEXITSECTION', '';
+    $g =~ s/\n/\r\n/g;
+    $g;
+}
+
 sub main {
     my ($out) = grep { defined } map { $ARGV[$_ + 1] if $ARGV[$_] eq '--out' } 0 .. $#ARGV;
     $out //= default_out();
@@ -677,6 +772,7 @@ sub main {
     my ($up, $n) = build_upcast_patch();
     write_file("$out/20_upcast_targets.patch", $up);
     write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
+    write_file("$out/40_overload_goal.txt", overload_goal());
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);
     printf "20_upcast_targets.patch: %d variants%s\n", $n, $n ? '' : ' (none yet: run gen_upcast_variants.pl --apply, then generate again)';
