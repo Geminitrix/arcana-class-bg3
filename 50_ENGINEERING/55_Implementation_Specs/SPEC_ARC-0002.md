@@ -809,6 +809,12 @@ or a second Surge's peak) and gives it its mood at once — the turn ends it oth
 | P25 | Awakened II: Weave Surge: Fear on an enemy (free), then Weave Surge: Trust on it (action) | After the first, it has both Emotion: Fear and Mood: Apprehensive; the second braids Submission the same turn (refund, Overload +2, Awakening +1) |
 | P26 | An ally, any Surge | No roll at all; the ally always gets it |
 
+Results (Owner, 2026-10-12): P26 ✅; P25 worked only on ONE target of an upcast (multi-target) Surge — the single Osiris mark
+was spent by the first peak. Rebuilt (not applied): the echo moves into each peak's `OnApplyFunctors`,
+`IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(<mood>,100,7)` — the free Surge is still on the caster
+while the spell resolves on all its targets (Osiris removes it after `CastedSpell`); the Osiris mark (`DB_ARCANA_Resonant_Echo`,
+`DB_ARCANA_Resonant_PeakMood`) is gone. Re-test P25 with several targets.
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |
