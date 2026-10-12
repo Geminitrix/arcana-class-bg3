@@ -28,3 +28,5 @@ guide `75.02` update.
 **ARC-0002:** level 5 now grants Overload and Emotional Overload (`[fechado]`). Waiting: P6–P10.
 
 **ARC-0002 stage 2b applied** (`[fechado]`): Overload from level 1, Overloaded, Emotional Overload as an ability. Waiting: Story compile + P6–P10.
+
+**ARC-0002 incident resolved** (`[fechado]`): Status_BOOST restored (85 entries back), duplicated field fixed and tested, R31 applied.

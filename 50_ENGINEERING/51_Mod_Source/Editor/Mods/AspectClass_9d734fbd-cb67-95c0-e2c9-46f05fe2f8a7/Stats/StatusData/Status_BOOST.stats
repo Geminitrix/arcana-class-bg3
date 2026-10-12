@@ -2290,12 +2290,11 @@
         <field name="UUID" type="IdTableFieldDefinition" value="86e7b111-13b9-2e51-b369-6cfc4f659071" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf787041fg0774g309fgc7e2g78de613fb59e" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
-        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="FreezeDuration;IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="FreezeDuration;IgnoreResting;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
       </fields>
     </stat_object>
@@ -2304,15 +2303,14 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e3738b97-3373-9149-ea9b-5233963849b2" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2aebe169gad14gcef1g3240gde925d03dad2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="BlockSpellCast();CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)" />
         <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):DealDamage(1,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(2,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)" />
-        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="IgnoreResting;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2322,7 +2320,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha1fa7b98gb281g59b6g0430gdce752a2326b" version="1" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_SPENT_TECH" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_SPENT_TECH" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
