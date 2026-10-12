@@ -81,22 +81,23 @@ our $SURGE_WARNING = '70aa3de3-6968-4c6e-a9cc-46344d0c08c2';
 our %EMO = (
     Joy => { side => 'A', icon => 'Spell_Enchantment_Heroism',
         flavour => "Pluck a bright thread of joy in an ally's Weave.",
-        effect  => "The target's joy is contagious: allies near it have Advantage on their next attack.",
+        effect  => "The target's joy is contagious: it and allies near it have Advantage on their next attack.",
         # R17: contagious -- an aura gives the Joyful creature's allies Advantage on their next attack (25: STA_Resonant_Peaks)
         peak    => { boosts => undef, params => 'Distance(' . master('STA_Resonant_Peaks', 'joy_aura_radius')->{value} . ')',
-                     text => 'Its joy is contagious: allies within [1] have Advantage on their next attack.',
+                     text => 'Its joy is contagious: it and its allies within [1] have Advantage on their next attack.',
                      extra => { AuraRadius => master('STA_Resonant_Peaks', 'joy_aura_radius')->{value},
-                                AuraStatuses => 'IF(Ally() and not Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)' } },
+                                AuraStatuses => 'IF(Ally() or Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)' } },
         mood    => { name => 'Serene', fx => 'with Advantage on Wisdom Saving Throws', boosts => 'Advantage(SavingThrow,Wisdom)',
                      text => 'Has Advantage on Wisdom Saving Throws.' },
         intense => { name => 'Ecstasy', boosts => 'ActionResource(ActionPoint,1,0)',
                      text => 'Has an additional action.' } },
     Trust => { side => 'A', icon => 'Spell_Abjuration_ShieldOfFaith',
         flavour => "Steady an ally with a thread of trust.",
-        effect  => "The target follows your lead, attacking the enemies you and its allies hit.",
-        # R17: follows your lead -- a reaction attack on the target an ally just hit (Interrupt_Arcana_TrustFollowUp)
-        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_TrustFollowUp)',
-                     text => 'Follows your lead: when you or an ally hits an enemy, it can use its reaction to attack the same target.' },
+        effect  => "The target stands shoulder to shoulder with its allies, sharing the blows meant for them.",
+        # R27: shoulder to shoulder -- a reaction that shares a hit aimed at a nearby ally (Interrupt_Arcana_TrustShoulder)
+        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_TrustShoulder)',
+                     params => 'Distance(' . master('STA_Resonant_Peaks', 'trust_shoulder_range')->{value} . ')',
+                     text => 'Shoulder to shoulder: when an ally within [1] is hit by an attack, it can use its reaction to share the blow. The ally is Resistant to it, and it takes the same damage.' },
         mood    => { name => 'Accepting', fx => 'with a +1 bonus to Armour Class', boosts => 'AC(1)',
                      text => 'Armour Class increased by 1.' },
         intense => { name => 'Admiration', boosts => 'Resistance(All, Resistant);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened)',
@@ -145,21 +146,23 @@ our %EMO = (
                      text => "Can't take actions or bonus actions. Has Disadvantage on Attack Rolls and Ability Checks." } },
     Anger => { side => 'I', icon => 'Spell_Enchantment_CrownOfMadness',
         flavour => "Set a red thread of fury alight in a creature's mind.",
-        effect  => "The target attacks the nearest creature other than you.",
-        peak    => { boosts => 'CannotHarmCauseEntity(CannotHarmMadness);ActionResourceBlock(ReactionActionPoint);AiArchetypeOverride(madness,99);Tag(AI_UNPREFERRED_TARGET);DetectDisturbancesBlock(true)',
-                     text => 'Will attack the nearest creature, other than the spellcaster.',
-                     extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat;LoseControl', StatusGroups => 'SG_Condition;SG_Mad' } },
+        effect  => "The target bears a grudge: it attacks the last creature that hurt it, or the nearest one if nobody has.",
+        # R26: the grudge (or the fallback) is applied by Osiris (ARCANA_Resonant_Grudge), never both
+        peak    => { boosts => 'ActionResourceBlock(ReactionActionPoint)',
+                     text => 'Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has.',
+                     extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat', StatusGroups => 'SG_Condition' } },
         mood    => { name => 'Annoyed', fx => 'with its Armour Class reduced by 1', boosts => 'AC(-1)',
                      text => 'Armour Class reduced by 1.' },
-        intense => { name => 'Rage', boosts => 'CannotHarmCauseEntity(CannotHarmMadness);ActionResourceBlock(ReactionActionPoint);AiArchetypeOverride(madness,99);Tag(AI_UNPREFERRED_TARGET);DetectDisturbancesBlock(true);Advantage(AttackRoll);Advantage(AttackTarget)',
-                     text => 'Will attack the nearest creature, other than the spellcaster, with Advantage. Attacks against it also have Advantage.',
-                     extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat;LoseControl', StatusGroups => 'SG_Condition;SG_Mad' } } },
+        intense => { name => 'Rage', boosts => 'ActionResourceBlock(ReactionActionPoint);Advantage(AttackRoll);Advantage(AttackTarget)',
+                     text => 'Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has, with Advantage. Attacks against it also have Advantage.',
+                     extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat', StatusGroups => 'SG_Condition' } } },
     Anticipation => { side => 'A', icon => 'Spell_Transmutation_Longstrider',
         flavour => "Pull a taut thread of anticipation through an ally's Weave.",
         effect  => "The target stands on guard and strikes the first enemy that comes within reach.",
         # R17: on guard -- a reaction attack when an enemy enters its reach (Interrupt_Arcana_AnticipationGuard)
-        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)',
-                     text => 'On guard: when an enemy enters its reach, it can use its reaction to attack first.' },
+        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)', tick => 'StartTurn',
+                     text => 'On guard: when an enemy enters its reach, it can use its reaction to attack first.',
+                     extra => { StatusPropertyFlags => 'TickingWithSource' } },   # R28: counts on the Resonant's turn, so it covers the round
         mood    => { name => 'Interested', fx => 'with its movement speed increased by [1]', boosts => 'ActionResource(Movement,3,0)',
                      text => 'Movement speed increased by [1].', params => 'Distance(3)' },
         intense => { name => 'Vigilance', boosts => 'ActionResource(ReactionActionPoint,2,0);Advantage(SavingThrow,Dexterity)',
@@ -302,7 +305,7 @@ sub any_mood { join ' or ', map { "HasStatus('" . mood_id($_) . "')" } @WHEEL }
 
 sub target_conditions {
     my $s = shift;
-    my $base = "Character() and not Dead() and IntelligenceGreaterThan(4) and not HasPassive('ARCANA_IS_CARD', context.Source)";
+    my $base = "Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source)";
     my $side = $EMO{$s}{side} eq 'A' ? '(Ally() or Self())' : '(not Ally() and not Self())';
     "$base and ($side or " . any_mood() . ')';
 }
@@ -422,6 +425,15 @@ sub build_statuses {
         extra => { RemoveEvents => 'OnAttack' } });
     push @out, status_entry('RESONANT_SURPRISE_OPENING', 'Off Guard', tag_terms('The next attack against it has Advantage.'),
         $EMO{Surprise}{icon}, 'I', { boosts => 'Advantage(AttackTarget)', stack => 'RESONANT_SURPRISE_OPENING',
+        extra => { RemoveEvents => 'OnAttacked' } });
+    # R26 fallback: the old "attack the nearest other than you" (Crown of Madness boosts), applied by Osiris only
+    # while nobody has hurt the angry creature yet. R27: the ally whose blow Trust shares (vanilla WARDING_BOND boosts).
+    push @out, status_entry('RESONANT_ANGER_FALLBACK', 'Lashing Out', 'Angry with no one to blame: attacks the nearest creature, other than the spellcaster.',
+        $EMO{Anger}{icon}, 'I', { stack => 'RESONANT_ANGER_FALLBACK',
+        boosts => 'CannotHarmCauseEntity(CannotHarmMadness);ActionResourceBlock(ReactionActionPoint);AiArchetypeOverride(madness,99);Tag(AI_UNPREFERRED_TARGET);DetectDisturbancesBlock(true)',
+        extra => { StatusPropertyFlags => 'LoseControl', StatusGroups => 'SG_Mad' } });
+    push @out, status_entry('RESONANT_TRUST_SHOULDERED', 'Shouldered', tag_terms('Resistant to the blow an ally is sharing with it.'),
+        $EMO{Trust}{icon}, 'A', { boosts => 'Resistance(All, Resistant);RedirectDamage(1)', stack => 'RESONANT_TRUST_SHOULDERED',
         extra => { RemoveEvents => 'OnAttacked' } });
     push @out, status_entry('RESONANT_GRUDGE', 'Grudge', 'Bears a grudge against whoever hurt it last and attacks them.',
         $EMO{Anger}{icon}, 'I', { stack => 'RESONANT_GRUDGE',
@@ -568,13 +580,14 @@ sub existing_entries {
 # What goes: every old Emotion*/Feeling* spell (and its upcast variants) and every EMOTION_/MOOD_/FEELING_ status
 # that is not in the new set or that moved to another file. Never removed: the upcast variants of the current
 # Surges (spell_id($e) . "_2" .. "_6" for every $e in @WHEEL); gen_upcast_variants.pl owns those.
+our %RETIRED = map { $_ => 1 } qw(Interrupt_Arcana_TrustFollowUp);   # generated once, replaced (R27), never published
 sub removals {
     my ($have, $new) = @_;   # $new: name => file
     my %ours = map { my $e = $_; map { (spell_id($e) . "_$_" => 1) } 2 .. 6 } @WHEEL;
     my @rm;
     for my $n (sort keys %$have) {
         next if $ours{$n};
-        next unless $n =~ /^Target_Arcana_Card_Spell_(?:Emotion|Feeling)\w*$/ || $n =~ /^(?:EMOTION|MOOD|FEELING)_\w+$/;
+        next unless $n =~ /^Target_Arcana_Card_Spell_(?:Emotion|Feeling)\w*$/ || $n =~ /^(?:EMOTION|MOOD|FEELING)_\w+$/ || $RETIRED{$n};
         push @rm, [$have->{$n}, $n] unless ($new->{$n} // '') eq $have->{$n};
     }
     @rm;
@@ -585,15 +598,18 @@ sub names_in { my $s = shift; my @n = $s =~ /^new entry "([^"]+)"/mg; @n }
 # Status files in output order, and the divider new entries go under ("-" = end of file).
 our @STATUS_FILES = (['Status_BOOST', 'ARCANA STATUS'], ['Status_FEAR', '-'], ['Status_INCAPACITATED', '-']);
 
-# R17 interrupts. Follow-up: OnCastHit, Nearby, Ally/Enemy with context.Observer (vanilla Interrupt_FOR_SpiderQueen_SilkTomb).
+# Interrupts. Shoulder (R27): OnPreDamage, Nearby, Ally(context.Target,context.Observer) and not Self(...) (vanilla
+# Interrupt_ProjectedWard), IsAttack() + HasDamageEffectFlag (Interrupt_ShieldMaster), DistanceToEntityGreaterThan
+# (Interrupt_MAG_Cunning_Combo_HandCrossbow), ApplyStatus(OBSERVER_TARGET,...) (Interrupt_DampenElements).
 # Guard: OnEnterAttackRange, Self, UseAttack(), Stack AttackOfOpportunity (vanilla Interrupt_PolearmMaster).
 sub build_interrupts {
-    entry('Interrupt_Arcana_TrustFollowUp', 'InterruptData',
-        DisplayName => loca(key('Interrupt_Arcana_TrustFollowUp', 'NAME'), 'Follow Your Lead'),
-        Description => loca(key('Interrupt_Arcana_TrustFollowUp', 'DESC'), 'When you or an ally hits an enemy, attack the same target.'),
-        Icon => $EMO{Trust}{icon}, InterruptContext => 'OnCastHit', InterruptContextScope => 'Nearby', Container => 'YesNoDecision',
-        Conditions => 'IsAbleToReact(context.Observer) and Ally(context.Source,context.Observer) and not Self(context.Source,context.Observer) and Enemy(context.Target,context.Observer) and IsHit() and not AnyEntityIsItem()',
-        Properties => 'UseAttack()', Cost => 'ReactionActionPoint:1', InterruptDefaultValue => 'Ask;Enabled')
+    my $r = master('STA_Resonant_Peaks', 'trust_shoulder_range')->{value};
+    entry('Interrupt_Arcana_TrustShoulder', 'InterruptData',
+        DisplayName => loca(key('Interrupt_Arcana_TrustShoulder', 'NAME'), 'Shoulder to Shoulder'),
+        Description => loca(key('Interrupt_Arcana_TrustShoulder', 'DESC'), 'When a nearby ally is hit by an attack, share the blow: the ally is Resistant to it, and you take the same damage.'),
+        Icon => $EMO{Trust}{icon}, InterruptContext => 'OnPreDamage', InterruptContextScope => 'Nearby', Container => 'YesNoDecision',
+        Conditions => "IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and IsAttack() and HasDamageEffectFlag(DamageFlags.Hit) and not DistanceToEntityGreaterThan($r, context.ObserverPosition, context.Target) and not AnyEntityIsItem()",
+        Properties => 'ApplyStatus(OBSERVER_TARGET,RESONANT_TRUST_SHOULDERED,100,1)', Cost => 'ReactionActionPoint:1', InterruptDefaultValue => 'Ask;Enabled')
   . entry('Interrupt_Arcana_AnticipationGuard', 'InterruptData',
         DisplayName => loca(key('Interrupt_Arcana_AnticipationGuard', 'NAME'), 'On Guard'),
         Description => loca(key('Interrupt_Arcana_AnticipationGuard', 'DESC'), 'When an enemy enters your reach, attack it first.'),

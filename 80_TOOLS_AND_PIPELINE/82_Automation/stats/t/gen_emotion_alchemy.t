@@ -139,9 +139,8 @@ like(join(' ', map { $lt{$_} } grep { /EMOTIONALALCHEMY_DESC$/ } keys %lt), qr/y
 
 # ---- behaviour peaks (R15, R17)
 my $pk = sub { block($p, 'EMOTION_' . uc shift) };
-like($pk->('Joy'), qr/data "AuraRadius" "3"\n.*data "AuraStatuses" "IF\(Ally\(\) and not Self\(\)\):ApplyStatus\(RESONANT_JOY_CONTAGION,100,1\)"/s, 'Joy: contagious aura');
+like($pk->('Joy'), qr/data "AuraRadius" "3"\n/, 'Joy: contagious aura of 3 m');
 like(block($p, 'RESONANT_JOY_CONTAGION'), qr/Advantage\(AttackRoll\).*"RemoveEvents" "OnAttack"/s, 'contagion: next attack only');
-like($pk->('Trust'), qr/UnlockInterrupt\(Interrupt_Arcana_TrustFollowUp\)/, 'Trust: follow-up interrupt');
 like($pk->('Anticipation'), qr/UnlockInterrupt\(Interrupt_Arcana_AnticipationGuard\)/, 'Anticipation: guard interrupt');
 like($pk->('Fear'), qr/"StatusGroups" "SG_Frightened;SG_Condition"/, 'Fear: Frightened group');
 like($pk->('Surprise'), qr/"Boosts" "ActionResourceBlock\(ReactionActionPoint\)".*ApplyStatus\(RESONANT_SURPRISE_OPENING,100,1\)/s, 'Surprise: no reaction, opening');
@@ -149,6 +148,19 @@ like(block($p, 'RESONANT_SURPRISE_OPENING'), qr/Advantage\(AttackTarget\).*"Remo
 like($pk->('Sadness'), qr/"Boosts" "ActionResourceBlock\(BonusActionPoint\)".*BreakConcentration\(\)/s, 'Sadness: lets go');
 like(block($p, 'RESONANT_GRUDGE'), qr/"StatusGroups" "SG_Taunted"/, 'grudge: taunted group');
 like($p, qr/^new entry "Interrupt_Arcana_AnticipationGuard"\ntype "InterruptData"\n(?:.*\n)*?data "InterruptContext" "OnEnterAttackRange"/m, 'guard: enters reach');
-like($p, qr/^new entry "Interrupt_Arcana_TrustFollowUp"\ntype "InterruptData"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/m, 'follow-up: watches allies');
+
+# ---- stage 1b: probe fixes (R25-R28)
+none('no Surge keeps the INT gate', grep { block($p, Alchemy::spell_id($_)) =~ /IntelligenceGreaterThan/ } @W);
+none('every Surge skips constructs', grep { block($p, Alchemy::spell_id($_)) !~ /not Tagged\('CONSTRUCT'\)/ } @W);
+like($pk->('Joy'), qr/"AuraStatuses" "IF\(Ally\(\) or Self\(\)\):ApplyStatus\(RESONANT_JOY_CONTAGION,100,1\)"/, 'Joy: the Joyful creature shares it');
+like($pk->('Anticipation'), qr/"TickType" "StartTurn".*"StatusPropertyFlags" "[^"]*TickingWithSource/s, 'Anticipation lasts until your next turn');
+none('Anger and Rage do not attack the nearest by themselves', grep { $pk->($_) =~ /AiArchetypeOverride/ } qw(Anger Rage));
+like(block($p, 'RESONANT_ANGER_FALLBACK'), qr/AiArchetypeOverride\(madness,99\)/, 'the fallback attacks the nearest');
+like($pk->('Trust'), qr/UnlockInterrupt\(Interrupt_Arcana_TrustShoulder\)/, 'Trust: shoulder to shoulder');
+like($p, qr/^new entry "Interrupt_Arcana_TrustShoulder"\ntype "InterruptData"\n(?:.*\n)*?data "InterruptContext" "OnPreDamage"/m, 'shoulder: before the damage');
+like(block($p, 'RESONANT_TRUST_SHOULDERED'), qr/Resistance\(All, Resistant\);RedirectDamage\(1\)/, 'shouldered: Warding Bond boosts');
+unlike($p, qr/^new entry "Interrupt_Arcana_TrustFollowUp"/m, 'the follow-up interrupt is no longer generated');
+is_deeply([map { "$_->[0]|$_->[1]" } Alchemy::removals({ Interrupt_Arcana_TrustFollowUp => 'Interrupt', Interrupt_Arcana_Other => 'Interrupt' }, {})],
+    ['Interrupt|Interrupt_Arcana_TrustFollowUp'], 'removals: the retired follow-up goes, other interrupts stay');
 
 done_testing();
