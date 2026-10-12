@@ -213,12 +213,6 @@
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_NAME On Guard
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_DESC When an enemy enters your reach, attack it first.
 
-@file Spell_Shout
-@remove Shout_Arcana_Util_DEBUG_Resonant
-
-@file Status_BOOST
-@remove RESONANT_DEBUG
-
 @file Spell_Target
 @section Target_ARCANA SPELLS
 

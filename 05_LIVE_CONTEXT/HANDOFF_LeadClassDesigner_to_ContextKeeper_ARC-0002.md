@@ -89,7 +89,7 @@ Decisions R22–R45 are in `55_Implementation_Specs/_wip/Resonant/decisions.md`.
 Sight, Overload · L3 Surge Anticipation / Surprise / Sadness, Temper; Resonance (Tier I), 14 - Temperance: Awakening ·
 L5 Surge Disgust / Anger, Emotional Overload; Complex Feelings · L7 Overwhelm, Harmony (Tier II) · L9 Emotional
 Contagion; Mixed Feelings · L11 Ready: Compassion, Shared Heart · L12 Aspect of Empathy (Tier III). Read the Room was
-removed (R37). The DEBUG shout/status is being retired: ready in the generator and `56_retire_debug.pl`, applied with the next `[fechado] ARC-0002` (archived in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_resonant_debug`).
+removed (R37). The DEBUG shout/status is retired (applied 2026-10-12; archived in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_resonant_debug`).
 
 **Mechanics now:**
 - Weave Surges target any creature (R41); allies never roll (`SpellAutoResolveOnAlly`); not constructs (R25).

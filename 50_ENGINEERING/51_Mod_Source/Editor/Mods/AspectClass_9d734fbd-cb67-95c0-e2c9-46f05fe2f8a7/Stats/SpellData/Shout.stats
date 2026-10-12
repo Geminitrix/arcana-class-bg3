@@ -397,25 +397,6 @@
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
       </fields>
     </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="7ace62b0-6cfc-fd18-1636-b002ade13964" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_DEBUG_Resonant" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Divination" enumeration_type_name="SpellSchool" version="1" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(RESONANT_DEBUG,100,-1)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="GenericIcon_Intent_Buff" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb4a4a82cga24eg9acfg0699ge42f587d27b5" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h35d2e752gf518g72cbg3fc6g065f4644c6b0" version="1" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,," />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Utility" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell" enumeration_type_name="SpellFlagList" version="1" />
-      </fields>
-    </stat_object>
     <stat_object color="#FF000000" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="06bd52c5-08c3-4bdb-b531-5f9c0d77c3a8" />

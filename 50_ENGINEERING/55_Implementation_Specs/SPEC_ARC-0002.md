@@ -904,7 +904,7 @@ the usual Stats chain → `dump_progression` → `sync_data` → commit. PC prob
 | Spec §15 pass | design §15 rewritten to the current state; §13.2 refund / Overload meter / Shared Heart rows updated ☑ |
 | `05` handoff | `05_LIVE_CONTEXT/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md` §9 (supersedes the game notes of §5 and §7) ☑ |
 | Player guide | ticket ARC-0006 + `75_Community_and_Support/HANDOFF_LeadClassDesigner_to_CommunityAgent_ARC-0006.md` ☑ |
-| DEBUG scaffold | Owner: retire. Built (not applied — the message named no ticket): `Shout_Arcana_Util_DEBUG_Resonant` and `RESONANT_DEBUG` in `%RETIRED` (patch: 2 removals), `56_retire_debug.pl` takes the shout off the "Arcana Deck DEBUG" list; text archived in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_resonant_debug`. **Apply** with `[fechado] ARC-0002`: the Stats chain + `56_retire_debug.pl --apply` |
+| DEBUG scaffold | Owner: retire. Built (not applied — the message named no ticket): `Shout_Arcana_Util_DEBUG_Resonant` and `RESONANT_DEBUG` in `%RETIRED` (patch: 2 removals), `56_retire_debug.pl` takes the shout off the "Arcana Deck DEBUG" list; text archived in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_resonant_debug`. **Applied 2026-10-12** (`[fechado] ARC-0002`): 2 removals, the list without the shout; selftest 1009/0, check_cards OK, −1 Shout and −1 Status_BOOST on both sides, no reference left ☑ |
 
 ARC-0002 stays **in progress** until the open probes pass; then `done`.
 
