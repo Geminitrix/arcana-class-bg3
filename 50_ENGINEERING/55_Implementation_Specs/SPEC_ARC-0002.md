@@ -110,7 +110,7 @@ values:
 # ---- master data (25) is the only source of numbers
 is(Alchemy::master('STA_Resonant_Peaks', 'joy_aura_radius')->{value}, 3, 'reads a plain value from 25');
 is_deeply(Alchemy::master('STA_Resonant_Catharsis', 'damage')->{by_level}, { 1 => '2d8', 5 => '3d8', 10 => '4d8' }, 'reads by_level from 25');
-like(Alchemy::master('STA_Resonant_States', 'mood_duration')->{value}, qr/^d+$/, 'mood duration is a number read from 25');
+like(Alchemy::master('STA_Resonant_States', 'mood_duration')->{value}, qr/^\d+$/, 'mood duration is a number read from 25');
 ```
 
 - [ ] **Step 3 — run, expect FAIL** (`Undefined subroutine &Alchemy::master`).
