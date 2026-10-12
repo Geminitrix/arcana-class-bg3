@@ -779,6 +779,14 @@ regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_car
 | P23 | Out of combat or before Tier II | Surges cost the action as usual |
 | P24 | Weave Surge: Fear on an ally without a mood; Surge: Trust on an enemy without a mood | Both can be cast; the ally gets the peak with no save, the enemy saves |
 
+Fix after 4b (2026-10-12): the Toolkit warned "Destination buffer too small to read line! Buffer size 4096, needed 4833" —
+the 8 Surge `SpellSuccess` lines had grown to 4832–4880 characters (the Tier II branches). Built (not applied): the R16
+refund moves to Osiris (`ARCANA_Resonant_Overload`: `StatusApplied` of a reaction status → `RESONANT_REFUND_TECH`, table
+`DB_ARCANA_Resonant_Reaction`), and the Tier II condition reads a short hidden marker `RESONANT_TIER2` (Osiris applies it
+with the tier, removes it on reset). Longest line now 3301; test 213/213 includes "no line over 3900". Apply with the
+4b steps (also copy `40_overload_goal.txt` → `Goals/ARCANA_Resonant_Overload.txt`). Re-check the refund (P1-style: a
+reaction gives the slot back, once per turn) with P20b–P24.
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

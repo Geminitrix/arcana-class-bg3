@@ -37,9 +37,9 @@ my $ss = Alchemy::spell_success('Fear');
 my @f = split /;(?=IF\()/, $ss;
 like($f[0], qr/^IF\(not \(.*:ApplyStatus\(EMOTION_FEAR,100,1\)$/, 'first functor: the no-reaction case applies the peak (risk R1)');
 is(scalar(() = $f[0] =~ /HasStatus\('MOOD_/g), 8, 'the no-reaction case checks all 8 moods');
-like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\) and not \(HasStatus\('ASPECT_AWAKENED_TEMPERANCE_II', context\.Source\) or HasStatus\('ASPECT_AWAKENED_TEMPERANCE_III', context\.Source\)\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
+like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\) and not HasStatus\('RESONANT_TIER2', context\.Source\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
 like($ss, qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\).*RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\).*ApplyStatus\(CATHARSIS,100,0\)$/, 'Catharsis harms, heals, then clears the moods last');
-none('each Surge: 1 base case + refund + intensify + 6 feelings x 2 (Tier II) + 5 Catharsis functors (2 for Tier I)', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 20 } @W);
+none('each Surge: 1 base case + intensify + 6 feelings x 2 (Tier II) + 5 Catharsis functors (2 for Tier I); the refund is in Osiris', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 19 } @W);
 
 # ---- the whole patch
 my $p = Alchemy::build_engine_patch();
@@ -129,10 +129,14 @@ like($lm, qr/<attribute id="Level10" type="LSString" value="4d8"\/>/, 'level 10:
 like($lm, qr/value="Catharsis_Damage".*value="$Alchemy::CATHARSIS_MAP_UUID"/s, 'name and fixed UUID');
 like(Alchemy::spell_success('Fear'), qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\)/, 'Catharsis damage reads the map');
 
-# ---- refund (R16): the second functor fires on any reaction, before a reaction spends the mood
-my @ff = split /;(?=IF\()/, Alchemy::spell_success('Joy');
-like($ff[1], qr/^IF\(\(HasStatus\('MOOD_.*\)\):ApplyStatus\(SELF,RESONANT_REFUND_TECH,100,0\)$/, 'refund comes right after the base case');
-is(scalar(() = $ff[1] =~ /HasStatus\('MOOD_/g), 8, 'refund condition covers the 8 moods');
+# ---- refund (R16): Osiris applies it when a reaction status lands (the Surge's line had grown past the
+#      Toolkit's 4096-character read limit, 2026-10-12)
+unlike(Alchemy::spell_success($_), qr/RESONANT_REFUND_TECH/, "refund is not in $_\'s SpellSuccess") for qw(Joy Fear);
+my $og = Alchemy::overload_goal();
+is(scalar(() = $og =~ /DB_ARCANA_Resonant_Reaction\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)"\);/g), 33, 'refund: the 33 reaction statuses (24 feelings, 8 intense, Catharsis)');
+like($og, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_Reaction\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH", 0\.0, 1, _Resonant\);/, 'refund: any reaction a Resonant causes');
+unlike($og, qr/DB_ARCANA_Resonant_Reaction\("RESONANT_TWO_CUPS_CATHARSIS"\)/, 'refund: The Two Cups is not a Surge');
+none('no stats line comes near the 4096-character read limit (the .stats twin adds ~100)', map { /^new entry "([^"]+)"/ ? () : length($_) > 3900 ? substr($_, 0, 40) : () } split /\n/, $p);
 my $rf = block($p, 'RESONANT_REFUND_TECH');
 is(scalar(() = $rf =~ /RestoreResource\(SELF,ArcanaSpellSlot,1,\d\)/g), 6, 'one slot refund per slot level 1-6');
 like($rf, qr/ApplyStatus\(SELF,RESONANT_REFUND_USED,100,1\)"$/m, 'the used flag is set last');
@@ -339,7 +343,12 @@ like($cr4, qr/DB_ARCANA_Aspect\("TEMPERANCE", "ASPECT_PROGRESS_TEMPERANCE", "ASP
 like($cr4, qr/"TEMPERANCE", 1, "Arcana_Passive_Aspect_Temperance_I", "ASPECT_AWAKENED_TEMPERANCE_I", 3\).*"TEMPERANCE", 2, .*, 6\).*"TEMPERANCE", 3, .*, 15\)/s, 'Common: goals 3 / 6 / 15 from 25');
 like($cr4, qr/DB_ARCANA_AspectShow\("TEMPERANCE", "COUNT"\);/, 'Common: shown as a count');
 # 4.6 Tier II, R40: feelings last 2 turns longer; once per turn a Weave Surge costs no action (the Fool's Zephyr pattern)
-my $T2 = "(HasStatus('ASPECT_AWAKENED_TEMPERANCE_II', context.Source) or HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source))";
+my $T2 = "HasStatus('RESONANT_TIER2', context.Source)";   # short on purpose: it repeats 12 times per Surge
+my $t2s = block($p, 'RESONANT_TIER2');
+like($t2s, qr/"StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"/, 'Tier II marker: hidden');
+like($t2s, qr/"RemoveEvents" "OnCombatEnded"/, 'Tier II marker: ends with the combat');
+like($ag, qr/_Tier == 2\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_SURGE_FREE", 6\.0, 1, _Resonant\);\r?\nApplyStatus\(_Resonant, "RESONANT_TIER2", -1\.0, 1, _Resonant\);/, 'Tier II marker: applied on reaching Tier II');
+like($ag, qr/RemoveStatus\(_Char, "RESONANT_TIER2", _Char\);/, 'Tier II marker: removed when the combat ends');
 like($jss, qr/\QIF(HasStatus('MOOD_ACCEPTING') and not $T2):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_ACCEPTING') and $T2):ApplyStatus(FEELING_LOVE,100,4)\E/, 'Tier II: a feeling lasts 2 turns longer');
 none('Tier II: every feeling branch of every Surge has both durations', map { my $s = Alchemy::spell_success($_); my $n = () = $s =~ /\Q and not $T2):ApplyStatus(FEELING_\E/g; my $m = () = $s =~ /\Q and $T2):ApplyStatus(FEELING_\E/g; ($n == $m && $n > 0) ? () : $_ } @W);
 unlike($ag, qr/HarmonyMood|HarmonyBest|LastSurge|Harmonized/, 'the old Harmony (nearest creature gains a mood) is gone (R40)');

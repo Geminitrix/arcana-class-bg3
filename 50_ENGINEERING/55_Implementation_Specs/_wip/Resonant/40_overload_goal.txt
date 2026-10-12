@@ -21,6 +21,13 @@ NOT DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max);
 
 PROC
 PROC_ARCANA_Resonant_Overload_Init()
+AND
+DB_ARCANA_Resonant_Reaction(_Status)
+THEN
+NOT DB_ARCANA_Resonant_Reaction(_Status);
+
+PROC
+PROC_ARCANA_Resonant_Overload_Init()
 THEN
 DB_ARCANA_Resonant_OverloadPoints("EMOTION_JOY", 1);
 DB_ARCANA_Resonant_OverloadPoints("EMOTION_TRUST", 1);
@@ -63,6 +70,39 @@ DB_ARCANA_Resonant_OverloadPoints("FEELING_SUBMISSION", 2);
 DB_ARCANA_Resonant_OverloadPoints("FEELING_SENTIMENTALITY", 2);
 DB_ARCANA_Resonant_OverloadPoints("FEELING_CURIOSITY", 2);
 DB_ARCANA_Resonant_OverloadPoints("CATHARSIS", 2);
+DB_ARCANA_Resonant_Reaction("EMOTION_ECSTASY");
+DB_ARCANA_Resonant_Reaction("EMOTION_ADMIRATION");
+DB_ARCANA_Resonant_Reaction("EMOTION_TERROR");
+DB_ARCANA_Resonant_Reaction("EMOTION_AMAZEMENT");
+DB_ARCANA_Resonant_Reaction("EMOTION_GRIEF");
+DB_ARCANA_Resonant_Reaction("EMOTION_LOATHING");
+DB_ARCANA_Resonant_Reaction("EMOTION_RAGE");
+DB_ARCANA_Resonant_Reaction("EMOTION_VIGILANCE");
+DB_ARCANA_Resonant_Reaction("FEELING_AGGRESSIVENESS");
+DB_ARCANA_Resonant_Reaction("FEELING_CONTEMPT");
+DB_ARCANA_Resonant_Reaction("FEELING_CYNICISM");
+DB_ARCANA_Resonant_Reaction("FEELING_ANXIETY");
+DB_ARCANA_Resonant_Reaction("FEELING_SHAME");
+DB_ARCANA_Resonant_Reaction("FEELING_DESPAIR");
+DB_ARCANA_Resonant_Reaction("FEELING_AWE");
+DB_ARCANA_Resonant_Reaction("FEELING_PRIDE");
+DB_ARCANA_Resonant_Reaction("FEELING_OPTIMISM");
+DB_ARCANA_Resonant_Reaction("FEELING_MORBIDNESS");
+DB_ARCANA_Resonant_Reaction("FEELING_GUILT");
+DB_ARCANA_Resonant_Reaction("FEELING_DELIGHT");
+DB_ARCANA_Resonant_Reaction("FEELING_LOVE");
+DB_ARCANA_Resonant_Reaction("FEELING_ENVY");
+DB_ARCANA_Resonant_Reaction("FEELING_PESSIMISM");
+DB_ARCANA_Resonant_Reaction("FEELING_REMORSE");
+DB_ARCANA_Resonant_Reaction("FEELING_OUTRAGE");
+DB_ARCANA_Resonant_Reaction("FEELING_UNBELIEF");
+DB_ARCANA_Resonant_Reaction("FEELING_DISAPPROVAL");
+DB_ARCANA_Resonant_Reaction("FEELING_DOMINANCE");
+DB_ARCANA_Resonant_Reaction("FEELING_HOPE");
+DB_ARCANA_Resonant_Reaction("FEELING_SUBMISSION");
+DB_ARCANA_Resonant_Reaction("FEELING_SENTIMENTALITY");
+DB_ARCANA_Resonant_Reaction("FEELING_CURIOSITY");
+DB_ARCANA_Resonant_Reaction("CATHARSIS");
 DB_ARCANA_Resonant_OverloadMax(1, 5);
 DB_ARCANA_Resonant_OverloadMax(2, 5);
 DB_ARCANA_Resonant_OverloadMax(3, 8);
@@ -88,6 +128,17 @@ IF
 SavegameLoaded()
 THEN
 PROC_ARCANA_Resonant_Overload_Init();
+//END_REGION
+
+//REGION Resonant - refund (R16): a reaction gives the Surge's slot back; RESONANT_REFUND_TECH holds the once-per-turn guard
+IF
+StatusApplied(_Target, _Status, (CHARACTER)_Resonant, _)
+AND
+DB_ARCANA_Resonant_Reaction(_Status)
+AND
+HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)
+THEN
+ApplyStatus(_Resonant, "RESONANT_REFUND_TECH", 0.0, 1, _Resonant);
 //END_REGION
 
 //REGION Resonant - Overload count: +1 per peak that lands, +2 per reaction, at any time; it carries over between combats (R12, R31)

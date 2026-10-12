@@ -125,6 +125,7 @@ AND
 _Tier == 2
 THEN
 ApplyStatus(_Resonant, "RESONANT_SURGE_FREE", 6.0, 1, _Resonant);
+ApplyStatus(_Resonant, "RESONANT_TIER2", -1.0, 1, _Resonant);
 
 IF
 TurnStarted((CHARACTER)_Resonant)
@@ -148,6 +149,7 @@ PROC
 PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
 THEN
 RemoveStatus(_Char, "RESONANT_SURGE_FREE", _Char);
+RemoveStatus(_Char, "RESONANT_TIER2", _Char);
 //END_REGION
 
 //REGION Tier III: Emotional Overload reaches every enemy within 6 m of the target that carries a feeling (first collect, then apply)
