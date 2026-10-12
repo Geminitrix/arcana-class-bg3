@@ -49,3 +49,12 @@ describes Turn the Wheel, Attunement, Equanimity and the old Tier III.
 The last "Heartweaver" leftover is gone: the ProgressionDescription row Name is `New_Stat_Resonant`. The
 Resonant's tag is `THERESONANT` (`c3a59afe-c03e-4fe0-9c7c-dc45ee46e21e`) — `05.02/Resonant.md` still says
 "internal tag `THEHEARTWEAVER`"; replace it.
+
+## 5. ARC-0002 stage 1 (game files changed, 2026-10-11)
+
+In the game now: Surges with behaviour peaks (Joy contagious aura, Trust follow-up interrupt, Anticipation
+guard interrupt, Fear in SG_Frightened, Surprise off guard, Sadness lets go); a reaction refunds the slot
+once per turn (`RESONANT_REFUND_TECH` / `_USED`); Catharsis reads the level map `Catharsis_Damage`;
+new statuses `RESONANT_JOY_CONTAGION`, `RESONANT_SURPRISE_OPENING`, `RESONANT_GRUDGE`; interrupts
+`Interrupt_Arcana_TrustFollowUp`, `Interrupt_Arcana_AnticipationGuard`; Osiris goal `ARCANA_Resonant_Grudge`
+(not compiled yet). Untested in game — probes P0–P5 pending.

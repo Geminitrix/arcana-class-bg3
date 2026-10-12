@@ -347,6 +347,67 @@
         <field name="StackId" type="StringTableFieldDefinition" value="COMPREHEND_ROBBERY" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="90e2c77f-6792-e91e-3574-007a0ef56557" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_GRUDGE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h868edc4bg6cbcg7c9fg0abdge28769e5fbae" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9589f6bfgd56eg3ab2g13d5g398c33c1406d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_GRUDGE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="LoseControl;OverheadOnTurn;LoseControlFriendly" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Taunted" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a4bac5ee-8a87-94f7-eea0-895958fba213" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_JOY_CONTAGION" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbcf24068g1344g8b18g6a46ge2ecc2403fe0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h66a0aeb4gda1cg353ag685bg7a0f604191ac" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_JOY_CONTAGION" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackRoll)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnAttack" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ab5aff9e-78c9-e137-18a8-a6218a820fb8" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h94d03679g3e1fg8d3eg3092gb46ffc4493a8" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(not HasStatus('RESONANT_REFUND_USED') and not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);IF(not HasStatus('RESONANT_REFUND_USED')):RestoreResource(SELF,ArcanaThread,1,0);ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a0923c72-0462-cbfc-b24e-e9b03e23e3d7" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_USED" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h302e4a9bgce27g5c9egab79g4e72a61b675c" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_USED" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4a271c75-e558-0783-dd90-5a372847ec89" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_SURPRISE_OPENING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h196b36dag9a99gaac0gcaefgd355eb6c96e1" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h538b75c2ged45gc76eg95f5g58d0acc16f98" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_SURPRISE_OPENING" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackTarget)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnAttacked" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FFFF69B4" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ff7f2dd4-02fa-411c-ac94-33df355ab6de" />
@@ -2011,13 +2072,13 @@
         <field name="UUID" type="IdTableFieldDefinition" value="0dc19f82-90ed-4fca-acba-5153c69cc7ae" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_FEAR" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4e56888bge330gd3e3g598cg1aa72a60ff0f" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6d7877f1g0a04ga5fbg42a5g81639ec216b6" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6d7877f1g0a04ga5fbg42a5g81639ec216b6" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Disadvantage(AllAbilities);Disadvantage(AttackRoll);ActionResourceBlock(Movement)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Frightened;SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_APPREHENSIVE,100,5)" />
       </fields>
     </stat_object>
@@ -2213,11 +2274,13 @@
         <field name="UUID" type="IdTableFieldDefinition" value="b5ee8935-74bd-00b6-b6de-07a0fc4c4ea6" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_JOY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1544ded7g81bbgd40bg8c53g90d78ae21898" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcb13b93cg1656g9f18g3e12g4f746f4acbcc" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcb13b93cg1656g9f18g3e12g4f746f4acbcc" version="3" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackRoll);Advantage(AllAbilities)" />
+        <field name="AuraRadius" type="IntegerTableFieldDefinition" value="3" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally() and not Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_SERENE,100,5)" />
       </fields>
     </stat_object>
@@ -2319,11 +2382,11 @@
         <field name="UUID" type="IdTableFieldDefinition" value="ae960167-ca73-5fe9-2a4e-9a603a3fdd95" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_TRUST" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h41c28fc4ge9e2g0ce8g8f56ga61b5d0696d2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7cb7da32gb32age42fgb456g34f2f0360487" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7cb7da32gb32age42fgb456g34f2f0360487" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="AC(2);Advantage(AllSavingThrows)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_TrustFollowUp)" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_ACCEPTING,100,5)" />
       </fields>
     </stat_object>
@@ -2385,11 +2448,11 @@
         <field name="UUID" type="IdTableFieldDefinition" value="63232480-626f-de72-3657-6d8f5950130a" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_ANTICIPATION" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h37e7ff58g43fege675ge190g4deeb2631fc0" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf855510egc0afg86cbgf394g10efc11af3d1" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf855510egc0afg86cbgf394g10efc11af3d1" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Transmutation_Longstrider" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ReactionActionPoint,1,0);ActionResourceMultiplier(Movement,200,0)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_INTERESTED,100,5)" />
       </fields>
     </stat_object>
@@ -2456,14 +2519,14 @@
         <field name="UUID" type="IdTableFieldDefinition" value="115bfd65-573c-42db-bedf-5496bcba7ebe" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_SADNESS" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h92b0189eg5221g3fc1g36f1g9dcaefbe91c5" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h31be8152g930eg0d23g7049g18d4591c9630" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h31be8152g930eg0d23g7049g18d4591c9630" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_RayOfInfeeblement" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceMultiplier(Movement,50,0)" />
-        <field name="Passives" type="StringTableFieldDefinition" value="Slow_ActionPoint" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(BonusActionPoint)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="BreakConcentration()" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_PENSIVE,100,5)" />
       </fields>
     </stat_object>
@@ -2544,13 +2607,14 @@
         <field name="UUID" type="IdTableFieldDefinition" value="a9f27839-dfce-404a-ae7e-be2204b48646" />
         <field name="Name" type="NameTableFieldDefinition" value="EMOTION_SURPRISE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h89e9addfga559g6364g0b05g9962dfff95dd" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6560d97eg26d9gedd8gf8e6g7e4c56982258" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6560d97eg26d9gedd8gf8e6g7e4c56982258" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ReactionActionPoint);ActionResourceBlock(BonusActionPoint);Disadvantage(SavingThrow,Dexterity)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ReactionActionPoint)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(RESONANT_SURPRISE_OPENING,100,1)" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_DISTRACTED,100,5)" />
       </fields>
     </stat_object>
@@ -2804,6 +2868,27 @@
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead;IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3944b56b-d685-4de0-208e-8a83ca643a57" />
+        <field name="Name" type="NameTableFieldDefinition" value="DELUDED" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="20be0fd5-22da-434f-9dba-3e85a9ce3a8a" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4ddbbd3bg0deag0869gb289g9b70ec47702c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0905eddbg3c85g6e9dg542cg089dd6d96aab" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="DELUDED" />
+        <field name="OnTickFail" type="FunctorsTableFieldDefinition" value="IF(HasStatus('DELUDED')):ApplyStatus(CONFUSION_SKIP,100,1,,,,,true)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b7d5ae2f-244e-abcc-a338-6d475fc7233a" />
+        <field name="Name" type="NameTableFieldDefinition" value="VEIL_LIFTS_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="VEIL_LIFTS_TECH" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -3142,27 +3227,6 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="3944b56b-d685-4de0-208e-8a83ca643a57" />
-        <field name="Name" type="NameTableFieldDefinition" value="DELUDED" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="20be0fd5-22da-434f-9dba-3e85a9ce3a8a" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4ddbbd3bg0deag0869gb289g9b70ec47702c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0905eddbg3c85g6e9dg542cg089dd6d96aab" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="DELUDED" />
-        <field name="OnTickFail" type="FunctorsTableFieldDefinition" value="IF(HasStatus('DELUDED')):ApplyStatus(CONFUSION_SKIP,100,1,,,,,true)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="b7d5ae2f-244e-abcc-a338-6d475fc7233a" />
-        <field name="Name" type="NameTableFieldDefinition" value="VEIL_LIFTS_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="VEIL_LIFTS_TECH" />
-        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6acf43c6-f42a-43c7-985b-3ae38896c6c2" />
         <field name="Name" type="NameTableFieldDefinition" value="DARKNESS_RISE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h66318b73g6650gb886g8527gc31bf1af3aff" version="1" />
@@ -3369,6 +3433,5 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
-    </stat_object>
-</stat_objects>
+    </stat_object></stat_objects>
 </stats>

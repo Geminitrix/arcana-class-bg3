@@ -1,0 +1,35 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION Resonant - Anger and Rage attack whoever hurt them last (spec 5.1, R17, R23)
+IF
+AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
+AND
+HasActiveStatus(_Defender, "EMOTION_ANGER", 1)
+THEN
+ApplyStatus(_Defender, "RESONANT_GRUDGE", -1.0, 1, _AttackerOwner);
+
+IF
+AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
+AND
+HasActiveStatus(_Defender, "EMOTION_RAGE", 1)
+THEN
+ApplyStatus(_Defender, "RESONANT_GRUDGE", -1.0, 1, _AttackerOwner);
+
+IF
+StatusRemoved(_Defender, "EMOTION_ANGER", _, _)
+AND
+HasActiveStatus(_Defender, "EMOTION_RAGE", 0)
+THEN
+RemoveStatus(_Defender, "RESONANT_GRUDGE", _Defender);
+
+IF
+StatusRemoved(_Defender, "EMOTION_RAGE", _, _)
+THEN
+RemoveStatus(_Defender, "RESONANT_GRUDGE", _Defender);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

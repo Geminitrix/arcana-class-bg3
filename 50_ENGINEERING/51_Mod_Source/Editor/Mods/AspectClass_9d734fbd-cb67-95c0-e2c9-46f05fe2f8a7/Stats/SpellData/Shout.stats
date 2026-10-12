@@ -3092,6 +3092,32 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="df5c9b9b-8569-5422-cc60-9c2d487fbe0b" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_Aspect_VeilLifts" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Illusion" enumeration_type_name="SpellSchool" version="1" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(HasStatus('SIGIL', context.Target, context.Source)):DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(not Dead()):ApplyStatus(VEIL_LIFTS_TECH,100,0)" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_MirrorImage" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ed3c123g3399g24acg13edg8555098a6120" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(DELUDED,100,1)" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;IsHarmful;HasVerbalComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
+        <field name="DamageType" type="EnumerationTableFieldDefinition" value="Psychic" enumeration_type_name="Damage Type" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="d750cfc6-47af-6cd1-a47f-3d54026ca4a0" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_WhichOne" />
         <field name="Level" type="IntegerTableFieldDefinition" value="3" />
@@ -3169,32 +3195,6 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="df5c9b9b-8569-5422-cc60-9c2d487fbe0b" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_Aspect_VeilLifts" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Illusion" enumeration_type_name="SpellSchool" version="1" />
-        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(HasStatus('SIGIL', context.Target, context.Source)):DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(not Dead()):ApplyStatus(VEIL_LIFTS_TECH,100,0)" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_MirrorImage" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ed3c123g3399g24acg13edg8555098a6120" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(DELUDED,100,1)" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;IsHarmful;HasVerbalComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
-        <field name="DamageType" type="EnumerationTableFieldDefinition" value="Psychic" enumeration_type_name="Damage Type" version="1" />
       </fields>
     </stat_object></stat_objects>
 </stats>

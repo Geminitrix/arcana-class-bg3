@@ -5,7 +5,7 @@ type: design
 epic: EPIC_Rework_Subclasses
 status: in_progress
 owner: Lead Class Designer
-implementation: pending
+implementation: claude
 priority: must
 value: 5
 effort: 4
@@ -43,4 +43,5 @@ Surges, an overload meter and its Overflow — without running out of slots.
 - 2026-10-11 — raising spec `21.04/Resonant/2026-10-11-resonant-design.md` written; Depth audit handed to the Context Keeper. R22–R23 (Emotional Overload cost, Rage grudge) confirmed by the Owner.
 - 2026-10-11 — balance pass approved: numbers in `25.01`–`25.03` (first master-data files, schema `25.00/master_data.schema.yaml`), arithmetic in `22.05/2026-10-11_ARC-0002_Resonant_Balance.md`; R24 (Shared Heart: until combat ends, free Surges on linked allies).
 - 2026-10-11 — implementation plan `55/SPEC_ARC-0002.md` (stages 0–7; stage 0 and 1 in full) written, awaiting Owner review.
-- 2026-10-11 — stage 0 done (generator, TDD 59/59; patches in `55/_wip/Resonant`; stats_add dry run 7 new / 69 replaced / 0 errors). Next: stage 1 needs `implementation: claude` and `[fechado] ARC-0002`. Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).
+- 2026-10-11 — stage 0 done (generator, TDD 59/59; patches in `55/_wip/Resonant`; stats_add dry run 7 new / 69 replaced / 0 errors). Next: stage 1 needs `implementation: claude` and `[fechado] ARC-0002`.
+- 2026-10-11 — stage 1 applied (`[fechado]`): Catharsis_Damage level map (LSX + tbl), engine patch (7 new, 69 replaced), upcast variants regenerated (inherit via `using`), sort_stats, check_cards OK, stats_add selftest 968/0, goal `ARCANA_Resonant_Grudge` written. Owner: compile the Story, then probes P0–P5 (SPEC_ARC-0002). Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).

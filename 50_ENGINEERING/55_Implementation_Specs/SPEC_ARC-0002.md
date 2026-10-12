@@ -1,8 +1,8 @@
 ---
 id: SPEC_ARC-0002
 ticket: ARC-0002
-status: draft
-implementation: pending
+status: implemented
+implementation: claude
 author: Mod Engineer
 updated: 2026-10-11
 ---
@@ -340,12 +340,12 @@ sub build_interrupts {
 
 | # | Type | Subtype | Internal entry | Where in the Toolkit | Depends on | Done |
 |---|---|---|---|---|---|---|
-| 01 | Level map | — | `Catharsis_Damage` (`11006542-a7b5-4599-938a-2840982c4bb1`) | Level Maps | — | ☐ |
-| 02 | Statuses | `BOOST` | peaks changed; `RESONANT_*` helpers | Stats → StatusData | 01 | ☐ |
-| 03 | Interrupts | — | `Interrupt_Arcana_TrustFollowUp`, `Interrupt_Arcana_AnticipationGuard` | Stats → InterruptData | 02 | ☐ |
-| 04 | Spells | `Target` | the 8 Surges + upcast variants | Stats → SpellData | 01–03 | ☐ |
-| 05 | Osiris | goal | `ARCANA_Resonant_Grudge` | Story Editor | 02 | ☐ |
-| 06 | Localization | — | `@loca` lines of the patch | Localization | 02–04 | ☐ |
+| 01 | Level map | — | `Catharsis_Damage` (`11006542-a7b5-4599-938a-2840982c4bb1`) | Level Maps | — | ☑ |
+| 02 | Statuses | `BOOST` | peaks changed; `RESONANT_*` helpers | Stats → StatusData | 01 | ☑ |
+| 03 | Interrupts | — | `Interrupt_Arcana_TrustFollowUp`, `Interrupt_Arcana_AnticipationGuard` | Stats → InterruptData | 02 | ☑ |
+| 04 | Spells | `Target` | the 8 Surges + upcast variants | Stats → SpellData | 01–03 | ☑ |
+| 05 | Osiris | goal | `ARCANA_Resonant_Grudge` | Story Editor | 02 | ☑ |
+| 06 | Localization | — | `@loca` lines of the patch | Localization | 02–04 | ☑ |
 
 ### 01 · Level map `Catharsis_Damage`
 
@@ -383,7 +383,7 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-//REGION Resonant - Anger and Rage attack whoever hurt them last (spec §5.1, R17, R23)
+//REGION Resonant - Anger and Rage attack whoever hurt them last (spec 5.1, R17, R23)
 IF
 AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
 AND

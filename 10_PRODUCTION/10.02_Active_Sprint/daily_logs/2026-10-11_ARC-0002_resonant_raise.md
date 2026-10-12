@@ -16,3 +16,5 @@ guide `75.02` update.
 **ARC-0003 closed:** the Owner checked the table in the Toolkit; DoD met.
 
 **ARC-0002 stage 0:** generator done (59/59 tests), patches regenerated, dry run clean.
+
+**ARC-0002 stage 1 applied** (`[fechado]`): level map, engine patch, variants, grudge goal; selftest 968/0. Waiting: Story compile + probes P0–P5.
