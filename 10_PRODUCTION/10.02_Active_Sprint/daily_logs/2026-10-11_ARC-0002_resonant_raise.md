@@ -12,3 +12,5 @@ on reaction, Shared Heart capstone, Emotional Overload, Tier I Resonance); raisi
 guide `75.02` update.
 
 **ARC-0003:** last Heartweaver leftover renamed in the game files (`[fechado]`), synced; waiting for the Owner's Toolkit check.
+
+**ARC-0003 closed:** the Owner checked the table in the Toolkit; DoD met.
