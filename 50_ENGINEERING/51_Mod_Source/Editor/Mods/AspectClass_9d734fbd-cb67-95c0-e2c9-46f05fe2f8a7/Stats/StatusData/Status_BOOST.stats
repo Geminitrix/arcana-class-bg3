@@ -42,7 +42,8 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc08716c0gd698g8e05g5094ga45a3463e90d" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectEvilAndGood" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_DEBUG" />
-        <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings" />
+        <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings;Arcana_Passive_Overload" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_Arcana_Created_EmotionalOverload)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnLongRest" enumeration_type_name="StatusEvent" version="1" />
       </fields>
     </stat_object>
@@ -2282,6 +2283,44 @@
         <field name="AuraRadius" type="IntegerTableFieldDefinition" value="3" />
         <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally() or Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)" />
         <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_SERENE,100,5)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="86e7b111-13b9-2e51-b369-6cfc4f659071" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf787041fg0774g309fgc7e2g78de613fb59e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="FreezeDuration;IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e3738b97-3373-9149-ea9b-5233963849b2" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2aebe169gad14gcef1g3240gde925d03dad2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
+        <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3d54ff2c-97ac-6961-da0d-2e92dc152395" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD_SPENT_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha1fa7b98gb281g59b6g0430gdce752a2326b" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_SPENT_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_SPENT_TECH" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

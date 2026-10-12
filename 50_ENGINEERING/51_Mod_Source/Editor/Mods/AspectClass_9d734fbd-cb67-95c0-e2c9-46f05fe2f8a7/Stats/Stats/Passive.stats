@@ -707,6 +707,15 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e881344a-23c6-6b1d-5190-05856f0ff197" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Overload" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h76c1fec2g94ecg895cg1a7bgcd36acd8d85b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcbf080cag064eg2fcbga9dcgd502f0b7ebf0" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="0c050dec-6006-aa50-0a19-854935edba01" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_FeelingMorbidness" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="haa42a5feg3919ge81agc6bdg4d2aad64898f" version="1" />

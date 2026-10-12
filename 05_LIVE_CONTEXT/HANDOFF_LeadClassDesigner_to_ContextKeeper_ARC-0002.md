@@ -66,3 +66,10 @@ in `05.02` changes to "constructs feel nothing". Trust: shoulder to shoulder (`I
 `RESONANT_TRUST_SHOULDERED`); `Interrupt_Arcana_TrustFollowUp` removed. Anger/Rage: grudge or
 `RESONANT_ANGER_FALLBACK` via the rewritten `ARCANA_Resonant_Grudge` goal. Joy's contagion includes the
 Joyful creature; Anticipation lasts until the Resonant's next turn. Re-tests pending.
+
+## 7. ARC-0002 stage 2 (game files changed, 2026-10-12)
+
+New: passive `Arcana_Passive_Overload`, statuses `RESONANT_OVERLOAD` (count), `RESONANT_OVERLOAD_FULL`,
+`RESONANT_OVERLOAD_SPENT_TECH`; spell `Target_Arcana_Created_EmotionalOverload`; Osiris goal
+`ARCANA_Resonant_Overload` (generated). Not in the progression yet — only on the `[DEBUG] Resonant Passives` list.
+Probes P6–P10 pending.

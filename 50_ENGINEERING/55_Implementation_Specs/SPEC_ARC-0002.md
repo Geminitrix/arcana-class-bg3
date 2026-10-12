@@ -565,11 +565,11 @@ unlike($g, /[^\x00-\x7F]/, 'ASCII only');
 
 | # | Type | Internal entry | Depends on | Done |
 |---|---|---|---|---|
-| 01 | Statuses | `RESONANT_OVERLOAD`, `RESONANT_OVERLOAD_FULL`, `RESONANT_OVERLOAD_SPENT_TECH` | — | ☐ |
-| 02 | Passive | `Arcana_Passive_Overload` (also on the DEBUG list) | 01 | ☐ |
-| 03 | Spell | `Target_Arcana_Created_EmotionalOverload` (on the DEBUG list until stage 6) | 01 | ☐ |
-| 04 | Osiris | `ARCANA_Resonant_Overload.txt` (from `40_overload_goal.txt`); grudge goal renamed (Task 2.0) | 01–03 | ☐ |
-| 05 | Localization | the patch's `@loca` lines | 01–03 | ☐ |
+| 01 | Statuses | `RESONANT_OVERLOAD`, `RESONANT_OVERLOAD_FULL`, `RESONANT_OVERLOAD_SPENT_TECH` | — | ☑ |
+| 02 | Passive | `Arcana_Passive_Overload` (also on the DEBUG list) | 01 | ☑ |
+| 03 | Spell | `Target_Arcana_Created_EmotionalOverload` (on the DEBUG list until stage 6) | 01 | ☑ |
+| 04 | Osiris | `ARCANA_Resonant_Overload.txt` (from `40_overload_goal.txt`); grudge goal renamed (Task 2.0) | 01–03 | ☑ |
+| 05 | Localization | the patch's `@loca` lines | 01–03 | ☑ |
 
 Steps: generator → `stats_add --apply` → `gen_upcast_variants --apply` → regenerate → `20_upcast_targets.patch` →
 `sort_stats --apply` → `check_cards` → `stats_add --selftest` → copy the goals (CRLF) → `sync_data` → commit + push.

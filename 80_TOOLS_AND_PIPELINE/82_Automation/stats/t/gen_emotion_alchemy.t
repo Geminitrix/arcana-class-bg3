@@ -192,4 +192,6 @@ like($g, qr/HasPassive\(_Resonant, "Arcana_Passive_Overload", 1\)/, 'counts only
 unlike($g, qr/[^\x00-\x7F]/, 'ASCII only');
 like($g, qr/\r\n/, 'CRLF, like the other goals');
 
+like($eo, qr/not HasPassive\('ARCANA_IS_SPELL', context\.Source\)/, 'Emotional Overload carries the Arcana spell mark (detonates the Sigil, check_cards)');
+
 done_testing();

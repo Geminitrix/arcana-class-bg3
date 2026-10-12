@@ -705,7 +705,7 @@ sub build_overload_spell {
         SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
         TargetRadius => master('SPL_Resonant_EmotionalOverload', 'range')->{value}, AmountOfTargets => 1,
         SpellSuccess => $success,
-        TargetConditions => "Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and HasStatus('RESONANT_OVERLOAD_FULL', context.Source)",
+        TargetConditions => "Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and HasStatus('RESONANT_OVERLOAD_FULL', context.Source) and not HasPassive('ARCANA_IS_SPELL', context.Source)",   # Arcana spell mark: detonates the Sigil (check_cards)
         Icon => 'Spell_Enchantment_CalmEmotions',
         DisplayName => loca(key($id, 'NAME'), 'Emotional Overload'),
         Description => loca(key($id, 'DESC'), tag_terms("Pour everything you have felt this fight into one creature. Every feeling it carries tears at it for [1] Psychic damage and is spent, and it is Paralysed for $turns turns. No saving throw.")),
