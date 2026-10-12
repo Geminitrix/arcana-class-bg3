@@ -51,5 +51,13 @@ for p in "${PARTS[@]}"; do
 done
 
 files=$(find "$DEST" -type f -not -name '_INDEX.md' -not -name '_AGENT.md' -not -name .gitkeep | wc -l)
-changed=$(git -C "$ROOT" status --porcelain -- "$DEST" | wc -l)
-echo "51_Mod_Source synced: $files files, $changed path(s) changed since the last commit"
+# Count CONTENT changes only. The Toolkit re-saves some files with other line endings when it opens or saves
+# the project (Progressions.tbl, Status_EFFECT.stats, meta.lsx...): git status lists them, but they commit as
+# nothing. meta.lsx also gets a new Version64 / MD5 from the Toolkit itself -- reported apart, not a mod change.
+diffs=$(git -C "$ROOT" diff --ignore-cr-at-eol --name-only -- "$DEST")
+changed=$(printf '%s\n' "$diffs" | { grep -v -e '^$' -e '/meta\.lsx$' || true; } | wc -l)
+meta=$(printf '%s\n' "$diffs" | { grep -c '/meta\.lsx$' || true; })
+new=$(git -C "$ROOT" ls-files --others --exclude-standard -- "$DEST" | wc -l)
+echo "51_Mod_Source synced: $files files, $changed changed and $new new since the last commit (content only)"
+[ "$meta" -gt 0 ] && echo "   meta.lsx: build number rewritten by the Toolkit -- not a mod change"
+exit 0
