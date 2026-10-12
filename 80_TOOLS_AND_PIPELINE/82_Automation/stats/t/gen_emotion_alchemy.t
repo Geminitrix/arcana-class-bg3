@@ -109,4 +109,7 @@ is_deeply([sort map { "$_->[0]|$_->[1]" } Alchemy::removals($have, $new)],
 my %all = map { my $e = $_; map { (Alchemy::spell_id($e) . "_$_" => 'Spell_Target') } 2 .. 6 } @W;
 none('removals: no current variant is ever removed', map { $_->[1] } Alchemy::removals(\%all, {}));
 
+# ---- paths after the Lumox migration
+like(Alchemy::default_out(), qr{/50_ENGINEERING/55_Implementation_Specs/_wip/Resonant$}, 'patches go to 55/_wip/Resonant');
+
 done_testing();
