@@ -556,8 +556,9 @@ our @CAST = (
     TargetEffect => '4b5dc428-d623-4203-a7f0-a86c47bf9aa8',
 );
 
-# The Surge's ExtraDescription: what it becomes on each mood, one line per kind of reaction.
-our @REACTION_LINES = ([1, 'Primary'], [2, 'Secondary'], [3, 'Tertiary'], [4, 'Catharsis'], [0, 'Intense']);
+# The Surge's ExtraDescription: one line per reaction, "Label (level N): Mood into Result." (the Owner's format,
+# 2026-10-12: easier to see what gives what). The refund is told by Emotional Alchemy, not here.
+our @REACTION_LINES = ([0, 'Intense'], [1, 'Primary'], [2, 'Secondary'], [3, 'Tertiary'], [4, 'Catharsis']);
 sub result_name { my ($s, $m, $r) = @_;
     $r->{kind} eq 'catharsis' ? 'Catharsis' : $r->{kind} eq 'intensify' ? $EMO{$s}{intense}{name} : feeling_of($s, $m)->{name} }
 sub reaction_list {
@@ -565,13 +566,13 @@ sub reaction_list {
     my @lines;
     for my $l (@REACTION_LINES) {
         my ($d, $label) = @$l;
-        my @m = grep { distance($s, $_) == $d } @WHEEL;
         my $gate = $GATE{$d};
         my $head = $gate ? "$label (level $GATE_LEVEL{$gate})" : $label;
-        push @lines, "$head: " . join(', ', map { my $r = reaction($s, $_);
-            st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag($r->{status}, result_name($s, $_, $r)) } @m) . '.';
+        push @lines, map { my $r = reaction($s, $_);
+            "$head: " . st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag($r->{status}, result_name($s, $_, $r)) . '.' }
+            grep { distance($s, $_) == $d } @WHEEL;
     }
-    join('<br>', @lines) . '<br><br>Any reaction gives back the spell slot this surge used. Once per turn.';   # R16, where players read it
+    join('', map { "$_<br>" } @lines);
 }
 
 sub build_spells {
@@ -582,7 +583,7 @@ sub build_spells {
                  . st_tag(mood_id($e), $E->{mood}{name}) . " for $MOOD_TURNS turns, $E->{mood}{fx}.");
         $out .= entry(spell_id($e), 'SpellData',
             SpellType => 'Target', Level => 1, SpellSchool => 'Enchantment', TargetRadius => 18, AmountOfTargets => 1,
-            SpellRoll => 'Ally() or Self() or not SavingThrow(Ability.Wisdom, SourceSpellDC())',
+            SpellRoll => 'SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)',   # the Owner's Toolkit edit, vanilla Spell_Target pattern: allies never roll
             SpellSuccess => spell_success($e),
             SpellFail => 'ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)',
             TargetConditions => target_conditions($e),

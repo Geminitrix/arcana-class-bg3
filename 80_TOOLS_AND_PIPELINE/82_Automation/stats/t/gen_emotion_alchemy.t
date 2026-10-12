@@ -74,9 +74,9 @@ none('StackIds', (grep { $stack_of{$_} ne 'EMOTION' } map { ('EMOTION_' . uc $_,
     (grep { $stack_of{$_} ne $_ } map { 'FEELING_' . uc $Alchemy::FEELING{$_}{name} } keys %Alchemy::FEELING));
 
 # ---- the Surges
-none('Surges: Wisdom save for non-allies, SpellFail, IsHarmful only on the dark arc, standard warning', map {
+none('Surges: Wisdom save for non-allies, allies auto-resolve (vanilla SpellAutoResolveOnAlly), SpellFail, IsHarmful only on the dark arc, standard warning', map {
     my $sp = block($p, Alchemy::spell_id($_)); my $dark = $Alchemy::EMO{$_}{side} eq 'I';
-    ($sp =~ /^data "SpellRoll" "Ally\(\) or Self\(\) or not SavingThrow\(Ability\.Wisdom, SourceSpellDC\(\)\)"$/m
+    ($sp =~ /^data "SpellRoll" "SpellAutoResolveOnAlly\(Ability\.Wisdom,SourceSpellDC\(\),true\)"$/m
      && $sp =~ /^data "SpellFail" "ApplyStatus\(SAVED_AGAINST_HOSTILE_SPELL,100,0\)"$/m
      && $sp =~ /^data "TooltipAttackSave" "Wisdom"$/m
      && $sp =~ /^data "TooltipPermanentWarnings" "$Alchemy::SURGE_WARNING"$/m
@@ -93,10 +93,10 @@ none('every {{key}} has a string', grep { !$lt{$_} } $p =~ /\{\{(\w+)\}\}/g);
 none('strings: no dash, no double quotes outside LSTag, no nested LSTag, no raw key', grep { my $t = $lt{$_}; (my $bare = $t) =~ s/<LSTag[^>]*>//g;
     $t =~ /\x{2014}|\x{2013}|\xE2\x80[\x93\x94]/ || $bare =~ /"/ || $t =~ /<LSTag[^>]*>[^<]*<LSTag/ || $t =~ /\{\{|\}\}/ } sort keys %lt);
 none('status text on one line', grep { $lt{$_} =~ /<br>/ } grep { /^HW_(?:EMOTION|MOOD|FEELING)_\w+_DESC$|^HW_CATHARSIS_DESC$/ } keys %lt);
-none('Surge text: flavour, effect, then the mood; one line per kind of reaction, 8 reactions', map {
+none('Surge text: flavour, effect, then the mood; one line per reaction (the Owner format, 2026-10-12), 8 reactions', map {
     my $id = uc Alchemy::spell_id($_); my $mood = $Alchemy::EMO{$_}{mood}{name}; my $x = $lt{"HW_${id}_EXTRA"};
     ($lt{"HW_${id}_DESC"} =~ /^[^.]+\. The target\b.*<br><br>When the surge fades, it leaves the target <LSTag[^>]*>$mood<\/LSTag> for 5 turns, /
-     && join(',', map { /^(\w+)/ } split /<br>/, $x) eq 'Primary,Secondary,Tertiary,Catharsis,Intense,Any'
+     && join(',', map { /^(\w+)/ } split /<br>/, $x) eq 'Intense,Primary,Primary,Secondary,Secondary,Tertiary,Tertiary,Catharsis' && $x =~ /<br>$/ && $x !~ /<br><br>/
      && (() = $x =~ / into /g) == 8) ? () : $_ } @W);
 
 # ---- removals() keeps the upcast variants of the current Surges (synthetic data, no game files)
@@ -173,7 +173,7 @@ is_deeply([map { "$_->[0]|$_->[1]" } Alchemy::removals({ Interrupt_Arcana_TrustF
 # ---- stage 1c: re-test fixes
 like($pk->('Trust'), qr/"TickType" "StartTurn".*"StatusPropertyFlags" "[^"]*TickingWithSource/s, 'Trust lasts until your next turn (P2)');
 none('Anger and Rage keep their reaction (opportunity attacks, P4)', grep { $pk->($_) =~ /ActionResourceBlock\(ReactionActionPoint\)/ } qw(Anger Rage));
-none('every Surge tooltip tells the refund', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') !~ /<br><br>Any reaction gives back the spell slot this surge used\. Once per turn\.$/ } @W);
+none('Surge tooltips no longer repeat the refund (Owner, 2026-10-12: Emotional Alchemy tells it)', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') =~ /Any reaction gives back/ } @W);
 
 # ---- stage 2: Overload
 my $full = block($p, 'RESONANT_OVERLOAD_FULL');
