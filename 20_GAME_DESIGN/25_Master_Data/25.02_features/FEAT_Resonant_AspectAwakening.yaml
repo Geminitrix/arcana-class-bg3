@@ -10,3 +10,6 @@ values:
   goal_tier2: { value: 6, unit: count }
   goal_tier3: { value: 15, unit: count }
   tier2_harmony_range: { value: 6, unit: metres }
+  tier1_mood_extend: { value: 2, unit: turns, note: "Resonance: moods you create last this much longer" }
+  tier3_radius: { value: 6, unit: metres, note: "Aspect of Empathy: Emotional Overload reaches enemies this close to the target" }
+  tier3_paralysed_others: { value: 1, unit: turns, note: "the target keeps Emotional Overload's own 2 turns" }

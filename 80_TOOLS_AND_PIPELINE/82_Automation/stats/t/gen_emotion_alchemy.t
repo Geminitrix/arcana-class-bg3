@@ -39,7 +39,7 @@ like($f[0], qr/^IF\(not \(.*:ApplyStatus\(EMOTION_FEAR,100,1\)$/, 'first functor
 is(scalar(() = $f[0] =~ /HasStatus\('MOOD_/g), 8, 'the no-reaction case checks all 8 moods');
 like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
 like($ss, qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\).*RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\).*ApplyStatus\(CATHARSIS,100,0\)$/, 'Catharsis harms, heals, then clears the moods last');
-none('each Surge: 1 base case + 7 reactions + 3 Catharsis functors', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 12 } @W);
+none('each Surge: 1 base case + refund + 7 reactions + 5 Catharsis functors (2 for Tier I)', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 14 } @W);
 
 # ---- the whole patch
 my $p = Alchemy::build_engine_patch();
@@ -296,5 +296,66 @@ is(scalar(() = $ca =~ /IF\(not Self\(\) and Ally\(\) and HasStatus\('(MOOD_\w+)'
 none('new cards carry the card mark', grep { block($p, $_) !~ /not HasPassive\('ARCANA_IS_CARD', context\.Source\)/ }
     qw(Target_Arcana_Card_Spell_Heartstring Target_Arcana_Card_Spell_Temper Target_Arcana_Card_Spell_EmotionalContagion Shout_Arcana_Card_Passive_Compassion));
 none('new shown statuses are ForceOverhead', grep { block($p, $_) !~ /"StatusPropertyFlags" "[^"]*ForceOverhead/ } qw(COMPASSION_READY RESONANT_CONTAGION));
+
+# ---- stage 4: Aspect Awakening -- 14 · Temperance (the Empress's frame: ARCANA_Aspect_Common + tier statuses)
+my $AW = "HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)";
+# 4.3 Tier I: Catharsis +1d8 (25: STA_Resonant_Catharsis#tier1_bonus)
+my $jss = Alchemy::spell_success('Joy');
+like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self() and $AW):DealDamage(1d8,Psychic,Magical)\E/, 'Tier I: Catharsis hurts 1d8 more');
+like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and (Ally() or Self()) and $AW):RegainHitPoints(1d8)\E/, 'Tier I: Catharsis heals 1d8 more');
+# 4.4 Tier I: the moods you create last 2 turns longer (25: FEAT_Resonant_AspectAwakening#tier1_mood_extend)
+none('Tier I: every peak and intense emotion leaves its mood 2 turns longer once awakened', map { my $e = $_; my $m = Alchemy::mood_id($e);
+    grep { block($p, $_) !~ /\QIF(RemoveCause(StatusRemoveCause.TimeOut) and not $AW):ApplyStatus($m,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and $AW):ApplyStatus($m,100,7)\E/ }
+    Alchemy::peak_id($e), Alchemy::intense_id($e) } @W);
+# 4.2 tier statuses and passives
+my $awk = block($p, 'ASPECT_AWAKENED_TEMPERANCE');
+like($awk, qr/"Boosts" "UnlockSpell\(Shout_Arcana_Created_Aspect_TwoCups\)"/, 'Tier I unlocks The Two Cups');
+like($awk, qr/"OnRemoveFunctors" "RemoveStatus\(ASPECT_AWAKENED_TEMPERANCE_I\);RemoveStatus\(ASPECT_AWAKENED_TEMPERANCE_II\);RemoveStatus\(ASPECT_AWAKENED_TEMPERANCE_III\)"/, 'the awakening takes its tiers with it');
+like($awk, qr/"RemoveEvents" "OnCombatEnded"/, 'the awakening ends with the combat');
+none('tier statuses: one StackId, priority by tier, shown, end with the combat', grep { my ($t, $n) = @$_; my $b = block($p, "ASPECT_AWAKENED_TEMPERANCE_$t");
+    $b !~ /"StackId" "ASPECT_AWAKENED_TEMPERANCE_TIER"/ || $b !~ /"StackPriority" "$n"/ || $b !~ /"StatusPropertyFlags" "[^"]*ForceOverhead/ || $b !~ /"RemoveEvents" "OnCombatEnded"/ } [I => 1], [II => 2], [III => 3]);
+like(block($p, 'ASPECT_PROGRESS_TEMPERANCE'), qr/"StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"/, 'progress: a frozen count');
+none('tier passives are hidden', grep { block($p, "Arcana_Passive_Aspect_Temperance_$_") !~ /"Properties" "IsHidden"/ } qw(I II III));
+like(block($p, 'Arcana_Passive_Aspect_Temperance_Awakening'), qr/"Properties" "Highlighted"/, 'the Awakening passive is shown');
+like($lt{'HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_AWAKENING_DESC'} // '', qr/Level 3: cause 3 reactions.*Level 7: cause 6 reactions.*Level 12: cause 15 reactions/s, 'the Awakening passive names the goals from 25');
+like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC'} // '', qr/Resonance:.*Harmony:.*Aspect of Empathy:/s, 'tier III lists every bonus');
+# 4.5 The Two Cups (R38: not CATHARSIS, so the Overload ignores it)
+my $tc = block($p, 'Shout_Arcana_Created_Aspect_TwoCups');
+like($tc, qr/"Cooldown" "OncePerCombat"/, 'Two Cups: once per combat');
+like($tc, qr/"AreaRadius" "18"/, 'Two Cups: 18 m from 25');
+like($tc, qr/"UseCosts" "ActionPoint:1"\n/, 'Two Cups: an action, no slot');
+like($tc, qr/"Requirements" "Combat"/, 'Two Cups: in combat');
+like($tc, qr/not HasPassive\('ARCANA_IS_CARD', context\.Source\)/, 'Two Cups: card mark');
+like($tc, qr/\QIF(not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(not Ally() and not Self()):DealDamage(1d8,Psychic,Magical);IF(Ally() or Self()):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(Ally() or Self()):RegainHitPoints(1d8);ApplyStatus(RESONANT_TWO_CUPS_CATHARSIS,100,0)\E/, 'Two Cups: a Catharsis with the Tier I bonus');
+unlike($tc, qr/ApplyStatus\(CATHARSIS,/, 'Two Cups does not apply CATHARSIS (R38)');
+is(scalar(() = block($p, 'RESONANT_TWO_CUPS_CATHARSIS') =~ /RemoveStatus\(MOOD_\w+\)/g), 8, 'the Two Cups Catharsis spends every mood');
+unlike($g, qr/RESONANT_TWO_CUPS_CATHARSIS/, 'the Overload ignores The Two Cups (R38)');
+# 4.1 the goal and the Common rows
+my $ag = Alchemy::temperance_goal();
+is(scalar(() = $ag =~ /DB_ARCANA_Resonant_AwakeningStatus\("[A-Z_]+"\);/g), 34, 'Awakening: 24 feelings, 8 intense, Catharsis, Two Cups Catharsis');
+like($ag, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_AwakeningStatus\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_Aspect_Temperance_Awakening", 1\)\r?\nTHEN\r?\nPROC_ARCANA_Aspect_Step\(_Resonant, "TEMPERANCE"\);/, 'each reaction is one step');
+my $cr4 = Alchemy::common_rows();
+like($cr4, qr/DB_ARCANA_Aspect\("TEMPERANCE", "ASPECT_PROGRESS_TEMPERANCE", "ASPECT_AWAKENED_TEMPERANCE", "Arcana_Passive_Aspect_Temperance_I"\);/, 'Common: the aspect row');
+like($cr4, qr/"TEMPERANCE", 1, "Arcana_Passive_Aspect_Temperance_I", "ASPECT_AWAKENED_TEMPERANCE_I", 3\).*"TEMPERANCE", 2, .*, 6\).*"TEMPERANCE", 3, .*, 15\)/s, 'Common: goals 3 / 6 / 15 from 25');
+like($cr4, qr/DB_ARCANA_AspectShow\("TEMPERANCE", "COUNT"\);/, 'Common: shown as a count');
+# 4.6 Harmony (R39)
+is(scalar(() = $ag =~ /DB_ARCANA_Resonant_HarmonyMood\("FEELING_\w+", "[A-Z]+", "MOOD_\w+", "MOOD_\w+"\);/g), 48, 'Harmony: 24 feelings x the 2 emotions that can cast them');
+like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_LOVE", "JOY", "MOOD_SERENE", "MOOD_SERENE"\);/, 'Love cast as Joy: both bright, the Surge\'s mood on both sides');
+like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_SUBMISSION", "FEAR", "MOOD_ACCEPTING", "MOOD_APPREHENSIVE"\);/, 'Submission: Trust\'s mood to an ally, Fear\'s to a foe');
+like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_AWE", "FEAR", "MOOD_APPREHENSIVE", "MOOD_APPREHENSIVE"\);/, 'Awe cast as Fear: both dark, the Surge\'s mood');
+is(scalar(() = $ag =~ /DB_ARCANA_Resonant_SurgeRoot\("Target_Arcana_Card_Spell_Emotion\w+", "[A-Z]+"\);/g), 8, 'the 8 Surges by card (variants through DB_ARCANA_CardFamily)');
+like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, _, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _Emotion\)/, 'remembers the Surge being cast');
+like($ag, qr/DB_ARCANA_AspectReached\(_Resonant, 2\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_Harmonized\(_Resonant\)/, 'Harmony: from Tier II, once per turn');
+like($ag, qr/TurnStarted\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nDB_ARCANA_Resonant_Harmonized\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_Harmonized\(_Resonant\);/, 'Harmony: the turn resets it');
+like($ag, qr/_Dist <= 6\.0/, 'Harmony: within 6 m (25)');
+like($ag, qr/ApplyStatus\(_Cand, _ForAlly, 42\.0, 1, _Resonant\);/, 'Harmony: the mood lasts 5 + 2 turns (Tier I is already awake)');
+# 4.7 Tier III
+like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _\)\r?\nAND\r?\nDB_ARCANA_AspectReached\(_Resonant, 3\)/, 'Tier III: Emotional Overload from Tier III');
+like($ag, qr/IsEnemy\(_Resonant, _Cand, 1\)/, 'Tier III: enemies only');
+like($ag, qr/ApplyStatus\(_Cand, "PARALYZED", 6\.0, 1, _Resonant\);/, 'Tier III: the others are Paralysed 1 turn');
+is(scalar(() = $ag =~ /DB_ARCANA_Resonant_Feeling\("FEELING_\w+"\);/g), 24, 'Tier III: the 24 feelings');
+like($ag, qr/PROC_ARCANA_Aspect_Reset\(\(CHARACTER\)_Char\)\r?\nAND\r?\nDB_ARCANA_Resonant_Harmonized\(_Char\)/, 'leaving the combat clears Harmony');
+unlike($ag, qr/[^\x00-\x7F]/, 'Temperance goal: ASCII only');
+like($ag, qr/\r\n/, 'Temperance goal: CRLF');
 
 done_testing();

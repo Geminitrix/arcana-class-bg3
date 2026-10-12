@@ -53,6 +53,12 @@ our %GATE = (0 => 'Arcana_Passive_Overwhelm', 1 => undef, 2 => 'Arcana_Passive_C
              3 => 'Arcana_Passive_MixedFeelings', 4 => undef);
 our $FEELING_TURNS  = master('STA_Resonant_States', 'feeling_duration')->{value};
 our $MOOD_TURNS     = master('STA_Resonant_States', 'mood_duration')->{value};
+# Stage 4 -- Aspect Awakening (14 · Temperance). Bonuses check the hidden "Tier I reached" status on the caster, as
+# the Empress's do (never the tier passive). Numbers: 25 FEAT_Resonant_AspectAwakening, STA_Resonant_Catharsis.
+our $AWAKENED     = 'ASPECT_AWAKENED_TEMPERANCE';
+our $AW_COND      = "HasStatus('$AWAKENED', context.Source)";
+our $TIER1_BONUS  = master('STA_Resonant_Catharsis', 'tier1_bonus')->{value};
+our $TIER1_EXTEND = master('FEAT_Resonant_AspectAwakening', 'tier1_mood_extend')->{value};
 our $CATHARSIS_MAP      = 'Catharsis_Damage';
 our $CATHARSIS_MAP_UUID = '11006542-a7b5-4599-938a-2840982c4bb1';   # fixed: generated once for this map
 our $CATHARSIS_DICE     = "LevelMapValue($CATHARSIS_MAP)";           # damage and healing scale with level (25: STA_Resonant_Catharsis)
@@ -303,6 +309,9 @@ sub spell_success {
         my $c = cond_of($r);
         push @f, "IF($c and not Ally() and not Self()):DealDamage($CATHARSIS_DICE,Psychic,Magical)",
                  "IF($c and (Ally() or Self())):RegainHitPoints($CATHARSIS_DICE)",
+                 # Tier I Resonance: +1d8 either way
+                 "IF($c and not Ally() and not Self() and $AW_COND):DealDamage($TIER1_BONUS,Psychic,Magical)",
+                 "IF($c and (Ally() or Self()) and $AW_COND):RegainHitPoints($TIER1_BONUS)",
                  "IF($c):ApplyStatus(CATHARSIS,100,0)";
     }
     join ';', @f;
@@ -396,7 +405,11 @@ sub build_statuses {
     for my $e (@WHEEL) {
         my $E = $EMO{$e};
         my $side = $E->{side};
-        my $fade = 'IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(' . mood_id($e) . ",100,$MOOD_TURNS)";
+        # Tier I Resonance: the mood lasts longer once awakened. context.Source in a remove functor is the status's
+        # source, the Resonant -- probe P17 (plan B: Osiris re-applies the mood)
+        my ($m, $long) = (mood_id($e), $MOOD_TURNS + $TIER1_EXTEND);
+        my $fade = "IF(RemoveCause(StatusRemoveCause.TimeOut) and not $AW_COND):ApplyStatus($m,100,$MOOD_TURNS);"
+                 . "IF(RemoveCause(StatusRemoveCause.TimeOut) and $AW_COND):ApplyStatus($m,100,$long)";
         push @out, status_entry(peak_id($e), "Emotion: $e",
             tag_terms("Surging with $e. $E->{peak}{text}"),
             $E->{icon}, $side, { %{ $E->{peak} }, stack => 'EMOTION', onremove => $fade });
@@ -668,10 +681,11 @@ sub build_engine_patch {
     my ($compassion, $compassion_status, $compassion_interrupt) = build_compassion();
     my ($contagion, $contagion_status) = build_contagion();
     my $spells   = build_spells() . build_overload_spell() . build_heartstring() . build_temper() . $contagion;
-    my @statuses = (build_statuses(), $compassion_status, $contagion_status);
-    my $passives = build_passives();
+    my ($aspect_statuses, $aspect_passives, $two_cups) = build_aspect();
+    my @statuses = (build_statuses(), $compassion_status, $contagion_status, @$aspect_statuses);
+    my $passives = build_passives() . $aspect_passives;
     my ($shout, $debugst) = build_debug();
-    $shout .= $compassion;
+    $shout .= $compassion . $two_cups;
     my $interrupts = build_interrupts() . $compassion_interrupt;
     my %new;
     $new{$_} = 'Interrupt' for names_in($interrupts);
@@ -936,6 +950,157 @@ sub build_contagion {
     ($spell, $status);
 }
 
+# ---------------------------------------------------------------- stage 4: Aspect Awakening -- 14 · Temperance (spec §9)
+# The frame of the four existing Aspects, copied from the High Priestess (Empress): hidden ASPECT_AWAKENED_<X> (Tier I
+# reached: unlocks the Aspect card, takes the tiers with it), visible _I/_II/_III (one StackId, priority by tier, each
+# lists every bonus so far), ASPECT_PROGRESS_<X> (a frozen count), hidden tier passives granted at 3 / 7 / 12 and a
+# visible Awakening passive. ARCANA_Aspect_Common.txt counts and awakens (common_rows); temperance_goal holds the goal
+# and the Osiris effects.
+sub aspect_goal { master('FEAT_Resonant_AspectAwakening', "goal_tier$_[0]")->{value} }
+sub tier_texts {   # [label, text] for each tier, with DescriptionParams [1] Harmony's range, [2] Tier III's radius
+    (['Resonance', "Catharsis deals or restores an extra $TIER1_BONUS, and the moods you create last $TIER1_EXTEND turns longer."],
+     ['Harmony', 'Once per turn, when you braid a feeling, the nearest other creature within [1] of it gains the mood of one of its two emotions: the bright one if it is your ally, the dark one if not.'],
+     ['Aspect of Empathy', 'Emotional Overload also reaches every enemy within [2] of the target that carries a feeling: it loses its feelings and is Paralysed for ' . master('FEAT_Resonant_AspectAwakening', 'tier3_paralysed_others')->{value} . ' turn.'])
+}
+sub aspect_params { 'Distance(' . master('FEAT_Resonant_AspectAwakening', 'tier2_harmony_range')->{value} . ');Distance(' . master('FEAT_Resonant_AspectAwakening', 'tier3_radius')->{value} . ')' }
+sub build_aspect {
+    my $icon = 'Spell_Enchantment_CalmEmotions';
+    my @t = tier_texts(); my @roman = qw(I II III);
+    my @st;
+    push @st, ['Status_BOOST', entry($AWAKENED, 'StatusData', StatusType => 'BOOST',
+        DisplayName => loca(key($AWAKENED, 'NAME'), '14 - Temperance'),
+        Description => loca(key($AWAKENED, 'DESC'), 'Awakened as the Aspect of Empathy until combat ends.'),
+        Icon => $icon, StackId => $AWAKENED, StackType => 'Ignore',
+        Boosts => 'UnlockSpell(Shout_Arcana_Created_Aspect_TwoCups)', RemoveEvents => 'OnCombatEnded',
+        StatusPropertyFlags => 'IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator',
+        OnRemoveFunctors => join(';', map { "RemoveStatus(${AWAKENED}_$_)" } @roman), StatusGroups => 'SG_RemoveOnRespec')];
+    for my $i (0 .. 2) {
+        my $id = "${AWAKENED}_$roman[$i]";
+        push @st, ['Status_BOOST', entry($id, 'StatusData', StatusType => 'BOOST',
+            DisplayName => loca(key($id, 'NAME'), "14 - Temperance: Awakened $roman[$i]"),
+            Description => loca(key($id, 'DESC'), join('<br><br>', map { tag_terms("$t[$_][0]: $t[$_][1]") } 0 .. $i)),
+            DescriptionParams => aspect_params(), Icon => $icon,
+            StackId => "${AWAKENED}_TIER", StackPriority => $i + 1, StackType => 'Overwrite', RemoveEvents => 'OnCombatEnded',
+            StatusPropertyFlags => 'ForceOverhead;IgnoreResting', StatusGroups => 'SG_RemoveOnRespec')];
+    }
+    push @st, ['Status_BOOST', entry('ASPECT_PROGRESS_TEMPERANCE', 'StatusData', StatusType => 'BOOST',
+        DisplayName => loca(key('ASPECT_PROGRESS_TEMPERANCE', 'NAME'), 'Awakening Progress'),
+        Description => loca(key('ASPECT_PROGRESS_TEMPERANCE', 'DESC'), 'Reactions you have caused this fight, towards your next Awakening tier.'),
+        Icon => $icon, StackId => 'ASPECT_PROGRESS_TEMPERANCE', StackType => 'Overwrite', RemoveEvents => 'OnCombatEnded',
+        StatusPropertyFlags => 'FreezeDuration;IgnoreResting;ForceOverhead', StatusGroups => 'SG_RemoveOnRespec')];
+    # The Two Cups' Catharsis: its own status, so the Overload does not count it (R38) and the Awakening does
+    push @st, status_entry('RESONANT_TWO_CUPS_CATHARSIS', 'Catharsis', 'Opposing emotions, snapped at once by The Two Cups. Every mood is spent.',
+        $icon, 'mood', { stack => 'RESONANT_TWO_CUPS_CATHARSIS', onapply => join(';', map { 'RemoveStatus(' . mood_id($_) . ')' } @WHEEL) });
+    my $passives = '';
+    for my $i (0 .. 2) {
+        my $id = "Arcana_Passive_Aspect_Temperance_$roman[$i]";
+        $passives .= entry($id, 'PassiveData', DisplayName => loca(key($id, 'NAME'), $t[$i][0]),
+            Description => loca(key($id, 'DESC'), tag_terms($t[$i][1])), DescriptionParams => aspect_params(), Icon => $icon, Properties => 'IsHidden');
+    }
+    $passives .= passive('Arcana_Passive_Aspect_Temperance_Awakening', '14 - Temperance: Awakening',
+        'Cause reactions during a fight to awaken the Aspect of Empathy until combat ends: every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.'
+        . '<br><br>Level 3: cause ' . aspect_goal(1) . ' reactions to gain Resonance.<br><br>Level 7: cause ' . aspect_goal(2)
+        . ' reactions to also gain Harmony.<br><br>Level 12: cause ' . aspect_goal(3) . ' reactions to awaken as the Aspect of Empathy.', $icon);
+    # The Two Cups (§9.1): the Aspect card, as The Veil Lifts (Shout, AreaRadius, OncePerCombat, Requirements Combat)
+    my $id = 'Shout_Arcana_Created_Aspect_TwoCups';
+    my $foe = 'IF(not Ally() and not Self())'; my $friend = 'IF(Ally() or Self())';
+    my $spell = entry($id, 'SpellData', SpellType => 'Shout', Level => 0, SpellSchool => 'Enchantment', Cooldown => 'OncePerCombat',
+        SpellProperties => join(';', "$foe:DealDamage($CATHARSIS_DICE,Psychic,Magical)", "$foe:DealDamage($TIER1_BONUS,Psychic,Magical)",
+            "$friend:RegainHitPoints($CATHARSIS_DICE)", "$friend:RegainHitPoints($TIER1_BONUS)", 'ApplyStatus(RESONANT_TWO_CUPS_CATHARSIS,100,0)'),
+        AreaRadius => master('SPL_Resonant_TwoCups', 'radius')->{value},
+        TargetConditions => 'Character() and not Dead() and (' . any_mood() . ") and $CARD_MARK",
+        Icon => $icon,
+        DisplayName => loca(key($id, 'NAME'), 'The Two Cups'),
+        Description => loca(key($id, 'DESC'), "Pour one cup into the other. Every creature within [3] that carries a mood undergoes Catharsis at once: an enemy takes [1] and $TIER1_BONUS more, an ally regains [2] and $TIER1_BONUS more. Their moods are spent."),
+        DescriptionParams => "DealDamage($CATHARSIS_DICE,Psychic);RegainHitPoints($CATHARSIS_DICE);Distance(" . master('SPL_Resonant_TwoCups', 'radius')->{value} . ')',
+        TooltipDamageList => "DealDamage($CATHARSIS_DICE,Psychic)",
+        PreviewCursor => 'Cast', CastTextEvent => 'Cast', UseCosts => 'ActionPoint:1', SpellAnimation => $SHOUT_ANIMATION,
+        VerbalIntent => 'Damage', SpellStyleGroup => 'Class', SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent',
+        Requirements => 'Combat', DamageType => 'Psychic');
+    (\@st, $passives, $spell);
+}
+
+# Rows for ARCANA_Aspect_Common.txt (hand-written, shared by every Aspect): inserted by 54_stage4_apply.pl.
+sub common_rows {
+    join "\r\n", '// 14 - Temperance (the Resonant): reactions caused in the fight (ARC-0002, generated by gen_emotion_alchemy.pl)',
+        qq{DB_ARCANA_Aspect("TEMPERANCE", "ASPECT_PROGRESS_TEMPERANCE", "$AWAKENED", "Arcana_Passive_Aspect_Temperance_I");},
+        (map { my $r = (qw(I II III))[$_ - 1]; qq{DB_ARCANA_AspectTier("TEMPERANCE", $_, "Arcana_Passive_Aspect_Temperance_$r", "${AWAKENED}_$r", } . aspect_goal($_) . ');' } 1 .. 3),
+        'DB_ARCANA_AspectShow("TEMPERANCE", "COUNT");', '';
+}
+
+# Osiris for the Aspect: the goal (each reaction is a step), Harmony (Tier II, R39) and the Tier III wave.
+# Patterns: ARCANA_Aspect_Empress.txt (Step, nearest candidate from DB_ARCANA_Aspect_InCombat, once per turn cleared
+# on TurnStarted, PROC_ARCANA_Aspect_Reset hook); ARCANA_Aspect_Fool.txt (a card by DB_ARCANA_CardFamily).
+sub temperance_goal {
+    my @feel = map { 'FEELING_' . uc $FEELING{$_}{name} } sort { $FEELING{$a}{name} cmp $FEELING{$b}{name} } keys %FEELING;
+    my @aw = ((map { qq{DB_ARCANA_Resonant_AwakeningStatus("$_");} } @feel, (map { intense_id($_) } @WHEEL), 'CATHARSIS', 'RESONANT_TWO_CUPS_CATHARSIS'));
+    my @harm;
+    for my $k (sort keys %FEELING) {
+        my @pair = split /\+/, $k;
+        my @bright = grep { $EMO{$_}{side} eq 'A' } @pair; my @dark = grep { $EMO{$_}{side} eq 'I' } @pair;
+        for my $s (@pair) {   # R39: the side's emotion; both on one side -> the Surge's
+            my $ally = @bright == 1 ? $bright[0] : $s; my $foe = @dark == 1 ? $dark[0] : $s;
+            push @harm, sprintf 'DB_ARCANA_Resonant_HarmonyMood("FEELING_%s", "%s", "%s", "%s");', uc $FEELING{$k}{name}, uc $s, mood_id($ally), mood_id($foe);
+        }
+    }
+    my @roots = map { sprintf 'DB_ARCANA_Resonant_SurgeRoot("%s", "%s");', spell_id($_), uc $_ } @WHEEL;
+    my @fdb = map { qq{DB_ARCANA_Resonant_Feeling("$_");} } @feel;
+    my $range = master('FEAT_Resonant_AspectAwakening', 'tier2_harmony_range')->{value};
+    my $radius = master('FEAT_Resonant_AspectAwakening', 'tier3_radius')->{value};
+    my $mood_secs = ($MOOD_TURNS + $TIER1_EXTEND) * 6;   # Tier II implies Tier I: the mood is one you create
+    my $para = master('FEAT_Resonant_AspectAwakening', 'tier3_paralysed_others')->{value} * 6;
+    my @dbs = ('DB_ARCANA_Resonant_AwakeningStatus(_S)', 'DB_ARCANA_Resonant_HarmonyMood(_F,_E,_A,_O)', 'DB_ARCANA_Resonant_SurgeRoot(_R,_E)', 'DB_ARCANA_Resonant_Feeling(_F)');
+    my @clear = map { my $d = $_; (my $c = $d) =~ s/,/, /g; ('PROC', 'PROC_ARCANA_Resonant_Temperance_Init()', 'AND', $c, 'THEN', "NOT $c;", '') } @dbs;
+    my $g = join "\n", 'Version 1', 'SubGoalCombiner SGC_AND', 'INITSECTION', 'PROC_ARCANA_Resonant_Temperance_Init();', '', 'KBSECTION',
+        '// 14 - Temperance (the Resonant). Goal: cause reactions; 3 / 6 / 15 in ARCANA_Aspect_Common.txt (spec 9).',
+        '//   Tier I Resonance lives in Stats (Catharsis +1d8, longer moods, The Two Cups). Tier II Harmony and the',
+        '//   Tier III wave are here. GENERATED by gen_emotion_alchemy.pl -- do not edit by hand.',
+        '//REGION Tables', @clear,
+        'PROC', 'PROC_ARCANA_Resonant_Temperance_Init()', 'THEN', @aw, @harm, @roots, @fdb, '',
+        'IF', 'SavegameLoaded()', 'THEN', 'PROC_ARCANA_Resonant_Temperance_Init();', '//END_REGION', '',
+        '//REGION Goal: every feeling, intense emotion and Catharsis caused (The Two Cups: each one)',
+        'IF', 'StatusApplied(_Target, _Status, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_AwakeningStatus(_Status)',
+        'AND', 'HasPassive(_Resonant, "Arcana_Passive_Aspect_Temperance_Awakening", 1)', 'THEN', 'PROC_ARCANA_Aspect_Step(_Resonant, "TEMPERANCE");', '//END_REGION', '',
+        '//REGION The Surge being cast (Harmony needs it when both emotions of a feeling are on one side)',
+        'IF', 'UsingSpellOnTarget((CHARACTER)_Resonant, _, _Spell, _, _, _)', 'AND', 'DB_ARCANA_CardFamily(_Spell, _Root)', 'AND', 'DB_ARCANA_Resonant_SurgeRoot(_Root, _Emotion)',
+        'THEN', 'PROC_ARCANA_Resonant_LastSurge(_Resonant, _Emotion);', '',
+        'PROC', 'PROC_ARCANA_Resonant_LastSurge((CHARACTER)_Resonant, (STRING)_Emotion)', 'AND', 'DB_ARCANA_Resonant_LastSurge(_Resonant, _Old)', 'THEN', 'NOT DB_ARCANA_Resonant_LastSurge(_Resonant, _Old);', '',
+        'PROC', 'PROC_ARCANA_Resonant_LastSurge((CHARACTER)_Resonant, (STRING)_Emotion)', 'THEN', 'DB_ARCANA_Resonant_LastSurge(_Resonant, _Emotion);', '//END_REGION', '',
+        "//REGION Tier II: Harmony (once per turn, the nearest other creature within $range m of the feeling's bearer gains a mood, R39)",
+        'IF', 'StatusApplied((CHARACTER)_Target, _Feeling, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_Feeling(_Feeling)',
+        'AND', 'DB_ARCANA_AspectReached(_Resonant, 2)', 'AND', 'NOT DB_ARCANA_Resonant_Harmonized(_Resonant)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Resonant, _Combat)',
+        'THEN', 'PROC_ARCANA_Resonant_HarmonyClear(_Resonant);', 'PROC_ARCANA_Resonant_HarmonyConsider(_Resonant, _Target, _Combat);', 'PROC_ARCANA_Resonant_HarmonyApply(_Resonant, _Feeling);', '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyClear((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _Dist)', 'THEN', 'NOT DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _Dist);', '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyConsider((CHARACTER)_Resonant, (CHARACTER)_From, (GUIDSTRING)_Combat)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Cand, _Combat)',
+        'AND', '_Cand != _From', 'AND', 'IsDead(_Cand, 0)', 'AND', 'GetDistanceTo(_From, _Cand, _Dist)', 'AND', "_Dist <= $range.0",
+        'THEN', 'PROC_ARCANA_Resonant_HarmonyOffer(_Resonant, _Cand, _Dist);', '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyOffer((CHARACTER)_Resonant, (CHARACTER)_Cand, (REAL)_Dist)', 'AND', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Old, _OldDist)', 'AND', '_Dist < _OldDist',
+        'THEN', 'NOT DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Old, _OldDist);', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _Dist);', '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyOffer((CHARACTER)_Resonant, (CHARACTER)_Cand, (REAL)_Dist)', 'AND', 'NOT DB_ARCANA_Resonant_HarmonyBest(_Resonant, _, _)',
+        'THEN', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _Dist);', '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyApply((CHARACTER)_Resonant, (STRING)_Feeling)', 'AND', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _)',
+        'AND', 'DB_ARCANA_Resonant_LastSurge(_Resonant, _Emotion)', 'AND', 'DB_ARCANA_Resonant_HarmonyMood(_Feeling, _Emotion, _ForAlly, _ForFoe)', 'AND', 'IsAlly(_Resonant, _Cand, 1)',
+        'THEN', 'DB_ARCANA_Resonant_Harmonized(_Resonant);', "ApplyStatus(_Cand, _ForAlly, $mood_secs.0, 1, _Resonant);", '',
+        'PROC', 'PROC_ARCANA_Resonant_HarmonyApply((CHARACTER)_Resonant, (STRING)_Feeling)', 'AND', 'DB_ARCANA_Resonant_HarmonyBest(_Resonant, _Cand, _)',
+        'AND', 'DB_ARCANA_Resonant_LastSurge(_Resonant, _Emotion)', 'AND', 'DB_ARCANA_Resonant_HarmonyMood(_Feeling, _Emotion, _ForAlly, _ForFoe)', 'AND', 'IsAlly(_Resonant, _Cand, 0)',
+        'THEN', 'DB_ARCANA_Resonant_Harmonized(_Resonant);', "ApplyStatus(_Cand, _ForFoe, $mood_secs.0, 1, _Resonant);", '',
+        'IF', 'TurnStarted((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_Harmonized(_Resonant)', 'THEN', 'NOT DB_ARCANA_Resonant_Harmonized(_Resonant);', '',
+        'PROC', 'PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)', 'AND', 'DB_ARCANA_Resonant_Harmonized(_Char)', 'THEN', 'NOT DB_ARCANA_Resonant_Harmonized(_Char);', '//END_REGION', '',
+        "//REGION Tier III: Emotional Overload reaches every enemy within $radius m of the target that carries a feeling (first collect, then apply)",
+        'IF', 'UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _)', 'AND', 'DB_ARCANA_AspectReached(_Resonant, 3)',
+        'AND', 'DB_ARCANA_Aspect_InCombat(_Resonant, _Combat)', 'THEN', 'PROC_ARCANA_Resonant_WaveCollect(_Resonant, _Target, _Combat);', 'PROC_ARCANA_Resonant_WaveApply(_Resonant);', '',
+        'PROC', 'PROC_ARCANA_Resonant_WaveCollect((CHARACTER)_Resonant, (CHARACTER)_Target, (GUIDSTRING)_Combat)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Cand, _Combat)',
+        'AND', '_Cand != _Target', 'AND', 'IsEnemy(_Resonant, _Cand, 1)', 'AND', 'IsDead(_Cand, 0)', 'AND', 'GetDistanceTo(_Target, _Cand, _Dist)', 'AND', "_Dist <= $radius.0",
+        'AND', 'DB_ARCANA_Resonant_Feeling(_Feeling)', 'AND', 'HasActiveStatus(_Cand, _Feeling, 1)', 'THEN', 'DB_ARCANA_Resonant_WavePending(_Resonant, _Cand);', '',
+        'PROC', 'PROC_ARCANA_Resonant_WaveApply((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_WavePending(_Resonant, _Cand)', 'AND', 'DB_ARCANA_Resonant_Feeling(_Feeling)',
+        'AND', 'HasActiveStatus(_Cand, _Feeling, 1)', 'THEN', 'RemoveStatus(_Cand, _Feeling, _Resonant);', '',
+        'PROC', 'PROC_ARCANA_Resonant_WaveApply((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_WavePending(_Resonant, _Cand)',
+        'THEN', 'NOT DB_ARCANA_Resonant_WavePending(_Resonant, _Cand);', "ApplyStatus(_Cand, \"PARALYZED\", $para.0, 1, _Resonant);", '//END_REGION',
+        'EXITSECTION', '', 'ENDEXITSECTION', '';
+    $g =~ s/\n/\r\n/g;
+    $g;
+}
+
 sub main {
     my ($out) = grep { defined } map { $ARGV[$_ + 1] if $ARGV[$_] eq '--out' } 0 .. $#ARGV;
     $out //= default_out();
@@ -946,6 +1111,8 @@ sub main {
     write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
     write_file("$out/31_overload_weapon_levelmap.lsx-fragment", weapon_levelmap());
     write_file("$out/40_overload_goal.txt", overload_goal());
+    write_file("$out/42_temperance_goal.txt", temperance_goal());
+    write_file("$out/43_common_rows.txt", common_rows());
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);
     printf "20_upcast_targets.patch: %d variants%s\n", $n, $n ? '' : ' (none yet: run gen_upcast_variants.pl --apply, then generate again)';

@@ -1218,6 +1218,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="3" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_I;Arcana_Passive_Aspect_Temperance_Awakening" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(74e89dac-4330-83f6-cf7b-881854bd4663,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
@@ -1261,7 +1262,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="7" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Overwhelm" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Overwhelm;Arcana_Passive_Aspect_Temperance_II" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">
@@ -1313,6 +1314,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="12" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_III" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">

@@ -20,7 +20,7 @@
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="StatusEvent" version="1" />
         <field name="TooltipSave" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_APPREHENSIVE)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(MOOD_APPREHENSIVE,100,5)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7)" />
       </fields>
     </stat_object></stat_objects>
 </stats>

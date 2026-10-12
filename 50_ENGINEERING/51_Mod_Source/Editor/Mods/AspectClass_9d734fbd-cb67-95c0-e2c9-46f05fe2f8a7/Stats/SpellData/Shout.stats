@@ -3251,5 +3251,31 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e1d99bf8-cb45-d006-dc85-085e12bd6837" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_Aspect_TwoCups" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(not Ally() and not Self()):DealDamage(1d8,Psychic,Magical);IF(Ally() or Self()):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(Ally() or Self()):RegainHitPoints(1d8);ApplyStatus(RESONANT_TWO_CUPS_CATHARSIS,100,0)" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and (HasStatus('MOOD_SERENE') or HasStatus('MOOD_ACCEPTING') or HasStatus('MOOD_APPREHENSIVE') or HasStatus('MOOD_DISTRACTED') or HasStatus('MOOD_PENSIVE') or HasStatus('MOOD_BORED') or HasStatus('MOOD_ANNOYED') or HasStatus('MOOD_INTERESTED')) and not HasPassive('ARCANA_IS_CARD', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2d3e33d6g98bbg2448g0570g7015591c2773" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he3d128b7g8554g58c8gb48dg6381cad8c15e" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage));Distance(18)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Catharsis_Damage),Psychic)" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Damage" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
+        <field name="DamageType" type="EnumerationTableFieldDefinition" value="Psychic" enumeration_type_name="Damage Type" version="1" />
+      </fields>
     </stat_object></stat_objects>
 </stats>

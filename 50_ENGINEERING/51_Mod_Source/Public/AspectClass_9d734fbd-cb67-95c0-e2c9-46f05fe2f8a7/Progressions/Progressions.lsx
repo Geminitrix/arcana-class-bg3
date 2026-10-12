@@ -944,6 +944,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="3"/>
                     <attribute id="Name" type="LSString" value="Resonant"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Temperance_I;Arcana_Passive_Aspect_Temperance_Awakening"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(74e89dac-4330-83f6-cf7b-881854bd4663,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
@@ -975,7 +976,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Resonant"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Overwhelm"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Overwhelm;Arcana_Passive_Aspect_Temperance_II"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
                     <attribute id="UUID" type="guid" value="8935e1fd-3531-8bd4-3f0d-f328482167a2"/>
@@ -1012,6 +1013,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
                     <attribute id="Name" type="LSString" value="Resonant"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Temperance_III"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
                     <attribute id="UUID" type="guid" value="3cdd83e0-5f65-371d-7fcf-1c89cc87900e"/>

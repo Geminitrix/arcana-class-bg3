@@ -1,0 +1,9 @@
+id: SPL_Resonant_TwoCups
+kind: spell
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §9.1"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+values:
+  radius: { value: 18, unit: metres, note: "every creature this close that carries a mood undergoes Catharsis (STA_Resonant_Catharsis, + tier1_bonus)" }
+  uses:   { value: 1, unit: count, note: "once per combat; does not fill the Overload (R38)" }

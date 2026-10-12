@@ -732,6 +732,16 @@ regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_car
 the Common + progression script `--apply` → counts and repeated-field scan → `sync_data` → commit + push.
 **Owner:** compile the Story.
 
+### Stage 4 apply (`[fechado] ARC-0002`, 2026-10-12) — done
+
+New: `ASPECT_AWAKENED_TEMPERANCE` (+ `_I/_II/_III`), `ASPECT_PROGRESS_TEMPERANCE`, `RESONANT_TWO_CUPS_CATHARSIS`,
+`Arcana_Passive_Aspect_Temperance_I/II/III/_Awakening`, `Shout_Arcana_Created_Aspect_TwoCups`; Surges and peaks
+regenerated (Catharsis +1d8, the 7-turn mood); goal `ARCANA_Aspect_Temperance.txt` (from `42_temperance_goal.txt`);
+`54_stage4_apply.pl`: progression L3 / L7 / L12 (LSX + TBL) and the TEMPERANCE rows in `ARCANA_Aspect_Common.txt`
+(from `43_common_rows.txt`). Numbers: `FEAT_Resonant_AspectAwakening` (+3 rows), new `SPL_Resonant_TwoCups`.
+Checks: tests 199/199, check_cards OK, selftest 1003/0, counts +4 Passive, +1 Shout, +6 Status_BOOST on both sides,
+no repeated field. **Owner:** compile the Story (one goal new, Common changed).
+
 ### Probes (one rule each)
 
 | # | Do | Proves it works |
