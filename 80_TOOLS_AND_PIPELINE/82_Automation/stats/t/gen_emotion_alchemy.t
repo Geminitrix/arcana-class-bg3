@@ -37,9 +37,9 @@ my $ss = Alchemy::spell_success('Fear');
 my @f = split /;(?=IF\()/, $ss;
 like($f[0], qr/^IF\(not \(.*:ApplyStatus\(EMOTION_FEAR,100,1\)$/, 'first functor: the no-reaction case applies the peak (risk R1)');
 is(scalar(() = $f[0] =~ /HasStatus\('MOOD_/g), 8, 'the no-reaction case checks all 8 moods');
-like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
+like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\) and not \(HasStatus\('ASPECT_AWAKENED_TEMPERANCE_II', context\.Source\) or HasStatus\('ASPECT_AWAKENED_TEMPERANCE_III', context\.Source\)\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
 like($ss, qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\).*RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\).*ApplyStatus\(CATHARSIS,100,0\)$/, 'Catharsis harms, heals, then clears the moods last');
-none('each Surge: 1 base case + refund + 7 reactions + 5 Catharsis functors (2 for Tier I)', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 14 } @W);
+none('each Surge: 1 base case + refund + intensify + 6 feelings x 2 (Tier II) + 5 Catharsis functors (2 for Tier I)', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 20 } @W);
 
 # ---- the whole patch
 my $p = Alchemy::build_engine_patch();
@@ -338,23 +338,32 @@ my $cr4 = Alchemy::common_rows();
 like($cr4, qr/DB_ARCANA_Aspect\("TEMPERANCE", "ASPECT_PROGRESS_TEMPERANCE", "ASPECT_AWAKENED_TEMPERANCE", "Arcana_Passive_Aspect_Temperance_I"\);/, 'Common: the aspect row');
 like($cr4, qr/"TEMPERANCE", 1, "Arcana_Passive_Aspect_Temperance_I", "ASPECT_AWAKENED_TEMPERANCE_I", 3\).*"TEMPERANCE", 2, .*, 6\).*"TEMPERANCE", 3, .*, 15\)/s, 'Common: goals 3 / 6 / 15 from 25');
 like($cr4, qr/DB_ARCANA_AspectShow\("TEMPERANCE", "COUNT"\);/, 'Common: shown as a count');
-# 4.6 Harmony (R39)
-is(scalar(() = $ag =~ /DB_ARCANA_Resonant_HarmonyMood\("FEELING_\w+", "[A-Z]+", "MOOD_\w+", "MOOD_\w+"\);/g), 48, 'Harmony: 24 feelings x the 2 emotions that can cast them');
-like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_LOVE", "JOY", "MOOD_SERENE", "MOOD_SERENE"\);/, 'Love cast as Joy: both bright, the Surge\'s mood on both sides');
-like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_SUBMISSION", "FEAR", "MOOD_ACCEPTING", "MOOD_APPREHENSIVE"\);/, 'Submission: Trust\'s mood to an ally, Fear\'s to a foe');
-like($ag, qr/DB_ARCANA_Resonant_HarmonyMood\("FEELING_AWE", "FEAR", "MOOD_APPREHENSIVE", "MOOD_APPREHENSIVE"\);/, 'Awe cast as Fear: both dark, the Surge\'s mood');
+# 4.6 Tier II, R40: feelings last 2 turns longer; once per turn a Weave Surge costs no action (the Fool's Zephyr pattern)
+my $T2 = "(HasStatus('ASPECT_AWAKENED_TEMPERANCE_II', context.Source) or HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source))";
+like($jss, qr/\QIF(HasStatus('MOOD_ACCEPTING') and not $T2):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_ACCEPTING') and $T2):ApplyStatus(FEELING_LOVE,100,4)\E/, 'Tier II: a feeling lasts 2 turns longer');
+none('Tier II: every feeling branch of every Surge has both durations', map { my $s = Alchemy::spell_success($_); my $n = () = $s =~ /\Q and not $T2):ApplyStatus(FEELING_\E/g; my $m = () = $s =~ /\Q and $T2):ApplyStatus(FEELING_\E/g; ($n == $m && $n > 0) ? () : $_ } @W);
+unlike($ag, qr/HarmonyMood|HarmonyBest|LastSurge|Harmonized/, 'the old Harmony (nearest creature gains a mood) is gone (R40)');
 is(scalar(() = $ag =~ /DB_ARCANA_Resonant_SurgeRoot\("Target_Arcana_Card_Spell_Emotion\w+", "[A-Z]+"\);/g), 8, 'the 8 Surges by card (variants through DB_ARCANA_CardFamily)');
-like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, _, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _Emotion\)/, 'remembers the Surge being cast');
-like($ag, qr/DB_ARCANA_AspectReached\(_Resonant, 2\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_Harmonized\(_Resonant\)/, 'Harmony: from Tier II, once per turn');
-like($ag, qr/TurnStarted\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nDB_ARCANA_Resonant_Harmonized\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_Harmonized\(_Resonant\);/, 'Harmony: the turn resets it');
-like($ag, qr/_Dist <= 6\.0/, 'Harmony: within 6 m (25)');
-like($ag, qr/ApplyStatus\(_Cand, _ForAlly, 42\.0, 1, _Resonant\);/, 'Harmony: the mood lasts 5 + 2 turns (Tier I is already awake)');
+like($ag, qr/PROC_ARCANA_Aspect_OnTier\(\(CHARACTER\)_Resonant, \(STRING\)_Aspect, \(INTEGER\)_Tier\)\r?\nAND\r?\n_Aspect == "TEMPERANCE"\r?\nAND\r?\n_Tier == 2\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_SURGE_FREE", 6\.0, 1, _Resonant\);/, 'Tier II: the free Surge on awakening');
+like($ag, qr/TurnStarted\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nDB_ARCANA_AspectReached\(_Resonant, 2\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_SURGE_FREE", 6\.0, 1, _Resonant\);/, 'Tier II: a free Surge every turn');
+like($ag, qr/CastedSpell\(\(CHARACTER\)_Resonant, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _\)\r?\nAND\r?\nHasActiveStatus\(_Resonant, "RESONANT_SURGE_FREE", 1\)\r?\nTHEN\r?\nRemoveStatus\(_Resonant, "RESONANT_SURGE_FREE", _Resonant\);/, 'Tier II: spent by the first Surge');
+like($ag, qr/PROC_ARCANA_Aspect_Reset\(\(CHARACTER\)_Char\)\r?\nTHEN\r?\nRemoveStatus\(_Char, "RESONANT_SURGE_FREE", _Char\);/, 'leaving the combat removes the free Surge');
+my $sf = block($p, 'RESONANT_SURGE_FREE');
+like($sf, qr/"Boosts" "UnlockSpellVariant\(IsWeaveSurge\(\),ModifyUseCosts\(Replace,ActionPoint,0,0,ActionPoint\),ModifyIconGlow\(\),ModifyTooltipDescription\(\)\)"/, 'free Surge: no action (vanilla Extra Attack variant)');
+like($sf, qr/"TickType" "EndTurn"/, 'free Surge: one turn');
+like($sf, qr/"RemoveEvents" "OnCombatEnded"/, 'free Surge: ends with the combat');
+# the Khonsu helper: every Surge, variants included, by a marker in the conditions (the IsCardSpell pattern)
+like(Alchemy::weave_surge_khn(), qr/^function IsWeaveSurge\(\)\s+return HasStringInSpellConditions\('ARCANA_IS_SURGE'\)\s+end/m, 'IsWeaveSurge(): the marker');
+none('every Surge carries the Surge marker', grep { block($p, Alchemy::spell_id($_)) !~ /not HasPassive\('ARCANA_IS_SURGE', context\.Source\)/ } @W);
+none('nothing else carries the Surge marker', grep { !/^Target_Arcana_Card_Spell_Emotion(?:Joy|Trust|Fear|Surprise|Sadness|Disgust|Anger|Anticipation)$/ } grep { block($p, $_) =~ /ARCANA_IS_SURGE/ } @entries);
+like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC'} // '', qr/Harmony: Feelings you braid last 2 turns longer\. Once per turn, a Weave Surge costs no action\./, 'Tier II text');
+# R41: a Surge can target any creature; the player decides
+none('Surges target any creature (R41)', grep { block($p, Alchemy::spell_id($_)) =~ /^data "TargetConditions" "[^"]*(?:Ally\(\)|HasStatus\('MOOD_)/m } @W);
 # 4.7 Tier III
 like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _\)\r?\nAND\r?\nDB_ARCANA_AspectReached\(_Resonant, 3\)/, 'Tier III: Emotional Overload from Tier III');
 like($ag, qr/IsEnemy\(_Resonant, _Cand, 1\)/, 'Tier III: enemies only');
 like($ag, qr/ApplyStatus\(_Cand, "PARALYZED", 6\.0, 1, _Resonant\);/, 'Tier III: the others are Paralysed 1 turn');
 is(scalar(() = $ag =~ /DB_ARCANA_Resonant_Feeling\("FEELING_\w+"\);/g), 24, 'Tier III: the 24 feelings');
-like($ag, qr/PROC_ARCANA_Aspect_Reset\(\(CHARACTER\)_Char\)\r?\nAND\r?\nDB_ARCANA_Resonant_Harmonized\(_Char\)/, 'leaving the combat clears Harmony');
 unlike($ag, qr/[^\x00-\x7F]/, 'Temperance goal: ASCII only');
 like($ag, qr/\r\n/, 'Temperance goal: CRLF');
 

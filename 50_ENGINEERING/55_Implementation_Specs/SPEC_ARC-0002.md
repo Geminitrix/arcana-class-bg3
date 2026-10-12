@@ -753,6 +753,32 @@ no repeated field. **Owner:** compile the Story (one goal new, Common changed).
 | P20 | Level 7: 6 reactions, then braid a feeling | The nearest creature within 6 m gets the mood of R39; only once per turn |
 | P21 | Level 12: 15 reactions, then Emotional Overload with enemies with feelings near the target | They lose their feelings and are Paralysed 1 turn; the target 2 turns |
 
+Results (Owner, 2026-10-12): P16 ✅ P17 ✅ P18 ✅ P19 ✅ P21 ✅; P20 ❌ (and the mechanic read as complex) → R40.
+
+## Stage 4b — Tier II redesign (R40) and Surges on any creature (R41)
+
+| Task | Change | Test (RED first) |
+|---|---|---|
+| 4b.1 | **Feelings +2 at Tier II:** each feeling branch of a Surge splits — `… and not <T2>` → 2 turns, `… and <T2>` → 4, `<T2>` = `HasStatus('ASPECT_AWAKENED_TEMPERANCE_II'` or `_III`, `context.Source)` (one StackId, III replaces II). Number: `FEAT_Resonant_AspectAwakening#tier2_feeling_extend` | both branches on every feeling of every Surge; 20 functors per Surge |
+| 4b.2 | **Free Surge once per turn:** `RESONANT_SURGE_FREE` (1 turn) with vanilla Extra Attack's `UnlockSpellVariant(<check>,ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())`; Osiris as the Fool's `FOOL_ZEPHYR_FREE`: `PROC_ARCANA_Aspect_OnTier(…, "TEMPERANCE", 2)` and `TurnStarted` + `DB_ARCANA_AspectReached(_, 2)` apply it, `CastedSpell` of a Surge (`DB_ARCANA_CardFamily` → `DB_ARCANA_Resonant_SurgeRoot`) removes it, `PROC_ARCANA_Aspect_Reset` cleans it | status fields; the three rules |
+| 4b.3 | **Khonsu `IsWeaveSurge()`** (`44_IsWeaveSurge.khn` → `Scripts/thoth/helpers/IsWeaveSurge.khn`): `HasStringInSpellConditions('ARCANA_IS_SURGE')`, the IsCardSpell pattern; the 8 Surges carry the always-true marker `not HasPassive('ARCANA_IS_SURGE', context.Source)` (variants inherit it) | the marker on the 8, nowhere else |
+| 4b.4 | **Old Harmony removed** from the goal (HarmonyMood, LastSurge, nearest creature) | none of its tables left |
+| 4b.5 | **R41:** Surge `TargetConditions` lose the side/mood filter (any creature, not a construct); allies still never save | no `Ally()` / mood in the conditions |
+
+**Apply** (`[fechado] ARC-0002`): generator → `stats_add 10_engine.patch --apply` → `gen_upcast_variants --apply` →
+regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_cards` → `selftest` → copy
+`42_temperance_goal.txt` → `Goals/ARCANA_Aspect_Temperance.txt` and `44_IsWeaveSurge.khn` →
+`Scripts/thoth/helpers/IsWeaveSurge.khn` → counts and repeated-field scan → `sync_data` → commit + push.
+**Owner:** compile the Story. Toolkit note (memory): custom Khonsu is safe in `UnlockSpellVariant` (the mod's
+`IsCardSpell()` already runs there), unsafe in `BoostConditions` — not used.
+
+| # | Do | Proves it works |
+|---|---|---|
+| P20b | Level 7, Awakened II: braid a feeling | It lasts 4 turns |
+| P22 | Awakened II: cast two Weave Surges in one turn | The first costs no action (icon glows), the second costs the action; next turn the free one is back; upcast Surges too |
+| P23 | Out of combat or before Tier II | Surges cost the action as usual |
+| P24 | Weave Surge: Fear on an ally without a mood; Surge: Trust on an enemy without a mood | Both can be cast; the ally gets the peak with no save, the enemy saves |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

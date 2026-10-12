@@ -50,6 +50,8 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R37 | **Read the Room is removed:** Empathic Sight already gives Advantage on Insight | author, 2026-10-12 |
 | R38 | **The Two Cups does not fill the Overload** (each of its Catharses still counts for the Awakening): one card on 5–6 creatures would fill the meter at once | author, 2026-10-12 |
 | R39 | **Harmony's mood follows the side:** the nearest creature gets the mood of the feeling's emotion that suits it — the bright one (Joy, Trust, Anticipation) if it is your ally, the dark one if not; when both emotions are on the same side, the emotion of the Surge you cast | author, 2026-10-12 |
+| R40 | **Tier II Harmony redesigned** (replaces R8/R39 — the nearest creature gaining a mood failed P20 and read as complex): feelings you braid **last 2 turns longer**, and **once per turn a Weave Surge costs no action** (two Surges a turn, more feelings on the field). Surges are recognised by a Khonsu helper (`IsWeaveSurge()`) | author, 2026-10-12 |
+| R41 | **Weave Surges target any creature** (replaces the bright arc on allies / dark arc on non-allies when there is no mood): a dark peak on an ally can set up a bright feeling; the player decides | author, 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite

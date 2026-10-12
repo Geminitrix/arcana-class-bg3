@@ -198,9 +198,8 @@ failed save causes no reaction and refunds nothing.
 
 ### 4.6 Targets and saves
 
-- **Any** Surge can target **any** creature that carries a mood.
-- Without a mood: Joy, Trust and Anticipation only on allies (or yourself); the other five only on
-  non-allies.
+- **Any** Surge can target **any** creature (R41): a dark peak on an ally can set up a bright feeling; the
+  player decides.
 - A **Wisdom** save only when the target is a non-ally. Allies never roll.
 - None works on a **construct** (`not Tagged('CONSTRUCT')`, R25): everything else that lives feels.
 
@@ -410,7 +409,7 @@ Counted in Osiris (`ARCANA_Aspect_Temperance`). Tiers stack and last until comba
 | Tier | Level | Goal | Name | Bonus |
 |---|---|---|---|---|
 | I | 3 | `FEAT_Resonant_AspectAwakening` | **Resonance** (R21) | Catharsis deals or restores more (`STA_Resonant_Catharsis`); moods you create last 2 turns longer; the Aspect card **The Two Cups** |
-| II | 7 | `FEAT_Resonant_AspectAwakening` | **Harmony** (R8) | Once per turn, when you braid a feeling, the nearest other creature within 6 m gains the mood of one of that feeling's two emotions (it replaces, §4.7) |
+| II | 7 | `FEAT_Resonant_AspectAwakening` | **Harmony** (R40) | Feelings you braid last 2 turns longer; once per turn a Weave Surge costs no action (`IsWeaveSurge()`) |
 | III | 12 | `FEAT_Resonant_AspectAwakening` | **Aspect of Empathy** (R14) | **Emotional Overload reaches an area:** the target and every enemy within 6 m carrying one of your feelings lose their feelings and are Paralysed — the target 2 turns, the others 1. No ability bonus |
 
 ### 9.1 The Two Cups — the Aspect card (Tier I)
