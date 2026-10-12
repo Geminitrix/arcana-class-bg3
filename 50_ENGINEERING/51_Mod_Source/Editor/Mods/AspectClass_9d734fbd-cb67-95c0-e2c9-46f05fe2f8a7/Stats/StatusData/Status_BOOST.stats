@@ -445,6 +445,18 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3d47c10b-46ee-95c7-e664-e8f52f8e5f1c" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_TIER2" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he2702ae9g27c1g90b5g013cgf3583746adf0" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_TIER2" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Ignore" enumeration_type_name="StatusStackType" version="1" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="9b3ab042-744d-fd02-ba05-307bc156ce33" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_TRUST_SHOULDERED" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf29ec637g68c0g47adg8f4dg7cc40158be01" version="1" />
