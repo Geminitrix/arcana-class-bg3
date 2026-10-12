@@ -1115,7 +1115,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="43a0c998-e895-ecfa-6bd0-c608196c7884" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h67d48b2dg536ag16f4gddaag99547342ea75" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />

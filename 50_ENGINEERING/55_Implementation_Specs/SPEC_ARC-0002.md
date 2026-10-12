@@ -796,6 +796,7 @@ peak; a peak becomes a mood only when it fades) → R42.
 | 4c.1 | **Owner's Toolkit edits into the generator:** Surge `SpellRoll` = `SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)` (vanilla `Spell_Target` pattern; allies never roll); the reaction list one per line in the Owner's order (Intense, Primary, Secondary, Tertiary, Catharsis), no refund line (Emotional Alchemy tells it) | SpellRoll; line order; Fear's text identical to the Owner's |
 | 4c.2 | **R42 in `ARCANA_Aspect_Temperance`:** `UsingSpellOnTarget` of a Surge while `RESONANT_SURGE_FREE` is on → `DB_ARCANA_Resonant_Echo(_R)`; `StatusApplied` of a peak by `_R` with the mark → the peak's mood for 7 turns (`DB_ARCANA_Resonant_PeakMood`, 8 rows), mark spent; `TurnStarted` and `PROC_ARCANA_Aspect_Reset` clear an unused mark | rules and rows |
 | 4c.3 | Tier II and free-Surge texts say it | text |
+| 4c.4 | Temper uses the same `SpellAutoResolveOnAlly` (Owner, 2026-10-12) | SpellRoll |
 
 Known edge: if the free Surge reacts instead of leaving a peak, the mark waits for the next peak *this turn* (a Temper
 or a second Surge's peak) and gives it its mood at once — the turn ends it otherwise.

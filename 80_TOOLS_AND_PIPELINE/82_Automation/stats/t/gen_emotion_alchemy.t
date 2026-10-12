@@ -252,7 +252,7 @@ is(scalar(() = $hs =~ /IF\(HasStatus\('(MOOD_\w+)'\)\):SetStatusDuration\(\1,2,A
 my $tp = block($p, 'Target_Arcana_Card_Spell_Temper');
 like($tp, qr/^data "UseCosts" "BonusActionPoint:1"$/m, 'Temper costs only the bonus action (R34)');
 unlike($tp, qr/ContainerSpells|IsLinkedSpellContainer/, 'Temper is one spell, not a container (R36)');
-like($tp, qr/^data "SpellRoll" "Ally\(\) or Self\(\) or not SavingThrow\(Ability\.Wisdom, SourceSpellDC\(\)\)"$/m, 'Temper: non-allies roll Wisdom');
+like($tp, qr/^data "SpellRoll" "SpellAutoResolveOnAlly\(Ability\.Wisdom,SourceSpellDC\(\),true\)"$/m, 'Temper: non-allies roll Wisdom, allies auto-resolve (as the Surges)');
 my ($tss) = $tp =~ /^data "SpellSuccess" "([^"]*)"$/m; $tss //= '';
 none('Temper: each mood becomes its root emotion for 1 turn', grep { my $e = $_;
     index($tss, "IF(HasStatus('" . Alchemy::mood_id($e) . "')):ApplyStatus(" . Alchemy::peak_id($e) . ',100,1)') < 0 } @W);

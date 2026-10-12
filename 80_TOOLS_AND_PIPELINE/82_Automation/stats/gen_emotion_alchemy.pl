@@ -885,7 +885,7 @@ sub build_temper {
     my $map = join(', ', map { st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag(peak_id($_), $_) } @WHEEL) . '.';
     entry($c, 'SpellData', SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
         TargetRadius => master('SPL_Resonant_Temper', 'range')->{value}, AmountOfTargets => 1,
-        SpellRoll => 'Ally() or Self() or not SavingThrow(Ability.Wisdom, SourceSpellDC())',
+        SpellRoll => 'SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)',   # as the Surges (Owner, 2026-10-12)
         SpellSuccess => $success,
         SpellFail => 'ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)',
         TargetConditions => "Character() and not Dead() and not Tagged('CONSTRUCT') and (" . any_mood() . ") and $CARD_MARK",

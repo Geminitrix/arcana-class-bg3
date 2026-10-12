@@ -394,30 +394,10 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="ab5aff9e-78c9-e137-18a8-a6218a820fb8" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h94d03679g3e1fg8d3eg3092gb46ffc4493a8" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_TECH" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(not HasStatus('RESONANT_REFUND_USED') and not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);IF(not HasStatus('RESONANT_REFUND_USED')):RestoreResource(SELF,ArcanaThread,1,0);ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a0923c72-0462-cbfc-b24e-e9b03e23e3d7" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_USED" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h302e4a9bgce27g5c9egab79g4e72a61b675c" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_USED" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="0330bbcf-65fa-836a-4ec6-609d2a804dc9" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_SURGE_FREE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hec9c2252ga079gd84egb12dg02d9afa590b6" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd5dd59c5gc8f1g46cdg009bgba74fd0702f7" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd5dd59c5gc8f1g46cdg009bgba74fd0702f7" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_SURGE_FREE" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -2384,6 +2364,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ab5aff9e-78c9-e137-18a8-a6218a820fb8" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h94d03679g3e1fg8d3eg3092gb46ffc4493a8" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(not HasStatus('RESONANT_REFUND_USED') and not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(not HasStatus('RESONANT_REFUND_USED') and ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);IF(not HasStatus('RESONANT_REFUND_USED')):RestoreResource(SELF,ArcanaThread,1,0);ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="c90e8575-78f8-fffb-abd9-d65ce147d0f6" />
         <field name="Name" type="NameTableFieldDefinition" value="FEELING_DELIGHT" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9e5a8cc6g0358g50begd0cfg3c52d2ddd2d9" version="1" />
@@ -2394,6 +2384,16 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="RegainHitPoints(1d6)" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_DISTRACTED)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a0923c72-0462-cbfc-b24e-e9b03e23e3d7" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REFUND_USED" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h302e4a9bgce27g5c9egab79g4e72a61b675c" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REFUND_USED" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -3299,7 +3299,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="af09a375-b134-86ad-07ec-5e0a5f20f84b" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h542ace40gd6d5gc633gb93eg8210d3fbfc81" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3619171g42ffgc21cgb357g94050ebc64b8" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3619171g42ffgc21cgb357g94050ebc64b8" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
@@ -3315,7 +3315,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e29269f6-e4c7-249e-a5f1-abb173fc46a0" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a677c27gc433ge325ge612gaf0f3b77fe62" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
