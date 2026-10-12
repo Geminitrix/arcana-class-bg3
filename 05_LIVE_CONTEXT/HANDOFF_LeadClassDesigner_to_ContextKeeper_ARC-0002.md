@@ -41,7 +41,7 @@ Every other question: ✅.
 
 ## 3. Open items to list
 
-Balance pass · tests of §15 · Toolkit renames · the player guide (`75.02/src/data/resonant.json`) still
+Tests of §15 (balance pass done: numbers in `25.01`–`25.03`; renames done in ARC-0003) · the player guide (`75.02/src/data/resonant.json`) still
 describes Turn the Wheel, Attunement, Equanimity and the old Tier III.
 
 ## 4. ARC-0003 (game files changed)
