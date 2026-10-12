@@ -38,7 +38,7 @@ behaviour-changing Surges, an overload meter and its Emotional Overload — with
 | **0** | Generator: paths, master-data reader, behaviour peaks, refund, Catharsis level map, interrupts — test first | No | Tests pass; patch generated |
 | **1** | Apply the engine patch, the Catharsis level map and the Grudge goal; probes P0–P5 in game | Yes | Owner's probe results; plan B applied where a probe fails |
 | 2 | Overload meter (statuses, passive, Osiris count) + Emotional Overload | Yes | **Written in full below** |
-| 3 | Heartstring, Temper, Read the Room, Emotional Contagion, Ready: Compassion | Yes | Written in full after stage 2 |
+| 3 | Heartstring, Temper, Read the Room, Emotional Contagion, Ready: Compassion | Yes | **Written below** |
 | 4 | Awakening *14 · Temperance* (Osiris goal, tier statuses), The Two Cups, Tier III area Overload | Yes | Written in full after stage 3 |
 | 5 | Shared Heart (link status, Osiris copy, free Surges) | Yes | Written in full after stage 4 |
 | 6 | Lists, progression levels 1–12, loca handles, icons | Yes | Written in full after stage 5 |
@@ -606,6 +606,25 @@ rage) and `CharacterWeaponDamage(1d4,Radiant)` (`DIVINE_FAVOR`), with a new leve
 
 Apply with `[fechado] ARC-0002`. Probes then: P6–P10 updated — P7 becomes "full → *Overloaded*: no spells,
 weapon hit +Psychic, Psychic at turn start, lasts your level in turns"; P9 adds "usable while silenced".
+
+## Stage 3 — signature spells and the probe fixes
+
+**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §7. Each spell is a generator entry with a RED test first,
+as in stages 0–2. Numbers: `SPL_Resonant_Heartstring`, the rest TBD in `25` when the spell is written (range 6 m
+for Contagion, 9 m for Compassion — design values already in the spec).
+
+| Task | What | Anchor | Notes |
+|---|---|---|---|
+| **3.0** | **P8 fix:** Emotional Overload is greyed out until *Overloaded* | `RequirementConditions "HasStatus('…')"` on the caster (vanilla spells, e.g. `not HasStatus('SG_Polymorph')`) | Move the check from `TargetConditions` |
+| **3.0b** | **R32:** the meter always shows — at 0% a permanent `RESONANT_OVERLOAD` (duration −1, no number) | `ApplyStatus(…, -1.0, …)` (mod goals); on `SavegameLoaded` and on reset, for every character with `Arcana_Passive_Overload` | Reset re-applies the empty meter instead of removing it |
+| **3.1** | **Heartstring** — cantrip, Action, 18 m, Wisdom save: `DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical)`; a mood on the target lasts 2 turns longer | `D4Cantrip` (mod uses it); +2 turns: Osiris `GetStatusTurns` → re-apply with `(turns + 2) × 6.0` | Hand-off: `HEARTSTRING_TECH` on the target, Osiris finds its mood |
+| **3.2** | **Temper** — Bonus Action, container with **Temper: Left** / **Temper: Right**; turns the target's mood one step on the wheel, keeping its remaining turns; non-allies roll Wisdom | `ContainerSpells` / `SpellContainerID` (vanilla `Shout_MAG_Harpers_SingingSword`); Osiris `GetStatusTurns` | Generated: 8 moods × 2 directions; replaces, never reacts (R7) |
+| **3.3** | **Read the Room** — utility: Advantage on Insight and Persuasion, Concentration 10 turns | `Advantage(Skill, X)` (vanilla); `Shout_Arcana_Util_` family (locked in combat by the class) | Out of combat only |
+| **3.4** | **Ready: Compassion** — Unique reaction card, once per round: when an ally within 9 m takes damage, cast Weave Surge: Trust on it | The mod's **Ready: Gale Deflection** (card + READY status + `Interrupt_Arcana_Reaction_GaleDeflection`); `UseSpell(…)` in an interrupt (vanilla Riposte) | Can trigger Alchemy and the refund |
+| **3.5** | **Emotional Contagion** — Action, Concentration, level 9 | **No vanilla anchor** for copying one creature's state to others in an area | **Decision pending (Owner)** — see below |
+
+Apply with `[fechado] ARC-0002`; the spells reach the progression in stage 6 (until then the DEBUG-free path: a
+level-appropriate Resonant gets them through the lists of their level, added with the same per-node script).
 
 ## Stages 2–7 — index (written in full before each stage)
 
