@@ -21,6 +21,23 @@ our $G = $ENV{BG3_DATA} // 'C:/Program Files (x86)/Steam/steamapps/common/Baldur
 our $M = 'AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7';
 our $ROOT = abs_path(dirname(__FILE__) . '/../../..');            # repository root
 sub default_out { "$ROOT/50_ENGINEERING/55_Implementation_Specs/_wip/Resonant" }
+our $MASTER = "$ROOT/20_GAME_DESIGN/25_Master_Data";
+# One value entry of a 25 file: { value => ..., unit => ..., by_level => { level => value } }.
+# The files use one-line flow maps (schema 25.00/master_data.schema.yaml), so a line parser is enough.
+sub master {
+    my ($file, $key) = @_;
+    my ($dir) = grep { -e "$MASTER/$_/$file.yaml" } qw(25.01_spells 25.02_features 25.03_statuses);
+    die "master data $file not found\n" unless $dir;
+    open my $h, '<', "$MASTER/$dir/$file.yaml" or die "$file: $!";
+    while (my $l = <$h>) {
+        next unless $l =~ /^\s+\Q$key\E:\s*\{(.*)\}\s*$/;
+        my $body = $1; my %v;
+        $v{by_level} = { $1 =~ /(\d+):\s*([^,\s}]+)/g } if $body =~ s/by_level:\s*\{([^}]*)\},?//;
+        while ($body =~ /(\w+):\s*("[^"]*"|[^,]+)/g) { my ($k, $x) = ($1, $2); $x =~ s/^\s+|\s+$//g; $x =~ s/^"(.*)"$/$1/; $v{$k} = $x }
+        return \%v;
+    }
+    die "master data $file has no $key\n";
+}
 
 # ---------------------------------------------------------------- the wheel
 # Plutchik's clockwise order. The distance between two emotions decides the reaction (spec §4.2).
@@ -33,8 +50,8 @@ sub pair     { my ($x, $y) = @_; join '+', sort { $IDX{$a} <=> $IDX{$b} } $x, $y
 # distance => passive that unlocks the reaction (undef = always unlocked)
 our %GATE = (0 => 'Arcana_Passive_Overwhelm', 1 => undef, 2 => 'Arcana_Passive_ComplexFeelings',
              3 => 'Arcana_Passive_MixedFeelings', 4 => undef);
-our $FEELING_TURNS  = 2;
-our $MOOD_TURNS     = 5;
+our $FEELING_TURNS  = master('STA_Resonant_States', 'feeling_duration')->{value};
+our $MOOD_TURNS     = master('STA_Resonant_States', 'mood_duration')->{value};
 our $CATHARSIS_DICE = '2d8';
 # the level each gate passive arrives at (Resonant progression), shown in the Surges' list of reactions
 our %GATE_LEVEL = (Arcana_Passive_Overwhelm => 7, Arcana_Passive_ComplexFeelings => 5, Arcana_Passive_MixedFeelings => 9);

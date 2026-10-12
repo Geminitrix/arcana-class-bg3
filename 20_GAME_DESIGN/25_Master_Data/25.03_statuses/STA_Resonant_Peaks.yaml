@@ -1,0 +1,9 @@
+id: STA_Resonant_Peaks
+kind: status
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §5.1"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+game_ids: [EMOTION_JOY, RESONANT_JOY_CONTAGION]
+values:
+  joy_aura_radius: { value: 3, unit: metres, note: "allies of the Joyful creature within this range" }
