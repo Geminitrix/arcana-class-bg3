@@ -221,4 +221,7 @@ unlike($g, qr/LeftCombat/, 'leaving a combat does not empty the meter');
 like($g, qr/IntegerProduct\(_N, 100, _N100\)\r?\nAND\r?\nIntegerDivide\(_N100, _Max, _Pct\)/, 'the meter shows the percentage of its maximum');
 like($g, qr/_Pct < 1\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_ShowPct\(_Resonant, 1\);/, 'never shows 0 while it holds anything');
 
+# ---- a duplicated field makes the Toolkit drop the rest of the table (2026-10-12: RESONANT_OVERLOAD_SPENT_TECH)
+none('no entry repeats a field', map { my ($n, $b) = @$_; my %c; $c{$_}++ for $b =~ /^data "(\w+)"/mg; (grep { $c{$_} > 1 } keys %c) ? $n : () } map { [/^new entry "([^"]+)"/, $_] } split /\n(?=new entry )/, $p);
+
 done_testing();

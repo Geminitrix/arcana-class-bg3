@@ -1136,7 +1136,7 @@ data "StatusType" "BOOST"
 data "DisplayName" "{{HW_RESONANT_OVERLOAD_SPENT_TECH_NAME}}"
 data "StackId" "RESONANT_OVERLOAD_SPENT_TECH"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-data "StackId" "RESONANT_OVERLOAD_SPENT_TECH"
+data "TickType" "EndTurn"
 
 new entry "RESONANT_JOY_CONTAGION"
 type "StatusData"

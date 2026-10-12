@@ -445,7 +445,9 @@ sub build_statuses {
         Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD_FULL', TickType => 'StartTurn',
         Boosts => "BlockSpellCast();CharacterWeaponDamage(LevelMapValue($WEAPON_MAP),Psychic)",
         TickFunctors => $tick, StatusPropertyFlags => 'IgnoreResting;ForceOverhead')];   # R31: runs its course across combats; shown on the character
-    push @out, hidden_status('RESONANT_OVERLOAD_SPENT_TECH', 'Overload spent', 'StackId', 'RESONANT_OVERLOAD_SPENT_TECH');
+    # hidden_status already sets StackId: the extra field must be another one -- a repeated field made the Toolkit
+    # drop every Status_BOOST entry after this one (2026-10-12)
+    push @out, hidden_status('RESONANT_OVERLOAD_SPENT_TECH', 'Overload spent', 'TickType', 'EndTurn');
     # R17 helpers. Contagion: Advantage(AttackRoll) + RemoveEvents OnAttack (vanilla MAG_MONK_SWIFT_AS_THE_WIND).
     # Opening: Advantage(AttackTarget) + RemoveEvents OnAttacked (vanilla GUIDING_BOLT). Grudge: vanilla TAUNTED's
     # flags and group; Osiris (ARCANA_Resonant_Grudge) applies it with the last attacker as its source.
