@@ -24,3 +24,5 @@ guide `75.02` update.
 **ARC-0002 stage 1c applied** (`[fechado]`): Trust duration, Anger/Rage reaction, refund text on Surges. Waiting: P2 and P4 re-test.
 
 **2026-10-12 · ARC-0002 stage 2 applied** (`[fechado]`): Overload + Emotional Overload, counter goal; 91/91, selftest 975/0. Waiting: Story compile + P6–P10.
+
+**ARC-0002:** level 5 now grants Overload and Emotional Overload (`[fechado]`). Waiting: P6–P10.

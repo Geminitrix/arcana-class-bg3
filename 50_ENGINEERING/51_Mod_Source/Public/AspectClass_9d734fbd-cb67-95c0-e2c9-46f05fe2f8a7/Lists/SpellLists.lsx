@@ -211,7 +211,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload"/>
                     <attribute id="UUID" type="guid" value="e0d34d66-e311-be56-1810-04f9ba0917fd"/>
                 </node>
             </children>

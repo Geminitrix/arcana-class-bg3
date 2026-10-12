@@ -666,6 +666,7 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha450de33gbdceg52f7g4683g5f6c92fad31b" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage))" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -676,6 +677,7 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1b2edc4eg6d36gaa2ag2d8cg578338756e03" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_SeeInvisibility" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(Skill,Insight)" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -685,6 +687,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h227468d4g79d6gfcd1g02d5gb965c9679fb8" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h341c86b1g763ag2c71geac3gf1a6dd49a7dd" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bless" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -694,6 +697,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2645ac94g4f0fga0d6g3810gf5ce4dbab9ff" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd9550d94g2accge2b2g685eg53d87abbba7c" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -703,6 +707,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h892f2cacg7b6agf4b4ge63eg2cc147bd8055" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="haf1daeebg73b5ge9ecgaca2g47d0eb8434ec" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Confusion" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -712,6 +717,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h76c1fec2g94ecg895cg1a7bgcd36acd8d85b" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcbf080cag064eg2fcbga9dcgd502f0b7ebf0" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1140,5 +1146,6 @@
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="RegainHitPoints(WisdomModifier*5);Distance(9)" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+  </stat_objects>
 </stats>

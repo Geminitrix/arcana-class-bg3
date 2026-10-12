@@ -959,7 +959,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="5"/>
                     <attribute id="Name" type="LSString" value="Resonant"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_ComplexFeelings"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_ComplexFeelings;Arcana_Passive_Overload"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(e0d34d66-e311-be56-1810-04f9ba0917fd,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>

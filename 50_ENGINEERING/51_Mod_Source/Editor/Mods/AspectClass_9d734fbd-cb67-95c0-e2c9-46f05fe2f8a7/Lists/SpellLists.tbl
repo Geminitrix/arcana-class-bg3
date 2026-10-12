@@ -278,7 +278,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e0d34d66-e311-be56-1810-04f9ba0917fd" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 5" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
