@@ -20,3 +20,5 @@ guide `75.02` update.
 **ARC-0002 stage 1 applied** (`[fechado]`): level map, engine patch, variants, grudge goal; selftest 968/0. Waiting: Story compile + probes P0–P5.
 
 **2026-10-12 · ARC-0002 stage 1b applied** (`[fechado]`): R25–R28 in the game; 68/68 tests, selftest 970/0. Waiting: Story compile + re-test P2–P5.
+
+**ARC-0002 stage 1c applied** (`[fechado]`): Trust duration, Anger/Rage reaction, refund text on Surges. Waiting: P2 and P4 re-test.

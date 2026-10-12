@@ -3494,7 +3494,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h93ff502bg4574gae2fgc2d8g33efc8e11c61" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h08f3c330g8eb4g2559ge791g94b197007040" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_FEAR,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3588,7 +3588,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h39115ecdg0fcdg6b48g6ba7g8c4b34bd7d34" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0ac2085dg0c9eg1dc1geab9g59ef83e06ef5" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_JOY,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3682,7 +3682,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0a3dddg6627g7f4cg1ec0g0a8b3fa96be8" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb3156ccdg87f0g5ca8gbf2eg4d66af967adb" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_TRUST,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3777,7 +3777,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8bac4abgf6c5ga7f0g8314gd41d51e1564f" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae5b626egd26age05dg4867gce9f3d9f29f6" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc0dfda48gc315g7382gba67g44581519082f" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc0dfda48gc315g7382gba67g44581519082f" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANTICIPATION,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3872,7 +3872,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a75a416ga986g5255g13ffgf34e03ac8db6" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1f4e5c22g0007g4c4fga726g4383f2932cbd" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h20aa88d3gc278gc480g998fg7de3110adeaf" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h20aa88d3gc278gc480g998fg7de3110adeaf" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_SADNESS,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3966,7 +3966,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf137ae58g8126gd700g14b1g88a3dc40c0df" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h89b5caf8g4647gf8f8g1327g37736377b9c3" version="3" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6aec769dg5657g2de2gdda8g98468f8b1b3e" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6aec769dg5657g2de2gdda8g98468f8b1b3e" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_SURPRISE,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4060,7 +4060,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9fef010dg839fgba01g7e54g3c5478e9271c" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h045bd194g26d5g807cgc80fga2a739761ca6" version="3" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANGER,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4154,7 +4154,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_StinkingCloud" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hedf8f2eegaa05gad6dg11e0g8fd683911dee" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb340903g9895g7abagab32g73757d36a3fa" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="3" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_DISGUST,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
