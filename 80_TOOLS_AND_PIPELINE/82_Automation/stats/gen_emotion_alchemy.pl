@@ -52,7 +52,18 @@ our %GATE = (0 => 'Arcana_Passive_Overwhelm', 1 => undef, 2 => 'Arcana_Passive_C
              3 => 'Arcana_Passive_MixedFeelings', 4 => undef);
 our $FEELING_TURNS  = master('STA_Resonant_States', 'feeling_duration')->{value};
 our $MOOD_TURNS     = master('STA_Resonant_States', 'mood_duration')->{value};
-our $CATHARSIS_DICE = '2d8';
+our $CATHARSIS_MAP      = 'Catharsis_Damage';
+our $CATHARSIS_MAP_UUID = '11006542-a7b5-4599-938a-2840982c4bb1';   # fixed: generated once for this map
+our $CATHARSIS_DICE     = "LevelMapValue($CATHARSIS_MAP)";           # damage and healing scale with level (25: STA_Resonant_Catharsis)
+sub catharsis_levelmap {
+    my $by = master('STA_Resonant_Catharsis', 'damage')->{by_level};
+    my @th = sort { $a <=> $b } keys %$by;
+    my %lv; for my $L (1 .. 20) { my ($t) = grep { $_ <= $L } reverse @th; $lv{$L} = $by->{$t} }
+    my $s = qq{                <node id="LevelMapSeries">\n};
+    $s .= qq{                    <attribute id="Level$_" type="LSString" value="$lv{$_}"/>\n} for sort { "$a" cmp "$b" } 1 .. 20;
+    $s .= qq{                    <attribute id="Name" type="FixedString" value="$CATHARSIS_MAP"/>\n};
+    $s .= qq{                    <attribute id="UUID" type="guid" value="$CATHARSIS_MAP_UUID"/>\n                </node>\n};
+}
 # the level each gate passive arrives at (Resonant progression), shown in the Surges' list of reactions
 our %GATE_LEVEL = (Arcana_Passive_Overwhelm => 7, Arcana_Passive_ComplexFeelings => 5, Arcana_Passive_MixedFeelings => 9);
 # TooltipExtraTexts entry (Public/$M/TooltipExtras): the warning every Surge shows, written by hand in that table
@@ -596,6 +607,7 @@ sub main {
     write_file("$out/10_engine.patch", $engine);
     my ($up, $n) = build_upcast_patch();
     write_file("$out/20_upcast_targets.patch", $up);
+    write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);
     printf "20_upcast_targets.patch: %d variants%s\n", $n, $n ? '' : ' (none yet: run gen_upcast_variants.pl --apply, then generate again)';
