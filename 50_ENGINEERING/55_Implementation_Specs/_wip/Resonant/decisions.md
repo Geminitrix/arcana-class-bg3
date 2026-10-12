@@ -55,6 +55,7 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R42 | **The free Surge leaves its mood at once** (Tier II): the first Weave Surge of the turn applies its emotion and, at the same time, that emotion's mood (7 turns), so the second Surge of the turn can react with it. Fixes the gap the Owner found: two Surges in a turn could never react, since a peak becomes a mood only when it fades | author, 2026-10-12 |
 | R43 | **Shared Heart is a level 5 card** (Unique, once per long rest), as the Deceiver's capstone Grand Deception | author, 2026-10-12 |
 | R44 | **A Catharsis on a linked ally heals every linked ally** (same healing, their moods spent); peaks, intense emotions and feelings are copied as they are | author, 2026-10-12 |
+| R45 | **In the PC (SE) edition Temper costs 1 Thread**, as every level-0 card does (Heartstring, Malicious Whispers); the console edition keeps it at the Bonus Action only (R34) | author, 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite

@@ -852,6 +852,33 @@ repeated fields and line lengths → `sync_data` → commit. **Owner:** compile 
 | P30 | One linked ally Pensive, Weave Surge: Joy on it (Catharsis) | It heals (+1d8 if awakened); every other linked ally heals the base amount and loses its mood |
 | P31 | Weave Surge on an enemy while linked | Normal: costs the slot, no copy |
 
+## Stage 6 — progression, lists and the PC edition's deck (CardDB)
+
+**Spec:** §10 (progression), §13.3 (ids). **Decisions:** R43, R45. Stage 5 must be applied first (Shared Heart exists).
+
+**Anchors:** the Deceiver's lists and rows — `SpellList` "Deceiver Level 9" / "Deceiver Level 11" (`Public/<mod>/Lists/
+SpellLists.lsx` + `.tbl`), progression rows with `Selectors AddSpells(<list>,,,,AlwaysPrepared)`; the per-node scripts
+51 / 54 (LSX + TBL together, idempotent); `ScriptExtender/Lua/Server/Cards/CardDB.lua`: `D.cards` (cost = card level;
+cantrip cards 1 Thread; `keywords = { Unique = true }`), `D.statusConjures` (Aspect cards: `ASPECT_AWAKENED_<X>` →
+the card, `lasts = 99`), `D.reactions` (Which One / Gale Deflection: `ready`, `resource`, `used`, `perRound`).
+
+| Task | What | How | Test |
+|---|---|---|---|
+| **6.1** | **Lists 9 and 11** | New `SpellList` "Resonant Level 9" = Emotional Contagion; "Resonant Level 11" = Ready: Compassion, Shared Heart (UUIDs generated once, written in the script); Contagion and Compassion leave "Resonant Level 5" (they were there for testing, stage 3); the Resonant L9 (`e6a3ecc3…`) and L11 (`7195b750…`) rows get `Selectors AddSpells(<list>,,,,AlwaysPrepared)` | script dry run; dump: L5 = Disgust, Anger, Emotional Overload; L9 = Contagion; L11 = Compassion, Shared Heart |
+| **6.2** | **CardDB — the cards that leave the default** (PC edition only) | `aspect = "Resonant"` on each. Heartstring `cost = 1` (cantrip card); Temper `cost = 1` (R45, the level-0 rule; nothing to add in Stats); Shared Heart `keywords = { Unique = true }` (R43, as Grand Deception); Surges, Contagion: default (cost = level) | Lua offline tests, if the project's runner covers CardDB; `!arcanahand` in game |
+| **6.3** | **The Aspect card** | `D.statusConjures.ASPECT_AWAKENED_TEMPERANCE = { id = "Shout_Arcana_Created_Aspect_TwoCups", lasts = 99 }` and a `D.cards` row `{ aspect = "Resonant" }` (as The Veil Lifts) | in game (PC): Awakened I conjures The Two Cups to the hand |
+| **6.4** | **Ready: Compassion as a reaction card** (PC parity) | `D.reactions` needs a resource: new ActionResource `ArcanaReactCompassion` (`ActionResourceDefinitions.lsx`, as `ArcanaReactWhichOne`), the interrupt's `Cost` += `ArcanaReactCompassion:1`, `EnableCondition HasActionResource('ArcanaReactCompassion', 1, 0, false, false, context.Source)`, and `COMPASSION_USED_TECH` in its Properties; the console card restores one charge (`RestoreResource(SELF,ArcanaReactCompassion,1,0)`, as Gale Deflection); `perRound = 1` | generator tests; console P15 still passes; PC: holding the card arms the reaction |
+| **6.5** | **Emotional Overload in the PC edition** | It is a Created ability (not a card): check how the SE layer treats a Created spell granted by a list in combat (`D.Skipped`, the lock of non-cards). If it is locked, conjure it with `D.statusConjures.RESONANT_OVERLOAD_FULL` (lasts while Overloaded) | PC probe P32 |
+| **6.6** | **Retire the testing scaffold** | `RESONANT_DEBUG`'s `UnlockSpell` list keeps only what has no progression (none after 6.1) — or the DEBUG shout goes to `90_ARCHIVE` with the other DEBUG cards: Owner's call at apply time | — |
+
+**Apply** (`[fechado] ARC-0002`): the list/progression script (LSX + TBL) → `CardDB.lua` edits → the generator for 6.4 →
+the usual Stats chain → `dump_progression` → `sync_data` → commit. PC probes need the SE build.
+
+| # | Do | Proves it works |
+|---|---|---|
+| P32 | New Resonant, level 1 → 12 (console) | Spells arrive at 1 / 3 / 5 / 9 / 11 as §10; nothing left on the level-5 list from the tests |
+| P33 | PC edition: a Resonant deck | The 8 Surges, Heartstring, Temper (1 Thread), Contagion (3), Shared Heart (Unique: one copy) are cards; The Two Cups is conjured at Awakened I; Ready: Compassion arms the reaction while in hand; Emotional Overload usable while Overloaded |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |
