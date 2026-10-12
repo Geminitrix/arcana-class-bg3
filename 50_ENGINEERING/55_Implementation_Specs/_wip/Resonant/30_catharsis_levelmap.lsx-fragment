@@ -1,0 +1,24 @@
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2d8"/>
+                    <attribute id="Level10" type="LSString" value="4d8"/>
+                    <attribute id="Level11" type="LSString" value="4d8"/>
+                    <attribute id="Level12" type="LSString" value="4d8"/>
+                    <attribute id="Level13" type="LSString" value="4d8"/>
+                    <attribute id="Level14" type="LSString" value="4d8"/>
+                    <attribute id="Level15" type="LSString" value="4d8"/>
+                    <attribute id="Level16" type="LSString" value="4d8"/>
+                    <attribute id="Level17" type="LSString" value="4d8"/>
+                    <attribute id="Level18" type="LSString" value="4d8"/>
+                    <attribute id="Level19" type="LSString" value="4d8"/>
+                    <attribute id="Level2" type="LSString" value="2d8"/>
+                    <attribute id="Level20" type="LSString" value="4d8"/>
+                    <attribute id="Level3" type="LSString" value="2d8"/>
+                    <attribute id="Level4" type="LSString" value="2d8"/>
+                    <attribute id="Level5" type="LSString" value="3d8"/>
+                    <attribute id="Level6" type="LSString" value="3d8"/>
+                    <attribute id="Level7" type="LSString" value="3d8"/>
+                    <attribute id="Level8" type="LSString" value="3d8"/>
+                    <attribute id="Level9" type="LSString" value="3d8"/>
+                    <attribute id="Name" type="FixedString" value="Catharsis_Damage"/>
+                    <attribute id="UUID" type="guid" value="11006542-a7b5-4599-938a-2840982c4bb1"/>
+                </node>

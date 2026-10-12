@@ -81,18 +81,22 @@ our $SURGE_WARNING = '70aa3de3-6968-4c6e-a9cc-46344d0c08c2';
 our %EMO = (
     Joy => { side => 'A', icon => 'Spell_Enchantment_Heroism',
         flavour => "Pluck a bright thread of joy in an ally's Weave.",
-        effect  => "The target has Advantage on Attack Rolls and Ability Checks.",
-        peak    => { boosts => 'Advantage(AttackRoll);Advantage(AllAbilities)',
-                     text => 'Has Advantage on Attack Rolls and Ability Checks.' },
+        effect  => "The target's joy is contagious: allies near it have Advantage on their next attack.",
+        # R17: contagious -- an aura gives the Joyful creature's allies Advantage on their next attack (25: STA_Resonant_Peaks)
+        peak    => { boosts => undef, params => 'Distance(' . master('STA_Resonant_Peaks', 'joy_aura_radius')->{value} . ')',
+                     text => 'Its joy is contagious: allies within [1] have Advantage on their next attack.',
+                     extra => { AuraRadius => master('STA_Resonant_Peaks', 'joy_aura_radius')->{value},
+                                AuraStatuses => 'IF(Ally() and not Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)' } },
         mood    => { name => 'Serene', fx => 'with Advantage on Wisdom Saving Throws', boosts => 'Advantage(SavingThrow,Wisdom)',
                      text => 'Has Advantage on Wisdom Saving Throws.' },
         intense => { name => 'Ecstasy', boosts => 'ActionResource(ActionPoint,1,0)',
                      text => 'Has an additional action.' } },
     Trust => { side => 'A', icon => 'Spell_Abjuration_ShieldOfFaith',
         flavour => "Steady an ally with a thread of trust.",
-        effect  => "The target gains a +2 bonus to Armour Class and has Advantage on Saving Throws.",
-        peak    => { boosts => 'AC(2);Advantage(AllSavingThrows)',
-                     text => 'Armour Class increased by 2. Has Advantage on Saving Throws.' },
+        effect  => "The target follows your lead, attacking the enemies you and its allies hit.",
+        # R17: follows your lead -- a reaction attack on the target an ally just hit (Interrupt_Arcana_TrustFollowUp)
+        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_TrustFollowUp)',
+                     text => 'Follows your lead: when you or an ally hits an enemy, it can use its reaction to attack the same target.' },
         mood    => { name => 'Accepting', fx => 'with a +1 bonus to Armour Class', boosts => 'AC(1)',
                      text => 'Armour Class increased by 1.' },
         intense => { name => 'Admiration', boosts => 'Resistance(All, Resistant);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened)',
@@ -101,7 +105,8 @@ our %EMO = (
         flavour => "Wrap a creature in a cold thread of fear.",
         effect  => "The target can't move and has Disadvantage on Ability Checks and Attack Rolls.",
         peak    => { boosts => 'Disadvantage(AllAbilities);Disadvantage(AttackRoll);ActionResourceBlock(Movement)',
-                     text => "Can't move. Has Disadvantage on Ability Checks and Attack Rolls." },
+                     text => "Frozen with fear: can't move. Has Disadvantage on Ability Checks and Attack Rolls.",
+                     extra => { StatusGroups => 'SG_Frightened;SG_Condition' } },   # R17: vanilla FRIGHTENED's boosts and group
         mood    => { name => 'Apprehensive', fx => 'subtracting 1d4 from its Wisdom Saving Throws', boosts => 'RollBonus(SavingThrow,-1d4,Wisdom)',
                      text => 'Subtracts 1d4 from Wisdom Saving Throws.' },
         # FEAR type (the Fear spell's FEARED): the creature flees. Its per-turn save is switched off -- 1 turn.
@@ -110,19 +115,20 @@ our %EMO = (
                      extra => { RemoveConditions => '', RemoveEvents => '', TooltipSave => '' } } },
     Surprise => { side => 'I', icon => 'Spell_Enchantment_Enthrall',
         flavour => "Snap a thread of surprise before a creature's eyes.",
-        effect  => "The target can't take reactions or bonus actions and has Disadvantage on Dexterity Saving Throws.",
-        peak    => { boosts => 'ActionResourceBlock(ReactionActionPoint);ActionResourceBlock(BonusActionPoint);Disadvantage(SavingThrow,Dexterity)',
-                     text => "Can't take reactions or bonus actions. Has Disadvantage on Dexterity Saving Throws." },
+        effect  => "The target is caught off guard: it loses its reaction, and the next attack against it has Advantage.",
+        # R17: caught off guard -- the opening is its own status so the first hit removes it, not the peak (GUIDING_BOLT)
+        peak    => { boosts => 'ActionResourceBlock(ReactionActionPoint)', onapply => 'ApplyStatus(RESONANT_SURPRISE_OPENING,100,1)',
+                     text => "Caught off guard: can't take reactions, and the next attack against it has Advantage." },
         mood    => { name => 'Distracted', fx => 'with Disadvantage on Saving Throws to maintain Concentration', boosts => 'Disadvantage(Concentration)',
                      text => 'Has Disadvantage on Saving Throws to maintain Concentration.' },
         intense => { name => 'Amazement', type => 'INCAPACITATED', using => 'STUNNED', onapply => 'BreakConcentration()',
                      text => "Stunned: can't move or take actions or reactions. Automatically fails Strength and Dexterity Saving Throws, and attacks against it have Advantage." } },
     Sadness => { side => 'I', icon => 'Spell_Necromancy_RayOfInfeeblement',
         flavour => "Weigh a creature down with a grey thread of sorrow.",
-        effect  => "The target's movement speed is halved, and it can only take either an action or a bonus action.",
-        peak    => { boosts => 'ActionResourceMultiplier(Movement,50,0)',
-                     text => 'Movement speed is halved, and it can only take either an action or a bonus action.',
-                     extra => { Passives => 'Slow_ActionPoint' } },
+        effect  => "The target lets go of what it holds: it loses Concentration and its bonus action.",
+        # R17: lets go -- breaks Concentration and blocks the bonus action
+        peak    => { boosts => 'ActionResourceBlock(BonusActionPoint)', onapply => 'BreakConcentration()',
+                     text => "Lets go of what it holds: loses Concentration and can't take bonus actions." },
         mood    => { name => 'Pensive', fx => 'with its movement speed reduced by [1]', boosts => 'ActionResource(Movement,-3,0)',
                      text => 'Movement speed reduced by [1].', params => 'Distance(3)' },
         intense => { name => 'Grief', type => 'INCAPACITATED', boosts => 'ActionResourceBlock(Movement)', onapply => 'BreakConcentration()',
@@ -150,9 +156,10 @@ our %EMO = (
                      extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat;LoseControl', StatusGroups => 'SG_Condition;SG_Mad' } } },
     Anticipation => { side => 'A', icon => 'Spell_Transmutation_Longstrider',
         flavour => "Pull a taut thread of anticipation through an ally's Weave.",
-        effect  => "The target gains an additional reaction, and its movement speed is doubled.",
-        peak    => { boosts => 'ActionResource(ReactionActionPoint,1,0);ActionResourceMultiplier(Movement,200,0)',
-                     text => 'Has an additional reaction, and movement speed is doubled.' },
+        effect  => "The target stands on guard and strikes the first enemy that comes within reach.",
+        # R17: on guard -- a reaction attack when an enemy enters its reach (Interrupt_Arcana_AnticipationGuard)
+        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)',
+                     text => 'On guard: when an enemy enters its reach, it can use its reaction to attack first.' },
         mood    => { name => 'Interested', fx => 'with its movement speed increased by [1]', boosts => 'ActionResource(Movement,3,0)',
                      text => 'Movement speed increased by [1].', params => 'Distance(3)' },
         intense => { name => 'Vigilance', boosts => 'ActionResource(ReactionActionPoint,2,0);Advantage(SavingThrow,Dexterity)',
@@ -407,6 +414,18 @@ sub build_statuses {
     push @out, hidden_status('FEELING_MORBIDNESS_TECH', 'Morbidness', 'OnApplyFunctors', 'RegainHitPoints(1d6)');
     push @out, hidden_status('RESONANT_REFUND_TECH', 'Refund', 'OnApplyFunctors', refund_functors());
     push @out, hidden_status('RESONANT_REFUND_USED', 'Refund used', 'TickType', 'StartTurn');
+    # R17 helpers. Contagion: Advantage(AttackRoll) + RemoveEvents OnAttack (vanilla MAG_MONK_SWIFT_AS_THE_WIND).
+    # Opening: Advantage(AttackTarget) + RemoveEvents OnAttacked (vanilla GUIDING_BOLT). Grudge: vanilla TAUNTED's
+    # flags and group; Osiris (ARCANA_Resonant_Grudge) applies it with the last attacker as its source.
+    push @out, status_entry('RESONANT_JOY_CONTAGION', 'Contagious Joy', tag_terms('Has Advantage on the next attack.'),
+        $EMO{Joy}{icon}, 'A', { boosts => 'Advantage(AttackRoll)', stack => 'RESONANT_JOY_CONTAGION',
+        extra => { RemoveEvents => 'OnAttack' } });
+    push @out, status_entry('RESONANT_SURPRISE_OPENING', 'Off Guard', tag_terms('The next attack against it has Advantage.'),
+        $EMO{Surprise}{icon}, 'I', { boosts => 'Advantage(AttackTarget)', stack => 'RESONANT_SURPRISE_OPENING',
+        extra => { RemoveEvents => 'OnAttacked' } });
+    push @out, status_entry('RESONANT_GRUDGE', 'Grudge', 'Bears a grudge against whoever hurt it last and attacks them.',
+        $EMO{Anger}{icon}, 'I', { stack => 'RESONANT_GRUDGE',
+        extra => { StatusPropertyFlags => 'LoseControl;OverheadOnTurn;LoseControlFriendly', StatusGroups => 'SG_Taunted' } });
     push @out, status_entry('CATHARSIS', 'Catharsis',
         'Opposing emotions, snapped at once. Every mood is spent.',
         'Spell_Enchantment_CalmEmotions', 'mood', { stack => 'CATHARSIS',
@@ -566,13 +585,31 @@ sub names_in { my $s = shift; my @n = $s =~ /^new entry "([^"]+)"/mg; @n }
 # Status files in output order, and the divider new entries go under ("-" = end of file).
 our @STATUS_FILES = (['Status_BOOST', 'ARCANA STATUS'], ['Status_FEAR', '-'], ['Status_INCAPACITATED', '-']);
 
+# R17 interrupts. Follow-up: OnCastHit, Nearby, Ally/Enemy with context.Observer (vanilla Interrupt_FOR_SpiderQueen_SilkTomb).
+# Guard: OnEnterAttackRange, Self, UseAttack(), Stack AttackOfOpportunity (vanilla Interrupt_PolearmMaster).
+sub build_interrupts {
+    entry('Interrupt_Arcana_TrustFollowUp', 'InterruptData',
+        DisplayName => loca(key('Interrupt_Arcana_TrustFollowUp', 'NAME'), 'Follow Your Lead'),
+        Description => loca(key('Interrupt_Arcana_TrustFollowUp', 'DESC'), 'When you or an ally hits an enemy, attack the same target.'),
+        Icon => $EMO{Trust}{icon}, InterruptContext => 'OnCastHit', InterruptContextScope => 'Nearby', Container => 'YesNoDecision',
+        Conditions => 'IsAbleToReact(context.Observer) and Ally(context.Source,context.Observer) and not Self(context.Source,context.Observer) and Enemy(context.Target,context.Observer) and IsHit() and not AnyEntityIsItem()',
+        Properties => 'UseAttack()', Cost => 'ReactionActionPoint:1', InterruptDefaultValue => 'Ask;Enabled')
+  . entry('Interrupt_Arcana_AnticipationGuard', 'InterruptData',
+        DisplayName => loca(key('Interrupt_Arcana_AnticipationGuard', 'NAME'), 'On Guard'),
+        Description => loca(key('Interrupt_Arcana_AnticipationGuard', 'DESC'), 'When an enemy enters your reach, attack it first.'),
+        Icon => $EMO{Anticipation}{icon}, InterruptContext => 'OnEnterAttackRange', InterruptContextScope => 'Self', Container => 'YesNoDecision',
+        Conditions => 'Self(context.Source,context.Observer) and IsAbleToReact(context.Observer) and Enemy() and not AnyEntityIsItem()',
+        Properties => 'UseAttack()', Cost => 'ReactionActionPoint:1', Stack => 'AttackOfOpportunity', InterruptDefaultValue => 'Ask;Enabled');
+}
 sub build_engine_patch {
     @LOCA = ();
     my $spells   = build_spells();
     my @statuses = build_statuses();
     my $passives = build_passives();
     my ($shout, $debugst) = build_debug();
+    my $interrupts = build_interrupts();
     my %new;
+    $new{$_} = 'Interrupt' for names_in($interrupts);
     $new{$_} = 'Spell_Target' for names_in($spells);
     for my $st (@statuses) { $new{$_} = $st->[0] for names_in($st->[1]) }
     $new{$_} = 'Status_BOOST' for names_in($debugst);
@@ -596,6 +633,7 @@ sub build_engine_patch {
         $p .= "\@section DEBUG STATUS\n\n$debugst" if $file eq 'Status_BOOST';
     }
     $p .= "\@file Passive\n\@section ARCANA PASSIVES\n\n$passives";
+    $p .= "\@file Interrupt\n\@section -\n\n$interrupts";
     $p;
 }
 

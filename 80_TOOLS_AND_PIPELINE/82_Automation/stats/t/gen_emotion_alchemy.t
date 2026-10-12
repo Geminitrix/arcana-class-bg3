@@ -137,4 +137,18 @@ none('every slot refund is guarded by the used flag', grep { !/not HasStatus\('R
 
 like(join(' ', map { $lt{$_} } grep { /EMOTIONALALCHEMY_DESC$/ } keys %lt), qr/you regain the spell slot it used\. Once per turn\./, 'Emotional Alchemy explains the refund');
 
+# ---- behaviour peaks (R15, R17)
+my $pk = sub { block($p, 'EMOTION_' . uc shift) };
+like($pk->('Joy'), qr/data "AuraRadius" "3"\n.*data "AuraStatuses" "IF\(Ally\(\) and not Self\(\)\):ApplyStatus\(RESONANT_JOY_CONTAGION,100,1\)"/s, 'Joy: contagious aura');
+like(block($p, 'RESONANT_JOY_CONTAGION'), qr/Advantage\(AttackRoll\).*"RemoveEvents" "OnAttack"/s, 'contagion: next attack only');
+like($pk->('Trust'), qr/UnlockInterrupt\(Interrupt_Arcana_TrustFollowUp\)/, 'Trust: follow-up interrupt');
+like($pk->('Anticipation'), qr/UnlockInterrupt\(Interrupt_Arcana_AnticipationGuard\)/, 'Anticipation: guard interrupt');
+like($pk->('Fear'), qr/"StatusGroups" "SG_Frightened;SG_Condition"/, 'Fear: Frightened group');
+like($pk->('Surprise'), qr/"Boosts" "ActionResourceBlock\(ReactionActionPoint\)".*ApplyStatus\(RESONANT_SURPRISE_OPENING,100,1\)/s, 'Surprise: no reaction, opening');
+like(block($p, 'RESONANT_SURPRISE_OPENING'), qr/Advantage\(AttackTarget\).*"RemoveEvents" "OnAttacked"/s, 'opening: first attack only');
+like($pk->('Sadness'), qr/"Boosts" "ActionResourceBlock\(BonusActionPoint\)".*BreakConcentration\(\)/s, 'Sadness: lets go');
+like(block($p, 'RESONANT_GRUDGE'), qr/"StatusGroups" "SG_Taunted"/, 'grudge: taunted group');
+like($p, qr/^new entry "Interrupt_Arcana_AnticipationGuard"\ntype "InterruptData"\n(?:.*\n)*?data "InterruptContext" "OnEnterAttackRange"/m, 'guard: enters reach');
+like($p, qr/^new entry "Interrupt_Arcana_TrustFollowUp"\ntype "InterruptData"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/m, 'follow-up: watches allies');
+
 done_testing();
