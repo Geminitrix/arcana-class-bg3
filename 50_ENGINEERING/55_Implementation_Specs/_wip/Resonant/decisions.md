@@ -43,6 +43,7 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R30 | **Overloaded weapon rider:** +1d6 Psychic (levels 1–4), 2d6 (5–9), 3d6 (10+) | author, 2026-10-12 |
 | R31 | **The meter belongs to the character:** it counts in and out of combat and **carries over between combats**, emptying only when *Overloaded* ends or Emotional Overload is used; it shows as a **percentage (1–99%)** of its maximum. Texts name *Overloaded*, its damage (spell slot level) and that Emotional Overload needs level 5. Visible passives are `Highlighted`, visible statuses `ForceOverhead` (Owner rules) | author, 2026-10-12 |
 | R32 | **The meter is always shown**, at 0% too, in and out of combat; *Overloaded* never ends with the combat (P10) | author, 2026-10-12 |
+| R33 | **Emotional Contagion is a mood aura:** while the Resonant concentrates, every creature within 6 m of the target catches the **mood** it carries, renewed each turn; no saving throw. Stats only (an aura that reads the bearer's mood, like Joy's contagion). Mass setup for reactions, weak on its own | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite
 
