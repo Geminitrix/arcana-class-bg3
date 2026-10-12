@@ -414,6 +414,22 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0330bbcf-65fa-836a-4ec6-609d2a804dc9" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_SURGE_FREE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hec9c2252ga079gd84egb12dg02d9afa590b6" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd5dd59c5gc8f1g46cdg009bgba74fd0702f7" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_SURGE_FREE" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(IsWeaveSurge(),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="4a271c75-e558-0783-dd90-5a372847ec89" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_SURPRISE_OPENING" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h196b36dag9a99gaac0gcaefgd355eb6c96e1" version="1" />
@@ -3256,7 +3272,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb260a20dg01cfg69cage19bgc811c2d1c6af" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hac49295fgc057g5d86gb2abgdaa58ae5e644" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="1" />
@@ -3271,8 +3287,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="af09a375-b134-86ad-07ec-5e0a5f20f84b" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h542ace40gd6d5gc633gb93eg8210d3fbfc81" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3619171g42ffgc21cgb357g94050ebc64b8" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3619171g42ffgc21cgb357g94050ebc64b8" version="2" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="2" />
@@ -3287,8 +3303,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e29269f6-e4c7-249e-a5f1-abb173fc46a0" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a677c27gc433ge325ge612gaf0f3b77fe62" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="2" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="3" />

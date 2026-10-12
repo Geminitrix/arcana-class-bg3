@@ -1105,7 +1105,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h566c1015g2591gcbf4g72a5g3658701025a2" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5fa3e61ag16c8g4653gc409g3f6c594fecce" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1115,8 +1115,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="43a0c998-e895-ecfa-6bd0-c608196c7884" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h67d48b2dg536ag16f4gddaag99547342ea75" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="2" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1126,8 +1126,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="18a169ba-32ec-8fd3-1428-e5e21f589b48" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4eaafe19g963fg7afcg97d8g9d86178a4827" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae71e866g25bagb7d2g2d7bga2340c175f70" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6);Distance(6)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae71e866g25bagb7d2g2d7bga2340c175f70" version="2" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>

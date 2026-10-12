@@ -1366,9 +1366,9 @@
   <content contentuid="hb260a20dg01cfg69cage19bgc811c2d1c6af" version="1">14 - Temperance: Awakened I</content>
   <content contentuid="hac49295fgc057g5d86gb2abgdaa58ae5e644" version="1">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.</content>
   <content contentuid="h542ace40gd6d5gc633gb93eg8210d3fbfc81" version="1">14 - Temperance: Awakened II</content>
-  <content contentuid="hd3619171g42ffgc21cgb357g94050ebc64b8" version="1">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Once per turn, when you braid a feeling, the nearest other creature within [1] of it gains the mood of one of its two emotions: the bright one if it is your ally, the dark one if not.</content>
+  <content contentuid="hd3619171g42ffgc21cgb357g94050ebc64b8" version="2">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.</content>
   <content contentuid="h2a677c27gc433ge325ge612gaf0f3b77fe62" version="1">14 - Temperance: Awakened III</content>
-  <content contentuid="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="1">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Once per turn, when you braid a feeling, the nearest other creature within [1] of it gains the mood of one of its two emotions: the bright one if it is your ally, the dark one if not.&lt;br&gt;&lt;br&gt;Aspect of Empathy: Emotional Overload also reaches every enemy within [2] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
+  <content contentuid="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="2">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.&lt;br&gt;&lt;br&gt;Aspect of Empathy: Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
   <content contentuid="h2a5073b9gce8fgdabfg5dc1gd82dd9d499a4" version="1">Awakening Progress</content>
   <content contentuid="h75facae4g00fcg3d29g4a02gcd6225798baf" version="1">Reactions you have caused this fight, towards your next Awakening tier.</content>
   <content contentuid="hbb371a74g7561g5a32g4560gd58a7a803446" version="1">Catharsis</content>
@@ -1376,11 +1376,13 @@
   <content contentuid="h566c1015g2591gcbf4g72a5g3658701025a2" version="1">Resonance</content>
   <content contentuid="h5fa3e61ag16c8g4653gc409g3f6c594fecce" version="1">Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.</content>
   <content contentuid="h67d48b2dg536ag16f4gddaag99547342ea75" version="1">Harmony</content>
-  <content contentuid="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="1">Once per turn, when you braid a feeling, the nearest other creature within [1] of it gains the mood of one of its two emotions: the bright one if it is your ally, the dark one if not.</content>
+  <content contentuid="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="2">Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.</content>
   <content contentuid="h4eaafe19g963fg7afcg97d8g9d86178a4827" version="1">Aspect of Empathy</content>
-  <content contentuid="hae71e866g25bagb7d2g2d7bga2340c175f70" version="1">Emotional Overload also reaches every enemy within [2] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
+  <content contentuid="hae71e866g25bagb7d2g2d7bga2340c175f70" version="2">Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
   <content contentuid="hd3d7d9b5g6ec2gdc23gec81g8c980ca1761d" version="1">14 - Temperance: Awakening</content>
   <content contentuid="h6c55bb90g694fg4b96g7affg9ae3db1e2693" version="1">Cause reactions during a fight to awaken the Aspect of Empathy until combat ends: every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.&lt;br&gt;&lt;br&gt;Level 3: cause 3 reactions to gain Resonance.&lt;br&gt;&lt;br&gt;Level 7: cause 6 reactions to also gain Harmony.&lt;br&gt;&lt;br&gt;Level 12: cause 15 reactions to awaken as the Aspect of Empathy.</content>
   <content contentuid="h2d3e33d6g98bbg2448g0570g7015591c2773" version="1">The Two Cups</content>
   <content contentuid="he3d128b7g8554g58c8gb48dg6381cad8c15e" version="1">Pour one cup into the other. Every creature within [3] that carries a mood undergoes Catharsis at once: an enemy takes [1] and 1d8 more, an ally regains [2] and 1d8 more. Their moods are spent.</content>
+  <content contentuid="hec9c2252ga079gd84egb12dg02d9afa590b6" version="1">Harmony</content>
+  <content contentuid="hd5dd59c5gc8f1g46cdg009bgba74fd0702f7" version="1">Your next Weave Surge this turn costs no action.</content>
 </contentList>

@@ -1083,7 +1083,7 @@ sub temperance_goal {
         'AND', 'HasActiveStatus(_Resonant, "RESONANT_SURGE_FREE", 1)', 'THEN', 'RemoveStatus(_Resonant, "RESONANT_SURGE_FREE", _Resonant);', '',
         'PROC', 'PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)', 'THEN', 'RemoveStatus(_Char, "RESONANT_SURGE_FREE", _Char);', '//END_REGION', '',
         "//REGION Tier III: Emotional Overload reaches every enemy within $radius m of the target that carries a feeling (first collect, then apply)",
-        'IF', 'UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _)', 'AND', 'DB_ARCANA_AspectReached(_Resonant, 3)',
+        'IF', 'UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, _Spell, _, _, _)', 'AND', 'DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Created_EmotionalOverload")', 'AND', 'DB_ARCANA_AspectReached(_Resonant, 3)',
         'AND', 'DB_ARCANA_Aspect_InCombat(_Resonant, _Combat)', 'THEN', 'PROC_ARCANA_Resonant_WaveCollect(_Resonant, _Target, _Combat);', 'PROC_ARCANA_Resonant_WaveApply(_Resonant);', '',
         'PROC', 'PROC_ARCANA_Resonant_WaveCollect((CHARACTER)_Resonant, (CHARACTER)_Target, (GUIDSTRING)_Combat)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Cand, _Combat)',
         'AND', '_Cand != _Target', 'AND', 'IsEnemy(_Resonant, _Cand, 1)', 'AND', 'IsDead(_Cand, 0)', 'AND', 'GetDistanceTo(_Target, _Cand, _Dist)', 'AND', "_Dist <= $radius.0",

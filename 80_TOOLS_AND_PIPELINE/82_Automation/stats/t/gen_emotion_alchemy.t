@@ -360,7 +360,8 @@ like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC'} // '', qr/Harmony: Feelings yo
 # R41: a Surge can target any creature; the player decides
 none('Surges target any creature (R41)', grep { block($p, Alchemy::spell_id($_)) =~ /^data "TargetConditions" "[^"]*(?:Ally\(\)|HasStatus\('MOOD_)/m } @W);
 # 4.7 Tier III
-like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _\)\r?\nAND\r?\nDB_ARCANA_AspectReached\(_Resonant, 3\)/, 'Tier III: Emotional Overload from Tier III');
+like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, "Target_Arcana_Created_EmotionalOverload"\)\r?\nAND\r?\nDB_ARCANA_AspectReached\(_Resonant, 3\)/, 'Tier III: Emotional Overload from Tier III (by card family, the check_cards rule)');
+unlike($ag, qr/UsingSpellOnTarget\([^\r\n]*"Target_/, 'no card name compared in an event (check_cards)');
 like($ag, qr/IsEnemy\(_Resonant, _Cand, 1\)/, 'Tier III: enemies only');
 like($ag, qr/ApplyStatus\(_Cand, "PARALYZED", 6\.0, 1, _Resonant\);/, 'Tier III: the others are Paralysed 1 turn');
 is(scalar(() = $ag =~ /DB_ARCANA_Resonant_Feeling\("FEELING_\w+"\);/g), 24, 'Tier III: the 24 feelings');

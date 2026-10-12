@@ -152,7 +152,9 @@ RemoveStatus(_Char, "RESONANT_SURGE_FREE", _Char);
 
 //REGION Tier III: Emotional Overload reaches every enemy within 6 m of the target that carries a feeling (first collect, then apply)
 IF
-UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, "Target_Arcana_Created_EmotionalOverload", _, _, _)
+UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Created_EmotionalOverload")
 AND
 DB_ARCANA_AspectReached(_Resonant, 3)
 AND
