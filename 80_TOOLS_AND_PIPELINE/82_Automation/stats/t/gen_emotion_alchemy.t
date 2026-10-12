@@ -365,7 +365,14 @@ like($sf, qr/"RemoveEvents" "OnCombatEnded"/, 'free Surge: ends with the combat'
 like(Alchemy::weave_surge_khn(), qr/^function IsWeaveSurge\(\)\s+return HasStringInSpellConditions\('ARCANA_IS_SURGE'\)\s+end/m, 'IsWeaveSurge(): the marker');
 none('every Surge carries the Surge marker', grep { block($p, Alchemy::spell_id($_)) !~ /not HasPassive\('ARCANA_IS_SURGE', context\.Source\)/ } @W);
 none('nothing else carries the Surge marker', grep { !/^Target_Arcana_Card_Spell_Emotion(?:Joy|Trust|Fear|Surprise|Sadness|Disgust|Anger|Anticipation)$/ } grep { block($p, $_) =~ /ARCANA_IS_SURGE/ } @entries);
-like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC'} // '', qr/Harmony: Feelings you braid last 2 turns longer\. Once per turn, a Weave Surge costs no action\./, 'Tier II text');
+like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC'} // '', qr/Harmony: Feelings you braid last 2 turns longer\. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once\./, 'Tier II text (R42)');
+# R42: the free Surge leaves its mood at once, so the second Surge of the turn can react
+like($ag, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, _, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _\)\r?\nAND\r?\nHasActiveStatus\(_Resonant, "RESONANT_SURGE_FREE", 1\)\r?\nTHEN\r?\nDB_ARCANA_Resonant_Echo\(_Resonant\);/, 'R42: the free Surge is marked before its effect');
+is(scalar(() = $ag =~ /DB_ARCANA_Resonant_PeakMood\("EMOTION_\w+", "MOOD_\w+"\);/g), 8, 'R42: each peak and its mood');
+like($ag, qr/DB_ARCANA_Resonant_PeakMood\("EMOTION_FEAR", "MOOD_APPREHENSIVE"\);/, 'R42: Fear -> Apprehensive');
+like($ag, qr/StatusApplied\(_Target, _Peak, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_PeakMood\(_Peak, _Mood\)\r?\nAND\r?\nDB_ARCANA_Resonant_Echo\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_Echo\(_Resonant\);\r?\nApplyStatus\(_Target, _Mood, 42\.0, 1, _Resonant\);/, 'R42: the peak brings its mood at once, 7 turns (Tier I +2)');
+like($ag, qr/TurnStarted\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nDB_ARCANA_Resonant_Echo\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_Echo\(_Resonant\);/, 'R42: an unused mark ends with the turn');
+like($ag, qr/PROC_ARCANA_Aspect_Reset\(\(CHARACTER\)_Char\)\r?\nAND\r?\nDB_ARCANA_Resonant_Echo\(_Char\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_Echo\(_Char\);/, 'R42: and with the combat');
 # R41: a Surge can target any creature; the player decides
 none('Surges target any creature (R41)', grep { block($p, Alchemy::spell_id($_)) =~ /^data "TargetConditions" "[^"]*(?:Ally\(\)|HasStatus\('MOOD_)/m } @W);
 # 4.7 Tier III

@@ -31,6 +31,13 @@ NOT DB_ARCANA_Resonant_Feeling(_F);
 
 PROC
 PROC_ARCANA_Resonant_Temperance_Init()
+AND
+DB_ARCANA_Resonant_PeakMood(_P, _M)
+THEN
+NOT DB_ARCANA_Resonant_PeakMood(_P, _M);
+
+PROC
+PROC_ARCANA_Resonant_Temperance_Init()
 THEN
 DB_ARCANA_Resonant_AwakeningStatus("FEELING_AGGRESSIVENESS");
 DB_ARCANA_Resonant_AwakeningStatus("FEELING_ANXIETY");
@@ -98,6 +105,14 @@ DB_ARCANA_Resonant_Feeling("FEELING_SENTIMENTALITY");
 DB_ARCANA_Resonant_Feeling("FEELING_SHAME");
 DB_ARCANA_Resonant_Feeling("FEELING_SUBMISSION");
 DB_ARCANA_Resonant_Feeling("FEELING_UNBELIEF");
+DB_ARCANA_Resonant_PeakMood("EMOTION_JOY", "MOOD_SERENE");
+DB_ARCANA_Resonant_PeakMood("EMOTION_TRUST", "MOOD_ACCEPTING");
+DB_ARCANA_Resonant_PeakMood("EMOTION_FEAR", "MOOD_APPREHENSIVE");
+DB_ARCANA_Resonant_PeakMood("EMOTION_SURPRISE", "MOOD_DISTRACTED");
+DB_ARCANA_Resonant_PeakMood("EMOTION_SADNESS", "MOOD_PENSIVE");
+DB_ARCANA_Resonant_PeakMood("EMOTION_DISGUST", "MOOD_BORED");
+DB_ARCANA_Resonant_PeakMood("EMOTION_ANGER", "MOOD_ANNOYED");
+DB_ARCANA_Resonant_PeakMood("EMOTION_ANTICIPATION", "MOOD_INTERESTED");
 
 IF
 SavegameLoaded()
@@ -144,6 +159,43 @@ AND
 HasActiveStatus(_Resonant, "RESONANT_SURGE_FREE", 1)
 THEN
 RemoveStatus(_Resonant, "RESONANT_SURGE_FREE", _Resonant);
+
+// R42: the free Surge leaves its mood at once, so the second Surge of the turn can react. Marked when it is cast
+// (UsingSpellOnTarget comes before the effect), spent when its peak lands; an unused mark ends with the turn.
+IF
+UsingSpellOnTarget((CHARACTER)_Resonant, _, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, _Root)
+AND
+DB_ARCANA_Resonant_SurgeRoot(_Root, _)
+AND
+HasActiveStatus(_Resonant, "RESONANT_SURGE_FREE", 1)
+THEN
+DB_ARCANA_Resonant_Echo(_Resonant);
+
+IF
+StatusApplied(_Target, _Peak, (CHARACTER)_Resonant, _)
+AND
+DB_ARCANA_Resonant_PeakMood(_Peak, _Mood)
+AND
+DB_ARCANA_Resonant_Echo(_Resonant)
+THEN
+NOT DB_ARCANA_Resonant_Echo(_Resonant);
+ApplyStatus(_Target, _Mood, 42.0, 1, _Resonant);
+
+IF
+TurnStarted((CHARACTER)_Resonant)
+AND
+DB_ARCANA_Resonant_Echo(_Resonant)
+THEN
+NOT DB_ARCANA_Resonant_Echo(_Resonant);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_Resonant_Echo(_Char)
+THEN
+NOT DB_ARCANA_Resonant_Echo(_Char);
 
 PROC
 PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)

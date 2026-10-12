@@ -786,6 +786,28 @@ with the tier, removes it on reset). Longest line now 3301; test 213/213 include
 4b steps (also copy `40_overload_goal.txt` → `Goals/ARCANA_Resonant_Overload.txt`). Re-check the refund (P1-style: a
 reaction gives the slot back, once per turn) with P20b–P24.
 
+Results (Owner, 2026-10-12): P20b ✅ P22 ✅ P23 ✅ P24 ✅ — but two Surges in one turn can never react (the first leaves a
+peak; a peak becomes a mood only when it fades) → R42.
+
+## Stage 4c — the free Surge leaves its mood at once (R42) + the Owner's Toolkit edits
+
+| Task | Change | Test (RED first) |
+|---|---|---|
+| 4c.1 | **Owner's Toolkit edits into the generator:** Surge `SpellRoll` = `SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)` (vanilla `Spell_Target` pattern; allies never roll); the reaction list one per line in the Owner's order (Intense, Primary, Secondary, Tertiary, Catharsis), no refund line (Emotional Alchemy tells it) | SpellRoll; line order; Fear's text identical to the Owner's |
+| 4c.2 | **R42 in `ARCANA_Aspect_Temperance`:** `UsingSpellOnTarget` of a Surge while `RESONANT_SURGE_FREE` is on → `DB_ARCANA_Resonant_Echo(_R)`; `StatusApplied` of a peak by `_R` with the mark → the peak's mood for 7 turns (`DB_ARCANA_Resonant_PeakMood`, 8 rows), mark spent; `TurnStarted` and `PROC_ARCANA_Aspect_Reset` clear an unused mark | rules and rows |
+| 4c.3 | Tier II and free-Surge texts say it | text |
+
+Known edge: if the free Surge reacts instead of leaving a peak, the mark waits for the next peak *this turn* (a Temper
+or a second Surge's peak) and gives it its mood at once — the turn ends it otherwise.
+
+**Apply** (`[fechado] ARC-0002`): the 4b steps; copy `42_temperance_goal.txt` → `Goals/ARCANA_Aspect_Temperance.txt`.
+**Owner:** compile the Story.
+
+| # | Do | Proves it works |
+|---|---|---|
+| P25 | Awakened II: Weave Surge: Fear on an enemy (free), then Weave Surge: Trust on it (action) | After the first, it has both Emotion: Fear and Mood: Apprehensive; the second braids Submission the same turn (refund, Overload +2, Awakening +1) |
+| P26 | An ally, any Surge | No roll at all; the ally always gets it |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

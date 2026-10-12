@@ -47,20 +47,20 @@
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_I_NAME 14 - Temperance: Awakened I
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_I_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_II_NAME 14 - Temperance: Awakened II
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_III_NAME 14 - Temperance: Awakened III
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.<br><br>Aspect of Empathy: Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.<br><br>Aspect of Empathy: Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_NAME Awakening Progress
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_DESC Reactions you have caused this fight, towards your next Awakening tier.
 @loca HW_RESONANT_TWO_CUPS_CATHARSIS_NAME Catharsis
 @loca HW_RESONANT_TWO_CUPS_CATHARSIS_DESC Opposing emotions, snapped at once by The Two Cups. Every mood is spent.
 @loca HW_RESONANT_TIER2_NAME Harmony
 @loca HW_RESONANT_SURGE_FREE_NAME Harmony
-@loca HW_RESONANT_SURGE_FREE_DESC Your next Weave Surge this turn costs no action.
+@loca HW_RESONANT_SURGE_FREE_DESC Your next Weave Surge this turn costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_NAME Resonance
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_DESC Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_NAME Harmony
-@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_DESC Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action.
+@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_DESC Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_NAME Aspect of Empathy
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_AWAKENING_NAME 14 - Temperance: Awakening
