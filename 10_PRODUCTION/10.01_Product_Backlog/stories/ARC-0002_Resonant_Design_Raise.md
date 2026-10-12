@@ -10,7 +10,7 @@ priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/2026-10-06-heartweaver-design.md, 55/_wip/Resonant/decisions.md, 05.02/Resonant.md, 75.02/src/data/resonant.json]
-outputs: [55/_wip/Resonant/decisions.md, 21.04/Resonant/2026-10-11-resonant-design.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md]
+outputs: [55/_wip/Resonant/decisions.md, 21.04/Resonant/2026-10-11-resonant-design.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md, 55/SPEC_ARC-0002.md]
 blocked_by: []
 sprint:
 created: 2026-10-11
@@ -41,4 +41,5 @@ Surges, an overload meter and its Overflow — without running out of slots.
 - 2026-10-08 — audit and decisions R1–R14 (before the project migration).
 - 2026-10-11 — created; decisions R15–R17 (behaviour peaks, slot refund on reaction), R18–R19 (Shared Heart capstone), R20–R21 (names: Emotional Overload, Tier I Resonance).
 - 2026-10-11 — raising spec `21.04/Resonant/2026-10-11-resonant-design.md` written; Depth audit handed to the Context Keeper. R22–R23 (Emotional Overload cost, Rage grudge) confirmed by the Owner.
-- 2026-10-11 — balance pass approved: numbers in `25.01`–`25.03` (first master-data files, schema `25.00/master_data.schema.yaml`), arithmetic in `22.05/2026-10-11_ARC-0002_Resonant_Balance.md`; R24 (Shared Heart: until combat ends, free Surges on linked allies). Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).
+- 2026-10-11 — balance pass approved: numbers in `25.01`–`25.03` (first master-data files, schema `25.00/master_data.schema.yaml`), arithmetic in `22.05/2026-10-11_ARC-0002_Resonant_Balance.md`; R24 (Shared Heart: until combat ends, free Surges on linked allies).
+- 2026-10-11 — implementation plan `55/SPEC_ARC-0002.md` (stages 0–7; stage 0 and 1 in full) written, awaiting Owner review. Still open: balance pass, in-game tests (spec §15), Toolkit renames, player guide update (`75.02`).
