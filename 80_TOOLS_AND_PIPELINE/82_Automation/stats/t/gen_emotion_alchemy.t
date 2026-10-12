@@ -169,7 +169,6 @@ none('Anger and Rage keep their reaction (opportunity attacks, P4)', grep { $pk-
 none('every Surge tooltip tells the refund', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') !~ /<br><br>Any reaction gives back the spell slot this surge used\. Once per turn\.$/ } @W);
 
 # ---- stage 2: Overload
-like(block($p, 'RESONANT_OVERLOAD'), qr/"StackType" "Overwrite".*"RemoveEvents" "OnCombatEnded".*"StatusPropertyFlags" "FreezeDuration;IgnoreResting"/s, 'the meter shows a frozen count, gone after combat');
 my $full = block($p, 'RESONANT_OVERLOAD_FULL');
 like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn');
 like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
@@ -205,5 +204,21 @@ unlike($eo, qr/"SpellFlags" "[^"]*IsSpell/, 'Emotional Overload is not a spell (
 like($g, qr/DB_ARCANA_Resonant_OverloadMax\(1, 5\).*DB_ARCANA_Resonant_OverloadMax\(3, 8\)/s, 'meter from level 1: 5, then 8 at level 3');
 like($g, qr/IntegerProduct\(_Lvl, 6, _Secs\)\r?\nAND\r?\nIntegerToReal\(_Secs, _Dur\)\r?\nTHEN\r?\n(?:[^\r\n]*\r?\n)*?ApplyStatus\(_Resonant, "RESONANT_OVERLOAD_FULL", _Dur, 1, _Resonant\);/, 'Overloaded lasts the character level in turns');
 like($g, qr/StatusRemoved\(\(CHARACTER\)_Resonant, "RESONANT_OVERLOAD_FULL", _, _\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_Reset\(_Resonant\);/, 'the meter empties when Overloaded ends');
+
+# ---- stage 2c: the meter persists, shows a percentage; visible passives and statuses (Owner rules)
+my $ov = block($p, 'RESONANT_OVERLOAD');
+unlike($ov, qr/OnCombatEnded/, 'the meter persists between combats');
+like($ov, qr/"StatusPropertyFlags" "[^"]*ForceOverhead/, 'the meter shows on the character (ForceOverhead)');
+unlike($full, qr/OnCombatEnded/, 'Overloaded runs its course across combats');
+like($full, qr/"StatusPropertyFlags" "[^"]*ForceOverhead/, 'Overloaded shows on the character (ForceOverhead)');
+none('every visible Resonant passive is Highlighted', grep { block($p, $_) !~ /^data "Properties" "Highlighted"$/m }
+    qw(Arcana_Passive_EmotionalAlchemy Arcana_Passive_EmpathicSight Arcana_Passive_ComplexFeelings Arcana_Passive_Overwhelm Arcana_Passive_MixedFeelings Arcana_Passive_Overload));
+like($lt{'HW_RESONANT_OVERLOAD_DESC'} // '', qr/Overloaded.*level 5/s, 'the meter text names Overloaded and when Emotional Overload arrives');
+like($lt{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/Psychic damage equal to your spell slot level/, 'Overloaded says how much it hurts');
+like($lt{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/level 5/, 'Overloaded says Emotional Overload needs level 5');
+unlike($g, qr/IsInCombat\(_Resonant, 1\)/, 'the meter counts in and out of combat');
+unlike($g, qr/LeftCombat/, 'leaving a combat does not empty the meter');
+like($g, qr/IntegerProduct\(_N, 100, _N100\)\r?\nAND\r?\nIntegerDivide\(_N100, _Max, _Pct\)/, 'the meter shows the percentage of its maximum');
+like($g, qr/_Pct < 1\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_ShowPct\(_Resonant, 1\);/, 'never shows 0 while it holds anything');
 
 done_testing();

@@ -5,7 +5,7 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R30 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
+> decisions R1–R31 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
 > `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
@@ -325,7 +325,9 @@ the mood. Shows in the combat log.
   that lands and **+2** for each reaction (feeling, Intensify, Catharsis) (R12). A failed save adds
   nothing. Its size grows with the slot level (`FEAT_Resonant_Overload`), so it fills around the fourth
   turn at every level. The meter exists **from level 1** (R29).
-- **It resets when combat ends.**
+- **It belongs to the character** (R31): it counts in and out of combat and **carries over between combats**; it
+  empties only when *Overloaded* ends or Emotional Overload is used. It shows as a **percentage (1–99%)** of its
+  maximum, so the player never needs to know the maximum for their level.
 - **Full — *Overloaded*** (R29, R30): for turns equal to the **character level** the Resonant is **silenced** (can't
   cast spells), takes Psychic damage at the start of each of their turns, and their **weapon attacks deal extra
   Psychic damage** (`FEAT_Resonant_Overload`). When it ends the meter is empty. From level 5, **Emotional Overload**

@@ -130,9 +130,9 @@
 @loca HW_RESONANT_REFUND_TECH_NAME Refund
 @loca HW_RESONANT_REFUND_USED_NAME Refund used
 @loca HW_RESONANT_OVERLOAD_NAME Overload
-@loca HW_RESONANT_OVERLOAD_DESC Everything you made others feel this fight, felt again. When it is full, you suffer at the start of each turn until you release it with Emotional Overload.
+@loca HW_RESONANT_OVERLOAD_DESC Everything you made others feel, felt again. It carries over from one fight to the next. The number shows how full it is: at 100% you become Overloaded. From level 5, Emotional Overload releases it.
 @loca HW_RESONANT_OVERLOAD_FULL_NAME Overloaded
-@loca HW_RESONANT_OVERLOAD_FULL_DESC Overwhelmed by everything you made others feel. You can't cast spells, your weapon attacks deal an additional [1], and you take Psychic damage at the start of each of your turns. Emotional Overload releases it.
+@loca HW_RESONANT_OVERLOAD_FULL_DESC Overwhelmed by everything you made others feel. You can't cast spells, your weapon attacks deal an additional [1], and you take Psychic damage equal to your spell slot level at the start of each of your turns. It lasts a number of turns equal to your level; from level 5, Emotional Overload ends it at once.
 @loca HW_RESONANT_OVERLOAD_SPENT_TECH_NAME Overload spent
 @loca HW_RESONANT_JOY_CONTAGION_NAME Contagious Joy
 @loca HW_RESONANT_JOY_CONTAGION_DESC Has <LSTag Tooltip="Advantage">Advantage</LSTag> on the next attack.
@@ -149,7 +149,7 @@
 @loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_NAME Emotional Alchemy
 @loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>, that lasts 2 turns.<br><br>Opposing emotions snap into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.
 @loca HW_ARCANA_PASSIVE_OVERLOAD_NAME Overload
-@loca HW_ARCANA_PASSIVE_OVERLOAD_DESC You feel what you make others feel. Each emotion that takes hold adds 1 to your Overload, and each reaction adds 2. When it is full, you take Psychic damage at the start of each turn until you release it with Emotional Overload.
+@loca HW_ARCANA_PASSIVE_OVERLOAD_DESC You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more; it carries over from one fight to the next. At 100% you become Overloaded: you can't cast spells, your weapon attacks deal extra Psychic damage, and you take Psychic damage each turn, for a number of turns equal to your level. From level 5, Emotional Overload ends it at once.
 @loca HW_ARCANA_PASSIVE_EMPATHICSIGHT_NAME Empathic Sight
 @loca HW_ARCANA_PASSIVE_EMPATHICSIGHT_DESC You read the threads of feeling in others. You have <LSTag Tooltip="Advantage">Advantage</LSTag> on Insight checks.
 @loca HW_ARCANA_PASSIVE_COMPLEXFEELINGS_NAME Complex Feelings
@@ -1114,8 +1114,7 @@ data "Description" "{{HW_RESONANT_OVERLOAD_DESC}}"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "RESONANT_OVERLOAD"
 data "StackType" "Overwrite"
-data "RemoveEvents" "OnCombatEnded"
-data "StatusPropertyFlags" "FreezeDuration;IgnoreResting"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"
 data "StatusGroups" "SG_RemoveOnRespec"
 
 new entry "RESONANT_OVERLOAD_FULL"
@@ -1129,8 +1128,7 @@ data "StackId" "RESONANT_OVERLOAD_FULL"
 data "TickType" "StartTurn"
 data "Boosts" "BlockSpellCast();CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)"
 data "TickFunctors" "IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):DealDamage(1,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(2,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)"
-data "RemoveEvents" "OnCombatEnded"
-data "StatusPropertyFlags" "IgnoreResting"
+data "StatusPropertyFlags" "IgnoreResting;ForceOverhead"
 
 new entry "RESONANT_OVERLOAD_SPENT_TECH"
 type "StatusData"
@@ -1284,12 +1282,14 @@ data "DisplayName" "{{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC}}"
 data "DescriptionParams" "DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage))"
 data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_Overload"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_OVERLOAD_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_OVERLOAD_DESC}}"
 data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_EmpathicSight"
 type "PassiveData"
@@ -1297,24 +1297,28 @@ data "DisplayName" "{{HW_ARCANA_PASSIVE_EMPATHICSIGHT_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_EMPATHICSIGHT_DESC}}"
 data "Icon" "Spell_Divination_SeeInvisibility"
 data "Boosts" "Advantage(Skill,Insight)"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_ComplexFeelings"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_COMPLEXFEELINGS_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_COMPLEXFEELINGS_DESC}}"
 data "Icon" "Spell_Enchantment_Bless"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_Overwhelm"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_OVERWHELM_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_OVERWHELM_DESC}}"
 data "Icon" "Spell_Illusion_PhantasmalKiller"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_MixedFeelings"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_MIXEDFEELINGS_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_MIXEDFEELINGS_DESC}}"
 data "Icon" "Spell_Enchantment_Confusion"
+data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_FeelingRemorse"
 type "PassiveData"
