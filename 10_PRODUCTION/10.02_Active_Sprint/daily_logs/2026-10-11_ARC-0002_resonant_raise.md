@@ -26,3 +26,5 @@ guide `75.02` update.
 **2026-10-12 · ARC-0002 stage 2 applied** (`[fechado]`): Overload + Emotional Overload, counter goal; 91/91, selftest 975/0. Waiting: Story compile + P6–P10.
 
 **ARC-0002:** level 5 now grants Overload and Emotional Overload (`[fechado]`). Waiting: P6–P10.
+
+**ARC-0002 stage 2b applied** (`[fechado]`): Overload from level 1, Overloaded, Emotional Overload as an ability. Waiting: Story compile + P6–P10.

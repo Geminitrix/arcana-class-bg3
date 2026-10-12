@@ -1181,7 +1181,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(05269c79-116f-2b07-6dc1-deeefddc7ae4,,,,AlwaysPrepared)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_Overload" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(Daggers);Proficiency(Quarterstaffs);Proficiency(LightCrossbows);Proficiency(Darts)" />
         <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
       </fields>
@@ -1195,7 +1195,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
         <field name="Selectors" type="StringTableFieldDefinition" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(df806fc1-79b4-7328-9e05-8726e513d941,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(05269c79-116f-2b07-6dc1-deeefddc7ae4,,,,AlwaysPrepared)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_Overload" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Charisma);Proficiency(LightArmor);Proficiency(Daggers);Proficiency(Quarterstaffs);Proficiency(LightCrossbows);Proficiency(Darts)" />
         <field name="IsMulticlass" type="BoolTableFieldDefinition" value="False" />
       </fields>
@@ -1240,7 +1240,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(e0d34d66-e311-be56-1810-04f9ba0917fd,,,,AlwaysPrepared)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_ComplexFeelings;Arcana_Passive_Overload" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_ComplexFeelings" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">
