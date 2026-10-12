@@ -585,6 +585,28 @@ Steps: generator → `stats_add --apply` → `gen_upcast_variants --apply` → r
 | P9 | Full; an enemy with 2 feelings → Emotional Overload | 2d6 Psychic in total, its feelings gone, Paralysed 2 turns with no save; the meter empties; no slot spent |
 | P10 | End the combat with some Overload | The meter and *Overloaded* are gone |
 
+## Stage 2b — Overload from level 1 (R29, R30)
+
+Changes the stage-2 design: the meter exists from level 1; a full meter makes the Resonant *Overloaded* for
+turns equal to the character level (silenced, Psychic damage per turn, Psychic on weapon hits); Emotional
+Overload (level 5) is **not a spell** and ends it. Numbers: `FEAT_Resonant_Overload` (size from level 1,
+`overloaded_duration`, `weapon_psychic`).
+
+**Anchors:** silence — `BlockSpellCast()` (already used by the generator's Unbelief), vanilla `SILENCED`
+(`BlockVerbalComponent()`); weapon rider by level — `CharacterWeaponDamage(LevelMapValue(RageDamage))` (vanilla
+rage) and `CharacterWeaponDamage(1d4,Radiant)` (`DIVINE_FAVOR`), with a new level map `Overload_WeaponPsychic`
+(the stage-1 level-map pattern); duration in Osiris — `GetLevel` × 6.0 s (`ApplyStatus` duration is in seconds).
+
+| Task | Change | Test (RED first) |
+|---|---|---|
+| 2b.1 | `RESONANT_OVERLOAD_FULL` → *Overloaded*: `BlockSpellCast()`, `CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)`, TickFunctors Psychic = slot level with brackets **from level 1** (1–2: 1, 3–4: 2, 5–6: 3 … 11+: 6); no `RemoveEvents OnCombatEnded` change | boosts present; 6 brackets; level map 1d6/2d6/3d6 at 1/5/10 |
+| 2b.2 | Emotional Overload not a spell: `SpellFlags` without `IsSpell` / `HasVerbalComponent`; requires `RESONANT_OVERLOAD_FULL` | flags; condition |
+| 2b.3 | Counter goal: `DB_ARCANA_Resonant_OverloadMax` rows from level 1 (5, 8, 11…); at full apply *Overloaded* for `GetLevel × 6.0` s; `StatusRemoved(… "RESONANT_OVERLOAD_FULL" …)` resets the meter | rows 1–20; duration rule; reset on removal |
+| 2b.4 | Progression: `Arcana_Passive_Overload` moves to Resonant **level 1** (PassivesAdded of the level-1 rows); Emotional Overload stays in "Resonant Level 5" | dump shows it at L1, not L5 |
+
+Apply with `[fechado] ARC-0002`. Probes then: P6–P10 updated — P7 becomes "full → *Overloaded*: no spells,
+weapon hit +Psychic, Psychic at turn start, lasts your level in turns"; P9 adds "usable while silenced".
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

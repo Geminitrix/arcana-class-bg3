@@ -5,7 +5,7 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R28 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
+> decisions R1–R30 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
 > `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
@@ -27,9 +27,9 @@ a mood **reacts** with it instead of landing alone, by the distance between the 
 Plutchik's wheel: the same emotion overwhelms, neighbours braid into a **feeling**, opposites snap into
 **Catharsis**. Every reaction gives back the slot the Surge spent.
 
-The Resonant feels everything they make others feel. From level 5 an **Overload** meter fills with each
-emotion they cause; when it is full it hurts them, and they can pour it all into one enemy with
-**Emotional Overload**, leaving it paralysed. At level 11 they link the whole party into one **Shared
+The Resonant feels everything they make others feel. From level 1 an **Overload** meter fills with each
+emotion they cause; when it is full they break down — silenced, hurting, striking with raw feeling — and from
+level 5 they can pour it all into one enemy with **Emotional Overload**, leaving it paralysed. At level 11 they link the whole party into one **Shared
 Heart**; at level 12 the overload spills over every enemy they have touched.
 
 **Fantasy:** *"No one in the room feels anything the Resonant hasn't braided."*
@@ -317,27 +317,30 @@ the mood. Shows in the combat log.
 
 ---
 
-## 6. The Overload (level 5)
+## 6. The Overload (level 1; Emotional Overload at level 5)
 
 > **The Resonant feels everything they make others feel.**
 
 - **The meter** (`OVERLOAD`, a status on the Resonant with a visible count) fills by **+1** for each peak
   that lands and **+2** for each reaction (feeling, Intensify, Catharsis) (R12). A failed save adds
   nothing. Its size grows with the slot level (`FEAT_Resonant_Overload`), so it fills around the fourth
-  turn at every level.
+  turn at every level. The meter exists **from level 1** (R29).
 - **It resets when combat ends.**
-- **Full:** at the start of each of the Resonant's turns they take Psychic damage (`FEAT_Resonant_Overload`) until they
-  release it (R11). The decision: release now, or hold for the right target.
+- **Full — *Overloaded*** (R29, R30): for turns equal to the **character level** the Resonant is **silenced** (can't
+  cast spells), takes Psychic damage at the start of each of their turns, and their **weapon attacks deal extra
+  Psychic damage** (`FEAT_Resonant_Overload`). When it ends the meter is empty. From level 5, **Emotional Overload**
+  ends it at once — the long duration is the pressure to release it.
 - **Shared Heart** (§7.6) counts **once per Surge**, however many linked allies react (R19).
 
 ### 6.1 Emotional Overload — the subclass's ultimate (R9, R10, R20)
 
 The key feature that ties the mechanic together: everything the Resonant braided, poured into one enemy.
 
-**Action, only with the meter full; the full meter is its cost — no slot, no Thread** (R22). One enemy within 18 m, no saving throw:
+**Action, only while *Overloaded*; the full meter is its cost — no slot, no Thread** (R22). **Not a spell** (R29):
+it works while silenced. One enemy within 18 m, no saving throw:
 - every **feeling** it carries is spent, and it takes Psychic damage for each (`SPL_Resonant_EmotionalOverload`);
 - it is **Paralysed for 2 turns**;
-- the meter empties.
+- *Overloaded* ends and the meter empties.
 
 At Tier III it reaches an area (§9).
 
@@ -388,7 +391,7 @@ ally spends no slot and no Thread** (R24) — the capstone lets the Resonant bra
 | **Emotional Alchemy** | 1 | The core rule once: peaks and moods, the distance rule, Catharsis and the primary feelings, and the refund (§4.4) |
 | **Empathic Sight** | 1 | Advantage on Insight; the Resonant reads the threads of feeling in others |
 | **Complex Feelings** | 5 | Unlocks distance 2 |
-| **Overload** *(working name)* | 5 | The meter, its cost when full, and Emotional Overload (§6) |
+| **Overload** *(working name)* | 1 | The meter, its cost when full, and Emotional Overload (§6) |
 | **Overwhelm** | 7 | Unlocks distance 0 |
 | **Mixed Feelings** | 9 | Unlocks distance 3 |
 
@@ -418,11 +421,11 @@ field; Emotional Overload works one target — the two never do the same thing.
 
 | Level | Passives | Spells and features |
 |---|---|---|
-| **1** | **Emotional Alchemy** (with the refund) · **Empathic Sight** | Weave Surge: **Joy**, **Trust**, **Fear** · cantrip **Heartstring** · utility **Read the Room** |
+| **1** | **Emotional Alchemy** (with the refund) · **Empathic Sight** · **Overload** | Weave Surge: **Joy**, **Trust**, **Fear** · cantrip **Heartstring** · utility **Read the Room** |
 | 2 | — (base class) | — |
 | **3** | Tier I **Resonance** | Weave Surge: **Anticipation**, **Surprise**, **Sadness** · **Temper** (Bonus Action) · Aspect card **The Two Cups** |
 | 4 | — | — |
-| **5** | **Complex Feelings** · **Overload** | Weave Surge: **Disgust**, **Anger** (the full wheel) · **Emotional Overload** |
+| **5** | **Complex Feelings** | Weave Surge: **Disgust**, **Anger** (the full wheel) · **Emotional Overload** |
 | 6 | — | — |
 | **7** | **Overwhelm** · Tier II **Harmony** | — |
 | 8 | — | — |
@@ -437,7 +440,7 @@ field; Emotional Overload works one target — the two never do the same thing.
   and the refund makes two slots enough for two reactions.
 - **Level 3** completes the bright arc and adds Sadness (the first Catharsis, Joy ↔ Sadness) and the
   Temper, so a turn can combine two plays.
-- **Level 5** closes the wheel, opens distance 2 and brings the Overload with its ultimate, at vanilla's
+- **Level 5** closes the wheel, opens distance 2 and brings the Overload's release, its ultimate, at vanilla's
   level-5 spike.
 - **Level 7** overwhelms (distance 0); **level 9** opens the last ring and spreads states; **level 11**
   links the party; **level 12** spills the overload over the field.

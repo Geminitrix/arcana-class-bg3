@@ -6,7 +6,9 @@ design: "21.04/Resonant/2026-10-11-resonant-design.md §6"
 balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
 game_ids: [OVERLOAD, OVERLOAD_FULL]
 values:
-  size:            { value: "3 x Woven Spell Slot level + 2", unit: count, by_level: { 5: 11, 7: 14, 9: 17, 11: 20 } }
+  size:            { value: "3 x Woven Spell Slot level + 2", unit: count, by_level: { 1: 5, 3: 8, 5: 11, 7: 14, 9: 17, 11: 20 } }
   fill_peak:       { value: 1, unit: count, note: "each peak that lands" }
   fill_reaction:   { value: 2, unit: count, note: "each feeling, Intensify or Catharsis; Shared Heart counts once per Surge" }
   full_damage:     { value: "Woven Spell Slot level", unit: damage, type: Psychic, note: "start of each of the Resonant's turns while full" }
+  overloaded_duration: { value: "character level", unit: turns, note: "R29: silenced; ended early by Emotional Overload from level 5" }
+  weapon_psychic:  { value: 1d6, unit: damage, type: Psychic, by_level: { 1: 1d6, 5: 2d6, 10: 3d6 }, note: "R30: extra on weapon attacks while Overloaded" }
