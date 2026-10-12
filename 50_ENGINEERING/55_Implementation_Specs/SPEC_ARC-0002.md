@@ -665,6 +665,31 @@ Shout, +8 Target, +5 Status_BOOST, no repeated field in any table. **Owner:** co
 | P14 | Read the Room out of combat | Advantage on Insight and Persuasion; the spell is greyed out in combat |
 | P15 | Ready: Compassion, then an enemy hits an ally within 9 m | You are asked to react; the ally gets Weave Surge: Trust (or its reaction, if it had a mood); once per round |
 
+Results (Owner, 2026-10-12): P8 ✅ P11 ✅ (but both sides) P12 ✅ P15 ✅; P10 meter not shown at 0% — **accepted as
+is**, persistence across a save still to be seen in game; P13 ❌ (no change); P14 redundant with Empathic Sight.
+
+## Stage 3b — probe fixes (R35–R37)
+
+| Task | Change | Test (RED first) |
+|---|---|---|
+| 3b.1 | **R35** Emotional Contagion: `AuraStatuses` gain `Ally()` (aura context: relative to the bearer, as Joy's `IF(Ally() or Self())`, passed P1) | 8 branches with `Ally()` |
+| 3b.2 | **R36** Temper: one Bonus Action spell, no container; `SpellSuccess` = 8 × `IF(HasStatus('MOOD_X')):ApplyStatus(EMOTION_X,100,1)` then 8 × `IF(HasStatus('MOOD_X')):RemoveStatus(MOOD_X)`. The peak's own `OnRemoveFunctors` leave the mood again. No Osiris: goal and the two sides retired | peaks before removals; no reaction ids; `temper_goal` gone; sides retired |
+| 3b.3 | **R37** Read the Room removed (spell, status, DEBUG unlock, level 1 list, `SPL_` file) | not generated; retired |
+
+Moved, not deleted, to `_wip/Resonant/retired/` (README): `41_temper_goal.txt`, the game goal
+`ARCANA_Resonant_Temper.txt` (by `53_stage3b_apply.pl --apply`), `SPL_Resonant_ReadTheRoom.yaml`.
+
+Note: Temper's peak counts **+1 Overload** (the counter adds every peak that lands, R12).
+
+**Apply** (`[fechado] ARC-0002`): `stats_add 10_engine.patch --apply` (6 removals) → `gen_upcast_variants --apply` →
+regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_cards` → `selftest` → `53_stage3b_apply.pl
+--apply` → `sync_data` → commit + push. **Owner:** compile the Story (one goal less).
+
+| # | Do | Proves it works |
+|---|---|---|
+| P11b | Emotional Contagion on an enemy with a mood, its allies and yours around it | Only its allies catch the mood |
+| P13b | Temper on an enemy that is Annoyed; on an ally that is Serene | The enemy is angry again for 1 turn (grudge), then Annoyed for 5 turns; the ally is Joyful (contagious) for 1 turn, then Serene for 5 |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

@@ -98,7 +98,7 @@ cost of feeling others' pain) is the Overload.
 | **Mantis** (*Guardians of the Galaxy*) | The empath who touches someone, reads them and says "Sleep!" → **Awe** |
 | **Seraphine** (*League of Legends*) | Hears the souls of others; *Encore* spreads through every champion it touches → **Emotional Contagion**; it also roots the charmed → **Emotional Overload** |
 | **Jean Grey** (Marvel) | The telepath who holds every mind at once and freezes a crowd → Tier III, **Emotional Overload in an area** |
-| **Deanna Troi** (*Star Trek: The Next Generation*) | The counsellor who feels the room before anyone speaks → **Empathic Sight**, **Read the Room** |
+| **Deanna Troi** (*Star Trek: The Next Generation*) | The counsellor who feels the room before anyone speaks → **Empathic Sight** |
 | **The Emotional Spectrum** (DC, the Lantern Corps) | A colour for every emotion; the Indigo Tribe of Compassion → the Surges' colours, **Ready: Compassion** |
 
 ### 2.7 Summary sheet
@@ -357,14 +357,16 @@ it 2 turns longer. The turn the Resonant falls back on, and a way to keep a mood
 
 ### 7.2 Temper (level 3) — R4, R6
 
-**Bonus Action, no slot and no Thread** (R34). Turn a creature's mood **one step** left or right on the wheel (a non-ally rolls a
-Wisdom save). The mood keeps its remaining turns. It **replaces** the mood; it never causes a reaction
-(§4.7). Surge and Temper share a turn: lay a peak, or turn a mood into the one the next Surge needs.
+**Bonus Action, no slot and no Thread** (R34, R36). Pull a creature's mood back to the **emotion it came from**
+for 1 turn (a non-ally rolls a Wisdom save): it replays that peak's behaviour, and when the peak fades the mood
+returns at full length. It applies a peak, never a reaction (§4.7). Surge and Temper share a turn: replay a
+peak's behaviour now (Fear freezes again, Joy spreads again), or renew a mood for the next Surge.
 
 ### 7.3 Emotional Contagion (level 9)
 
-**Level 3 card · Action · Concentration** (R33, R34). While you concentrate, every creature within 6 m of the
-target catches the **mood** it carries, again each turn; no saving throw. Copied moods replace; they never
+**Level 3 card · Action · Concentration** (R33, R34). While you concentrate, every **ally of the target** within 6 m
+catches the **mood** it carries, again each turn; no saving throw (R35: a bright mood stays on its side, a dark one on the
+other). Copied moods replace; they never
 react (§4.7). Mass setup for reactions, weak on its own.
 
 ### 7.4 Ready: Compassion (level 11)
@@ -372,10 +374,9 @@ react (§4.7). Mass setup for reactions, weak on its own.
 **Reaction card · Unique · level 3** (R34). Until combat ends: when an ally within 9 m takes damage, cast Weave Surge:
 Trust on it (it can trigger Alchemy). Once per round.
 
-### 7.5 Read the Room — utility (level 1)
+### 7.5 Read the Room — removed (R37)
 
-**Out of combat.** Advantage on Insight and Persuasion against a non-hostile creature. Concentration,
-10 turns.
+Empathic Sight already gives Advantage on Insight.
 
 ### 7.6 Shared Heart — capstone (level 11) — R18
 
@@ -424,7 +425,7 @@ field; Emotional Overload works one target — the two never do the same thing.
 
 | Level | Passives | Spells and features |
 |---|---|---|
-| **1** | **Emotional Alchemy** (with the refund) · **Empathic Sight** · **Overload** | Weave Surge: **Joy**, **Trust**, **Fear** · cantrip **Heartstring** · utility **Read the Room** |
+| **1** | **Emotional Alchemy** (with the refund) · **Empathic Sight** · **Overload** | Weave Surge: **Joy**, **Trust**, **Fear** · cantrip **Heartstring** |
 | 2 | — (base class) | — |
 | **3** | Tier I **Resonance** | Weave Surge: **Anticipation**, **Surprise**, **Sadness** · **Temper** (Bonus Action) · Aspect card **The Two Cups** |
 | 4 | — | — |
@@ -460,7 +461,7 @@ generated upcast variants.
 1. **Read the field:** which creatures carry which mood, and which peaks will fade into moods this round.
 2. **Choose the pour:** which Surge on which mood — a feeling for an ally, a feeling or Catharsis for an
    enemy, a plain peak to change behaviour now.
-3. **Bonus Action (level 3+):** Temper a mood one step to set up the next reaction.
+3. **Bonus Action (level 3+):** Temper a mood back to its emotion: replay the peak now and renew the mood.
 4. **Watch the meter (level 5+):** release Emotional Overload, or hold it for a better target and take
    the damage.
 
@@ -521,7 +522,7 @@ of §5.1.
 | **Emotional Overload** | Requirement: `HasStatus('OVERLOAD_FULL')`; removes every `FEELING_*` on the target with damage per feeling; Paralysed 2 turns; Osiris empties the meter. Tier III variant with a 6 m area filter on targets carrying the Resonant's feelings |
 | **Anger's and Rage's grudge** | Osiris (`ARCANA_Resonant_Grudge`) remembers who last hurt each creature during the fight; while angry it carries `RESONANT_GRUDGE` (TAUNTED-like, source = that attacker) or, if nobody has, `RESONANT_ANGER_FALLBACK` (Crown of Madness boosts) — never both — **T2** |
 | **Shared Heart** | `SHARED_HEART` on the linked creatures; Osiris copies a Surge's result from one linked ally to the others and counts it once — **T2** |
-| **Temper** | Removes the mood and applies its neighbour with the same remaining turns (`GetStatusTurns`) |
+| **Temper** | Applies the peak of the mood's emotion (1 turn), then removes the mood; the peak's fade leaves the mood again (R36) |
 
 ### 13.3 Ids
 
@@ -529,7 +530,7 @@ of §5.1.
 |---|---|
 | Surges | `Target_Arcana_Card_Spell_Emotion{Joy,Trust,Fear,Surprise,Sadness,Disgust,Anger,Anticipation}` |
 | Passives | `Arcana_Passive_{EmotionalAlchemy,EmpathicSight,ComplexFeelings,Overwhelm,MixedFeelings}` + the Overload passive (new) |
-| New spells | Heartstring, Temper, Emotional Contagion, Ready: Compassion, Read the Room, Shared Heart, Emotional Overload, The Two Cups — ids follow `33.03` and ADR-0002 |
+| New spells | Heartstring, Temper, Emotional Contagion, Ready: Compassion, Shared Heart, Emotional Overload, The Two Cups — ids follow `33.03` and ADR-0002 |
 | Legacy names to rename in the Toolkit | Tag `THEHEARTWEAVER`, ClassDescription Name, ProgressionDescription Type/Name `Heartweaver` |
 
 ---

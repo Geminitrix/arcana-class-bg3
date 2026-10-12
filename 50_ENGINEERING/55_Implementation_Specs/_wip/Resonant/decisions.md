@@ -45,6 +45,10 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R32 | **The meter is always shown**, at 0% too, in and out of combat; *Overloaded* never ends with the combat (P10) | author, 2026-10-12 |
 | R33 | **Emotional Contagion is a mood aura:** while the Resonant concentrates, every creature within 6 m of the target catches the **mood** it carries, renewed each turn; no saving throw. Stats only (an aura that reads the bearer's mood, like Joy's contagion). Mass setup for reactions, weak on its own | author, 2026-10-12 |
 | R34 | **Costs of the spells outside the Surges:** Temper costs **only the Bonus Action** (no slot, no Thread: it never creates a mood, so it can't loop the refund); Emotional Contagion and Ready: Compassion are **level 3 cards** (3 Threads) | author, 2026-10-12 |
+| R35 | **Emotional Contagion spreads only to the target's allies** (P11: it reached both sides, so an ally's bright mood landed on enemies and the reverse) | author, 2026-10-12 |
+| R36 | **Temper pulls the mood back to its root emotion for 1 turn** (replaces the one-step turn, which failed P13 and was often a bad option): the creature replays the peak's behaviour, and when it fades the mood returns at full length. Still a Bonus Action with no slot (R34); still never a reaction (R7) | author, 2026-10-12 |
+| R37 | **Read the Room is removed:** Empathic Sight already gives Advantage on Insight | author, 2026-10-12 |
+| — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite
 

@@ -4,7 +4,7 @@
 # One table -- Plutchik's wheel and its states -- becomes two patches for stats_add.pl:
 #   50_ENGINEERING/55_Implementation_Specs/_wip/Resonant/10_engine.patch          8 Weave Surges, the statuses, the passives, the DEBUG util and the text
 #   50_ENGINEERING/55_Implementation_Specs/_wip/Resonant/20_upcast_targets.patch  +1 target per level on the _N variants (only after gen_upcast_variants)
-#   ... and the level maps (30_, 31_) and the Osiris goals (40_ Overload, 41_ Temper) next to them
+#   ... and the level maps (30_, 31_) and the Osiris goal (40_ Overload) next to them
 #
 #   perl gen_emotion_alchemy.pl               # (re)writes the patches; only READS the game
 #   perl gen_emotion_alchemy.pl --out DIR     # writes somewhere else
@@ -45,7 +45,6 @@ sub master {
 our @WHEEL = qw(Joy Trust Fear Surprise Sadness Disgust Anger Anticipation);
 our %IDX; @IDX{@WHEEL} = 0 .. $#WHEEL;
 
-our @TEMPER_DIRS = (['Left', -1], ['Right', 1]);   # Temper (spec §7.2): one step back or forward on the wheel
 sub distance { my ($x, $y) = @_; my $d = abs($IDX{$x} - $IDX{$y}); $d > 4 ? 8 - $d : $d }
 sub pair     { my ($x, $y) = @_; join '+', sort { $IDX{$a} <=> $IDX{$b} } $x, $y }
 
@@ -599,7 +598,7 @@ sub build_debug {
         StackId => 'RESONANT_DEBUG', Passives => $passives,
         # testable before the progression (stage 6)
         Boosts => join(';', map { "UnlockSpell($_)" } qw(Target_Arcana_Created_EmotionalOverload Target_Arcana_Card_Spell_Heartstring
-            Target_Arcana_Card_Spell_Temper Shout_Arcana_Util_ReadTheRoom Shout_Arcana_Card_Passive_Compassion Target_Arcana_Card_Spell_EmotionalContagion)),
+            Target_Arcana_Card_Spell_Temper Shout_Arcana_Card_Passive_Compassion Target_Arcana_Card_Spell_EmotionalContagion)),
         RemoveEvents => 'OnLongRest');
     ($shout, $status);
 }
@@ -622,7 +621,11 @@ sub existing_entries {
 # What goes: every old Emotion*/Feeling* spell (and its upcast variants) and every EMOTION_/MOOD_/FEELING_ status
 # that is not in the new set or that moved to another file. Never removed: the upcast variants of the current
 # Surges (spell_id($e) . "_2" .. "_6" for every $e in @WHEEL); gen_upcast_variants.pl owns those.
-our %RETIRED = map { $_ => 1 } qw(Interrupt_Arcana_TrustFollowUp);   # generated once, replaced (R27), never published
+# Generated once, then replaced: the Trust follow-up (R27, never published), Temper's two sides and their Osiris
+# hand-off (R36: one spell now), Read the Room (R37: Empathic Sight already covers Insight).
+our %RETIRED = map { $_ => 1 } qw(Interrupt_Arcana_TrustFollowUp
+    Target_Arcana_Card_Spell_Temper_Left Target_Arcana_Card_Spell_Temper_Right RESONANT_TEMPER_LEFT_TECH RESONANT_TEMPER_RIGHT_TECH
+    Shout_Arcana_Util_ReadTheRoom RESONANT_READ_THE_ROOM);
 sub removals {
     my ($have, $new) = @_;   # $new: name => file
     # the variants of every card generated here (Emotional Contagion also matches the old Emotion* pattern)
@@ -662,15 +665,13 @@ sub build_interrupts {
 }
 sub build_engine_patch {
     @LOCA = ();
-    my ($rtr, $rtr_status) = build_read_the_room();
     my ($compassion, $compassion_status, $compassion_interrupt) = build_compassion();
     my ($contagion, $contagion_status) = build_contagion();
     my $spells   = build_spells() . build_overload_spell() . build_heartstring() . build_temper() . $contagion;
-    my @statuses = (build_statuses(), $rtr_status, $compassion_status, $contagion_status,
-        map { hidden_status('RESONANT_TEMPER_' . uc($_->[0]) . '_TECH', "Temper: $_->[0]", 'TickType', 'EndTurn') } @TEMPER_DIRS);
+    my @statuses = (build_statuses(), $compassion_status, $contagion_status);
     my $passives = build_passives();
     my ($shout, $debugst) = build_debug();
-    $shout .= $rtr . $compassion;
+    $shout .= $compassion;
     my $interrupts = build_interrupts() . $compassion_interrupt;
     my %new;
     $new{$_} = 'Interrupt' for names_in($interrupts);
@@ -816,7 +817,6 @@ sub overload_goal {
 our $CARD_MARK = "not HasPassive('ARCANA_IS_CARD', context.Source)";
 # the shout animation of the mod's Ready cards (Shout_Arcana_Card_Passive_GaleDeflection)
 our $SHOUT_ANIMATION = '355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,';
-sub wheel_step { my ($e, $d) = @_; $WHEEL[($IDX{$e} + $d) % @WHEEL] }   # Perl's % keeps the sign of the right side: -1 wraps to the end
 
 # Heartstring (§7.1): the cantrip pattern of the Deceiver's Malicious Whispers (D4Cantrip, Wisdom, Potent
 # Cantrip on a save). A mood lasts longer with vanilla SetStatusDuration(<status>,<turns>,Add) (MAG_ZOC_FORCE_CONDUIT).
@@ -843,80 +843,29 @@ sub build_heartstring {
         SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful', DamageType => 'Psychic');
 }
 
-# Temper (§7.2, R6, R34): a Bonus Action container (the mod's Mimic: IsLinkedSpellContainer; the sides use the
-# container and name it in SpellContainerID, as vanilla Target_EnhanceAbility). Each side hands its turn to Osiris
-# (temper_goal), which swaps the mood and keeps the remaining turns (GetStatusTurns). It replaces, never reacts (R7).
+# Temper (§7.2, R6, R34, R36): Bonus Action; the target's mood goes back to the emotion it came from, for 1 turn.
+# When that emotion fades, its own OnRemoveFunctors leave the mood again at full length -- so Temper both replays
+# the peak's behaviour and renews the mood. Pure Stats: every peak first (a functor reads the mood before it is
+# spent), then the moods are removed. It applies a peak, never a reaction (R7).
 sub build_temper {
     my $c = 'Target_Arcana_Card_Spell_Temper';
-    my $out = entry($c, 'SpellData', SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
-        ContainerSpells => join(';', map { "${c}_$_->[0]" } @TEMPER_DIRS),
+    my $success = join ';', (map { "IF(HasStatus('" . mood_id($_) . "')):ApplyStatus(" . peak_id($_) . ',100,1)' } @WHEEL),
+        map { my $m = mood_id($_); "IF(HasStatus('$m')):RemoveStatus($m)" } @WHEEL;
+    my $map = join(', ', map { st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag(peak_id($_), $_) } @WHEEL) . '.';
+    entry($c, 'SpellData', SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
         TargetRadius => master('SPL_Resonant_Temper', 'range')->{value}, AmountOfTargets => 1,
         SpellRoll => 'Ally() or Self() or not SavingThrow(Ability.Wisdom, SourceSpellDC())',
+        SpellSuccess => $success,
         SpellFail => 'ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)',
         TargetConditions => "Character() and not Dead() and not Tagged('CONSTRUCT') and (" . any_mood() . ") and $CARD_MARK",
         Icon => 'Spell_Enchantment_CalmEmotions',
         DisplayName => loca(key($c, 'NAME'), 'Temper'),
-        Description => loca(key($c, 'DESC'), tag_terms('Turn the mood of a creature one step along the wheel of emotions. The new mood keeps the turns the old one had left. A creature that is not your ally can resist with a Wisdom Saving Throw.')),
+        Description => loca(key($c, 'DESC'), tag_terms("Pull a creature's mood back to the emotion it came from. It feels that emotion again for 1 turn, and when it fades the mood returns for $MOOD_TURNS turns. A creature that is not your ally can resist with a Wisdom Saving Throw.")),
+        ExtraDescription => loca(key($c, 'EXTRA'), $map),
         TooltipAttackSave => 'Wisdom',
         @CAST, PreviewCursor => 'Cast', CastTextEvent => 'Cast',
         UseCosts => 'BonusActionPoint:1', VerbalIntent => 'Control', SpellStyleGroup => 'Class',
-        SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer', HitAnimationType => 'MagicalNonDamage');
-    for my $d (@TEMPER_DIRS) {
-        my ($side, $step) = @$d;
-        my $map = join(', ', map { my $to = wheel_step($_, $step);
-            st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag(mood_id($to), $EMO{$to}{mood}{name}) } @WHEEL) . '.';
-        $out .= entry("${c}_$side", 'SpellData', SpellType => 'Target', using => $c, SpellContainerID => $c, ContainerSpells => '',
-            SpellSuccess => 'ApplyStatus(RESONANT_TEMPER_' . uc($side) . '_TECH,100,0)',
-            DisplayName => loca(key("${c}_$side", 'NAME'), "Temper: $side"),
-            Description => loca(key("${c}_$side", 'DESC'), 'Turn the mood one step ' . ($step < 0 ? 'back' : 'forward') . ' along the wheel of emotions. It keeps the turns it had left.'),
-            ExtraDescription => loca(key("${c}_$side", 'EXTRA'), $map));
-    }
-    $out;
-}
-
-sub temper_goal {
-    my @rows = map { my $e = $_; map { my ($side, $step) = @$_;
-        'DB_ARCANA_Resonant_TemperStep("' . uc($side) . '", "' . mood_id($e) . '", "' . mood_id(wheel_step($e, $step)) . '");' } @TEMPER_DIRS } @WHEEL;
-    my @trig = map { my $S = uc $_->[0];
-        ('IF', qq{StatusApplied(_Target, "RESONANT_TEMPER_${S}_TECH", (CHARACTER)_Resonant, _)}, 'THEN', qq{PROC_ARCANA_Resonant_Temper(_Target, "$S", _Resonant);}, '') } @TEMPER_DIRS;
-    my $g = join "\n", 'Version 1', 'SubGoalCombiner SGC_AND', 'INITSECTION', 'PROC_ARCANA_Resonant_Temper_Init();', '', 'KBSECTION',
-        '//REGION Resonant - Temper table (GENERATED by gen_emotion_alchemy.pl -- do not edit by hand)',
-        'PROC', 'PROC_ARCANA_Resonant_Temper_Init()', 'AND', 'DB_ARCANA_Resonant_TemperStep(_Dir, _From, _To)', 'THEN', 'NOT DB_ARCANA_Resonant_TemperStep(_Dir, _From, _To);', '',
-        'PROC', 'PROC_ARCANA_Resonant_Temper_Init()', 'THEN', @rows, '',
-        'IF', 'SavegameLoaded()', 'THEN', 'PROC_ARCANA_Resonant_Temper_Init();', '//END_REGION', '',
-        '//REGION Resonant - Temper: the mood turns one step on the wheel and keeps its remaining turns (spec 7.2; R7: it replaces, never reacts)',
-        @trig,
-        '// first collect, then apply: the new mood must not match another step of the same pass',
-        'PROC', 'PROC_ARCANA_Resonant_Temper((GUIDSTRING)_Target, (STRING)_Dir, (CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_TemperStep(_Dir, _From, _To)',
-        'AND', 'HasActiveStatus(_Target, _From, 1)', 'AND', 'GetStatusTurns(_Target, _From, _Turns)',
-        'THEN', 'DB_ARCANA_Resonant_TemperPending(_Target, _From, _To, _Turns);', '',
-        'PROC', 'PROC_ARCANA_Resonant_Temper((GUIDSTRING)_Target, (STRING)_Dir, (CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_Resonant_TemperPending(_Target, _From, _To, _Turns)',
-        'AND', 'IntegerProduct(_Turns, 6, _Secs)', 'AND', 'IntegerToReal(_Secs, _Dur)',
-        'THEN', 'NOT DB_ARCANA_Resonant_TemperPending(_Target, _From, _To, _Turns);', 'RemoveStatus(_Target, _From, _Resonant);', 'ApplyStatus(_Target, _To, _Dur, 1, _Resonant);', '//END_REGION',
-        'EXITSECTION', '', 'ENDEXITSECTION', '';
-    $g =~ s/\n/\r\n/g;
-    $g;
-}
-
-# Read the Room (§7.5): the Util family -- out of combat (Requirements !Combat, as Shout_Arcana_Util_ProduceFlame),
-# no slot; Concentration as vanilla Target_Guidance. Advantage(Skill,X) as vanilla.
-sub build_read_the_room {
-    my $id = 'Shout_Arcana_Util_ReadTheRoom';
-    my $dur = master('SPL_Resonant_ReadTheRoom', 'duration')->{value};
-    my $spell = entry($id, 'SpellData', SpellType => 'Shout', Level => 0, SpellSchool => 'Divination', AIFlags => 'CanNotUse',
-        SpellProperties => "ApplyStatus(RESONANT_READ_THE_ROOM,100,$dur)", TargetConditions => 'Self()',
-        Icon => 'Spell_Divination_DetectThoughts',
-        DisplayName => loca(key($id, 'NAME'), 'Read the Room'),
-        Description => loca(key($id, 'DESC'), tag_terms('Feel out what everyone around you wants before they say it. You have Advantage on Insight and Persuasion checks.')),
-        TooltipStatusApply => "ApplyStatus(RESONANT_READ_THE_ROOM,100,$dur)",
-        PreviewCursor => 'Cast', CastTextEvent => 'Cast', UseCosts => 'ActionPoint:1', SpellAnimation => $SHOUT_ANIMATION,
-        VerbalIntent => 'Utility', SpellStyleGroup => 'Class', SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsConcentration',
-        Requirements => '!Combat');
-    my $status = status_entry('RESONANT_READ_THE_ROOM', 'Read the Room',
-        tag_terms('Reading the threads of feeling in the room. Has Advantage on Insight and Persuasion checks.'),
-        'Spell_Divination_DetectThoughts', 'mood', { boosts => 'Advantage(Skill,Insight);Advantage(Skill,Persuasion)',
-        stack => 'RESONANT_READ_THE_ROOM', extra => { StatusPropertyFlags => 'ForceOverhead' } });
-    ($spell, $status);
+        SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent', HitAnimationType => 'MagicalNonDamage');
 }
 
 # Ready: Compassion (§7.4, R34): the mod's Which One -- a Ready card (Requirements Combat, not while weaving,
@@ -983,7 +932,7 @@ sub build_contagion {
         'Its mood spills over: every creature within [1] catches it, again each turn.',
         $icon, 'mood', { stack => 'RESONANT_CONTAGION', params => "Distance($rad)",
         extra => { AuraRadius => $rad, StatusPropertyFlags => 'ForceOverhead',
-            AuraStatuses => join(';', map { my $m = mood_id($_); "IF(not Self() and HasStatus('$m', context.Source)):ApplyStatus($m,100,1)" } @WHEEL) } });
+            AuraStatuses => join(';', map { my $m = mood_id($_); "IF(not Self() and Ally() and HasStatus('$m', context.Source)):ApplyStatus($m,100,1)" } @WHEEL) } });
     ($spell, $status);
 }
 
@@ -997,7 +946,6 @@ sub main {
     write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
     write_file("$out/31_overload_weapon_levelmap.lsx-fragment", weapon_levelmap());
     write_file("$out/40_overload_goal.txt", overload_goal());
-    write_file("$out/41_temper_goal.txt", temper_goal());
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);
     printf "20_upcast_targets.patch: %d variants%s\n", $n, $n ? '' : ' (none yet: run gen_upcast_variants.pl --apply, then generate again)';
