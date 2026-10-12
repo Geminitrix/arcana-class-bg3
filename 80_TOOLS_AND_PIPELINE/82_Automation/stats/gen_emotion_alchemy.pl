@@ -2,7 +2,7 @@
 # Resonant: generates the Emotional Alchemy engine (spec 20_GAME_DESIGN/21_GDD_Arcana_Class/21.04_Subclasses/Resonant/2026-10-11-resonant-design.md).
 #
 # One table -- Plutchik's wheel and its states -- becomes two patches for stats_add.pl:
-#   50_ENGINEERING/55_Implementation_Specs/_wip/Resonant/10_engine.patch          8 Weave Surges, the statuses, the passives, the DEBUG util and the text
+#   50_ENGINEERING/55_Implementation_Specs/_wip/Resonant/10_engine.patch          8 Weave Surges, the statuses, the passives, and the text
 #   50_ENGINEERING/55_Implementation_Specs/_wip/Resonant/20_upcast_targets.patch  +1 target per level on the _N variants (only after gen_upcast_variants)
 #   ... and the level maps (30_, 31_) and the Osiris goal (40_ Overload) next to them
 #
@@ -611,26 +611,6 @@ sub build_spells {
     $out;
 }
 
-sub build_debug {
-    my $passives = 'Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings;Arcana_Passive_Overload';
-    my $shout = entry('Shout_Arcana_Util_DEBUG_Resonant', 'SpellData',
-        SpellType => 'Shout', Level => 0, SpellSchool => 'Divination', TargetConditions => 'Self()',
-        SpellProperties => 'ApplyStatus(RESONANT_DEBUG,100,-1)', Icon => 'GenericIcon_Intent_Buff',
-        DisplayName => loca('HW_DEBUG_SHOUT_NAME', '[DEBUG] Resonant Passives'),
-        Description => loca('HW_DEBUG_SHOUT_DESC', 'Grants every Resonant passive until you rest, to test Emotional Alchemy.'),
-        PreviewCursor => 'Cast', CastTextEvent => 'Cast',
-        SpellAnimation => '355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,',
-        VerbalIntent => 'Utility', SpellStyleGroup => 'Class', SpellFlags => 'IsSpell');
-    my $status = entry('RESONANT_DEBUG', 'StatusData', StatusType => 'BOOST',
-        DisplayName => loca('HW_DEBUG_STATUS_NAME', '[DEBUG] Resonant'), Icon => 'Spell_Divination_DetectEvilAndGood',
-        StackId => 'RESONANT_DEBUG', Passives => $passives,
-        # testable before the progression (stage 6)
-        Boosts => join(';', map { "UnlockSpell($_)" } qw(Target_Arcana_Created_EmotionalOverload Target_Arcana_Card_Spell_Heartstring
-            Target_Arcana_Card_Spell_Temper Shout_Arcana_Card_Passive_Compassion Target_Arcana_Card_Spell_EmotionalContagion)),
-        RemoveEvents => 'OnLongRest');
-    ($shout, $status);
-}
-
 # ---------------------------------------------------------------- what the game already has (read only)
 sub slurp { my $p = shift; open my $h, '<:raw', $p or return ''; local $/; my $s = <$h>; close $h; $s =~ s/\r\n/\n/g; $s }
 sub data_dir { "$G/Public/$M/Stats/Generated/Data" }
@@ -650,10 +630,11 @@ sub existing_entries {
 # that is not in the new set or that moved to another file. Never removed: the upcast variants of the current
 # Surges (spell_id($e) . "_2" .. "_6" for every $e in @WHEEL); gen_upcast_variants.pl owns those.
 # Generated once, then replaced: the Trust follow-up (R27, never published), Temper's two sides and their Osiris
-# hand-off (R36: one spell now), Read the Room (R37: Empathic Sight already covers Insight).
+# hand-off (R36: one spell now), Read the Room (R37: Empathic Sight already covers Insight), the DEBUG scaffold
+# (stage 7: everything arrives by the progression; the entries are in 90_ARCHIVE).
 our %RETIRED = map { $_ => 1 } qw(Interrupt_Arcana_TrustFollowUp
     Target_Arcana_Card_Spell_Temper_Left Target_Arcana_Card_Spell_Temper_Right RESONANT_TEMPER_LEFT_TECH RESONANT_TEMPER_RIGHT_TECH
-    Shout_Arcana_Util_ReadTheRoom RESONANT_READ_THE_ROOM);
+    Shout_Arcana_Util_ReadTheRoom RESONANT_READ_THE_ROOM Shout_Arcana_Util_DEBUG_Resonant RESONANT_DEBUG);
 sub removals {
     my ($have, $new) = @_;   # $new: name => file
     # the variants of every card generated here (Emotional Contagion also matches the old Emotion* pattern)
@@ -700,14 +681,13 @@ sub build_engine_patch {
     my ($shared_heart, $shared_statuses) = build_shared_heart();
     my @statuses = (build_statuses(), $compassion_status, $contagion_status, @$aspect_statuses, @$shared_statuses, $compassion_used);
     my $passives = build_passives() . $aspect_passives;
-    my ($shout, $debugst) = build_debug();
+    my $shout = '';
     $shout .= $compassion . $two_cups . $shared_heart;
     my $interrupts = build_interrupts() . $compassion_interrupt;
     my %new;
     $new{$_} = 'Interrupt' for names_in($interrupts);
     $new{$_} = 'Spell_Target' for names_in($spells);
     for my $st (@statuses) { $new{$_} = $st->[0] for names_in($st->[1]) }
-    $new{$_} = 'Status_BOOST' for names_in($debugst);
     $new{$_} = 'Passive' for names_in($passives);
     $new{$_} = 'Spell_Shout' for names_in($shout);
     my %known = map { $_->[0] => 1 } @STATUS_FILES;
@@ -725,7 +705,6 @@ sub build_engine_patch {
         my ($file, $section) = @$sf;
         my $body = join '', map { $_->[1] } grep { $_->[0] eq $file } @statuses;
         $p .= "\@file $file\n\@section $section\n\n$body";
-        $p .= "\@section DEBUG STATUS\n\n$debugst" if $file eq 'Status_BOOST';
     }
     $p .= "\@file Passive\n\@section ARCANA PASSIVES\n\n$passives";
     $p .= "\@file Interrupt\n\@section -\n\n$interrupts";

@@ -208,13 +208,16 @@
 @loca HW_ARCANA_PASSIVE_MIXEDFEELINGS_DESC Emotions three steps apart on the wheel now braid into mixed feelings, such as <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag> or <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.
 @loca HW_ARCANA_PASSIVE_FEELINGREMORSE_NAME Remorse
 @loca HW_ARCANA_PASSIVE_FEELINGMORBIDNESS_NAME Morbidness
-@loca HW_DEBUG_SHOUT_NAME [DEBUG] Resonant Passives
-@loca HW_DEBUG_SHOUT_DESC Grants every Resonant passive until you rest, to test Emotional Alchemy.
-@loca HW_DEBUG_STATUS_NAME [DEBUG] Resonant
 @loca HW_INTERRUPT_ARCANA_TRUSTSHOULDER_NAME Shoulder to Shoulder
 @loca HW_INTERRUPT_ARCANA_TRUSTSHOULDER_DESC When a nearby ally is hit by an attack, share the blow: the ally is Resistant to it, and you take the same damage.
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_NAME On Guard
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_DESC When an enemy enters your reach, attack it first.
+
+@file Spell_Shout
+@remove Shout_Arcana_Util_DEBUG_Resonant
+
+@file Status_BOOST
+@remove RESONANT_DEBUG
 
 @file Spell_Target
 @section Target_ARCANA SPELLS
@@ -652,23 +655,6 @@ data "MemoryCost" "1"
 
 @file Spell_Shout
 @section Shout_DEBUG SPELLS
-
-new entry "Shout_Arcana_Util_DEBUG_Resonant"
-type "SpellData"
-data "SpellType" "Shout"
-data "Level" "0"
-data "SpellSchool" "Divination"
-data "TargetConditions" "Self()"
-data "SpellProperties" "ApplyStatus(RESONANT_DEBUG,100,-1)"
-data "Icon" "GenericIcon_Intent_Buff"
-data "DisplayName" "{{HW_DEBUG_SHOUT_NAME}}"
-data "Description" "{{HW_DEBUG_SHOUT_DESC}}"
-data "PreviewCursor" "Cast"
-data "CastTextEvent" "Cast"
-data "SpellAnimation" "355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,"
-data "VerbalIntent" "Utility"
-data "SpellStyleGroup" "Class"
-data "SpellFlags" "IsSpell"
 
 new entry "Shout_Arcana_Card_Passive_Compassion"
 type "SpellData"
@@ -1597,18 +1583,6 @@ data "DisplayName" "{{HW_COMPASSION_USED_TECH_NAME}}"
 data "StackId" "COMPASSION_USED_TECH"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 data "StackType" "Overwrite"
-
-@section DEBUG STATUS
-
-new entry "RESONANT_DEBUG"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" "{{HW_DEBUG_STATUS_NAME}}"
-data "Icon" "Spell_Divination_DetectEvilAndGood"
-data "StackId" "RESONANT_DEBUG"
-data "Passives" "Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings;Arcana_Passive_Overload"
-data "Boosts" "UnlockSpell(Target_Arcana_Created_EmotionalOverload);UnlockSpell(Target_Arcana_Card_Spell_Heartstring);UnlockSpell(Target_Arcana_Card_Spell_Temper);UnlockSpell(Shout_Arcana_Card_Passive_Compassion);UnlockSpell(Target_Arcana_Card_Spell_EmotionalContagion)"
-data "RemoveEvents" "OnLongRest"
 
 @file Status_FEAR
 @section -

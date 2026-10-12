@@ -79,3 +79,38 @@ Probes P6–P10 pending.
 `05.01/Arcana_Base_Class.md` says the list **"Arcana Deck DEBUG"** (`f2e5e2e9-42c8-4f0e-88de-830ef0224290`) is granted
 at level 1. No progression grants it (it was in the Arcana level-1 row in the 2026-09-17 backup; gone before the
 migration). The list still exists in `SpellLists.lsx`. Fix the line in `05.01`.
+
+## 9. ARC-0002 — final state after stages 2b–7 (2026-10-12) — supersedes the game notes of §5 and §7
+
+Update `05.02_Subclasses/Resonant.md` (and `05.03` / `05.04` for the ids) from this section; the design pointer of §1 stays.
+Decisions R22–R45 are in `55_Implementation_Specs/_wip/Resonant/decisions.md`.
+
+**Progression (in the game):** L1 Weave Surge Joy / Trust / Fear, Heartstring; passives Emotional Alchemy, Empathic
+Sight, Overload · L3 Surge Anticipation / Surprise / Sadness, Temper; Resonance (Tier I), 14 - Temperance: Awakening ·
+L5 Surge Disgust / Anger, Emotional Overload; Complex Feelings · L7 Overwhelm, Harmony (Tier II) · L9 Emotional
+Contagion; Mixed Feelings · L11 Ready: Compassion, Shared Heart · L12 Aspect of Empathy (Tier III). Read the Room was
+removed (R37). The DEBUG shout/status is being retired: ready in the generator and `56_retire_debug.pl`, applied with the next `[fechado] ARC-0002` (archived in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_resonant_debug`).
+
+**Mechanics now:**
+- Weave Surges target any creature (R41); allies never roll (`SpellAutoResolveOnAlly`); not constructs (R25).
+- A reaction refunds the slot once per turn — applied by Osiris (`ARCANA_Resonant_Overload`), not the Surge.
+- Overload from level 1, carries over between combats, shows a percentage; full = *Overloaded* (silenced, Psychic on
+  weapon hits and each turn, level-long) (R29–R32). Emotional Overload (L5) is not a spell, greyed until Overloaded.
+- Heartstring (cantrip, mood +2 turns); Temper (Bonus Action: the mood replays its root emotion for 1 turn, R36);
+  Emotional Contagion (level 3 card, the target's mood to its allies within 6 m, R33/R35); Ready: Compassion (level 3
+  reaction card, Trust on a hit ally, resource `ArcanaReactCompassion`).
+- Aspect Awakening 14 - Temperance (goals 3 / 6 / 15 reactions): I Resonance — Catharsis +1d8, moods 7 turns, The Two
+  Cups (no Overload, R38); II Harmony — feelings 4 turns, first Surge each turn costs no action and leaves its mood at
+  once (R40, R42; Khonsu `IsWeaveSurge()`); III Aspect of Empathy — Emotional Overload also paralyses enemies with
+  feelings within 6 m.
+- Shared Heart (level 5 card, Unique, once per long rest, R43): links you and allies within 18 m; a Surge's result
+  reaches every linked creature (counted once), a Catharsis heals them all (R44), Surges on linked allies are free (R24).
+
+**Technical:** generator `80_TOOLS_AND_PIPELINE/82_Automation/stats/gen_emotion_alchemy.pl` (tests 244); Osiris goals
+`ARCANA_Resonant_Overload`, `ARCANA_Resonant_Grudge`, `ARCANA_Aspect_Temperance`, `ARCANA_Resonant_SharedHeart`
+(the first three and the last generated), Temperance rows in `ARCANA_Aspect_Common`; all Khonsu helpers in one file
+`Scripts/thoth/helpers/ArcanaHelpers.khn` (ARC-0005); PC deck entries in `CardDB.lua` (Lua tests 134). Generated
+lines stay under the Toolkit's 4096-character read limit (tested).
+
+**Open:** probes P25, P27–P33 (`60_QA_AND_TESTING/61_Test_Plan/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md`);
+the player guide (ticket ARC-0006); ARC-0005 (Toolkit first-launch crash).

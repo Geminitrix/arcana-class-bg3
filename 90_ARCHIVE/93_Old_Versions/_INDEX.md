@@ -8,3 +8,4 @@ Replaced GDDs, specs, baselines and applied patches.
 |---|---|---|
 | `2026-10-12_ARC-0002_stage3b/` | 2026-10-12 | Resonant: old Temper (Osiris goal) and Read the Room, replaced by R36 / removed by R37 |
 | `2026-10-12_ARC-0005_khn_merged/` | 2026-10-12 | The nine one-function Khonsu helpers, merged into `ArcanaHelpers.khn` (ARC-0005) |
+| `2026-10-12_ARC-0002_resonant_debug/` | 2026-10-12 | The Resonant DEBUG shout and status, retired once the progression held everything (ARC-0002 stage 7) |

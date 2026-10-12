@@ -516,11 +516,11 @@ of §5.1.
 | Piece | Pattern |
 |---|---|
 | Peaks, moods, intense, feelings, Catharsis | As built (`10_engine.patch`); `OnRemoveFunctors` with `IF(RemoveCause(StatusRemoveCause.TimeOut))` leaves the mood |
-| **Refund** (§4.4) | In each reaction branch of the Surge's `SpellSuccess`: `RestoreResource(SELF,ArcanaSpellSlot,1,<level>)` by class level, plus `RestoreResource(SELF,ArcanaThread,1,0)`, guarded by a used-this-turn status — the pattern of `Arcana_Passive_ArcaneOverflow` (`Passive.txt`) |
-| **Overload meter** | Osiris counts peaks applied (+1) and reaction statuses applied (+2) per Resonant, as `PROC_ARCANA_Aspect_Progress` does; shows the count on `OVERLOAD`; at full applies `OVERLOAD_FULL` (TickFunctors: Psychic damage at turn start); `CombatEnded` resets |
+| **Refund** (§4.4) | Osiris (`ARCANA_Resonant_Overload`): a reaction status landing applies `RESONANT_REFUND_TECH` — the slot by class level + the Thread, guarded by `RESONANT_REFUND_USED` (once per turn), the pattern of `Arcana_Passive_ArcaneOverflow`. It left the Surge's `SpellSuccess` to keep that line under the Toolkit's 4096 characters |
+| **Overload meter** | Osiris (`ARCANA_Resonant_Overload`) counts peaks (+1) and reactions (+2) per Resonant, at any time; shows a percentage on `RESONANT_OVERLOAD`; it carries over between combats (R31); at full applies `RESONANT_OVERLOAD_FULL` (*Overloaded*, R29) for the character level in turns; emptied by Emotional Overload or when *Overloaded* ends |
 | **Emotional Overload** | Requirement: `HasStatus('OVERLOAD_FULL')`; removes every `FEELING_*` on the target with damage per feeling; Paralysed 2 turns; Osiris empties the meter. Tier III variant with a 6 m area filter on targets carrying the Resonant's feelings |
 | **Anger's and Rage's grudge** | Osiris (`ARCANA_Resonant_Grudge`) remembers who last hurt each creature during the fight; while angry it carries `RESONANT_GRUDGE` (TAUNTED-like, source = that attacker) or, if nobody has, `RESONANT_ANGER_FALLBACK` (Crown of Madness boosts) — never both — **T2** |
-| **Shared Heart** | `SHARED_HEART` on the linked creatures; Osiris copies a Surge's result from one linked ally to the others and counts it once — **T2** |
+| **Shared Heart** | `SHARED_HEART` on the linked creatures; Osiris (`ARCANA_Resonant_SharedHeart`) copies a Surge's result to the others with the linked target as source (counted once, R19), heals them on a Catharsis (R44), and refunds a Surge on a linked creature once per cast (R24) |
 | **Temper** | Applies the peak of the mood's emotion (1 turn), then removes the mood; the peak's fade leaves the mood again (R36) |
 
 ### 13.3 Ids
@@ -545,16 +545,18 @@ of §5.1.
 
 ## 15. To test in game
 
-| Test | What proves it |
+The full list, one assertion per rule, is the test case handed to QA:
+`60_QA_AND_TESTING/61_Test_Plan/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md` (→ `TC_ARC-0002`). Probe results
+live in `55_Implementation_Specs/SPEC_ARC-0002.md`. State at the end of the raise (2026-10-12):
+
+| Area | Status |
 |---|---|
-| A reaction refunds | A Surge that braids a feeling gives its slot back, once per turn; a failed save gives nothing |
-| Joy's aura | Allies near the target gain Advantage on their next attack |
-| Trust's shoulder | An enemy hits an ally next to the Trusting creature: it is asked to react; the ally takes half, the Trusting creature takes the same |
-| Anticipation's guard | Still active on the enemies' turns; an enemy entering the ally's reach is attacked first |
-| Disgust's recoil | The enemy moves away and makes no melee attack |
-| Anger's and Rage's grudge | Hit it with A, then B: it attacks B. Surge an enemy nobody has hurt: it attacks the nearest. Never both |
-| Overload count | Peaks add 1, reactions 2, failed saves 0; resets at combat end |
-| Overload full | Psychic damage at the start of each of the Resonant's turns |
-| Emotional Overload | Only castable at full; spends feelings, paralyses 2 turns with no save, empties the meter |
-| Shared Heart | A Surge on one linked ally lands on all, counts once, and spends no slot or Thread |
-| The engine test of the first version | Its rows still pass (peaks → moods, reactions, locked rings, R9 StackId) |
+| Peaks, moods, reactions, refund, constructs, grudge (§4–§5) | passed (P0–P5, P24, P26) |
+| Overload, Overloaded, Emotional Overload (§6) | passed (P6–P9); the 0% meter does not show — accepted (P10) |
+| Heartstring, Temper, Emotional Contagion, Ready: Compassion (§7.1–§7.4) | passed (P11b, P12, P13b, P15) |
+| Read the Room (§7.5) | removed (R37) |
+| Aspect Awakening, Tiers I–III, The Two Cups (§9) | passed (P16–P19, P20b, P21–P23) |
+| The free Surge leaves its mood at once (R42) | **open** — P25 with several targets |
+| Shared Heart (§7.6) | **open** — P27–P31 |
+| Progression 1–12 (§10) | **open** — P32 |
+| The PC edition's deck | **open** — P33 |

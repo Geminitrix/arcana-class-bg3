@@ -181,7 +181,9 @@ like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn')
 like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
 like(block($p, 'Arcana_Passive_Overload'), qr/"DisplayName"/, 'the Overload passive exists');
 like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the passive names the ultimate');
-like(block($p, 'RESONANT_DEBUG'), qr/Arcana_Passive_Overload.*UnlockSpell\(Target_Arcana_Created_EmotionalOverload\)/s, 'DEBUG grants the passive and the ultimate');
+# stage 7: the DEBUG scaffold is retired (everything arrives by the progression); it is archived in 90_ARCHIVE
+unlike($p, qr/^new entry "(?:Shout_Arcana_Util_DEBUG_Resonant|RESONANT_DEBUG)"/m, 'the DEBUG scaffold is no longer generated');
+none('the DEBUG scaffold is retired from the game', grep { my $n = $_; !grep { $_->[1] eq $n } Alchemy::removals({ $n => 'Spell_Shout' }, {}) } qw(Shout_Arcana_Util_DEBUG_Resonant RESONANT_DEBUG));
 my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
 like($eo, qr/"UseCosts" "ActionPoint:1"\n/, 'Emotional Overload: an action, no slot or Thread (R22)');
 like($eo, qr/^data "RequirementConditions" "HasStatus\('RESONANT_OVERLOAD_FULL'\)"$/m, 'only while Overloaded: greyed out until then (P8, vanilla HasStatus(\'SG_Rage\'))');
@@ -266,7 +268,6 @@ none('the old Temper sides and their statuses are retired', grep { my $n = $_; !
 # ---- stage 3.3 (R37): Read the Room is gone -- Empathic Sight already gives Advantage on Insight
 unlike($p, qr/^new entry "(?:Shout_Arcana_Util_ReadTheRoom|RESONANT_READ_THE_ROOM)"/m, 'Read the Room is not generated');
 none('Read the Room is retired', grep { my $n = $_; !grep { $_->[1] eq $n } Alchemy::removals({ $n => 'Spell_Shout' }, {}) } qw(Shout_Arcana_Util_ReadTheRoom RESONANT_READ_THE_ROOM));
-unlike(block($p, 'RESONANT_DEBUG'), qr/ReadTheRoom/, 'DEBUG no longer grants Read the Room');
 
 # ---- stage 3.4: Ready: Compassion (the mod's Which One: card -> READY status -> interrupt; Hellish Rebuke's UseSpell)
 my $cc = block($p, 'Shout_Arcana_Card_Passive_Compassion');
