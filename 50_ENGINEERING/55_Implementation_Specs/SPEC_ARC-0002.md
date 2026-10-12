@@ -767,8 +767,7 @@ Results (Owner, 2026-10-12): P16 ✅ P17 ✅ P18 ✅ P19 ✅ P21 ✅; P20 ❌ (a
 
 **Apply** (`[fechado] ARC-0002`): generator → `stats_add 10_engine.patch --apply` → `gen_upcast_variants --apply` →
 regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_cards` → `selftest` → copy
-`42_temperance_goal.txt` → `Goals/ARCANA_Aspect_Temperance.txt` and `44_IsWeaveSurge.khn` →
-`Scripts/thoth/helpers/IsWeaveSurge.khn` → counts and repeated-field scan → `sync_data` → commit + push.
+`42_temperance_goal.txt` → `Goals/ARCANA_Aspect_Temperance.txt` and `44_IsWeaveSurge.khn` → (since ARC-0005: replace the `-- ===== IsWeaveSurge =====` section of `Scripts/thoth/helpers/ArcanaHelpers.khn`; never a separate file) →`Scripts/thoth/helpers/IsWeaveSurge.khn` → counts and repeated-field scan → `sync_data` → commit + push.
 **Owner:** compile the Story. Toolkit note (memory): custom Khonsu is safe in `UnlockSpellVariant` (the mod's
 `IsCardSpell()` already runs there), unsafe in `BoostConditions` — not used.
 

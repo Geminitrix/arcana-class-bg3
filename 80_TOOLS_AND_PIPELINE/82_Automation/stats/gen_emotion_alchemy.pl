@@ -1122,7 +1122,7 @@ sub main {
     write_file("$out/40_overload_goal.txt", overload_goal());
     write_file("$out/42_temperance_goal.txt", temperance_goal());
     write_file("$out/43_common_rows.txt", common_rows());
-    write_file("$out/44_IsWeaveSurge.khn", weave_surge_khn());
+    write_file("$out/44_IsWeaveSurge.khn", weave_surge_khn());   # ARC-0005: goes into ArcanaHelpers.khn (its own section), never as a separate file
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);
     printf "20_upcast_targets.patch: %d variants%s\n", $n, $n ? '' : ' (none yet: run gen_upcast_variants.pl --apply, then generate again)';

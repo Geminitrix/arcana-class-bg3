@@ -48,3 +48,4 @@ created: 2026-10-12
 
 - 2026-10-12 — investigated (read only): crash dumps, `errors.*`, `log.*`, Story, editor settings. Ticket created.
 - 2026-10-12 — `[fechado]`: `_1` → `-1` in `COMPREHEND_SUPERNATURAL` (game .txt and Toolkit .stats, one occurrence each; entry counts unchanged); selftest 992/0, check_cards OK. Waiting for the Owner's open/close/open test.
+- 2026-10-12 — three more crashes (launch, Reload Story after a clean compile — 0 errors —, launch). Full stack from `log.*`: the double delete happens inside `ls::FileManager::OpenFile` called by `ls::khonsu::Machine::FindScript` during the Anubis load — Khonsu opening a script file from disk. `[fechado]`: the nine one-function helpers merged into `Scripts/thoth/helpers/ArcanaHelpers.khn` (9 of 9 bodies identical; originals in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0005_khn_merged`). Waiting for the Owner's open/close test.
