@@ -690,6 +690,59 @@ regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_car
 | P11b | Emotional Contagion on an enemy with a mood, its allies and yours around it | Only its allies catch the mood |
 | P13b | Temper on an enemy that is Annoyed; on an ally that is Serene | The enemy is angry again for 1 turn (grudge), then Annoyed for 5 turns; the ally is Joyful (contagious) for 1 turn, then Serene for 5 |
 
+Results (Owner, 2026-10-12): P11b ✅ P13b ✅ — stage 3 closed.
+
+## Stage 4 — Aspect Awakening: 14 · Temperance
+
+**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §9, §9.1. **Decisions:** R21 (Tier I Resonance), R8 (Tier II
+Harmony), R14 (Tier III), R38 (The Two Cups does not fill the Overload), R39 (Harmony's mood follows the side).
+**Numbers:** `FEAT_Resonant_AspectAwakening` (goals 3 / 6 / 15, Harmony 6 m) + new rows `tier1_mood_extend` (2 turns),
+`tier3_radius` (6 m), `tier3_paralysed_others` (1 turn); `STA_Resonant_Catharsis#tier1_bonus` (1d8); new
+`SPL_Resonant_TwoCups` (radius 18 m, once per combat).
+
+**Pattern — the four existing Aspects, nothing new in the frame:**
+- `ARCANA_Aspect_Common.txt` owns the tiers: `DB_ARCANA_Aspect`, `DB_ARCANA_AspectTier`, `DB_ARCANA_AspectShow` rows;
+  `PROC_ARCANA_Aspect_Step` (+1, the Empress counter); the reached tiers in `DB_ARCANA_AspectReached(char, tier)` —
+  **Osiris effects check that DB, never the level**; `PROC_ARCANA_Aspect_Reset` on leaving combat.
+- Stats as the Empress (High Priestess): hidden `ASPECT_AWAKENED_<X>` (Tier I reached: `UnlockSpell` of the Aspect
+  card, removes the tier statuses), visible `ASPECT_AWAKENED_<X>_I/II/III` (one StackId `…_TIER`, StackPriority 1/2/3,
+  each lists every bonus so far, `ForceOverhead;IgnoreResting`), `ASPECT_PROGRESS_<X>` (count, `FreezeDuration`);
+  hidden tier passives `Arcana_Passive_Aspect_<X>_I/II/III` and the visible `Arcana_Passive_Aspect_<X>_Awakening`
+  ("14 - Temperance: Awakening", the goals per level). Progression: level 3 → `_I` + `_Awakening`, 7 → `_II`, 12 → `_III`.
+- Aspect card as `Shout_Arcana_Created_Aspect_VeilLifts`: Shout, `AreaRadius`, `Cooldown OncePerCombat`,
+  `Requirements Combat`, card mark, no slot.
+- Tier II as the Empress's Two Pillars: nearest candidate from `DB_ARCANA_Aspect_InCombat`, `GetDistanceTo`, best kept
+  in a DB, once per turn cleared on `TurnStarted`.
+- Which Surge was cast: `UsingSpellOnTarget` + `DB_ARCANA_CardFamily(_Spell, _Root)` (variant → card, written by
+  `gen_upcast_variants`; the Fool's Zephyr Strike uses it).
+
+| Task | What | How | Test (RED first) |
+|---|---|---|---|
+| **4.1** | **Goal — cause reactions** | Generated goal `ARCANA_Aspect_Temperance.txt` (`42_temperance_goal.txt`): table `DB_ARCANA_Resonant_AwakeningStatus` = the 24 feelings, 8 intense, `CATHARSIS`, `RESONANT_TWO_CUPS_CATHARSIS`; `StatusApplied(_, _S, (CHARACTER)_R, _)` + row → `PROC_ARCANA_Aspect_Step(_R, "TEMPERANCE")`. `ARCANA_Aspect_Common.txt` gains the TEMPERANCE rows (1 aspect, 3 tiers 3/6/15, `COUNT`) through an anchored edit script | 34 rows; Step call; Common rows in the script's output |
+| **4.2** | **Tier statuses and passives** | `ASPECT_AWAKENED_TEMPERANCE` (+ `_I/_II/_III`), `ASPECT_PROGRESS_TEMPERANCE`, `Arcana_Passive_Aspect_Temperance_I/II/III` (Resonance / Harmony / Aspect of Empathy, hidden), `…_Awakening` (Highlighted). Texts in the Empress's format | entries, StackId/priorities, flags; texts name the goals 3/6/15 |
+| **4.3** | **Tier I — Resonance: Catharsis +1d8** | Surge `SpellSuccess`, Catharsis branch: two more functors gated on `HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)` — `DealDamage(1d8,Psychic,Magical)` on a non-ally, `RegainHitPoints(1d8)` on an ally | 14 functors per Surge; gate |
+| **4.4** | **Tier I — moods last 2 turns longer** | Each peak's `OnRemoveFunctors` splits: `IF(RemoveCause(TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source))` → mood 5 turns; `… and HasStatus(…)` → 7. **Probe P17**: `context.Source` in a remove functor is the status's source (the Resonant). Plan B: Osiris on `StatusApplied(MOOD_*)` by a Resonant with tier 1 → re-apply for (turns + 2) × 6 s | both branches on 16 peaks/intense |
+| **4.5** | **The Two Cups** (Tier I card) | `Shout_Arcana_Created_Aspect_TwoCups`: Action, 18 m, once per combat; every creature with a mood: non-ally `DealDamage(LevelMapValue(Catharsis_Damage))` + 1d8 Psychic, ally `RegainHitPoints` same; then `RESONANT_TWO_CUPS_CATHARSIS` (shown as Catharsis, spends the moods). **Not** `CATHARSIS`, so the Overload ignores it (R38) and the Awakening counts each one | card fields; not in the Overload table; in the Awakening table |
+| **4.6** | **Tier II — Harmony** | Goal: `StatusApplied` of a feeling by `_R` with `DB_ARCANA_AspectReached(_R, 2)`, once per turn → nearest other creature within 6 m of the feeling's bearer gets a mood for 5 turns (source `_R`; it replaces, R7). Which mood (R39): table `DB_ARCANA_Resonant_HarmonyMood(feeling, surge emotion, mood for an ally, mood for a non-ally)` — 24 × 2 rows, generated; the Surge from `DB_ARCANA_Resonant_LastSurge(_R, emotion)`, set on `UsingSpellOnTarget` | 48 rows; Love cast as Joy → ally Serene / enemy Serene; Awe (Fear+Surprise) cast as Fear → ally Apprehensive; Hope … |
+| **4.7** | **Tier III — Emotional Overload reaches an area** | Goal: `UsingSpellOnTarget(_R, _T, "Target_Arcana_Created_EmotionalOverload", …)` with `DB_ARCANA_AspectReached(_R, 3)` → every enemy of `_R` in the combat, other than `_T`, within 6 m of `_T`, carrying a feeling: its feelings removed, `PARALYZED` 6 s (1 turn). Collect first, then apply (the Temper lesson). The target keeps the spell's own 2 turns | rule present; 1 turn; feelings table reused |
+| **4.8** | **Progression** | Anchored script: Resonant L3 `PassivesAdded` += `Arcana_Passive_Aspect_Temperance_I;Arcana_Passive_Aspect_Temperance_Awakening`; L7 += `_II`; L12 += `_III` (rows a3489148…, 8935e1fd…, 3cdd83e0…) | dump shows them |
+
+**Apply** (`[fechado] ARC-0002`): generator → `stats_add 10_engine.patch --apply` → `gen_upcast_variants --apply` →
+regenerate → `20_upcast_targets.patch` → `sort_stats --apply` → `check_cards` → `selftest` → copy the goals (CRLF) →
+the Common + progression script `--apply` → counts and repeated-field scan → `sync_data` → commit + push.
+**Owner:** compile the Story.
+
+### Probes (one rule each)
+
+| # | Do | Proves it works |
+|---|---|---|
+| P16 | Level 3+ Resonant: cause 3 reactions in one fight | *Awakening Progress* counts 1, 2; at 3 *14 - Temperance: Awakened I* appears, The Two Cups unlocks; all gone when the combat ends |
+| P17 | Awakened I: let a peak fade | The mood lasts 7 turns (5 before awakening) |
+| P18 | Awakened I: a Catharsis on an enemy | Catharsis damage + 1d8 more |
+| P19 | The Two Cups with moods on allies and enemies | Enemies hurt, allies healed, their moods gone; Overload unchanged; Awakening counts each one; once per combat |
+| P20 | Level 7: 6 reactions, then braid a feeling | The nearest creature within 6 m gets the mood of R39; only once per turn |
+| P21 | Level 12: 15 reactions, then Emotional Overload with enemies with feelings near the target | They lose their feelings and are Paralysed 1 turn; the target 2 turns |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

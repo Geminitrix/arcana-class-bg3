@@ -48,6 +48,8 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R35 | **Emotional Contagion spreads only to the target's allies** (P11: it reached both sides, so an ally's bright mood landed on enemies and the reverse) | author, 2026-10-12 |
 | R36 | **Temper pulls the mood back to its root emotion for 1 turn** (replaces the one-step turn, which failed P13 and was often a bad option): the creature replays the peak's behaviour, and when it fades the mood returns at full length. Still a Bonus Action with no slot (R34); still never a reaction (R7) | author, 2026-10-12 |
 | R37 | **Read the Room is removed:** Empathic Sight already gives Advantage on Insight | author, 2026-10-12 |
+| R38 | **The Two Cups does not fill the Overload** (each of its Catharses still counts for the Awakening): one card on 5–6 creatures would fill the meter at once | author, 2026-10-12 |
+| R39 | **Harmony's mood follows the side:** the nearest creature gets the mood of the feeling's emotion that suits it — the bright one (Joy, Trust, Anticipation) if it is your ally, the dark one if not; when both emotions are on the same side, the emotion of the Surge you cast | author, 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite
