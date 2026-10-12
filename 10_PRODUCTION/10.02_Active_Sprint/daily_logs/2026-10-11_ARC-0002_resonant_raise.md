@@ -10,3 +10,5 @@ on reaction, Shared Heart capstone, Emotional Overload, Tier I Resonance); raisi
 
 **Next:** in-game tests (spec §15); Toolkit renames (Owner); player
 guide `75.02` update.
+
+**ARC-0003:** last Heartweaver leftover renamed in the game files (`[fechado]`), synced; waiting for the Owner's Toolkit check.

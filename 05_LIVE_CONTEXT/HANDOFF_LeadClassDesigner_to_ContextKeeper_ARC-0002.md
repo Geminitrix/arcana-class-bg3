@@ -43,3 +43,9 @@ Every other question: ✅.
 
 Balance pass · tests of §15 · Toolkit renames · the player guide (`75.02/src/data/resonant.json`) still
 describes Turn the Wheel, Attunement, Equanimity and the old Tier III.
+
+## 4. ARC-0003 (game files changed)
+
+The last "Heartweaver" leftover is gone: the ProgressionDescription row Name is `New_Stat_Resonant`. The
+Resonant's tag is `THERESONANT` (`c3a59afe-c03e-4fe0-9c7c-dc45ee46e21e`) — `05.02/Resonant.md` still says
+"internal tag `THEHEARTWEAVER`"; replace it.

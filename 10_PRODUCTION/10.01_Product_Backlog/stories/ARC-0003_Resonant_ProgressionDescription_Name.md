@@ -3,7 +3,7 @@ id: ARC-0003
 title: Rename the Resonant's ProgressionDescription Name (last Heartweaver leftover)
 type: chore
 epic: EPIC_Rework_Subclasses
-status: ready
+status: in_qa
 owner: Lead Class Designer
 implementation: claude
 priority: could
@@ -23,9 +23,9 @@ created: 2026-10-11
 
 ## Acceptance criteria
 
-- [ ] `ProgressionDescriptions.tbl` line with UUID `af80da6f-aa3a-58f8-a1c5-a7a9a7687751` has Name `New_Stat_Resonant`.
-- [ ] No "heartweaver" left in `Data/{Mods,Public,Editor}/AspectClass_…` (grep, case-insensitive).
-- [ ] `sync_data`, commit + push.
+- [x] `ProgressionDescriptions.tbl` line with UUID `af80da6f-aa3a-58f8-a1c5-a7a9a7687751` has Name `New_Stat_Resonant`.
+- [x] No "heartweaver" left in `Data/{Mods,Public,Editor}/AspectClass_…` (grep, case-insensitive).
+- [x] `sync_data`, commit + push.
 - [ ] The Toolkit opens the ProgressionDescriptions table without errors (Owner).
 
 ## Gates
@@ -36,3 +36,4 @@ created: 2026-10-11
 
 - 2026-10-11 — created. Checked: ClassDescription Name, ProgressionDescription Type, tag `THERESONANT`,
   texts, lists, equipment and Osiris are already renamed; this row name is the only leftover.
+- 2026-10-11 — done (`[fechado]`): Name set to `New_Stat_Resonant`; grep finds 0 "heartweaver" in the mod; `sync_data` changed 1 path. Waiting for the Owner to open the table in the Toolkit.

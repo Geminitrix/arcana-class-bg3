@@ -189,7 +189,7 @@
     </stat_object>
     <stat_object color="#00FFFFFF" is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_Heartweaver" />
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_Resonant" />
         <field name="UUID" type="IdTableFieldDefinition" value="af80da6f-aa3a-58f8-a1c5-a7a9a7687751" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1410c28bg6314ge052g6777gf3160d531bd8" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1c36efabgf005gb96agd75dg4cbf0b291b1a" version="1" />
