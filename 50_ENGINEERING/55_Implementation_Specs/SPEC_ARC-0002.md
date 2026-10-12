@@ -37,7 +37,7 @@ behaviour-changing Surges, an overload meter and its Emotional Overload — with
 |---|---|---|---|
 | **0** | Generator: paths, master-data reader, behaviour peaks, refund, Catharsis level map, interrupts — test first | No | Tests pass; patch generated |
 | **1** | Apply the engine patch, the Catharsis level map and the Grudge goal; probes P0–P5 in game | Yes | Owner's probe results; plan B applied where a probe fails |
-| 2 | Overload meter (statuses, passive, Osiris count) + Emotional Overload | Yes | Written in full after stage 1 |
+| 2 | Overload meter (statuses, passive, Osiris count) + Emotional Overload | Yes | **Written in full below** |
 | 3 | Heartstring, Temper, Read the Room, Emotional Contagion, Ready: Compassion | Yes | Written in full after stage 2 |
 | 4 | Awakening *14 · Temperance* (Osiris goal, tier statuses), The Two Cups, Tier III area Overload | Yes | Written in full after stage 3 |
 | 5 | Shared Heart (link status, Osiris copy, free Surges) | Yes | Written in full after stage 4 |
@@ -444,6 +444,146 @@ From the stage-1 probes (P0 ✅, P1 ✅, P2 ❌, P3 ❌, P4 ❌, P5 not run): de
 Generator tests 68/68; `check_cards` OK; `stats_add --selftest` 970/0.
 
 **Re-test (Owner):** compile the Story; then P2 (Trust shoulder), P3 (Anticipation on the enemies' turns), P4 (hit with A then B → it attacks B; a fresh enemy → attacks the nearest), P5 (refund: Joy on an Accepting ally → Love, one slot back).
+
+## Stage 2 — Overload and Emotional Overload
+
+**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §6 (R9–R13, R19, R20, R22). **Numbers:**
+`FEAT_Resonant_Overload` (size by level, +1 peak, +2 reaction, full damage = slot level),
+`SPL_Resonant_EmotionalOverload` (18 m, 1d6 Psychic per feeling, Paralysed 2 turns). Shared Heart's "once per
+Surge" (R19) belongs to stage 5.
+
+**Anchors:** count display — `PROC_ARCANA_Aspect_ShowNumber` + `ASPECT_PROGRESS_*` (`StackType "Overwrite"`,
+`RemoveEvents "OnCombatEnded"`, `StatusPropertyFlags "FreezeDuration;IgnoreResting"`, duration = value × 6 s)
+in `ARCANA_Aspect_Common.txt`; counter in Osiris — `PROC_ARCANA_Aspect_Step` (`IntegerSum`, `IsInCombat`);
+`HasPassive(_Entity,_Passive,_Bool)`, `GetLevel(_Object,_Level)`, `IntegerProduct`, `IntegerToReal`
+(`story_header.div`); flat damage per turn — `TickFunctors "DealDamage(N,Type)"` (vanilla `ORI_GALE_AURANECROSIS`);
+paralysis without a save — vanilla `PARALYZED` (INCAPACITATED, no `RemoveConditions`); class-level brackets —
+`Arcana_Passive_ArcaneOverflow`. Naming: the ultimate never enters the deck and appears only when the meter is
+full → `Target_Arcana_Created_EmotionalOverload` (Created, `arcana-naming-convention`); Osiris internals use
+`ARCANA_` (`DB_ARCANA_…`, `PROC_ARCANA_…`).
+
+### Task 2.0 · Osiris names follow the convention (T4)
+
+The stage-1 grudge goal uses `DB_Resonant_*` / `PROC_Resonant_*`. Rename to `DB_ARCANA_Resonant_LastAttacker`,
+`PROC_ARCANA_Resonant_Grudge_Start / _Refresh / _Clear` (same rules, names only). Check: `grep -c "Resonant_" `
+finds only `ARCANA_`-prefixed internals.
+
+### Task 2.1 · Overload statuses and passive (generator, test first)
+
+- [ ] **Failing tests** (append to `t/gen_emotion_alchemy.t`):
+
+```perl
+# ---- stage 2: Overload
+like(block($p, 'RESONANT_OVERLOAD'), qr/"StackType" "Overwrite".*"RemoveEvents" "OnCombatEnded".*"StatusPropertyFlags" "FreezeDuration;IgnoreResting"/s, 'the meter shows a frozen count, gone after combat');
+my $full = block($p, 'RESONANT_OVERLOAD_FULL');
+like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn');
+is(scalar(() = $full =~ /DealDamage\(\d,Psychic,Magical\)/g), 4, 'full: one damage per slot-level bracket (5-6, 7-8, 9-10, 11+)');
+like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
+like(block($p, 'Arcana_Passive_Overload'), qr/"DisplayName"/, 'the Overload passive exists');
+like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the passive names the ultimate');
+```
+
+- [ ] **Run → FAIL** (`RESONANT_OVERLOAD` not generated).
+- [ ] **Implement** in `build_statuses`:
+
+```perl
+# Stage 2: the meter -- a count shown as a frozen duration, like ASPECT_PROGRESS_* (ARCANA_Aspect_Common.txt)
+push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD', 'StatusData', StatusType => 'BOOST',
+    DisplayName => loca(key('RESONANT_OVERLOAD', 'NAME'), 'Overload'),
+    Description => loca(key('RESONANT_OVERLOAD', 'DESC'), 'Everything you made others feel this fight, felt again. When it is full, you suffer at the start of each turn until you release it with Emotional Overload.'),
+    Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD', StackType => 'Overwrite',
+    RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'FreezeDuration;IgnoreResting', StatusGroups => 'SG_RemoveOnRespec')];
+# full: Psychic damage equal to the slot level at the start of each turn (25: FEAT_Resonant_Overload#full_damage)
+my @br = ([3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
+my $tick = join ';', map { my ($dmg, $lo, $hi) = @$_; my @c = ("ClassLevelHigherOrEqualThan($lo,'Arcana')");
+    push @c, "not ClassLevelHigherOrEqualThan($hi,'Arcana')" if $hi; 'IF(' . join(' and ', @c) . "):DealDamage($dmg,Psychic,Magical)" } @br;
+push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD_FULL', 'StatusData', StatusType => 'BOOST',
+    DisplayName => loca(key('RESONANT_OVERLOAD_FULL', 'NAME'), 'Overloaded'),
+    Description => loca(key('RESONANT_OVERLOAD_FULL', 'DESC'), 'You can release Emotional Overload. Until you do, you take Psychic damage at the start of each of your turns.'),
+    Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD_FULL', TickType => 'StartTurn',
+    TickFunctors => $tick, RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'IgnoreResting')];
+```
+
+In `build_passives`: `passive('Arcana_Passive_Overload', 'Overload', <text>, 'Spell_Enchantment_CalmEmotions')` with the
+text *"You feel what you make others feel. Each emotion that takes hold adds 1 to your Overload, and each reaction adds 2.
+When it is full, you take Psychic damage at the start of each turn until you release it with Emotional Overload."*
+Add it to the DEBUG passives list (`build_debug`) so it can be tested before stage 6.
+- [ ] **Run → PASS**; commit `ARC-0002: Overload statuses and passive`.
+
+### Task 2.2 · Emotional Overload (generator, test first)
+
+- [ ] **Failing tests:**
+
+```perl
+my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
+like($eo, qr/"UseCosts" "ActionPoint:1"\n/, 'Emotional Overload: an action, no slot or Thread (R22)');
+like($eo, qr/HasStatus\('RESONANT_OVERLOAD_FULL', ?context\.Source\)/, 'only with the meter full');
+unlike($eo, qr/"SpellRoll"/, 'no saving throw');
+is(scalar(() = $eo =~ /IF\(HasStatus\('FEELING_\w+'\)\):DealDamage\(1d6,Psychic,Magical\)/g), 24, '1d6 Psychic per feeling, all 24');
+like($eo, qr/ApplyStatus\(PARALYZED,100,2\)/, 'Paralysed 2 turns (vanilla PARALYZED)');
+like($eo, qr/ApplyStatus\(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0\)/, 'tells Osiris to empty the meter');
+```
+
+- [ ] **Run → FAIL.**
+- [ ] **Implement** `build_overload_spell` (written to `@file Spell_Target`, after the Surges):
+  `SpellType Target`, `Level 0`, `TargetRadius` from `SPL_Resonant_EmotionalOverload#range`, `AmountOfTargets 1`,
+  `TargetConditions "Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and HasStatus('RESONANT_OVERLOAD_FULL', context.Source)"`,
+  `SpellSuccess` = for each of the 24 feelings (sorted) `IF(HasStatus('FEELING_X')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_X')):RemoveStatus(FEELING_X)`,
+  then `ApplyStatus(PARALYZED,100,2);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)`; `UseCosts "ActionPoint:1"`;
+  `SpellFlags "IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful"`; `VerbalIntent "Control"`; icon of Catharsis.
+  Description: *"Pour everything you have felt this fight into one creature. Every feeling it carries tears at it, and it
+  is Paralysed."* Plus `hidden_status('RESONANT_OVERLOAD_SPENT_TECH', 'Overload spent', 'StackId', 'RESONANT_OVERLOAD_SPENT_TECH')`.
+- [ ] **Run → PASS**; commit `ARC-0002: Emotional Overload`.
+
+### Task 2.3 · The counter goal (generated)
+
+The generator writes `40_overload_goal.txt` (CRLF, ASCII) from the wheel table, so the status lists never drift.
+- [ ] **Failing tests:**
+
+```perl
+my $g = Alchemy::overload_goal();
+is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("EMOTION_\w+", 1\)/g), 8, '+1 for each of the 8 peaks');
+is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)", 2\)/g), 33, '+2 for 24 feelings, 8 intense, Catharsis');
+like($g, qr/DB_ARCANA_Resonant_OverloadMax\(5, 11\).*DB_ARCANA_Resonant_OverloadMax\(20, 20\)/s, 'size by level from 25');
+like($g, qr/HasPassive\(_Resonant, "Arcana_Passive_Overload", 1\)/, 'counts only for a Resonant with the passive');
+unlike($g, /[^\x00-\x7F]/, 'ASCII only');
+```
+
+- [ ] **Implement** `overload_goal()`: tables in `PROC_ARCANA_Resonant_Overload_Init` (called from `INITSECTION` and
+  `SavegameLoaded`, as `ARCANA_Aspect_Common`); rules:
+  1. `StatusApplied(_Target, _Status, _Resonant, _)` AND `DB_ARCANA_Resonant_OverloadPoints(_Status, _Pts)` AND
+     `HasPassive(_Resonant, "Arcana_Passive_Overload", 1)` AND `IsInCombat(_Resonant, 1)` AND
+     `NOT DB_ARCANA_Resonant_OverloadFull(_Resonant)` → `PROC_ARCANA_Resonant_Overload_Add(_Resonant, _Pts)`.
+  2. `_Add`: old value (0 when none) + points (`IntegerSum`); `GetLevel` → `DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max)`;
+     below max → store and show (`IntegerProduct(_N, 6)`, `IntegerToReal`, `ApplyStatus(_R, "RESONANT_OVERLOAD", _Dur, 1, _R)`);
+     at or above max → store max, show it, `DB_ARCANA_Resonant_OverloadFull(_R)`, `ApplyStatus(_R, "RESONANT_OVERLOAD_FULL", -1.0, 1, _R)`.
+  3. `StatusApplied(_R, "RESONANT_OVERLOAD_SPENT_TECH", _, _)` and `LeftCombat(_R, _)` → `PROC_ARCANA_Resonant_Overload_Reset(_R)`:
+     clear the value and the full flag, `RemoveStatus` both statuses.
+- [ ] **Run → PASS**; commit `ARC-0002: Overload counter goal (generated)`.
+
+### Stage 2 apply (`[fechado] ARC-0002`)
+
+| # | Type | Internal entry | Depends on | Done |
+|---|---|---|---|---|
+| 01 | Statuses | `RESONANT_OVERLOAD`, `RESONANT_OVERLOAD_FULL`, `RESONANT_OVERLOAD_SPENT_TECH` | — | ☐ |
+| 02 | Passive | `Arcana_Passive_Overload` (also on the DEBUG list) | 01 | ☐ |
+| 03 | Spell | `Target_Arcana_Created_EmotionalOverload` (on the DEBUG list until stage 6) | 01 | ☐ |
+| 04 | Osiris | `ARCANA_Resonant_Overload.txt` (from `40_overload_goal.txt`); grudge goal renamed (Task 2.0) | 01–03 | ☐ |
+| 05 | Localization | the patch's `@loca` lines | 01–03 | ☐ |
+
+Steps: generator → `stats_add --apply` → `gen_upcast_variants --apply` → regenerate → `20_upcast_targets.patch` →
+`sort_stats --apply` → `check_cards` → `stats_add --selftest` → copy the goals (CRLF) → `sync_data` → commit + push.
+**Owner:** compile the Story.
+
+### Probes (one rule each)
+
+| # | Do | Proves it works |
+|---|---|---|
+| P6 | Level 5 Resonant with the DEBUG passives; Surge a peak, then a reaction | Overload shows 1, then 3; a failed save adds nothing |
+| P7 | Keep going to 11 | *Overloaded* appears; at the start of your next turn you take 3 Psychic |
+| P8 | Before it is full | Emotional Overload can't be cast (greyed) |
+| P9 | Full; an enemy with 2 feelings → Emotional Overload | 2d6 Psychic in total, its feelings gone, Paralysed 2 turns with no save; the meter empties; no slot spent |
+| P10 | End the combat with some Overload | The meter and *Overloaded* are gone |
 
 ## Stages 2–7 — index (written in full before each stage)
 
