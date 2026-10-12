@@ -53,6 +53,8 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R40 | **Tier II Harmony redesigned** (replaces R8/R39 — the nearest creature gaining a mood failed P20 and read as complex): feelings you braid **last 2 turns longer**, and **once per turn a Weave Surge costs no action** (two Surges a turn, more feelings on the field). Surges are recognised by a Khonsu helper (`IsWeaveSurge()`) | author, 2026-10-12 |
 | R41 | **Weave Surges target any creature** (replaces the bright arc on allies / dark arc on non-allies when there is no mood): a dark peak on an ally can set up a bright feeling; the player decides | author, 2026-10-12 |
 | R42 | **The free Surge leaves its mood at once** (Tier II): the first Weave Surge of the turn applies its emotion and, at the same time, that emotion's mood (7 turns), so the second Surge of the turn can react with it. Fixes the gap the Owner found: two Surges in a turn could never react, since a peak becomes a mood only when it fades | author, 2026-10-12 |
+| R43 | **Shared Heart is a level 5 card** (Unique, once per long rest), as the Deceiver's capstone Grand Deception | author, 2026-10-12 |
+| R44 | **A Catharsis on a linked ally heals every linked ally** (same healing, their moods spent); peaks, intense emotions and feelings are copied as they are | author, 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite

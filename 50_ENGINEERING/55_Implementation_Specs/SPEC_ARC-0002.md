@@ -815,6 +815,43 @@ was spent by the first peak. Rebuilt (not applied): the echo moves into each pea
 while the spell resolves on all its targets (Osiris removes it after `CastedSpell`); the Osiris mark (`DB_ARCANA_Resonant_Echo`,
 `DB_ARCANA_Resonant_PeakMood`) is gone. Re-test P25 with several targets.
 
+## Stage 5 — Shared Heart, the capstone (level 11)
+
+**Spec:** §7.6. **Decisions:** R18 (link the party), R19 (counts once), R24 (free Surges on linked allies), R43 (level 5
+card, Unique, once per long rest), R44 (a Catharsis heals every linked ally). **Numbers:** `SPL_Resonant_SharedHeart`
+(range 18 m, until combat ends) + `card_level: 5`.
+
+**Anchors:** the card as the Deceiver's capstone `Shout_Arcana_Card_Spell_GrandDeception` (Shout, `AreaRadius`, Level 5,
+`Cooldown OncePerRest`, `SpellSlotsGroup:1:1:5`; Unique in `CardDB.lua` — stage 6); copying in Osiris as the Empress
+goal walks `DB_ARCANA_Aspect_InCombat`; `GetStatusTurns` (story header) for the copy's duration; the refund status
+pattern of `RESONANT_REFUND_TECH`.
+
+| Task | What | How | Test (RED first) |
+|---|---|---|---|
+| **5.1** | **The card** `Shout_Arcana_Card_Spell_SharedHeart` | Action, 18 m, `Requirements Combat`, card mark; you and every ally in range get `SHARED_HEART` (shown, `RemoveEvents OnCombatEnded`, source = the Resonant) | card fields; status fields |
+| **5.2** | **A Surge's result reaches every linked ally** | Generated goal `ARCANA_Resonant_SharedHeart.txt`: `StatusApplied(_T, _S, (CHARACTER)_R, _)` with `_R` a Resonant (Emotional Alchemy), `_S` a peak, intense emotion or feeling (table), `_T` linked → every other linked creature in the combat gets `_S` for the same turns (`GetStatusTurns` × 6 s). **The copies' source is the linked ally `_T`, not the Resonant:** the Overload, Awakening and refund rules ask for a Resonant source, so the Surge counts **once** (R19), and a copy never copies again | table; the copy rule; source `_T` |
+| **5.3** | **Catharsis heals them all (R44)** | `StatusApplied(_T, "CATHARSIS", _R)` on a linked ally → the others get `RESONANT_SHARED_CATHARSIS` (OnApply: `RegainHitPoints(LevelMapValue(Catharsis_Damage))`, + the Tier I 1d8 when the Resonant is awakened… source is the ally, so **no Tier I bonus on copies**; spends their moods) | status; rule |
+| **5.4** | **Free Surges on linked allies (R24)** | `UsingSpellOnTarget` of a Surge (`DB_ARCANA_CardFamily` → `DB_ARCANA_Resonant_SurgeRoot`) on a linked creature → `RESONANT_SHARED_REFUND_TECH` on the Resonant: the slot back by level + the Thread, **no once-per-turn guard**. The reaction refund (`ARCANA_Resonant_Overload`) skips a linked target, so nothing is refunded twice. A slot must still be in hand to cast (the game checks the cost first) | status; rule; the reaction refund's new condition |
+| **5.5** | **Progression** | Stage 6 places the card at level 11; until then, add it to the level 5 list as Contagion and Compassion were | dump |
+
+Known side effects of the copies' source being an ally (accepted, cheaper than tracking copies):
+- Love on a copy redirects its damage to the linked ally who was the Surge's target, not to the Resonant.
+- Copied peaks fade into a 5-turn mood (the Tier I +2 reads the Resonant as source).
+- Trust and Anticipation copies count their turn on that ally's turn.
+- Two Resonants in one party: only the first link's source is a Resonant — not handled.
+
+**Apply** (`[fechado] ARC-0002`): generator → `stats_add` → `gen_upcast_variants` → `20_upcast_targets` → `sort_stats` →
+`check_cards` → `selftest` → copy `ARCANA_Resonant_SharedHeart.txt` and `40_overload_goal.txt` → list script → counts,
+repeated fields and line lengths → `sync_data` → commit. **Owner:** compile the Story.
+
+| # | Do | Proves it works |
+|---|---|---|
+| P27 | Level 5+ (list), in combat: Shared Heart with 3 allies near | Everyone in 18 m (you too) shows *Shared Heart*; it ends with the combat; once per long rest |
+| P28 | Weave Surge: Joy on one linked ally | Every linked creature gets Emotion: Joy; Overload +1 only; the slot comes back |
+| P29 | Linked allies with Accepting; Weave Surge: Joy on one | All get Love; Overload +2 once; Awakening +1 once |
+| P30 | One linked ally Pensive, Weave Surge: Joy on it (Catharsis) | It heals (+1d8 if awakened); every other linked ally heals the base amount and loses its mood |
+| P31 | Weave Surge on an enemy while linked | Normal: costs the slot, no copy |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |
