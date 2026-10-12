@@ -35,6 +35,10 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R22 | **Emotional Overload costs an Action and no slot or Thread:** the full meter is its cost | author, 2026-10-11 |
 | R23 | **Rage follows Anger's grudge:** the intense ring attacks the last creature that hurt it, with Advantage | author, 2026-10-11 |
 | R24 | **Shared Heart lasts until combat ends, and a Surge whose main target is a linked ally spends no slot and no Thread** (balance pass: the first version only saved targets the level-11 upcast already gives) | author, 2026-10-11 |
+| R25 | **Surges reach every creature that is not a construct** (`not Tagged('CONSTRUCT')`, vanilla pattern, 40 uses) instead of `IntelligenceGreaterThan(4)`; the weakness becomes "constructs feel nothing". Found in probe P4 (the Owner had already removed the INT gate from Anger in the game as a stop-gap) | author, 2026-10-11 |
+| R26 | **Anger and Rage: grudge with a fallback.** Osiris remembers, through the fight, who last hurt each creature; while angry it attacks that one (`RESONANT_GRUDGE`, TAUNTED-like, source = last attacker); if nobody has, a fallback status makes it attack the nearest. Never both — the "attack the nearest" boosts leave the peak. Reference: the Adamantine Forge golem (`UND_AdamantineGolem_Aggro`), whose AI-preferred-target tag was rejected because it would steer every enemy | author, 2026-10-11 |
+| R27 | **Trust: shoulder to shoulder** (replaces "follows your lead", which failed P2): when an ally within 3 m would be hit by an attack, it can use its reaction to take the hit instead. Anchors to probe: `Interrupt_ProjectedWard` (OnPreDamage, Nearby, Ally(context.Target,context.Observer)), `Interrupt_DampenElements` | author, 2026-10-11 |
+| R28 | **Fixes from the probes:** Joy's contagion also reaches the Joyful creature (P1); Anticipation's peak lasts until the Resonant's next turn (`TickingWithSource` + `StartTurn`) so the guard covers the round (P3) | author request / bug fix, 2026-10-11 |
 
 ## Audit state before the rules rewrite
 
