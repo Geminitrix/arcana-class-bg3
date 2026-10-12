@@ -45,6 +45,23 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f8088224-7230-8aff-992d-5e44705bd8c6" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Reaction_Compassion" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8a998d7ag04fdg2e63g71cagc19c0220d4b5" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha0dbb8e5ga443gc72fg291cg1f60fe0c389b" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_Sanctuary" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnCastHit" enumeration_type_name="InterruptContext" version="1" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Nearby" enumeration_type_name="InterruptContextScope" version="1" />
+        <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan(9, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()" />
+        <field name="Properties" type="StringTableFieldDefinition" value="UseSpell(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true)" />
+        <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
+        <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6e9029ee-7f34-e192-1cf0-d17876d95d59" />
         <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_TrustShoulder" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="heb4e6df0g8356ga7a5gcbacgb6d34d30f9d8" version="1" />

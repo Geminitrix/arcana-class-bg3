@@ -357,18 +357,19 @@ it 2 turns longer. The turn the Resonant falls back on, and a way to keep a mood
 
 ### 7.2 Temper (level 3) — R4, R6
 
-**Bonus Action.** Turn a creature's mood **one step** left or right on the wheel (a non-ally rolls a
+**Bonus Action, no slot and no Thread** (R34). Turn a creature's mood **one step** left or right on the wheel (a non-ally rolls a
 Wisdom save). The mood keeps its remaining turns. It **replaces** the mood; it never causes a reaction
 (§4.7). Surge and Temper share a turn: lay a peak, or turn a mood into the one the next Surge needs.
 
 ### 7.3 Emotional Contagion (level 9)
 
-**Action · Concentration.** A creature's peak, mood or feeling copies to every creature within 6 m
-(non-allies roll a Wisdom save). Copied moods replace; they never react (§4.7).
+**Level 3 card · Action · Concentration** (R33, R34). While you concentrate, every creature within 6 m of the
+target catches the **mood** it carries, again each turn; no saving throw. Copied moods replace; they never
+react (§4.7). Mass setup for reactions, weak on its own.
 
 ### 7.4 Ready: Compassion (level 11)
 
-**Reaction card · Unique.** Until combat ends: when an ally within 9 m takes damage, cast Weave Surge:
+**Reaction card · Unique · level 3** (R34). Until combat ends: when an ally within 9 m takes damage, cast Weave Surge:
 Trust on it (it can trigger Alchemy). Once per round.
 
 ### 7.5 Read the Room — utility (level 1)

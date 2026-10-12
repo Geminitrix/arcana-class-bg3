@@ -44,6 +44,7 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R31 | **The meter belongs to the character:** it counts in and out of combat and **carries over between combats**, emptying only when *Overloaded* ends or Emotional Overload is used; it shows as a **percentage (1–99%)** of its maximum. Texts name *Overloaded*, its damage (spell slot level) and that Emotional Overload needs level 5. Visible passives are `Highlighted`, visible statuses `ForceOverhead` (Owner rules) | author, 2026-10-12 |
 | R32 | **The meter is always shown**, at 0% too, in and out of combat; *Overloaded* never ends with the combat (P10) | author, 2026-10-12 |
 | R33 | **Emotional Contagion is a mood aura:** while the Resonant concentrates, every creature within 6 m of the target catches the **mood** it carries, renewed each turn; no saving throw. Stats only (an aura that reads the bearer's mood, like Joy's contagion). Mass setup for reactions, weak on its own | author, 2026-10-12 |
+| R34 | **Costs of the spells outside the Surges:** Temper costs **only the Bonus Action** (no slot, no Thread: it never creates a mood, so it can't loop the refund); Emotional Contagion and Ready: Compassion are **level 3 cards** (3 Threads) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite
 

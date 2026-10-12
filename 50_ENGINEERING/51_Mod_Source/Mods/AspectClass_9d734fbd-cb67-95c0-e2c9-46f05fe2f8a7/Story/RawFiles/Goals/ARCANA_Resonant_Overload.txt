@@ -196,11 +196,12 @@ DB_ARCANA_Resonant_OverloadFull(_Resonant)
 THEN
 NOT DB_ARCANA_Resonant_OverloadFull(_Resonant);
 
+// R32: the meter stays on the character, empty
 PROC
 PROC_ARCANA_Resonant_Overload_Reset((CHARACTER)_Resonant)
 THEN
-RemoveStatus(_Resonant, "RESONANT_OVERLOAD", _Resonant);
 RemoveStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant);
+PROC_ARCANA_Resonant_Overload_ShowEmpty(_Resonant);
 
 IF
 StatusApplied((CHARACTER)_Resonant, "RESONANT_OVERLOAD_SPENT_TECH", _, _)
@@ -212,6 +213,42 @@ IF
 StatusRemoved((CHARACTER)_Resonant, "RESONANT_OVERLOAD_FULL", _, _)
 THEN
 PROC_ARCANA_Resonant_Overload_Reset(_Resonant);
+//END_REGION
+
+//REGION Resonant - the empty meter (R32): always shown, at 0% too -- a permanent status with no number
+PROC
+PROC_ARCANA_Resonant_Overload_ShowEmpty((CHARACTER)_Resonant)
+AND
+HasPassive(_Resonant, "Arcana_Passive_Overload", 1)
+AND
+NOT DB_ARCANA_Resonant_Overload(_Resonant, _)
+AND
+NOT DB_ARCANA_Resonant_OverloadFull(_Resonant)
+THEN
+ApplyStatus(_Resonant, "RESONANT_OVERLOAD", -1.0, 1, _Resonant);
+
+IF
+SavegameLoaded()
+AND
+DB_Players(_Resonant)
+THEN
+PROC_ARCANA_Resonant_Overload_ShowEmpty(_Resonant);
+
+// the passive arrives with the class (level 1): a new Resonant, a new party member, or the first fight
+IF
+LeveledUp(_Resonant)
+THEN
+PROC_ARCANA_Resonant_Overload_ShowEmpty(_Resonant);
+
+IF
+CharacterJoinedParty(_Resonant)
+THEN
+PROC_ARCANA_Resonant_Overload_ShowEmpty(_Resonant);
+
+IF
+EnteredCombat((CHARACTER)_Resonant, _)
+THEN
+PROC_ARCANA_Resonant_Overload_ShowEmpty(_Resonant);
 //END_REGION
 EXITSECTION
 

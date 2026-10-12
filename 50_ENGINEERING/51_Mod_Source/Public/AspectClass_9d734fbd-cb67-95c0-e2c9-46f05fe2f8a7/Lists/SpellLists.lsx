@@ -201,17 +201,17 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Shout_Arcana_Util_ReadTheRoom"/>
                     <attribute id="UUID" type="guid" value="05269c79-116f-2b07-6dc1-deeefddc7ae4"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 3"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_Temper"/>
                     <attribute id="UUID" type="guid" value="74e89dac-4330-83f6-cf7b-881854bd4663"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload;Target_Arcana_Card_Spell_EmotionalContagion;Shout_Arcana_Card_Passive_Compassion"/>
                     <attribute id="UUID" type="guid" value="e0d34d66-e311-be56-1810-04f9ba0917fd"/>
                 </node>
             </children>

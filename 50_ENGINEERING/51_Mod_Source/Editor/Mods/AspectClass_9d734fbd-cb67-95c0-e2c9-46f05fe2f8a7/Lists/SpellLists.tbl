@@ -264,21 +264,21 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="05269c79-116f-2b07-6dc1-deeefddc7ae4" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 1" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Shout_Arcana_Util_ReadTheRoom" />
       </fields>
     </stat_object>
     <stat_object color="#FF6A5ACD" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="74e89dac-4330-83f6-cf7b-881854bd4663" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 3" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_Temper" />
       </fields>
     </stat_object>
     <stat_object color="#FF6A5ACD" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e0d34d66-e311-be56-1810-04f9ba0917fd" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 5" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload;Target_Arcana_Card_Spell_EmotionalContagion;Shout_Arcana_Card_Passive_Compassion" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

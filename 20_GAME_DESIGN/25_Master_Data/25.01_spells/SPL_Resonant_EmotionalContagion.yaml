@@ -1,0 +1,11 @@
+id: SPL_Resonant_EmotionalContagion
+kind: spell
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §7.3"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+values:
+  range:      { value: 18, unit: metres }
+  radius:     { value: 6, unit: metres, note: "R33: the target's mood reaches every creature this close, renewed each turn" }
+  duration:   { value: 10, unit: turns, note: "Concentration" }
+  card_level: { value: 3, unit: count, note: "R34" }

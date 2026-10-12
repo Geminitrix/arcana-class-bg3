@@ -626,6 +626,45 @@ for Contagion, 9 m for Compassion — design values already in the spec).
 Apply with `[fechado] ARC-0002`; the spells reach the progression in stage 6 (until then the DEBUG-free path: a
 level-appropriate Resonant gets them through the lists of their level, added with the same per-node script).
 
+### Stage 3 apply (`[fechado] ARC-0002`, 2026-10-12) — done
+
+Costs fixed by the Owner as **R34** (Temper: Bonus Action only; Contagion and Compassion: level 3 cards; numbers in
+`SPL_Resonant_{Temper,EmotionalContagion,Compassion,ReadTheRoom}`).
+
+| # | Type | Internal entry | Done |
+|---|---|---|---|
+| 01 | Spell (P8) | `Target_Arcana_Created_EmotionalOverload`: `RequirementConditions "HasStatus('RESONANT_OVERLOAD_FULL')"` | ☑ |
+| 02 | Osiris (R32) | `ARCANA_Resonant_Overload`: `PROC_ARCANA_Resonant_Overload_ShowEmpty` (permanent empty meter) on reset, load (`DB_Players`), `LeveledUp`, `CharacterJoinedParty`, `EnteredCombat` | ☑ |
+| 03 | Spells | `Target_Arcana_Card_Spell_Heartstring`; `Target_Arcana_Card_Spell_Temper` (+ `_Left`, `_Right`); `Target_Arcana_Card_Spell_EmotionalContagion` (+ `_4`–`_6`); `Shout_Arcana_Util_ReadTheRoom`; `Shout_Arcana_Card_Passive_Compassion` (+ `_4`–`_6`) | ☑ |
+| 04 | Statuses | `RESONANT_READ_THE_ROOM`, `COMPASSION_READY`, `RESONANT_CONTAGION`, `RESONANT_TEMPER_LEFT_TECH`, `RESONANT_TEMPER_RIGHT_TECH` | ☑ |
+| 05 | Interrupt | `Interrupt_Arcana_Reaction_Compassion` | ☑ |
+| 06 | Osiris | `ARCANA_Resonant_Temper.txt` (from `41_temper_goal.txt`) | ☑ |
+| 07 | Lists | `52_progression_stage3.pl`: Level 1 + Heartstring, Read the Room; Level 3 + Temper; **Level 5 + Contagion, Compassion — temporary, stage 6 moves them to the level 9 and 11 lists** | ☑ |
+
+Rulings taken while building (cheaper than the plan, same behaviour):
+- Heartstring's +2 turns is pure Stats — vanilla `SetStatusDuration(<status>,<turns>,Add)` (`MAG_ZOC_FORCE_CONDUIT`) — so
+  no Osiris and no `HEARTSTRING_TECH`.
+- Ready: Compassion follows the mod's **Which One** (card → READY status → interrupt), not Gale Deflection: no new
+  action resource. The reaction is vanilla **Hellish Rebuke**'s (`OnCastHit` + `UseSpell(…,true,true,true)`; only the
+  reaction is paid).
+- `removals()` now keeps the upcast variants of every generated card (Emotional Contagion matched the old `Emotion*`
+  pattern and would have lost its `_4`–`_6` on every apply).
+
+Checks: tests 162/162, check_cards OK, `stats_add --selftest` 994/0, entry counts `.txt`/`.stats` +1 Interrupt, +5
+Shout, +8 Target, +5 Status_BOOST, no repeated field in any table. **Owner:** compile the Story (two goals changed).
+
+### Probes (one rule each)
+
+| # | Do | Proves it works |
+|---|---|---|
+| P8 | Before *Overloaded* | Emotional Overload is greyed out |
+| P10 | Load a save; end a combat with some Overload; reach 0 | The meter shows at 0% (no number) and between combats; *Overloaded* survives the end of a combat |
+| P11 | Emotional Contagion on an enemy with a mood, enemies around it | Every creature within 6 m gets the same mood, again next turn; nobody saves. **If nobody gets it:** the aura reads the caster, not the bearer — say so |
+| P12 | Heartstring an enemy with a mood (hover the mood before and after) | Psychic damage on a failed save; the mood gains 2 turns |
+| P13 | Temper: Left / Right on a creature with a mood | The mood becomes its neighbour (see the tooltip list) with the same turns left; an enemy can save; no feeling or Catharsis appears |
+| P14 | Read the Room out of combat | Advantage on Insight and Persuasion; the spell is greyed out in combat |
+| P15 | Ready: Compassion, then an enemy hits an ally within 9 m | You are asked to react; the ally gets Weave Surge: Trust (or its reaction, if it had a mood); once per round |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

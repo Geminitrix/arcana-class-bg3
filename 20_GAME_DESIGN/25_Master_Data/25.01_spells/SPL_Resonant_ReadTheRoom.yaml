@@ -1,0 +1,8 @@
+id: SPL_Resonant_ReadTheRoom
+kind: spell
+subclass: Resonant
+ticket: ARC-0002
+design: "21.04/Resonant/2026-10-11-resonant-design.md §7.5"
+balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
+values:
+  duration: { value: 10, unit: turns, note: "Concentration, out of combat" }

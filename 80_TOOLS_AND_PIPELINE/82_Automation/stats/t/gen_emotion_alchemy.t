@@ -45,7 +45,8 @@ none('each Surge: 1 base case + 7 reactions + 3 Catharsis functors', grep { (() 
 my $p = Alchemy::build_engine_patch();
 my @entries = $p =~ /^new entry "([^"]+)"/mg;
 my %defined = map { $_ => 1 } @entries;
-is_deeply([map { my $re = $_; scalar grep { /$re/ } @entries } qr/^Target_Arcana_Card_Spell_Emotion/, qr/^MOOD_/, qr/^FEELING_(?!.*_TECH$|DISAPPROVED$)/, qr/^EMOTION_/],
+my $surge_re = '^Target_Arcana_Card_Spell_Emotion(?:' . join('|', @W) . ')$';
+is_deeply([map { my $re = $_; scalar grep { /$re/ } @entries } qr/$surge_re/, qr/^MOOD_/, qr/^FEELING_(?!.*_TECH$|DISAPPROVED$)/, qr/^EMOTION_/],
     [8, 8, 24, 16], '8 Surges, 8 moods, 24 feelings, 16 emotions');
 my %dup; $dup{$_}++ for @entries;
 none('no duplicate entry', grep { $dup{$_} > 1 } sort keys %dup);
@@ -108,6 +109,8 @@ is_deeply([sort map { "$_->[0]|$_->[1]" } Alchemy::removals($have, $new)],
     'removals: old entries and moved statuses go; current Surges, their variants and statuses stay');
 my %all = map { my $e = $_; map { (Alchemy::spell_id($e) . "_$_" => 'Spell_Target') } 2 .. 6 } @W;
 none('removals: no current variant is ever removed', map { $_->[1] } Alchemy::removals(\%all, {}));
+is_deeply([map { $_->[1] } Alchemy::removals({ Target_Arcana_Card_Spell_EmotionalContagion => 'Spell_Target', Target_Arcana_Card_Spell_EmotionalContagion_5 => 'Spell_Target' },
+    { Target_Arcana_Card_Spell_EmotionalContagion => 'Spell_Target' })], [], 'removals: the upcast variants of a generated card stay (Emotional Contagion)');
 
 # ---- paths after the Lumox migration
 like(Alchemy::default_out(), qr{/50_ENGINEERING/55_Implementation_Specs/_wip/Resonant$}, 'patches go to 55/_wip/Resonant');
@@ -177,7 +180,8 @@ like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the 
 like(block($p, 'RESONANT_DEBUG'), qr/Arcana_Passive_Overload.*UnlockSpell\(Target_Arcana_Created_EmotionalOverload\)/s, 'DEBUG grants the passive and the ultimate');
 my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
 like($eo, qr/"UseCosts" "ActionPoint:1"\n/, 'Emotional Overload: an action, no slot or Thread (R22)');
-like($eo, qr/HasStatus\('RESONANT_OVERLOAD_FULL', ?context\.Source\)/, 'only with the meter full');
+like($eo, qr/^data "RequirementConditions" "HasStatus\('RESONANT_OVERLOAD_FULL'\)"$/m, 'only while Overloaded: greyed out until then (P8, vanilla HasStatus(\'SG_Rage\'))');
+unlike($eo, qr/^data "TargetConditions" "[^"]*RESONANT_OVERLOAD_FULL/m, 'the Overloaded check is not a target condition (P8)');
 unlike($eo, qr/"SpellRoll"/, 'no saving throw');
 is(scalar(() = $eo =~ /IF\(HasStatus\('FEELING_\w+'\)\):DealDamage\(1d6,Psychic,Magical\)/g), 24, '1d6 Psychic per feeling, all 24');
 like($eo, qr/ApplyStatus\(PARALYZED,100,2\)/, 'Paralysed 2 turns (vanilla PARALYZED)');
@@ -223,5 +227,80 @@ like($g, qr/_Pct < 1\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_ShowPct\(_Resona
 
 # ---- a duplicated field makes the Toolkit drop the rest of the table (2026-10-12: RESONANT_OVERLOAD_SPENT_TECH)
 none('no entry repeats a field', map { my ($n, $b) = @$_; my %c; $c{$_}++ for $b =~ /^data "(\w+)"/mg; (grep { $c{$_} > 1 } keys %c) ? $n : () } map { [/^new entry "([^"]+)"/, $_] } split /\n(?=new entry )/, $p);
+
+# ---- stage 3.0b (R32): the meter always shows, at 0% too
+like($g, qr/PROC_ARCANA_Resonant_Overload_ShowEmpty\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_Overload", 1\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_Overload\(_Resonant, _\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_OverloadFull\(_Resonant\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_OVERLOAD", -1\.0, 1, _Resonant\);/, 'an empty meter is a permanent status with no number');
+like($g, qr/SavegameLoaded\(\)\r?\nAND\r?\nDB_Players\(_Resonant\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_ShowEmpty\(_Resonant\);/, 'every player Resonant shows the meter after a load');
+none('the meter also appears on level up, on joining the party and on entering a combat',
+    grep { $g !~ /IF\r?\n\Q$_\E\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_ShowEmpty\(_Resonant\);/ } 'LeveledUp(_Resonant)', 'CharacterJoinedParty(_Resonant)', 'EnteredCombat((CHARACTER)_Resonant, _)');
+like($g, qr/PROC_ARCANA_Resonant_Overload_Reset\(\(CHARACTER\)_Resonant\)\r?\nTHEN\r?\nRemoveStatus\(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant\);\r?\nPROC_ARCANA_Resonant_Overload_ShowEmpty\(_Resonant\);/, 'a reset shows the empty meter instead of removing it');
+
+# ---- stage 3.1: Heartstring (cantrip, the Deceiver cantrip's pattern: Malicious Whispers)
+my $hs = block($p, 'Target_Arcana_Card_Spell_Heartstring');
+like($hs, qr/^data "Level" "0"$/m, 'Heartstring is a cantrip');
+like($hs, qr/^data "UseCosts" "ActionPoint:1"$/m, 'Heartstring: an action, no slot');
+like($hs, qr/^data "TargetRadius" "18"$/m, 'Heartstring range from 25');
+like($hs, qr/^data "SpellRoll" "not SavingThrow\(Ability\.Wisdom, SourceSpellDC\(\)\)"$/m, 'Heartstring: Wisdom save');
+like($hs, qr/DealDamage\(LevelMapValue\(D4Cantrip\),Psychic,Magical\)/, 'Heartstring: Psychic that scales like vanilla cantrips');
+is(scalar(() = $hs =~ /IF\(HasStatus\('(MOOD_\w+)'\)\):SetStatusDuration\(\1,2,Add\)/g), 8, 'a mood on the target lasts 2 turns longer (vanilla SetStatusDuration ... Add)');
+
+# ---- stage 3.2: Temper (Bonus Action only, R34)
+my $tp = block($p, 'Target_Arcana_Card_Spell_Temper');
+like($tp, qr/^data "ContainerSpells" "Target_Arcana_Card_Spell_Temper_Left;Target_Arcana_Card_Spell_Temper_Right"$/m, 'Temper: a container, Left and Right');
+like($tp, qr/^data "UseCosts" "BonusActionPoint:1"$/m, 'Temper costs only the bonus action (R34)');
+like($tp, qr/^data "SpellFlags" "[^"]*IsLinkedSpellContainer/m, 'Temper: linked container (the mod\'s Mimic)');
+like($tp, qr/^data "SpellRoll" "Ally\(\) or Self\(\) or not SavingThrow\(Ability\.Wisdom, SourceSpellDC\(\)\)"$/m, 'Temper: non-allies roll Wisdom');
+none('Temper: each side uses the container and hands its turn to Osiris', grep { my $b = block($p, "Target_Arcana_Card_Spell_Temper_$_");
+    $b !~ /^using "Target_Arcana_Card_Spell_Temper"$/m || $b !~ /^data "SpellContainerID" "Target_Arcana_Card_Spell_Temper"$/m
+    || $b !~ /ApplyStatus\(RESONANT_TEMPER_\U$_\E_TECH,100,0\)/ } qw(Left Right));
+none('Temper never causes a reaction (R7)', grep { block($p, $_) =~ /EMOTION_|FEELING_|CATHARSIS/ } map { "Target_Arcana_Card_Spell_Temper$_" } '', '_Left', '_Right');
+my $tg = Alchemy::temper_goal();
+is(scalar(() = $tg =~ /DB_ARCANA_Resonant_TemperStep\("(?:LEFT|RIGHT)", "MOOD_\w+", "MOOD_\w+"\);/g), 16, 'Temper: 8 moods x 2 directions');
+like($tg, qr/DB_ARCANA_Resonant_TemperStep\("LEFT", "MOOD_SERENE", "MOOD_INTERESTED"\);/, 'left of Serene (Joy) is Interested (Anticipation): the wheel wraps');
+like($tg, qr/DB_ARCANA_Resonant_TemperStep\("RIGHT", "MOOD_SERENE", "MOOD_ACCEPTING"\);/, 'right of Serene is Accepting');
+like($tg, qr/GetStatusTurns\(_Target, _From, _Turns\)/, 'Temper reads the remaining turns');
+like($tg, qr/IntegerProduct\(_Turns, 6, _Secs\)\r?\nAND\r?\nIntegerToReal\(_Secs, _Dur\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_TemperPending\(_Target, _From, _To, _Turns\);\r?\nRemoveStatus\(_Target, _From, _Resonant\);\r?\nApplyStatus\(_Target, _To, _Dur, 1, _Resonant\);/, 'the new mood keeps the remaining turns');
+unlike($tg, qr/[^\x00-\x7F]/, 'Temper goal: ASCII only');
+like($tg, qr/\r\n/, 'Temper goal: CRLF');
+
+# ---- stage 3.3: Read the Room (utility, out of combat)
+my $rr = block($p, 'Shout_Arcana_Util_ReadTheRoom');
+like($rr, qr/^data "Requirements" "!Combat"$/m, 'Read the Room: out of combat only (the Util family)');
+like($rr, qr/^data "SpellFlags" "[^"]*IsConcentration/m, 'Read the Room: Concentration');
+like($rr, qr/ApplyStatus\(RESONANT_READ_THE_ROOM,100,10\)/, 'Read the Room: 10 turns from 25');
+like(block($p, 'RESONANT_READ_THE_ROOM'), qr/"Boosts" "Advantage\(Skill,Insight\);Advantage\(Skill,Persuasion\)"/, 'Advantage on Insight and Persuasion');
+
+# ---- stage 3.4: Ready: Compassion (the mod's Which One: card -> READY status -> interrupt; Hellish Rebuke's UseSpell)
+my $cc = block($p, 'Shout_Arcana_Card_Passive_Compassion');
+like($cc, qr/^data "Level" "3"$/m, 'Compassion: a level 3 card (R34)');
+like($cc, qr/^data "UseCosts" "SpellSlotsGroup:1:1:3"$/m, 'Compassion: pays a level 3 slot');
+like($cc, qr/^data "Requirements" "Combat"$/m, 'Compassion: in combat');
+like($cc, qr/^data "RequirementConditions" "not HasStatus\('ARCANA_WEAVING',context\.Source\) and not HasStatus\('COMPASSION_READY',context\.Source\)"$/m, 'Compassion: unique while ready');
+like($cc, qr/ApplyStatus\(SELF,COMPASSION_READY,100,-1\)/, 'Compassion: ready until the combat ends');
+my $cr = block($p, 'COMPASSION_READY');
+like($cr, qr/"Boosts" "UnlockInterrupt\(Interrupt_Arcana_Reaction_Compassion\)"/, 'ready: unlocks the reaction');
+like($cr, qr/"RemoveEvents" "OnCombatEnded"/, 'ready: ends with the combat');
+my $ci = block($p, 'Interrupt_Arcana_Reaction_Compassion');
+like($ci, qr/"InterruptContext" "OnCastHit"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/, 'Compassion: when a nearby creature is hit');
+like($ci, qr/Ally\(context\.Target,context\.Observer\) and not Self\(context\.Target,context\.Observer\).*not DistanceToEntityGreaterThan\(9, context\.ObserverPosition, context\.Target\)/, 'an ally within 9 m (25)');
+like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true\)"/, 'casts Weave Surge: Trust on it');
+like($ci, qr/"Cost" "ReactionActionPoint:1"/, 'once per round: the reaction');
+like($lt{'HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC'} // '', qr/<LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust<\/LSTag>/, 'the card links the Surge as a spell');
+
+# ---- stage 3.5: Emotional Contagion (R33: a mood aura)
+my $ec = block($p, 'Target_Arcana_Card_Spell_EmotionalContagion');
+like($ec, qr/^data "Level" "3"$/m, 'Contagion: a level 3 card (R34)');
+like($ec, qr/^data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:3"$/m, 'Contagion: an action and a level 3 slot');
+like($ec, qr/^data "SpellFlags" "[^"]*IsConcentration/m, 'Contagion: Concentration');
+unlike($ec, qr/"SpellRoll"/, 'Contagion: no saving throw (R33)');
+like($ec, qr/ApplyStatus\(RESONANT_CONTAGION,100,10\)/, 'Contagion: 10 turns from 25');
+my $ca = block($p, 'RESONANT_CONTAGION');
+like($ca, qr/"AuraRadius" "6"/, 'Contagion: 6 m aura from 25');
+is(scalar(() = $ca =~ /IF\(not Self\(\) and HasStatus\('(MOOD_\w+)', context\.Source\)\):ApplyStatus\(\1,100,1\)/g), 8, 'the aura copies the bearer\'s mood, one branch per mood, renewed each turn');
+
+# ---- stage 3: the new cards carry the card mark; the new shown statuses show on the character
+none('new cards carry the card mark', grep { block($p, $_) !~ /not HasPassive\('ARCANA_IS_CARD', context\.Source\)/ }
+    qw(Target_Arcana_Card_Spell_Heartstring Target_Arcana_Card_Spell_Temper Target_Arcana_Card_Spell_EmotionalContagion Shout_Arcana_Card_Passive_Compassion));
+none('new shown statuses are ForceOverhead', grep { block($p, $_) !~ /"StatusPropertyFlags" "[^"]*ForceOverhead/ } qw(COMPASSION_READY RESONANT_CONTAGION RESONANT_READ_THE_ROOM));
 
 done_testing();
