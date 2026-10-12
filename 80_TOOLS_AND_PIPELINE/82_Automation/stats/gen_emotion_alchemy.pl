@@ -95,7 +95,8 @@ our %EMO = (
         flavour => "Steady an ally with a thread of trust.",
         effect  => "The target stands shoulder to shoulder with its allies, sharing the blows meant for them.",
         # R27: shoulder to shoulder -- a reaction that shares a hit aimed at a nearby ally (Interrupt_Arcana_TrustShoulder)
-        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_TrustShoulder)',
+        peak    => { boosts => 'UnlockInterrupt(Interrupt_Arcana_TrustShoulder)', tick => 'StartTurn',
+                     extra => { StatusPropertyFlags => 'TickingWithSource' },   # P2: counts on the Resonant's turn, like Anticipation
                      params => 'Distance(' . master('STA_Resonant_Peaks', 'trust_shoulder_range')->{value} . ')',
                      text => 'Shoulder to shoulder: when an ally within [1] is hit by an attack, it can use its reaction to share the blow. The ally is Resistant to it, and it takes the same damage.' },
         mood    => { name => 'Accepting', fx => 'with a +1 bonus to Armour Class', boosts => 'AC(1)',
@@ -148,12 +149,12 @@ our %EMO = (
         flavour => "Set a red thread of fury alight in a creature's mind.",
         effect  => "The target bears a grudge: it attacks the last creature that hurt it, or the nearest one if nobody has.",
         # R26: the grudge (or the fallback) is applied by Osiris (ARCANA_Resonant_Grudge), never both
-        peak    => { boosts => 'ActionResourceBlock(ReactionActionPoint)',
+        peak    => { boosts => undef,   # P4: keeps its reaction, so it still makes opportunity attacks
                      text => 'Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has.',
                      extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat', StatusGroups => 'SG_Condition' } },
         mood    => { name => 'Annoyed', fx => 'with its Armour Class reduced by 1', boosts => 'AC(-1)',
                      text => 'Armour Class reduced by 1.' },
-        intense => { name => 'Rage', boosts => 'ActionResourceBlock(ReactionActionPoint);Advantage(AttackRoll);Advantage(AttackTarget)',
+        intense => { name => 'Rage', boosts => 'Advantage(AttackRoll);Advantage(AttackTarget)',
                      text => 'Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has, with Advantage. Attacks against it also have Advantage.',
                      extra => { StatusPropertyFlags => 'InitiateCombat;BringIntoCombat', StatusGroups => 'SG_Condition' } } },
     Anticipation => { side => 'A', icon => 'Spell_Transmutation_Longstrider',
@@ -512,7 +513,7 @@ sub reaction_list {
         push @lines, "$head: " . join(', ', map { my $r = reaction($s, $_);
             st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag($r->{status}, result_name($s, $_, $r)) } @m) . '.';
     }
-    join '<br>', @lines;
+    join('<br>', @lines) . '<br><br>Any reaction gives back the spell slot this surge used. Once per turn.';   # R16, where players read it
 }
 
 sub build_spells {

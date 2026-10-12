@@ -95,7 +95,7 @@ none('status text on one line', grep { $lt{$_} =~ /<br>/ } grep { /^HW_(?:EMOTIO
 none('Surge text: flavour, effect, then the mood; one line per kind of reaction, 8 reactions', map {
     my $id = uc Alchemy::spell_id($_); my $mood = $Alchemy::EMO{$_}{mood}{name}; my $x = $lt{"HW_${id}_EXTRA"};
     ($lt{"HW_${id}_DESC"} =~ /^[^.]+\. The target\b.*<br><br>When the surge fades, it leaves the target <LSTag[^>]*>$mood<\/LSTag> for 5 turns, /
-     && join(',', map { /^(\w+)/ } split /<br>/, $x) eq 'Primary,Secondary,Tertiary,Catharsis,Intense'
+     && join(',', map { /^(\w+)/ } split /<br>/, $x) eq 'Primary,Secondary,Tertiary,Catharsis,Intense,Any'
      && (() = $x =~ / into /g) == 8) ? () : $_ } @W);
 
 # ---- removals() keeps the upcast variants of the current Surges (synthetic data, no game files)
@@ -162,5 +162,10 @@ like(block($p, 'RESONANT_TRUST_SHOULDERED'), qr/Resistance\(All, Resistant\);Red
 unlike($p, qr/^new entry "Interrupt_Arcana_TrustFollowUp"/m, 'the follow-up interrupt is no longer generated');
 is_deeply([map { "$_->[0]|$_->[1]" } Alchemy::removals({ Interrupt_Arcana_TrustFollowUp => 'Interrupt', Interrupt_Arcana_Other => 'Interrupt' }, {})],
     ['Interrupt|Interrupt_Arcana_TrustFollowUp'], 'removals: the retired follow-up goes, other interrupts stay');
+
+# ---- stage 1c: re-test fixes
+like($pk->('Trust'), qr/"TickType" "StartTurn".*"StatusPropertyFlags" "[^"]*TickingWithSource/s, 'Trust lasts until your next turn (P2)');
+none('Anger and Rage keep their reaction (opportunity attacks, P4)', grep { $pk->($_) =~ /ActionResourceBlock\(ReactionActionPoint\)/ } qw(Anger Rage));
+none('every Surge tooltip tells the refund', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') !~ /<br><br>Any reaction gives back the spell slot this surge used\. Once per turn\.$/ } @W);
 
 done_testing();
