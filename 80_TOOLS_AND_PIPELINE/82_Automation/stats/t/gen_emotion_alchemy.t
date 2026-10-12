@@ -39,7 +39,7 @@ like($f[0], qr/^IF\(not \(.*:ApplyStatus\(EMOTION_FEAR,100,1\)$/, 'first functor
 is(scalar(() = $f[0] =~ /HasStatus\('MOOD_/g), 8, 'the no-reaction case checks all 8 moods');
 like($ss, qr/IF\(HasStatus\('MOOD_SERENE'\) and HasPassive\('Arcana_Passive_ComplexFeelings', context\.Source\)\):ApplyStatus\(FEELING_GUILT,100,2\)/, 'a gated reaction');
 like($ss, qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\).*RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\).*ApplyStatus\(CATHARSIS,100,0\)$/, 'Catharsis harms, heals, then clears the moods last');
-none('each Surge: 1 base case + 7 reactions + 3 Catharsis functors', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 11 } @W);
+none('each Surge: 1 base case + 7 reactions + 3 Catharsis functors', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 12 } @W);
 
 # ---- the whole patch
 my $p = Alchemy::build_engine_patch();
@@ -125,5 +125,16 @@ like($lm, qr/<attribute id="Level9" type="LSString" value="3d8"\/>/, 'level 9: 3
 like($lm, qr/<attribute id="Level10" type="LSString" value="4d8"\/>/, 'level 10: 4d8');
 like($lm, qr/value="Catharsis_Damage".*value="$Alchemy::CATHARSIS_MAP_UUID"/s, 'name and fixed UUID');
 like(Alchemy::spell_success('Fear'), qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\)/, 'Catharsis damage reads the map');
+
+# ---- refund (R16): the second functor fires on any reaction, before a reaction spends the mood
+my @ff = split /;(?=IF\()/, Alchemy::spell_success('Joy');
+like($ff[1], qr/^IF\(\(HasStatus\('MOOD_.*\)\):ApplyStatus\(SELF,RESONANT_REFUND_TECH,100,0\)$/, 'refund comes right after the base case');
+is(scalar(() = $ff[1] =~ /HasStatus\('MOOD_/g), 8, 'refund condition covers the 8 moods');
+my $rf = block($p, 'RESONANT_REFUND_TECH');
+is(scalar(() = $rf =~ /RestoreResource\(SELF,ArcanaSpellSlot,1,\d\)/g), 6, 'one slot refund per slot level 1-6');
+like($rf, qr/ApplyStatus\(SELF,RESONANT_REFUND_USED,100,1\)"$/m, 'the used flag is set last');
+none('every slot refund is guarded by the used flag', grep { !/not HasStatus\('RESONANT_REFUND_USED'\)/ } $rf =~ /(IF\([^:]*\):RestoreResource)/g);
+
+like(join(' ', map { $lt{$_} } grep { /EMOTIONALALCHEMY_DESC$/ } keys %lt), qr/you regain the spell slot it used\. Once per turn\./, 'Emotional Alchemy explains the refund');
 
 done_testing();

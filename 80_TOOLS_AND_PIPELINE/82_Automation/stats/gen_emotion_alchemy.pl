@@ -262,10 +262,22 @@ sub cond_of { my $r = shift; my $c = "HasStatus('$r->{mood}')";
     $r->{gate} ? "$c and HasPassive('$r->{gate}', context.Source)" : $c }
 
 # SpellSuccess: the "no reaction" case comes FIRST, before any functor spends a mood (risk R1).
+sub refund_functors {   # R16: the slot level per class level, as Arcana_Passive_ArcaneOverflow (mod Passive.txt)
+    my @br = ([1, undef, 3], [2, 3, 5], [3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
+    my @f = map { my ($slot, $lo, $hi) = @$_;
+        my @c = ("not HasStatus('RESONANT_REFUND_USED')");
+        push @c, "ClassLevelHigherOrEqualThan($lo,'Arcana')" if $lo;
+        push @c, "not ClassLevelHigherOrEqualThan($hi,'Arcana')" if $hi;
+        'IF(' . join(' and ', @c) . "):RestoreResource(SELF,ArcanaSpellSlot,1,$slot)" } @br;
+    join ';', @f, "IF(not HasStatus('RESONANT_REFUND_USED')):RestoreResource(SELF,ArcanaThread,1,0)",
+              'ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)';
+}
 sub spell_success {
     my $s = shift;
     my @r = map { reaction($s, $_) } @WHEEL;
     my @f = ('IF(' . join(' and ', map { 'not (' . cond_of($_) . ')' } @r) . '):ApplyStatus(' . peak_id($s) . ',100,1)');
+    # R16: any reaction refunds the Surge's slot -- placed before any reaction spends the mood
+    push @f, 'IF(' . join(' or ', map { '(' . cond_of($_) . ')' } @r) . '):ApplyStatus(SELF,RESONANT_REFUND_TECH,100,0)';
     for my $r (grep { $_->{kind} ne 'catharsis' } @r) {
         my $turns = $r->{kind} eq 'intensify' ? 1 : $FEELING_TURNS;
         push @f, 'IF(' . cond_of($r) . "):ApplyStatus($r->{status},100,$turns)";
@@ -393,6 +405,8 @@ sub build_statuses {
         'Spell_Enchantment_Bane', 'I', { boosts => 'Disadvantage(AttackRoll)', stack => 'FEELING_DISAPPROVED' });
     push @out, hidden_status('FEELING_REMORSE_TECH', 'Remorse', 'OnApplyFunctors', 'DealDamage(1d6,Psychic,Magical)');
     push @out, hidden_status('FEELING_MORBIDNESS_TECH', 'Morbidness', 'OnApplyFunctors', 'RegainHitPoints(1d6)');
+    push @out, hidden_status('RESONANT_REFUND_TECH', 'Refund', 'OnApplyFunctors', refund_functors());
+    push @out, hidden_status('RESONANT_REFUND_USED', 'Refund used', 'TickType', 'StartTurn');
     push @out, status_entry('CATHARSIS', 'Catharsis',
         'Opposing emotions, snapped at once. Every mood is spent.',
         'Spell_Enchantment_CalmEmotions', 'mood', { stack => 'CATHARSIS',
@@ -410,7 +424,7 @@ sub build_passives {
     my $love = st_tag('FEELING_LOVE', 'Love'); my $catharsis = st_tag('CATHARSIS', 'Catharsis');
     my $out = '';
     $out .= passive('Arcana_Passive_EmotionalAlchemy', 'Emotional Alchemy',
-        "When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as $love, that lasts $FEELING_TURNS turns.<br><br>Opposing emotions snap into $catharsis: an enemy takes [1] and an ally regains [2].",
+        "When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as $love, that lasts $FEELING_TURNS turns.<br><br>Opposing emotions snap into $catharsis: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.",
         'Spell_Enchantment_CalmEmotions', DescriptionParams => "DealDamage($CATHARSIS_DICE,Psychic);RegainHitPoints($CATHARSIS_DICE)");
     $out .= passive('Arcana_Passive_EmpathicSight', 'Empathic Sight',
         tag_terms('You read the threads of feeling in others. You have Advantage on Insight checks.'),
