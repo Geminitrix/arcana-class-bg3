@@ -3,32 +3,87 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-//REGION Resonant - Anger and Rage attack whoever hurt them last (spec 5.1, R17, R23)
+//REGION Resonant - remember who last hurt each creature during the fight (R26)
 IF
 AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
 AND
-HasActiveStatus(_Defender, "EMOTION_ANGER", 1)
+DB_Resonant_LastAttacker(_Defender, _Old)
 THEN
-ApplyStatus(_Defender, "RESONANT_GRUDGE", -1.0, 1, _AttackerOwner);
+NOT DB_Resonant_LastAttacker(_Defender, _Old);
 
 IF
 AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
+THEN
+DB_Resonant_LastAttacker(_Defender, _AttackerOwner);
+PROC_Resonant_Grudge_Refresh(_Defender);
+
+IF
+CombatEnded(_)
+AND
+DB_Resonant_LastAttacker(_Defender, _Attacker)
+THEN
+NOT DB_Resonant_LastAttacker(_Defender, _Attacker);
+//END_REGION
+
+//REGION Resonant - Anger and Rage: the grudge on the last attacker, or the fallback, never both (R26)
+PROC
+PROC_Resonant_Grudge_Start((GUIDSTRING)_Defender, (GUIDSTRING)_Resonant)
+AND
+DB_Resonant_LastAttacker(_Defender, _Attacker)
+THEN
+RemoveStatus(_Defender, "RESONANT_ANGER_FALLBACK", _Defender);
+ApplyStatus(_Defender, "RESONANT_GRUDGE", -1.0, 1, _Attacker);
+
+PROC
+PROC_Resonant_Grudge_Start((GUIDSTRING)_Defender, (GUIDSTRING)_Resonant)
+AND
+NOT DB_Resonant_LastAttacker(_Defender, _)
+THEN
+ApplyStatus(_Defender, "RESONANT_ANGER_FALLBACK", -1.0, 1, _Resonant);
+
+PROC
+PROC_Resonant_Grudge_Refresh((GUIDSTRING)_Defender)
+AND
+HasActiveStatus(_Defender, "EMOTION_ANGER", 1)
+THEN
+PROC_Resonant_Grudge_Start(_Defender, _Defender);
+
+PROC
+PROC_Resonant_Grudge_Refresh((GUIDSTRING)_Defender)
 AND
 HasActiveStatus(_Defender, "EMOTION_RAGE", 1)
 THEN
-ApplyStatus(_Defender, "RESONANT_GRUDGE", -1.0, 1, _AttackerOwner);
+PROC_Resonant_Grudge_Start(_Defender, _Defender);
+
+PROC
+PROC_Resonant_Grudge_Clear((GUIDSTRING)_Defender)
+THEN
+RemoveStatus(_Defender, "RESONANT_GRUDGE", _Defender);
+RemoveStatus(_Defender, "RESONANT_ANGER_FALLBACK", _Defender);
+
+IF
+StatusApplied(_Defender, "EMOTION_ANGER", _Resonant, _)
+THEN
+PROC_Resonant_Grudge_Start(_Defender, _Resonant);
+
+IF
+StatusApplied(_Defender, "EMOTION_RAGE", _Resonant, _)
+THEN
+PROC_Resonant_Grudge_Start(_Defender, _Resonant);
 
 IF
 StatusRemoved(_Defender, "EMOTION_ANGER", _, _)
 AND
 HasActiveStatus(_Defender, "EMOTION_RAGE", 0)
 THEN
-RemoveStatus(_Defender, "RESONANT_GRUDGE", _Defender);
+PROC_Resonant_Grudge_Clear(_Defender);
 
 IF
 StatusRemoved(_Defender, "EMOTION_RAGE", _, _)
+AND
+HasActiveStatus(_Defender, "EMOTION_ANGER", 0)
 THEN
-RemoveStatus(_Defender, "RESONANT_GRUDGE", _Defender);
+PROC_Resonant_Grudge_Clear(_Defender);
 //END_REGION
 EXITSECTION
 

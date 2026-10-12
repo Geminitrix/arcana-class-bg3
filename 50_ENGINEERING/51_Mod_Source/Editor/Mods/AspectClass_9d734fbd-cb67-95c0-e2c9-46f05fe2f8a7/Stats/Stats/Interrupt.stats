@@ -45,16 +45,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d422d934-8e20-da53-d29c-8e34afe072f7" />
-        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_TrustFollowUp" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h99e5926dg0dcegca5fgc0ceg463903a2c8bd" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7fbf4e05g1a31gd605g791agc17021bd216f" version="1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6e9029ee-7f34-e192-1cf0-d17876d95d59" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_TrustShoulder" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="heb4e6df0g8356ga7a5gcbacgb6d34d30f9d8" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5ecd49f9gf868g1332gabf7g999ee3be8cd5" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
-        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnCastHit" enumeration_type_name="InterruptContext" version="1" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnPreDamage" enumeration_type_name="InterruptContext" version="1" />
         <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Nearby" enumeration_type_name="InterruptContextScope" version="1" />
         <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Ally(context.Source,context.Observer) and not Self(context.Source,context.Observer) and Enemy(context.Target,context.Observer) and IsHit() and not AnyEntityIsItem()" />
-        <field name="Properties" type="StringTableFieldDefinition" value="UseAttack()" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and IsAttack() and HasDamageEffectFlag(DamageFlags.Hit) and not DistanceToEntityGreaterThan(3, context.ObserverPosition, context.Target) and not AnyEntityIsItem()" />
+        <field name="Properties" type="StringTableFieldDefinition" value="ApplyStatus(OBSERVER_TARGET,RESONANT_TRUST_SHOULDERED,100,1)" />
         <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
         <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
       </fields>

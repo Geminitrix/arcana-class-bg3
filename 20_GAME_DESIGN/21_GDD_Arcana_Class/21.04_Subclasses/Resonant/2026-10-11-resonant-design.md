@@ -5,7 +5,7 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R24 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
+> decisions R1–R28 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
 > `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
@@ -114,7 +114,7 @@ cost of feeling others' pain) is the Overload.
 | **Play style** | Lay emotions, read the moods they leave, then pour the right second emotion. The decision of each turn: *which emotion, on whom, on top of what?* |
 | **Combat style** | Back line, at range (18 m). Turn 1: a Surge whose peak changes behaviour now. Turn 2: the reaction. From level 3 a Surge and a Temper share a turn |
 | **Strengths** | Control from level-1 spells · one spell is both buff and debuff, more targets with every slot level · allies never roll against the Resonant |
-| **Weaknesses** | Needs a turn of setup · enemies resist with Wisdom saves · creatures with Intelligence 4 or lower feel nothing · the Overload hurts if it is held too long |
+| **Weaknesses** | Needs a turn of setup · enemies resist with Wisdom saves · constructs feel nothing · the Overload hurts if it is held too long |
 | **Colour** | Coral `#bd4f2b` (light) / `#f39a78` (dark) |
 | **Emoji / Aspect VFX** | 🌈 · VFX: each emotion in its own colour (the spectrum) |
 
@@ -202,7 +202,7 @@ failed save causes no reaction and refunds nothing.
 - Without a mood: Joy, Trust and Anticipation only on allies (or yourself); the other five only on
   non-allies.
 - A **Wisdom** save only when the target is a non-ally. Allies never roll.
-- All require `IntelligenceGreaterThan(4)` (an emotion needs a mind).
+- None works on a **construct** (`not Tagged('CONSTRUCT')`, R25): everything else that lives feels.
 
 ### 4.7 Who causes reactions (R7)
 
@@ -230,16 +230,16 @@ different type lives in its own file and inherits from a vanilla parent with `us
 
 | Peak | | What the creature does | To test |
 |---|---|---|---|
-| **Joy** | A | **Contagious:** allies near it gain Advantage on their next attack | Aura status |
-| **Trust** | A | **Follows your lead:** when you or an ally attacks a creature, it can use its reaction to attack the same target | Interrupt — **T2** |
-| **Anticipation** | A | **On guard:** when an enemy enters its reach, it attacks first | Interrupt on movement — **T2** |
+| **Joy** | A | **Contagious:** it and its allies near it gain Advantage on their next attack (R28) | Aura status — passed P1 |
+| **Trust** | A | **Shoulder to shoulder:** when an ally near it is hit by an attack, it can use its reaction to share the blow — the ally is Resistant to it, and it takes the same damage (R27, Warding Bond boosts) | Interrupt before the damage — **T2** |
+| **Anticipation** | A | **On guard:** when an enemy enters its reach, it attacks first; lasts until your next turn (R28) | Interrupt on movement — **T2** |
 | **Fear** | I | **Frozen with fear:** Frightened of you (vanilla type). Fleeing belongs to Terror | Vanilla |
 | **Surprise** | I | **Caught off guard:** loses its reaction; the first attack against it has Advantage | — |
 | **Sadness** | I | **Lets go:** loses Concentration and its Bonus Action | `BreakConcentration()` |
 | **Disgust** | I | **Recoils:** moves away from the nearest creature and makes no melee attacks | Melee block — **T2** |
-| **Anger** | I | **Grudge:** attacks the last creature that hurt it | Osiris tracks the last attacker — **T2** |
+| **Anger** | I | **Grudge:** attacks the last creature that hurt it during the fight, or the nearest one if nobody has — never both (R26) | Osiris tracks the last attacker — **T2** |
 
-Each **T2** row gets a plan B if the test fails: Trust → its current +2 AC and Advantage on saves;
+Each **T2** row gets a plan B if the test fails: Trust → +2 AC and Advantage on saves;
 Anticipation → +1 reaction and doubled movement; Disgust → no action; Anger → attacks the nearest
 creature other than you.
 
@@ -267,7 +267,7 @@ creature other than you.
 | Amazement | I | **INCAPACITATED** (`using STUNNED`) | Stunned |
 | Grief | I | **INCAPACITATED** | Incapacitated, no movement |
 | Loathing | I | BOOST | No action or bonus action; Disadvantage on Attack Rolls and Ability Checks |
-| Rage | I | BOOST | **Grudge, overwhelming:** attacks the last creature that hurt it, with Advantage; attacks against it also have Advantage (R23) |
+| Rage | I | BOOST | **Grudge, overwhelming:** attacks the last creature that hurt it (or the nearest one if nobody has), with Advantage; attacks against it also have Advantage (R23) |
 
 ### 5.4 Feelings — `FEELING_*`, 2 turns
 
@@ -513,7 +513,7 @@ of §5.1.
 | **Refund** (§4.4) | In each reaction branch of the Surge's `SpellSuccess`: `RestoreResource(SELF,ArcanaSpellSlot,1,<level>)` by class level, plus `RestoreResource(SELF,ArcanaThread,1,0)`, guarded by a used-this-turn status — the pattern of `Arcana_Passive_ArcaneOverflow` (`Passive.txt`) |
 | **Overload meter** | Osiris counts peaks applied (+1) and reaction statuses applied (+2) per Resonant, as `PROC_ARCANA_Aspect_Progress` does; shows the count on `OVERLOAD`; at full applies `OVERLOAD_FULL` (TickFunctors: Psychic damage at turn start); `CombatEnded` resets |
 | **Emotional Overload** | Requirement: `HasStatus('OVERLOAD_FULL')`; removes every `FEELING_*` on the target with damage per feeling; Paralysed 2 turns; Osiris empties the meter. Tier III variant with a 6 m area filter on targets carrying the Resonant's feelings |
-| **Anger's and Rage's grudge** | Osiris records the last creature that damaged the target and points the peak (or Rage) at it — **T2** |
+| **Anger's and Rage's grudge** | Osiris (`ARCANA_Resonant_Grudge`) remembers who last hurt each creature during the fight; while angry it carries `RESONANT_GRUDGE` (TAUNTED-like, source = that attacker) or, if nobody has, `RESONANT_ANGER_FALLBACK` (Crown of Madness boosts) — never both — **T2** |
 | **Shared Heart** | `SHARED_HEART` on the linked creatures; Osiris copies a Surge's result from one linked ally to the others and counts it once — **T2** |
 | **Temper** | Removes the mood and applies its neighbour with the same remaining turns (`GetStatusTurns`) |
 
@@ -543,10 +543,10 @@ of §5.1.
 |---|---|
 | A reaction refunds | A Surge that braids a feeling gives its slot back, once per turn; a failed save gives nothing |
 | Joy's aura | Allies near the target gain Advantage on their next attack |
-| Trust's follow-up attack | When you attack an enemy, the Trusting ally gets a reaction attack on it |
-| Anticipation's guard | An enemy entering the ally's reach is attacked first |
+| Trust's shoulder | An enemy hits an ally next to the Trusting creature: it is asked to react; the ally takes half, the Trusting creature takes the same |
+| Anticipation's guard | Still active on the enemies' turns; an enemy entering the ally's reach is attacked first |
 | Disgust's recoil | The enemy moves away and makes no melee attack |
-| Anger's and Rage's grudge | The enemy attacks whoever hurt it last, even its own ally (Rage with Advantage) |
+| Anger's and Rage's grudge | Hit it with A, then B: it attacks B. Surge an enemy nobody has hurt: it attacks the nearest. Never both |
 | Overload count | Peaks add 1, reactions 2, failed saves 0; resets at combat end |
 | Overload full | Psychic damage at the start of each of the Resonant's turns |
 | Emotional Overload | Only castable at full; spends feelings, paralyses 2 turns with no save, empties the meter |

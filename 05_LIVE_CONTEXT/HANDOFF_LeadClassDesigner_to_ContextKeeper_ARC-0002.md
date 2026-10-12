@@ -58,3 +58,11 @@ once per turn (`RESONANT_REFUND_TECH` / `_USED`); Catharsis reads the level map 
 new statuses `RESONANT_JOY_CONTAGION`, `RESONANT_SURPRISE_OPENING`, `RESONANT_GRUDGE`; interrupts
 `Interrupt_Arcana_TrustFollowUp`, `Interrupt_Arcana_AnticipationGuard`; Osiris goal `ARCANA_Resonant_Grudge`
 (not compiled yet). Untested in game — probes P0–P5 pending.
+
+## 6. ARC-0002 stage 1b (game files changed, 2026-10-12)
+
+Weave Surges now skip constructs instead of creatures with Intelligence 4 or lower (R25) — the weakness
+in `05.02` changes to "constructs feel nothing". Trust: shoulder to shoulder (`Interrupt_Arcana_TrustShoulder`,
+`RESONANT_TRUST_SHOULDERED`); `Interrupt_Arcana_TrustFollowUp` removed. Anger/Rage: grudge or
+`RESONANT_ANGER_FALLBACK` via the rewritten `ARCANA_Resonant_Grudge` goal. Joy's contagion includes the
+Joyful creature; Anticipation lasts until the Resonant's next turn. Re-tests pending.

@@ -430,6 +430,21 @@ ENDEXITSECTION
 
 ---
 
+## Stage 1b — probe fixes (done 2026-10-12, `[fechado]`)
+
+From the stage-1 probes (P0 ✅, P1 ✅, P2 ❌, P3 ❌, P4 ❌, P5 not run): decisions R25–R28.
+
+| Fix | Generator / file | Verified |
+|---|---|---|
+| R25 — Surges skip constructs, no INT gate | `target_conditions` | 0 `IntelligenceGreaterThan` left in `Spell_Target.txt` |
+| R26 — Anger/Rage: grudge or fallback, never both | peaks lose the madness boosts; `RESONANT_ANGER_FALLBACK`; goal `ARCANA_Resonant_Grudge` rewritten (last attacker remembered during the fight, cleared on `CombatEnded`) | patch dry run; Story compile pending |
+| R27 — Trust shoulder to shoulder (shares the blow: Warding Bond boosts on the ally, `OnPreDamage` interrupt) | `Interrupt_Arcana_TrustShoulder`, `RESONANT_TRUST_SHOULDERED`; `Interrupt_Arcana_TrustFollowUp` removed (never published) | 1 removal in the patch |
+| R28 — Joy shares its contagion; Anticipation lasts until the Resonant's next turn | aura `IF(Ally() or Self())`; `TickingWithSource` + `StartTurn` | in game files |
+
+Generator tests 68/68; `check_cards` OK; `stats_add --selftest` 970/0.
+
+**Re-test (Owner):** compile the Story; then P2 (Trust shoulder), P3 (Anticipation on the enemies' turns), P4 (hit with A then B → it attacks B; a fresh enemy → attacks the nearest), P5 (refund: Joy on an Accepting ally → Love, one slot back).
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |
