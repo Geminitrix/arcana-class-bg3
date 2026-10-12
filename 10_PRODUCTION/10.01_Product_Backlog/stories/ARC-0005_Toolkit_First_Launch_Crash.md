@@ -23,7 +23,7 @@ created: 2026-10-12
 
 ## Acceptance criteria
 
-- [ ] The one data error the engine reports for the mod is fixed: `COMPREHEND_SUPERNATURAL` `AuraStatuses` has
+- [x] The one data error the engine reports for the mod is fixed: `COMPREHEND_SUPERNATURAL` `AuraStatuses` has
       `ApplyStatus(DETECT_SUPERNATURAL_ABERRATION,100,_1)` — `_1` must be `-1` (log: `failed to parse stats expression
       string "_1"`), in the game `.txt` and the Toolkit `.stats`.
 - [ ] Owner test: open the Toolkit, close it normally, open it again — three times. Crash or not, each time.
@@ -47,3 +47,4 @@ created: 2026-10-12
 ## Log
 
 - 2026-10-12 — investigated (read only): crash dumps, `errors.*`, `log.*`, Story, editor settings. Ticket created.
+- 2026-10-12 — `[fechado]`: `_1` → `-1` in `COMPREHEND_SUPERNATURAL` (game .txt and Toolkit .stats, one occurrence each; entry counts unchanged); selftest 992/0, check_cards OK. Waiting for the Owner's open/close/open test.
