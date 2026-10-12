@@ -114,6 +114,21 @@ D.cards = {
     ["Shout_Arcana_Created_Aspect_VeilLifts"] = { aspect = "Deceiver" },
     ["Shout_Arcana_Created_Aspect_WishUponAStar"] = { aspect = "Starchild" },
     ["Target_Arcana_Created_Aspect_FinalToll"] = { aspect = "Eternal" },
+    ["Shout_Arcana_Created_Aspect_TwoCups"] = { aspect = "Resonant" },
+
+    -- The Resonant (ARC-0002, 2026-10-12). Only what leaves the default; the eight Weave Surges and Emotional
+    -- Contagion cost their level, as any card.
+    -- Cantrip cards: 1 Thread. Temper too (R45): level 0 and a Bonus Action, free on the console, but every
+    -- level-0 card costs a Thread in combat here.
+    ["Target_Arcana_Card_Spell_Heartstring"] = { aspect = "Resonant", cost = 1 },
+    ["Target_Arcana_Card_Spell_Temper"] = { aspect = "Resonant", cost = 1 },
+    -- The capstone, once per long rest (R43): a second copy would only ever be drawn dead.
+    ["Shout_Arcana_Card_Spell_SharedHeart"] = { aspect = "Resonant", keywords = { Unique = true } },
+    -- A reaction card (see D.reactions), once a round, so Unique.
+    ["Shout_Arcana_Card_Passive_Compassion"] = { aspect = "Resonant", cost = 3, keywords = { Unique = true } },
+    -- The ultimate is a Created ability, not a card: conjured while Overloaded (D.statusConjures), no slot, no
+    -- Thread (R22) -- otherwise the lock of non-cards would keep it out of combat.
+    ["Target_Arcana_Created_EmotionalOverload"] = { aspect = "Resonant", cost = 0 },
 
     ["Shout_Arcana_Card_Spell_DEBUG_Fated"] = { keywords = { Fated = true } },
     ["Shout_Arcana_Card_Spell_DEBUG_Fleeting"] = { keywords = { Fleeting = true } },
@@ -130,6 +145,9 @@ D.statusConjures = {
     ASPECT_AWAKENED_EMPRESS_III = { id = "Shout_Arcana_Card_Passive_WhichOne", lasts = 99 },
     ASPECT_AWAKENED_STAR = { id = "Shout_Arcana_Created_Aspect_WishUponAStar", lasts = 99 },
     ASPECT_AWAKENED_DEATH = { id = "Target_Arcana_Created_Aspect_FinalToll", lasts = 99 },
+    ASPECT_AWAKENED_TEMPERANCE = { id = "Shout_Arcana_Created_Aspect_TwoCups", lasts = 99 },
+    -- the Resonant's ultimate: in hand while Overloaded; its RequirementConditions grey it out after
+    RESONANT_OVERLOAD_FULL = { id = "Target_Arcana_Created_EmotionalOverload", lasts = 99 },
 }
 
 -- Reaction cards (2026-09-30). Both editions share one rule: a reaction has a limit of uses per round,
@@ -148,6 +166,11 @@ D.reactions = {
     ["Shout_Arcana_Card_Passive_WhichOne"] = {
         ready = "WHICH_ONE_READY", resource = "ArcanaReactWhichOne",
         used = "WHICH_ONE_USED_TECH", perRound = 1,
+    },
+    -- the Resonant (ARC-0002): Weave Surge: Trust on an ally that takes damage
+    ["Shout_Arcana_Card_Passive_Compassion"] = {
+        ready = "COMPASSION_READY", resource = "ArcanaReactCompassion",
+        used = "COMPASSION_USED_TECH", perRound = 1,
     },
 }
 

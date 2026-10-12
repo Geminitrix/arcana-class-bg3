@@ -101,5 +101,14 @@
         <field name="IsHidden" type="BoolTableFieldDefinition" value="True" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ArcanaReactCompassion" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ea30fc2f-59cf-4d37-940e-e0db4fa4b595" />
+        <field name="NameFS" type="FixedStringTableFieldDefinition" value="ArcanaReactCompassion" />
+        <field name="ReplenishType" type="FixedStringTableFieldDefinition" value="Turn" />
+        <field name="IsHidden" type="BoolTableFieldDefinition" value="True" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

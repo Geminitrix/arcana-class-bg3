@@ -879,6 +879,23 @@ the usual Stats chain → `dump_progression` → `sync_data` → commit. PC prob
 | P32 | New Resonant, level 1 → 12 (console) | Spells arrive at 1 / 3 / 5 / 9 / 11 as §10; nothing left on the level-5 list from the tests |
 | P33 | PC edition: a Resonant deck | The 8 Surges, Heartstring, Temper (1 Thread), Contagion (3), Shared Heart (Unique: one copy) are cards; The Two Cups is conjured at Awakened I; Ready: Compassion arms the reaction while in hand; Emotional Overload usable while Overloaded |
 
+### Stages 5 and 6 applied (`[fechado] ARC-0002`, 2026-10-12) — done
+
+- **Stage 5:** `Shout_Arcana_Card_Spell_SharedHeart` (+ `_6`), `SHARED_HEART`, `RESONANT_SHARED_CATHARSIS`,
+  `RESONANT_SHARED_REFUND_TECH`; generated goal `ARCANA_Resonant_SharedHeart.txt` (copies, Catharsis heal, free Surge once
+  per cast); the reaction refund in `ARCANA_Resonant_Overload` skips a linked target. `refund_functors(0)` = the
+  unguarded refund.
+- **Stage 6:** `55_stage6_apply.pl` — "Resonant Level 9" (`f015022c…`) and "Resonant Level 11" (`e7063c7e…`), the
+  level 5 list back to Disgust, Anger, Emotional Overload, Selectors on the L9 / L11 rows, ActionResource
+  `ArcanaReactCompassion` (`ea30fc2f…`, as `ArcanaReactWhichOne`); Compassion's ready status gives the charge, the
+  interrupt costs it, `EnableCondition`, `COMPASSION_USED_TECH`; `CardDB.lua`: Heartstring and Temper `cost = 1`
+  (R45), Shared Heart Unique, Compassion reaction card (Unique, `D.reactions`), The Two Cups and Emotional Overload
+  conjured by `ASPECT_AWAKENED_TEMPERANCE` / `RESONANT_OVERLOAD_FULL` (a Created spell is locked in combat unless in
+  hand), `aspect = "Resonant"`. `CardDBTest.lua` covers it.
+- **6.6 left for the Owner:** the `RESONANT_DEBUG` scaffold (now redundant) stays until the Owner decides.
+- Checks: generator tests 244/244, Lua tests 134/134, check_cards OK, selftest 1011/0, +2 Shout and +4 Status_BOOST
+  on both sides, no line over 4000, no repeated field; `dump_progression` matches §10.
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

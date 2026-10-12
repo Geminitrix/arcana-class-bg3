@@ -7,6 +7,7 @@
 @loca HW_COMPASSION_READY_DESC When an ally within [1] takes damage, you can use your reaction to cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust</LSTag> on it.
 @loca HW_INTERRUPT_ARCANA_REACTION_COMPASSION_NAME Compassion
 @loca HW_INTERRUPT_ARCANA_REACTION_COMPASSION_DESC An ally within [1] took damage. Cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust</LSTag> on it.
+@loca HW_COMPASSION_USED_TECH_NAME Compassion used
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONALCONTAGION_NAME Emotional Contagion
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONALCONTAGION_DESC Let the mood of a creature spill over: every creature within [1] of it catches the same mood, and catches it again each turn. No saving throw.
 @loca HW_RESONANT_CONTAGION_NAME Emotional Contagion
@@ -67,6 +68,13 @@
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_AWAKENING_DESC Cause reactions during a fight to awaken the Aspect of Empathy until combat ends: every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 reactions to gain Resonance.<br><br>Level 7: cause 6 reactions to also gain Harmony.<br><br>Level 12: cause 15 reactions to awaken as the Aspect of Empathy.
 @loca HW_SHOUT_ARCANA_CREATED_ASPECT_TWOCUPS_NAME The Two Cups
 @loca HW_SHOUT_ARCANA_CREATED_ASPECT_TWOCUPS_DESC Pour one cup into the other. Every creature within [3] that carries a mood undergoes Catharsis at once: an enemy takes [1] and 1d8 more, an ally regains [2] and 1d8 more. Their moods are spent.
+@loca HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_NAME Shared Heart
+@loca HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC Bind your heart to your allies' until the end of the fight. You and every ally within [1] are linked: a Weave Surge on one linked creature reaches all of them, and a Weave Surge whose target is linked costs nothing.
+@loca HW_SHARED_HEART_NAME Shared Heart
+@loca HW_SHARED_HEART_DESC Linked to the Resonant's heart. A Weave Surge on any linked creature reaches every one of them.
+@loca HW_RESONANT_SHARED_CATHARSIS_NAME Catharsis
+@loca HW_RESONANT_SHARED_CATHARSIS_DESC Opposing emotions, snapped through a Shared Heart. Heals, and every mood is spent.
+@loca HW_RESONANT_SHARED_REFUND_TECH_NAME Shared Heart refund
 @loca HW_EMOTION_JOY_NAME Emotion: Joy
 @loca HW_EMOTION_JOY_DESC Surging with Joy. Its joy is contagious: it and its allies within [1] have <LSTag Tooltip="Advantage">Advantage</LSTag> on their next attack.
 @loca HW_MOOD_SERENE_NAME Mood: Serene
@@ -708,6 +716,29 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
 data "Requirements" "Combat"
 data "DamageType" "Psychic"
+
+new entry "Shout_Arcana_Card_Spell_SharedHeart"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "5"
+data "SpellSchool" "Enchantment"
+data "Cooldown" "OncePerRest"
+data "SpellProperties" "ApplyStatus(SHARED_HEART,100,-1)"
+data "AreaRadius" "18"
+data "TargetConditions" "(Ally() or Self()) and Character() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Spell_Abjuration_WardingBond"
+data "DisplayName" "{{HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_NAME}}"
+data "Description" "{{HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC}}"
+data "DescriptionParams" "Distance(18)"
+data "TooltipStatusApply" "ApplyStatus(SHARED_HEART,100,-1)"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+data "SpellAnimation" "355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+data "Requirements" "Combat"
 
 @file Status_BOOST
 @section ARCANA STATUS
@@ -1409,7 +1440,7 @@ data "DescriptionParams" "Distance(9)"
 data "Icon" "Spell_Abjuration_Sanctuary"
 data "StackId" "COMPASSION_READY"
 data "StackType" "Overwrite"
-data "Boosts" "UnlockInterrupt(Interrupt_Arcana_Reaction_Compassion)"
+data "Boosts" "UnlockInterrupt(Interrupt_Arcana_Reaction_Compassion);ActionResource(ArcanaReactCompassion,1,0)"
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "RemoveOnLongRest;ForceOverhead"
 data "StatusGroups" "SG_RemoveOnRespec"
@@ -1528,6 +1559,44 @@ data "Boosts" "UnlockSpellVariant(IsWeaveSurge(),ModifyUseCosts(Replace,ActionPo
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "ForceOverhead"
 data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "SHARED_HEART"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_SHARED_HEART_NAME}}"
+data "Description" "{{HW_SHARED_HEART_DESC}}"
+data "Icon" "Spell_Abjuration_WardingBond"
+data "StackId" "SHARED_HEART"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "IgnoreResting;ForceOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "RESONANT_SHARED_CATHARSIS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_SHARED_CATHARSIS_NAME}}"
+data "Description" "{{HW_RESONANT_SHARED_CATHARSIS_DESC}}"
+data "Icon" "Spell_Abjuration_WardingBond"
+data "StackId" "RESONANT_SHARED_CATHARSIS"
+data "TickType" "EndTurn"
+data "OnApplyFunctors" "RegainHitPoints(LevelMapValue(Catharsis_Damage));RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_ANNOYED);RemoveStatus(MOOD_INTERESTED)"
+
+new entry "RESONANT_SHARED_REFUND_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_SHARED_REFUND_TECH_NAME}}"
+data "StackId" "RESONANT_SHARED_REFUND_TECH"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);RestoreResource(SELF,ArcanaThread,1,0)"
+
+new entry "COMPASSION_USED_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_COMPASSION_USED_TECH_NAME}}"
+data "StackId" "COMPASSION_USED_TECH"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StackType" "Overwrite"
 
 @section DEBUG STATUS
 
@@ -1730,7 +1799,9 @@ data "InterruptContext" "OnCastHit"
 data "InterruptContextScope" "Nearby"
 data "Container" "YesNoDecision"
 data "Conditions" "IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan(9, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()"
-data "Properties" "UseSpell(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true)"
-data "Cost" "ReactionActionPoint:1"
+data "Properties" "UseSpell(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true);ApplyStatus(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0)"
+data "Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"
 data "InterruptDefaultValue" "Ask;Enabled"
+data "EnableCondition" "HasActionResource('ArcanaReactCompassion', 1, 0, false, false, context.Source)"
+data "EnableContext" "OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved"
 

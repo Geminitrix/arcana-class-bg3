@@ -137,6 +137,8 @@ AND
 DB_ARCANA_Resonant_Reaction(_Status)
 AND
 HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)
+AND
+HasActiveStatus(_Target, "SHARED_HEART", 0)
 THEN
 ApplyStatus(_Resonant, "RESONANT_REFUND_TECH", 0.0, 1, _Resonant);
 //END_REGION

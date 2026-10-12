@@ -117,6 +117,8 @@ DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_Indestructible_3", "Shout_Arcana_C
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_Indestructible_4", "Shout_Arcana_Card_Spell_Indestructible");
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_Indestructible_5", "Shout_Arcana_Card_Spell_Indestructible");
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_Indestructible_6", "Shout_Arcana_Card_Spell_Indestructible");
+DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_SharedHeart", "Shout_Arcana_Card_Spell_SharedHeart");
+DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_SharedHeart_6", "Shout_Arcana_Card_Spell_SharedHeart");
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_StarRadiance", "Shout_Arcana_Card_Spell_StarRadiance");
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_StarRadiance_4", "Shout_Arcana_Card_Spell_StarRadiance");
 DB_ARCANA_CardFamily("Shout_Arcana_Card_Spell_StarRadiance_5", "Shout_Arcana_Card_Spell_StarRadiance");

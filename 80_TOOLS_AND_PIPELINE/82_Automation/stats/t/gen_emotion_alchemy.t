@@ -134,7 +134,7 @@ like(Alchemy::spell_success('Fear'), qr/DealDamage\(LevelMapValue\(Catharsis_Dam
 unlike(Alchemy::spell_success($_), qr/RESONANT_REFUND_TECH/, "refund is not in $_\'s SpellSuccess") for qw(Joy Fear);
 my $og = Alchemy::overload_goal();
 is(scalar(() = $og =~ /DB_ARCANA_Resonant_Reaction\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)"\);/g), 33, 'refund: the 33 reaction statuses (24 feelings, 8 intense, Catharsis)');
-like($og, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_Reaction\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH", 0\.0, 1, _Resonant\);/, 'refund: any reaction a Resonant causes');
+like($og, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_Reaction\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 0\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH", 0\.0, 1, _Resonant\);/, 'refund: any reaction a Resonant causes');
 unlike($og, qr/DB_ARCANA_Resonant_Reaction\("RESONANT_TWO_CUPS_CATHARSIS"\)/, 'refund: The Two Cups is not a Surge');
 none('no stats line comes near the 4096-character read limit (the .stats twin adds ~100)', map { /^new entry "([^"]+)"/ ? () : length($_) > 3900 ? substr($_, 0, 40) : () } split /\n/, $p);
 my $rf = block($p, 'RESONANT_REFUND_TECH');
@@ -276,13 +276,16 @@ like($cc, qr/^data "Requirements" "Combat"$/m, 'Compassion: in combat');
 like($cc, qr/^data "RequirementConditions" "not HasStatus\('ARCANA_WEAVING',context\.Source\) and not HasStatus\('COMPASSION_READY',context\.Source\)"$/m, 'Compassion: unique while ready');
 like($cc, qr/ApplyStatus\(SELF,COMPASSION_READY,100,-1\)/, 'Compassion: ready until the combat ends');
 my $cr = block($p, 'COMPASSION_READY');
-like($cr, qr/"Boosts" "UnlockInterrupt\(Interrupt_Arcana_Reaction_Compassion\)"/, 'ready: unlocks the reaction');
+like($cr, qr/"Boosts" "UnlockInterrupt\(Interrupt_Arcana_Reaction_Compassion\);ActionResource\(ArcanaReactCompassion,1,0\)"/, 'ready: unlocks the reaction and its one charge (the Which One pattern, stage 6.4)');
 like($cr, qr/"RemoveEvents" "OnCombatEnded"/, 'ready: ends with the combat');
 my $ci = block($p, 'Interrupt_Arcana_Reaction_Compassion');
 like($ci, qr/"InterruptContext" "OnCastHit"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/, 'Compassion: when a nearby creature is hit');
 like($ci, qr/Ally\(context\.Target,context\.Observer\) and not Self\(context\.Target,context\.Observer\).*not DistanceToEntityGreaterThan\(9, context\.ObserverPosition, context\.Target\)/, 'an ally within 9 m (25)');
-like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true\)"/, 'casts Weave Surge: Trust on it');
-like($ci, qr/"Cost" "ReactionActionPoint:1"/, 'once per round: the reaction');
+like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true\);ApplyStatus\(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0\)"/, 'casts Weave Surge: Trust on it; marks the use (the PC deck discards one copy)');
+like($ci, qr/"Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"/, 'once per round: the reaction and the charge');
+like($ci, qr/"EnableCondition" "HasActionResource\('ArcanaReactCompassion', 1, 0, false, false, context\.Source\)"/, 'only with a charge (Which One)');
+like($ci, qr/"EnableContext" "OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved"/, 'rechecked when charges change (Which One)');
+like(block($p, 'COMPASSION_USED_TECH'), qr/"StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"/, 'the use mark is hidden');
 like($lt{'HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC'} // '', qr/<LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust<\/LSTag>/, 'the card links the Surge as a spell');
 
 # ---- stage 3.5: Emotional Contagion (R33: a mood aura)
@@ -384,5 +387,36 @@ like($ag, qr/ApplyStatus\(_Cand, "PARALYZED", 6\.0, 1, _Resonant\);/, 'Tier III:
 is(scalar(() = $ag =~ /DB_ARCANA_Resonant_Feeling\("FEELING_\w+"\);/g), 24, 'Tier III: the 24 feelings');
 unlike($ag, qr/[^\x00-\x7F]/, 'Temperance goal: ASCII only');
 like($ag, qr/\r\n/, 'Temperance goal: CRLF');
+
+# ---- stage 5: Shared Heart, the capstone (R18, R19, R24, R43, R44)
+my $sh = block($p, 'Shout_Arcana_Card_Spell_SharedHeart');
+like($sh, qr/^data "Level" "5"$/m, 'Shared Heart: a level 5 card (R43)');
+like($sh, qr/^data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"$/m, 'Shared Heart: an action and a level 5 slot');
+like($sh, qr/^data "Cooldown" "OncePerRest"$/m, 'Shared Heart: once per long rest (Grand Deception)');
+like($sh, qr/^data "AreaRadius" "18"$/m, 'Shared Heart: 18 m from 25');
+like($sh, qr/^data "Requirements" "Combat"$/m, 'Shared Heart: in combat');
+like($sh, qr/^data "TargetConditions" "\(Ally\(\) or Self\(\)\) and Character\(\) and not Dead\(\) and not HasPassive\('ARCANA_IS_CARD', context\.Source\)"$/m, 'Shared Heart: you and your allies; card mark');
+like($sh, qr/ApplyStatus\(SHARED_HEART,100,-1\)/, 'Shared Heart: linked until the combat ends');
+my $shs = block($p, 'SHARED_HEART');
+like($shs, qr/"RemoveEvents" "OnCombatEnded"/, 'the link ends with the combat');
+like($shs, qr/"StatusPropertyFlags" "[^"]*ForceOverhead/, 'the link is shown');
+my $shc = block($p, 'RESONANT_SHARED_CATHARSIS');
+like($shc, qr/"OnApplyFunctors" "RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\);RemoveStatus\(MOOD_/, 'shared Catharsis: heals, then spends the moods (R44)');
+is(scalar(() = $shc =~ /RemoveStatus\(MOOD_\w+\)/g), 8, 'shared Catharsis: every mood');
+my $shr = block($p, 'RESONANT_SHARED_REFUND_TECH');
+is(scalar(() = $shr =~ /RestoreResource\(SELF,ArcanaSpellSlot,1,\d\)/g), 6, 'free Surge on a linked ally: the slot back, by level');
+like($shr, qr/RestoreResource\(SELF,ArcanaThread,1,0\)/, 'free Surge: the Thread back');
+unlike($shr, qr/RESONANT_REFUND_USED/, 'free Surge: no once-per-turn guard (R24)');
+my $hg = Alchemy::shared_heart_goal();
+is(scalar(() = $hg =~ /DB_ARCANA_Resonant_SharedResult\("(?:EMOTION|FEELING)_\w+"\);/g), 40, 'copied: 8 peaks, 8 intense, 24 feelings');
+like($hg, qr/StatusApplied\(\(CHARACTER\)_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_SharedResult\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 1\)/, 'a Resonant\'s Surge result on a linked creature');
+like($hg, qr/ApplyStatus\(_Other, _Status, _Dur, 1, _Target\);/, 'the copy\'s source is the linked target: counted once, never copied again (R19)');
+like($hg, qr/GetStatusTurns\(_Target, _Status, _Turns\)/, 'the copy keeps the turns');
+like($hg, qr/ApplyStatus\(_Other, "RESONANT_SHARED_CATHARSIS", 0\.0, 1, _Target\);/, 'a Catharsis heals every other linked creature (R44)');
+like($hg, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 1\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_SharedRefunded\(_Resonant\)/, 'a Surge on a linked creature is free, once per cast');
+like($hg, qr/CastedSpell\(\(CHARACTER\)_Resonant, _, _, _, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_SharedRefunded\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_SharedRefunded\(_Resonant\);/, 'the per-cast mark clears after the cast');
+like($og, qr/HasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 0\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH"/, 'the reaction refund skips a linked target (already free)');
+unlike($hg, qr/[^\x00-\x7F]/, 'Shared Heart goal: ASCII only');
+like($hg, qr/\r\n/, 'Shared Heart goal: CRLF');
 
 done_testing();

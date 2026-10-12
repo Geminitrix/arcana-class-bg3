@@ -211,8 +211,18 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload;Target_Arcana_Card_Spell_EmotionalContagion;Shout_Arcana_Card_Passive_Compassion"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload"/>
                     <attribute id="UUID" type="guid" value="e0d34d66-e311-be56-1810-04f9ba0917fd"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Resonant Level 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionalContagion"/>
+                    <attribute id="UUID" type="guid" value="f015022c-43e0-42f3-8f0a-0ab542e8641d"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Resonant Level 11"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart"/>
+                    <attribute id="UUID" type="guid" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f"/>
                 </node>
             </children>
         </node>

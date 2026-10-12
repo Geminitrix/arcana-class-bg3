@@ -993,6 +993,7 @@
                     <attribute id="Name" type="LSString" value="Resonant"/>
                     <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_MixedFeelings"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(f015022c-43e0-42f3-8f0a-0ab542e8641d,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
                     <attribute id="UUID" type="guid" value="e6a3ecc3-04c3-5a05-de3c-0cffea170b50"/>
                 </node>
@@ -1007,6 +1008,7 @@
                     <attribute id="Level" type="uint8" value="11"/>
                     <attribute id="Name" type="LSString" value="Resonant"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(e7063c7e-67e5-4887-8f3a-8ed09a03340f,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
                     <attribute id="UUID" type="guid" value="7195b750-1ecc-caba-dcfd-bc218f0bf0af"/>
                 </node>

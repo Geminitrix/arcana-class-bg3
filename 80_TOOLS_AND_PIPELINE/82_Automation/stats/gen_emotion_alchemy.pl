@@ -293,12 +293,15 @@ sub cond_of { my $r = shift; my $c = "HasStatus('$r->{mood}')";
 
 # SpellSuccess: the "no reaction" case comes FIRST, before any functor spends a mood (risk R1).
 sub refund_functors {   # R16: the slot level per class level, as Arcana_Passive_ArcaneOverflow (mod Passive.txt)
+    my $guarded = @_ ? shift : 1;   # once per turn (RESONANT_REFUND_USED), except Shared Heart's free Surge (R24)
+    my $g = $guarded ? "not HasStatus('RESONANT_REFUND_USED')" : undef;
     my @br = ([1, undef, 3], [2, 3, 5], [3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
     my @f = map { my ($slot, $lo, $hi) = @$_;
-        my @c = ("not HasStatus('RESONANT_REFUND_USED')");
+        my @c = grep { defined } $g;
         push @c, "ClassLevelHigherOrEqualThan($lo,'Arcana')" if $lo;
         push @c, "not ClassLevelHigherOrEqualThan($hi,'Arcana')" if $hi;
         'IF(' . join(' and ', @c) . "):RestoreResource(SELF,ArcanaSpellSlot,1,$slot)" } @br;
+    return join ';', @f, 'RestoreResource(SELF,ArcanaThread,1,0)' unless $guarded;
     join ';', @f, "IF(not HasStatus('RESONANT_REFUND_USED')):RestoreResource(SELF,ArcanaThread,1,0)",
               'ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)';
 }
@@ -690,14 +693,15 @@ sub build_interrupts {
 }
 sub build_engine_patch {
     @LOCA = ();
-    my ($compassion, $compassion_status, $compassion_interrupt) = build_compassion();
+    my ($compassion, $compassion_status, $compassion_interrupt, $compassion_used) = build_compassion();
     my ($contagion, $contagion_status) = build_contagion();
     my $spells   = build_spells() . build_overload_spell() . build_heartstring() . build_temper() . $contagion;
     my ($aspect_statuses, $aspect_passives, $two_cups) = build_aspect();
-    my @statuses = (build_statuses(), $compassion_status, $contagion_status, @$aspect_statuses);
+    my ($shared_heart, $shared_statuses) = build_shared_heart();
+    my @statuses = (build_statuses(), $compassion_status, $contagion_status, @$aspect_statuses, @$shared_statuses, $compassion_used);
     my $passives = build_passives() . $aspect_passives;
     my ($shout, $debugst) = build_debug();
-    $shout .= $compassion . $two_cups;
+    $shout .= $compassion . $two_cups . $shared_heart;
     my $interrupts = build_interrupts() . $compassion_interrupt;
     my %new;
     $new{$_} = 'Interrupt' for names_in($interrupts);
@@ -798,7 +802,7 @@ sub overload_goal {
         'IF', 'SavegameLoaded()', 'THEN', 'PROC_ARCANA_Resonant_Overload_Init();', '//END_REGION', '',
         '//REGION Resonant - refund (R16): a reaction gives the Surge\'s slot back; RESONANT_REFUND_TECH holds the once-per-turn guard',
         'IF', 'StatusApplied(_Target, _Status, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_Reaction(_Status)',
-        'AND', 'HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)', 'THEN', 'ApplyStatus(_Resonant, "RESONANT_REFUND_TECH", 0.0, 1, _Resonant);', '//END_REGION', '',
+        'AND', 'HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)', 'AND', 'HasActiveStatus(_Target, "SHARED_HEART", 0)', 'THEN', 'ApplyStatus(_Resonant, "RESONANT_REFUND_TECH", 0.0, 1, _Resonant);', '//END_REGION', '',
         '//REGION Resonant - Overload count: +1 per peak that lands, +2 per reaction, at any time; it carries over between combats (R12, R31)',
         'IF', 'StatusApplied(_Target, _Status, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_OverloadPoints(_Status, _Pts)',
         'AND', 'HasPassive(_Resonant, "Arcana_Passive_Overload", 1)', 'AND', 'NOT DB_ARCANA_Resonant_OverloadFull(_Resonant)',
@@ -926,7 +930,8 @@ sub build_compassion {
         DisplayName => loca(key('COMPASSION_READY', 'NAME'), 'Ready: Compassion'),
         Description => loca(key('COMPASSION_READY', 'DESC'), "When an ally within [1] takes damage, you can use your reaction to cast $trust on it."),
         DescriptionParams => "Distance($r)", Icon => $icon, StackId => 'COMPASSION_READY', StackType => 'Overwrite',
-        Boosts => 'UnlockInterrupt(Interrupt_Arcana_Reaction_Compassion)', RemoveEvents => 'OnCombatEnded',
+        # stage 6.4: one charge a turn (ArcanaReactCompassion, ReplenishType Turn), as Which One
+        Boosts => 'UnlockInterrupt(Interrupt_Arcana_Reaction_Compassion);ActionResource(ArcanaReactCompassion,1,0)', RemoveEvents => 'OnCombatEnded',
         StatusPropertyFlags => 'RemoveOnLongRest;ForceOverhead', StatusGroups => 'SG_RemoveOnRespec')];
     my $interrupt = entry('Interrupt_Arcana_Reaction_Compassion', 'InterruptData',
         DisplayName => loca(key('Interrupt_Arcana_Reaction_Compassion', 'NAME'), 'Compassion'),
@@ -934,9 +939,14 @@ sub build_compassion {
         DescriptionParams => "Distance($r)", Icon => $icon,
         InterruptContext => 'OnCastHit', InterruptContextScope => 'Nearby', Container => 'YesNoDecision',
         Conditions => "IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan($r, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()",
-        Properties => 'UseSpell(OBSERVER_TARGET,' . spell_id('Trust') . ',true,true,true)', Cost => 'ReactionActionPoint:1',
-        InterruptDefaultValue => 'Ask;Enabled');
-    ($card, $status, $interrupt);
+        Properties => 'UseSpell(OBSERVER_TARGET,' . spell_id('Trust') . ',true,true,true);ApplyStatus(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0)',
+        Cost => 'ReactionActionPoint:1;ArcanaReactCompassion:1',
+        InterruptDefaultValue => 'Ask;Enabled',
+        # the PC deck: holding the card IS the charge (CardDB D.reactions); the use mark discards one copy
+        EnableCondition => "HasActionResource('ArcanaReactCompassion', 1, 0, false, false, context.Source)",
+        EnableContext => 'OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved');
+    my $used = hidden_status('COMPASSION_USED_TECH', 'Compassion used', 'StackType', 'Overwrite');
+    ($card, $status, $interrupt, $used);
 }
 
 # Emotional Contagion (§7.3, R33, R34): Concentration (vanilla Target_Guidance: IsConcentration + a timed status);
@@ -1113,6 +1123,77 @@ sub temperance_goal {
     $g;
 }
 
+# ---------------------------------------------------------------- stage 5: Shared Heart, the capstone (spec §7.6)
+# The card as the Deceiver's capstone Grand Deception (Shout, AreaRadius, Level 5, OncePerRest, a level 5 slot; Unique
+# in CardDB). The link is a status; Osiris copies a Surge's result to the other linked creatures with the linked
+# TARGET as the copies' source, so the Overload, Awakening and refund rules (which ask for a Resonant source) count the
+# Surge once (R19) and a copy never copies again.
+sub build_shared_heart {
+    my $id = 'Shout_Arcana_Card_Spell_SharedHeart';
+    my $lvl = master('SPL_Resonant_SharedHeart', 'card_level')->{value};
+    my $r = master('SPL_Resonant_SharedHeart', 'range')->{value};
+    my $icon = 'Spell_Abjuration_WardingBond';
+    my $surge = 'Weave Surge';
+    my $card = entry($id, 'SpellData', SpellType => 'Shout', Level => $lvl, SpellSchool => 'Enchantment', Cooldown => 'OncePerRest',
+        SpellProperties => 'ApplyStatus(SHARED_HEART,100,-1)', AreaRadius => $r,
+        TargetConditions => "(Ally() or Self()) and Character() and not Dead() and $CARD_MARK",
+        Icon => $icon,
+        DisplayName => loca(key($id, 'NAME'), 'Shared Heart'),
+        Description => loca(key($id, 'DESC'), "Bind your heart to your allies' until the end of the fight. You and every ally within [1] are linked: a $surge on one linked creature reaches all of them, and a $surge whose target is linked costs nothing."),
+        DescriptionParams => "Distance($r)", TooltipStatusApply => 'ApplyStatus(SHARED_HEART,100,-1)',
+        PreviewCursor => 'Cast', CastTextEvent => 'Cast', UseCosts => "ActionPoint:1;SpellSlotsGroup:1:1:$lvl", SpellAnimation => $SHOUT_ANIMATION,
+        VerbalIntent => 'Buff', SpellStyleGroup => 'Class', SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent',
+        Requirements => 'Combat');
+    my @st;
+    push @st, ['Status_BOOST', entry('SHARED_HEART', 'StatusData', StatusType => 'BOOST',
+        DisplayName => loca(key('SHARED_HEART', 'NAME'), 'Shared Heart'),
+        Description => loca(key('SHARED_HEART', 'DESC'), "Linked to the Resonant's heart. A $surge on any linked creature reaches every one of them."),
+        Icon => $icon, StackId => 'SHARED_HEART', StackType => 'Overwrite', RemoveEvents => 'OnCombatEnded',
+        StatusPropertyFlags => 'IgnoreResting;ForceOverhead', StatusGroups => 'SG_RemoveOnRespec')];
+    # R44: a Catharsis on a linked ally heals the others the base amount and spends their moods
+    push @st, status_entry('RESONANT_SHARED_CATHARSIS', 'Catharsis', 'Opposing emotions, snapped through a Shared Heart. Heals, and every mood is spent.',
+        $icon, 'mood', { stack => 'RESONANT_SHARED_CATHARSIS',
+        onapply => join(';', "RegainHitPoints($CATHARSIS_DICE)", map { 'RemoveStatus(' . mood_id($_) . ')' } @WHEEL) });
+    # R24: a Surge whose target is linked gives its slot and Thread back -- no once-per-turn guard
+    push @st, hidden_status('RESONANT_SHARED_REFUND_TECH', 'Shared Heart refund', 'OnApplyFunctors', refund_functors(0));
+    ($card, \@st);
+}
+
+sub shared_heart_goal {
+    my @res = map { qq{DB_ARCANA_Resonant_SharedResult("$_");} } (map { peak_id($_) } @WHEEL), (map { intense_id($_) } @WHEEL),
+        map { 'FEELING_' . uc $FEELING{$_}{name} } sort keys %FEELING;
+    my $g = join "\n", 'Version 1', 'SubGoalCombiner SGC_AND', 'INITSECTION', 'PROC_ARCANA_Resonant_SharedHeart_Init();', '', 'KBSECTION',
+        '// Shared Heart (the Resonant capstone, spec 7.6). GENERATED by gen_emotion_alchemy.pl -- do not edit by hand.',
+        '//REGION Tables (DB_ARCANA_Resonant_SurgeRoot lives in ARCANA_Aspect_Temperance)',
+        'PROC', 'PROC_ARCANA_Resonant_SharedHeart_Init()', 'AND', 'DB_ARCANA_Resonant_SharedResult(_S)', 'THEN', 'NOT DB_ARCANA_Resonant_SharedResult(_S);', '',
+        'PROC', 'PROC_ARCANA_Resonant_SharedHeart_Init()', 'THEN', @res, '',
+        'IF', 'SavegameLoaded()', 'THEN', 'PROC_ARCANA_Resonant_SharedHeart_Init();', '//END_REGION', '',
+        '//REGION A Surge result on a linked creature reaches every other linked creature (source = that target: counted once, R19)',
+        'IF', 'StatusApplied((CHARACTER)_Target, _Status, (CHARACTER)_Resonant, _)', 'AND', 'DB_ARCANA_Resonant_SharedResult(_Status)',
+        'AND', 'HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)', 'AND', 'HasActiveStatus(_Target, "SHARED_HEART", 1)',
+        'AND', 'GetStatusTurns(_Target, _Status, _Turns)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Target, _Combat)',
+        'THEN', 'PROC_ARCANA_Resonant_SharedCopy(_Target, _Status, _Turns, _Combat);', '',
+        'PROC', 'PROC_ARCANA_Resonant_SharedCopy((CHARACTER)_Target, (STRING)_Status, (INTEGER)_Turns, (GUIDSTRING)_Combat)',
+        'AND', 'DB_ARCANA_Aspect_InCombat(_Other, _Combat)', 'AND', '_Other != _Target', 'AND', 'IsDead(_Other, 0)', 'AND', 'HasActiveStatus(_Other, "SHARED_HEART", 1)',
+        'AND', 'IntegerProduct(_Turns, 6, _Secs)', 'AND', 'IntegerToReal(_Secs, _Dur)',
+        'THEN', 'ApplyStatus(_Other, _Status, _Dur, 1, _Target);', '//END_REGION', '',
+        '//REGION R44: a Catharsis on a linked creature heals every other linked creature',
+        'IF', 'StatusApplied((CHARACTER)_Target, "CATHARSIS", (CHARACTER)_Resonant, _)', 'AND', 'HasPassive(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1)',
+        'AND', 'HasActiveStatus(_Target, "SHARED_HEART", 1)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Target, _Combat)',
+        'THEN', 'PROC_ARCANA_Resonant_SharedCatharsis(_Target, _Combat);', '',
+        'PROC', 'PROC_ARCANA_Resonant_SharedCatharsis((CHARACTER)_Target, (GUIDSTRING)_Combat)', 'AND', 'DB_ARCANA_Aspect_InCombat(_Other, _Combat)',
+        'AND', '_Other != _Target', 'AND', 'IsDead(_Other, 0)', 'AND', 'HasActiveStatus(_Other, "SHARED_HEART", 1)',
+        'THEN', 'ApplyStatus(_Other, "RESONANT_SHARED_CATHARSIS", 0.0, 1, _Target);', '//END_REGION', '',
+        '//REGION R24: a Surge whose target is linked costs nothing -- refunded once per cast (an upcast may hit several linked targets)',
+        'IF', 'UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, _Spell, _, _, _)', 'AND', 'DB_ARCANA_CardFamily(_Spell, _Root)',
+        'AND', 'DB_ARCANA_Resonant_SurgeRoot(_Root, _)', 'AND', 'HasActiveStatus(_Target, "SHARED_HEART", 1)', 'AND', 'NOT DB_ARCANA_Resonant_SharedRefunded(_Resonant)',
+        'THEN', 'DB_ARCANA_Resonant_SharedRefunded(_Resonant);', 'ApplyStatus(_Resonant, "RESONANT_SHARED_REFUND_TECH", 0.0, 1, _Resonant);', '',
+        'IF', 'CastedSpell((CHARACTER)_Resonant, _, _, _, _)', 'AND', 'DB_ARCANA_Resonant_SharedRefunded(_Resonant)', 'THEN', 'NOT DB_ARCANA_Resonant_SharedRefunded(_Resonant);', '//END_REGION',
+        'EXITSECTION', '', 'ENDEXITSECTION', '';
+    $g =~ s/\n/\r\n/g;
+    $g;
+}
+
 sub main {
     my ($out) = grep { defined } map { $ARGV[$_ + 1] if $ARGV[$_] eq '--out' } 0 .. $#ARGV;
     $out //= default_out();
@@ -1125,6 +1206,7 @@ sub main {
     write_file("$out/40_overload_goal.txt", overload_goal());
     write_file("$out/42_temperance_goal.txt", temperance_goal());
     write_file("$out/43_common_rows.txt", common_rows());
+    write_file("$out/45_shared_heart_goal.txt", shared_heart_goal());
     write_file("$out/44_IsWeaveSurge.khn", weave_surge_khn());   # ARC-0005: goes into ArcanaHelpers.khn (its own section), never as a separate file
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);

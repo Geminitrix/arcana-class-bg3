@@ -74,6 +74,12 @@
                     <attribute id="ReplenishType" type="FixedString" value="Turn"/>
                     <attribute id="UUID" type="guid" value="2fc93ef1-33b0-0569-e5dd-90b0d579e8ba"/>
                 </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="IsHidden" type="bool" value="true"/>
+                    <attribute id="Name" type="FixedString" value="ArcanaReactCompassion"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="UUID" type="guid" value="ea30fc2f-59cf-4d37-940e-e0db4fa4b595"/>
+                </node>
             </children>
         </node>
     </region>

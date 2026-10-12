@@ -43,8 +43,26 @@ return {
                 T.eq(D.Has(id, "Unique"), r.perRound == 1, id .. " Unique iff once a round")
                 T.eq(D.reactionByUsed[r.used], id, r.used)
             end
-            T.eq(n, 2, "two reaction cards: Gale Deflection and Which One?")
+            T.eq(n, 3, "three reaction cards: Gale Deflection, Which One? and Compassion")
             T.eq(D.reactions["Shout_Arcana_Card_Passive_GaleDeflection"].perRound, 3)
+        end,
+        ["The Resonant (ARC-0002): costs, Unique, the reaction, the conjured cards"] = function()
+            T.eq(D.CostOf("Target_Arcana_Card_Spell_Heartstring"), 1, "a cantrip card: 1 Thread")
+            T.eq(D.CostOf("Target_Arcana_Card_Spell_Temper"), 1, "level 0: 1 Thread, as every level-0 card (R45)")
+            T.eq(D.Has("Shout_Arcana_Card_Spell_SharedHeart", "Unique"), true, "the capstone, once per long rest (R43)")
+            local r = D.reactions["Shout_Arcana_Card_Passive_Compassion"]
+            T.ok(r ~= nil, "Compassion is a reaction card")
+            T.eq(r.ready, "COMPASSION_READY")
+            T.eq(r.resource, "ArcanaReactCompassion")
+            T.eq(r.used, "COMPASSION_USED_TECH")
+            T.eq(r.perRound, 1)
+            T.eq(D.statusConjures.ASPECT_AWAKENED_TEMPERANCE.id, "Shout_Arcana_Created_Aspect_TwoCups", "the Aspect card at Tier I")
+            T.eq(D.statusConjures.RESONANT_OVERLOAD_FULL.id, "Target_Arcana_Created_EmotionalOverload", "the ultimate while Overloaded (a Created spell is locked unless in hand)")
+            T.eq(D.CostOf("Target_Arcana_Created_EmotionalOverload"), 0, "no slot, no Thread (R22)")
+            for _, id in ipairs({ "Target_Arcana_Card_Spell_Heartstring", "Target_Arcana_Card_Spell_Temper", "Shout_Arcana_Card_Spell_SharedHeart",
+                    "Shout_Arcana_Card_Passive_Compassion", "Shout_Arcana_Created_Aspect_TwoCups", "Target_Arcana_Created_EmotionalOverload" }) do
+                T.eq(D.Get(id).aspect, "Resonant", id)
+            end
         end,
         ["Has reads keyword flags"] = function()
             T.eq(D.Has("Shout_Arcana_Card_Spell_DEBUG_Fated", "Fated"), true)

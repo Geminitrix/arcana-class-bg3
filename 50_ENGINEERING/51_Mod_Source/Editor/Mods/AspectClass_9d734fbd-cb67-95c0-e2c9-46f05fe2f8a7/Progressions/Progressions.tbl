@@ -1284,6 +1284,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
         <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_MixedFeelings" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(f015022c-43e0-42f3-8f0a-0ab542e8641d,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">
@@ -1304,6 +1305,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="11" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(e7063c7e-67e5-4887-8f3a-8ed09a03340f,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">

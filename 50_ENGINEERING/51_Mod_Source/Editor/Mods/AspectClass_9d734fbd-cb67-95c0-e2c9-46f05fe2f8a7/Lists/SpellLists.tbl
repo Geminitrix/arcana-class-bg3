@@ -278,7 +278,21 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e0d34d66-e311-be56-1810-04f9ba0917fd" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 5" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload;Target_Arcana_Card_Spell_EmotionalContagion;Shout_Arcana_Card_Passive_Compassion" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6A5ACD" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f015022c-43e0-42f3-8f0a-0ab542e8641d" />
+        <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 9" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionalContagion" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF6A5ACD" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 11" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
