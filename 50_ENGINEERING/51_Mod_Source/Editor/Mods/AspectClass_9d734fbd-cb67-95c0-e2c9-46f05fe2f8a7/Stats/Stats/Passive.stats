@@ -1,10 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stats stat_object_definition_id="3e76b74c-a5ae-4268-944a-aa9c31e2185e">
   <stat_objects>
-    <stat_object color="#FF808080" is_substat="false">
+    <stat_object color="#FF000000" is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a98a5708-9692-4307-96c0-8cb22f735704" />
-        <field name="Name" type="NameTableFieldDefinition" value="ARCANA PASSIVES" />
+        <field name="UUID" type="IdTableFieldDefinition" value="824d3ed1-e063-ead2-7c0a-f44a91894ea6" />
+        <field name="Name" type="NameTableFieldDefinition" value="DEBUG PASSIVES" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f0d4f32f-6d2d-4464-8739-a934407db2ec" />
+        <field name="Name" type="NameTableFieldDefinition" value="DEBUG_ArcanaSpells" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h428af528g5afcge866g1846g2ff8924a11a0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc6f335a1geb05g7d0fgbb28g8ef51ddb3d29" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_ImprovedAbjuration" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_DEBUG_IncreaseHP);UnlockSpell(Target_DEBUG_HealHP);UnlockSpell(Target_DEBUG_InfiniteSpells);" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF000000" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="64ff8e6a-aac6-47ca-a41b-681bfc81ac6f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ARCANA DEBUG" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1145,6 +1162,12 @@
         <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(MOONSTONE_HELPER,100,1);SpawnExtraProjectiles(Projectile_Arcana_Equip_Moonstone)" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="RegainHitPoints(WisdomModifier*5);Distance(9)" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF808080" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a98a5708-9692-4307-96c0-8cb22f735704" />
+        <field name="Name" type="NameTableFieldDefinition" value="ARCANA PASSIVES" />
       </fields>
     </stat_object></stat_objects>
 </stats>

@@ -294,8 +294,6 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_SolarPurge_4", "Target_Arcana_Car
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_SolarPurge_5", "Target_Arcana_Card_Spell_SolarPurge");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_SolarPurge_6", "Target_Arcana_Card_Spell_SolarPurge");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Temper", "Target_Arcana_Card_Spell_Temper");
-DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Temper_Left", "Target_Arcana_Card_Spell_Temper_Left");
-DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Temper_Right", "Target_Arcana_Card_Spell_Temper_Right");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_2", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_3", "Target_Arcana_Card_Spell_Transfusion");

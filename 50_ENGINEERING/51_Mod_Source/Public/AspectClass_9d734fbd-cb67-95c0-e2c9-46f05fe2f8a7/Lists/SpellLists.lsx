@@ -201,7 +201,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Shout_Arcana_Util_ReadTheRoom"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring"/>
                     <attribute id="UUID" type="guid" value="05269c79-116f-2b07-6dc1-deeefddc7ae4"/>
                 </node>
                 <node id="SpellList">

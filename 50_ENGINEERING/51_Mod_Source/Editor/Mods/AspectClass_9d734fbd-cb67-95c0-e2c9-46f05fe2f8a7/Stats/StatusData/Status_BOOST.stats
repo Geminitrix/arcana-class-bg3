@@ -43,7 +43,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectEvilAndGood" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_DEBUG" />
         <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight;Arcana_Passive_ComplexFeelings;Arcana_Passive_Overwhelm;Arcana_Passive_MixedFeelings;Arcana_Passive_Overload" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_Arcana_Created_EmotionalOverload);UnlockSpell(Target_Arcana_Card_Spell_Heartstring);UnlockSpell(Target_Arcana_Card_Spell_Temper);UnlockSpell(Shout_Arcana_Util_ReadTheRoom);UnlockSpell(Shout_Arcana_Card_Passive_Compassion);UnlockSpell(Target_Arcana_Card_Spell_EmotionalContagion)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_Arcana_Created_EmotionalOverload);UnlockSpell(Target_Arcana_Card_Spell_Heartstring);UnlockSpell(Target_Arcana_Card_Spell_Temper);UnlockSpell(Shout_Arcana_Card_Passive_Compassion);UnlockSpell(Target_Arcana_Card_Spell_EmotionalContagion)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnLongRest" enumeration_type_name="StatusEvent" version="1" />
       </fields>
     </stat_object>
@@ -376,7 +376,7 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="AuraRadius" type="IntegerTableFieldDefinition" value="6" />
-        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(not Self() and HasStatus('MOOD_SERENE', context.Source)):ApplyStatus(MOOD_SERENE,100,1);IF(not Self() and HasStatus('MOOD_ACCEPTING', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,1);IF(not Self() and HasStatus('MOOD_APPREHENSIVE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,1);IF(not Self() and HasStatus('MOOD_DISTRACTED', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,1);IF(not Self() and HasStatus('MOOD_PENSIVE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,1);IF(not Self() and HasStatus('MOOD_BORED', context.Source)):ApplyStatus(MOOD_BORED,100,1);IF(not Self() and HasStatus('MOOD_ANNOYED', context.Source)):ApplyStatus(MOOD_ANNOYED,100,1);IF(not Self() and HasStatus('MOOD_INTERESTED', context.Source)):ApplyStatus(MOOD_INTERESTED,100,1)" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(not Self() and Ally() and HasStatus('MOOD_SERENE', context.Source)):ApplyStatus(MOOD_SERENE,100,1);IF(not Self() and Ally() and HasStatus('MOOD_ACCEPTING', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,1);IF(not Self() and Ally() and HasStatus('MOOD_APPREHENSIVE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,1);IF(not Self() and Ally() and HasStatus('MOOD_DISTRACTED', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,1);IF(not Self() and Ally() and HasStatus('MOOD_PENSIVE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,1);IF(not Self() and Ally() and HasStatus('MOOD_BORED', context.Source)):ApplyStatus(MOOD_BORED,100,1);IF(not Self() and Ally() and HasStatus('MOOD_ANNOYED', context.Source)):ApplyStatus(MOOD_ANNOYED,100,1);IF(not Self() and Ally() and HasStatus('MOOD_INTERESTED', context.Source)):ApplyStatus(MOOD_INTERESTED,100,1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -390,19 +390,6 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackRoll)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnAttack" enumeration_type_name="StatusEvent" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="282f08ac-6b24-2989-fa4f-61ee95bc1a4f" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_READ_THE_ROOM" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2980fab9g4639g9490g31b0g94ad5709c654" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h143a63edg12b9g0875gb8adga94d0babc642" version="1" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_READ_THE_ROOM" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(Skill,Insight);Advantage(Skill,Persuasion)" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -438,26 +425,6 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnAttacked" enumeration_type_name="StatusEvent" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="3363ac9c-5952-be68-f204-f5e1ee803abd" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_TEMPER_LEFT_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1ae49881g9615gd1ebg43f6g3a3bd09f052b" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_TEMPER_LEFT_TECH" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d5ad775b-7dae-79c1-e5e9-28d3ae66e86e" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_TEMPER_RIGHT_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha589f367g8226g22c7gdaa7gf055b877d194" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_TEMPER_RIGHT_TECH" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

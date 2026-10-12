@@ -264,7 +264,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="05269c79-116f-2b07-6dc1-deeefddc7ae4" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 1" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Shout_Arcana_Util_ReadTheRoom" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring" />
       </fields>
     </stat_object>
     <stat_object color="#FF6A5ACD" is_substat="false">

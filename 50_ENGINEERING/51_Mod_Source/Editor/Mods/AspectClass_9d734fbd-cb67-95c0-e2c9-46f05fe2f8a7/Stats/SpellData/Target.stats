@@ -21,11 +21,10 @@
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_ArcaneRecovery" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_ArcaneRecovery" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="03114753-8d91-4c52-8207-728a67cdd59b,,;,,;51c06d74-c048-452a-a248-41a751728e3e,,;e9731a5c-e4ba-4872-8950-36d625061ec3,,;8fcb1f19-a84b-486d-81fa-098aaf7cc9be,,;,,;c5bd6ce6-281c-4314-9f74-9f7bb2f4cf03,,;,,;,," />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell" enumeration_type_name="SpellFlagList" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="af787096-8656-4495-a6ce-cbd376578069" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="b7fb4cd6-971f-44c0-9447-378092d36b63" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -39,13 +38,21 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6ed6537d-a8d1-4f9d-b073-ecc25c4d3186" />
+        <field name="Name" type="NameTableFieldDefinition" value="DEBUG_ApplyFeeling" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(FEELING_DISAPPROVAL,100,2);ApplyStatus(FEELING_ENVY,100,2);" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9da5c728g3318g326egff18gb1cc6ef1dee4" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="070a0caf-0f85-883d-5947-3483cc59c584" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_DEBUG_AddDoubt" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8d533945g69a0g7ef1gd891g5ce67c06da28" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcd45f700gbe75gf849g7994gaf567019c8ee" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_ADD_TECH,100,0);" />
       </fields>
     </stat_object>
@@ -1419,15 +1426,16 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Temper" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Temper_Left;Target_Arcana_Card_Spell_Temper_Right" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Ally() or Self() or not SavingThrow(Ability.Wisdom, SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('MOOD_SERENE')):ApplyStatus(EMOTION_JOY,100,1);IF(HasStatus('MOOD_ACCEPTING')):ApplyStatus(EMOTION_TRUST,100,1);IF(HasStatus('MOOD_APPREHENSIVE')):ApplyStatus(EMOTION_FEAR,100,1);IF(HasStatus('MOOD_DISTRACTED')):ApplyStatus(EMOTION_SURPRISE,100,1);IF(HasStatus('MOOD_PENSIVE')):ApplyStatus(EMOTION_SADNESS,100,1);IF(HasStatus('MOOD_BORED')):ApplyStatus(EMOTION_DISGUST,100,1);IF(HasStatus('MOOD_ANNOYED')):ApplyStatus(EMOTION_ANGER,100,1);IF(HasStatus('MOOD_INTERESTED')):ApplyStatus(EMOTION_ANTICIPATION,100,1);IF(HasStatus('MOOD_SERENE')):RemoveStatus(MOOD_SERENE);IF(HasStatus('MOOD_ACCEPTING')):RemoveStatus(MOOD_ACCEPTING);IF(HasStatus('MOOD_APPREHENSIVE')):RemoveStatus(MOOD_APPREHENSIVE);IF(HasStatus('MOOD_DISTRACTED')):RemoveStatus(MOOD_DISTRACTED);IF(HasStatus('MOOD_PENSIVE')):RemoveStatus(MOOD_PENSIVE);IF(HasStatus('MOOD_BORED')):RemoveStatus(MOOD_BORED);IF(HasStatus('MOOD_ANNOYED')):RemoveStatus(MOOD_ANNOYED);IF(HasStatus('MOOD_INTERESTED')):RemoveStatus(MOOD_INTERESTED)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and (HasStatus('MOOD_SERENE') or HasStatus('MOOD_ACCEPTING') or HasStatus('MOOD_APPREHENSIVE') or HasStatus('MOOD_DISTRACTED') or HasStatus('MOOD_PENSIVE') or HasStatus('MOOD_BORED') or HasStatus('MOOD_ANNOYED') or HasStatus('MOOD_INTERESTED')) and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h10258199g698fg5616g12c7g1fb500de4c05" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1c5621b1g4387g6a83g78c3g32aa4127d18a" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1c5621b1g4387g6a83g78c3g32aa4127d18a" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc27aaec6gee2dg0698gbd69ga78147cb199a" version="1" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
@@ -1443,34 +1451,8 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="f24a2b0e-75de-2f73-31ea-2456b7887f51" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Temper_Left" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="1202679f-cb65-afb0-606c-ffdef22ea344" />
-        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Temper" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="ApplyStatus(RESONANT_TEMPER_LEFT_TECH,100,0)" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1e2474bcg1f68ga5c7g5c5fg085a9bf506c2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb1a3de2ag9092g880bg1422g967c6880b52c" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h8c9ed8efg2129g5ab7g5aeeg99dc3fd6bed4" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="0a0267c7-523d-cc5b-7134-c15085edad3c" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Temper_Right" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="1202679f-cb65-afb0-606c-ffdef22ea344" />
-        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Temper" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="ApplyStatus(RESONANT_TEMPER_RIGHT_TECH,100,0)" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hadaa46c9g1510ge87dg48edgc290d355460a" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf78f1962g5724g67d6g6eeag19310662be9c" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h960f2613gae38g6956gde23g065f32c7abe3" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

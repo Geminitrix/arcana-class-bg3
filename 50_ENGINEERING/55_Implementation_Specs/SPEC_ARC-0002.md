@@ -676,7 +676,7 @@ is**, persistence across a save still to be seen in game; P13 ❌ (no change); P
 | 3b.2 | **R36** Temper: one Bonus Action spell, no container; `SpellSuccess` = 8 × `IF(HasStatus('MOOD_X')):ApplyStatus(EMOTION_X,100,1)` then 8 × `IF(HasStatus('MOOD_X')):RemoveStatus(MOOD_X)`. The peak's own `OnRemoveFunctors` leave the mood again. No Osiris: goal and the two sides retired | peaks before removals; no reaction ids; `temper_goal` gone; sides retired |
 | 3b.3 | **R37** Read the Room removed (spell, status, DEBUG unlock, level 1 list, `SPL_` file) | not generated; retired |
 
-Moved, not deleted, to `_wip/Resonant/retired/` (README): `41_temper_goal.txt`, the game goal
+Moved, not deleted, to `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_stage3b/` (README): `41_temper_goal.txt`, the game goal
 `ARCANA_Resonant_Temper.txt` (by `53_stage3b_apply.pl --apply`), `SPL_Resonant_ReadTheRoom.yaml`.
 
 Note: Temper's peak counts **+1 Overload** (the counter adds every peak that lands, R12).

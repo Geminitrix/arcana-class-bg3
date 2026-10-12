@@ -2,7 +2,7 @@
 # ARC-0002 stage 3b (R36, R37): what the game needs besides the engine patch.
 #   - "Resonant Level 1" loses Read the Room (R37: Empathic Sight already gives Advantage on Insight);
 #   - the Osiris goal ARCANA_Resonant_Temper leaves the mod (R36: Temper is pure Stats now). It is moved, not
-#     deleted, to _wip/Resonant/retired/ (the 51 copy stays in git history).
+#     deleted, to 90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_stage3b/ (the 51 copy stays in git history).
 # Each list edit needs its exact current text, so it changes nothing when the anchor is missing.
 #   perl 53_stage3b_apply.pl            # shows what it would do
 #   perl 53_stage3b_apply.pl --apply    # writes (game and Toolkit closed, [fechado])
@@ -33,7 +33,7 @@ for my $e (@edits) {
     open $h, '>:raw', $f or die "$f: $!"; print $h $s; close $h;
 }
 my $goal = "$G/Mods/$M/Story/RawFiles/Goals/ARCANA_Resonant_Temper.txt";
-my $to = abs_path(dirname(__FILE__)) . '/retired';
+my $to = abs_path(dirname(__FILE__) . "/../../../..") . "/90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0002_stage3b";
 if (!-e $goal) { print "already  goal moved\n" }
 else {
     print(($apply ? "move     " : "would move ") . "$goal -> $to/\n");
