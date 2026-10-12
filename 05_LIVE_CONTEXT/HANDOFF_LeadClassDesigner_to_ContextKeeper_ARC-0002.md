@@ -73,3 +73,9 @@ New: passive `Arcana_Passive_Overload`, statuses `RESONANT_OVERLOAD` (count), `R
 `RESONANT_OVERLOAD_SPENT_TECH`; spell `Target_Arcana_Created_EmotionalOverload`; Osiris goal
 `ARCANA_Resonant_Overload` (generated). Not in the progression yet — only on the `[DEBUG] Resonant Passives` list.
 Probes P6–P10 pending.
+
+## 8. Stale fact found (2026-10-12)
+
+`05.01/Arcana_Base_Class.md` says the list **"Arcana Deck DEBUG"** (`f2e5e2e9-42c8-4f0e-88de-830ef0224290`) is granted
+at level 1. No progression grants it (it was in the Arcana level-1 row in the 2026-09-17 backup; gone before the
+migration). The list still exists in `SpellLists.lsx`. Fix the line in `05.01`.
