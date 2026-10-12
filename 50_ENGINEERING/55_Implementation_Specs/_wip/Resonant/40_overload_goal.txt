@@ -63,10 +63,10 @@ DB_ARCANA_Resonant_OverloadPoints("FEELING_SUBMISSION", 2);
 DB_ARCANA_Resonant_OverloadPoints("FEELING_SENTIMENTALITY", 2);
 DB_ARCANA_Resonant_OverloadPoints("FEELING_CURIOSITY", 2);
 DB_ARCANA_Resonant_OverloadPoints("CATHARSIS", 2);
-DB_ARCANA_Resonant_OverloadMax(1, 11);
-DB_ARCANA_Resonant_OverloadMax(2, 11);
-DB_ARCANA_Resonant_OverloadMax(3, 11);
-DB_ARCANA_Resonant_OverloadMax(4, 11);
+DB_ARCANA_Resonant_OverloadMax(1, 5);
+DB_ARCANA_Resonant_OverloadMax(2, 5);
+DB_ARCANA_Resonant_OverloadMax(3, 8);
+DB_ARCANA_Resonant_OverloadMax(4, 8);
 DB_ARCANA_Resonant_OverloadMax(5, 11);
 DB_ARCANA_Resonant_OverloadMax(6, 11);
 DB_ARCANA_Resonant_OverloadMax(7, 14);
@@ -123,25 +123,30 @@ AND
 DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max)
 THEN
 NOT DB_ARCANA_Resonant_Overload(_Resonant, _Old);
-PROC_ARCANA_Resonant_Overload_Set(_Resonant, _New, _Max);
+PROC_ARCANA_Resonant_Overload_Set(_Resonant, _New, _Max, _Lvl);
 
 PROC
-PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)
+PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max, (INTEGER)_Lvl)
 AND
 _New < _Max
 THEN
 DB_ARCANA_Resonant_Overload(_Resonant, _New);
 PROC_ARCANA_Resonant_Overload_Show(_Resonant, _New);
 
+// R29: full -> Overloaded for turns equal to the character level (ApplyStatus duration is in seconds, 6 per turn)
 PROC
-PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)
+PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max, (INTEGER)_Lvl)
 AND
 _New >= _Max
+AND
+IntegerProduct(_Lvl, 6, _Secs)
+AND
+IntegerToReal(_Secs, _Dur)
 THEN
 DB_ARCANA_Resonant_Overload(_Resonant, _Max);
 DB_ARCANA_Resonant_OverloadFull(_Resonant);
 PROC_ARCANA_Resonant_Overload_Show(_Resonant, _Max);
-ApplyStatus(_Resonant, "RESONANT_OVERLOAD_FULL", -1.0, 1, _Resonant);
+ApplyStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Dur, 1, _Resonant);
 
 PROC
 PROC_ARCANA_Resonant_Overload_Show((CHARACTER)_Resonant, (INTEGER)_N)
@@ -176,6 +181,12 @@ RemoveStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant);
 
 IF
 StatusApplied((CHARACTER)_Resonant, "RESONANT_OVERLOAD_SPENT_TECH", _, _)
+THEN
+PROC_ARCANA_Resonant_Overload_Reset(_Resonant);
+
+// R29: Overloaded ran out (or was removed) -- the Resonant has steadied, the meter is empty
+IF
+StatusRemoved((CHARACTER)_Resonant, "RESONANT_OVERLOAD_FULL", _, _)
 THEN
 PROC_ARCANA_Resonant_Overload_Reset(_Resonant);
 

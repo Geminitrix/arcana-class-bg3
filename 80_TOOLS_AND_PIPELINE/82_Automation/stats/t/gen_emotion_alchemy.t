@@ -172,7 +172,6 @@ none('every Surge tooltip tells the refund', grep { ($lt{'HW_' . uc(Alchemy::spe
 like(block($p, 'RESONANT_OVERLOAD'), qr/"StackType" "Overwrite".*"RemoveEvents" "OnCombatEnded".*"StatusPropertyFlags" "FreezeDuration;IgnoreResting"/s, 'the meter shows a frozen count, gone after combat');
 my $full = block($p, 'RESONANT_OVERLOAD_FULL');
 like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn');
-is(scalar(() = $full =~ /DealDamage\(\d,Psychic,Magical\)/g), 4, 'full: one damage per slot-level bracket (5-6, 7-8, 9-10, 11+)');
 like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
 like(block($p, 'Arcana_Passive_Overload'), qr/"DisplayName"/, 'the Overload passive exists');
 like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the passive names the ultimate');
@@ -193,5 +192,18 @@ unlike($g, qr/[^\x00-\x7F]/, 'ASCII only');
 like($g, qr/\r\n/, 'CRLF, like the other goals');
 
 like($eo, qr/not HasPassive\('ARCANA_IS_SPELL', context\.Source\)/, 'Emotional Overload carries the Arcana spell mark (detonates the Sigil, check_cards)');
+
+# ---- stage 2b: Overload from level 1 (R29, R30)
+like($full, qr/"Boosts" "BlockSpellCast\(\);CharacterWeaponDamage\(LevelMapValue\(Overload_WeaponPsychic\),Psychic\)"/, 'Overloaded: silenced, Psychic on weapon hits');
+is(scalar(() = $full =~ /DealDamage\(\d,Psychic,Magical\)/g), 6, 'Overloaded hurts from level 1: one bracket per slot level 1-6');
+like($full, qr/not ClassLevelHigherOrEqualThan\(3,'Arcana'\)\):DealDamage\(1,Psychic,Magical\)/, 'levels 1-2: 1 Psychic per turn');
+my $wl = Alchemy::weapon_levelmap();
+like($wl, qr/id="Level4" type="LSString" value="1d6".*id="Level5" type="LSString" value="2d6"/s, 'weapon rider: 1d6 to level 4, 2d6 from 5');
+like($wl, qr/id="Level10" type="LSString" value="3d6"/, 'weapon rider: 3d6 from level 10');
+like($wl, qr/value="Overload_WeaponPsychic".*value="$Alchemy::WEAPON_MAP_UUID"/s, 'weapon map: name and fixed UUID');
+unlike($eo, qr/"SpellFlags" "[^"]*IsSpell/, 'Emotional Overload is not a spell (usable while silenced)');
+like($g, qr/DB_ARCANA_Resonant_OverloadMax\(1, 5\).*DB_ARCANA_Resonant_OverloadMax\(3, 8\)/s, 'meter from level 1: 5, then 8 at level 3');
+like($g, qr/IntegerProduct\(_Lvl, 6, _Secs\)\r?\nAND\r?\nIntegerToReal\(_Secs, _Dur\)\r?\nTHEN\r?\n(?:[^\r\n]*\r?\n)*?ApplyStatus\(_Resonant, "RESONANT_OVERLOAD_FULL", _Dur, 1, _Resonant\);/, 'Overloaded lasts the character level in turns');
+like($g, qr/StatusRemoved\(\(CHARACTER\)_Resonant, "RESONANT_OVERLOAD_FULL", _, _\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_Reset\(_Resonant\);/, 'the meter empties when Overloaded ends');
 
 done_testing();

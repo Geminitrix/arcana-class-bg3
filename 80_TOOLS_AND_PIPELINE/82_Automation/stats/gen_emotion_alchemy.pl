@@ -55,15 +55,20 @@ our $MOOD_TURNS     = master('STA_Resonant_States', 'mood_duration')->{value};
 our $CATHARSIS_MAP      = 'Catharsis_Damage';
 our $CATHARSIS_MAP_UUID = '11006542-a7b5-4599-938a-2840982c4bb1';   # fixed: generated once for this map
 our $CATHARSIS_DICE     = "LevelMapValue($CATHARSIS_MAP)";           # damage and healing scale with level (25: STA_Resonant_Catharsis)
-sub catharsis_levelmap {
-    my $by = master('STA_Resonant_Catharsis', 'damage')->{by_level};
+our $WEAPON_MAP      = 'Overload_WeaponPsychic';                    # R30: Psychic on weapon hits while Overloaded
+our $WEAPON_MAP_UUID = '0303ce32-2343-4901-b428-f5c6ca0099c1';      # fixed: generated once for this map
+# One LevelMapSeries node (pattern of the mod's Starcall_Damage): levels 1-20 from a 25 by_level table.
+sub levelmap_node {
+    my ($name, $uuid, $by) = @_;
     my @th = sort { $a <=> $b } keys %$by;
     my %lv; for my $L (1 .. 20) { my ($t) = grep { $_ <= $L } reverse @th; $lv{$L} = $by->{$t} }
     my $s = qq{                <node id="LevelMapSeries">\n};
     $s .= qq{                    <attribute id="Level$_" type="LSString" value="$lv{$_}"/>\n} for sort { "$a" cmp "$b" } 1 .. 20;
-    $s .= qq{                    <attribute id="Name" type="FixedString" value="$CATHARSIS_MAP"/>\n};
-    $s .= qq{                    <attribute id="UUID" type="guid" value="$CATHARSIS_MAP_UUID"/>\n                </node>\n};
+    $s .= qq{                    <attribute id="Name" type="FixedString" value="$name"/>\n};
+    $s .= qq{                    <attribute id="UUID" type="guid" value="$uuid"/>\n                </node>\n};
 }
+sub catharsis_levelmap { levelmap_node($CATHARSIS_MAP, $CATHARSIS_MAP_UUID, master('STA_Resonant_Catharsis', 'damage')->{by_level}) }
+sub weapon_levelmap    { levelmap_node($WEAPON_MAP, $WEAPON_MAP_UUID, master('FEAT_Resonant_Overload', 'weapon_psychic')->{by_level}) }
 # the level each gate passive arrives at (Resonant progression), shown in the Surges' list of reactions
 our %GATE_LEVEL = (Arcana_Passive_Overwhelm => 7, Arcana_Passive_ComplexFeelings => 5, Arcana_Passive_MixedFeelings => 9);
 # TooltipExtraTexts entry (Public/$M/TooltipExtras): the warning every Surge shows, written by hand in that table
@@ -426,13 +431,19 @@ sub build_statuses {
         RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'FreezeDuration;IgnoreResting', StatusGroups => 'SG_RemoveOnRespec')];
     # full: Psychic damage equal to the slot level at the start of each turn (25: FEAT_Resonant_Overload#full_damage),
     # by class-level bracket as Arcana_Passive_ArcaneOverflow; flat TickFunctors damage as vanilla ORI_GALE_AURANECROSIS
-    my $tick = join ';', map { my ($dmg, $lo, $hi) = @$_; my @c = ("ClassLevelHigherOrEqualThan($lo,'Arcana')");
+    # R29: from level 1, so the brackets start at slot level 1
+    my $tick = join ';', map { my ($dmg, $lo, $hi) = @$_; my @c;
+        push @c, "ClassLevelHigherOrEqualThan($lo,'Arcana')" if $lo;
         push @c, "not ClassLevelHigherOrEqualThan($hi,'Arcana')" if $hi; 'IF(' . join(' and ', @c) . "):DealDamage($dmg,Psychic,Magical)" }
-        ([3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
+        ([1, undef, 3], [2, 3, 5], [3, 5, 7], [4, 7, 9], [5, 9, 11], [6, 11, undef]);
+    # R29/R30: Overloaded -- silenced (BlockSpellCast(), as Unbelief) and weapon hits deal Psychic by level
+    # (CharacterWeaponDamage(LevelMapValue(...)), as the vanilla rage damage). Osiris sets its duration (level x 6 s).
     push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD_FULL', 'StatusData', StatusType => 'BOOST',
         DisplayName => loca(key('RESONANT_OVERLOAD_FULL', 'NAME'), 'Overloaded'),
-        Description => loca(key('RESONANT_OVERLOAD_FULL', 'DESC'), 'You can release Emotional Overload. Until you do, you take Psychic damage at the start of each of your turns.'),
+        Description => loca(key('RESONANT_OVERLOAD_FULL', 'DESC'), tag_terms('Overwhelmed by everything you made others feel. You can\'t cast spells, your weapon attacks deal an additional [1], and you take Psychic damage at the start of each of your turns. Emotional Overload releases it.')),
+        DescriptionParams => "DealDamage(LevelMapValue($WEAPON_MAP),Psychic)",
         Icon => 'Spell_Enchantment_CalmEmotions', StackId => 'RESONANT_OVERLOAD_FULL', TickType => 'StartTurn',
+        Boosts => "BlockSpellCast();CharacterWeaponDamage(LevelMapValue($WEAPON_MAP),Psychic)",
         TickFunctors => $tick, RemoveEvents => 'OnCombatEnded', StatusPropertyFlags => 'IgnoreResting')];
     push @out, hidden_status('RESONANT_OVERLOAD_SPENT_TECH', 'Overload spent', 'StackId', 'RESONANT_OVERLOAD_SPENT_TECH');
     # R17 helpers. Contagion: Advantage(AttackRoll) + RemoveEvents OnAttack (vanilla MAG_MONK_SWIFT_AS_THE_WIND).
@@ -714,7 +725,7 @@ sub build_overload_spell {
         @CAST, PreviewCursor => 'Cast', CastTextEvent => 'Cast',
         CycleConditions => 'Enemy() and not Dead()', UseCosts => 'ActionPoint:1',
         VerbalIntent => 'Control', SpellStyleGroup => 'Class',
-        SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful', HitAnimationType => 'None');
+        SpellFlags => 'HasSomaticComponent;IsHarmful', HitAnimationType => 'None');   # R29: not a spell -- usable while silenced
 }
 
 # The Overload counter (R12): +1 per peak that lands, +2 per reaction, size by level (25: FEAT_Resonant_Overload).
@@ -744,12 +755,14 @@ sub overload_goal {
         'PROC', 'PROC_ARCANA_Resonant_Overload_Add((CHARACTER)_Resonant, (INTEGER)_Pts)', 'AND', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _)', 'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, 0);', '',
         'PROC', 'PROC_ARCANA_Resonant_Overload_Add((CHARACTER)_Resonant, (INTEGER)_Pts)', 'AND', 'DB_ARCANA_Resonant_Overload(_Resonant, _Old)',
         'AND', 'IntegerSum(_Old, _Pts, _New)', 'AND', 'GetLevel(_Resonant, _Lvl)', 'AND', 'DB_ARCANA_Resonant_OverloadMax(_Lvl, _Max)',
-        'THEN', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _Old);', 'PROC_ARCANA_Resonant_Overload_Set(_Resonant, _New, _Max);', '',
-        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)', 'AND', '_New < _Max',
+        'THEN', 'NOT DB_ARCANA_Resonant_Overload(_Resonant, _Old);', 'PROC_ARCANA_Resonant_Overload_Set(_Resonant, _New, _Max, _Lvl);', '',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max, (INTEGER)_Lvl)', 'AND', '_New < _Max',
         'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, _New);', 'PROC_ARCANA_Resonant_Overload_Show(_Resonant, _New);', '',
-        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max)', 'AND', '_New >= _Max',
+        '// R29: full -> Overloaded for turns equal to the character level (ApplyStatus duration is in seconds, 6 per turn)',
+        'PROC', 'PROC_ARCANA_Resonant_Overload_Set((CHARACTER)_Resonant, (INTEGER)_New, (INTEGER)_Max, (INTEGER)_Lvl)', 'AND', '_New >= _Max',
+        'AND', 'IntegerProduct(_Lvl, 6, _Secs)', 'AND', 'IntegerToReal(_Secs, _Dur)',
         'THEN', 'DB_ARCANA_Resonant_Overload(_Resonant, _Max);', 'DB_ARCANA_Resonant_OverloadFull(_Resonant);',
-        'PROC_ARCANA_Resonant_Overload_Show(_Resonant, _Max);', 'ApplyStatus(_Resonant, "RESONANT_OVERLOAD_FULL", -1.0, 1, _Resonant);', '',
+        'PROC_ARCANA_Resonant_Overload_Show(_Resonant, _Max);', 'ApplyStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Dur, 1, _Resonant);', '',
         'PROC', 'PROC_ARCANA_Resonant_Overload_Show((CHARACTER)_Resonant, (INTEGER)_N)', 'AND', 'IntegerProduct(_N, 6, _Secs)', 'AND', 'IntegerToReal(_Secs, _Dur)',
         'THEN', 'ApplyStatus(_Resonant, "RESONANT_OVERLOAD", _Dur, 1, _Resonant);', '//END_REGION', '',
         '//REGION Resonant - Overload reset: Emotional Overload released, or the combat left',
@@ -758,6 +771,8 @@ sub overload_goal {
         'PROC', 'PROC_ARCANA_Resonant_Overload_Reset((CHARACTER)_Resonant)', 'THEN',
         'RemoveStatus(_Resonant, "RESONANT_OVERLOAD", _Resonant);', 'RemoveStatus(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant);', '',
         'IF', 'StatusApplied((CHARACTER)_Resonant, "RESONANT_OVERLOAD_SPENT_TECH", _, _)', 'THEN', 'PROC_ARCANA_Resonant_Overload_Reset(_Resonant);', '',
+        '// R29: Overloaded ran out (or was removed) -- the Resonant has steadied, the meter is empty',
+        'IF', 'StatusRemoved((CHARACTER)_Resonant, "RESONANT_OVERLOAD_FULL", _, _)', 'THEN', 'PROC_ARCANA_Resonant_Overload_Reset(_Resonant);', '',
         'IF', 'LeftCombat((CHARACTER)_Resonant, _)', 'THEN', 'PROC_ARCANA_Resonant_Overload_Reset(_Resonant);', '//END_REGION',
         'EXITSECTION', '', 'ENDEXITSECTION', '';
     $g =~ s/\n/\r\n/g;
@@ -772,6 +787,7 @@ sub main {
     my ($up, $n) = build_upcast_patch();
     write_file("$out/20_upcast_targets.patch", $up);
     write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
+    write_file("$out/31_overload_weapon_levelmap.lsx-fragment", weapon_levelmap());
     write_file("$out/40_overload_goal.txt", overload_goal());
     printf "10_engine.patch: %d new entries, %d removals, %d strings\n",
         scalar(() = $engine =~ /^new entry /mg), scalar(() = $engine =~ /^\@remove /mg), scalar(() = $engine =~ /^\@loca /mg);

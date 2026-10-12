@@ -132,7 +132,7 @@
 @loca HW_RESONANT_OVERLOAD_NAME Overload
 @loca HW_RESONANT_OVERLOAD_DESC Everything you made others feel this fight, felt again. When it is full, you suffer at the start of each turn until you release it with Emotional Overload.
 @loca HW_RESONANT_OVERLOAD_FULL_NAME Overloaded
-@loca HW_RESONANT_OVERLOAD_FULL_DESC You can release Emotional Overload. Until you do, you take Psychic damage at the start of each of your turns.
+@loca HW_RESONANT_OVERLOAD_FULL_DESC Overwhelmed by everything you made others feel. You can't cast spells, your weapon attacks deal an additional [1], and you take Psychic damage at the start of each of your turns. Emotional Overload releases it.
 @loca HW_RESONANT_OVERLOAD_SPENT_TECH_NAME Overload spent
 @loca HW_RESONANT_JOY_CONTAGION_NAME Contagious Joy
 @loca HW_RESONANT_JOY_CONTAGION_DESC Has <LSTag Tooltip="Advantage">Advantage</LSTag> on the next attack.
@@ -498,7 +498,7 @@ data "CycleConditions" "Enemy() and not Dead()"
 data "UseCosts" "ActionPoint:1"
 data "VerbalIntent" "Control"
 data "SpellStyleGroup" "Class"
-data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful"
+data "SpellFlags" "HasSomaticComponent;IsHarmful"
 data "HitAnimationType" "None"
 
 @file Spell_Shout
@@ -1123,10 +1123,12 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_RESONANT_OVERLOAD_FULL_NAME}}"
 data "Description" "{{HW_RESONANT_OVERLOAD_FULL_DESC}}"
+data "DescriptionParams" "DealDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "RESONANT_OVERLOAD_FULL"
 data "TickType" "StartTurn"
-data "TickFunctors" "IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)"
+data "Boosts" "BlockSpellCast();CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)"
+data "TickFunctors" "IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):DealDamage(1,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(2,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)"
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "IgnoreResting"
 
