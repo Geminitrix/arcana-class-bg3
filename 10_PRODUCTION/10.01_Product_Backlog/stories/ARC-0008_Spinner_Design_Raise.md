@@ -53,3 +53,8 @@ elements — with an ultimate that ties it together and a kit the player can hol
   `90/93/2026-10-13_ARC-0008_spinner_audit` (design replaced by the Kingmaker); the Kingmaker gets its own audit
   with the raising spec. Owner's note: the Kingmaker's role sits close to the Resonant's (support through states)
   and the mod still lacks a magical burst/DPR subclass — a future tarot card will fill that gap (not this ticket).
+- 2026-10-13 — brainstorm closed: SP72–SP103 (Hubris, Succession, Awakening Tyche/Nemesis/Aspect of Anticipation,
+  Usurp, Foreseen, card details, edge cases, Identity Sheet, names, Osiris drives the Wheel). Before the spec, at the
+  Owner's request: the Toolkit entry guide standard `55/_TEMPLATE_TOOLKIT_GUIDE.md` (one `TOOLKIT_ARC-####.md` per
+  ticket beside its SPEC; icons as suggestions; generated families not typed) and the ADR-0005 amendment proposal
+  `00.04/PROPOSALS/PROPOSAL_Toolkit_Guide_Derived_Numbers.md`. Next: the raising spec in `21.04/Kingmaker/`.

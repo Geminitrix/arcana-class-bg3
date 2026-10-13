@@ -126,6 +126,7 @@ design document.
 ### 1.6 Plan, build, test
 
 - An implementation plan (writing-plans) with **one gate per stage**. A `[fechado]` message is one stage.
+- A **Toolkit guide** beside the implementation spec (`55/TOOLKIT_ARC-####.md`, from `55/_TEMPLATE_TOOLKIT_GUIDE.md`): the point-by-point view the Owner uses to enter the feature by hand — Stories / UUID Object Editor / Stats Editor, then file, entry and field.
 - Families of more than a handful of statuses or spells come from a **generator script**; change the
   generator's table, never the generated output.
 - **One rule per in-game test.** The test says what to do and what proves it works.
