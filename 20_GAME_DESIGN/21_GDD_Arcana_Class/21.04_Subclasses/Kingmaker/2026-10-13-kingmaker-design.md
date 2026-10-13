@@ -250,7 +250,7 @@ the Kingmaker kills it first, cuts it off the Wheel, or saves *Usurp* for the mo
 | 5 | **King's Hand** | While no ally is Reigning, the Hand wears the crown: it is the King and crits on 19–20 |
 | 5 | **Lord Commander** | Within 3 m of the King, attack rolls against the King have Disadvantage |
 | 5 | **Master of Healing** | Healing an ally on the Wheel moves it one position on **only when that step brings it toward Reigning** (Fallen → Rising, Rising → Reigning); at Reigning or Falling nothing happens |
-| 7 | **Master of Laws** | An enemy that attacks the King moves one extra position at the next turn of the Wheel (direction open, §14) |
+| 7 | **Master of Laws** | An enemy that attacks the King falls one step further at the next turn of the Wheel — **never past Fallen and never up to Reigning**: from Rising it skips its reign and lands on Falling; from Reigning it drops to Fallen (and may cross); from Falling or Fallen it takes the normal step only |
 | 7 | **Master of Secrets** | Enemies on the Wheel within 9 m can't be invisible or hidden; the holder has Advantage against Falling enemies |
 | 9 | **Master of Coin** | The first time each turn it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) |
 | 9 | **Master of Ships** | A Crossing also pays when the Fallen enemy is within 9 m of the Master of Ships, not only of a Reigning ally |
@@ -524,7 +524,6 @@ container), passives `Arcana_Passive_*`, statuses in `SCREAMING_SNAKE_CASE`, tec
 | Awakening goals (start 3 / 5 / 8) and **a lone enemy** (a boss crosses about once per cycle) — whether Crossings count more with few enemies | Balance pass |
 | Master of Coin's economy | Balance pass |
 | Cut's cost (slot / Thread) | Balance pass |
-| **Master of Laws** "one extra position": from Falling, two steps skip Fallen and land on Rising — it would help the enemy. Rule to choose (e.g. only when the extra step is a drop, like Foreseen) | Owner |
 | Ranges of Dethrone, Usurp and Cut (18 m assumed) | Owner, with the balance pass |
 | Emoji and Aspect VFX; a crown on the emblem | Owner, Icon Artist |
 | Renames in the game files (ClassDescription, progression, ProgressionDescription, icons) from Spinner to Kingmaker | Build |
