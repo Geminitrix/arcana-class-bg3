@@ -28,7 +28,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
 - [x] Every evaluative question of §3 answered for the Spinner (✅ / ⚠️ / ❌ with evidence).
 - [x] The decisions of the 2026-10-08 design conversation recorded in `55/_wip/Spinner/decisions.md` (SP1–SP43).
 - [x] Depth audit of the old Spinner handed to the Context Keeper, then archived (design replaced). The Kingmaker audit goes with its 05 handoff.
-- [ ] Handoff to the Context Keeper for the Kingmaker (`05.02`, `21.08` Axis = Balance, glossary, open questions).
+- [x] Handoffs for the Kingmaker: Context Keeper (`05.02` + Depth audit, `05.00`, `05.06`), Lore Writer (`31.01`), Localization (`33.03`); `21.08` Kingmaker column with Axis = Balance; `10.06` updated.
 - [x] Every gap resolved by a decision in `55/_wip/Kingmaker/decisions.md` (SP47–SP103) or listed as open (spec §14).
 - [x] Raising spec written: `21.04/Kingmaker/2026-10-13-kingmaker-design.md` (§1.5 sections, Identity Sheet complete, no audit inside).
 - [ ] Balance pass: numbers in `25.01`–`25.03`, arithmetic in `22.05`.
@@ -63,3 +63,8 @@ elements — with an ultimate that ties it together and a kit the player can hol
   `90/93/2026-10-13_ARC-0008_spinner_design`; `55/_wip/Spinner` renamed `55/_wip/Kingmaker`. Self-review found two
   open rules (Master of Healing "toward Reigning" and Master of Laws "one extra position" conflict with SP62 / can
   help the enemy) — listed in spec §14 for the Owner. Next: handoff to the Context Keeper, balance pass.
+- 2026-10-13 — SP104 (Master of Healing forward only), SP105 (Master of Laws never past Fallen, never up to
+  Reigning). Kingmaker Depth audit (✅ most; ⚠️ I1, W2, P7, T2, T4, D1, D2; ❌ B — balance pass) in
+  `05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0008.md`; handoffs to the Lore Writer (`31`) and Localization
+  (`33`); `21.08` gains the Kingmaker column (Axis = Balance; Deceiver Aspect corrected to Doubt); `10.06` updated.
+  Next: balance pass (`25`, `22.05`).

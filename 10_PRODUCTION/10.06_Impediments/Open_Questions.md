@@ -11,12 +11,14 @@
 ### Class identity
 - ❓ **The Titan** (red, tarot **VIII · Strength**, in development): which Aspect, which role, which
   characters inspire it?
-- 🎯 **The Spinner** (**X · Wheel of Fortune · Aspect of Anticipation**, teal `#60d7d2`). **Designed
-  2026-10-08**; full design in `21.04_Subclasses/Spinner/2026-10-08-spinner-design.md` (fates with countdowns, the
-  Cascade, the wheel of elements with Past/Present/Future, 23 spells, Awakening Clotho / Lachesis /
-  Aspect of Anticipation). In the mod: only the ClassDescription, icons and a placeholder progression
-  table (`a688d11f`) whose level 1 still carries the Resonant's passives and saves. Open: every number
-  (balance pass), every working name and the Mystra sentence (text pass), emoji and Aspect VFX.
+- 🎯 **The Kingmaker** (was *The Spinner*; **X · Wheel of Fortune · Aspect of Anticipation**, teal `#60d7d2`).
+  **Designed 2026-10-13** (ARC-0008): `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md` — creatures ride
+  the Wheel's four positions, Crossings, the Court, ultimate Peripeteia; Awakening Tyche / Nemesis / Aspect of
+  Anticipation. In the mod: only the ClassDescription, icons and a placeholder progression named *Spinner*
+  (`a688d11f`) whose level 1 still carries the Resonant's passives and saves. Open: every number (balance pass),
+  emoji and Aspect VFX, the in-game probes (spec §15).
+- ❓ **A magical burst / DPR subclass.** The Kingmaker's role sits close to the Resonant's (support through
+  states); the class still lacks a ranged magical damage dealer. A future tarot card fills it (Owner, 2026-10-13).
 - ❓ **The Resonant** (6th subclass, **XIV · Temperance · Aspect of Empathy**). In the game since 2026-10-06: ClassDescription, ProgressionDescription (character creation lists its proficiencies), progression 1-20, lists Resonant Level 1/3/5, skill list The Empath, own tag THEHEARTWEAVER (the author renames it, the ClassDescription Name and the ProgressionDescription Type/Name from Heartweaver in the Toolkit; until then those keep the old name), equipment EQP_CC_Resonant, ability preset, default skills; WIS + CHA saves, light armour, caster weapons, Cleric sound set. Surge tooltips (2026-10-07): flavour + effect + mood, the reactions listed in the ExtraDescription, standard warning TooltipExtraTexts 70aa3de3. Still missing: the hotbar icon (GUI/Assets[LowRes]/ClassIcons/hotbar/Resonant.DDS), translations (its strings are English only), the signature cards and the Temperance Awakening. Design: control/support built on Plutchik's full wheel of emotions — Surge (1 turn) → Mood
   (5 turns) → reaction by wheel distance (intensify / primary / secondary / tertiary dyad / Catharsis).
   Spec: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`. Open: chassis, level-12 passive cards,
