@@ -97,3 +97,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-13 — Design gate answered (passes with three notes: `21.01` pillars missing, complexity above the suggestion,
   T1/T3 percentages rough); `22.05` §6 gains T1 and T3 figures. Narrative gate pending (Lore Writer). Next:
   `SPEC_ARC-0008` and `TOOLKIT_ARC-0008`.
+- 2026-10-13 — Owner approved the ADR-0005 amendment: `ADR-0008_Toolkit_Guides_Derived_Numbers.md`. Player-facing texts
+  drafted in `55/_wip/Kingmaker/texts.md` (class, 9 passives, 15 statuses, 12 spells) against `31.03`; Narrative gate
+  handed to the Lore Writer (`32.04/HANDOFF_LeadClassDesigner_to_LoreWriter_ARC-0008.md`). Next: `SPEC_ARC-0008`,
+  `TOOLKIT_ARC-0008`.

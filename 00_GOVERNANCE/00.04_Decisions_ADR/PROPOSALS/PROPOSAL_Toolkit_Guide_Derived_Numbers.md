@@ -1,7 +1,7 @@
 # PROPOSAL · Toolkit guides may show numbers as a derived view (amends ADR-0005)
 
 - **Raised by:** Lead Mod Engineer, ARC-0008 · 2026-10-13
-- **Status:** proposed — awaiting the Owners
+- **Status:** accepted by the Owner on 2026-10-13 — became `ADR-0008_Toolkit_Guides_Derived_Numbers.md`
 
 ## Problem
 ADR-0005 makes `25_Master_Data` the single source of every number, and the project rule says a number is

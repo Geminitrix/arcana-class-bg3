@@ -22,7 +22,7 @@ author: Mod Engineer
 
 Keep this section in every guide; it is how the Owner reads the rest.
 
-1. **Derived view (ADR-0005).** Numbers live in `25_Master_Data`. Every number here shows its value **and
+1. **Derived view (ADR-0005, ADR-0008).** Numbers live in `25_Master_Data`. Every number here shows its value **and
    its origin**: `2d6 · SPL_Example#damage`. This file is regenerated when a file in `derived_from`
    changes; never edit a number here by hand.
 2. **Order.** Section 0 is a numbered checklist in the order the work has to happen (an entry must exist
