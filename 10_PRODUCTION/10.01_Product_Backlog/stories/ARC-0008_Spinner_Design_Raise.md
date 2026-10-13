@@ -46,3 +46,6 @@ elements — with an ultimate that ties it together and a kit the player can hol
   **complexity budget** (§15: ~25 combat actions), then I6 names, W1, D1/D2; balance pass after.
 - 2026-10-13 — three alternative proposals for the raise (A Measured Thread · B Rise and Fall · C Fortuna's
   Wager) in `55/_wip/Spinner/2026-10-13-spinner-three-proposals.md`; awaiting the Owner's choice (SP47).
+- 2026-10-13 — brainstorm with the Owner: direction B *Rise and Fall* chosen, subclass renamed **The Kingmaker**;
+  decisions SP47–SP71 (Wheel positions, King/Regent, the Court/Small Council, verbs, Crossing, Cut, Peripeteia,
+  The Wheel Stops, chassis, progression). Next: Hubris fix, Awakening, card details, edge cases, raising spec.
