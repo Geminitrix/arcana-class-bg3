@@ -44,3 +44,5 @@ elements — with an ultimate that ties it together and a kit the player can hol
 - 2026-10-13 — created; decisions SP1–SP43 recorded from that conversation; audit against the current
   §3 done and handed to the Context Keeper. Gaps to brainstorm, in order: **K3 ultimate** (and A3), the
   **complexity budget** (§15: ~25 combat actions), then I6 names, W1, D1/D2; balance pass after.
+- 2026-10-13 — three alternative proposals for the raise (A Measured Thread · B Rise and Fall · C Fortuna's
+  Wager) in `55/_wip/Spinner/2026-10-13-spinner-three-proposals.md`; awaiting the Owner's choice (SP47).
