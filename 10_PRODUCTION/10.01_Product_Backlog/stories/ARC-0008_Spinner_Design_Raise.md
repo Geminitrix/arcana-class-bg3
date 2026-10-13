@@ -10,7 +10,7 @@ priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Spinner/2026-10-08-spinner-design.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
-outputs: [55/_wip/Spinner/decisions.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0008.md]
+outputs: [55/_wip/Spinner/decisions.md, 90/93/2026-10-13_ARC-0008_spinner_audit]
 blocked_by: []
 sprint:
 created: 2026-10-13
@@ -49,3 +49,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
 - 2026-10-13 — brainstorm with the Owner: direction B *Rise and Fall* chosen, subclass renamed **The Kingmaker**;
   decisions SP47–SP71 (Wheel positions, King/Regent, the Court/Small Council, verbs, Crossing, Cut, Peripeteia,
   The Wheel Stops, chassis, progression). Next: Hubris fix, Awakening, card details, edge cases, raising spec.
+- 2026-10-13 — SP72 (Hubris: who reigned falls harder). The old Spinner audit handoff, never applied, archived in
+  `90/93/2026-10-13_ARC-0008_spinner_audit` (design replaced by the Kingmaker); the Kingmaker gets its own audit
+  with the raising spec. Owner's note: the Kingmaker's role sits close to the Resonant's (support through states)
+  and the mod still lacks a magical burst/DPR subclass — a future tarot card will fill that gap (not this ticket).
