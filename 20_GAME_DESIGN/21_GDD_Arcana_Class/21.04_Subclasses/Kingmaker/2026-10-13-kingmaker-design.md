@@ -494,7 +494,7 @@ Everything is Stats, Osiris and Khonsu; nothing needs Script Extender. Signature
 | Reigning: crit 19–20 | `ReduceCriticalAttackThreshold(1)` | 11 |
 | Reigning: Advantage on saves | `Advantage(AllSavingThrows)` | 16 |
 | Falling: −1d4 to attacks | `RollBonus(Attack,-1d4)` | 3 |
-| Rising / Falling: movement | `ActionResourceMultiplier(Movement,…)` | 20 |
+| Rising / Falling: +3 m / −3 m movement | `ActionResource(Movement,3,0)` (Longstrider) / `ActionResource(Movement,-3,0)` (Ray of Frost) | vanilla statuses LONGSTRIDER, RAY_OF_FROST |
 | Rising: can't be Prone | `StatusImmunity(PRONE)` | 5 |
 | Fallen: attacks against it have Advantage | `Advantage(AttackTarget)` | 62 |
 | Fallen: no reactions | `ActionResourceBlock(ReactionActionPoint)` | 52 |

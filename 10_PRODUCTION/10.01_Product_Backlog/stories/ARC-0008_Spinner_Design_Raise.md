@@ -68,3 +68,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
   `05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0008.md`; handoffs to the Lore Writer (`31`) and Localization
   (`33`); `21.08` gains the Kingmaker column (Axis = Balance; Deceiver Aspect corrected to Doubt); `10.06` updated.
   Next: balance pass (`25`, `22.05`).
+- 2026-10-13 — balance pass written (proposed): `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md` — Crossing 1d4/1d6/1d8
+  Force, Hubris +1 die, Dethrone 3d6 (+1d6/slot), cantrip 1d6 (+1d4 vs Falling/Fallen), Cut 3d8/2d8/1d8 by position,
+  Ixion 5d6, The Wheel Stops 2 turns, positions ±3 m (Longstrider / Ray of Frost patterns), goals 3/5/8; ≈ 92 % of the
+  budget at T2. Six design changes for the Owner (§7) before the numbers go to `25`.
