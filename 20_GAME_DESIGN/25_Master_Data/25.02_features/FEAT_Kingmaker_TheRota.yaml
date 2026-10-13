@@ -1,0 +1,12 @@
+id: FEAT_Kingmaker_TheRota
+kind: feature
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §4"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  rising_movement:          { value: 3, unit: metres, note: "ActionResource(Movement,3,0) — vanilla LONGSTRIDER" }
+  reigning_crit_threshold:  { value: 19, note: "critical hits on 19–20 — ReduceCriticalAttackThreshold(1)" }
+  falling_movement:         { value: -3, unit: metres, note: "ActionResource(Movement,-3,0) — vanilla RAY_OF_FROST" }
+  falling_attack_penalty:   { value: 1d4, unit: penalty, note: "to attack rolls — RollBonus(Attack,-1d4), vanilla Bane" }
+  tier3_ally_falling_turns: { value: 2, unit: turns, note: "Tier III: an ally stays Falling two turns instead of entering Fallen" }

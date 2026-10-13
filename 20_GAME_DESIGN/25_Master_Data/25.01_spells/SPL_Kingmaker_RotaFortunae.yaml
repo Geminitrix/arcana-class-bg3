@@ -1,0 +1,8 @@
+id: SPL_Kingmaker_RotaFortunae
+kind: spell
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.11"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  uses: { value: 1, unit: count, note: "per combat; Created, 0 Threads, 0 slots, Action" }

@@ -1,0 +1,13 @@
+id: SPL_Kingmaker_AtroposCut
+kind: spell
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.5"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  card_level:      { value: 2, note: "Action" }
+  range:           { value: 18, unit: metres }
+  damage_fallen:   { value: 3d8, unit: damage, type: Slashing, note: "no save; +1d8 per slot level above 2 at every position" }
+  damage_falling:  { value: 2d8, unit: damage, type: Slashing }
+  damage_rising:   { value: 1d8, unit: damage, type: Slashing }
+  damage_reigning: { value: 1d8, unit: damage, type: Slashing }

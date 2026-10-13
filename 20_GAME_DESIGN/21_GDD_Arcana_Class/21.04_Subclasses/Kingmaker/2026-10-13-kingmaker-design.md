@@ -10,7 +10,7 @@
 > gameplay effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the
 > deck, console without Script Extender).
 >
-> **Numbers live in `25_Master_Data`** (ADR-0005). The balance pass has not run yet: where a value is needed
+> **Numbers live in `25_Master_Data`** (ADR-0005), arithmetic in `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md`. Where a value is needed
 > this spec says *(25)* and the file that will hold it is named in §13. Positions, durations in turns,
 > ranges in metres and level placement are design and are final unless a test proves them wrong.
 
@@ -211,7 +211,7 @@ Ready: Foreseen do. The whole round is played in a known state.
 ## 5. The Crossing (level 3)
 
 > **When an enemy on the Wheel enters Fallen while an ally on the Wheel within 9 m is Reigning, the enemy
-> takes Crossing damage** *(25)*.
+> takes Force damage** (`FEAT_Kingmaker_Crossing`).
 
 - **Any cause** counts: the turn of the Wheel, *Turn the Spoke*, *Dethrone* under Tyche, *Peripeteia*,
   *Usurp*, *Succession*, Ready: Foreseen.
@@ -222,7 +222,7 @@ Ready: Foreseen do. The whole round is played in a known state.
 - A Crossing **moves nothing** by itself; only Tier II *Nemesis* moves creatures after a Crossing, and only
   those already Falling (§9.3), so every chain ends.
 
-**Worked example (level 3).** Turn 1: *Coronation* on the fighter (Rising) and *Dethrone* on the ogre
+**Worked example (level 3).** Turn 1: *Coronation* on the fighter (Rising) as a Bonus Action and *Dethrone* on the ogre
 (Falling, with damage). The Kingmaker's turn 2 starts: the fighter becomes **Reigning** (King), the ogre
 **Fallen** → the ogre takes its Crossing. For the whole round the fighter crits on 19–20 and everyone
 attacks the ogre with Advantage while it can't react. Turn 3 will make the fighter Fall and the ogre Rise:
@@ -252,7 +252,7 @@ the Kingmaker kills it first, cuts it off the Wheel, or saves *Usurp* for the mo
 | 5 | **Master of Healing** | Healing an ally on the Wheel moves it one position on **only when that step brings it toward Reigning** (Fallen → Rising, Rising → Reigning); at Reigning or Falling nothing happens |
 | 7 | **Master of Laws** | An enemy that attacks the King falls one step further at the next turn of the Wheel — **never past Fallen and never up to Reigning**: from Rising it skips its reign and lands on Falling; from Reigning it drops to Fallen (and may cross); from Falling or Fallen it takes the normal step only |
 | 7 | **Master of Secrets** | Enemies on the Wheel within 9 m can't be invisible or hidden; the holder has Advantage against Falling enemies |
-| 9 | **Master of Coin** | The first time each turn it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) |
+| 9 | **Master of Coin** | **Once per Long Rest**, when it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) |
 | 9 | **Master of Ships** | A Crossing also pays when the Fallen enemy is within 9 m of the Master of Ships, not only of a Reigning ally |
 
 Offices show as a status on the holder, named after the office.
@@ -271,7 +271,7 @@ binds no one.
 
 ### 7.2 *Coronation* (level 1)
 
-**Action.** An ally or the Kingmaker within 18 m enters the Wheel at **Rising** (Reigning with Tyche).
+**Bonus Action**, level-1 card. An ally or the Kingmaker within 18 m enters the Wheel at **Rising** (Reigning with Tyche).
 Self-coronation costs what the Wheel costs: the Kingmaker will fall too, and while Fallen loses its
 reactions — Ready: Foreseen included.
 
@@ -283,7 +283,7 @@ on a die.
 
 ### 7.4 *Turn the Spoke* (level 1)
 
-**Bonus Action.** One creature on the Wheel within 18 m moves **one position on** — forward only. It
+**Bonus Action, no slot** (PC: 1 Thread, the level-0 card rule). One creature on the Wheel within 18 m moves **one position on** — forward only. It
 hastens a Crossing (a Falling enemy drops to Fallen), brings an ally up to Reigning a turn early, or moves
 an enemy out of Reigning. The early bonus-action play (K6).
 
@@ -296,7 +296,7 @@ an enemy out of Reigning. The early bonus-action play (K6).
 
 ### 7.6 *Peripeteia* — the ultimate (level 5)
 
-**Action, once per combat.** Every creature on the Wheel within 18 m — allies included — moves to the
+**Action, level-3 card (Woven Spell Slot / 3 Threads), once per combat.** Every creature on the Wheel within 18 m — allies included — moves to the
 **opposite** position (Reigning ↔ Fallen, Rising ↔ Falling). Every enemy that enters Fallen next to a
 Reigning ally pays its Crossing at once. The turning point: best when the Wheel is against the party,
 costly otherwise. It uses positions, opposition and Crossings at once (K3).
@@ -371,7 +371,7 @@ The Crossing loses its 9 m limit (§5).
 
 **Each time an enemy takes Crossing damage, count 1** — at most once per enemy per round. The Master of
 Ships' Crossings and the stopped Wheel's pressing count too. The goal shows as the ARC-0007 countdown
-(COUNT type) on the *Awakening* status. Goals *(25; the balance pass starts from 3 / 5 / 8)*.
+(COUNT type) on the *Awakening* status. Goals **3 / 5 / 8** (`FEAT_Kingmaker_AspectAwakening`). **A lone enemy:** while only one enemy is on the Wheel, each Crossing counts **2**.
 
 | Tier | Level | Name | Source |
 |---|---|---|---|
@@ -435,7 +435,7 @@ the Wheel (Succession, Ixion). Level 11 stops it.
 
 ### 11.2 A fight
 
-- **Turn 1:** Coronation and Dethrone (or Turn the Spoke on an enemy already Falling).
+- **Turn 1:** Dethrone (Action) and Coronation (Bonus Action) — or Turn the Spoke on an enemy already Falling.
 - **Turn 2:** the first Crossing; the King plays its big turn; everyone hits the Fallen enemy.
 - **Turns 3–4:** the cycle turns against the party — Cut, Usurp or Peripeteia; Rota Fortunae for a second
   payoff in the round when the phases are right.
@@ -520,10 +520,7 @@ container), passives `Arcana_Passive_*`, statuses in `SCREAMING_SNAKE_CASE`, tec
 
 | Item | Decided in |
 |---|---|
-| Every value marked *(25)* (Crossing damage, Dethrone, Cut, Ixion and its surface, Hubris, movement, The Wheel Stops' duration, the cantrip) | Balance pass (`25`, `22.05`) |
-| Awakening goals (start 3 / 5 / 8) and **a lone enemy** (a boss crosses about once per cycle) — whether Crossings count more with few enemies | Balance pass |
-| Master of Coin's economy | Balance pass |
-| Cut's cost (slot / Thread) | Balance pass |
+| Every value marked *(25)*: set in `25_Master_Data` from the approved balance pass (`22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md`); playtest checks in its §8 | Playtest |
 | Ranges of Dethrone, Usurp and Cut (18 m assumed) | Owner, with the balance pass |
 | Emoji and Aspect VFX; a crown on the emblem | Owner, Icon Artist |
 | Renames in the game files (ClassDescription, progression, ProgressionDescription, icons) from Spinner to Kingmaker | Build |

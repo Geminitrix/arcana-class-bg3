@@ -1,7 +1,7 @@
 # Kingmaker · balance pass (ARC-0008, 2026-10-13)
 
-The arithmetic behind the Kingmaker's numbers. **Status: proposed** — the values go to `25_Master_Data`
-(`FEAT_Kingmaker_*`, `SPL_Kingmaker_*`) once the Owner approves this report and the design changes of §7.
+The arithmetic behind the Kingmaker's numbers. **Approved by the Owner on 2026-10-13**, with the six design changes of §7
+(SP106–SP111). The values live in `25_Master_Data` (`FEAT_Kingmaker_*`, `SPL_Kingmaker_*`).
 Design: `21.04/Kingmaker/2026-10-13-kingmaker-design.md`. First educated guesses: every number has a playtest
 check in §8.
 

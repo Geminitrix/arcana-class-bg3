@@ -31,7 +31,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
 - [x] Handoffs for the Kingmaker: Context Keeper (`05.02` + Depth audit, `05.00`, `05.06`), Lore Writer (`31.01`), Localization (`33.03`); `21.08` Kingmaker column with Axis = Balance; `10.06` updated.
 - [x] Every gap resolved by a decision in `55/_wip/Kingmaker/decisions.md` (SP47–SP103) or listed as open (spec §14).
 - [x] Raising spec written: `21.04/Kingmaker/2026-10-13-kingmaker-design.md` (§1.5 sections, Identity Sheet complete, no audit inside).
-- [ ] Balance pass: numbers in `25.01`–`25.03`, arithmetic in `22.05`.
+- [x] Balance pass: numbers in `25.01`–`25.02` (11 SPL, 6 FEAT), arithmetic in `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md` (approved).
 
 ## Gates
 
@@ -72,3 +72,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
   Force, Hubris +1 die, Dethrone 3d6 (+1d6/slot), cantrip 1d6 (+1d4 vs Falling/Fallen), Cut 3d8/2d8/1d8 by position,
   Ixion 5d6, The Wheel Stops 2 turns, positions ±3 m (Longstrider / Ray of Frost patterns), goals 3/5/8; ≈ 92 % of the
   budget at T2. Six design changes for the Owner (§7) before the numbers go to `25`.
+- 2026-10-13 — balance pass approved with SP106–SP111 (Coronation Bonus Action, Turn the Spoke no slot, Peripeteia
+  level-3 card + once per combat, Master of Coin once per Long Rest, Crossing Force, lone enemy counts 2). Numbers in
+  `25.01` (11 `SPL_Kingmaker_*`) and `25.02` (6 `FEAT_Kingmaker_*`); spec updated; validate.pl 0 errors. Next: Design
+  gate (§15), then `SPEC_ARC-0008` and `TOOLKIT_ARC-0008`.

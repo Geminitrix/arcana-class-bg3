@@ -1,0 +1,8 @@
+id: FEAT_Kingmaker_Succession
+kind: feature
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §8.4"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  heir_range: { value: 9, unit: metres, note: "from the body; the nearest enemy not on the Wheel" }

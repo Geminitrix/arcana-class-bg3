@@ -1,0 +1,9 @@
+id: SPL_Kingmaker_Coronation
+kind: spell
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.2"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  card_level: { value: 1, note: "Bonus Action; Woven Spell Slot / 1 Thread" }
+  range:      { value: 18, unit: metres }

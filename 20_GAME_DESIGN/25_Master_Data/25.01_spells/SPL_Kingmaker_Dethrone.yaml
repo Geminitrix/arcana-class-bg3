@@ -1,0 +1,10 @@
+id: SPL_Kingmaker_Dethrone
+kind: spell
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.3"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  card_level: { value: 1, note: "Action" }
+  range:      { value: 18, unit: metres }
+  damage:     { value: 3d6, unit: damage, type: Bludgeoning, note: "+1d6 per slot level above 1; Charisma save for half; the binding always lands" }

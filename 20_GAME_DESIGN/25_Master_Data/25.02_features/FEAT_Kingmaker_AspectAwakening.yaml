@@ -1,0 +1,12 @@
+id: FEAT_Kingmaker_AspectAwakening
+kind: feature
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §9"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  goal_tier1:       { value: 3, unit: count, note: "Crossings — each instance of Crossing damage" }
+  goal_tier2:       { value: 5, unit: count }
+  goal_tier3:       { value: 8, unit: count }
+  lone_enemy_count: { value: 2, unit: count, note: "each Crossing counts 2 while only one enemy is on the Wheel" }
+  nemesis_radius:   { value: 3, unit: metres, note: "Tier II: Falling enemies around the crossed enemy drop to Fallen" }

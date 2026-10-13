@@ -1,0 +1,10 @@
+id: SPL_Kingmaker_TheWheelStops
+kind: spell
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.10"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+values:
+  card_level:     { value: 6, note: "Action; Long Rest; Unique" }
+  duration:       { value: 2, unit: turns, note: "turns of the Kingmaker" }
+  pressing_range: { value: 9, unit: metres, note: "Fallen enemy to a Reigning ally" }
