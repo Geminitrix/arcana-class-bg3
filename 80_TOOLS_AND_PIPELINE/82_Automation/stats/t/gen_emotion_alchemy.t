@@ -134,7 +134,7 @@ like(Alchemy::spell_success('Fear'), qr/DealDamage\(LevelMapValue\(Catharsis_Dam
 unlike(Alchemy::spell_success($_), qr/RESONANT_REFUND_TECH/, "refund is not in $_\'s SpellSuccess") for qw(Joy Fear);
 my $og = Alchemy::overload_goal();
 is(scalar(() = $og =~ /DB_ARCANA_Resonant_Reaction\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)"\);/g), 33, 'refund: the 33 reaction statuses (24 feelings, 8 intense, Catharsis)');
-like($og, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_Reaction\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 0\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH", 0\.0, 1, _Resonant\);/, 'refund: any reaction a Resonant causes');
+like($og, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_Reaction\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH", 0\.0, 1, _Resonant\);/, 'refund: any reaction a Resonant causes');
 unlike($og, qr/DB_ARCANA_Resonant_Reaction\("RESONANT_TWO_CUPS_CATHARSIS"\)/, 'refund: The Two Cups is not a Surge');
 none('no stats line comes near the 4096-character read limit (the .stats twin adds ~100)', map { /^new entry "([^"]+)"/ ? () : length($_) > 3900 ? substr($_, 0, 40) : () } split /\n/, $p);
 my $rf = block($p, 'RESONANT_REFUND_TECH');
@@ -185,7 +185,8 @@ like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the 
 unlike($p, qr/^new entry "(?:Shout_Arcana_Util_DEBUG_Resonant|RESONANT_DEBUG)"/m, 'the DEBUG scaffold is no longer generated');
 none('the DEBUG scaffold is retired from the game', grep { my $n = $_; !grep { $_->[1] eq $n } Alchemy::removals({ $n => 'Spell_Shout' }, {}) } qw(Shout_Arcana_Util_DEBUG_Resonant RESONANT_DEBUG));
 my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
-like($eo, qr/"UseCosts" "ActionPoint:1"\n/, 'Emotional Overload: an action, no slot or Thread (R22)');
+like($eo, qr/"UseCosts" "BonusActionPoint:1"
+/, 'Emotional Overload: a bonus action, no slot or Thread (R22, R48)');
 like($eo, qr/^data "RequirementConditions" "HasStatus\('RESONANT_OVERLOAD_FULL'\)"$/m, 'only while Overloaded: greyed out until then (P8, vanilla HasStatus(\'SG_Rage\'))');
 unlike($eo, qr/^data "TargetConditions" "[^"]*RESONANT_OVERLOAD_FULL/m, 'the Overloaded check is not a target condition (P8)');
 unlike($eo, qr/"SpellRoll"/, 'no saving throw');
@@ -282,6 +283,7 @@ like($cr, qr/"RemoveEvents" "OnCombatEnded"/, 'ready: ends with the combat');
 my $ci = block($p, 'Interrupt_Arcana_Reaction_Compassion');
 like($ci, qr/"InterruptContext" "OnCastHit"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/, 'Compassion: when a nearby creature is hit');
 like($ci, qr/Ally\(context\.Target,context\.Observer\) and not Self\(context\.Target,context\.Observer\).*not DistanceToEntityGreaterThan\(9, context\.ObserverPosition, context\.Target\)/, 'an ally within 9 m (25)');
+like($ci, qr/"Conditions" "[^"]*Enemy\(context\.Source,context\.Observer\)/, 'only when an ENEMY hits the ally -- your own Surge on it does not trigger it (vanilla Hellish Rebuke)');
 like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true\);ApplyStatus\(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0\)"/, 'casts Weave Surge: Trust on it; marks the use (the PC deck discards one copy)');
 like($ci, qr/"Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"/, 'once per round: the reaction and the charge');
 like($ci, qr/"EnableCondition" "HasActionResource\('ArcanaReactCompassion', 1, 0, false, false, context\.Source\)"/, 'only with a charge (Which One)');
@@ -404,19 +406,22 @@ like($shs, qr/"StatusPropertyFlags" "[^"]*ForceOverhead/, 'the link is shown');
 my $shc = block($p, 'RESONANT_SHARED_CATHARSIS');
 like($shc, qr/"OnApplyFunctors" "RegainHitPoints\(LevelMapValue\(Catharsis_Damage\)\);RemoveStatus\(MOOD_/, 'shared Catharsis: heals, then spends the moods (R44)');
 is(scalar(() = $shc =~ /RemoveStatus\(MOOD_\w+\)/g), 8, 'shared Catharsis: every mood');
-my $shr = block($p, 'RESONANT_SHARED_REFUND_TECH');
-is(scalar(() = $shr =~ /RestoreResource\(SELF,ArcanaSpellSlot,1,\d\)/g), 6, 'free Surge on a linked ally: the slot back, by level');
-like($shr, qr/RestoreResource\(SELF,ArcanaThread,1,0\)/, 'free Surge: the Thread back');
-unlike($shr, qr/RESONANT_REFUND_USED/, 'free Surge: no once-per-turn guard (R24)');
+# R46: the free Surge on linked allies (R24) is gone
+unlike($p, qr/^new entry "RESONANT_SHARED_REFUND_TECH"/m, 'R46: no free-Surge refund any more');
+ok((grep { $_->[1] eq 'RESONANT_SHARED_REFUND_TECH' } Alchemy::removals({ RESONANT_SHARED_REFUND_TECH => 'Status_BOOST' }, {})) ? 1 : 0, 'R46: the free-Surge refund is retired from the game');
 my $hg = Alchemy::shared_heart_goal();
-is(scalar(() = $hg =~ /DB_ARCANA_Resonant_SharedResult\("(?:EMOTION|FEELING)_\w+"\);/g), 40, 'copied: 8 peaks, 8 intense, 24 feelings');
+is(scalar(() = $hg =~ /DB_ARCANA_Resonant_SharedResult\("(?:EMOTION|FEELING)_\w+"\);/g), 24, 'R46: only the 24 feelings are copied');
+unlike($hg, qr/DB_ARCANA_Resonant_SharedResult\("EMOTION_/, 'R46: no peak or intense emotion is copied');
 like($hg, qr/StatusApplied\(\(CHARACTER\)_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_SharedResult\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 1\)/, 'a Resonant\'s Surge result on a linked creature');
 like($hg, qr/ApplyStatus\(_Other, _Status, _Dur, 1, _Target\);/, 'the copy\'s source is the linked target: counted once, never copied again (R19)');
 like($hg, qr/GetStatusTurns\(_Target, _Status, _Turns\)/, 'the copy keeps the turns');
 like($hg, qr/ApplyStatus\(_Other, "RESONANT_SHARED_CATHARSIS", 0\.0, 1, _Target\);/, 'a Catharsis heals every other linked creature (R44)');
-like($hg, qr/UsingSpellOnTarget\(\(CHARACTER\)_Resonant, \(CHARACTER\)_Target, _Spell, _, _, _\)\r?\nAND\r?\nDB_ARCANA_CardFamily\(_Spell, _Root\)\r?\nAND\r?\nDB_ARCANA_Resonant_SurgeRoot\(_Root, _\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 1\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_SharedRefunded\(_Resonant\)/, 'a Surge on a linked creature is free, once per cast');
-like($hg, qr/CastedSpell\(\(CHARACTER\)_Resonant, _, _, _, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_SharedRefunded\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_SharedRefunded\(_Resonant\);/, 'the per-cast mark clears after the cast');
-like($og, qr/HasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 0\)\r?\nTHEN\r?\nApplyStatus\(_Resonant, "RESONANT_REFUND_TECH"/, 'the reaction refund skips a linked target (already free)');
+unlike($hg, qr/SharedRefunded|RESONANT_SHARED_REFUND_TECH/, 'R46: no free Surge on linked allies');
+unlike($og, qr/SHARED_HEART/, 'R46: the reaction refund treats a linked target as any other');
+# R47: a feeling braided again in the fight adds its turns (vanilla StackType Additive, RAGE_FRENZY_BURNOUT)
+none('R47: every feeling is Additive', grep { block($p, 'FEELING_' . uc $Alchemy::FEELING{$_}{name}) !~ /^data "StackType" "Additive"$/m } keys %Alchemy::FEELING);
+like($lt{'HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC'} // '', qr/feeling/, 'Shared Heart text names the feelings (R46)');
+unlike($lt{'HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC'} // '', qr/costs nothing/, 'Shared Heart text no longer promises free Surges');
 unlike($hg, qr/[^\x00-\x7F]/, 'Shared Heart goal: ASCII only');
 like($hg, qr/\r\n/, 'Shared Heart goal: CRLF');
 

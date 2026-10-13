@@ -337,7 +337,7 @@ the mood. Shows in the combat log.
 
 The key feature that ties the mechanic together: everything the Resonant braided, poured into one enemy.
 
-**Action, only while *Overloaded*; the full meter is its cost — no slot, no Thread** (R22). **Not a spell** (R29):
+**Bonus Action (R48), only while *Overloaded*; the full meter is its cost — no slot, no Thread** (R22). **Not a spell** (R29):
 it works while silenced. One enemy within 18 m, no saving throw:
 - every **feeling** it carries is spent, and it takes Psychic damage for each (`SPL_Resonant_EmotionalOverload`);
 - it is **Paralysed for 2 turns**;
@@ -377,13 +377,12 @@ Trust on it (it can trigger Alchemy). Once per round.
 
 Empathic Sight already gives Advantage on Insight.
 
-### 7.6 Shared Heart — capstone (level 11) — R18
+### 7.6 Shared Heart — capstone (level 11) — R18, R43, R44, R46
 
-**Action · Long Rest · Unique.** You and every ally within 18 m are **linked** until combat ends. A
-Weave Surge on one linked ally lands on **all** of them, and they share the same mood: one Surge: Joy
-makes the whole party contagious, one reaction braids Love or Hope into everyone. The Surge counts as one
-reaction for the refund, the Overload and the Awakening (R19). **A Surge whose main target is a linked
-ally spends no slot and no Thread** (R24) — the capstone lets the Resonant braid the party for free.
+**Level 5 card · Action · Long Rest · Unique.** You and every ally within 18 m are **linked** until combat ends.
+A **feeling** braided in one linked creature is braided in **all** of them (R46): one reaction braids Love or Hope
+into the whole party. It counts once for the refund, the Overload and the Awakening (R19). A Catharsis on a linked
+ally heals every linked ally (R44). Feelings stack additively (R47): braided again, they last longer.
 
 ---
 

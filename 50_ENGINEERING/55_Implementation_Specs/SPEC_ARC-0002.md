@@ -908,6 +908,29 @@ the usual Stats chain → `dump_progression` → `sync_data` → commit. PC prob
 
 ARC-0002 stays **in progress** until the open probes pass; then `done`.
 
+## Stage 7b — Owner's changes after the Shared Heart test (R46–R48 + a Compassion bug), 2026-10-12
+
+Shared Heart "not working": the Story had been compiled at 19:57, before its goal was applied (20:36) — none of its
+rules were in `story.div`. Compile after every apply that changes a goal.
+
+| Task | Change | Test (RED first) |
+|---|---|---|
+| 7b.1 | **R46** Shared Heart copies **feelings** only (`DB_ARCANA_Resonant_SharedResult` = 24 rows); the Catharsis heal stays (R44); the free Surge (R24) goes: `RESONANT_SHARED_REFUND_TECH` retired, its Osiris rule gone, the reaction refund treats a linked target as any other; texts | 24 rows, no peak; no free-Surge rule; refund without `SHARED_HEART` |
+| 7b.2 | **R47** every feeling `StackType Additive` (vanilla `RAGE_FRENZY_BURNOUT`) | 24 feelings |
+| 7b.3 | **R48** Emotional Overload `UseCosts BonusActionPoint:1` | UseCosts |
+| 7b.4 | **Bug:** Compassion triggered on the Resonant's own Surge on an ally — the interrupt now asks `Enemy(context.Source,context.Observer)` (vanilla Hellish Rebuke) | condition |
+
+Built (not applied): tests 247/247, dry run 1 removal, longest line 3301. **Apply** with `[fechado] ARC-0002`: the Stats
+chain + copy `40_overload_goal.txt` and `45_shared_heart_goal.txt`; **compile the Story**.
+
+| # | Do | Proves it works |
+|---|---|---|
+| P27b | Shared Heart on the party, then braid Love on one linked ally | Every linked creature gets Love; Overload +2 once |
+| P28b | Braid Love again on a linked ally that still has it | Its turns add up (and on every linked creature) |
+| P30 | Catharsis on a linked ally | It heals; the others heal the base amount and lose their mood |
+| P34 | Weave Surge on your ally while you hold Ready: Compassion | No Compassion prompt; an enemy hitting that ally does prompt it |
+| P35 | Overloaded, level 5+ | Emotional Overload uses the bonus action |
+
 ## Stages 2–7 — index (written in full before each stage)
 
 | Stage | Items | Anchors already found |

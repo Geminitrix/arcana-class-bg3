@@ -56,6 +56,10 @@ Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the 
 | R43 | **Shared Heart is a level 5 card** (Unique, once per long rest), as the Deceiver's capstone Grand Deception | author, 2026-10-12 |
 | R44 | **A Catharsis on a linked ally heals every linked ally** (same healing, their moods spent); peaks, intense emotions and feelings are copied as they are | author, 2026-10-12 |
 | R45 | **In the PC (SE) edition Temper costs 1 Thread**, as every level-0 card does (Heartstring, Malicious Whispers); the console edition keeps it at the Bonus Action only (R34) | author, 2026-10-12 |
+| R46 | **Shared Heart shares feelings** (replaces R18's "a Surge lands on all" and R24's free Surges): a feeling braided in one linked creature is braided in every linked creature (counted once); a Catharsis on one still heals them all (R44). Peaks and intense emotions are not copied; Surges on linked allies cost as usual | author, 2026-10-12 |
+| R47 | **Feelings stack additively** (`StackType Additive`): a feeling braided again in the same fight adds its turns | author, 2026-10-12 |
+| R48 | **Emotional Overload is a Bonus Action** | author, 2026-10-12 |
+| — | Bug: Ready: Compassion triggered on the Resonant's own Surge on an ally (the Surge has a damage functor and "hits"). Now only an enemy source triggers it, as vanilla Hellish Rebuke | 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
 ## Audit state before the rules rewrite

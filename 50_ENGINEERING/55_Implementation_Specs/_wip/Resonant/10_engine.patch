@@ -69,12 +69,11 @@
 @loca HW_SHOUT_ARCANA_CREATED_ASPECT_TWOCUPS_NAME The Two Cups
 @loca HW_SHOUT_ARCANA_CREATED_ASPECT_TWOCUPS_DESC Pour one cup into the other. Every creature within [3] that carries a mood undergoes Catharsis at once: an enemy takes [1] and 1d8 more, an ally regains [2] and 1d8 more. Their moods are spent.
 @loca HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_NAME Shared Heart
-@loca HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC Bind your heart to your allies' until the end of the fight. You and every ally within [1] are linked: a Weave Surge on one linked creature reaches all of them, and a Weave Surge whose target is linked costs nothing.
+@loca HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC Bind your heart to your allies' until the end of the fight. You and every ally within [1] are linked: a feeling braided in one linked creature is braided in all of them, and a Catharsis on one heals them all.
 @loca HW_SHARED_HEART_NAME Shared Heart
-@loca HW_SHARED_HEART_DESC Linked to the Resonant's heart. A Weave Surge on any linked creature reaches every one of them.
+@loca HW_SHARED_HEART_DESC Linked to the Resonant's heart. A feeling braided in any linked creature is braided in all of them; a Catharsis heals them all.
 @loca HW_RESONANT_SHARED_CATHARSIS_NAME Catharsis
 @loca HW_RESONANT_SHARED_CATHARSIS_DESC Opposing emotions, snapped through a Shared Heart. Heals, and every mood is spent.
-@loca HW_RESONANT_SHARED_REFUND_TECH_NAME Shared Heart refund
 @loca HW_EMOTION_JOY_NAME Emotion: Joy
 @loca HW_EMOTION_JOY_DESC Surging with Joy. Its joy is contagious: it and its allies within [1] have <LSTag Tooltip="Advantage">Advantage</LSTag> on their next attack.
 @loca HW_MOOD_SERENE_NAME Mood: Serene
@@ -212,6 +211,9 @@
 @loca HW_INTERRUPT_ARCANA_TRUSTSHOULDER_DESC When a nearby ally is hit by an attack, share the blow: the ally is Resistant to it, and you take the same damage.
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_NAME On Guard
 @loca HW_INTERRUPT_ARCANA_ANTICIPATIONGUARD_DESC When an enemy enters your reach, attack it first.
+
+@file Status_BOOST
+@remove RESONANT_SHARED_REFUND_TECH
 
 @file Spell_Target
 @section Target_ARCANA SPELLS
@@ -541,7 +543,7 @@ data "TargetEffect" "4b5dc428-d623-4203-a7f0-a86c47bf9aa8"
 data "PreviewCursor" "Cast"
 data "CastTextEvent" "Cast"
 data "CycleConditions" "Enemy() and not Dead()"
-data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
 data "VerbalIntent" "Control"
 data "SpellStyleGroup" "Class"
 data "SpellFlags" "HasSomaticComponent;IsHarmful"
@@ -989,6 +991,7 @@ data "Icon" "Action_Barbarian_Rage"
 data "StackId" "FEELING_AGGRESSIVENESS"
 data "TickType" "EndTurn"
 data "Boosts" "CharacterWeaponDamage(1d4);ActionResource(ReactionActionPoint,1,0)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ANNOYED);RemoveStatus(MOOD_INTERESTED)"
 
 new entry "FEELING_ANXIETY"
@@ -1002,6 +1005,7 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(ReactionActionPoint);Disadvantage(Concentration)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_INTERESTED);BreakConcentration()"
 
 new entry "FEELING_CONTEMPT"
@@ -1015,6 +1019,7 @@ data "TickType" "EndTurn"
 data "Boosts" "Resistance(Psychic, Vulnerable)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_ANNOYED)"
 
 new entry "FEELING_CURIOSITY"
@@ -1027,6 +1032,7 @@ data "Icon" "Spell_Divination_SeeInvisibility"
 data "StackId" "FEELING_CURIOSITY"
 data "TickType" "EndTurn"
 data "Boosts" "Advantage(AllAbilities);ActionResource(Movement,3,0)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_DISTRACTED);ApplyStatus(SEE_INVISIBILITY,100,2)"
 
 new entry "FEELING_CYNICISM"
@@ -1040,6 +1046,7 @@ data "TickType" "EndTurn"
 data "Boosts" "BlockRegainHP()"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_INTERESTED)"
 
 new entry "FEELING_DELIGHT"
@@ -1051,6 +1058,7 @@ data "DescriptionParams" "RegainHitPoints(1d6)"
 data "Icon" "Spell_Enchantment_Heroism"
 data "StackId" "FEELING_DELIGHT"
 data "TickType" "EndTurn"
+data "StackType" "Additive"
 data "TickFunctors" "RegainHitPoints(1d6)"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_DISTRACTED)"
 
@@ -1065,6 +1073,7 @@ data "TickType" "EndTurn"
 data "Boosts" "RollBonus(Attack,-1d4);RollBonus(SavingThrow,-1d4);RollBonus(DeathSavingThrow,-1d4)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_PENSIVE)"
 
 new entry "FEELING_DISAPPROVAL"
@@ -1080,6 +1089,7 @@ data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
 data "AuraRadius" "3"
 data "AuraStatuses" "TARGET:IF(Ally() and not Self()):ApplyStatus(FEELING_DISAPPROVED)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_PENSIVE)"
 
 new entry "FEELING_DOMINANCE"
@@ -1091,6 +1101,7 @@ data "Icon" "Spell_Enchantment_DominatePerson"
 data "StackId" "FEELING_DOMINANCE"
 data "TickType" "EndTurn"
 data "Boosts" "Advantage(Skill,Athletics);Advantage(Skill,Intimidation);AC(1)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_ANNOYED)"
 
 new entry "FEELING_ENVY"
@@ -1104,6 +1115,7 @@ data "TickType" "EndTurn"
 data "Boosts" "CannotHarmCauseEntity(CannotHarmMadness);ActionResourceBlock(ReactionActionPoint);AiArchetypeOverride(madness,99);Tag(AI_UNPREFERRED_TARGET);DetectDisturbancesBlock(true)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat;LoseControl"
 data "StatusGroups" "SG_Condition;SG_Mad"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_ANNOYED)"
 
 new entry "FEELING_GUILT"
@@ -1117,6 +1129,7 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(BonusActionPoint);Disadvantage(SavingThrow,Wisdom)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_APPREHENSIVE)"
 
 new entry "FEELING_HOPE"
@@ -1128,6 +1141,7 @@ data "Icon" "Spell_Enchantment_Bless"
 data "StackId" "FEELING_HOPE"
 data "TickType" "EndTurn"
 data "Boosts" "RollBonus(Attack,1d4);RollBonus(SavingThrow,1d4);RollBonus(DeathSavingThrow,1d4)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_INTERESTED)"
 
 new entry "FEELING_LOVE"
@@ -1140,6 +1154,7 @@ data "StackId" "FEELING_LOVE"
 data "TickType" "EndTurn"
 data "Boosts" "AC(1);RollBonus(SavingThrow,1);Resistance(All, Resistant);RedirectDamage(1)"
 data "RemoveEvents" "OnSourceDeath"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ACCEPTING)"
 
 new entry "FEELING_MORBIDNESS"
@@ -1152,6 +1167,7 @@ data "Icon" "Spell_Conjuration_StinkingCloud"
 data "StackId" "FEELING_MORBIDNESS"
 data "TickType" "EndTurn"
 data "Passives" "Arcana_Passive_FeelingMorbidness"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_BORED)"
 
 new entry "FEELING_OPTIMISM"
@@ -1163,6 +1179,7 @@ data "Icon" "Spell_Enchantment_Heroism"
 data "StackId" "FEELING_OPTIMISM"
 data "TickType" "EndTurn"
 data "Boosts" "StatusImmunity(SG_Frightened)"
+data "StackType" "Additive"
 data "TickFunctors" "ApplyStatus(HEROISM_TEMP_HP,100,1)"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_INTERESTED);ApplyStatus(HEROISM_TEMP_HP,100,1)"
 
@@ -1177,6 +1194,7 @@ data "TickType" "EndTurn"
 data "Boosts" "Disadvantage(AttackRoll);Advantage(AttackTarget)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_ANNOYED)"
 
 new entry "FEELING_PESSIMISM"
@@ -1190,6 +1208,7 @@ data "TickType" "EndTurn"
 data "Boosts" "RollBonus(SavingThrow,-1d6);RollBonus(SkillCheck,-1d6);RollBonus(RawAbility,-1d6)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_INTERESTED)"
 
 new entry "FEELING_PRIDE"
@@ -1201,6 +1220,7 @@ data "Icon" "Action_Barbarian_Rage"
 data "StackId" "FEELING_PRIDE"
 data "TickType" "EndTurn"
 data "Boosts" "ReduceCriticalAttackThreshold(1)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ANNOYED)"
 
 new entry "FEELING_REMORSE"
@@ -1215,6 +1235,7 @@ data "TickType" "EndTurn"
 data "Passives" "Arcana_Passive_FeelingRemorse"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_BORED)"
 
 new entry "FEELING_SENTIMENTALITY"
@@ -1226,6 +1247,7 @@ data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "FEELING_SENTIMENTALITY"
 data "TickType" "EndTurn"
 data "Boosts" "Resistance(Psychic, Resistant);StatusImmunity(SG_Charmed)"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_PENSIVE)"
 
 new entry "FEELING_SHAME"
@@ -1239,6 +1261,7 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(ReactionActionPoint);Disadvantage(AttackRoll)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_BORED)"
 
 new entry "FEELING_SUBMISSION"
@@ -1252,6 +1275,7 @@ data "TickType" "EndTurn"
 data "Boosts" "CannotHarmCauseEntity(CannotHarmCharmer)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_APPREHENSIVE);ApplyStatus(PRONE,100,1)"
 
 new entry "FEELING_UNBELIEF"
@@ -1265,6 +1289,7 @@ data "TickType" "EndTurn"
 data "Boosts" "BlockSpellCast()"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_BORED)"
 
 new entry "FEELING_DISAPPROVED"
@@ -1562,14 +1587,6 @@ data "StackId" "RESONANT_SHARED_CATHARSIS"
 data "TickType" "EndTurn"
 data "OnApplyFunctors" "RegainHitPoints(LevelMapValue(Catharsis_Damage));RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_ANNOYED);RemoveStatus(MOOD_INTERESTED)"
 
-new entry "RESONANT_SHARED_REFUND_TECH"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" "{{HW_RESONANT_SHARED_REFUND_TECH_NAME}}"
-data "StackId" "RESONANT_SHARED_REFUND_TECH"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-data "OnApplyFunctors" "IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);RestoreResource(SELF,ArcanaThread,1,0)"
-
 new entry "COMPASSION_USED_TECH"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -1631,6 +1648,7 @@ data "DisplayName" "{{HW_FEELING_AWE_NAME}}"
 data "Description" "{{HW_FEELING_AWE_DESC}}"
 data "Icon" "Spell_Illusion_HypnoticPattern"
 data "StackId" "FEELING_AWE"
+data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_DISTRACTED);BreakConcentration()"
 
 @file Passive
@@ -1766,7 +1784,7 @@ data "Icon" "Spell_Abjuration_Sanctuary"
 data "InterruptContext" "OnCastHit"
 data "InterruptContextScope" "Nearby"
 data "Container" "YesNoDecision"
-data "Conditions" "IsAbleToReact(context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan(9, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan(9, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()"
 data "Properties" "UseSpell(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true);ApplyStatus(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0)"
 data "Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"
 data "InterruptDefaultValue" "Ask;Enabled"
