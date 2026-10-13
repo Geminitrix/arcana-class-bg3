@@ -11,7 +11,7 @@ value: 3
 effort: 2
 inputs: [21.04_Subclasses/Resonant/2026-10-11-resonant-design.md, 05_LIVE_CONTEXT/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md]
 outputs: [75.02_Player_Guide_Codex/src/data/resonant.json]
-blocked_by: []
+blocked_by: [the rework of every subclass (EPIC_Rework_Subclasses)]
 sprint:
 created: 2026-10-12
 ---
@@ -35,3 +35,4 @@ created: 2026-10-12
 - 2026-10-12 — created at ARC-0002 stage 7 (the guide still describes Turn the Wheel, Attunement, Equanimity).
   Blocked by ARC-0002 until its open probes (P25, P27–P33) pass, so the guide does not describe something that changes.
 - 2026-10-12 — unblocked: ARC-0002 closed.
+- 2026-10-12 — **deferred by the Owner** until the rework of every subclass is done; then the writing agents review and improve the English descriptions, and the guide is updated once, for all subclasses (include ARC-0007's Awakening countdown on every page).
