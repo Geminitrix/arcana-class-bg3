@@ -122,3 +122,9 @@ Surges (R46); feelings stack additively (R47); Emotional Overload is a bonus act
 enemy's hit; the DEBUG scaffold is retired. And ARC-0007: every Aspect's *Awakening* counts down (what is left, in the
 goal's unit — hit points for Star and Death), one status per tier; the five Awakening passives share one shape. Update
 `05.02` for all five subclasses (Awakening display).
+
+## 11. ARC-0005 closed (2026-10-12)
+
+For `05.06_Technical_State`: all Khonsu helpers live in ONE file, `Mods/<mod>/Scripts/thoth/helpers/ArcanaHelpers.khn`
+(one section per function). The nine loose one-function files made the Toolkit crash on most launches (a double free
+while Khonsu opened them during the AI load); merged, 4 clean launches. New helpers go in as sections, never as new files.

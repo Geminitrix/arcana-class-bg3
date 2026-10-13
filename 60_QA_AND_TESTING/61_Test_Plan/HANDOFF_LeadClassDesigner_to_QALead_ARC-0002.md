@@ -46,6 +46,6 @@ Still open:
 ## Known, accepted
 - The meter does not show at 0% (P10, Owner).
 - Shared Heart copies have the linked target as their source: Love on a copy redirects to that ally; copied peaks fade into a 5-turn mood; two Resonants in a party are not handled.
-- Toolkit first-launch crash is a Toolkit bug (ARC-0005) — reopen.
+- Toolkit first-launch crash: fixed by ARC-0005 (helpers in one `.khn`).
 
 **Closed (2026-10-12):** the Owner reports every probe passes; ARC-0002 is done. `TC_ARC-0002` can record them all as PASS.

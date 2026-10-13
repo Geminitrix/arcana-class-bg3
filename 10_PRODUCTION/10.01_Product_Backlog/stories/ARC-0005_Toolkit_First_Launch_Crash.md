@@ -3,7 +3,7 @@ id: ARC-0005
 title: Toolkit crashes on the first launch, works on the second
 type: bug
 epic: EPIC_Rework_Subclasses
-status: in_progress
+status: done
 owner: Tools
 implementation: claude
 priority: should
@@ -26,7 +26,7 @@ created: 2026-10-12
 - [x] The one data error the engine reports for the mod is fixed: `COMPREHEND_SUPERNATURAL` `AuraStatuses` has
       `ApplyStatus(DETECT_SUPERNATURAL_ABERRATION,100,_1)` — `_1` must be `-1` (log: `failed to parse stats expression
       string "_1"`), in the game `.txt` and the Toolkit `.stats`.
-- [ ] Owner test: open the Toolkit, close it normally, open it again — three times. Crash or not, each time.
+- [x] Owner test: open the Toolkit, close it normally, open it again — 4 launches, no crash (2026-10-12).
 
 ## Findings (2026-10-12)
 
@@ -49,3 +49,4 @@ created: 2026-10-12
 - 2026-10-12 — investigated (read only): crash dumps, `errors.*`, `log.*`, Story, editor settings. Ticket created.
 - 2026-10-12 — `[fechado]`: `_1` → `-1` in `COMPREHEND_SUPERNATURAL` (game .txt and Toolkit .stats, one occurrence each; entry counts unchanged); selftest 992/0, check_cards OK. Waiting for the Owner's open/close/open test.
 - 2026-10-12 — three more crashes (launch, Reload Story after a clean compile — 0 errors —, launch). Full stack from `log.*`: the double delete happens inside `ls::FileManager::OpenFile` called by `ls::khonsu::Machine::FindScript` during the Anubis load — Khonsu opening a script file from disk. `[fechado]`: the nine one-function helpers merged into `Scripts/thoth/helpers/ArcanaHelpers.khn` (9 of 9 bodies identical; originals in `90_ARCHIVE/93_Old_Versions/2026-10-12_ARC-0005_khn_merged`). Waiting for the Owner's open/close test.
+- 2026-10-12 — **fixed.** After the nine Khonsu helpers were merged into `ArcanaHelpers.khn`, the Owner opened the Toolkit 4 times without a crash (it crashed on most launches before). So the trigger was the mod's loose one-function `.khn` files being opened during the AI load (the Toolkit's file cache double-freed under that load) — not the data in them, and not unrelated to the mod as first thought. Rule kept: helpers live in ONE file. Done.
