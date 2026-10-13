@@ -34,6 +34,7 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5614372ege12bg0f93g878fga256fbeb1105" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_HypnoticPattern" />
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_AWE" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_DISTRACTED);BreakConcentration()" />
       </fields>
     </stat_object>

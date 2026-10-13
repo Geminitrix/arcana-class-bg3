@@ -920,7 +920,7 @@ rules were in `story.div`. Compile after every apply that changes a goal.
 | 7b.3 | **R48** Emotional Overload `UseCosts BonusActionPoint:1` | UseCosts |
 | 7b.4 | **Bug:** Compassion triggered on the Resonant's own Surge on an ally — the interrupt now asks `Enemy(context.Source,context.Observer)` (vanilla Hellish Rebuke) | condition |
 
-Built (not applied): tests 247/247, dry run 1 removal, longest line 3301. **Apply** with `[fechado] ARC-0002`: the Stats
+**Applied 2026-10-12** (`[fechado] ARC-0002`): tests 247/247, selftest 1008/0, check_cards OK, −1 Status_BOOST (the refund tech) on both sides, 24 feelings Additive, no line over 4000. Was: the Stats
 chain + copy `40_overload_goal.txt` and `45_shared_heart_goal.txt`; **compile the Story**.
 
 | # | Do | Proves it works |

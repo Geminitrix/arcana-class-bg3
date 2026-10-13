@@ -16,22 +16,6 @@ NOT DB_ARCANA_Resonant_SharedResult(_S);
 PROC
 PROC_ARCANA_Resonant_SharedHeart_Init()
 THEN
-DB_ARCANA_Resonant_SharedResult("EMOTION_JOY");
-DB_ARCANA_Resonant_SharedResult("EMOTION_TRUST");
-DB_ARCANA_Resonant_SharedResult("EMOTION_FEAR");
-DB_ARCANA_Resonant_SharedResult("EMOTION_SURPRISE");
-DB_ARCANA_Resonant_SharedResult("EMOTION_SADNESS");
-DB_ARCANA_Resonant_SharedResult("EMOTION_DISGUST");
-DB_ARCANA_Resonant_SharedResult("EMOTION_ANGER");
-DB_ARCANA_Resonant_SharedResult("EMOTION_ANTICIPATION");
-DB_ARCANA_Resonant_SharedResult("EMOTION_ECSTASY");
-DB_ARCANA_Resonant_SharedResult("EMOTION_ADMIRATION");
-DB_ARCANA_Resonant_SharedResult("EMOTION_TERROR");
-DB_ARCANA_Resonant_SharedResult("EMOTION_AMAZEMENT");
-DB_ARCANA_Resonant_SharedResult("EMOTION_GRIEF");
-DB_ARCANA_Resonant_SharedResult("EMOTION_LOATHING");
-DB_ARCANA_Resonant_SharedResult("EMOTION_RAGE");
-DB_ARCANA_Resonant_SharedResult("EMOTION_VIGILANCE");
 DB_ARCANA_Resonant_SharedResult("FEELING_AGGRESSIVENESS");
 DB_ARCANA_Resonant_SharedResult("FEELING_CONTEMPT");
 DB_ARCANA_Resonant_SharedResult("FEELING_CYNICISM");
@@ -123,28 +107,6 @@ THEN
 ApplyStatus(_Other, "RESONANT_SHARED_CATHARSIS", 0.0, 1, _Target);
 //END_REGION
 
-//REGION R24: a Surge whose target is linked costs nothing -- refunded once per cast (an upcast may hit several linked targets)
-IF
-UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, _Spell, _, _, _)
-AND
-DB_ARCANA_CardFamily(_Spell, _Root)
-AND
-DB_ARCANA_Resonant_SurgeRoot(_Root, _)
-AND
-HasActiveStatus(_Target, "SHARED_HEART", 1)
-AND
-NOT DB_ARCANA_Resonant_SharedRefunded(_Resonant)
-THEN
-DB_ARCANA_Resonant_SharedRefunded(_Resonant);
-ApplyStatus(_Resonant, "RESONANT_SHARED_REFUND_TECH", 0.0, 1, _Resonant);
-
-IF
-CastedSpell((CHARACTER)_Resonant, _, _, _, _)
-AND
-DB_ARCANA_Resonant_SharedRefunded(_Resonant)
-THEN
-NOT DB_ARCANA_Resonant_SharedRefunded(_Resonant);
-//END_REGION
 EXITSECTION
 
 ENDEXITSECTION

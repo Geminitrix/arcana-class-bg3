@@ -355,7 +355,7 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="(Ally() or Self()) and Character() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_WardingBond" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h89fe68c0g4f69gf102g53d4g5b6e2a9b2812" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h22facb0ag1b13g075ega3edgdd733597baa4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h22facb0ag1b13g075ega3edgdd733597baa4" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(18)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(SHARED_HEART,100,-1)" />
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />

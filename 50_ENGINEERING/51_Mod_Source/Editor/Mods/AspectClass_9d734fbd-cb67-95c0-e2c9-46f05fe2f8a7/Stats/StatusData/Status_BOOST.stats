@@ -2133,6 +2133,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ReactionActionPoint);Disadvantage(Concentration)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_INTERESTED);BreakConcentration()" />
       </fields>
     </stat_object>
@@ -2148,6 +2149,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(Attack,-1d4);RollBonus(SavingThrow,-1d4);RollBonus(DeathSavingThrow,-1d4)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_PENSIVE)" />
       </fields>
     </stat_object>
@@ -2163,6 +2165,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(BonusActionPoint);Disadvantage(SavingThrow,Wisdom)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_APPREHENSIVE)" />
       </fields>
     </stat_object>
@@ -2178,6 +2181,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ReactionActionPoint);Disadvantage(AttackRoll)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_APPREHENSIVE);RemoveStatus(MOOD_BORED)" />
       </fields>
     </stat_object>
@@ -2193,6 +2197,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="CannotHarmCauseEntity(CannotHarmCharmer)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_APPREHENSIVE);ApplyStatus(PRONE,100,1)" />
       </fields>
     </stat_object>
@@ -2386,20 +2391,10 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="7a1e9513-f02f-b161-c8c8-4374f5397b12" />
-        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_SHARED_REFUND_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hca25e868gef11gba86g357agdb72d5119ad2" version="1" />
-        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_SHARED_REFUND_TECH" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,1);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,2);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,3);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,4);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,5);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):RestoreResource(SELF,ArcanaSpellSlot,1,6);RestoreResource(SELF,ArcanaThread,1,0)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="77cd17d7-4c69-992e-17b3-6eb235e921cc" />
         <field name="Name" type="NameTableFieldDefinition" value="SHARED_HEART" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h07eb9c82g08c9ge00ag1a61g4d080ba735c4" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h42651a64ga04agca90g6826g0dde151fbcba" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h42651a64ga04agca90g6826g0dde151fbcba" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_WardingBond" />
         <field name="StackId" type="StringTableFieldDefinition" value="SHARED_HEART" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -2418,6 +2413,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_DELIGHT" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="RegainHitPoints(1d6)" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_DISTRACTED)" />
       </fields>
@@ -2443,6 +2439,7 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="AC(1);RollBonus(SavingThrow,1);Resistance(All, Resistant);RedirectDamage(1)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnSourceDeath" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ACCEPTING)" />
       </fields>
     </stat_object>
@@ -2457,6 +2454,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_MORBIDNESS" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_FeelingMorbidness" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_BORED)" />
       </fields>
     </stat_object>
@@ -2470,6 +2468,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_OPTIMISM" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="StatusImmunity(SG_Frightened)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(HEROISM_TEMP_HP,100,1)" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_INTERESTED);ApplyStatus(HEROISM_TEMP_HP,100,1)" />
       </fields>
@@ -2484,6 +2483,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_PRIDE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ReduceCriticalAttackThreshold(1)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_ANNOYED)" />
       </fields>
     </stat_object>
@@ -2538,6 +2538,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_CURIOSITY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AllAbilities);ActionResource(Movement,3,0)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_DISTRACTED);ApplyStatus(SEE_INVISIBILITY,100,2)" />
       </fields>
     </stat_object>
@@ -2551,6 +2552,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_DOMINANCE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(Skill,Athletics);Advantage(Skill,Intimidation);AC(1)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_ANNOYED)" />
       </fields>
     </stat_object>
@@ -2564,6 +2566,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_HOPE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(Attack,1d4);RollBonus(SavingThrow,1d4);RollBonus(DeathSavingThrow,1d4)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_INTERESTED)" />
       </fields>
     </stat_object>
@@ -2577,6 +2580,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_SENTIMENTALITY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Resistance(Psychic, Resistant);StatusImmunity(SG_Charmed)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_PENSIVE)" />
       </fields>
     </stat_object>
@@ -2620,6 +2624,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="FEELING_AGGRESSIVENESS" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="CharacterWeaponDamage(1d4);ActionResource(ReactionActionPoint,1,0)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ANNOYED);RemoveStatus(MOOD_INTERESTED)" />
       </fields>
     </stat_object>
@@ -2635,6 +2640,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="BlockRegainHP()" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_INTERESTED)" />
       </fields>
     </stat_object>
@@ -2650,6 +2656,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(SavingThrow,-1d6);RollBonus(SkillCheck,-1d6);RollBonus(RawAbility,-1d6)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_INTERESTED)" />
       </fields>
     </stat_object>
@@ -2683,6 +2690,7 @@
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="AuraRadius" type="IntegerTableFieldDefinition" value="3" />
         <field name="AuraStatuses" type="StringTableFieldDefinition" value="TARGET:IF(Ally() and not Self()):ApplyStatus(FEELING_DISAPPROVED)" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_PENSIVE)" />
       </fields>
     </stat_object>
@@ -2698,6 +2706,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="CannotHarmCauseEntity(CannotHarmMadness);ActionResourceBlock(ReactionActionPoint);AiArchetypeOverride(madness,99);Tag(AI_UNPREFERRED_TARGET);DetectDisturbancesBlock(true)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat;LoseControl" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition;SG_Mad" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_ANNOYED)" />
       </fields>
     </stat_object>
@@ -2714,6 +2723,7 @@
         <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_FeelingRemorse" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_PENSIVE);RemoveStatus(MOOD_BORED)" />
       </fields>
     </stat_object>
@@ -2769,6 +2779,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="Disadvantage(AttackRoll);Advantage(AttackTarget)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_ANNOYED)" />
       </fields>
     </stat_object>
@@ -2784,6 +2795,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="BlockSpellCast()" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_DISTRACTED);RemoveStatus(MOOD_BORED)" />
       </fields>
     </stat_object>
@@ -2843,6 +2855,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="Resistance(Psychic, Vulnerable)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Additive" enumeration_type_name="StatusStackType" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_BORED);RemoveStatus(MOOD_ANNOYED)" />
       </fields>
     </stat_object>
