@@ -10,3 +10,4 @@ Replaced GDDs, specs, baselines and applied patches.
 | `2026-10-12_ARC-0005_khn_merged/` | 2026-10-12 | The nine one-function Khonsu helpers, merged into `ArcanaHelpers.khn` (ARC-0005) |
 | `2026-10-12_ARC-0002_resonant_debug/` | 2026-10-12 | The Resonant DEBUG shout and status, retired once the progression held everything (ARC-0002 stage 7) |
 | `2026-10-13_ARC-0008_spinner_audit/` | 2026-10-13 | Depth audit of the old Spinner design, never applied; the design was replaced by the Kingmaker (SP47) |
+| `2026-10-13_ARC-0008_spinner_design/` | 2026-10-13 | The Spinner design (2026-10-08), replaced by the Kingmaker (SP47, SP51) |

@@ -14,7 +14,7 @@ The class design document: pillars, identity, progression, subclasses, features.
 | `21.04_Subclasses/Eternal` | Rework |
 | `21.04_Subclasses/Unbound` | Rework |
 | `21.04_Subclasses/Resonant` | New (internal tag THEHEARTWEAVER) |
-| `21.04_Subclasses/Spinner` | New |
+| `21.04_Subclasses/Kingmaker` | New — designed (ARC-0008; was the Spinner) |
 | `21.04_Subclasses/Lionheart` | New |
 | `21.05_Class_Features` | FEAT_*.md (design text; numbers come from 25) |
 | `21.06_Interactions_and_Synergies` | Multiclass, items, conditions |

@@ -4,7 +4,7 @@
 
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
-| [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Spinner to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
+| [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Kingmaker (was the Spinner) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | open | claude |  |
 
 Done tickets: 6.

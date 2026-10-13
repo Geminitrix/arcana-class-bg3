@@ -1,6 +1,6 @@
 ---
 id: ARC-0008
-title: Raise the Spinner to the subclass standard (design)
+title: Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
 status: in_progress
@@ -9,14 +9,14 @@ implementation: pending
 priority: must
 value: 5
 effort: 4
-inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Spinner/2026-10-08-spinner-design.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
-outputs: [55/_wip/Spinner/decisions.md, 90/93/2026-10-13_ARC-0008_spinner_audit]
+inputs: [21.04/_SUBCLASS_STANDARD.md, 55/_wip/Kingmaker/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
+outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
 blocked_by: []
 sprint:
 created: 2026-10-13
 ---
 
-# ARC-0008 · Raise the Spinner to the subclass standard (design)
+# ARC-0008 · Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 
 **Goal:** audit the Spinner against the evaluation questions of `_SUBCLASS_STANDARD.md` and close every
 gap in a raising spec, so it reaches the level the Resonant reached in ARC-0002.
@@ -27,9 +27,10 @@ elements — with an ultimate that ties it together and a kit the player can hol
 
 - [x] Every evaluative question of §3 answered for the Spinner (✅ / ⚠️ / ❌ with evidence).
 - [x] The decisions of the 2026-10-08 design conversation recorded in `55/_wip/Spinner/decisions.md` (SP1–SP43).
-- [x] Depth audit handed to the Context Keeper for `05.02/Spinner.md`.
-- [ ] Every ❌ and ⚠️ resolved by a decision in `55/_wip/Spinner/decisions.md` or listed as open.
-- [ ] Raising spec written in `21.04/Spinner/` (§1.5 sections, Identity Sheet complete, no audit inside).
+- [x] Depth audit of the old Spinner handed to the Context Keeper, then archived (design replaced). The Kingmaker audit goes with its 05 handoff.
+- [ ] Handoff to the Context Keeper for the Kingmaker (`05.02`, `21.08` Axis = Balance, glossary, open questions).
+- [x] Every gap resolved by a decision in `55/_wip/Kingmaker/decisions.md` (SP47–SP103) or listed as open (spec §14).
+- [x] Raising spec written: `21.04/Kingmaker/2026-10-13-kingmaker-design.md` (§1.5 sections, Identity Sheet complete, no audit inside).
 - [ ] Balance pass: numbers in `25.01`–`25.03`, arithmetic in `22.05`.
 
 ## Gates
@@ -58,3 +59,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
   Owner's request: the Toolkit entry guide standard `55/_TEMPLATE_TOOLKIT_GUIDE.md` (one `TOOLKIT_ARC-####.md` per
   ticket beside its SPEC; icons as suggestions; generated families not typed) and the ADR-0005 amendment proposal
   `00.04/PROPOSALS/PROPOSAL_Toolkit_Guide_Derived_Numbers.md`. Next: the raising spec in `21.04/Kingmaker/`.
+- 2026-10-13 — raising spec `21.04/Kingmaker/2026-10-13-kingmaker-design.md` written; the Spinner spec archived in
+  `90/93/2026-10-13_ARC-0008_spinner_design`; `55/_wip/Spinner` renamed `55/_wip/Kingmaker`. Self-review found two
+  open rules (Master of Healing "toward Reigning" and Master of Laws "one extra position" conflict with SP62 / can
+  help the enemy) — listed in spec §14 for the Owner. Next: handoff to the Context Keeper, balance pass.
