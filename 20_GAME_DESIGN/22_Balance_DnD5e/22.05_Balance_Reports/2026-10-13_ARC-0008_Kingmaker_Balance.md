@@ -94,6 +94,8 @@ Per turn at T2 the Kingmaker brings ≈ 1A from its action (cantrip or a card at
 Spoke, ≈ 0.4A from Crossings and ≈ 0.3A from the Court — ≈ 2.2A against the budget's 2.4A per turn
 (D / 16): **≈ 92 %**, inside the standard's 90–100 % band, with most of it felt on the allies' turns.
 
+Rough figures for the other tiers: **T1 ≈ 88 %** (≈ 1A action + 0.5A Turn the Spoke + 0.3A Crossings against 2.06A; no Court before level 5 — weak early, on purpose); **T3 ≈ 83 %** before the tiers and the capstone, **≈ 95–100 %** with them (The Wheel Stops ≈ 0.57A per turn averaged over the day; Tier III keeps allies off Fallen, ≈ +0.2A per ally on the Wheel). To confirm in playtest.
+
 ## 7. Design changes the numbers ask for (Owner)
 
 | # | Change | Why |

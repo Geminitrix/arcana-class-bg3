@@ -35,9 +35,27 @@ elements — with an ultimate that ties it together and a kit the player can hol
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
+- [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — answered 2026-10-13, passes with three notes (below)
+- [ ] Narrative gate (`32.04`) — the class description's second sentence and every tooltip; handoff to the Lore Writer sent
 - [ ] DoD (`00.03`)
+
+### Design gate (2026-10-13)
+
+Answered by the main session in the roles the standard names.
+
+| # | Question | Answer |
+|---|---|---|
+| 1 | Pillar and fantasy (Lead Class Designer) | `21.01` (Vision and Pillars) **does not exist yet**; checked against the class pillars in `31.01` §1 — **Tarot**: the Rota Fortunae read literally; **Mystra and the Weave**: SP95's sentence, Atropos cuts the thread; **Destiny at level 1**: own chassis (CHA, Courtier, Sorcerer voice). Fantasy *"I don't win fights. I decide who does."* is what the kit does (SP97) |
+| 2 | Role without duplication, `21.08` (Lead Class Designer) | Force multiplier, axis **Balance** (free). Note: the role sits close to the Resonant's (support through states); different axis (Balance vs Combination); the class's magical-DPR gap is a future ticket (`10.06`) |
+| 3 | Resource and recharge, `26` (Spell Designer) | Woven Spell Slots / Threads for the cards (Long Rest / per turn); Turn the Spoke no slot (Bonus Action); Peripeteia, Usurp, Rota Fortunae once per combat; The Wheel Stops and the Master of Coin once per Long Rest; the Court is named once per Long Rest. The Wheel itself costs nothing |
+| 4 | Power on the curve, `22` (Balance Designer) | ≈ 88 % of the budget per turn at T1 (no Court yet), ≈ 92 % at T2, ≈ 95–100 % at T3 counting the tiers and the capstone (`22.05` §6); leans weak early, on purpose |
+| 5 | One tooltip read; complexity budget (Lead Class Designer) | The core rule fits one passive (The Rota); a new player can name the signature (the Wheel, the Crossing) after one fight. **11 combat actions** against the standard's suggested 3 (suggestion until an ADR); one main resource (positions) and one secondary (the Court, set before battle) |
+| 6 | Interactions (Balance Designer) | No Concentration in the kit; Coronation and Turn the Spoke share the Bonus Action (a choice); one position per creature, Advantage sources don't stack (SP52); Crossing once per enemy per round; Hubris consumed; Nemesis moves only Falling enemies; Master of Coin once per Long Rest — no open loop |
+| 7 | Core 1–12 without 13–20 (Validator) | Complete at 12 (capstone 11, Tier III 12); nothing depends on 13–20 |
+| 8 | Intent in one sentence (Spell Designer) | *The Kingmaker makes the party stronger by keeping allies at the top of Fortune's Wheel while enemies hit the bottom — and every fall beside a reign hurts.* |
+
+**Notes:** (1) `21.01` has to be written (pillars for the whole class) — proposal for the Owners; (2) the complexity
+budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages are rough and go to the playtest.
 
 ## Log
 
@@ -76,3 +94,6 @@ elements — with an ultimate that ties it together and a kit the player can hol
   level-3 card + once per combat, Master of Coin once per Long Rest, Crossing Force, lone enemy counts 2). Numbers in
   `25.01` (11 `SPL_Kingmaker_*`) and `25.02` (6 `FEAT_Kingmaker_*`); spec updated; validate.pl 0 errors. Next: Design
   gate (§15), then `SPEC_ARC-0008` and `TOOLKIT_ARC-0008`.
+- 2026-10-13 — Design gate answered (passes with three notes: `21.01` pillars missing, complexity above the suggestion,
+  T1/T3 percentages rough); `22.05` §6 gains T1 and T3 figures. Narrative gate pending (Lore Writer). Next:
+  `SPEC_ARC-0008` and `TOOLKIT_ARC-0008`.
