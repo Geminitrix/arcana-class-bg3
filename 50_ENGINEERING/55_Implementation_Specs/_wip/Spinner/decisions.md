@@ -1,0 +1,55 @@
+# The Spinner — design decisions (ARC-0008)
+
+Working note. SP1–SP43 are the decisions of the design conversation of 2026-10-08 (before the project
+migration), recorded here so they live in a file; they are what `21.04/Spinner/2026-10-08-spinner-design.md`
+describes. Decisions of the raise (ARC-0008) continue from SP44.
+
+Sources: the 2026-10-08 design conversation; `21.04/Spinner/2026-10-08-spinner-design.md`.
+
+## Decision log
+
+| # | Decision | Source |
+|---|---|---|
+| SP1 | **Fully deterministic.** No rule, fate or start position uses chance beyond the ordinary damage dice and saves | author |
+| SP2 | **The mechanic: fates.** A **Misfortune** on an enemy, a **Fortune** on an ally or the Spinner; each is a countdown that **resolves** at 0 | proposal accepted |
+| SP3 | **The Cascade:** when a fate resolves, every other fate of the Spinner advances 1 step; a fate brought to 0 resolves and cascades in turn. Unlocked at **level 3** | author (rule), proposal accepted (level) |
+| SP4 | **Cascade range grows:** 9 m at level 3, unlimited once the chain goes critical at level 9 (SP27), global at level 12 | proposal accepted |
+| SP5 | **The wheel of fate turns on the Spinner's turn:** fates count down at the start of the Spinner's turn (`TickingWithSource` + `TickType "StartTurn"`, vanilla CHILL_TOUCH / BESTOW_CURSE) | author (the flag), proposal accepted |
+| SP6 | **One fate per card per creature; the same card again adds turns** (`StackType "Additive"`) | proposal accepted |
+| SP7 | **Waiting is in the card:** each card has a fixed length and a fixed effect; long cards are the strong ones. (Woven Spell Slots always cast at the highest level, so no "choose N") | author |
+| SP8 | **Role:** ranged magical damage — Misfortune is the main style (sustained + burst); Fortune the secondary (timed support, allies as pieces of the Cascade) | author |
+| SP9 | **Bleed and resolution:** a Misfortune may bleed each turn and/or resolve; **advancing a fate skips its bleed** for that turn (bleed or pull it down) | author (bleed), proposal accepted (skip) |
+| SP10 | **Advancing goes through a tech status:** `ApplyStatus(…_TECH,100,0)` → Osiris PROC → `GetStatusTurns` → reapply N−1 **with the Spinner as `_Source`**; at 0 the script fires the resolution. Negative durations don't subtract | author (tech trigger), proposal accepted |
+| SP11 | **Secondary ability Dexterity** — initiative: the wheel turns on the Spinner's turn, so acting first matters | proposal accepted |
+| SP12 | **Chassis:** saves INT + DEX; light armour; Daggers, Darts, Hand Crossbows, Light Crossbows; skill list *The Fortune-Teller* (Arcana, History, Insight, Investigation, Perception, Sleight of Hand, Acrobatics, Deception); preset STR 8 DEX 15 CON 13 INT 15 WIS 10 CHA 10; sound set Wizard; starting gear built later in the Toolkit | author |
+| SP13 | **Colour teal `#60d7d2`**, the emblem's colour | author |
+| SP14 | **Rules by level:** 1 fates + advancing · 3 Cascade · 5 Transfer · 7 Spindle of Necessity · 9 Critical Mass · 12 Cascade without limit | proposal accepted |
+| SP15 | **Awakening goal: fates resolved** (Fortune or Misfortune, by the wheel or any advance). Goals 3 / 6 / 10 provisional — the author finds them low | proposal accepted |
+| SP16 | **Aspect card *Rota Fortunae*:** every fate of the Spinner advances 1 step; once per combat | proposal accepted |
+| SP17 | **Capstone *The Wheel Stops* (level 11, Long Rest, Unique):** every creature in combat, **allies included**, is frozen; each action of the Spinner advances all their fates 1 | author |
+| SP18 | **Each resolution is one push.** Simultaneous resolutions resolve in **waves**, oldest first, each removed before its effect. Turn start order: wheel of elements steps → fates count down → resolutions in waves | author (per resolution), proposal accepted (waves, order) |
+| SP19 | **Level 7 passive named *Spindle of Necessity*** (Plato's Myth of Er); "Momentum" rejected as a wind word | author |
+| SP20 | **Tier names Clotho / Lachesis / Aspect of Anticipation** (the Latin Rota names belong to the window, SP32) | proposal accepted |
+| SP21 | **Tier I Clotho:** once per turn, the first fate spun starts 1 step closer (minimum 1) | author |
+| SP22 | **Tier II Lachesis:** when a Misfortune resolves, the Spinner and allies within 3 m of its target gain temporary hit points (replaces +2 AC: too strong when stacked and not the theme) | author |
+| SP23 | **Tier III Aspect of Anticipation:** **Recurrence** (a resolved fate returns once, after the chain ends) + **Ready: Foreseen**; no ability bonus | author |
+| SP24 | **Ready: Foreseen:** once per round, when an enemy carrying a Misfortune attacks or casts, advance that Misfortune 1; at 0 it resolves before the attack | author |
+| SP25 | **Anticipation stays the Aspect** although Plutchik's Anticipation is a Resonant Surge: every Aspect is an emotion | author |
+| SP26 | **Science: the nuclear chain reaction** (multiplication factor *k*, subcritical / critical / supercritical) structures the Cascade | author |
+| SP27 | **Critical Mass (level 9):** once a chain has resolved 3 fates, its Cascades have no range limit | author |
+| SP28 | **Edge cases:** combat end removes every fate unresolved · Misfortune starts combat, Fortune only in combat · Spinner downed = wheel frozen · bearer dies → Transfer (Misfortune) or lost (Fortune, except the Angel) · cleanse = nothing · two Spinners move only their own fates · frozen fates neither count nor are pushed · Recurrence after the chain; transfer keeps the right to return; a returned fate never returns again · Transfer to the nearest enemy within 9 m (Additive if same card) | proposal accepted |
+| SP29 | **Speeds** (adapted from Legends of Runeterra): Ready (reaction) · Burst (0, bonus or free) · Fast (1–2) · Measured (2–3, action) · Slow (3–4, **Action + Reaction**) · Ritual (5–6, **Action + no movement for the turn**, `ActionResourceBlock(Movement)`) | author |
+| SP30 | **Each element has spells only in the speeds that fit it**; each spell follows its element's theme; damage first, extra effects as riders, not crowd control | author |
+| SP31 | **The wheel of elements:** the 10 magical damage types on a fixed wheel, one step at the start of each Spinner turn | author |
+| SP32 | **The window — Past / Present / Future** (Regnavi / Regno / Regnabo): Past = fate 1 turn shorter, Present = Crown strike, Future = 1 turn longer; the other 7 elements locked. Burst and Ready unchanged; minimum length 1; the Future has no power bonus | author (Past/Future), proposal accepted |
+| SP33 | **The wheel never stops, it pauses:** the next combat starts on the next element; a status shows the position at all times | proposal accepted |
+| SP34 | **The first combat ever starts on Lightning** | author |
+| SP35 | **Order:** Radiant (top) → Fire → Lightning → Thunder → Force → Necrotic (bottom) → Cold → Acid → Poison → Psychic; each element faces its opposite | proposal accepted |
+| SP36 | **15 elemental spells:** one per element, two Rituals at the poles (Radiant, Necrotic), four wildcards (Pull of Fate, Frozen Moment, Dissolve, Déjà Vu) | author (wildcards), proposal accepted |
+| SP37 | **Physical types are the tools:** Piercing = *Spindle Needle* (Burst, Bonus Action, advances every fate on one creature), Slashing = *Atropos' Shears*, Bludgeoning = *Rota Fortunae* | proposal accepted |
+| SP38 | **Atropos' Shears cuts only fates with 2 turns or fewer** (cutting a 6-turn Ritual the next turn skipped the wait) | author (problem), proposal accepted |
+| SP39 | **Crown strike:** a spell cast with its element in the Present also hits the target at once; no extra status | proposal accepted |
+| SP40 | **Fortunes are the card's four winged creatures:** Bull (Fast 1, temp HP, can't be moved), Eagle (Measured 2, crits on 19–20, sees invisible), Lion (Measured 3, extra action), Angel (Slow 4, large heal, lifts a downed ally). Effect lasts until the end of the bearer's next turn; not on the wheel; part of the Cascade | proposal accepted |
+| SP41 | **Cantrip *Spoke of the Wheel*:** a ranged spell attack of the Present element | proposal accepted |
+| SP42 | **Utility *Nudge the Wheel* (level 1):** outside combat, turns the wheel one step; no slot; once per Long Rest | author |
+| SP43 | **Spell progression:** L1 cantrip, Needle, Fire, Force, Acid, Bull, utility · L3 Lightning, Cold, Radiant, Eagle · L5 Thunder, Poison, Psychic (Ready), Shears · L7 Pull of Fate, Frozen Moment, Dissolve, Lion · L9 Necrotic Ritual, Déjà Vu, Angel · L11 The Wheel Stops, Radiant Ritual | proposal accepted |

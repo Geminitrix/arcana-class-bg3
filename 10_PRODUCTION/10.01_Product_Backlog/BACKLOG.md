@@ -1,9 +1,10 @@
 # Backlog
 
-*Generated 2026-10-12 by `82_Automation/update_board.pl` — do not edit; change the tickets.*
+*Generated 2026-10-13 by `82_Automation/update_board.pl` — do not edit; change the tickets.*
 
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
-| [ARC-0002](stories/ARC-0002_Resonant_Design_Raise.md) | Raise the Resonant to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | claude |  |
+| [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Spinner to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
+| [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | open | claude |  |
 
-Done tickets: 3.
+Done tickets: 6.
