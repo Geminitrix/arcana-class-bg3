@@ -1026,10 +1026,13 @@ sub build_aspect {
         $passives .= entry($id, 'PassiveData', DisplayName => loca(key($id, 'NAME'), $t[$i][0]),
             Description => loca(key($id, 'DESC'), tag_terms($t[$i][1])), DescriptionParams => aspect_params(), Icon => $icon, Properties => 'IsHidden');
     }
+    # ARC-0007: the shape every Awakening passive shares (gen_awakening_progress.pl tests that both say the same)
+    my $tt = sub { my $i = shift; my $r = (qw(I II III))[$i]; qq{<LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_$r">} . (tier_texts())[$i][0] . '</LSTag>' };
     $passives .= passive('Arcana_Passive_Aspect_Temperance_Awakening', '14 - Temperance: Awakening',
-        'Cause reactions during a fight to awaken the Aspect of Empathy until combat ends: every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.'
-        . '<br><br>Level 3: cause ' . aspect_goal(1) . ' reactions to gain Resonance.<br><br>Level 7: cause ' . aspect_goal(2)
-        . ' reactions to also gain Harmony.<br><br>Level 12: cause ' . aspect_goal(3) . ' reactions to awaken as the Aspect of Empathy.', $icon);
+        'Cause reactions during a fight to awaken the Aspect of Empathy until combat ends. Every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.'
+        . '<br><br>Level 3: cause ' . aspect_goal(1) . ' reactions to gain ' . $tt->(0) . '.<br><br>Level 7: cause ' . aspect_goal(2)
+        . ' reactions to also gain ' . $tt->(1) . '.<br><br>Level 12: cause ' . aspect_goal(3) . ' reactions to awaken as the ' . $tt->(2) . '.'
+        . '<br><br>The Awakening status shows how much is left to the next tier.', $icon);
     # The Two Cups (§9.1): the Aspect card, as The Veil Lifts (Shout, AreaRadius, OncePerCombat, Requirements Combat)
     my $id = 'Shout_Arcana_Created_Aspect_TwoCups';
     my $foe = 'IF(not Ally() and not Self())'; my $friend = 'IF(Ally() or Self())';

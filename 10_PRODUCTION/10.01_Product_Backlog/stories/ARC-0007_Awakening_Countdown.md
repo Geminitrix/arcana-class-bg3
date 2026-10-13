@@ -3,7 +3,7 @@ id: ARC-0007
 title: Aspect Awakening counts down, with one standard text
 type: feature
 epic: EPIC_Rework_Subclasses
-status: open
+status: in_progress
 owner: Mod Engineer
 implementation: claude
 priority: should
@@ -31,3 +31,4 @@ created: 2026-10-12
 ## Log
 
 - 2026-10-12 — created from the Owner's request; text standard and passive rewrite chosen by the Owner. Plan: SPEC_ARC-0007.
+- 2026-10-12 — applied (`[fechado]`): 15 per-tier progress statuses, the countdown in ARCANA_Aspect_Common (COUNT / HEAL / LOSS), the five Awakening passives in one shape; tests 43 + 247, selftest 1023/0, check_cards OK. Owner: compile the Story; probes A1–A5.

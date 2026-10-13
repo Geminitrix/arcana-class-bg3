@@ -1,7 +1,7 @@
 ---
 id: SPEC_ARC-0007
 ticket: ARC-0007
-status: planned
+status: implemented
 implementation: claude
 author: Mod Engineer
 updated: 2026-10-12
@@ -50,3 +50,12 @@ Hope; Death — Sorrow, Mourning, Aspect of Sorrow.
 | A3 | Star at level 12 (60+ HP to heal) | The number over 99 still shows — else report it (plan B: show in tens) |
 | A4 | Fool | The count resets at the start of each round |
 | A5 | Tier III reached | *Awakening* disappears |
+
+## Applied (`[fechado] ARC-0007`, 2026-10-12)
+
+`gen_awakening_progress.pl` (+ `t/`, 43 tests) → `10_awakening.patch`: 15 `ASPECT_PROGRESS_<X>_I/II/III`, the Fool / High
+Priestess / Star / Death Awakening texts changed in place (version +1); Temperance's from `gen_emotion_alchemy.pl` (the
+same text — a cross test checks it); `apply_common.pl`: the countdown block and Star HEAL / Death LOSS in
+`ARCANA_Aspect_Common.txt`. Checks: selftest 1023/0, check_cards OK, +15 Status_BOOST on both sides, no line over
+4000, no repeated field. The old `ASPECT_PROGRESS_<X>` statuses stay, unused (still named in `DB_ARCANA_Aspect`,
+removed on reset — harmless). **Owner:** compile the Story; probes A1–A5.

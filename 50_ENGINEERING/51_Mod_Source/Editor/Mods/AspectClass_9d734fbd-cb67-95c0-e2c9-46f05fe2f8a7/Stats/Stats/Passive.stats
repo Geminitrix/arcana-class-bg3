@@ -914,7 +914,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="12510141-6dec-1931-61fc-942b0c641f1a" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Death_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9817b8c0g24f6gcdb9gdeb6g642f767ad42c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hca88ffcdge784g48dcg58a4g640adaedd372" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hca88ffcdge784g48dcg58a4g640adaedd372" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_ArmsOfHadar" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -958,7 +958,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="b33a0db8-5196-c2fe-f176-0b176cf4d04f" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h62f64796g34edg43a1g847fg57470a1fe8b0" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8881b09bgce68g9efbg5381g5c6b0980ad97" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8881b09bgce68g9efbg5381g5c6b0980ad97" version="4" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1000,7 +1000,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="0c5d0cdb-254e-07af-31e3-c01c0f4cc37a" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Fool_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf752f80bg6313gc9b9g078eg85420c62c54a" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76abef56g542egceedg9549gf86ef239edc5" version="10" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76abef56g542egceedg9549gf86ef239edc5" version="11" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1048,7 +1048,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="dd6366af-20f1-4b2d-eb7c-cb8285a1e4d3" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Star_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5ca03c24g920ag6606g7be6g456ac9a299c2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf66e491dgf092g1d03g1087g5a9b9f5c2406" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf66e491dgf092g1d03g1087g5a9b9f5c2406" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_DancingLights" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1094,7 +1094,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="8ec3f48f-9240-166c-74a2-e5956324e8e9" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd3d7d9b5g6ec2gdc23gec81g8c980ca1761d" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6c55bb90g694fg4b96g7affg9ae3db1e2693" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6c55bb90g694fg4b96g7affg9ae3db1e2693" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
