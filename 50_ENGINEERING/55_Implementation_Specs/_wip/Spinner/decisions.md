@@ -66,3 +66,4 @@ Sources: the 2026-10-08 design conversation; `21.04/Spinner/2026-10-08-spinner-d
 | SP54 | **Rising** — increased movement speed; can't be knocked Prone | author (2026-10-13) |
 | SP55 | **Falling is lighter** (replaces SP53's Disadvantage): reduced movement speed and **−1d4 to attack rolls** (vanilla Bane-like penalty) | author (2026-10-13) |
 | SP56 | **The Court, format (b):** a card (Bonus Action, *Choose*) appoints an ally to a court office; each office changes how that ally plays with the Wheel and with the King (the ally currently Reigning). One system, one new verb (*appoint*). Office names: D&D / medieval offices, not *Game of Thrones* terms (open: final list, level, limits) | author (2026-10-13) |
+| SP57 | **The King is a visible title:** the ally currently Reigning carries a **King** status (crown on the portrait, named in the combat log); it moves with the Reigning position. The Court's offices read it | author (2026-10-13) |
