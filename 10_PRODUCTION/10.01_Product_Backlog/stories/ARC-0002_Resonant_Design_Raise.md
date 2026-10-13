@@ -3,14 +3,14 @@ id: ARC-0002
 title: Raise the Resonant to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
-status: in_progress
+status: done
 owner: Lead Class Designer
 implementation: claude
 priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/2026-10-06-heartweaver-design.md, 55/_wip/Resonant/decisions.md, 05.02/Resonant.md, 75.02/src/data/resonant.json]
-outputs: [55/_wip/Resonant/decisions.md, 21.04/Resonant/2026-10-11-resonant-design.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md, 55/SPEC_ARC-0002.md]
+outputs: [55/_wip/Resonant/decisions.md, 21.04/Resonant/2026-10-11-resonant-design.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md, 55/SPEC_ARC-0002.md, 82_Automation/stats/gen_emotion_alchemy.pl, the Resonant in the game (Stats, Osiris, CardDB.lua), 61/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md, ARC-0006]
 blocked_by: []
 sprint:
 created: 2026-10-11
@@ -32,9 +32,9 @@ Surges, an overload meter and its Overflow — without running out of slots.
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
-- [ ] DoD (`00.03`)
+- [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — Owner accepted after the in-game tests (2026-10-12)
+- [ ] Narrative gate (`32.04`) — **not run**: no narrative review recorded; closed by the Owner without it (2026-10-12). The texts follow the BG3 style rules; a review can still be asked of the Narrative team
+- [x] DoD (`00.03`) — criteria met with evidence (SPEC_ARC-0002 probe results, tests 247 + Lua 134, validate 0 errors), 05 handoff sent, README updated, log, board, commit
 
 ## Log
 
@@ -73,3 +73,4 @@ Surges, an overload meter and its Overflow — without running out of slots.
 - 2026-10-12 — DEBUG scaffold retired in the game (`[fechado]`): `Shout_Arcana_Util_DEBUG_Resonant` and `RESONANT_DEBUG` removed, the shout off the "Arcana Deck DEBUG" list; selftest 1009/0, check_cards OK, no reference left. Open: probes P25, P27–P33.
 - 2026-10-12 — Owner: Shared Heart not working (cause: Story compiled before its goal was applied). R46 (Shared Heart shares feelings only + the Catharsis heal; free Surges dropped), R47 (feelings Additive), R48 (Emotional Overload a bonus action); bug fixed: Compassion triggered on the Resonant's own Surge (now enemy source only). Built, not applied (tests 247/247).
 - 2026-10-12 — R46–R48 + the Compassion fix applied (`[fechado]`): selftest 1008/0, check_cards OK, 24 feelings Additive, the free-Surge refund removed; goals Overload and Shared Heart copied. Owner: compile the Story; P27b, P28b, P30, P34, P35.
+- 2026-10-12 — **closed by the Owner** after the in-game tests (all probes pass, P25–P35 included). Narrative gate not run (recorded). ARC-0006 (player guide) unblocked.

@@ -546,7 +546,7 @@ of §5.1.
 
 The full list, one assertion per rule, is the test case handed to QA:
 `60_QA_AND_TESTING/61_Test_Plan/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md` (→ `TC_ARC-0002`). Probe results
-live in `55_Implementation_Specs/SPEC_ARC-0002.md`. State at the end of the raise (2026-10-12):
+live in `55_Implementation_Specs/SPEC_ARC-0002.md`. State at the end of the raise (2026-10-12) — closed by the Owner, every area passed:
 
 | Area | Status |
 |---|---|
@@ -555,7 +555,7 @@ live in `55_Implementation_Specs/SPEC_ARC-0002.md`. State at the end of the rais
 | Heartstring, Temper, Emotional Contagion, Ready: Compassion (§7.1–§7.4) | passed (P11b, P12, P13b, P15) |
 | Read the Room (§7.5) | removed (R37) |
 | Aspect Awakening, Tiers I–III, The Two Cups (§9) | passed (P16–P19, P20b, P21–P23) |
-| The free Surge leaves its mood at once (R42) | **open** — P25 with several targets |
-| Shared Heart (§7.6) | **open** — P27–P31 |
-| Progression 1–12 (§10) | **open** — P32 |
-| The PC edition's deck | **open** — P33 |
+| The free Surge leaves its mood at once (R42) | passed (P25) |
+| Shared Heart (§7.6) | passed (P27b, P28b, P30; R46–R48) |
+| Progression 1–12 (§10) | passed (P32) |
+| The PC edition's deck | passed (P33) |

@@ -114,3 +114,11 @@ lines stay under the Toolkit's 4096-character read limit (tested).
 
 **Open:** probes P25, P27–P33 (`60_QA_AND_TESTING/61_Test_Plan/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md`);
 the player guide (ticket ARC-0006); ARC-0005 (Toolkit first-launch crash).
+
+## 10. ARC-0002 closed (2026-10-12)
+
+Every probe passes (Owner). Also since §9: Shared Heart shares **feelings** only (+ the Catharsis heal), no free
+Surges (R46); feelings stack additively (R47); Emotional Overload is a bonus action (R48); Compassion triggers only on an
+enemy's hit; the DEBUG scaffold is retired. And ARC-0007: every Aspect's *Awakening* counts down (what is left, in the
+goal's unit — hit points for Star and Death), one status per tier; the five Awakening passives share one shape. Update
+`05.02` for all five subclasses (Awakening display).

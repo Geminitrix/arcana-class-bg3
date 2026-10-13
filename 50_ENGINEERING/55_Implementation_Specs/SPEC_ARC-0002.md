@@ -1,7 +1,7 @@
 ---
 id: SPEC_ARC-0002
 ticket: ARC-0002
-status: implemented
+status: done
 implementation: claude
 author: Mod Engineer
 updated: 2026-10-11
@@ -945,3 +945,8 @@ chain + copy `40_overload_goal.txt` and `45_shared_heart_goal.txt`; **compile th
 ## Acceptance criteria
 
 See ARC-0002; stage gates above.
+
+## Closed (2026-10-12)
+
+The Owner closed ARC-0002 after the in-game tests: every probe passes (P25 several targets, P27b, P28b, P30, P34, P35,
+P32, P33 included).

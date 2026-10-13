@@ -23,7 +23,7 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 | Deceiver | II · The High Priestess | Existing — rework |
 | Starchild | XVII · The Star | Existing — rework |
 | Eternal | XIII · Death | Existing — rework |
-| Resonant | XIV · Temperance | New — in design |
+| Resonant | XIV · Temperance | Implemented — raised (ARC-0002) |
 | Spinner | X · Wheel of Fortune | New — in design |
 | Lionheart | — | New — in design |
 
