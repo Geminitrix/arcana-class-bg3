@@ -59,3 +59,5 @@ same text — a cross test checks it); `apply_common.pl`: the countdown block an
 `ARCANA_Aspect_Common.txt`. Checks: selftest 1023/0, check_cards OK, +15 Status_BOOST on both sides, no line over
 4000, no repeated field. The old `ASPECT_PROGRESS_<X>` statuses stay, unused (still named in `DB_ARCANA_Aspect`,
 removed on reset — harmless). **Owner:** compile the Story; probes A1–A5.
+
+Results (Owner, 2026-10-12): A1–A5 pass — including A3: a frozen duration over 99 turns still shows its number.
