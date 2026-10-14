@@ -65,3 +65,7 @@ ProgressionDescription still reads *Titan*. They are synced to `51` and wait for
 
 - 2026-10-14 — created (Owner request during ARC-0008). Design in a separate cloud session; the Toolkit changes
   above stay out of the ARC-0008 commit.
+- 2026-10-14 — brainstorm (cloud session): direction **D · Two Hands, One Foe** chosen over A–C and E–F;
+  decisions LH1–LH19 in `55/_wip/Lionheart/decisions.md` (Aspect of Courage, the Villain by highest maximum HP,
+  One Labour at a Time, Stand Before the Beast, cards as Lion / Maiden containers, Finisher, Fang and Shield,
+  Strength secondary). Next: chassis (saves, armour, weapons, skills), progression, Awakening, pool.
