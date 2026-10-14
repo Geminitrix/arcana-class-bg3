@@ -111,3 +111,5 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   resolve_stats.pl` resolves a parent's effective fields (using chain, Shared → SharedDev → Gustav → GustavDev → mod).
   Placeholder fix: an ExtraDescription reads `ExtraDescriptionParams` (vanilla, 115 spells) — Spoke of the Wheel and
   The Wheel Stops corrected in the guide and in `texts.md`.
+- 2026-10-14 — Toolkit guide: `Using` written as the parent's name without the type prefix (search `ShieldOfFaith`, not
+  `Target_ShieldOfFaith`); the Toolkit may show the fields in another order — match them by name. Template updated too.
