@@ -105,3 +105,9 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   Coronation, Dethrone, Turn the Spoke, Osiris goal `ARCANA_Kingmaker_Wheel`, chassis, level-1 list and progression,
   probes P1–P8) and the first Toolkit guide `TOOLKIT_ARC-0008` (stage 1, every field, goal ready to paste). Ticket
   `implementation: owner` — the Owner enters stage 1 in the Toolkit.
+- 2026-10-14 — Owner's review of the Toolkit guide: the Stats Editor section is rewritten (one column per entry, at most 3
+  per block, one row per field; every field listed, the `Using` parent's values resolved and marked *(parent)* so `Using`
+  can be removed later; number origins under each block). Template updated the same way; `82_Automation/stats/
+  resolve_stats.pl` resolves a parent's effective fields (using chain, Shared → SharedDev → Gustav → GustavDev → mod).
+  Placeholder fix: an ExtraDescription reads `ExtraDescriptionParams` (vanilla, 115 spells) — Spoke of the Wheel and
+  The Wheel Stops corrected in the guide and in `texts.md`.

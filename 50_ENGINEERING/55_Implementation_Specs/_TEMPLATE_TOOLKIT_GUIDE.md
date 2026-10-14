@@ -22,24 +22,32 @@ author: Mod Engineer
 
 Keep this section in every guide; it is how the Owner reads the rest.
 
-1. **Derived view (ADR-0005, ADR-0008).** Numbers live in `25_Master_Data`. Every number here shows its value **and
-   its origin**: `2d6 · SPL_Example#damage`. This file is regenerated when a file in `derived_from`
-   changes; never edit a number here by hand.
+1. **Derived view (ADR-0005, ADR-0008).** Numbers live in `25_Master_Data`. Table cells hold **only what is typed**;
+   the origin of every number is listed **under** its block (`2d6` = `SPL_Example#damage`). This file is regenerated
+   when a file in `derived_from` changes; never edit a number here by hand.
 2. **Order.** Section 0 is a numbered checklist in the order the work has to happen (an entry must exist
    before another one points to it: a list before the progression that uses its UUID; a status before the
    spell that applies it, when the Toolkit validates the reference). The sections below are grouped by
    Toolkit area; the checklist number appears in each entry's title.
-3. **New entries: every field.** A new entry lists every field the Owner must fill, in the order the
-   Toolkit shows them. Empty fields are not listed.
-4. **Changed entries: only what changes**, as `before → after`.
-5. **`Using` (parent).** When an entry inherits, name the parent and say what it borrows (animation,
-   sounds, effects). Fields that come from the parent unchanged are **not** repeated.
+3. **Stats Editor blocks.** One column per entry, **at most 3 entries per block** (same file only), one row per
+   field in the order the mod's existing entries show them. Every row is a real field to fill or to confirm. Cell
+   tags: *(parent)* = the `Using` parent has exactly this value; *(ours)* = our value; *(leave empty)* = leave it
+   empty (say what it clears). Spell `Name` is typed without the type prefix (`Arcana_Card_Spell_X` in
+   `Target.stats` → game id `Target_Arcana_Card_Spell_X`); `Using` is picked by the parent's name.
+4. **New entries: every field — parent values included.** Resolve the parent's effective fields from the game files (`82_Automation/stats/resolve_stats.pl <entry>`)
+   (the `using` chain, load order Shared → SharedDev → Gustav → GustavDev → the mod) and list them all with their
+   exact values, so the entry is complete when the Owner later removes `Using` (another mod that changes the parent
+   can't change ours). Don't copy what doesn't apply (the parent's texts, its status tooltip, `MemoryCost`): list it as
+   *(leave empty)*.
+5. **Changed entries** (UUID Object Editor): only what changes, as `before → after`.
 6. **Icons are suggestions.** Every `Icon` field says *suggestion*: the parent's icon or a vanilla one that
    fits. The Owner checks it in the Toolkit and may pick a better one; custom icons (`ICO_…`) come later.
 7. **UUIDs.** The Toolkit generates them; this file never invents one. Where a later step needs a UUID
    created earlier, leave the slot `UUID: ________` for the Owner to fill after creating it.
 8. **Text.** New player-facing text is given in English inside quotes: create a new localisation handle
    with that text. Existing text says `(existing handle hXXXX)`. Text follows the BG3 style guide (`31.03`).
+   A `[n]` in a `Description` reads `DescriptionParams`; in an `ExtraDescription` it reads `ExtraDescriptionParams`
+   (vanilla: 115 spells). Each list starts at `[1]`; no parameter is listed that the text doesn't use.
 9. **Generated families — do not type.** Upcast variants (`<card>_2…_6`), one status per spell level and
    any family a generator builds are listed in a *Generated* table with the command that applies them.
    Only the base entry is typed.
@@ -113,30 +121,59 @@ UUID: ________ (used in step 05)
 
 ## 3 · Stats Editor
 
-Fields the Toolkit shows most often, per file, for reference.
+Start the section with the reading key (keep it in every guide):
+
+> **Type only what is inside `code` or "quotes".** *(parent)* = the `Using` parent already has exactly this value —
+> confirm it, and type it when `Using` is removed · *(ours)* = our value · *(leave empty)* = leave the field empty
+> (while `Using` is set, clear the parent's value) · "…" = a new localisation handle. Spell names are typed without
+> the type prefix; `Using` is picked by the parent's name. The numbers of each block are listed under it.
+
+Fields the Toolkit shows, per file, for reference (list every one an entry uses; the parent's resolved fields
+included).
 
 | File | Fields |
 |---|---|
-| SpellData / `Target` · `Shout` · `Zone` · `Projectile` · `Rush` · `Teleportation` | Name, Using, Level, SpellSchool, DisplayName, Description, DescriptionParams, ExtraDescription, Icon, UseCosts, TargetConditions, RequirementConditions, SpellRoll, SpellSuccess, SpellFail, SpellProperties, TooltipDamageList, TooltipAttackSave, TooltipStatusApply, SpellFlags, SpellContainerID, ContainerSpells, RootSpellID, PowerLevel, VerbalIntent, SpellStyleGroup; animation, effect and sound fields usually come from the parent. Zone adds Range, SurfaceType, SurfaceLifetime |
+| SpellData / `Target` · `Shout` · `Zone` · `Projectile` · `Rush` · `Teleportation` | Name, Using, Level, SpellSchool, TargetRadius, AmountOfTargets, SpellRoll, SpellSuccess, SpellFail, SpellProperties, TargetConditions, CycleConditions, DisplayName, Description, DescriptionParams, ExtraDescription, ExtraDescriptionParams, Icon, TooltipDamageList, TooltipAttackSave, TooltipStatusApply, TooltipOnSave, TooltipUpcastDescription, TooltipUpcastDescriptionParams, PrepareSound, PrepareLoopSound, CastSound, TargetSound, VocalComponentSound, SpellAnimation, PrepareEffect, CastEffect, TargetEffect, PreviewCursor, CastTextEvent, UseCosts, VerbalIntent, SpellStyleGroup, SpellFlags, HitAnimationType, MemoryCost, DamageType · Projectile adds ProjectileCount, Trajectories, TargetFloor · Zone adds Range, SurfaceType, SurfaceLifetime · containers add SpellContainerID, ContainerSpells |
 | Stats / `Passive` | Name, Using, DisplayName, Description, DescriptionParams, ExtraDescription, Icon, Properties, Boosts, BoostContext, BoostConditions, StatsFunctorContext, StatsFunctors, Conditions, EnabledContext, EnabledConditions |
 | Stats / `Interrupt` | Name, DisplayName, Description, Icon, InterruptContext, InterruptContextScope, Conditions, Properties, Cost, Stack, InterruptDefaultValue, EnableContext, EnableCondition, Container |
-| StatusData / `Status_<TYPE>` | Name, Using, DisplayName, Description, DescriptionParams, Icon, StackId, StackType, StackPriority, StatusGroups, StatusPropertyFlags, TickType, Boosts, Passives, OnApplyFunctors, OnRemoveFunctors, TickFunctors, RemoveEvents, RemoveConditions, AuraStatuses, AuraRadius, StatusEffect, ApplyEffect |
+| StatusData / `Status_<TYPE>` | Name, Using, DisplayName, Description, DescriptionParams, Icon, StackId, StackType, StackPriority, StatusGroups, TickType, Boosts, StatusPropertyFlags, Passives, OnApplyFunctors, OnRemoveFunctors, TickFunctors, RemoveEvents, RemoveConditions, AuraStatuses, AuraRadius, StatusEffect, ApplyEffect |
 
-### 03 · NEW · SpellData / Target · `Target_Arcana_Card_Spell_Example`
+### 01–02 · NEW · StatusData / Status_BOOST · Example A, Example B
 
-- **Using (parent):** `Target_Example_Vanilla` — borrows the animation, sounds and cast effect.
-
-| Field | Value | Origin |
+| Field | `EXAMPLE_A` | `EXAMPLE_B` |
 |---|---|---|
-| Level | `1` | SPEC |
-| DisplayName | "Example" (new handle) | `32.04` |
-| Description | "…" (new handle) | `32.04` |
-| Icon | `Spell_Example` — **suggestion**, from the parent | — |
-| UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:1` | SPEC |
-| SpellRoll | `not SavingThrow(Ability.Charisma, SourceSpellDC())` | SPEC |
-| SpellSuccess | `DealDamage(2d6,Bludgeoning,Magical)` | `2d6 · SPL_Example#damage` |
+| Name | `EXAMPLE_A` | `EXAMPLE_B` |
+| DisplayName | "Example A" | "Example B" |
+| Description | "Subtracts [1] from Attack Rolls." | "…" |
+| DescriptionParams | `1d4` | *(leave empty)* |
+| Icon | `Spell_Enchantment_Bane` *(suggestion)* | `Status_Prone` *(suggestion)* |
+| StackId | `EXAMPLE` | `EXAMPLE` |
+| StackType | `Overwrite` | `Overwrite` |
+| Boosts | `RollBonus(Attack,-1d4)` | *(leave empty)* |
+| StatusPropertyFlags | `ForceOverhead` | `ForceOverhead` |
 
-### 01 · CHANGED · StatusData / Status_BOOST · `EXAMPLE_STATUS`
+Numbers: `1d4` (Boosts, DescriptionParams) = `FEAT_Example#penalty`.
+
+### 03 · NEW · SpellData / Target · Example spell (up to 3 entries per block)
+
+| Field | `Target_Arcana_Card_Spell_Example` |
+|---|---|
+| Name | `Arcana_Card_Spell_Example` |
+| Using | `Target_Example_Vanilla` (picker) |
+| Level | `1` *(parent)* |
+| SpellRoll | `not SavingThrow(Ability.Charisma, SourceSpellDC())` *(ours)* |
+| SpellSuccess | `DealDamage(2d6,Bludgeoning,Magical)` *(ours)* |
+| SpellProperties | *(leave empty — clears the parent's `…`)* |
+| DisplayName | "Example" *(ours)* |
+| Icon | `Spell_Example` *(parent; suggestion)* |
+| CastSound | `Spell_Cast_…` *(parent)* |
+| SpellAnimation | `…` *(parent — the whole string)* |
+| UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:1` *(parent)* |
+| MemoryCost | *(leave empty — clears the parent's `1`)* |
+
+Numbers: `2d6` = `SPL_Example#damage`.
+
+### 04 · CHANGED · StatusData / Status_BOOST · `EXAMPLE_C` (only what changes)
 
 | Field | Before | After |
 |---|---|---|
