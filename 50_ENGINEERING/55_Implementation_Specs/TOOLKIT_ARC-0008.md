@@ -24,12 +24,13 @@ author: Mod Engineer
    when a file in `derived_from` changes; never edit a number here by hand.
 2. **Order.** Section 0 is the checklist in the order the work has to happen.
 3. **Stats Editor blocks:** one column per entry, **at most 3 entries per block**, one row per field. Rows follow
-   the order of the mod's existing entries; the Toolkit may show the fields in another order (match them by name).
-   Every row is a real field to fill or to confirm.
+   **the Toolkit's own field order** (`_TEMPLATE_TOOLKIT_GUIDE.md`, *Toolkit field order*), with its labels
+   (Spell Animation, Intent, Spell Style Group). Every row is a real field to fill, confirm or clear.
    **A cell holds only what is pasted**, as `code`, with no quotes and no notes (a double-click in the preview
    selects the whole cell; copy it and paste it into the Toolkit). `—` = leave the field empty. Notes go under the block.
-4. **New entries: every field**, including the ones the `Using` parent already has, with the exact value — so the
-   entry stays the same when `Using` is later removed (another mod changing the parent can't change ours). The
+4. **New entries: only the fields that matter** — every field with a value (ours, or the parent's, written out so
+   the entry stays the same when `Using` is later removed) and every field that must be cleared because the parent
+   has a value there. A field that stays empty and isn't set by the parent has no row. The
    **Notes** under each block name, per entry, the fields that come from the parent, the ones that are ours and the
    empty ones that clear a parent's value.
 5. **Changed entries** (UUID Object Editor): only what changes, as `before → after`.
@@ -405,8 +406,8 @@ Under each block, **Notes** say, per entry, where each value comes from:
 
 **Spell names** are typed **without** the type prefix: in `Projectile.stats` the Name is
 `Arcana_Card_Spell_SpokeOfTheWheel` and the game id becomes `Projectile_Arcana_Card_Spell_SpokeOfTheWheel` (the mod's
-existing cards work the same way). Statuses and passives keep their full name. **`Using`** is given by the parent's name **without** its type prefix (the picker shows `Target_ShieldOfFaith`; search `ShieldOfFaith`). The Toolkit may show the fields in another order
-than the tables: match them by name. The numbers of each block, with their origin in `25` (ADR-0008), are listed under it.
+existing cards work the same way). Statuses and passives keep their full name. **`Using`** is given by the parent's name **without** its type prefix (the picker shows `Target_ShieldOfFaith`; search `ShieldOfFaith`).
+Rows follow the Toolkit's field order and labels, and only the fields to fill, confirm or clear have a row. The numbers of each block, with their origin in `25` (ADR-0008), are listed under it.
 
 ### 01–03 · NEW · StatusData / Status_BOOST · Rising, Reigning, Falling
 
@@ -435,7 +436,6 @@ Numbers: Rising `3` = `FEAT_Kingmaker_TheRota#rising_movement` · Reigning `1` (
 | Name | `KINGMAKER_FALLEN` | `KINGMAKER_KING` | `KINGMAKER_REGENT` |
 | DisplayName | `Fallen` | `King` | `Regent` |
 | Description | `Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.<br><br>Becomes Rising when the Wheel next turns.` | `Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King.` | `Reigns beside the King without wearing the crown.` |
-| DescriptionParams | — | — | — |
 | Icon | `Status_Prone` | `Spell_Enchantment_CrownOfMadness` | `statIcons_AuraOfLeadership` |
 | StackId | `KINGMAKER_POSITION` | `KINGMAKER_CROWN` | `KINGMAKER_CROWN` |
 | StackType | `Overwrite` | `Overwrite` | `Overwrite` |
@@ -451,9 +451,6 @@ No numbers in this block.
 | Field | `KINGMAKER_BIND_ALLY_TECH` | `KINGMAKER_BIND_ENEMY_TECH` | `KINGMAKER_STEP_TECH` |
 |---|---|---|---|
 | Name | `KINGMAKER_BIND_ALLY_TECH` | `KINGMAKER_BIND_ENEMY_TECH` | `KINGMAKER_STEP_TECH` |
-| DisplayName | — | — | — |
-| Description | — | — | — |
-| Icon | — | — | — |
 | StackId | `KINGMAKER_BIND_ALLY_TECH` | `KINGMAKER_BIND_ENEMY_TECH` | `KINGMAKER_STEP_TECH` |
 | StatusPropertyFlags | `DisableOverhead;DisableCombatlog;DisablePortraitIndicator` | `DisableOverhead;DisableCombatlog;DisablePortraitIndicator` | `DisableOverhead;DisableCombatlog;DisablePortraitIndicator` |
 
@@ -481,46 +478,44 @@ No numbers.
 | Using | `FireBolt` |
 | Level | `0` |
 | SpellSchool | `Evocation` |
+| SpellProperties | — |
+| TargetFloor | `-1` |
 | TargetRadius | `18` |
 | SpellRoll | `Attack(AttackType.RangedSpellAttack)` |
 | SpellSuccess | `DealDamage(LevelMapValue(D6Cantrip),Bludgeoning,Magical);IF(HasStatus('KINGMAKER_FALLING') or HasStatus('KINGMAKER_FALLEN')):DealDamage(1d4,Bludgeoning,Magical)` |
-| SpellProperties | — |
 | TargetConditions | `not Self() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)` |
-| CycleConditions | `Enemy() and not Dead()` |
-| DisplayName | `Spoke of the Wheel` |
-| Description | `Hurl a spoke of Fortune's wheel at a foe.` |
-| DescriptionParams | — |
-| ExtraDescription | `Deals an additional [1] to a creature that is Falling or Fallen.` |
-| ExtraDescriptionParams | `DealDamage(1d4,Bludgeoning)` |
-| Icon | `Spell_Evocation_FireBolt` |
-| TooltipDamageList | `DealDamage(LevelMapValue(D6Cantrip),Bludgeoning)` |
-| TooltipAttackSave | `RangedSpellAttack` |
 | ProjectileCount | `1` |
 | Trajectories | `792ba497-a6ea-46bc-81cb-deb78e4dd9d3` |
-| TargetFloor | `-1` |
+| Icon | `Spell_Evocation_FireBolt` |
+| DisplayName | `Spoke of the Wheel` |
+| Description | `Hurl a spoke of Fortune's wheel at a foe.` |
+| ExtraDescription | `Deals an additional [1] to a creature that is Falling or Fallen.` |
+| ExtraDescriptionParams | `DealDamage(1d4,Bludgeoning)` |
+| TooltipDamageList | `DealDamage(LevelMapValue(D6Cantrip),Bludgeoning)` |
+| TooltipAttackSave | `RangedSpellAttack` |
 | PrepareSound | `Spell_Prepare_Damage_Fire_Gen_L1to3` |
 | PrepareLoopSound | `Spell_Prepare_Damage_Fire_Gen_L1to3_Loop` |
 | CastSound | `Spell_Cast_Damage_Fire_FireBolt_L1to3` |
-| SpellAnimation | `3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,` |
-| PrepareEffect | `c88e9cfa-df92-477a-ae75-cbfb932350b4` |
-| CastEffect | `e235ca47-1bf5-4587-9475-cf191b6005f9` |
 | PreviewCursor | `Cast` |
 | CastTextEvent | `Cast` |
+| CycleConditions | `Enemy() and not Dead()` |
 | UseCosts | `ActionPoint:1` |
-| VerbalIntent | `Damage` |
+| Spell Animation | `3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,` |
+| Intent | `Damage` |
 | SpellFlags | `HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful` |
 | HitAnimationType | `MagicalDamage_External` |
+| PrepareEffect | `c88e9cfa-df92-477a-ae75-cbfb932350b4` |
+| CastEffect | `e235ca47-1bf5-4587-9475-cf191b6005f9` |
 | DamageType | `Bludgeoning` |
 
 Notes (`Using` = `FireBolt`; search `FireBolt` in the picker):
-- **From the parent:** Level, SpellSchool, TargetRadius, SpellRoll, CycleConditions, Icon (also a suggestion),
-  TooltipAttackSave, ProjectileCount, Trajectories, TargetFloor, PrepareSound, PrepareLoopSound, CastSound,
-  SpellAnimation (the whole string), PrepareEffect, CastEffect, PreviewCursor, CastTextEvent, UseCosts, VerbalIntent,
-  SpellFlags, HitAnimationType.
+- **From the parent:** Level, SpellSchool, TargetFloor, TargetRadius, SpellRoll, ProjectileCount, Trajectories, Icon
+  (also a suggestion), TooltipAttackSave, PrepareSound, PrepareLoopSound, CastSound, PreviewCursor, CastTextEvent,
+  CycleConditions, UseCosts, Spell Animation (the whole string), Intent, SpellFlags, HitAnimationType, PrepareEffect,
+  CastEffect.
 - **Ours:** SpellSuccess, TargetConditions, DisplayName, Description, ExtraDescription, ExtraDescriptionParams,
   TooltipDamageList, DamageType (the parent has `Fire`).
 - **Clears the parent:** SpellProperties (the parent has `GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)`).
-- DescriptionParams stays empty: the Description has no `[n]`.
 
 Numbers: `D6Cantrip` (1d6 / 2d6 at 5 / 3d6 at 10, vanilla level map) = `SPL_Kingmaker_SpokeOfTheWheel#damage` · `1d4`
 (SpellSuccess, ExtraDescriptionParams) = `…#bonus_vs_falling_or_fallen` · `18` = `…#range`.
@@ -534,19 +529,17 @@ The fire look (sounds, effects) comes from Fire Bolt; swap them later if you fin
 | Using | `ShieldOfFaith` | `DissonantWhispers` | `Arcana_Card_Spell_Temper` |
 | Level | `1` | `1` | `0` |
 | SpellSchool | `Enchantment` | `Enchantment` | `Enchantment` |
+| SpellProperties | `ApplyStatus(KINGMAKER_BIND_ALLY_TECH,100,0)` | — | `ApplyStatus(KINGMAKER_STEP_TECH,100,0)` |
 | TargetRadius | `18` | `18` | `18` |
-| AmountOfTargets | — | — | `1` |
 | SpellRoll | — | `not SavingThrow(Ability.Charisma, SourceSpellDC())` | — |
 | SpellSuccess | — | `DealDamage(3d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0)` | — |
 | SpellFail | — | `DealDamage((3d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0)` | — |
-| SpellProperties | `ApplyStatus(KINGMAKER_BIND_ALLY_TECH,100,0)` | — | `ApplyStatus(KINGMAKER_STEP_TECH,100,0)` |
 | TargetConditions | `(Ally() or Self()) and not Dead() and not HasStatus('KINGMAKER_RISING') and not HasStatus('KINGMAKER_REIGNING') and not HasStatus('KINGMAKER_FALLING') and not HasStatus('KINGMAKER_FALLEN') and not HasPassive('ARCANA_IS_CARD', context.Source)` | `Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)` | `not Dead() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING') or HasStatus('KINGMAKER_FALLING') or HasStatus('KINGMAKER_FALLEN')) and not HasPassive('ARCANA_IS_CARD', context.Source)` |
-| CycleConditions | `Ally() and not Dead()` | `Enemy() and not Dead()` | — |
+| AmountOfTargets | — | — | `1` |
+| Icon | `Spell_Enchantment_CrownOfMadness` | `Spell_Enchantment_CommandGrovel` | `Spell_Enchantment_CalmEmotions` |
 | DisplayName | `Coronation` | `Dethrone` | `Turn the Spoke` |
 | Description | `Crown an ally or yourself and set them Rising on Fortune's wheel.` | `Cast an enemy down and set it Falling on Fortune's wheel.` | `Turn a creature on the Wheel one position onward.` |
-| DescriptionParams | — | — | — |
 | ExtraDescription | `The crowned creature stays on the Wheel until it dies, combat ends or its thread is cut.` | `On a successful <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> the target takes half damage, but it still joins the Wheel.` | `The Wheel only turns forward.` |
-| Icon | `Spell_Enchantment_CrownOfMadness` | `Spell_Enchantment_CommandGrovel` | `Spell_Enchantment_CalmEmotions` |
 | TooltipDamageList | — | `DealDamage(3d6,Bludgeoning)` | — |
 | TooltipAttackSave | — | `Charisma` | — |
 | TooltipStatusApply | `ApplyStatus(KINGMAKER_RISING,100,-1)` | `ApplyStatus(KINGMAKER_FALLING,100,-1)` | — |
@@ -558,43 +551,45 @@ The fire look (sounds, effects) comes from Fire Bolt; swap them later if you fin
 | CastSound | `Spell_Cast_Buff_ShieldOfFaith_L1to3` | `Spell_Cast_Damage_Psychic_DissonantWhispers_L1to3` | `Spell_Cast_Control_CrownOfMadness_L1to3` |
 | TargetSound | `Spell_Impact_Buff_ShieldOfFaith_L1to3` | `Spell_Impact_Damage_Psychic_DissonantWhispers_L1to3` | `Spell_Impact_Control_CrownOfMadness_L1to3` |
 | VocalComponentSound | — | `Vocal_Component_DamagePsychicDiscordantMelody` | `Vocal_Component_Confuse` |
-| SpellAnimation | `03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;7abe77ed-9c77-4eac-872c-5b8caed070b6,,;cb171bda-f065-4520-b470-e447f678ba1f,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,,` | `3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;af94aac1-d8eb-4ccb-9520-694ade11b61c,,;f5db4001-b136-4c48-9aa4-026c4a7dd3b7,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,` | `554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,` |
+| PreviewCursor | `Cast` | — | `Cast` |
+| CastTextEvent | `Cast` | `Cast` | `Cast` |
+| CycleConditions | `Ally() and not Dead()` | `Enemy() and not Dead()` | — |
+| UseCosts | `BonusActionPoint:1;SpellSlotsGroup:1:1:1` | `ActionPoint:1;SpellSlotsGroup:1:1:1` | `BonusActionPoint:1` |
+| Spell Animation | `03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;7abe77ed-9c77-4eac-872c-5b8caed070b6,,;cb171bda-f065-4520-b470-e447f678ba1f,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,,` | `3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;af94aac1-d8eb-4ccb-9520-694ade11b61c,,;f5db4001-b136-4c48-9aa4-026c4a7dd3b7,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,` | `554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,` |
+| Intent | `Buff` | `Damage` | `Control` |
+| Spell Style Group | `Class` | — | `Class` |
+| SpellFlags | `HasVerbalComponent;HasSomaticComponent;IsSpell` | `HasVerbalComponent;IsSpell;IsHarmful` | `IsSpell;HasVerbalComponent;HasSomaticComponent` |
+| HitAnimationType | `MagicalNonDamage` | `MagicalDamage_Psychic` | `MagicalNonDamage` |
 | PrepareEffect | `60ec0a2d-1b72-4fb2-9eaf-571638aca25d` | `752219e2-351d-46ea-9448-3a714b3d3acc` | `2fa6b127-6f8a-4150-8be6-6f62b7a85911` |
 | CastEffect | `1c5d1c5b-d8ff-42b5-8586-99aeaf901192` | `bd2fc245-5645-452f-a2cd-d158b751bbe4` | `4ca6a918-a46b-4269-b11b-d98fb6694677` |
 | TargetEffect | `b76f528c-3b42-4283-a10d-d0217baf3c7c` | `a0aee53a-d702-4901-9bb3-7cf08e214346` | `4b5dc428-d623-4203-a7f0-a86c47bf9aa8` |
-| PreviewCursor | `Cast` | — | `Cast` |
-| CastTextEvent | `Cast` | `Cast` | `Cast` |
-| UseCosts | `BonusActionPoint:1;SpellSlotsGroup:1:1:1` | `ActionPoint:1;SpellSlotsGroup:1:1:1` | `BonusActionPoint:1` |
-| VerbalIntent | `Buff` | `Damage` | `Control` |
-| SpellStyleGroup | `Class` | — | `Class` |
-| SpellFlags | `HasVerbalComponent;HasSomaticComponent;IsSpell` | `HasVerbalComponent;IsSpell;IsHarmful` | `IsSpell;HasVerbalComponent;HasSomaticComponent` |
-| HitAnimationType | `MagicalNonDamage` | `MagicalDamage_Psychic` | `MagicalNonDamage` |
-| MemoryCost | — | — | — |
 | DamageType | — | `Bludgeoning` | — |
 
 Notes — **Coronation** (`Using` = `ShieldOfFaith`; search `ShieldOfFaith` in the picker):
-- **From the parent:** Level, TargetRadius, CycleConditions, PrepareSound, PrepareLoopSound, CastSound, TargetSound,
-  SpellAnimation, PrepareEffect, CastEffect, TargetEffect, PreviewCursor, CastTextEvent, UseCosts, VerbalIntent,
-  SpellStyleGroup, HitAnimationType.
+- **From the parent:** Level, TargetRadius, PrepareSound, PrepareLoopSound, CastSound, TargetSound, PreviewCursor,
+  CastTextEvent, CycleConditions, UseCosts, Spell Animation, Intent, Spell Style Group, HitAnimationType,
+  PrepareEffect, CastEffect, TargetEffect.
 - **Ours:** SpellSchool (the parent has `Abjuration`), SpellProperties, TargetConditions, DisplayName, Description,
   ExtraDescription, TooltipStatusApply, SpellFlags (drops the parent's `IsConcentration`). Icon is a suggestion.
-- **Clears the parent:** TooltipUpcastDescription; MemoryCost (the parent has `1`; Arcana cards are always prepared).
+- **Clears the parent:** TooltipUpcastDescription.
 
 Notes — **Dethrone** (`Using` = `DissonantWhispers`; search `DissonantWhispers` in the picker):
-- **From the parent:** Level, SpellSchool, TargetRadius, CycleConditions, TooltipOnSave, TooltipUpcastDescription,
-  CastSound, TargetSound, VocalComponentSound, SpellAnimation, PrepareEffect, CastEffect, TargetEffect, CastTextEvent,
-  UseCosts, VerbalIntent, SpellFlags, HitAnimationType.
+- **From the parent:** Level, SpellSchool, TargetRadius, TooltipOnSave, TooltipUpcastDescription, CastSound,
+  TargetSound, VocalComponentSound, CastTextEvent, CycleConditions, UseCosts, Spell Animation, Intent, SpellFlags,
+  HitAnimationType, PrepareEffect, CastEffect, TargetEffect.
 - **Ours:** SpellRoll, SpellSuccess, SpellFail, TargetConditions, DisplayName, Description, ExtraDescription,
   TooltipDamageList, TooltipAttackSave, TooltipStatusApply, TooltipUpcastDescriptionParams (the parent has `Psychic`),
   DamageType (the parent has `Psychic`). Icon is a suggestion.
-- **Clears the parent:** MemoryCost (the parent has `1`).
 
 Notes — **Turn the Spoke** (`Using` = `Arcana_Card_Spell_Temper`; search `Arcana_Card_Spell_Temper` in the picker):
 - **From the parent:** Level, SpellSchool, TargetRadius, AmountOfTargets, Icon (also a suggestion), PrepareSound,
-  PrepareLoopSound, CastSound, TargetSound, VocalComponentSound, SpellAnimation, PrepareEffect, CastEffect,
-  TargetEffect, PreviewCursor, CastTextEvent, UseCosts, VerbalIntent, SpellStyleGroup, SpellFlags, HitAnimationType.
+  PrepareLoopSound, CastSound, TargetSound, VocalComponentSound, PreviewCursor, CastTextEvent, UseCosts, Spell
+  Animation, Intent, Spell Style Group, SpellFlags, HitAnimationType, PrepareEffect, CastEffect, TargetEffect.
 - **Ours:** SpellProperties, TargetConditions, DisplayName, Description, ExtraDescription.
 - **Clears the parent:** SpellRoll, SpellSuccess, SpellFail, TooltipAttackSave (the parent has `Wisdom`).
+
+Coronation and Dethrone inherit `MemoryCost` `1` from their parents. The Toolkit doesn't show that field for
+Target spells, and it does no harm: Arcana cards are always prepared (the Resonant's Emotion cards carry `1` too).
 
 Numbers: Coronation `18` = `SPL_Kingmaker_Coronation#range`, `SpellSlotsGroup:1:1:1` level `1` = `…#card_level` ·
 Dethrone `3d6` = `SPL_Kingmaker_Dethrone#damage`, `1d6` per slot level above 1 (TooltipUpcastDescriptionParams) = same

@@ -118,3 +118,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-14 — Toolkit guide: every entry cell is exactly what is pasted (`code`, no quotes, no notes; `—` = empty) so a
   double-click in the preview copies it; origins (From the parent / Ours / Clears the parent) moved to Notes under
   each block. Template rules 3, 4, 6, 8, reading key and examples updated the same way.
+- 2026-10-14 — Toolkit field order recorded from the Owner's Toolkit (Projectile, Rush, Shout, Target, Teleportation,
+  Zone, Passive, Status_BOOST) in the template; guide rows reordered to it with Toolkit labels (Spell Animation, Intent,
+  Spell Style Group); rows kept only for fields to fill, confirm or clear (7 empty no-op rows dropped; 191 values
+  unchanged). MemoryCost isn't shown for Target spells: the parents' `1` stays, harmless (cards always prepared).
