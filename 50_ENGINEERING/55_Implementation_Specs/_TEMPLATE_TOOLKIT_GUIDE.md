@@ -31,7 +31,10 @@ Keep this section in every guide; it is how the Owner reads the rest.
    Toolkit area; the checklist number appears in each entry's title.
 3. **Stats Editor blocks.** One column per entry, **at most 3 entries per block** (same file only), one row per
    field. **Rows follow the Toolkit's field order** (§3, *Toolkit field order*) and use its labels (Spell
-   Animation, Intent, Spell Style Group). Every row is a real field to fill, confirm or clear.
+   Animation, Intent, Spell Style Group). Every row is a real field to fill, confirm or clear. After writing the
+   blocks and their Notes, run `82_Automation/stats/order_toolkit_guide.pl --apply <guide>`: it sorts rows and Notes
+   in this order, renames the labels and drops rows that are `—` in every entry unless the Notes list them under
+   *Clears the parent* (so list every clear there). Without `--apply` it only reports.
    **A cell holds only what is pasted** — as `code`, no quotes, no notes, no "(suggestion)": in the preview a
    double-click selects the whole cell and the Owner pastes it straight into the Toolkit. `—` = leave the field empty.
    Where each value comes from goes in the **Notes** under the block (see rule 4). Spell `Name` is typed without the type prefix (`Arcana_Card_Spell_X` in

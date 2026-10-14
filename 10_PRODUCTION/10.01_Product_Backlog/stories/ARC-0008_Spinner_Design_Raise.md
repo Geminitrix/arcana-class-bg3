@@ -122,3 +122,6 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   Zone, Passive, Status_BOOST) in the template; guide rows reordered to it with Toolkit labels (Spell Animation, Intent,
   Spell Style Group); rows kept only for fields to fill, confirm or clear (7 empty no-op rows dropped; 191 values
   unchanged). MemoryCost isn't shown for Target spells: the parents' `1` stays, harmless (cards always prepared).
+- 2026-10-14 — `82_Automation/stats/order_toolkit_guide.pl` (+ `t/order_toolkit_guide.t`, 7 tests): sorts a Toolkit guide's
+  Stats tables and Notes in the Toolkit field order read from the template; replayed on the pre-reorder guide it
+  reproduces the committed tables exactly. Template rule 3 and `82` index point to it.
