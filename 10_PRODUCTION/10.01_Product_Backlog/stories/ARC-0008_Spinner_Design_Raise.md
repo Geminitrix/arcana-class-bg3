@@ -5,12 +5,12 @@ type: design
 epic: EPIC_Rework_Subclasses
 status: in_progress
 owner: Lead Class Designer
-implementation: pending
+implementation: owner
 priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 55/_wip/Kingmaker/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
-outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
+outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/_wip/Kingmaker/texts.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
 blocked_by: []
 sprint:
 created: 2026-10-13
@@ -101,3 +101,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   drafted in `55/_wip/Kingmaker/texts.md` (class, 9 passives, 15 statuses, 12 spells) against `31.03`; Narrative gate
   handed to the Lore Writer (`32.04/HANDOFF_LeadClassDesigner_to_LoreWriter_ARC-0008.md`). Next: `SPEC_ARC-0008`,
   `TOOLKIT_ARC-0008`.
+- 2026-10-13 — `SPEC_ARC-0008` (stages 1–7 indexed, stage 1 in full: positions, crown, techs, The Rota, cantrip,
+  Coronation, Dethrone, Turn the Spoke, Osiris goal `ARCANA_Kingmaker_Wheel`, chassis, level-1 list and progression,
+  probes P1–P8) and the first Toolkit guide `TOOLKIT_ARC-0008` (stage 1, every field, goal ready to paste). Ticket
+  `implementation: owner` — the Owner enters stage 1 in the Toolkit.
