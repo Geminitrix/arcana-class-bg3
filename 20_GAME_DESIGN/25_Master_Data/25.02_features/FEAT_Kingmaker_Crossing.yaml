@@ -4,6 +4,7 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §5"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Arcana_Passive_TheCrossing, KINGMAKER_CROSSING_TECH, LevelMapValues Kingmaker_Crossing, ARCANA_Kingmaker_Wheel]
 values:
   damage: { value: 1d4, unit: damage, type: Force, by_level: { 3: 1d4, 5: 1d6, 9: 1d8 }, note: "no attack roll, no save; once per enemy per round" }
   range:  { value: 9, unit: metres, note: "from a Reigning ally (or the Master of Ships); the whole field from level 12" }

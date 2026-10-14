@@ -10,7 +10,7 @@ priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 55/_wip/Kingmaker/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
-outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/_wip/Kingmaker/texts.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
+outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/TOOLKIT_ARC-0008_stage2.md, 55/_wip/Kingmaker/texts.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
 blocked_by: []
 sprint:
 created: 2026-10-13
@@ -133,3 +133,10 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   fields typed). Owner extras kept: EQP_CC_Kingmaker as ClassEquipment, class tag Sorcerer, tag THEKINGMAKER.
   Upcast variants generated (Coronation, Dethrone _2…_6), sort_stats learns the KINGMAKER group, check_cards OK,
   validate 0 errors (4 old vanilla-handle warnings). Next: Owner plays probes P1–P8.
+- 2026-10-14 — Stage 2 written (Owner asked to go on before the stage-1 probes): `SPEC_ARC-0008` stage 2 (Crossing, Atropos'
+  Cut, Awakening 10 - Wheel of Fortune with Tier I Tyche, Rota Fortunae; probes P9–P16) and `TOOLKIT_ARC-0008_stage2.md`
+  (the whole Wheel goal replaced, 6 rows in ARCANA_Aspect_Common, LevelMap Kingmaker_Crossing, 13 entries). Found:
+  upcast variants carried only the cost, so Dethrone _2…_6 dealt 3d6 — Owner chose to let the generator write the damage:
+  `gen_upcast_variants.pl` reads `game_ids` + `upcast_die` from 25.01 (Dethrone 1d6, Atropos' Cut 1d8), tested on a copy
+  of the mod (only Dethrone's variants change; a second run adds nothing). It also learns the Kingmaker progression.
+  `gen_awakening_progress.pl` gets the WHEEL entry (enters @ORDER after stage 2 is typed). texts.md: final ids.

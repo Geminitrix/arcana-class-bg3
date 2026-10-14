@@ -15,11 +15,14 @@
 #
 #   perl gen_upcast_variants.pl            # mostra o que faria
 #   perl gen_upcast_variants.pl --apply    # grava (jogo e Toolkit fechados)
+#
+# DANO NO UPCAST (ARC-0008): carta com `game_ids` e `upcast_die` no seu arquivo de 25.01 ganha, em cada
+# variante, os dados a mais nos campos de dano (secao 4a). BG3_DATA troca a pasta do jogo (teste numa copia).
 
 use strict; use warnings;
 use File::Glob ':bsd_glob';
 
-my $base    = 'C:/Program Files (x86)/Steam/steamapps/common/Baldurs Gate 3/Data';
+my $base    = $ENV{BG3_DATA} // 'C:/Program Files (x86)/Steam/steamapps/common/Baldurs Gate 3/Data';
 my $mod     = 'AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7';
 my $MAXSLOT = 6;                       # maior nivel de espaco que a progressao concede
 my $DRY     = (grep { $_ eq '--apply' } @ARGV) ? 0 : 1;
@@ -106,7 +109,7 @@ my (%grantLevel, %firstSlot, @warnEarly);
     $s = $slurp->("$base/Public/$mod/Progressions/Progressions.lsx");
     while ($s =~ /<node id="Progression">(.*?)<\/node>/sg) { my $b = $1; my %a;
         $a{$1} = $2 while $b =~ /id="(\w+)" type="\w+" value="([^"]*)"/g;
-        next unless ($a{Name} // '') =~ /^(?:Arcana|Deceiver|Starchild|Unbound|Eternal|Titan)$/; my $L = $a{Level};
+        next unless ($a{Name} // '') =~ /^(?:Arcana|Deceiver|Starchild|Unbound|Eternal|Titan|Kingmaker)$/; my $L = $a{Level};
         push @roots, [$_, $L] for grep { length } split /;/, ($a{PassivesAdded} // '');
         for my $sel (split /;/, ($a{Selectors} // '')) {
             if    ($sel =~ /^(?:AddSpells|SelectSpells)\(([0-9a-f-]{36})/)     { push @roots, [$_, $L] for @{ $list{$1}  // [] } }
@@ -221,7 +224,45 @@ my (%txtAdd, %statsAdd, @log, $khnNote);
 my @warn = @warnEarly;
 my $TYPES = qr/^(Target|Shout|Projectile|Zone|Teleportation)_/;
 # uma variante, dos dois lados. $extra: campos de container, como [nome, valor]
+# ---------- 4a. dano que sobe com o espaco (ARC-0008, 2026-10-14) ----------
+# Uma carta cujo arquivo em 25.01 traz `game_ids` e um valor `upcast_die` (ex.: 1d6) ganha, em cada
+# variante, um dado daquele tamanho a mais por nivel acima do nivel da carta, em todo termo NdX com esse
+# X dos campos abaixo. Esses campos passam a ser do gerador nessas cartas: o que estiver preservado neles
+# e descartado (campo repetido faz o Toolkit truncar o .stats). O numero mora so no 25 (ADR-0005).
+my @SCALED = qw(SpellSuccess SpellFail SpellProperties TooltipDamageList DescriptionParams ExtraDescriptionParams);
+my %SCALED = map { $_ => 1 } @SCALED;
+my %UPCAST;   # carta -> [quantos dados por nivel, tamanho do dado]
+{
+    my $md = $ENV{ARCANA_ROOT} // 'C:/Lumox Studios/Arcana Class';
+    for my $y (bsd_glob("$md/20_GAME_DESIGN/25_Master_Data/25.01_spells/*.yaml")) {
+        open my $h, '<:raw', $y or die "$y: $!"; local $/; my $s = <$h>; close $h;
+        my ($die) = $s =~ /^\s*upcast_die:\s*\{\s*value:\s*(\d*d\d+)/m or next;
+        my ($ids) = $s =~ /^game_ids:\s*\[([^\]]*)\]/m;
+        unless ($ids) { push @warn, "  $y: upcast_die sem game_ids -- ignorado"; next }
+        my ($cnt, $size) = $die =~ /^(\d*)d(\d+)$/;
+        $UPCAST{$_} = [ ($cnt eq '' ? 1 : $cnt), $size ] for grep { length } map { s/^\s+|\s+$//gr } split /,/, $ids;
+    }
+}
+sub field_of { my ($n, $k) = @_; my $i = 0;
+    while ($n && $blk{$n} && $i++ < 10) { return $1 if $blk{$n} =~ /^data "$k" "([^"]*)"/m; ($n) = $blk{$n} =~ /^using "([^"]+)"/m } undef }
+sub xml_attr { my $v = shift; $v =~ s/&/&amp;/g; $v =~ s/"/&quot;/g; $v =~ s/</&lt;/g; $v =~ s/>/&gt;/g; $v }
+# [campo, valor] escalados da variante de nivel $L da carta $n (vazio se a carta nao escala)
+sub scaled_fields { my ($n, $L) = @_;
+    my $u = $UPCAST{$n} or return ();
+    my $k = ($L - $plan{$n}{level}) * $u->[0]; my $size = $u->[1];
+    my @out;
+    for my $f (@SCALED) {
+        my $v = field_of($n, $f); next unless defined $v;
+        (my $w = $v) =~ s/\b(\d+)d$size\b/($1 + $k) . "d$size"/ge;
+        push @out, [$f, $w] if $w ne $v;
+    }
+    push @warn, "  $n: upcast_die d$size nao achou nenhum termo d$size para escalar" unless @out;
+    @out;
+}
+
 sub emit_variant { my ($n, $L, $cost, @extra) = @_;
+    my @sc = scaled_fields($n, $L);
+    my @ktxt   = grep { !(/^data "(\w+)"/ && @sc && $SCALED{$1}) } @{ $keepTxt{"${n}_$L"} || [] };
     (my $key = $n) =~ s/$TYPES//;
     my ($sptype) = $n =~ $TYPES;
     unless ($sptype) { push @warn, "  $n: nao consegui deduzir o SpellType"; return }
@@ -234,7 +275,7 @@ sub emit_variant { my ($n, $L, $cost, @extra) = @_;
         qq{using "$n"},
         (map { qq{data "$_->[0]" "$_->[1]"} } @extra),
         qq{data "RootSpellID" "$n"}, qq{data "PowerLevel" "$L"},
-        qq{data "UseCosts" "$cost"}, @{ $keepTxt{"${n}_$L"} || [] }) . "\n\n";
+        qq{data "UseCosts" "$cost"}, (map { qq{data "$_->[0]" "$_->[1]"} } @sc), @ktxt) . "\n\n";
     $generated{"${n}_$L"} = 1;
     if (my $bu = $baseUuid{$key}) {
         my $sf = $statsFileOf{$key};
@@ -247,7 +288,8 @@ sub emit_variant { my ($n, $L, $cost, @extra) = @_;
           . qq{        <field name="RootSpellID" type="StringTableFieldDefinition" value="$n" />\n}
           . qq{        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="$L" />\n}
           . qq{        <field name="UseCosts" type="StringTableFieldDefinition" value="$cost" />\n}
-          . join('', map { "$_\n" } @{ $keepStats{"${key}_$L"} || [] })
+          . join('', map { qq{        <field name="$_->[0]" type="StringTableFieldDefinition" value="} . xml_attr($_->[1]) . qq{" />\n} } @sc)
+          . join('', map { "$_\n" } grep { !(/<field name="(\w+)"/ && @sc && $SCALED{$1}) } @{ $keepStats{"${key}_$L"} || [] })
           . qq{      </fields>\n    </stat_object>\n};
         $generatedKey{"${key}_$L"} = 1;
     }

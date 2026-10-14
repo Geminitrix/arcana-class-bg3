@@ -4,7 +4,7 @@ ticket: ARC-0008
 status: draft
 implementation: owner
 author: Mod Engineer
-updated: 2026-10-13
+updated: 2026-10-14
 ---
 
 # SPEC_ARC-0008 · The Kingmaker — implementation plan
@@ -39,7 +39,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 | Stage | Level | What | Gate |
 |---|---|---|---|
 | **1** | 1 | **The Wheel core**: four position statuses, King/Regent, the Osiris goal that binds, turns and crowns; *The Rota*; cantrip, *Coronation*, *Dethrone*, *Turn the Spoke*; chassis (ClassDescription, ProgressionDescription, preset, defaults, skill list), level-1 list and progression | **Written in full below**; probes P1–P8 |
-| 2 | 3 | *The Crossing* (pairs within 9 m, once per enemy per round), *Atropos' Cut*, Awakening *10 · Wheel of Fortune* (count, lone enemy ×2, Tier I *Tyche*), *Rota Fortunae* | Written after stage 1's probes |
+| **2** | 3 | *The Crossing* (pairs within 9 m, once per enemy per round), *Atropos' Cut*, Awakening *10 · Wheel of Fortune* (count, lone enemy ×2, Tier I *Tyche*), *Rota Fortunae* | **Written below** (2026-10-14); probes P9–P16 |
 | 3 | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | After stage 2 |
 | 4 | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | After stage 3 |
 | 5 | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | After stage 4 |
@@ -158,3 +158,61 @@ their content in their own stages.
 | P6 | Be downed with creatures on the Wheel | The Wheel still turns at your turn start (SP90); plan B: Osiris drives the turn from the next creature's `TurnStarted` |
 | P7 | Kill a creature on the Wheel; end combat | The dead one leaves the Wheel; at combat end every position status is gone |
 | P8 | Spoke of the Wheel on a Fallen enemy vs a normal one | The extra 1d4 shows only on the Falling / Fallen target |
+
+---
+
+## Stage 2 — the Crossing (level 3)
+
+Written 2026-10-14 at the Owner's request, before stage 1's probes were played: if a probe of P1–P8 fails, its fix goes
+into the stage-2 goal before the Owner types it. Typing view: **`TOOLKIT_ARC-0008_stage2.md`**.
+
+### Item index — enter top to bottom
+
+| # | Kind | Entry | Where | Needs |
+|---|---|---|---|---|
+| 01 | LevelMap | `Kingmaker_Crossing` (1d4 / 1d6 at 5 / 1d8 at 9) | UUID Object Editor → Levelmaps / LevelMapValues | — |
+| 02 | Status BOOST | `KINGMAKER_CROSSING_TECH` (deals the Crossing) | Stats → StatusData / Status_BOOST | 01 |
+| 03 | Status BOOST | `KINGMAKER_CUT_TECH`, `KINGMAKER_TURN_TECH` | Stats → StatusData / Status_BOOST | — |
+| 04 | Status BOOST | `KINGMAKER_REIGNING_LINGER` | Stats → StatusData / Status_BOOST | — |
+| 05 | Status BOOST | `ASPECT_AWAKENED_WHEEL`, `ASPECT_AWAKENED_WHEEL_I` | Stats → StatusData / Status_BOOST | 09 |
+| 06 | Passive | `Arcana_Passive_TheCrossing` | Stats → Passive | 01 |
+| 07 | Passive | `Arcana_Passive_Aspect_WheelOfFortune_Awakening`, `…_I` (Tyche) | Stats → Passive | — |
+| 08 | Spell Target | `Target_Arcana_Card_Spell_AtroposCut` (level-2 card) | Stats → SpellData / Target | 03 |
+| 09 | Spell Shout | `Shout_Arcana_Created_Aspect_RotaFortunae` (Aspect card) | Stats → SpellData / Shout | 03 |
+| 10 | Osiris goal | `ARCANA_Kingmaker_Wheel` — the whole text replaced | Stories | 02–04 |
+| 11 | Osiris goal | `ARCANA_Aspect_Common` — 6 table rows for `WHEEL` | Stories | 05, 07 |
+| 12 | Spell list | *Kingmaker Level 3* | UUID Object Editor → Lists / SpellLists | 08 |
+| 13 | Progression | table `a688d11f…` level 3 (`504e7b34…`) | UUID Object Editor → Progressions | 06, 07, 12 |
+| 14 | Generated | Atropos' Cut variants with damage; Dethrone's variants' damage; Awakening progress | Claude | 08, 11 |
+
+### How each rule is built
+
+| Rule (design) | Build | Anchor |
+|---|---|---|
+| **Crossing** (§5): an enemy that enters Fallen with a Reigning ally within 9 m takes Force damage, once per enemy per round | Every move and binding calls `PROC_ARCANA_Kingmaker_Fell`, which notes an enemy entering Fallen; every change ends with `PROC_ARCANA_Kingmaker_Settle`, which checks the notes **after all creatures moved** (turn start, Turn the Spoke, Tyche's Dethrone, Rota Fortunae). The once-per-round set `DB_ARCANA_Kingmaker_Crossed` is cleared at the owner's turn start. Damage: Osiris applies `KINGMAKER_CROSSING_TECH` with the Kingmaker as cause; its `OnApplyFunctors DealDamage(Cause.LevelMapValue(Kingmaker_Crossing),Force,Magical)` | `SIGIL` (`Cause.LevelMapValue(Sigil_MarkDamage)`, applied by `ARCANA_Status_Sigil`); `GetDistanceTo` (`story_header.div` :626) used by `ARCANA_Aspect_Temperance`; `ApplyStatus(…, 0.0, 1, …)` in vanilla goals |
+| Crossing tooltip by level | `DescriptionParams Distance(9);DealDamage(LevelMapValue(Kingmaker_Crossing),Force)` | Battle Master manoeuvres (`LevelMapValue(SuperiorityDie)`) |
+| **Awakening** (§9.1): +1 per Crossing, +2 with a lone enemy; goals 3/5/8 | `PROC_ARCANA_Aspect_Step(_Owner, "WHEEL")` once, twice when `DB_ARCANA_Kingmaker_Enemies(_Owner, 1)`; the count of enemies on the Wheel is rebuilt before each step. The rows of `ARCANA_Aspect_Common` (aspect `WHEEL`, COUNT) make the tiers; `gen_awakening_progress.pl` builds the countdown statuses | ARC-0007; `ARCANA_Aspect_Temperance` (the Resonant) |
+| **Tyche** (§9.2): bindings one position ahead | The two bind events read `DB_ARCANA_AspectReached(_Owner, 1)`: Coronation binds at Reigning, Dethrone at Fallen (and may cross at once) | `ARCANA_Aspect_Common` |
+| **Rota Fortunae** (§7.11) | Created Shout, level 0, Action, `Cooldown OncePerCombat`, `Requirements Combat`; lands on the Kingmaker (`KINGMAKER_TURN_TECH`), and Osiris turns the whole Wheel as at a turn start (without clearing the round's Crossings: an enemy that crossed this round doesn't cross again). Unlocked by `ASPECT_AWAKENED_WHEEL` | `Shout_Arcana_Created_Aspect_TwoCups`; `Shout_Dash` (self Shout) |
+| **Atropos' Cut** (§7.5) | Level-2 card, Action, 18 m, any creature on the Wheel. Damage by position in `SpellProperties` (first), then `KINGMAKER_CUT_TECH`; Osiris removes the creature and its statuses. An ally cut while Reigning gets `KINGMAKER_REIGNING_LINGER` (Reigning's boosts, `TickType EndTurn`, 1 turn): off the Wheel, no crown, no Crossing source | `Target_CloudOfDaggers` (look); `ETHEREAL_CHAINS` (`TickType EndTurn`) |
+| **Upcast damage** (Dethrone +1d6, Atropos' Cut +1d8 per slot level) | `gen_upcast_variants.pl` reads `game_ids` + `upcast_die` in `25.01` and adds the dice to every matching term of the variant's damage fields (Owner's choice, 2026-10-14). Fixes Dethrone, whose variants had only the cost | vanilla variants (`Projectile_MagicMissile_2`…) |
+
+Ids follow the Resonant's Awakening (`Arcana_Passive_Aspect_<X>_Awakening` / `_I`, `ASPECT_AWAKENED_<X>` / `_I`, Aspect
+card `Shout_Arcana_Created_Aspect_*`); the Aspect key is `WHEEL`. Tiers II–III (Nemesis, Anticipation) come in stages 4
+and 6: their rows are in the Common table from now, but their passives aren't granted yet.
+
+**Stage 1 correction:** the hook this SPEC called `PROC_ARCANA_Kingmaker_Entered` wasn't in stage 1's goal; stage 2
+replaces the goal and the hook is `PROC_ARCANA_Kingmaker_Fell` + `PROC_ARCANA_Kingmaker_Settle`.
+
+### Probes — the Owner plays these after stage 2 (one rule each)
+
+| # | Do | Proves it works | Plan B |
+|---|---|---|---|
+| P9 | Level 3: Coronation on an ally, Dethrone on an enemy within 9 m of it; end the turn | At your turn start the ally Reigns and the enemy, Fallen, shows **The Crossing** and takes 1d4 Force from you (combat log) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel` |
+| P10 | Same, with the enemy more than 9 m from the ally | Fallen, no Crossing | — |
+| P11 | Two Reigning allies next to one enemy entering Fallen; then Turn the Spoke it round to Fallen again in the same round | One Crossing only, both times | — |
+| P12 | Fight with one enemy on the Wheel, then two | The Awakening counts 2 per Crossing with one enemy, 1 with two; 3 Crossings awaken **Tyche** (status, card *Rota Fortunae* in the hotbar) | — |
+| P13 | With Tyche: Coronation, then Dethrone next to the Reigning ally | The ally enters Reigning (King at once); the enemy enters Fallen and crosses at once | — |
+| P14 | Rota Fortunae | Every creature on the Wheel moves one step; a Falling enemy near a Reigning ally crosses; it can't be cast again this combat | — |
+| P15 | Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each) | 3d8 / 2d8 / 1d8 Slashing; the enemy loses its position status and the Wheel ignores it | — |
+| P16 | Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' Cut with a higher slot | The ally leaves the Wheel, keeps *Reigning* until the end of its next turn, loses the crown; Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 | — |

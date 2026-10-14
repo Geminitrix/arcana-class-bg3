@@ -25,7 +25,7 @@ Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/2026-10
 | Id (proposed) | DisplayName | Description | Params |
 |---|---|---|---|
 | `Arcana_Passive_TheRota` | The Rota | Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>. | — |
-| `Arcana_Passive_TheCrossing` | The Crossing | When an enemy on the Wheel becomes Fallen while an ally on the Wheel is Reigning within [1], the enemy takes [2]. Once per enemy per round. | [1] `Distance(9)` · [2] `DealDamage(1d4,Force)` — `FEAT_Kingmaker_Crossing` (1d4/1d6/1d8 by level) |
+| `Arcana_Passive_TheCrossing` | The Crossing | When an enemy on the Wheel becomes Fallen while an ally on the Wheel is Reigning within [1], the enemy takes [2]. Once per enemy per round. | [1] `Distance(9)` · [2] `DealDamage(LevelMapValue(Kingmaker_Crossing),Force)` — `FEAT_Kingmaker_Crossing` (1d4/1d6/1d8 by level, LevelMap `Kingmaker_Crossing`) |
 | `Arcana_Passive_Hubris` | Hubris | An enemy that begins Reigning on the Wheel gains <LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS">Hubris</LSTag>. The higher it climbs, the harder it falls - its next Crossing deals an additional [1]. | [1] one Crossing die — `FEAT_Kingmaker_Hubris` |
 | `Arcana_Passive_Succession` | Succession | When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king. | [1] `Distance(9)` — `FEAT_Kingmaker_Succession` |
 | `Arcana_Passive_FortunesReach` *(working name)* | Fortune's Reach | Your Crossings no longer need an ally nearby: an enemy that becomes Fallen while any ally on the Wheel is Reigning takes Crossing damage. | — |
@@ -34,13 +34,18 @@ Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/2026-10
 
 | Id (proposed) | DisplayName | Description |
 |---|---|---|
-| `Arcana_Passive_Aspect_WheelOfFortune` | 10 - Wheel of Fortune: Awakening | Make your enemies fall while your allies reign to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 Crossings to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I">Tyche</LSTag>.<br><br>Level 7: cause 5 Crossings to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II">Nemesis</LSTag>.<br><br>Level 12: cause 8 Crossings to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III">Aspect of Anticipation</LSTag>.<br><br>The Awakening status shows how much is left to the next tier. |
+| `Arcana_Passive_Aspect_WheelOfFortune_Awakening` | 10 - Wheel of Fortune: Awakening | Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 Crossings to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I">Tyche</LSTag>.<br><br>Level 7: cause 5 Crossings to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II">Nemesis</LSTag>.<br><br>Level 12: cause 8 Crossings to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III">Aspect of Anticipation</LSTag>.<br><br>The Awakening status shows how much is left to the next tier. |
 | `…_I` | Tyche | Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
 | `…_II` | Nemesis | When an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen. *(param: `Distance(3)`)* |
 | `…_III` | Aspect of Anticipation | Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare <LSTag Type="Spell" Tooltip="Interrupt_Arcana_Reaction_Foreseen">Foreseen</LSTag>. |
 
 Awakened statuses (`10 - Wheel of Fortune: Awakened I / II / III`) list the bonuses above with the tier names as
-labels, like the other subclasses.
+labels, like the other subclasses. Stage 2 (SPEC_ARC-0008) fixes the Tier I ones:
+
+| Id | DisplayName | Description |
+|---|---|---|
+| `ASPECT_AWAKENED_WHEEL` | 10 - Wheel of Fortune | Awakened as the Aspect of Anticipation until combat ends. |
+| `ASPECT_AWAKENED_WHEEL_I` | 10 - Wheel of Fortune: Awakened I | Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
 
 ## 3. Statuses
 
@@ -56,6 +61,8 @@ Status descriptions are written from outside the creature. Each position opens w
 | `KINGMAKER_REGENT` | Regent | Reigns beside the King without wearing the crown. | — |
 | `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals an additional [1]. | [1] one Crossing die — `FEAT_Kingmaker_Hubris` |
 | `KINGMAKER_WHEEL_STOPPED` | The Wheel Stops | Held in place on Fortune's wheel. Doesn't change position while the Wheel is stopped. | — |
+| `KINGMAKER_CROSSING_TECH` | The Crossing | Fell while an ally reigned nearby, and took Force damage. *(shown over the enemy)* | — |
+| `KINGMAKER_REIGNING_LINGER` | Reigning | Cut from the Wheel at its peak. Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> until the end of its next turn. | — |
 
 ### The Court (one status per office, on the holder)
 
@@ -84,7 +91,7 @@ Status descriptions are written from outside the creature. Each position opens w
 | `Target_Arcana_Card_Spell_Usurp` | Usurp | An ally and an enemy on the Wheel trade places on it. | Once per combat. | — |
 | `Zone_Arcana_Card_Spell_WheelOfIxion` | Wheel of Ixion | Send a burning wheel rolling through your foes and bind them to Fortune's wheel, Falling. | Enemies that succeed the <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> take half damage but still join the Wheel. The wheel leaves a trail of fire behind it - allies included. | [1] `DealDamage(5d6,Fire)` — `SPL_Kingmaker_WheelOfIxion` |
 | `Shout_Arcana_Card_Spell_TheWheelStops` | The Wheel Stops | Stop Fortune's wheel. No creature on it changes position for [1]. | While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing. | DescriptionParams [1] `2` turns · ExtraDescriptionParams [1] `Distance(9)` — `SPL_Kingmaker_TheWheelStops` |
-| `Shout_Arcana_Created_RotaFortunae` | Rota Fortunae | Turn Fortune's wheel once more. Every creature on it moves one position onward. | Crossings happen as they do when the Wheel turns.<br><br>Once per combat. | — |
+| `Shout_Arcana_Created_Aspect_RotaFortunae` | Rota Fortunae | Turn Fortune's wheel once more. Every creature on it moves one position onward. | Crossings happen as they do when the Wheel turns.<br><br>Once per combat. | — |
 | `Interrupt_Arcana_Reaction_Foreseen` | Foreseen | When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. | You saw it coming. | — |
 | `Shout_Arcana_Util_ConveneTheCourt` | Convene the Court | Name your Court. Each ally you appoint holds an office until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. | You can appoint as many offices as your Charisma <LSTag Tooltip="AbilityModifier">Modifier</LSTag>. You can't hold an office yourself. | — |
 

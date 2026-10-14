@@ -43,6 +43,14 @@ our %A = (
         do => 'Cause reactions',
         rule => 'Every feeling you braid, every emotion you intensify and every Catharsis counts.',
         goal => sub { "cause $_[0] reactions" } },
+    # ARC-0008 stage 2 (the Kingmaker): goes into @ORDER once the WHEEL rows are in ARCANA_Aspect_Common and the
+    # passive Arcana_Passive_Aspect_WheelOfFortune_Awakening exists in the game (TOOLKIT_ARC-0008_stage2.md §1, §3)
+    WHEEL => { passive => 'WheelOfFortune', aspect => 'Anticipation', icon => 'Spell_Divination_DetectThoughts', mode => 'COUNT',
+        tiers => ['Tyche', 'Nemesis', 'Aspect of Anticipation'],
+        left => 'Crossings left to cause',
+        do => 'Make your enemies fall while your allies reign',
+        rule => 'Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice.',
+        goal => sub { "cause $_[0] Crossings" } },
     STAR => { passive => 'Star', aspect => 'Hope', icon => 'Spell_Evocation_DancingLights', mode => 'HEAL',
         tiers => ['Beacon', 'Sunrise', 'Aspect of Hope'],
         left => 'Hit points left to heal',

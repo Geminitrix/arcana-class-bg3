@@ -4,6 +4,7 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §9"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Arcana_Passive_Aspect_WheelOfFortune_Awakening, Arcana_Passive_Aspect_WheelOfFortune_I, ASPECT_AWAKENED_WHEEL, ASPECT_AWAKENED_WHEEL_I, ARCANA_Aspect_Common]
 values:
   goal_tier1:       { value: 3, unit: count, note: "Crossings — each instance of Crossing damage" }
   goal_tier2:       { value: 5, unit: count }
