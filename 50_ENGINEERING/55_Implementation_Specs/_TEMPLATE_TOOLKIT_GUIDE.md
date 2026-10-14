@@ -30,10 +30,12 @@ Keep this section in every guide; it is how the Owner reads the rest.
    spell that applies it, when the Toolkit validates the reference). The sections below are grouped by
    Toolkit area; the checklist number appears in each entry's title.
 3. **Stats Editor blocks.** One column per entry, **at most 3 entries per block** (same file only), one row per
-   field in the order the mod's existing entries show them. Every row is a real field to fill or to confirm. Cell
+   field. Rows follow the order of the mod's existing entries; the Toolkit may show the fields in another order (match
+   them by name). Every row is a real field to fill or to confirm. Cell
    tags: *(parent)* = the `Using` parent has exactly this value; *(ours)* = our value; *(leave empty)* = leave it
    empty (say what it clears). Spell `Name` is typed without the type prefix (`Arcana_Card_Spell_X` in
-   `Target.stats` → game id `Target_Arcana_Card_Spell_X`); `Using` is picked by the parent's name.
+   `Target.stats` → game id `Target_Arcana_Card_Spell_X`); `Using` is written as the parent's name without its type prefix
+   (`ShieldOfFaith`, not `Target_ShieldOfFaith`) — shorter to search in the picker.
 4. **New entries: every field — parent values included.** Resolve the parent's effective fields from the game files (`82_Automation/stats/resolve_stats.pl <entry>`)
    (the `using` chain, load order Shared → SharedDev → Gustav → GustavDev → the mod) and list them all with their
    exact values, so the entry is complete when the Owner later removes `Using` (another mod that changes the parent
@@ -125,8 +127,8 @@ Start the section with the reading key (keep it in every guide):
 
 > **Type only what is inside `code` or "quotes".** *(parent)* = the `Using` parent already has exactly this value —
 > confirm it, and type it when `Using` is removed · *(ours)* = our value · *(leave empty)* = leave the field empty
-> (while `Using` is set, clear the parent's value) · "…" = a new localisation handle. Spell names are typed without
-> the type prefix; `Using` is picked by the parent's name. The numbers of each block are listed under it.
+> (while `Using` is set, clear the parent's value) · "…" = a new localisation handle. Spell names and `Using` are written
+> without the type prefix (search the parent by its name in the picker). The Toolkit may order the fields differently. The numbers of each block are listed under it.
 
 Fields the Toolkit shows, per file, for reference (list every one an entry uses; the parent's resolved fields
 included).
@@ -159,7 +161,7 @@ Numbers: `1d4` (Boosts, DescriptionParams) = `FEAT_Example#penalty`.
 | Field | `Target_Arcana_Card_Spell_Example` |
 |---|---|
 | Name | `Arcana_Card_Spell_Example` |
-| Using | `Target_Example_Vanilla` (picker) |
+| Using | `Example_Vanilla` (search in the picker) |
 | Level | `1` *(parent)* |
 | SpellRoll | `not SavingThrow(Ability.Charisma, SourceSpellDC())` *(ours)* |
 | SpellSuccess | `DealDamage(2d6,Bludgeoning,Magical)` *(ours)* |

@@ -23,8 +23,9 @@ author: Mod Engineer
    origin of every number is listed **under** its block (`3d6` = `SPL_Kingmaker_Dethrone#damage`). Regenerate this file
    when a file in `derived_from` changes; never edit a number here by hand.
 2. **Order.** Section 0 is the checklist in the order the work has to happen.
-3. **Stats Editor blocks:** one column per entry, **at most 3 entries per block**, one row per field, in the order the
-   mod's existing entries show them. Every row is a real field to fill or to confirm.
+3. **Stats Editor blocks:** one column per entry, **at most 3 entries per block**, one row per field. Rows follow
+   the order of the mod's existing entries; the Toolkit may show the fields in another order (match them by name).
+   Every row is a real field to fill or to confirm.
 4. **New entries: every field**, including the ones the `Using` parent already has — marked *(parent)* with the exact
    value — so the entry stays the same when `Using` is later removed (another mod changing the parent can't change
    ours). Fields to leave empty are listed as *(leave empty)*, with what they clear.
@@ -398,8 +399,8 @@ existing entries show them. **Type only what is inside `code` or "quotes"** — 
 
 **Spell names** are typed **without** the type prefix: in `Projectile.stats` the Name is
 `Arcana_Card_Spell_SpokeOfTheWheel` and the game id becomes `Projectile_Arcana_Card_Spell_SpokeOfTheWheel` (the mod's
-existing cards work the same way). Statuses and passives keep their full name. **`Using`** is chosen in the Toolkit's
-picker by the parent's name. The numbers of each block, with their origin in `25` (ADR-0008), are listed under it.
+existing cards work the same way). Statuses and passives keep their full name. **`Using`** is given by the parent's name **without** its type prefix (the picker shows `Target_ShieldOfFaith`; search `ShieldOfFaith`). The Toolkit may show the fields in another order
+than the tables: match them by name. The numbers of each block, with their origin in `25` (ADR-0008), are listed under it.
 
 ### 01–03 · NEW · StatusData / Status_BOOST · Rising, Reigning, Falling
 
@@ -465,7 +466,7 @@ No numbers.
 | Field | `Projectile_Arcana_Card_Spell_SpokeOfTheWheel` |
 |---|---|
 | Name | `Arcana_Card_Spell_SpokeOfTheWheel` |
-| Using | `Projectile_FireBolt` (picker) |
+| Using | `FireBolt` (search in the picker) |
 | Level | `0` *(parent)* |
 | SpellSchool | `Evocation` *(parent)* |
 | TargetRadius | `18` *(parent)* |
@@ -508,7 +509,7 @@ The fire look (sounds, effects) comes from Fire Bolt; swap them later if you fin
 | Field | `Target_Arcana_Card_Spell_Coronation` | `Target_Arcana_Card_Spell_Dethrone` | `Target_Arcana_Card_Spell_TurnTheSpoke` |
 |---|---|---|---|
 | Name | `Arcana_Card_Spell_Coronation` | `Arcana_Card_Spell_Dethrone` | `Arcana_Card_Spell_TurnTheSpoke` |
-| Using | `Target_ShieldOfFaith` (picker) | `Target_DissonantWhispers` (picker) | the Temper card (picker; shown as `Arcana_Card_Spell_Temper`) |
+| Using | `ShieldOfFaith` (search in the picker) | `DissonantWhispers` (search in the picker) | `Arcana_Card_Spell_Temper` (search in the picker) |
 | Level | `1` *(parent)* | `1` *(parent)* | `0` *(parent)* |
 | SpellSchool | `Enchantment` *(ours; parent `Abjuration`)* | `Enchantment` *(parent)* | `Enchantment` *(parent)* |
 | TargetRadius | `18` *(parent)* | `18` *(parent)* | `18` *(parent)* |
