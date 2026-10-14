@@ -35,7 +35,7 @@
                     <attribute id="UUID" type="guid" value="5d8da67e-1488-c928-7d74-68f0ca6f94d8"/>
                 </node>
                 <node id="DefaultValue">
-                    <attribute id="Add" type="LSString" value="Insight;Persuasion;Medicine;Performance;Perception;Religion;AnimalHandling;Intimidation"/>
+                    <attribute id="Add" type="LSString" value="Persuasion;Intimidation;Insight;History"/>
                     <attribute id="Level" type="int32" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="a389eb39-c184-4fc3-b17b-fa5ac1c943f9"/>

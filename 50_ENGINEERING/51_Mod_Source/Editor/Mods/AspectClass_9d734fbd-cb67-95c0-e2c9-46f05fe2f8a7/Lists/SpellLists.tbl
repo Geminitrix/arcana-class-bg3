@@ -260,39 +260,46 @@
         <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_HowlOfTheDead" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="05269c79-116f-2b07-6dc1-deeefddc7ae4" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 1" />
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="74e89dac-4330-83f6-cf7b-881854bd4663" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 3" />
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_Temper" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e0d34d66-e311-be56-1810-04f9ba0917fd" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 5" />
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="f015022c-43e0-42f3-8f0a-0ab542e8641d" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 9" />
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionalContagion" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 11" />
         <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8749e2ed-fd67-4448-8313-50be6e541b22" />
+        <field name="Name" type="NameTableFieldDefinition" value="Kingmaker Level 1" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone;Target_Arcana_Card_Spell_TurnTheSpoke" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

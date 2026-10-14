@@ -759,6 +759,22 @@
         <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,FEELING_REMORSE_TECH,100,1)" />
       </fields>
     </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="82238ec3-351a-4a4e-b799-343b0993fb37" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER PASSIVES" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="73151e8c-4f1e-44ad-b214-7dab2566a494" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheRota" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hac706065gb231ge3d0g59e3g07ede1388718" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc49689c0g291cg629bg2075g0bbfb07af743" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_AuraOfLeadership" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FF1E90FF" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6d30956a-08e3-0869-5c71-1b4cd83cfa96" />

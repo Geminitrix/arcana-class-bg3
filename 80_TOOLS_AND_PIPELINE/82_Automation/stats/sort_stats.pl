@@ -3,7 +3,7 @@
 # Regras pedidas pelo usuario em 2026-10-01 (a versao anterior ordenava em ordem alfabetica):
 #
 #   1. Uma divisoria por grupo, nesta ordem: DEBUG, ARCANA (a classe), DECEIVER, STARCHILD, UNBOUND,
-#      ETERNAL, AWAKEN (o Despertar do Aspecto). WEAPON / EQUIPMENT / BOON / CC SET ficam no fim, como
+#      ETERNAL, RESONANT, KINGMAKER, AWAKEN (o Despertar do Aspecto). WEAPON / EQUIPMENT / BOON / CC SET ficam no fim, como
 #      estao. Arquivo sem divisoria ganha as que precisar; "DECIEVER STATUS" vira "DECEIVER POLYMORPHED STATUS" (nome de entrada vale
 #      para o mod inteiro: fora do Status_BOOST a divisoria de status leva o tipo).
 #   2. Quem e de quem sai das referencias, nao do lugar onde a entrada estava: as raizes sao as magias
@@ -28,11 +28,11 @@ my $EDS = "$G/Editor/Mods/$M/Stats";
 my $apply   = grep { $_ eq '--apply' } @ARGV;
 my $verbose = grep { $_ eq '--verbose' } @ARGV;
 
-my @GROUPS = qw(DEBUG ARCANA DECEIVER STARCHILD UNBOUND ETERNAL RESONANT AWAKEN);
+my @GROUPS = qw(DEBUG ARCANA DECEIVER STARCHILD UNBOUND ETERNAL RESONANT KINGMAKER AWAKEN);
 my %GRANK; $GRANK{$GROUPS[$_]} = $_ for 0 .. $#GROUPS;
 my %COLOR = (DEBUG => '#FF000000', ARCANA => '#FF000000', DECEIVER => '#FFFF69B4', STARCHILD => '#FF800080',
-             UNBOUND => '#FFDAA520', ETERNAL => '#FF2F4F4F', RESONANT => '#FF4B47C2', AWAKEN => '#FF1E90FF');
-my %PROGGROUP = (Arcana => 'ARCANA', Deceiver => 'DECEIVER', Starchild => 'STARCHILD', Unbound => 'UNBOUND', Eternal => 'ETERNAL', Resonant => 'RESONANT');
+             UNBOUND => '#FFDAA520', ETERNAL => '#FF2F4F4F', RESONANT => '#FF4B47C2', KINGMAKER => '#FF66CDAA', AWAKEN => '#FF1E90FF');
+my %PROGGROUP = (Arcana => 'ARCANA', Deceiver => 'DECEIVER', Starchild => 'STARCHILD', Unbound => 'UNBOUND', Eternal => 'ETERNAL', Resonant => 'RESONANT', Kingmaker => 'KINGMAKER');
 # arquivos organizados: .txt => [.stats, tipo, sufixo da divisoria]. Armor/Character/Weapon nao sao de classe.
 my %FILES = (
     Interrupt           => ['Stats/Interrupt.stats',              'InterruptData', 'INTERRUPTS'],

@@ -114,21 +114,21 @@
         <field name="CanLearnSpells" type="BoolTableFieldDefinition" value="True" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_4" />
         <field name="UUID" type="IdTableFieldDefinition" value="bf046347-57d5-4774-87a6-13a4ebdddb0a" />
         <field name="ParentUUID" type="GuidObjectTableFieldDefinition" value="799a9fd7-f042-411a-80ae-a0eb46e7f829" />
-        <field name="NameFS" type="FixedStringTableFieldDefinition" value="Spinner" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfacb1d49g544agb0degda20ga52001b27e7a" version="1" />
+        <field name="NameFS" type="FixedStringTableFieldDefinition" value="Kingmaker" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfacb1d49g544agb0degda20ga52001b27e7a" version="2" />
         <field name="ProgressionTableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="SoundClassType" type="FixedStringTableFieldDefinition" value="Warlock" />
+        <field name="SoundClassType" type="FixedStringTableFieldDefinition" value="Sorcerer" />
         <field name="LearningStrategy" type="EnumerationTableFieldDefinition" value="AllChildren" enumeration_type_name="LearningStrategy" version="1" />
         <field name="MustPrepareSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="CanLearnSpells" type="BoolTableFieldDefinition" value="True" />
-        <field name="Tags" type="GuidObjectListTableFieldDefinition" value="5804f55a-93f7-4281-9512-8d548a9e2a22;f9985485-9df1-43a7-b603-52ac336ebb01" />
-        <field name="ClassEquipment" type="FixedStringTableFieldDefinition" value="EQP_CC_Resonant" />
+        <field name="Tags" type="GuidObjectListTableFieldDefinition" value="18266c0b-efbc-4c80-8784-ada4a37218d7;f9985485-9df1-43a7-b603-52ac336ebb01" />
+        <field name="ClassEquipment" type="FixedStringTableFieldDefinition" value="EQP_CC_Kingmaker" />
         <field name="CharacterCreationPose" type="GuidTableFieldDefinition" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8" />
       </fields>
     </stat_object>

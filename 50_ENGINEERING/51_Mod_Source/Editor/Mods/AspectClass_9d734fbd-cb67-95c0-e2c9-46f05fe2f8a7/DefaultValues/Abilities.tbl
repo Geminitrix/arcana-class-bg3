@@ -51,14 +51,14 @@
         <field name="Comment" type="CommentTableFieldDefinition" value="The Resonant Default Abilities" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_5" />
         <field name="UUID" type="IdTableFieldDefinition" value="b12e3a18-3baa-4a3a-9934-7d4db45efebf" />
         <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="DefaultValues" type="StringTableFieldDefinition" value="Intelligence;Charisma" />
-        <field name="Comment" type="CommentTableFieldDefinition" value="The Spinner Default Abilities" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Kingmaker Default Abilities" />
       </fields>
     </stat_object>
     <stat_object color="#FFA52A2A" is_substat="false">

@@ -17,6 +17,7 @@ DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_SigilofMalice_3", "Projectile
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_SigilofMalice_4", "Projectile_Arcana_Card_Spell_SigilofMalice");
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_SigilofMalice_5", "Projectile_Arcana_Card_Spell_SigilofMalice");
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_SigilofMalice_6", "Projectile_Arcana_Card_Spell_SigilofMalice");
+DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_SpokeOfTheWheel", "Projectile_Arcana_Card_Spell_SpokeOfTheWheel");
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_Starcall", "Projectile_Arcana_Card_Spell_Starcall");
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_Starcall_2", "Projectile_Arcana_Card_Spell_Starcall");
 DB_ARCANA_CardFamily("Projectile_Arcana_Card_Spell_Starcall_3", "Projectile_Arcana_Card_Spell_Starcall");
@@ -172,6 +173,12 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Command_3", "Target_Arcana_Card_S
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Command_4", "Target_Arcana_Card_Spell_Command");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Command_5", "Target_Arcana_Card_Spell_Command");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Command_6", "Target_Arcana_Card_Spell_Command");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation", "Target_Arcana_Card_Spell_Coronation");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation_2", "Target_Arcana_Card_Spell_Coronation");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation_3", "Target_Arcana_Card_Spell_Coronation");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation_4", "Target_Arcana_Card_Spell_Coronation");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation_5", "Target_Arcana_Card_Spell_Coronation");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Coronation_6", "Target_Arcana_Card_Spell_Coronation");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathWard", "Target_Arcana_Card_Spell_DeathWard");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathWard_4", "Target_Arcana_Card_Spell_DeathWard");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathWard_5", "Target_Arcana_Card_Spell_DeathWard");
@@ -181,6 +188,12 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathsGrasp_3", "Target_Arcana_Ca
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathsGrasp_4", "Target_Arcana_Card_Spell_DeathsGrasp");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathsGrasp_5", "Target_Arcana_Card_Spell_DeathsGrasp");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_DeathsGrasp_6", "Target_Arcana_Card_Spell_DeathsGrasp");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone", "Target_Arcana_Card_Spell_Dethrone");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone_2", "Target_Arcana_Card_Spell_Dethrone");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone_3", "Target_Arcana_Card_Spell_Dethrone");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone_4", "Target_Arcana_Card_Spell_Dethrone");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone_5", "Target_Arcana_Card_Spell_Dethrone");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Dethrone_6", "Target_Arcana_Card_Spell_Dethrone");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Distortion", "Target_Arcana_Card_Spell_Distortion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Distortion_4", "Target_Arcana_Card_Spell_Distortion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Distortion_5", "Target_Arcana_Card_Spell_Distortion");
@@ -303,6 +316,7 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_3", "Target_Arcana_Ca
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_4", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_5", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_6", "Target_Arcana_Card_Spell_Transfusion");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_TurnTheSpoke", "Target_Arcana_Card_Spell_TurnTheSpoke");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_3", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_4", "Target_Arcana_Card_Spell_VeiledPrison");

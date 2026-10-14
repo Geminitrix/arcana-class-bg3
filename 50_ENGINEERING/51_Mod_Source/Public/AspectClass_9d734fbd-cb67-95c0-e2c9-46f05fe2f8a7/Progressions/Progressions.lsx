@@ -1077,88 +1077,89 @@
                     <attribute id="UUID" type="guid" value="d1a9d96e-097c-c2c9-b47b-6a718742c69d"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Charisma);Proficiency(LightArmor);Proficiency(Daggers);Proficiency(Quarterstaffs);Proficiency(LightCrossbows);Proficiency(Darts)"/>
+                    <attribute id="Boosts" type="LSString" value="ProficiencyBonus(SavingThrow,Charisma);ProficiencyBonus(SavingThrow,Wisdom);Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)"/>
+                    <attribute id="IsMulticlass" type="bool" value="false"/>
                     <attribute id="Level" type="uint8" value="1"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheRota"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(df806fc1-79b4-7328-9e05-8726e513d941,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(05269c79-116f-2b07-6dc1-deeefddc7ae4,,,,AlwaysPrepared)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(20cfaf8d-a20b-43bf-9396-1e72fede0bdd,4);SelectSkillsExpertise(20cfaf8d-a20b-43bf-9396-1e72fede0bdd,2);AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="76a78614-8bc6-4450-96c4-bb40006bbaa5"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="2"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="d6fc13fa-2033-4365-9f4e-999e7143dce0"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="3"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="504e7b34-f08d-48d6-a817-4be73d9064c5"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="4"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="6b32e796-4976-4e23-89bc-cc706315117e"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="5"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="856b4cd7-2846-4303-860c-23b118a3c24c"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="6"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="60b12545-1482-41e0-9ee5-c0d5fdec9efb"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="7"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="743d27d7-27a0-414a-bbad-1407a944df0b"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="8"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="07fabc1b-a981-4ecc-b691-494ea78fe778"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="9"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="ac94328c-98f4-4068-805d-5a6e39b8ecb2"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="10"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="4843d1db-c846-4669-ae3c-928d2dd2a7c0"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="11"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="10cd57aa-594a-4828-b934-1ed04d46d613"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
-                    <attribute id="Name" type="LSString" value="Spinner"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="599e1b1a-c8cd-47d1-b790-c169bca584bb"/>
@@ -1249,6 +1250,17 @@
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="7643bf5a-62fa-44c4-ab73-572e655554d2"/>
                     <attribute id="UUID" type="guid" value="85818201-d580-4c98-b8d5-75e277225200"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)"/>
+                    <attribute id="IsMulticlass" type="bool" value="true"/>
+                    <attribute id="Level" type="uint8" value="1"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheRota"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)"/>
+                    <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
+                    <attribute id="UUID" type="guid" value="5417d057-d685-4302-b6d7-b5356a9a118d"/>
                 </node>
             </children>
         </node>

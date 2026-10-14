@@ -125,3 +125,11 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-14 — `82_Automation/stats/order_toolkit_guide.pl` (+ `t/order_toolkit_guide.t`, 7 tests): sorts a Toolkit guide's
   Stats tables and Notes in the Toolkit field order read from the template; replayed on the pre-reorder guide it
   reproduces the committed tables exactly. Template rule 3 and `82` index point to it.
+- 2026-10-14 — Stage 1 entered by the Owner and reviewed against TOOLKIT_ARC-0008 (193 stats fields, goal, UUID editor,
+  loca). Fixed: Spoke of the Wheel and Coronation names typed with the type prefix (Projectile_Projectile_…,
+  Target_Target_… — the spell list could not find them); Coronation TargetEffect held its CastEffect; Turn the Spoke kept
+  `Using` Temper and inherited its roll, effects and save (Using removed, Owner's choice); DefaultValues Skills still the
+  Spinner's (now Persuasion;Intimidation;Insight;History). Spoke, Coronation and Dethrone entered without `Using` (all
+  fields typed). Owner extras kept: EQP_CC_Kingmaker as ClassEquipment, class tag Sorcerer, tag THEKINGMAKER.
+  Upcast variants generated (Coronation, Dethrone _2…_6), sort_stats learns the KINGMAKER group, check_cards OK,
+  validate 0 errors (4 old vanilla-handle warnings). Next: Owner plays probes P1–P8.

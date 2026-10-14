@@ -1399,125 +1399,140 @@
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF000000" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_150" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5417d057-d685-4302-b6d7-b5356a9a118d" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
+        <field name="Level" type="ByteTableFieldDefinition" value="1" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_TheRota" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)" />
+        <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_126" />
         <field name="UUID" type="IdTableFieldDefinition" value="76a78614-8bc6-4450-96c4-bb40006bbaa5" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="1" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy;Arcana_Passive_EmpathicSight" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Charisma);Proficiency(LightArmor);Proficiency(Daggers);Proficiency(Quarterstaffs);Proficiency(LightCrossbows);Proficiency(Darts)" />
-        <field name="Selectors" type="StringTableFieldDefinition" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(df806fc1-79b4-7328-9e05-8726e513d941,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(05269c79-116f-2b07-6dc1-deeefddc7ae4,,,,AlwaysPrepared)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_TheRota" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ProficiencyBonus(SavingThrow,Charisma);ProficiencyBonus(SavingThrow,Wisdom);Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(20cfaf8d-a20b-43bf-9396-1e72fede0bdd,4);SelectSkillsExpertise(20cfaf8d-a20b-43bf-9396-1e72fede0bdd,2);AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)" />
+        <field name="IsMulticlass" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_127" />
         <field name="UUID" type="IdTableFieldDefinition" value="d6fc13fa-2033-4365-9f4e-999e7143dce0" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="2" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_128" />
         <field name="UUID" type="IdTableFieldDefinition" value="504e7b34-f08d-48d6-a817-4be73d9064c5" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="3" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_129" />
         <field name="UUID" type="IdTableFieldDefinition" value="6b32e796-4976-4e23-89bc-cc706315117e" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="4" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_130" />
         <field name="UUID" type="IdTableFieldDefinition" value="856b4cd7-2846-4303-860c-23b118a3c24c" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="5" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_131" />
         <field name="UUID" type="IdTableFieldDefinition" value="60b12545-1482-41e0-9ee5-c0d5fdec9efb" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="6" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_132" />
         <field name="UUID" type="IdTableFieldDefinition" value="743d27d7-27a0-414a-bbad-1407a944df0b" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="7" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_133" />
         <field name="UUID" type="IdTableFieldDefinition" value="07fabc1b-a981-4ecc-b691-494ea78fe778" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="8" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_134" />
         <field name="UUID" type="IdTableFieldDefinition" value="ac94328c-98f4-4068-805d-5a6e39b8ecb2" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="9" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_135" />
         <field name="UUID" type="IdTableFieldDefinition" value="4843d1db-c846-4669-ae3c-928d2dd2a7c0" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="10" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_136" />
         <field name="UUID" type="IdTableFieldDefinition" value="10cd57aa-594a-4828-b934-1ed04d46d613" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="11" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_137" />
         <field name="UUID" type="IdTableFieldDefinition" value="599e1b1a-c8cd-47d1-b790-c169bca584bb" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
-        <field name="FSName" type="StringTableFieldDefinition" value="Spinner" />
+        <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="12" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
       </fields>

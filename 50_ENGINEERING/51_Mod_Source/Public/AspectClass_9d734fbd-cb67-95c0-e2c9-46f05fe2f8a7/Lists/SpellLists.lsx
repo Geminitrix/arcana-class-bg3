@@ -190,16 +190,6 @@
                     <attribute id="UUID" type="guid" value="8abac308-3262-4ce8-99c2-3d3e9c6ba42e"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Arcana Deck Core"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Reweave"/>
-                    <attribute id="UUID" type="guid" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Arcana Deck DEBUG"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Tangle_DEBUG;Shout_Arcana_Card_Spell_DEBUG_Fated;Shout_Arcana_Card_Spell_DEBUG_Fleeting;Shout_Arcana_Card_Spell_DEBUG_Unique;Shout_Arcana_Card_Spell_DEBUG_Tangler;Target_Arcana_Util_DEBUG_AddDoubt"/>
-                    <attribute id="UUID" type="guid" value="f2e5e2e9-42c8-4f0e-88de-830ef0224290"/>
-                </node>
-                <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 1"/>
                     <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring"/>
                     <attribute id="UUID" type="guid" value="05269c79-116f-2b07-6dc1-deeefddc7ae4"/>
@@ -223,6 +213,21 @@
                     <attribute id="Name" type="FixedString" value="Resonant Level 11"/>
                     <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart"/>
                     <attribute id="UUID" type="guid" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Arcana Deck Core"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Reweave"/>
+                    <attribute id="UUID" type="guid" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Arcana Deck DEBUG"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Tangle_DEBUG;Shout_Arcana_Card_Spell_DEBUG_Fated;Shout_Arcana_Card_Spell_DEBUG_Fleeting;Shout_Arcana_Card_Spell_DEBUG_Unique;Shout_Arcana_Card_Spell_DEBUG_Tangler;Target_Arcana_Util_DEBUG_AddDoubt"/>
+                    <attribute id="UUID" type="guid" value="f2e5e2e9-42c8-4f0e-88de-830ef0224290"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Kingmaker Level 1"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone;Target_Arcana_Card_Spell_TurnTheSpoke"/>
+                    <attribute id="UUID" type="guid" value="8749e2ed-fd67-4448-8313-50be6e541b22"/>
                 </node>
             </children>
         </node>

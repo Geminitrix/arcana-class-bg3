@@ -2,7 +2,7 @@
 id: TOOLKIT_ARC-0008
 ticket: ARC-0008
 spec: SPEC_ARC-0008
-status: draft
+status: entered
 derived_from: [25.01/SPL_Kingmaker_SpokeOfTheWheel.yaml, 25.01/SPL_Kingmaker_Coronation.yaml, 25.01/SPL_Kingmaker_Dethrone.yaml, 25.01/SPL_Kingmaker_TurnTheSpoke.yaml, 25.02/FEAT_Kingmaker_TheRota.yaml]
 generated_at: 2026-10-13
 author: Mod Engineer

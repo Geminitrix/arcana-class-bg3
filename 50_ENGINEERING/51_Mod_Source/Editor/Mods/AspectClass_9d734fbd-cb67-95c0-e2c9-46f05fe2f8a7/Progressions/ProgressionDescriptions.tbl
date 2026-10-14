@@ -201,9 +201,9 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_11" />
         <field name="UUID" type="IdTableFieldDefinition" value="2cafa52b-8389-469d-8566-3f309ee632d6" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hacfd9e61g06e9gc859g397dg9005a625c989" version="1" />
-        <field name="Type" type="FixedStringTableFieldDefinition" value="Spinner" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hacfd9e61g06e9gc859g397dg9005a625c989" version="2" />
+        <field name="Type" type="FixedStringTableFieldDefinition" value="Kingmaker" />
         <field name="ProgressionTableId" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
       </fields>
     </stat_object>

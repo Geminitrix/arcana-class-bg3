@@ -1292,16 +1292,16 @@
   <content contentuid="h3ecb639dg13e6ga6b2gd94dg2cbbb7a9c279" version="1">Swap places with your nearest Double: the attack misses, the Double is destroyed in your place and the attacker gains &lt;LSTag Type="Status" Tooltip="DOUBT_1"&gt;Doubt&lt;/LSTag&gt;.</content>
   <content contentuid="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1">The Veil Lifts</content>
   <content contentuid="h4ed3c123g3399g24acg13edg8555098a6120" version="1">Lift the veil all at once: every one of your Doubles shatters and every &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;Sigil&lt;/LSTag&gt; you laid detonates. Surviving enemies with &lt;LSTag Type="Status" Tooltip="DOUBT_1"&gt;Doubt&lt;/LSTag&gt; become &lt;LSTag Type="Status" Tooltip="DELUDED"&gt;Deluded&lt;/LSTag&gt;.</content>
-  <content contentuid="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="1">The Spinner</content>
-  <content contentuid="hfacb1d49g544agb0degda20ga52001b27e7a" version="1">Placeholder</content>
+  <content contentuid="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="2">The Kingmaker</content>
+  <content contentuid="hfacb1d49g544agb0degda20ga52001b27e7a" version="2">Mystra wove the Kingmaker from the crowns that rise and fall on Fortune's wheel, a thread that decides who reigns. They bind friend and foe to the turning wheel, crown their allies as their enemies hit the bottom, and turn the whole wheel over when fortune runs against them.</content>
   <content contentuid="hdf65fa57g204cgec4fg7799g9cfb8d920370" version="1">The Titan</content>
   <content contentuid="h88ac8d7bg07fbg6a4fgfcc8g55c5e264bf14" version="1">Placeholder</content>
-  <content contentuid="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="1">The Spinner</content>
-  <content contentuid="hacfd9e61g06e9gc859g397dg9005a625c989" version="1">placeholder</content>
+  <content contentuid="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="2">The Kingmaker</content>
+  <content contentuid="hacfd9e61g06e9gc859g397dg9005a625c989" version="2">The Kingmaker turns the Weave into Fortune's wheel, raising allies to reign while their enemies fall.</content>
   <content contentuid="hf4729f74gfd13g0cbagc3b7g335f08b1e79a" version="1">The Titan</content>
   <content contentuid="h14a673a9g1a14g2826g6141g414fa66d9607" version="1">placeholder</content>
-  <content contentuid="h0023cebdg7836gb045g818dgfaafa3763fd8" version="1">The Spinner</content>
-  <content contentuid="h68d08803g63dfg5226g1111gdf4b4e896adc" version="1">Placeholder.</content>
+  <content contentuid="h0023cebdg7836gb045g818dgfaafa3763fd8" version="2">The Kingmaker</content>
+  <content contentuid="h68d08803g63dfg5226g1111gdf4b4e896adc" version="2">Placeholder.</content>
   <content contentuid="ha017a8f9g12c5g65a8g0847g619abff1dff1" version="1">The Titan</content>
   <content contentuid="hdfc7a673g2db0gbaedg409bgb7b0f871308c" version="1">Placeholder.</content>
   <content contentuid="h94d03679g3e1fg8d3eg3092gb46ffc4493a8" version="1">Refund</content>
@@ -1426,4 +1426,30 @@
   <content contentuid="h8d29c666gec81gcfaag7f04g682b727f61dc" version="1">Hit points left to lose to awaken Mourning.</content>
   <content contentuid="hd2da259fg562bg8402g2cd9g6fe8f363342b" version="1">Awakening</content>
   <content contentuid="ha9dbfa26g643cgdeb6g0d41gdcc663e79d90" version="1">Hit points left to lose to awaken the Aspect of Sorrow.</content>
+  <content contentuid="hb89f8819g69begd6e4g5883ga80171113d83" version="1">Rising</content>
+  <content contentuid="h722ba6aegf27cgdba6gd764ge881af7f72b4" version="1">Regnabo - 'I shall reign.' Moves faster and can't be knocked &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Becomes Reigning when the Wheel next turns.</content>
+  <content contentuid="h2d5d4052ga34ag28dfg8710g135b8228f9e8" version="1">Reigning</content>
+  <content contentuid="hd50e8dbfgfb5bg5681g3466g805c885c86a3" version="1">Regno - 'I reign.' Lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20 and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Becomes Falling when the Wheel next turns.</content>
+  <content contentuid="hc5997dbdgd66dgb4bbg826bg87ae46dc38a5" version="1">Falling</content>
+  <content contentuid="h673fa699g17cagab33g731dgf3c5ca750d56" version="1">Regnavi - 'I have reigned.' Moves slower and subtracts [1] from &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Becomes Fallen when the Wheel next turns.</content>
+  <content contentuid="h010cd193g7308gcf47g9b0egc189c3a81194" version="1">Fallen</content>
+  <content contentuid="hc256782agb1e7gcc59ge94eg1b5b81393ac1" version="1">Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.&lt;br&gt;&lt;br&gt;Becomes Rising when the Wheel next turns.</content>
+  <content contentuid="h4cac1e8cgc2eegfb33g0550g9f26e49e205c" version="1">King</content>
+  <content contentuid="h3b48dcb1g0180geefbg8b4cgd0eb5735c31c" version="1">Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King.</content>
+  <content contentuid="h92dbe463ge8ddg4efcg2f97gd1d36cbb7a5b" version="1">Regent</content>
+  <content contentuid="hb171e4e5g0d01g30cbgaabeg6736bc700139" version="1">Reigns beside the King without wearing the crown.</content>
+  <content contentuid="hac706065gb231ge3d0g59e3g07ede1388718" version="1">The Rota</content>
+  <content contentuid="hc49689c0g291cg629bg2075g0bbfb07af743" version="1">Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.&lt;br&gt;&lt;br&gt;The ally that has Reigned the longest wears the crown as the &lt;LSTag Type="Status" Tooltip="KINGMAKER_KING"&gt;King&lt;/LSTag&gt;.</content>
+  <content contentuid="h74c61ad3gcfdfgf045g20edg7e6ebc566ffd" version="1">Spoke of the Wheel</content>
+  <content contentuid="hdafeeac4g4418gaa3bg63a2g06c6b9f4158d" version="1">Hurl a spoke of Fortune's wheel at a foe.</content>
+  <content contentuid="h692a4511g32d0gc74eg5d6egf5a7d26b672a" version="2">Deals an additional [1] to a creature that is Falling or Fallen.</content>
+  <content contentuid="h3fdacb7bg38e3g8fd5g5118g0e915a77cdfd" version="1">Coronation</content>
+  <content contentuid="h928b52a9ge2b3g925bg0469gb36733d2532c" version="1">Crown an ally or yourself and set them Rising on Fortune's wheel.</content>
+  <content contentuid="hc034792egf984ge84eg0c57g4bcfc7112bb5" version="1">The crowned creature stays on the Wheel until it dies, combat ends or its thread is cut.</content>
+  <content contentuid="h2899b071g2c9bg6e8cg52b4gc090c69059b7" version="1">Dethrone</content>
+  <content contentuid="h3e6540c0g5d96ga8e8g66fag10a5d31fce9c" version="1">Cast an enemy down and set it Falling on Fortune's wheel.</content>
+  <content contentuid="h4740b114gdd91g7ae6g5b28g7b41b3a265af" version="1">On a successful &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; the target takes half damage, but it still joins the Wheel.</content>
+  <content contentuid="h98cb786bgf1c9g7366g8692ga35cf949660c" version="1">Turn the Spoke</content>
+  <content contentuid="h3c506cfaged5ag884bgefafg72d75052d2ef" version="1">Turn a creature on the Wheel one position onward.</content>
+  <content contentuid="h1fa3bf1bg4f8dg2990g86b8g197be1f8030e" version="1">The Wheel only turns forward.</content>
 </contentList>

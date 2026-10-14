@@ -141,19 +141,19 @@
                 <node id="ClassDescription">
                     <attribute id="CanLearnSpells" type="bool" value="true"/>
                     <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
-                    <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Resonant"/>
-                    <attribute id="Description" type="TranslatedString" handle="hfacb1d49g544agb0degda20ga52001b27e7a" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="1"/>
+                    <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Kingmaker"/>
+                    <attribute id="Description" type="TranslatedString" handle="hfacb1d49g544agb0degda20ga52001b27e7a" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h710e1047gdc4cg523cgd844g0602cb34cb4a" version="2"/>
                     <attribute id="LearningStrategy" type="uint8" value="1"/>
                     <attribute id="MustPrepareSpells" type="bool" value="true"/>
-                    <attribute id="Name" type="FixedString" value="Spinner"/>
+                    <attribute id="Name" type="FixedString" value="Kingmaker"/>
                     <attribute id="ParentGuid" type="guid" value="799a9fd7-f042-411a-80ae-a0eb46e7f829"/>
                     <attribute id="ProgressionTableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
-                    <attribute id="SoundClassType" type="FixedString" value="Warlock"/>
+                    <attribute id="SoundClassType" type="FixedString" value="Sorcerer"/>
                     <attribute id="UUID" type="guid" value="bf046347-57d5-4774-87a6-13a4ebdddb0a"/>
                     <children>
                         <node id="Tags">
-                            <attribute id="Object" type="guid" value="5804f55a-93f7-4281-9512-8d548a9e2a22"/>
+                            <attribute id="Object" type="guid" value="18266c0b-efbc-4c80-8784-ada4a37218d7"/>
                         </node>
                         <node id="Tags">
                             <attribute id="Object" type="guid" value="f9985485-9df1-43a7-b603-52ac336ebb01"/>

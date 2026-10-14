@@ -2905,6 +2905,114 @@
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Mad" enumeration_type_name="StatusGroupFlags" version="1" />
       </fields>
     </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="73eeee2d-ff63-4504-a7be-e29852a66e2f" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER STATUS" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ca57a74e-4366-4fe7-88eb-baebe168c554" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_FALLEN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h010cd193g7308gcf47g9b0egc189c3a81194" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc256782agb1e7gcc59ge94eg1b5b81393ac1" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Status_Prone" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_POSITION" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackTarget);ActionResourceBlock(ReactionActionPoint);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Prone" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6166b2fb-444f-4766-a473-398d1901be84" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_FALLING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc5997dbdgd66dgb4bbg826bg87ae46dc38a5" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h673fa699g17cagab33g731dgf3c5ca750d56" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bane" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_POSITION" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,-3,0);RollBonus(Attack,-1d4);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4c30a936-6061-4202-a99a-14c4909c8286" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_REIGNING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2d5d4052ga34ag28dfg8710g135b8228f9e8" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd50e8dbfgfb5bg5681g3466g805c885c86a3" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bless" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_POSITION" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ReduceCriticalAttackThreshold(1);Advantage(AllSavingThrows);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f642d7b3-70d1-4a5c-8b1e-d95b673686b5" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_RISING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb89f8819g69begd6e4g5883ga80171113d83" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h722ba6aegf27cgdba6gd764ge881af7f72b4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Transmutation_Longstrider" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_POSITION" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,3,0);StatusImmunity(PRONE);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a0d42079-74e2-465f-af80-c2e6aef9ed4a" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_STEP_TECH" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_STEP_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7164716a-0208-45de-9d81-df65387e616c" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_BIND_ALLY_TECH" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_BIND_ALLY_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5d5c77bc-0363-43bb-a48b-b28c8316db25" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_BIND_ENEMY_TECH" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_BIND_ENEMY_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fc49b98f-3402-457a-bea1-3119bc0a4a00" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_KING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4cac1e8cgc2eegfb33g0550g9f26e49e205c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3b48dcb1g0180geefbg8b4cgd0eb5735c31c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_CROWN" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e6d1edab-141d-453f-92ee-c363b84a7db8" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_REGENT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h92dbe463ge8ddg4efcg2f97gd1d36cbb7a5b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb171e4e5g0d01g30cbgaabeg6736bc700139" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="statIcons_AuraOfLeadership" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_CROWN" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FF000000" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="31e80b43-3509-4e72-9253-029f99fb004e" />

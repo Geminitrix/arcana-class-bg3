@@ -51,14 +51,14 @@
         <field name="Comment" type="CommentTableFieldDefinition" value="The Resonant" />
       </fields>
     </stat_object>
-    <stat_object color="#FF008080" is_substat="false">
+    <stat_object color="#FF66CDAA" is_substat="false">
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_5" />
         <field name="UUID" type="IdTableFieldDefinition" value="a389eb39-c184-4fc3-b17b-fa5ac1c943f9" />
         <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="a688d11f-edff-44c5-95ac-0e4999ebf876" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
-        <field name="DefaultValues" type="StringTableFieldDefinition" value="Insight;Persuasion;Medicine;Performance;Perception;Religion;AnimalHandling;Intimidation" />
-        <field name="Comment" type="CommentTableFieldDefinition" value="The Spinner" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Persuasion;Intimidation;Insight;History" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Kingmaker" />
       </fields>
     </stat_object>
     <stat_object color="#FFA52A2A" is_substat="false">

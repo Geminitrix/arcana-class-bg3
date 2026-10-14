@@ -135,6 +135,20 @@
                     <attribute id="UUID" type="guid" value="af80da6f-aa3a-58f8-a1c5-a7a9a7687751"/>
                 </node>
                 <node id="ProgressionDescription">
+                    <attribute id="Description" type="TranslatedString" handle="hacfd9e61g06e9gc859g397dg9005a625c989" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="2"/>
+                    <attribute id="ProgressionTableId" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
+                    <attribute id="Type" type="FixedString" value="Kingmaker"/>
+                    <attribute id="UUID" type="guid" value="2cafa52b-8389-469d-8566-3f309ee632d6"/>
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h14a673a9g1a14g2826g6141g414fa66d9607" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hf4729f74gfd13g0cbagc3b7g335f08b1e79a" version="1"/>
+                    <attribute id="ProgressionTableId" type="guid" value="7643bf5a-62fa-44c4-ab73-572e655554d2"/>
+                    <attribute id="Type" type="FixedString" value="Titan"/>
+                    <attribute id="UUID" type="guid" value="2efe65ad-2641-4d63-a6c3-edabab7b3ca0"/>
+                </node>
+                <node id="ProgressionDescription">
                     <attribute id="DisplayName" type="TranslatedString" handle="h4258607eg22b9g2575geb9cg4d8de59a9d7c" version="1"/>
                     <attribute id="UUID" type="guid" value="b2f93fb5-b282-4d90-b463-e7bb9596745f"/>
                 </node>
@@ -151,20 +165,6 @@
                     <attribute id="ExactMatch" type="FixedString" value="FallDamageMultiplier(0.5)"/>
                     <attribute id="ProgressionTableId" type="guid" value="f6acc595-46b4-4d96-b7d5-6f33366fc2de"/>
                     <attribute id="UUID" type="guid" value="36973b26-297c-4166-8942-55069a3fdfc6"/>
-                </node>
-                <node id="ProgressionDescription">
-                    <attribute id="Description" type="TranslatedString" handle="hacfd9e61g06e9gc859g397dg9005a625c989" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h37be6403g8baag52f3gfd44gcbd9f3f9a981" version="1"/>
-                    <attribute id="ProgressionTableId" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
-                    <attribute id="Type" type="FixedString" value="Spinner"/>
-                    <attribute id="UUID" type="guid" value="2cafa52b-8389-469d-8566-3f309ee632d6"/>
-                </node>
-                <node id="ProgressionDescription">
-                    <attribute id="Description" type="TranslatedString" handle="h14a673a9g1a14g2826g6141g414fa66d9607" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="hf4729f74gfd13g0cbagc3b7g335f08b1e79a" version="1"/>
-                    <attribute id="ProgressionTableId" type="guid" value="7643bf5a-62fa-44c4-ab73-572e655554d2"/>
-                    <attribute id="Type" type="FixedString" value="Titan"/>
-                    <attribute id="UUID" type="guid" value="2efe65ad-2641-4d63-a6c3-edabab7b3ca0"/>
                 </node>
             </children>
         </node>

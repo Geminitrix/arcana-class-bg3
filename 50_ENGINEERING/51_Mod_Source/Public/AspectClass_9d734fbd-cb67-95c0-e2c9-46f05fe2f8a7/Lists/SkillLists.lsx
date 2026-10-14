@@ -29,6 +29,11 @@
                     <attribute id="Skills" type="LSString" value="Insight, Persuasion, Medicine, Performance, Perception, Religion, AnimalHandling, Intimidation"/>
                     <attribute id="UUID" type="guid" value="df806fc1-79b4-7328-9e05-8726e513d941"/>
                 </node>
+                <node id="SkillList">
+                    <attribute id="Name" type="FixedString" value="The Kingmaker Skill List"/>
+                    <attribute id="Skills" type="LSString" value="Persuasion, Intimidation, Insight, History, Deception, Performance, Arcana, Religion"/>
+                    <attribute id="UUID" type="guid" value="20cfaf8d-a20b-43bf-9396-1e72fede0bdd"/>
+                </node>
             </children>
         </node>
     </region>

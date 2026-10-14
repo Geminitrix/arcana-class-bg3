@@ -1,0 +1,229 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+PROC_ARCANA_Kingmaker_Init();
+KBSECTION
+// The Kingmaker's Wheel (ARC-0008, SPEC_ARC-0008 stage 1). Ledger: owner, creature, position, side (1 ally / 0 enemy,
+// fixed at entry), entry order. The Wheel turns at the owner's turn start; one Kingmaker per Wheel in stage 1.
+//REGION Tables
+PROC
+PROC_ARCANA_Kingmaker_Init()
+AND
+DB_ARCANA_Kingmaker_Next(_From, _To)
+THEN
+NOT DB_ARCANA_Kingmaker_Next(_From, _To);
+
+PROC
+PROC_ARCANA_Kingmaker_Init()
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status);
+
+PROC
+PROC_ARCANA_Kingmaker_Init()
+THEN
+DB_ARCANA_Kingmaker_Next("RISING", "REIGNING");
+DB_ARCANA_Kingmaker_Next("REIGNING", "FALLING");
+DB_ARCANA_Kingmaker_Next("FALLING", "FALLEN");
+DB_ARCANA_Kingmaker_Next("FALLEN", "RISING");
+DB_ARCANA_Kingmaker_PositionStatus("RISING", "KINGMAKER_RISING");
+DB_ARCANA_Kingmaker_PositionStatus("REIGNING", "KINGMAKER_REIGNING");
+DB_ARCANA_Kingmaker_PositionStatus("FALLING", "KINGMAKER_FALLING");
+DB_ARCANA_Kingmaker_PositionStatus("FALLEN", "KINGMAKER_FALLEN");
+//END_REGION
+
+//REGION Bind - Coronation (ally, Rising) and Dethrone (enemy, Falling)
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", _Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 1);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", _Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 0);
+
+PROC
+PROC_ARCANA_Kingmaker_Bind((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Creature, _, _, _)
+AND
+NOT DB_ARCANA_Kingmaker_Counter(_Owner, _)
+THEN
+DB_ARCANA_Kingmaker_Counter(_Owner, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_Bind((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Creature, _, _, _)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_Counter(_Owner, _Old);
+DB_ARCANA_Kingmaker_Counter(_Owner, _New);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _New);
+ApplyStatus(_Creature, _Status, -1.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+//END_REGION
+
+//REGION Move one step (collected first, so the ledger is never changed while it is read)
+PROC
+PROC_ARCANA_Kingmaker_Move((GUIDSTRING)_Owner, (CHARACTER)_Creature)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+THEN
+DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, _Position, _Side, _Order);
+
+PROC
+PROC_ARCANA_Kingmaker_Move((GUIDSTRING)_Owner, (CHARACTER)_Creature)
+AND
+DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, _Position, _Side, _Order)
+AND
+DB_ARCANA_Kingmaker_Next(_Position, _NextPosition)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _OldStatus)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_NextPosition, _NewStatus)
+THEN
+NOT DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, _Position, _Side, _Order);
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _NextPosition, _Side, _Order);
+RemoveStatus(_Creature, _OldStatus, _Owner);
+ApplyStatus(_Creature, _NewStatus, -1.0, 1, _Owner);
+//END_REGION
+
+//REGION The Wheel turns at the owner's turn start
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature)
+THEN
+NOT DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+//END_REGION
+
+//REGION Turn the Spoke - one step for one creature
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_STEP_TECH", _Owner, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+//END_REGION
+
+//REGION The crown - the ally Reigning longest (lowest order, not a summon) is King; other Reigning allies are Regents
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order)
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _Order)
+AND
+IsSummon(_Creature, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _, _)
+THEN
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _Order)
+AND
+IsSummon(_Creature, 0)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestOrder)
+AND
+_Order < _BestOrder
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestOrder);
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+THEN
+ApplyStatus(_King, "KINGMAKER_KING", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _)
+THEN
+ApplyStatus(_Creature, "KINGMAKER_REGENT", -1.0, 1, _Owner);
+//END_REGION
+
+//REGION Leaving the Wheel - death and the end of combat
+IF
+Died(_Creature)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+THEN
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+RemoveStatus(_Creature, _Status, _Owner);
+RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_Counter(_Owner, _N);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order)
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
