@@ -31,25 +31,27 @@ Keep this section in every guide; it is how the Owner reads the rest.
    Toolkit area; the checklist number appears in each entry's title.
 3. **Stats Editor blocks.** One column per entry, **at most 3 entries per block** (same file only), one row per
    field. Rows follow the order of the mod's existing entries; the Toolkit may show the fields in another order (match
-   them by name). Every row is a real field to fill or to confirm. Cell
-   tags: *(parent)* = the `Using` parent has exactly this value; *(ours)* = our value; *(leave empty)* = leave it
-   empty (say what it clears). Spell `Name` is typed without the type prefix (`Arcana_Card_Spell_X` in
+   them by name). Every row is a real field to fill or to confirm.
+   **A cell holds only what is pasted** — as `code`, no quotes, no notes, no "(suggestion)": in the preview a
+   double-click selects the whole cell and the Owner pastes it straight into the Toolkit. `—` = leave the field empty.
+   Where each value comes from goes in the **Notes** under the block (see rule 4). Spell `Name` is typed without the type prefix (`Arcana_Card_Spell_X` in
    `Target.stats` → game id `Target_Arcana_Card_Spell_X`); `Using` is written as the parent's name without its type prefix
    (`ShieldOfFaith`, not `Target_ShieldOfFaith`) — shorter to search in the picker.
 4. **New entries: every field — parent values included.** Resolve the parent's effective fields from the game files (`82_Automation/stats/resolve_stats.pl <entry>`)
    (the `using` chain, load order Shared → SharedDev → Gustav → GustavDev → the mod) and list them all with their
    exact values, so the entry is complete when the Owner later removes `Using` (another mod that changes the parent
-   can't change ours). Don't copy what doesn't apply (the parent's texts, its status tooltip, `MemoryCost`): list it as
-   *(leave empty)*.
+   can't change ours). Don't copy what doesn't apply (the parent's texts, its status tooltip, `MemoryCost`): its
+   cell is `—`. Under each block, **Notes** list per entry: `Using` (and the name to search in the picker); **From the
+   parent** — every field whose value is the parent's; **Ours** — every field we set (say what the parent had when we
+   replace it); **Clears the parent** — every `—` field where the parent has a value (say which). Every filled field
+   of an entry with `Using` is in exactly one of the first two lists.
 5. **Changed entries** (UUID Object Editor): only what changes, as `before → after`.
-6. **Icons are suggestions.** Every `Icon` field says *suggestion*: the parent's icon or a vanilla one that
-   fits. The Owner checks it in the Toolkit and may pick a better one; custom icons (`ICO_…`) come later.
+6. **Icons are suggestions.** Every `Icon` is the parent's icon or a vanilla one that fits; the Notes say so. The Owner checks it in the Toolkit and may pick a better one; custom icons (`ICO_…`) come later.
 7. **UUIDs.** The Toolkit generates them; this file never invents one. Where a later step needs a UUID
    created earlier, leave the slot `UUID: ________` for the Owner to fill after creating it.
-8. **Text.** New player-facing text is given in English inside quotes: create a new localisation handle
-   with that text. A text with tags (`<LSTag …>`, `<br>`) is also wrapped in `code` inside the quotes —
-   "`…<LSTag Tooltip="Advantage">Advantage</LSTag>…`" (see example A in §3) — because the Markdown preview hides raw tags; the
-   Owner types everything between the backticks, tags included. Never leave a `<…>` outside `code` anywhere in
+8. **Text.** Every `DisplayName`, `Description` and `ExtraDescription` cell is a new localisation handle with
+   that English text, in `code` like any other cell, tags included: `…<LSTag Tooltip="Advantage">Advantage</LSTag>…`
+   (the Markdown preview hides raw tags, and `code` shows them). Never leave a `<…>` outside `code` anywhere in
    the guide (placeholders included). Existing text says `(existing handle hXXXX)`. Text follows the BG3 style guide (`31.03`).
    A `[n]` in a `Description` reads `DescriptionParams`; in an `ExtraDescription` it reads `ExtraDescriptionParams`
    (vanilla: 115 spells). Each list starts at `[1]`; no parameter is listed that the text doesn't use.
@@ -128,9 +130,11 @@ UUID: ________ (used in step 05)
 
 Start the section with the reading key (keep it in every guide):
 
-> **Type only what is inside `code` or "quotes".** *(parent)* = the `Using` parent already has exactly this value —
-> confirm it, and type it when `Using` is removed · *(ours)* = our value · *(leave empty)* = leave the field empty
-> (while `Using` is set, clear the parent's value) · "…" = a new localisation handle. Spell names and `Using` are written
+> **Every cell is exactly what you paste** (double-click it in the preview, copy, paste into the Toolkit) · `—` = leave
+> the field empty · `DisplayName` / `Description` / `ExtraDescription` cells are new localisation handles. **Notes**
+> under each block: **From the parent** = the `Using` parent already has exactly this value — confirm it, and type it
+> when `Using` is removed · **Ours** = our value · **Clears the parent** = the cell is `—` but the parent has a value:
+> clear it while `Using` is set. Spell names and `Using` are written
 > without the type prefix (search the parent by its name in the picker). The Toolkit may order the fields differently. The numbers of each block are listed under it.
 
 Fields the Toolkit shows, per file, for reference (list every one an entry uses; the parent's resolved fields
@@ -148,14 +152,16 @@ included).
 | Field | `EXAMPLE_A` | `EXAMPLE_B` |
 |---|---|---|
 | Name | `EXAMPLE_A` | `EXAMPLE_B` |
-| DisplayName | "Example A" | "Example B" |
-| Description | "`Subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.`" | "…" |
-| DescriptionParams | `1d4` | *(leave empty)* |
-| Icon | `Spell_Enchantment_Bane` *(suggestion)* | `Status_Prone` *(suggestion)* |
+| DisplayName | `Example A` | `Example B` |
+| Description | `Subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.` | `…` |
+| DescriptionParams | `1d4` | — |
+| Icon | `Spell_Enchantment_Bane` | `Status_Prone` |
 | StackId | `EXAMPLE` | `EXAMPLE` |
 | StackType | `Overwrite` | `Overwrite` |
-| Boosts | `RollBonus(Attack,-1d4)` | *(leave empty)* |
+| Boosts | `RollBonus(Attack,-1d4)` | — |
 | StatusPropertyFlags | `ForceOverhead` | `ForceOverhead` |
+
+Notes: Icons are suggestions.
 
 Numbers: `1d4` (Boosts, DescriptionParams) = `FEAT_Example#penalty`.
 
@@ -164,17 +170,22 @@ Numbers: `1d4` (Boosts, DescriptionParams) = `FEAT_Example#penalty`.
 | Field | `Target_Arcana_Card_Spell_Example` |
 |---|---|
 | Name | `Arcana_Card_Spell_Example` |
-| Using | `Example_Vanilla` (search in the picker) |
-| Level | `1` *(parent)* |
-| SpellRoll | `not SavingThrow(Ability.Charisma, SourceSpellDC())` *(ours)* |
-| SpellSuccess | `DealDamage(2d6,Bludgeoning,Magical)` *(ours)* |
-| SpellProperties | *(leave empty — clears the parent's `…`)* |
-| DisplayName | "Example" *(ours)* |
-| Icon | `Spell_Example` *(parent; suggestion)* |
-| CastSound | `Spell_Cast_…` *(parent)* |
-| SpellAnimation | `…` *(parent — the whole string)* |
-| UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:1` *(parent)* |
-| MemoryCost | *(leave empty — clears the parent's `1`)* |
+| Using | `Example_Vanilla` |
+| Level | `1` |
+| SpellRoll | `not SavingThrow(Ability.Charisma, SourceSpellDC())` |
+| SpellSuccess | `DealDamage(2d6,Bludgeoning,Magical)` |
+| SpellProperties | — |
+| DisplayName | `Example` |
+| Icon | `Spell_Example` |
+| CastSound | `Spell_Cast_…` |
+| SpellAnimation | `…` |
+| UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:1` |
+| MemoryCost | — |
+
+Notes (`Using` = `Example_Vanilla`; search `Example_Vanilla` in the picker):
+- **From the parent:** Level, Icon (also a suggestion), CastSound, SpellAnimation (the whole string), UseCosts.
+- **Ours:** SpellRoll, SpellSuccess, DisplayName.
+- **Clears the parent:** SpellProperties (the parent has `…`); MemoryCost (the parent has `1`).
 
 Numbers: `2d6` = `SPL_Example#damage`.
 

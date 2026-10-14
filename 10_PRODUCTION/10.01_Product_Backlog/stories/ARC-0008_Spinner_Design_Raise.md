@@ -115,3 +115,6 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   `Target_ShieldOfFaith`); the Toolkit may show the fields in another order — match them by name. Template updated too.
 - 2026-10-14 — Toolkit guide: texts with tags (`<LSTag …>`, `<br>`) wrapped in `code` inside the quotes so the
   Markdown preview (VS Code) shows them; template rule 8 + example A + heading placeholder updated.
+- 2026-10-14 — Toolkit guide: every entry cell is exactly what is pasted (`code`, no quotes, no notes; `—` = empty) so a
+  double-click in the preview copies it; origins (From the parent / Ours / Clears the parent) moved to Notes under
+  each block. Template rules 3, 4, 6, 8, reading key and examples updated the same way.
