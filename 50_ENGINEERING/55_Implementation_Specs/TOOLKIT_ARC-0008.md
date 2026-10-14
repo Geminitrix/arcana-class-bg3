@@ -32,7 +32,9 @@ author: Mod Engineer
 5. **Changed entries** (UUID Object Editor): only what changes, as `before → after`.
 6. **Icons are suggestions** — check them in the Toolkit and pick a better one if you like; custom icons come later.
 7. **UUIDs:** the Toolkit generates them; write the ones later steps need in the `UUID: ________` slots.
-8. **Text:** English in quotes = a new localisation handle with that text. `[n]` in a Description reads
+8. **Text:** English in quotes = a new localisation handle with that text. A text with tags (`<LSTag …>`, `<br>`)
+   is also wrapped in `code` inside the quotes, so the Markdown preview shows the tags: type everything between the
+   backticks, tags included. `[n]` in a Description reads
    `DescriptionParams`; in an ExtraDescription it reads `ExtraDescriptionParams` — each list starts at `[1]`.
 9. **Generated families — do not type** (upcast variants).
 10. **Osiris:** one copy-paste block per goal.
@@ -408,7 +410,7 @@ than the tables: match them by name. The numbers of each block, with their origi
 |---|---|---|---|
 | Name | `KINGMAKER_RISING` | `KINGMAKER_REIGNING` | `KINGMAKER_FALLING` |
 | DisplayName | "Rising" | "Reigning" | "Falling" |
-| Description | "Regnabo - 'I shall reign.' Moves faster and can't be knocked <LSTag Type="Status" Tooltip="PRONE">Prone</LSTag>.<br><br>Becomes Reigning when the Wheel next turns." | "Regno - 'I reign.' Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.<br><br>Becomes Falling when the Wheel next turns." | "Regnavi - 'I have reigned.' Moves slower and subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.<br><br>Becomes Fallen when the Wheel next turns." |
+| Description | "`Regnabo - 'I shall reign.' Moves faster and can't be knocked <LSTag Type="Status" Tooltip="PRONE">Prone</LSTag>.<br><br>Becomes Reigning when the Wheel next turns.`" | "`Regno - 'I reign.' Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.<br><br>Becomes Falling when the Wheel next turns.`" | "`Regnavi - 'I have reigned.' Moves slower and subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.<br><br>Becomes Fallen when the Wheel next turns.`" |
 | DescriptionParams | *(leave empty)* | *(leave empty)* | `1d4` |
 | Icon | `Spell_Transmutation_Longstrider` *(suggestion)* | `Spell_Enchantment_Bless` *(suggestion)* | `Spell_Enchantment_Bane` *(suggestion)* |
 | StackId | `KINGMAKER_POSITION` | `KINGMAKER_POSITION` | `KINGMAKER_POSITION` |
@@ -426,7 +428,7 @@ Numbers: Rising `3` = `FEAT_Kingmaker_TheRota#rising_movement` · Reigning `1` (
 |---|---|---|---|
 | Name | `KINGMAKER_FALLEN` | `KINGMAKER_KING` | `KINGMAKER_REGENT` |
 | DisplayName | "Fallen" | "King" | "Regent" |
-| Description | "Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.<br><br>Becomes Rising when the Wheel next turns." | "Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King." | "Reigns beside the King without wearing the crown." |
+| Description | "`Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.<br><br>Becomes Rising when the Wheel next turns.`" | "Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King." | "Reigns beside the King without wearing the crown." |
 | DescriptionParams | *(leave empty)* | *(leave empty)* | *(leave empty)* |
 | Icon | `Status_Prone` *(suggestion)* | `Spell_Enchantment_CrownOfMadness` *(suggestion)* | `statIcons_AuraOfLeadership` *(suggestion)* |
 | StackId | `KINGMAKER_POSITION` | `KINGMAKER_CROWN` | `KINGMAKER_CROWN` |
@@ -455,7 +457,7 @@ No numbers. Pattern: the mod's `DOUBT_ADD_TECH`.
 |---|---|
 | Name | `Arcana_Passive_TheRota` |
 | DisplayName | "The Rota" |
-| Description | "Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>." |
+| Description | "`Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>.`" |
 | Icon | `Action_Mag_AuraOfLeadership` *(suggestion)* |
 | Properties | `Highlighted` |
 
@@ -523,7 +525,7 @@ The fire look (sounds, effects) comes from Fire Bolt; swap them later if you fin
 | DisplayName | "Coronation" *(ours)* | "Dethrone" *(ours)* | "Turn the Spoke" *(ours)* |
 | Description | "Crown an ally or yourself and set them Rising on Fortune's wheel." *(ours)* | "Cast an enemy down and set it Falling on Fortune's wheel." *(ours)* | "Turn a creature on the Wheel one position onward." *(ours)* |
 | DescriptionParams | *(leave empty)* | *(leave empty)* | *(leave empty)* |
-| ExtraDescription | "The crowned creature stays on the Wheel until it dies, combat ends or its thread is cut." *(ours)* | "On a successful <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> the target takes half damage, but it still joins the Wheel." *(ours)* | "The Wheel only turns forward." *(ours)* |
+| ExtraDescription | "The crowned creature stays on the Wheel until it dies, combat ends or its thread is cut." *(ours)* | "`On a successful <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> the target takes half damage, but it still joins the Wheel.`" *(ours)* | "The Wheel only turns forward." *(ours)* |
 | Icon | `Spell_Enchantment_CrownOfMadness` *(suggestion)* | `Spell_Enchantment_CommandGrovel` *(suggestion)* | `Spell_Enchantment_CalmEmotions` *(parent; suggestion)* |
 | TooltipDamageList | *(leave empty)* | `DealDamage(3d6,Bludgeoning)` *(ours)* | *(leave empty)* |
 | TooltipAttackSave | *(leave empty)* | `Charisma` *(ours)* | *(leave empty — clears the parent's `Wisdom`)* |

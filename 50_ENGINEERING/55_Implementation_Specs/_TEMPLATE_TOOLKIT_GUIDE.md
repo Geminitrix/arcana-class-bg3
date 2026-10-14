@@ -8,7 +8,7 @@ generated_at: YYYY-MM-DD # regenerate whenever one of those 25 files changes
 author: Mod Engineer
 ---
 
-# TOOLKIT_ARC-#### · <feature name>
+# TOOLKIT_ARC-#### · `<feature name>`
 
 > **What this file is.** A point-by-point guide for the Owner to enter a feature **by hand in the BG3
 > Toolkit**: where to click, which entry to create or change, and what to type in every field. It is
@@ -47,7 +47,10 @@ Keep this section in every guide; it is how the Owner reads the rest.
 7. **UUIDs.** The Toolkit generates them; this file never invents one. Where a later step needs a UUID
    created earlier, leave the slot `UUID: ________` for the Owner to fill after creating it.
 8. **Text.** New player-facing text is given in English inside quotes: create a new localisation handle
-   with that text. Existing text says `(existing handle hXXXX)`. Text follows the BG3 style guide (`31.03`).
+   with that text. A text with tags (`<LSTag …>`, `<br>`) is also wrapped in `code` inside the quotes —
+   "`…<LSTag Tooltip="Advantage">Advantage</LSTag>…`" (see example A in §3) — because the Markdown preview hides raw tags; the
+   Owner types everything between the backticks, tags included. Never leave a `<…>` outside `code` anywhere in
+   the guide (placeholders included). Existing text says `(existing handle hXXXX)`. Text follows the BG3 style guide (`31.03`).
    A `[n]` in a `Description` reads `DescriptionParams`; in an `ExtraDescription` it reads `ExtraDescriptionParams`
    (vanilla: 115 spells). Each list starts at `[1]`; no parameter is listed that the text doesn't use.
 9. **Generated families — do not type.** Upcast variants (`<card>_2…_6`), one status per spell level and
@@ -146,7 +149,7 @@ included).
 |---|---|---|
 | Name | `EXAMPLE_A` | `EXAMPLE_B` |
 | DisplayName | "Example A" | "Example B" |
-| Description | "Subtracts [1] from Attack Rolls." | "…" |
+| Description | "`Subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.`" | "…" |
 | DescriptionParams | `1d4` | *(leave empty)* |
 | Icon | `Spell_Enchantment_Bane` *(suggestion)* | `Status_Prone` *(suggestion)* |
 | StackId | `EXAMPLE` | `EXAMPLE` |

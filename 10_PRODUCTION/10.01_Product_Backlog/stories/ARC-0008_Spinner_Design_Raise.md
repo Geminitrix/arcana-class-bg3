@@ -113,3 +113,5 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   The Wheel Stops corrected in the guide and in `texts.md`.
 - 2026-10-14 — Toolkit guide: `Using` written as the parent's name without the type prefix (search `ShieldOfFaith`, not
   `Target_ShieldOfFaith`); the Toolkit may show the fields in another order — match them by name. Template updated too.
+- 2026-10-14 — Toolkit guide: texts with tags (`<LSTag …>`, `<br>`) wrapped in `code` inside the quotes so the
+  Markdown preview (VS Code) shows them; template rule 8 + example A + heading placeholder updated.
