@@ -140,3 +140,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   `gen_upcast_variants.pl` reads `game_ids` + `upcast_die` from 25.01 (Dethrone 1d6, Atropos' Cut 1d8), tested on a copy
   of the mod (only Dethrone's variants change; a second run adds nothing). It also learns the Kingmaker progression.
   `gen_awakening_progress.pl` gets the WHEEL entry (enters @ORDER after stage 2 is typed). texts.md: final ids.
+- 2026-10-15 — Owner: GUIDs can't be typed or found in the Toolkit. Stage-2 guide: Atropos' Cut and Rota Fortunae take
+  `Using` (CloudOfDaggers, Arcana_Created_Aspect_TwoCups) only to copy Spell Animation and the effects, then drop it;
+  TooltipUpcastDescription given by its list name (*Additional damage*). Template rule 12 (look fields via `Using`,
+  list tooltips by name, read from vanilla TooltipExtras) for every next guide, ARC-0009 included.

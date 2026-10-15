@@ -68,6 +68,16 @@ Keep this section in every guide; it is how the Owner reads the rest.
 11. **Exact names.** Every name and value is copied from the SPEC and checked against `55.00_Type_Catalog.md`
     and the glossary (prefixes, ADR-0002). If a field's syntax is uncertain, the SPEC must name a vanilla
     example (`56`) for it; this file never introduces a field the SPEC didn't ground.
+12. **Nothing the Owner can't type or find.** Never write a GUID or an animation string the Toolkit shows as a
+    picker or a copied value:
+    - **Look fields** (Spell Animation, Dual Wielding Spell Animation, PrepareEffect, CastEffect, TargetEffect, HitEffect,
+      PositionEffect and the other `…Effect` fields, Trajectories): give the spell they come from as `Using`; the Notes
+      say **"Copy from the parent in the Toolkit, then remove `Using`"** with the list, and those fields have no row.
+      Name the parent's own fields to leave behind (its ground effect, its area) so they go with `Using`.
+    - **Tooltip texts picked from a list** (TooltipUpcastDescription, TooltipOnSave, TooltipOnMiss,
+      TooltipPermanentWarnings): the cell holds the **name the list shows** (`Additional damage`), read from vanilla
+      `Public/Shared/TooltipExtras/*.lsx` (`Name` attribute, or the English text when the entry has no name), never the UUID.
+    - Readable parent values (sounds, `Cast`, costs) still get a row, so nothing is lost when `Using` goes.
 
 ---
 
@@ -201,10 +211,10 @@ Numbers: `1d4` (Boosts, DescriptionParams) = `FEAT_Example#penalty`.
 | DisplayName | `Example` |
 | CastSound | `Spell_Cast_…` |
 | UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:1` |
-| Spell Animation | `…` |
 
 Notes (`Using` = `Example_Vanilla`; search `Example_Vanilla` in the picker):
-- **From the parent:** Level, Icon (also a suggestion), CastSound, UseCosts, Spell Animation (the whole string).
+- **Copy from the parent in the Toolkit, then remove `Using`:** Spell Animation, PrepareEffect, CastEffect.
+- **From the parent:** Level, Icon (also a suggestion), CastSound, UseCosts.
 - **Ours:** SpellRoll, SpellSuccess, DisplayName.
 - **Clears the parent:** SpellProperties (the parent has `…`).
 

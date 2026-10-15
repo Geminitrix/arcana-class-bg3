@@ -29,9 +29,10 @@ author: Mod Engineer
    Toolkit's own field order** (`_TEMPLATE_TOOLKIT_GUIDE.md`, *Toolkit field order*) with its labels (Spell Animation,
    Intent, Spell Style Group). **A cell holds only what is pasted**, as `code` (double-click, copy, paste). `—` = leave
    the field empty. Notes go under the block.
-4. **No `Using` in this stage** — you entered stage 1 without it, so every field is typed. Where the look (sounds,
-   animation, effects) comes from a vanilla or mod spell, the Notes name that source; only the fields with a value
-   have a row.
+4. **`Using` only to copy the look.** Spell Animation and the effects are never written here: set `Using` to the
+   spell the Notes name, copy those fields from it in the Toolkit, then remove `Using`. Every other field with a value has
+   a row, readable parent values included; the parent's unwanted fields go away with `Using`. A tooltip text picked from
+   a list (TooltipUpcastDescription) is given by the name the list shows.
 5. **Changed entries** (UUID Object Editor, Stories): only what changes.
 6. **Icons are suggestions** — custom icons come later.
 7. **UUIDs:** the Toolkit generates them; write the ones later steps need in the `UUID: ________` slots.
@@ -681,6 +682,7 @@ Numbers: `Distance(9)` = `FEAT_Kingmaker_Crossing#range`; the die = `#damage` (b
 | Field | `Target_Arcana_Card_Spell_AtroposCut` |
 |---|---|
 | Name | `Arcana_Card_Spell_AtroposCut` |
+| Using | `CloudOfDaggers` |
 | Level | `2` |
 | SpellSchool | `Enchantment` |
 | SpellProperties | `IF(Enemy() and HasStatus('KINGMAKER_FALLEN')):DealDamage(3d8,Slashing,Magical);IF(Enemy() and HasStatus('KINGMAKER_FALLING')):DealDamage(2d8,Slashing,Magical);IF(Enemy() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING'))):DealDamage(1d8,Slashing,Magical);ApplyStatus(KINGMAKER_CUT_TECH,100,0)` |
@@ -692,27 +694,30 @@ Numbers: `Distance(9)` = `FEAT_Kingmaker_Crossing#range`; the die = `#damage` (b
 | ExtraDescription | `An enemy takes damage that grows the lower it sits: [1] if Fallen, [2] if Falling, [3] if Rising or Reigning.<br><br>An ally leaves the Wheel. If it was Reigning, it keeps Reigning until the end of its next turn.` |
 | ExtraDescriptionParams | `DealDamage(3d8,Slashing);DealDamage(2d8,Slashing);DealDamage(1d8,Slashing)` |
 | TooltipDamageList | `DealDamage(3d8,Slashing)` |
-| TooltipUpcastDescription | `66388a6f-44dd-4c9f-a9e7-910c50e70755` |
+| TooltipUpcastDescription | `Additional damage` |
 | TooltipUpcastDescriptionParams | `DealDamage(1d8,Slashing)` |
 | CastSound | `Spell_Cast_Damage_Physical_CloudOfDaggers_L1to3` |
 | TargetSound | `Spell_Impact_Damage_Physical_CloudOfDaggers_L1to3` |
 | PreviewCursor | `Cast` |
 | CastTextEvent | `Cast` |
 | UseCosts | `ActionPoint:1;SpellSlotsGroup:1:1:2` |
-| Spell Animation | `dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;7abe77ed-9c77-4eac-872c-5b8caed070b6,,;cb171bda-f065-4520-b470-e447f678ba1f,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,` |
 | Intent | `Damage` |
 | Spell Style Group | `Class` |
 | SpellFlags | `IsSpell;HasVerbalComponent;HasSomaticComponent` |
 | HitAnimationType | `MagicalDamage_External` |
-| PrepareEffect | `7121a488-7c9a-4ba1-a585-f79aaa77e97c` |
-| CastEffect | `e61d2266-f041-4bd5-a488-7b66e76d781c` |
 | DamageType | `Slashing` |
 
-Notes (no `Using`): the look — CastSound, TargetSound, Spell Animation, PrepareEffect, CastEffect — comes from vanilla
-`Target_CloudOfDaggers` (level-2 Slashing; its ground effect and summon are left out). The Icon is a suggestion. The damage
-goes first and the Cut status last: the damage reads the position before Osiris takes the creature off. It targets allies
-too, so `IsHarmful` stays off. `TooltipUpcastDescription` is vanilla's "+[1] per slot level" text (Cloud of Daggers,
-Dissonant Whispers).
+Notes (`Using` = `CloudOfDaggers`; search `CloudOfDaggers` in the picker — vanilla Cloud of Daggers, a level-2 Slashing spell):
+- **Copy from the parent in the Toolkit, then remove `Using`:** Spell Animation, PrepareEffect, CastEffect — the look of
+  Cloud of Daggers. Leave its PositionEffect, AreaRadius and TooltipStatusApply behind (they are its ground cloud).
+- **From the parent** (typed above too, so nothing is lost when `Using` goes): Level, TargetRadius, TooltipUpcastDescription,
+  CastSound, TargetSound, PreviewCursor, CastTextEvent, UseCosts, Intent, DamageType.
+- **Ours:** SpellSchool (the parent has `Conjuration`), SpellProperties, TargetConditions, Icon (a suggestion),
+  DisplayName, Description, ExtraDescription, ExtraDescriptionParams, TooltipDamageList,
+  TooltipUpcastDescriptionParams, Spell Style Group, SpellFlags (drops the parent's `IsConcentration`, `IsHarmful` and
+  the rest: the Cut targets allies too), HitAnimationType.
+- The damage goes first and the Cut status last: the damage reads the position before Osiris takes the creature off.
+  **TooltipUpcastDescription** is picked from the list by its name, *Additional damage* ("+[1] per slot level").
 
 Numbers: `3d8` / `2d8` / `1d8` = `SPL_Kingmaker_AtroposCut#damage_fallen` / `#damage_falling` / `#damage_rising` and
 `#damage_reigning`; `1d8` per slot level (TooltipUpcastDescriptionParams, and the variants' damage) = `#upcast_die`;
@@ -723,6 +728,7 @@ Numbers: `3d8` / `2d8` / `1d8` = `SPL_Kingmaker_AtroposCut#damage_fallen` / `#da
 | Field | `Shout_Arcana_Created_Aspect_RotaFortunae` |
 |---|---|
 | Name | `Arcana_Created_Aspect_RotaFortunae` |
+| Using | `Arcana_Created_Aspect_TwoCups` |
 | Level | `0` |
 | SpellSchool | `Enchantment` |
 | Cooldown | `OncePerCombat` |
@@ -734,17 +740,22 @@ Numbers: `3d8` / `2d8` / `1d8` = `SPL_Kingmaker_AtroposCut#damage_fallen` / `#da
 | PreviewCursor | `Cast` |
 | CastTextEvent | `Cast` |
 | UseCosts | `ActionPoint:1` |
-| Spell Animation | `355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,` |
 | Intent | `Control` |
 | Spell Style Group | `Class` |
 | SpellFlags | `IsSpell;HasVerbalComponent;HasSomaticComponent` |
 | HitAnimationType | `MagicalNonDamage` |
 | Requirements | `Combat` |
 
-Notes (no `Using`): the shape of the Resonant's Aspect card `Shout_Arcana_Created_Aspect_TwoCups` (Created, level 0, no
-slot, once per combat, combat only, its Spell Animation); no `AreaRadius` and no `TargetConditions`, so the Shout lands on
-the Kingmaker (vanilla anchor: `Shout_Dash`) and Osiris turns the whole Wheel. The Icon is a suggestion. The card has no
-marker (it isn't a card: it is created by the Awakening, like The Two Cups).
+Notes (`Using` = `Arcana_Created_Aspect_TwoCups`; search `Arcana_Created_Aspect_TwoCups` in the picker — the Resonant's
+Aspect card *The Two Cups*):
+- **Copy from the parent in the Toolkit, then remove `Using`:** Spell Animation. Leave its AreaRadius, TargetConditions,
+  DescriptionParams, TooltipDamageList and DamageType behind: without them the Shout lands on the Kingmaker (vanilla
+  anchor: `Shout_Dash`) and Osiris turns the whole Wheel.
+- **From the parent** (typed above too): Level, SpellSchool, Cooldown, PreviewCursor, CastTextEvent, UseCosts, Spell Style
+  Group, SpellFlags, Requirements.
+- **Ours:** SpellProperties, Icon (a suggestion), DisplayName, Description, ExtraDescription, Intent (the parent has
+  `Damage`), HitAnimationType.
+- No card marker: it is created by the Awakening, like The Two Cups.
 
 Numbers: once per combat = `SPL_Kingmaker_RotaFortunae#uses`.
 
