@@ -1,8 +1,8 @@
 ---
 id: 21.04/_SUBCLASS_STANDARD
-version: 2
+version: 2.1
 owner: Lead Class Designer
-status: approved v2 — Owner, 2026-10-15 (ARC-0016, decisions D1–D6); in force for new work. Audits made against v1 stay valid (same ids)
+status: approved v2 — Owner, 2026-10-15 (ARC-0016, decisions D1–D6); v2.1 — Owner, 2026-10-15 (D9, progression spread over every level, Appendix A.4); in force for new work. Audits made against v1 stay valid (same ids)
 updated: 2026-10-15
 supersedes: v1 (2026-10-11) — 90_ARCHIVE/93_Old_Versions/2026-10-15_SUBCLASS_STANDARD_v1/
 companion: 21.04/_SUBCLASS_REFINING.md (how to diagnose and improve something that already exists)
@@ -34,7 +34,7 @@ moved in v2 (Appendix A).
 5. Designing features, by type · 6. Felt progression · 7. Aspect Awakening · 8. What Baldur's Gate 3 rewards and
 punishes · 9. The Arcana framework and base-class changes · 10. Balance — method · 11. Complexity budget ·
 12. Names, texts and voice · 13. Technical feasibility · 14. Traps · **15. Studio gates and the one-page checklist** ·
-16. Sources · Appendix A — migration from v1
+16. Sources · Appendix A — migration from v1 (and v2 → v2.1)
 
 ---
 
@@ -349,7 +349,7 @@ never in `DESIGN.md`.
 | M1 | **Does it have a new, exclusive mechanic?** | A state only this subclass creates and reads | The state and who creates/reads it (§4.3) | §4.1 |
 | M2 | **Can the core rule be said in one sentence, and is it explained once?** | One passive explains it; cards don't carry their own exceptions | The sentence and where it is taught | Cognitive load, lenticular design (`27.08`) |
 | M3 | **Do its features work like gears that talk to each other?** | Some create the state, some change it, some spend it, some read it; each feeds or reads another | The gears table (§4.3) with no empty column | Feedback structures (`27.08`) |
-| M4 | **Does the mechanic grow along the journey, with something new at each odd level?** | The subclass at 9 plays differently from 3, not just with bigger dice | Level table; see J1–J7 for how the growth is *felt* | §6 |
+| M4 | **Does the mechanic grow along the journey, with something new spread over the levels?** *(amended v2.1)* | The subclass at 9 plays differently from 3, not just with bigger dice; the growth arrives in small steps at most levels (§6.3) | Level table; see J1–J7 for how the growth is *felt* | §6 |
 | M5 | **Do allies and enemies both take part?** | Both sides of the field matter, or leaving one out is a deliberate choice | Each state's effect on an ally and on an enemy; harmful effects on allies listed | §4.4 |
 | M6 | **Is every chain finite, with its order defined?** | No loops, no double counting; simultaneous events resolve in a stated order | The resolution order (§4.5); wrong if a test shows the same trigger twice in one event | §4.5, §13 |
 | M7 *(v2)* | **Is the core rule true for every feature?** | No feature quietly behaves differently from the rule; a real exception is written into the rule | The exception hunt (§10.3): every feature checked against the sentence | Lenticular design, New World Order (`27.08`) |
@@ -392,13 +392,14 @@ M4 asks whether the mechanic grows. These questions ask whether the **player fee
 
 | # | Question | A good answer | Evidence · wrong if | Grounded in |
 |---|---|---|---|---|
-| J1 | **Does every odd level have a headline?** | A new verb, rule or button the player can name — not only "the table got bigger" | The headline column of the level table (§6.2); wrong if a level's headline is only a number | Competence (`27.08`) |
+| J1 | **Does every level that brings something have a headline?** *(amended v2.1)* | A new verb, rule or button the player can name — not only "the table got bigger" | The headline column of the level table (§6.2); wrong if a level's headline is only a number | Competence (`27.08`) |
 | J2 | **Do the states grow, at breakpoints the player is told about?** | Vertical growth (the same states get stronger) at announced levels, alongside the horizontal growth (new verbs) | The breakpoint levels and the level-up text that announces them | Competence, goal gradient (`27.08`) |
 | J3 | **Does the signature button evolve in ranks?** | One button the player keeps from early on, upgraded at a few points of the journey | The rank table (§6.4) | Felt progression (`27.08`) |
 | J4 | **Is the complexity curve smooth?** | New concepts per level-up are counted and spread; no level brings a cliff | The concept count per level (§6.5); wrong if one level-up carries far more new concepts than the levels around it | Cognitive load (`27.08`) |
 | J5 | **Is every rule usable when it is taught?** | No rule is explained before the player has the pieces to use it | Rule → first level it can happen | Cognitive load (`27.08`) |
 | J6 | **Does the peak of the journey happen in a typical fight?** | The level-12 promise shows up in an ordinary fight, not only in a long one | The peak timeline (§6.7); playtest at level 12: wrong if the peak shows in a minority of fights | Peak-end (`27.08`) |
 | J7 | **Do levels 1–12 read as an arc?** | Introduce, develop, turn, conclude — the level-up texts tell it | The arc table (§6.8) | Kishōtenketsu (`27.08`), `27.05` |
+| J8 *(v2.1)* | **Is the journey spread across the levels?** | Small pieces at most levels from 1 to 12, odd and even; no long stretch with nothing, no level holding most of a stretch; feat levels stay light | The per-level count of the level map (§6.3); wrong if two levels in a row bring nothing, or one level-up carries most of what its stretch adds | Flow and learning, pull toward a goal (`27.08`) |
 
 ### 3.9 Awakening (A)
 
@@ -596,7 +597,8 @@ A subclass that grows on paper but not in the player's hands has failed the jour
 | Level | What arrives | Headline the player feels | Kind |
 |---|---|---|---|
 | 1 | … | "I can …" | verb / rule / button / growth |
-| 3 | … | … | … |
+| 2 | … | … | … |
+| … | … | … | … |
 
 A headline names a **verb, a rule, a button or an announced growth**. "More targets", "bigger dice" or "one more
 card of the same kind" alone are not headlines.
@@ -614,14 +616,21 @@ Guidance on where things tend to land; the mechanic decides the details.
 
 - **Level 1:** the mechanic is already playable, explained on one passive, with key features to play it and a fallback
   turn (P4, K6).
-- **Odd levels:** each brings a headline. Avoid piling several new things on one level while the next is empty.
+- **Any level can carry subclass content** (v2.1, Owner decision D9 of ARC-0016). Spread the kit: each level-up brings
+  a small piece the player can name, so new things arrive often and a few at a time (J8, J4). A level that would carry
+  several new things is split over two neighbouring levels; a stretch of two levels with nothing is a red flag.
+- **Each level that brings something has a headline** (J1). A level with nothing is allowed when it has a reason (the
+  base class or a feat already fills it).
+- **Feat levels stay light.** The Arcana's feats arrive at 4, 8, 12, 16 and 20 (`Progressions.lsx`, `AllowImprovement`
+  on those levels, checked with `dump_progression.pl`). On them a subclass adds at most one small piece — a vertical
+  breakpoint, a passive — never a new list or a dense level (`22.06` §17, tier milestones).
+- **The base class still levels up underneath** (slots and its own lists): read its level-up before placing a heavy
+  subclass piece on the same level.
 - **The ultimate** lands where the kit needs it (§5.5).
 - **Level 11:** the capstone, the end of the journey — typically Long Rest and Unique — **and it does something on the
   turn it is cast**.
-- **Level 12:** Awakening Tier III (§7).
-- **Even levels** belong mostly to the base class (feats arrive at 4, 8 and 12 in vanilla — `Progressions.lsx`,
-  `AllowImprovement`). A subclass uses an even level only with a reason written in `DECISIONS.md` (for example, a
-  vertical breakpoint).
+- **Level 12:** Awakening Tier III (§7). Awakening tiers stay at 3, 7 and 12 (the class framework).
+- The level map (one row per level, 1–12) with its count of new concepts goes in `DESIGN.md` and `21.03/<S>.md`.
 
 ### 6.4 The signature button in ranks (J3)
 
@@ -1075,7 +1084,7 @@ and §7.4 (→ §5.7, §6.3).
 ### A.2 Question ids
 
 Every v1 id (I1–I6, S1–S6, W1–W2, M1–M6, K1–K6, P1–P10, A1–A3, B1–B4, T1–T4, D1–D2) keeps its meaning. New in v2:
-I7, I8, S7, M7, K7, P11, P12, J1–J7, B5–B7, X1–X3.
+I7, I8, S7, M7, K7, P11, P12, J1–J7, B5–B7, X1–X3. New in v2.1: J8.
 
 ### A.3 Older ids (before v1)
 
@@ -1092,3 +1101,21 @@ correspondences below are inferred from the decisions they are attached to and a
 | F2 | A bonus-action option at level 3 | K6 |
 | F3 | Missing live-context file, chassis and colour open | D1 / D2 |
 | E1, E2, E5 | Marked "passing", no context | unknown |
+
+### A.4 v2 → v2.1 — progression spread over every level
+
+Owner, 2026-10-15 (ARC-0016, decision D9): a subclass may grant content at **any** level, odd or even, so new things
+arrive often and a few at a time — a quality-of-life gain for the player (`27.08`, flow and learning; pull toward a goal).
+
+| What | v2 | v2.1 |
+|---|---|---|
+| M4 | "…something new at each odd level?" | "…something new spread over the levels?" — still asks whether the mechanic grows |
+| J1 | "Does every odd level have a headline?" | "Does every level that brings something have a headline?" — still asks whether each step is felt |
+| J8 | — | New: is the journey spread across the levels? |
+| §6.1 | Example rows at levels 1 and 3 | One row per level |
+| §6.3 | Odd levels carry the subclass; an even level needs a written reason | Any level can carry content; feat levels (4, 8, 12, 16, 20) stay light; two empty levels in a row are a red flag |
+
+M4 and J1 keep their ids because the question they ask is the same; only the level restriction, which was guidance,
+moved to §6.3. An audit made against v2 that says "odd level" reads as "level that brings something". Existing
+subclasses keep their level maps until their own refining moves them (`_SUBCLASS_REFINING.md`, the felt-progression
+pass).

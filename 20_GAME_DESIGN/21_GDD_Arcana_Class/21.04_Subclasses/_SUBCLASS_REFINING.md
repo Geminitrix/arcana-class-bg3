@@ -4,7 +4,7 @@ version: 1
 owner: Lead Class Designer
 status: approved — Owner, 2026-10-15 (ARC-0016)
 updated: 2026-10-15
-uses: 21.04/_SUBCLASS_STANDARD.md v2 (the Depth Model, cited as DM-<id>)
+uses: 21.04/_SUBCLASS_STANDARD.md v2.1 (the Depth Model, cited as DM-<id>)
 ---
 
 # Refining Method — how the Arcana diagnoses and improves a design that already exists
@@ -112,7 +112,7 @@ Each step has an input, an output and a test for "done". A step that sends the w
 | 5 | **Diagnostics** | The audit's ⚠️ and ❌ | The tools of §4 that apply, each with its data (tables, timelines, counts) | Every ⚠️/❌ of step 4 has data behind it, or is marked "opinion" |
 | 6 | **Findings → suggestions** | Steps 4–5 | Suggestions `SG1…` in the fixed format of §5.1 | Every ❌ has a suggestion or an explicit "accept as is" with reason |
 | 7 | **Priorities** | Step 6 | must / should / could, effort XS–L, and the dependency order (§5.2) | The order can be followed one question per message in a brainstorm |
-| 8 | **Felt-progression pass** | Steps 2, 6 | Current vs proposed level table with headlines, the arc, the complexity curve before and after, the signature button's ranks (§6) | Each odd level has a headline in the proposed table (`DM-J1`) |
+| 8 | **Felt-progression pass** | Steps 2, 6 | Current vs proposed level table with headlines, the arc, the complexity curve before and after, the signature button's ranks (§6) | Each level that brings something has a headline in the proposed table, and the map is spread (`DM-J1`, `DM-J8`) |
 | 9 | **Balance impact** | Steps 6, 8 | Direction and estimate per suggestion in the `22.06` currency, and the net reading (§7) | No final number; the net reading says where power leaves and where it goes |
 | 10 | **Feasibility** | Step 6 | Per suggestion: where it lives, proven pattern, new piece marked T2 (§8.1) | No function or field named from memory |
 | 11 | **Verification plan** | Steps 6, 9 | One test per rule (fight, metric, right if, wrong if) and qualitative questions (§8.2) | Every *must* suggestion has a test that could prove it wrong |
@@ -279,8 +279,9 @@ design (a ladder, a resource and its ultimate) so they are decided together.
 
 Run it in every full review. It applies the standard's §6 to the piece as it is and as proposed.
 
-1. **Level table, current vs proposed**, with the headline column (`DM-J1`): what the player would say changed. Mark
+1. **Level table, current vs proposed** — one row per level, 1–12 — with the headline column (`DM-J1`): what the player would say changed. Mark
    levels whose headline is only a number.
+   Check the spread (`DM-J8`, standard §6.3): two empty levels in a row, a dense level, or a heavy piece on a feat level.
 2. **The arc** (`DM-J7`): name the four parts (introduce, develop, turn, conclude) and the levels of each; say what the
    player feels in each.
 3. **The complexity curve, before and after** (tool §4.1, `DM-J4`).
