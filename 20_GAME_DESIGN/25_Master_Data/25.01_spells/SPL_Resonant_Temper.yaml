@@ -1,10 +1,12 @@
 id: SPL_Resonant_Temper
+reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002
-design: "21.04/Resonant/2026-10-11-resonant-design.md §7.2"
+design: "21.04/Resonant/DESIGN.md §7.2"
 balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
 values:
   range:      { value: 18, unit: metres }
-  card_level: { value: 0, unit: count, note: "R34: costs only the bonus action, no slot and no Thread" }
-  step:       { value: 1, unit: count, note: "one step left or right on the wheel; the mood keeps its remaining turns" }
+  card_level: { value: 0, unit: count, note: "R34: Bonus Action, no slot" }
+  thread_cost_pc: { value: 1, unit: count, note: "R45: PC (SE) edition only, like every level-0 card; console = Bonus Action only" }
+  replay:     { value: 1, unit: turns, note: "R36 (replaces the one-step turn): the mood replays its root emotion for this long, then returns at full length" }

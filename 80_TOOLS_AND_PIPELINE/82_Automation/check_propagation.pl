@@ -86,7 +86,7 @@ my @ho; my $recent_ho = 0;
 find({ no_chdir => 1, wanted => sub {
   return if m{/(_LEGACY|90_ARCHIVE|\.git)/}; return unless m{/HANDOFF_[^/]*\.md$};
   open my $h, '<:encoding(UTF-8)', $_ or return; my $c = do { local $/; <$h> };
-  return if $c =~ /^status:\s*done/mi;
+  return if $c =~ /^status:\s*(done|deferred)/mi;   # deferred = parked on purpose by the Owner
   push @ho, $_ =~ s{^\./}{}r; $recent_ho++ if (stat $_)[9] >= $since } }, '.');
 push @report, "## Open handoffs: " . scalar(@ho), map { "   OPEN     $_" } @ho;
 

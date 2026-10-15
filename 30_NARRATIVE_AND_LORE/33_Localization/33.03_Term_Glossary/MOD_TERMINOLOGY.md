@@ -53,6 +53,27 @@ Some capstone features use a `N - Name` tarot-card pattern — keep the number, 
 | 13 - Death | 13 — A Morte |
 | 17 - The Star | 17 — A Estrela |
 
+## The Resonant (reviewed 2026-10-15 ARC-0002 — propagation, 00.08)
+
+English is final in game; the other 15 languages have no Resonant strings yet (Localization, pending).
+
+| English | Meaning | Never |
+|---|---|---|
+| Weave Surge: <Emotion> | The 8 spells that pour one emotion (Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, Anticipation) | — |
+| Emotion: <Emotion> (peak) | 1-turn state a Surge applies; changes what the creature does | — |
+| Mood: <Mood> | 5-turn echo left by a peak (Serene, Accepting, Apprehensive, Distracted, Pensive, Bored, Annoyed, Interested) | — |
+| Feeling: <Feeling> | Two emotions braided (24 dyads of Plutchik's wheel) | — |
+| Catharsis | Opposite emotions snap: damage to enemies, healing to allies | — |
+| Emotional Alchemy | The core rule (reaction by distance on the wheel) | — |
+| Overload / Overloaded | The meter of what the Resonant feels / its full state | Overflow (base class: Arcane Overflow) |
+| Emotional Overload | The ultimate that spends the full meter | Overflow |
+| Temper · Heartstring · Emotional Contagion · Ready: Compassion · Shared Heart · The Two Cups | The Resonant's other cards | Turn the Wheel (retired, R4) |
+| Resonance · Harmony · Aspect of Empathy | Awakening tiers I · II · III | Attunement (deck keyword Attuned) |
+| The Resonant | The subclass | Heartweaver (retired working name) |
+
+> Note (Lore Writer, 2026-10-15): the sections above describe the **pre-rework** mod (Arcane Cards, Arcane Shards).
+> The whole file needs a rework pass — proposed as its own ticket.
+
 ## Known unresolved terminology issue
 
 **`Crippling Pinch`** (the [[Base Class#Arcane Familiar — L1 (pick 1 of 7)|Crab familiar]]'s attack) points at the LSTag of the vanilla Crab familiar's attack, which in vanilla is actually called **`Maiming Pinch`** (`Beliscão Mutilante` in PT-BR). This mismatch propagates to all 14 non-English languages until fixed — check `GLOSSARY.md` for current status before assuming it's resolved.

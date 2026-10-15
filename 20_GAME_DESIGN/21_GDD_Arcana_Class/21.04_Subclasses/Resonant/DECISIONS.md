@@ -1,10 +1,17 @@
-# The Resonant — raising decisions (2026-10-08)
+---
+id: 21.04/Resonant/DECISIONS
+owner: Lead Class Designer
+role: source of the Resonant dossier (00.08) — every decision is logged here the moment it is taken
+---
 
-Working note. Decisions taken while auditing the Resonant against the Depth Model, before the creation
-rules were made impartial. They feed the Resonant's raising spec and `05.02_Subclasses/resonant.md`;
-the audit is redone against the new rules before that spec is written.
+# The Resonant — decision log
 
-Sources read: `21.04_Subclasses/Resonant/2026-10-06-heartweaver-design.md`, the wiki (`Codex/src/data/resonant.json`,
+Decisions R1–R48 (2026-10-08 → 2026-10-12, ticket ARC-0002). Moved here on 2026-10-15 from
+`55_Implementation_Specs/_wip/Resonant/decisions.md` (ADR-0008: decisions live in the dossier). The current
+design that results from them is `DESIGN.md`; when a decision replaces an earlier one, both stay here and
+`DESIGN.md` shows only the result.
+
+Sources read: `93_Old_Versions/2026-10-15_Resonant_first_design/2026-10-06-heartweaver-design.md`, the wiki (`Codex/src/data/resonant.json`,
 `Wiki/resonant.html`), the game files (progression dump), and the original design conversation.
 
 ## Decision log

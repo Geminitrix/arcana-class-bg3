@@ -16,7 +16,7 @@ updated: 2026-10-11
 **Intent** (from ARC-0002): the Resonant plays its emotion mechanic with impact from level 1 —
 behaviour-changing Surges, an overload meter and its Emotional Overload — without running out of slots.
 
-**Spec (design):** `21.04/Resonant/2026-10-11-resonant-design.md` · **Numbers:** `25.01`–`25.03`
+**Spec (design):** `21.04/Resonant/DESIGN.md` · **Numbers:** `25.01`–`25.03`
 (`*_Resonant_*.yaml`) · **Generator:** `82_Automation/stats/gen_emotion_alchemy.pl` + `t/gen_emotion_alchemy.t`
 (`perl t/gen_emotion_alchemy.t`; `prove` does not run on this Perl) · **Applier:** `stats_add.pl`.
 
@@ -81,7 +81,7 @@ sub default_out { "$ROOT/50_ENGINEERING/55_Implementation_Specs/_wip/Resonant" }
 
 In `main`, replace `$out //= dirname(__FILE__) . '/../../Design/work/resonant';` with `$out //= default_out();`.
 In the header and in `build_engine_patch`, replace the spec path with
-`20_GAME_DESIGN/21_GDD_Arcana_Class/21.04_Subclasses/Resonant/2026-10-11-resonant-design.md`.
+`20_GAME_DESIGN/21_GDD_Arcana_Class/21.04_Subclasses/Resonant/DESIGN.md`.
 - [ ] **Step 4 — run, expect all PASS.**
 - [ ] **Step 5 — commit** `ARC-0002: generator writes to 55/_wip/Resonant`.
 
@@ -97,7 +97,7 @@ id: STA_Resonant_Peaks
 kind: status
 subclass: Resonant
 ticket: ARC-0002
-design: "21.04/Resonant/2026-10-11-resonant-design.md §5.1"
+design: "21.04/Resonant/DESIGN.md §5.1"
 balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
 game_ids: [EMOTION_JOY, RESONANT_JOY_CONTAGION]
 values:
@@ -447,7 +447,7 @@ Generator tests 68/68; `check_cards` OK; `stats_add --selftest` 970/0.
 
 ## Stage 2 — Overload and Emotional Overload
 
-**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §6 (R9–R13, R19, R20, R22). **Numbers:**
+**Spec:** `21.04/Resonant/DESIGN.md` §6 (R9–R13, R19, R20, R22). **Numbers:**
 `FEAT_Resonant_Overload` (size by level, +1 peak, +2 reaction, full damage = slot level),
 `SPL_Resonant_EmotionalOverload` (18 m, 1d6 Psychic per feeling, Paralysed 2 turns). Shared Heart's "once per
 Surge" (R19) belongs to stage 5.
@@ -609,7 +609,7 @@ weapon hit +Psychic, Psychic at turn start, lasts your level in turns"; P9 adds 
 
 ## Stage 3 — signature spells and the probe fixes
 
-**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §7. Each spell is a generator entry with a RED test first,
+**Spec:** `21.04/Resonant/DESIGN.md` §7. Each spell is a generator entry with a RED test first,
 as in stages 0–2. Numbers: `SPL_Resonant_Heartstring`, the rest TBD in `25` when the spell is written (range 6 m
 for Contagion, 9 m for Compassion — design values already in the spec).
 
@@ -694,7 +694,7 @@ Results (Owner, 2026-10-12): P11b ✅ P13b ✅ — stage 3 closed.
 
 ## Stage 4 — Aspect Awakening: 14 · Temperance
 
-**Spec:** `21.04/Resonant/2026-10-11-resonant-design.md` §9, §9.1. **Decisions:** R21 (Tier I Resonance), R8 (Tier II
+**Spec:** `21.04/Resonant/DESIGN.md` §9, §9.1. **Decisions:** R21 (Tier I Resonance), R8 (Tier II
 Harmony), R14 (Tier III), R38 (The Two Cups does not fill the Overload), R39 (Harmony's mood follows the side).
 **Numbers:** `FEAT_Resonant_AspectAwakening` (goals 3 / 6 / 15, Harmony 6 m) + new rows `tier1_mood_extend` (2 turns),
 `tier3_radius` (6 m), `tier3_paralysed_others` (1 turn); `STA_Resonant_Catharsis#tier1_bonus` (1d8); new

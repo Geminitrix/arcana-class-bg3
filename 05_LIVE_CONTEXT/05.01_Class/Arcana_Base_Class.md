@@ -154,8 +154,9 @@ vanilla Produce Flame (Starchild) and Chill Touch (Eternal) grants were removed 
   (`Po.IsDeckUser`) on session load, `LevelGameplayStarted`, `LeveledUp`, `CharacterJoinedParty` and at
   the start of each fight. `HasSpell` first, so repeats are no-ops. The list "Arcana Deck Core"
   (`20d9404e-…`) is no longer used.
-- List **"Arcana Deck DEBUG"** (level 1): `[DEBUG]` Fated / Fleeting / Unique / Tangler cards and a
-  `[DEBUG] Tangle`. Test tools for the keywords; they stay in the build on purpose.
+- List **"Arcana Deck DEBUG"** (`f2e5e2e9-42c8-4f0e-88de-830ef0224290`): `[DEBUG]` Fated / Fleeting / Unique / Tangler cards
+  and a `[DEBUG] Tangle`. The list still exists in `SpellLists.lsx`, but **no progression grants it** (it left the
+  level-1 row before 2026-10-11).
 
 ---
 

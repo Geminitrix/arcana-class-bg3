@@ -148,7 +148,7 @@ Cost = **one Woven Spell Slot** of the card's level (out of combat / console) or
 **Objective — strike different enemies within a single round** (from the start of your turn to the start
 of the next, so reactions count). Any attack that hits counts: unarmed, Zephyr, Gale Deflection, spell
 attacks. If fewer enemies stand at the start of your turn than the goal, hits on any enemy count.
-Progress is a count that resets each round.
+Progress **counts down** what is left (ARC-0007, one status per tier) and resets each round.
 
 | Tier | Level | Goal | Name | Bonus (until combat ends) |
 |---|---|---|---|---|

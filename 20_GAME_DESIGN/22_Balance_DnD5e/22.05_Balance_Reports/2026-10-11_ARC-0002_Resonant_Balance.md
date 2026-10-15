@@ -2,7 +2,7 @@
 
 The arithmetic behind the Resonant's numbers. **The values themselves live in `25_Master_Data`**
 (`STA_Resonant_*`, `FEAT_Resonant_*`, `SPL_Resonant_*`); this report explains them and how to check them.
-Design: `21.04/Resonant/2026-10-11-resonant-design.md`. Approved by the Owner on 2026-10-11.
+Design: `21.04/Resonant/DESIGN.md`. Approved by the Owner on 2026-10-11.
 
 ## Assumptions
 

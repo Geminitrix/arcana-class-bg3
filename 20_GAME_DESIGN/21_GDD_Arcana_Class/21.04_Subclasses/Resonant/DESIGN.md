@@ -1,3 +1,10 @@
+---
+id: 21.04/Resonant/DESIGN
+owner: Lead Class Designer
+state: current — built and tested in game (ARC-0002 closed 2026-10-12)
+reviewed: 2026-10-15 ARC-0002 — propagation (00.08): R45 folded into §7.2; renamed from 2026-10-11-resonant-design.md
+---
+
 # The Resonant — XIV · Temperance · Aspect of Empathy
 
 > Design document for the Arcana's subclass **The Resonant**. It describes everything the subclass is and
@@ -5,8 +12,8 @@
 > overload, the progression, the Aspect Awakening, the edge cases and the technical pattern that builds it.
 >
 > Raised 2026-10-11 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0002;
-> decisions R1–R31 in `55_Implementation_Specs/_wip/Resonant/decisions.md`). It replaces
-> `2026-10-06-heartweaver-design.md`, which stays as the record of the first version. Every gameplay
+> decisions R1–R48 in `21.04_Subclasses/Resonant/DECISIONS.md`). It replaces the first version, archived in
+> `93_Old_Versions/2026-10-15_Resonant_first_design/`. Every gameplay
 > effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the deck,
 > console without Script Extender).
 >
@@ -356,7 +363,8 @@ it 2 turns longer. The turn the Resonant falls back on, and a way to keep a mood
 
 ### 7.2 Temper (level 3) — R4, R6
 
-**Bonus Action, no slot and no Thread** (R34, R36). Pull a creature's mood back to the **emotion it came from**
+**Bonus Action, no slot** (R34, R36); in the PC edition it costs **1 Thread**, like every level-0 card — the
+console edition keeps it at the Bonus Action only (R45). Pull a creature's mood back to the **emotion it came from**
 for 1 turn (a non-ally rolls a Wisdom save): it replays that peak's behaviour, and when the peak fades the mood
 returns at full length. It applies a peak, never a reaction (§4.7). Surge and Temper share a turn: replay a
 peak's behaviour now (Fear freezes again, Joy spreads again), or renew a mood for the next Surge.

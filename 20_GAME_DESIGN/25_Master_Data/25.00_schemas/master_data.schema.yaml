@@ -12,6 +12,7 @@ file:
     design:         { type: string, note: "path of the spec section that describes the feature" }
     balance_report: { type: string, note: "path of the 22.05 report that shows the arithmetic" }
     game_ids:       { type: list, items: string, optional: true, note: "Stats / Osiris ids the numbers go into; empty until built" }
+    reviewed:       { type: string, optional: true, note: "propagation stamp (00.08): date, ticket, what was checked" }
     values:         { type: map, note: "name -> value entry" }
 
 value_entry:

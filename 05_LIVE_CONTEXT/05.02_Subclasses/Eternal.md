@@ -148,7 +148,7 @@ Every other Eternal passive is a card (Immortal Blood, Inescapable Destruction, 
 ## 8. Aspect Awakening — 13 · Death
 
 **Objective — lose hit points during the fight.** Healing doesn't undo the loss (a running ledger of
-damage taken, plus the HP that Blood Offering costs). Progress shows as a percentage towards the next tier. The same ledger powers The Final Toll.
+damage taken, plus the HP that Blood Offering costs). Progress **counts down** the hit points left to lose for the next tier (ARC-0007, one status per tier). The same ledger powers The Final Toll.
 
 | Tier | Level | Goal | Name | Bonus (until combat ends) |
 |---|---|---|---|---|

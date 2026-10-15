@@ -9,8 +9,8 @@ implementation: claude
 priority: must
 value: 5
 effort: 4
-inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/2026-10-06-heartweaver-design.md, 55/_wip/Resonant/decisions.md, 05.02/Resonant.md, 75.02/src/data/resonant.json]
-outputs: [55/_wip/Resonant/decisions.md, 21.04/Resonant/2026-10-11-resonant-design.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md, 55/SPEC_ARC-0002.md, 82_Automation/stats/gen_emotion_alchemy.pl, the Resonant in the game (Stats, Osiris, CardDB.lua), 61/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md, ARC-0006]
+inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/2026-10-06-heartweaver-design.md, 55/21.04_Subclasses/Resonant/DECISIONS.md, 05.02/Resonant.md, 75.02/src/data/resonant.json]
+outputs: [55/21.04_Subclasses/Resonant/DECISIONS.md, 21.04/Resonant/DESIGN.md, 05/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md, 25.01/SPL_Resonant_*, 25.02/FEAT_Resonant_*, 25.03/STA_Resonant_*, 22.05/2026-10-11_ARC-0002_Resonant_Balance.md, 55/SPEC_ARC-0002.md, 82_Automation/stats/gen_emotion_alchemy.pl, the Resonant in the game (Stats, Osiris, CardDB.lua), 61/HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md, ARC-0006]
 blocked_by: []
 sprint:
 created: 2026-10-11
@@ -26,7 +26,7 @@ Surges, an overload meter and its Overflow — without running out of slots.
 ## Acceptance criteria
 
 - [x] Every evaluative question of §3 answered for the Resonant (✅ / ⚠️ / ❌ with evidence).
-- [x] Every ❌ and ⚠️ resolved by a decision in `55/_wip/Resonant/decisions.md` or listed as open.
+- [x] Every ❌ and ⚠️ resolved by a decision in `55/21.04_Subclasses/Resonant/DECISIONS.md` or listed as open.
 - [x] Raising spec written in `21.04/Resonant/` (§1.5 sections, Identity Sheet complete, no audit inside).
 - [x] Depth audit handed to the Context Keeper for `05.02/Resonant.md`.
 
@@ -40,7 +40,7 @@ Surges, an overload meter and its Overflow — without running out of slots.
 
 - 2026-10-08 — audit and decisions R1–R14 (before the project migration).
 - 2026-10-11 — created; decisions R15–R17 (behaviour peaks, slot refund on reaction), R18–R19 (Shared Heart capstone), R20–R21 (names: Emotional Overload, Tier I Resonance).
-- 2026-10-11 — raising spec `21.04/Resonant/2026-10-11-resonant-design.md` written; Depth audit handed to the Context Keeper. R22–R23 (Emotional Overload cost, Rage grudge) confirmed by the Owner.
+- 2026-10-11 — raising spec `21.04/Resonant/DESIGN.md` written; Depth audit handed to the Context Keeper. R22–R23 (Emotional Overload cost, Rage grudge) confirmed by the Owner.
 - 2026-10-11 — balance pass approved: numbers in `25.01`–`25.03` (first master-data files, schema `25.00/master_data.schema.yaml`), arithmetic in `22.05/2026-10-11_ARC-0002_Resonant_Balance.md`; R24 (Shared Heart: until combat ends, free Surges on linked allies).
 - 2026-10-11 — implementation plan `55/SPEC_ARC-0002.md` (stages 0–7; stage 0 and 1 in full) written, awaiting Owner review.
 - 2026-10-11 — stage 0 done (generator, TDD 59/59; patches in `55/_wip/Resonant`; stats_add dry run 7 new / 69 replaced / 0 errors). Next: stage 1 needs `implementation: claude` and `[fechado] ARC-0002`.
@@ -74,3 +74,14 @@ Surges, an overload meter and its Overflow — without running out of slots.
 - 2026-10-12 — Owner: Shared Heart not working (cause: Story compiled before its goal was applied). R46 (Shared Heart shares feelings only + the Catharsis heal; free Surges dropped), R47 (feelings Additive), R48 (Emotional Overload a bonus action); bug fixed: Compassion triggered on the Resonant's own Surge (now enemy source only). Built, not applied (tests 247/247).
 - 2026-10-12 — R46–R48 + the Compassion fix applied (`[fechado]`): selftest 1008/0, check_cards OK, 24 feelings Additive, the free-Surge refund removed; goals Overload and Shared Heart copied. Owner: compile the Story; P27b, P28b, P30, P34, P35.
 - 2026-10-12 — **closed by the Owner** after the in-game tests (all probes pass, P25–P35 included). Narrative gate not run (recorded). ARC-0006 (player guide) unblocked.
+- 2026-10-15 — **Propagation (00.08, ADR-0008)** in each owner's role. Lead Class Designer: `decisions.md` moved to
+  `21.04/Resonant/DECISIONS.md`, the design renamed `DESIGN.md` (R45 folded into §7.2; first version archived in
+  `93/2026-10-15_Resonant_first_design`), `21.03/Resonant.md` created, Resonant column in `21.08`. Spell Designer: 28 sheets
+  in `23.02/Resonant/`; `25` fixed against R36/R45/R46 (Temper, Shared Heart) and stamped. Balance Designer:
+  `22.05/Resonant.md` (current verdict: ⚠️ Emotional Overload frequency since R31, ⚠️ Harmony; Shared Heart re-estimated),
+  `26.01/Resonant.md`. Lore Writer: `31.02/Resonant.md`, `32.01/Resonant.md` (92 texts from the game; 2 behind the
+  mechanic), Resonant terms in `33.03`. Icon Artist: `42.04/Resonant.md` (all 25 icons borrowed, 6 share one). QA:
+  `61.02/Resonant/TC_ARC-0002.md` (static re-run today: all green). Context Keeper: `05.02/Resonant.md` rewritten,
+  05.01 DEBUG list, 05.06 Khonsu helpers, Awakening countdown in five files, 05.00 row. Handoffs: QA and Context Keeper
+  done; player guide (ARC-0006) deferred. New tickets: ARC-0010 balance playtest, ARC-0011 text fixes, ARC-0012
+  priority icons, ARC-0013 glossary rework. `check_propagation.pl Resonant` → 0 pending.

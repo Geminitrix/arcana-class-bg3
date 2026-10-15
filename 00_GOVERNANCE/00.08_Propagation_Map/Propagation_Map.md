@@ -13,7 +13,8 @@ of change. `82_Automation/check_propagation.pl` reads the subclass table below; 
    its owner's role**: content rewritten, or — when the change doesn't affect it — its header line
    `reviewed: YYYY-MM-DD ARC-#### — no change` refreshed. Either way the artifact is newer than its sources.
 3. **A handoff is executed in the same session** (the main session switches to the destination role) and
-   marked `status: done`. An open handoff blocks the end of the session.
+   marked `status: done`. An open handoff blocks the end of the session. A handoff the Owner parks on purpose is
+   marked `status: deferred` with its reason and ticket.
 4. `55/_wip/` is engineering scratch only — never the home of decisions or texts.
 5. The ticket log records which artifacts were updated; then commit + push.
 

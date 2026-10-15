@@ -45,7 +45,7 @@ SE ran, check `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Script Extender Log
 | Toolkit side of the stats (`.stats`, `.tbl`) | `…\Data\Editor\Mods\AspectClass_…\` |
 | Lua deck (SE) | `…\Mods\AspectClass_…\ScriptExtender\Lua\` (own local git, no remote) |
 | Osiris goals | `…\Mods\AspectClass_…\Story\RawFiles\Goals\` (`ARCANA_*.txt`) |
-| Khonsu helpers | `…\Mods\AspectClass_…\Scripts\thoth\helpers\*.khn` |
+| Khonsu helpers | **One file**: `…\Mods\AspectClass_…\Scripts\thoth\helpers\ArcanaHelpers.khn`, one section per function — loose one-function files made the Toolkit crash on launch (ARC-0005); new helpers go in as sections |
 | English loca | `…\Mods\AspectClass_…\Localization\English\english.xml` |
 | Project folder | `C:\Projetos\BG3 Modding\Arcana Class\` (map below) |
 

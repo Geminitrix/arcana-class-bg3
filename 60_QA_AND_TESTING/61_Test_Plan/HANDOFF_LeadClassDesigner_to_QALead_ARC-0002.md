@@ -1,9 +1,13 @@
+---
+status: done
+closed: 2026-10-15 — executed by the QA Lead role during propagation (00.08): 61.02/Resonant/TC_ARC-0002.md
+---
 # HANDOFF · Lead Class Designer → QA Lead · ARC-0002 (the Resonant)
 
 **Ask:** turn this into `61.02_Test_Cases/TC_ARC-0002.md` (the TC_ARC-0001 format) and run what is still open.
 **Decision it informs:** close ARC-0002, or send the failing rule back to the Lead Class Designer.
-**Sources:** design `21.04_Subclasses/Resonant/2026-10-11-resonant-design.md`; decisions R1–R45
-(`55_Implementation_Specs/_wip/Resonant/decisions.md`); probes P0–P33 and their results in `SPEC_ARC-0002.md`.
+**Sources:** design `21.04_Subclasses/Resonant/DESIGN.md`; decisions R1–R45
+(`21.04_Subclasses/Resonant/DECISIONS.md`); probes P0–P33 and their results in `SPEC_ARC-0002.md`.
 **Scenario:** console edition, a Resonant built through the real progression (no DEBUG — retired at stage 7); levels
 1, 3, 5, 7, 9, 11, 12; the PC (SE) edition for P33 only. Compile the Story after any apply.
 

@@ -6,6 +6,10 @@
 |---|---|---|---|---|---|---|---|---|
 | [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Kingmaker (was the Spinner) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | claude |  |
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | owner |  |
+| [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA | should | 4/2 | backlog | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | open | claude |  |
+| [ARC-0013](stories/ARC-0013_Mod_Terminology_Rework.md) | Mod terminology: rewrite the glossary for the rework | chore | Narrative | should | 3/2 | backlog | pending |  |
+| [ARC-0012](stories/ARC-0012_Resonant_Priority_Icons.md) | Resonant: own icons for the six that share Calm Emotions | feature | Art | should | 3/3 | backlog | pending |  |
+| [ARC-0011](stories/ARC-0011_Resonant_Text_Fixes.md) | Resonant: two descriptions behind the mechanic | chore | Narrative | could | 2/1 | backlog | pending |  |
 
 Done tickets: 6.

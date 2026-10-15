@@ -139,7 +139,7 @@ Status **Rejuvenation**: +30% movement speed, regain WIS mod HP at the end of ea
 ## 8. Aspect Awakening — 17 · The Star
 
 **Objective — heal your allies during the fight.** Only effective healing counts (not beyond max HP).
-Progress shows as a percentage towards the next tier.
+Progress **counts down** the hit points of healing left to the next tier (ARC-0007, one status per tier).
 
 | Tier | Level | Goal | Name | Bonus (until combat ends) |
 |---|---|---|---|---|

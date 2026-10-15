@@ -10,3 +10,7 @@ stats found in `10.06_Impediments/Open_Questions.md`.
 | ARC-0002 | Resonant | Raise the Resonant to the subclass standard (design) | in_progress |
 | ARC-0003 | Resonant | Rename the ProgressionDescription Name (last Heartweaver leftover) | done |
 | ARC-0009 | Lionheart | Create the Lionheart (was the Titan) to the subclass standard (design) | in_progress |
+| ARC-0010 | Resonant | Balance playtest: Overload frequency, Harmony, Shared Heart | backlog |
+| ARC-0011 | Resonant | Two descriptions behind the mechanic | backlog |
+| ARC-0012 | Resonant | Own icons for the six that share Calm Emotions | backlog |
+| ARC-0013 | All | Mod terminology: rewrite the glossary for the rework | backlog |

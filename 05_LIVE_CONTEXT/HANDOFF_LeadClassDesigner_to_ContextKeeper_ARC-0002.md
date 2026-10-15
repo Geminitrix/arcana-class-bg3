@@ -1,14 +1,18 @@
+---
+status: done
+closed: 2026-10-15 — executed by the Context Keeper role during propagation (00.08): 05.02/Resonant.md rewritten (§1–§10), 05.01 DEBUG list fixed (§8), 05.06 Khonsu helpers (§11), Awakening countdown in the five 05.02 files (§10)
+---
 # HANDOFF · Lead Class Designer → Context Keeper · ARC-0002
 
 **What:** the Resonant was raised to the subclass standard (design only; nothing changed in the game
 files). Update `05.02_Subclasses/Resonant.md`.
 
-**Sources:** `21.04_Subclasses/Resonant/2026-10-11-resonant-design.md` (the new design, replaces the
-2026-10-06 one as the design pointer) · `55_Implementation_Specs/_wip/Resonant/decisions.md` (R1–R21).
+**Sources:** `21.04_Subclasses/Resonant/DESIGN.md` (the new design, replaces the
+2026-10-06 one as the design pointer) · `21.04_Subclasses/Resonant/DECISIONS.md` (R1–R21).
 
 ## 1. Change the design pointer
 
-Design: `21.04_Subclasses/Resonant/2026-10-11-resonant-design.md`. The progression table "in the game
+Design: `21.04_Subclasses/Resonant/DESIGN.md`. The progression table "in the game
 today" stays as it is — the game files did not change.
 
 ## 2. Add the Depth audit (2026-10-11)
@@ -83,7 +87,7 @@ migration). The list still exists in `SpellLists.lsx`. Fix the line in `05.01`.
 ## 9. ARC-0002 — final state after stages 2b–7 (2026-10-12) — supersedes the game notes of §5 and §7
 
 Update `05.02_Subclasses/Resonant.md` (and `05.03` / `05.04` for the ids) from this section; the design pointer of §1 stays.
-Decisions R22–R45 are in `55_Implementation_Specs/_wip/Resonant/decisions.md`.
+Decisions R22–R45 are in `21.04_Subclasses/Resonant/DECISIONS.md`.
 
 **Progression (in the game):** L1 Weave Surge Joy / Trust / Fear, Heartstring; passives Emotional Alchemy, Empathic
 Sight, Overload · L3 Surge Anticipation / Surprise / Sadness, Temper; Resonance (Tier I), 14 - Temperance: Awakening ·

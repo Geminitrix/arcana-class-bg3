@@ -1,8 +1,9 @@
 id: SPL_Resonant_Compassion
+reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002
-design: "21.04/Resonant/2026-10-11-resonant-design.md §7.4"
+design: "21.04/Resonant/DESIGN.md §7.4"
 balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
 values:
   range:      { value: 9, unit: metres, note: "an ally this close that takes damage" }

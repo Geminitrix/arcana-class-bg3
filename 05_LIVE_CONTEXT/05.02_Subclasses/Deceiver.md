@@ -125,7 +125,7 @@ Image, Friends: Faux Amis, Heartbreak, Beloved, the old clone's Mirror spells, `
 
 ## 6. Aspect Awakening — 2 · The High Priestess
 
-**Goal — apply Doubt.** Each stack counts 1 (`DB_ARCANA_DoubtStep`). Goals **4 / 7 / 10** (`ARCANA_Aspect_Common.txt`).
+**Goal — apply Doubt.** Each stack counts 1 (`DB_ARCANA_DoubtStep`). Goals **4 / 7 / 10** (`ARCANA_Aspect_Common.txt`). Progress **counts down** the stacks left (ARC-0007, one status per tier).
 
 | Tier | Level | Goal | Name | Bonus (until combat ends) |
 |---|---|---|---|---|
