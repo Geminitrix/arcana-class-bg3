@@ -89,6 +89,7 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH71 | ***Strangle the Lion*** deals **Bludgeoning** damage (the concussion of the closing grip; confirms LH55) | author |
 | LH72 | **Names** (settles part of open question 5): Mastery I / II → ***The Garland I / II*** (the garland of flowers that binds the Maiden to the Lion on the card; does not echo the Labour tier names) · Maiden's Hush → ***Maiden's Seal*** (she seals the Weave against the beast; pairs with *Lion's Roar*: the card is *Roar / Seal*) · Maiden's Step → ***Maiden's Shelter*** (the card is *Pounce / Shelter*) · Lion's Second Blow → ***Second Edge*** | author (proposals accepted) |
 | LH73 | **Relation to Mystra and the Weave (W1): *the thread with no end*** — the lemniscate above the Maiden's head is a thread of the Weave looped back on itself; Mystra wove the Lionheart from the moment fear is faced instead of fled, and their courage is the thread that never breaks. *The Twelfth Labour* (rising when they should fall) reads as that thread literally not ending. Rejected: B (the garland binds beast and hand — kept as an image for *The Garland*), C (guardian of the Weave — makes every Villain an enemy of Mystra) | author (option A) |
+| LH74 | **Voice and identity package approved** (settles open question 5's text pass and question 8): class description, panel line, tag line, archetype *The champion who stands before the beast*, fantasy line *"Every fight has a beast. You are the one who walks up to it."*, the Weave in the features (W2) and the real source **Rachman, *Fear and Courage* (1978)** (S5) — texts in `texts.md` | author |
 
 ## State at hand-off (2026-10-15)
 
@@ -110,8 +111,8 @@ The brainstorm moves to the Claude Desktop session (it has the game files and th
 
 Settled on 2026-10-14 (Desktop): 1 → LH62, 2 → LH70, 3 → LH66, 4 → LH65, 6 → LH63, 7 → LH68.
 
-5. **Names** settled (LH72). Next, the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
-8. **Mystra and the Weave** (W1, W2): one-sentence relation and Weave vocabulary in names. **Science source** (S5): Rachman (courage as acting while afraid) only names the idea; Yerkes–Dodson could shape the Courage cap.
+5. **Names** settled (LH72); **texts** settled (LH74, `texts.md`).
+8. **Mystra and the Weave** settled (LH73, LH74).
 9. **Aspect VFX**.
 10. **Eternal rework**: Bleeding / Gaping Wound / Hamstring move to the Lionheart; record the impact in the Eternal's rework.
 
