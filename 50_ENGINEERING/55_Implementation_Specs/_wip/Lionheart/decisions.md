@@ -77,6 +77,14 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH59 | ***The Greater Labour* replaced by *The Ordeal*** (L9): when an ally within 9 m drops to 0 HP, the enemy that downed them **becomes the Villain** and the Lionheart's Courage fills to its maximum | author (proposal accepted) |
 | LH60 | **Capstone replaced** (supersedes LH37 *The Lion Standard*): ***Lion's Judgement*** (L11, Long Rest, Unique) — spend 5 Courage (draft) to **execute** an enemy below 25% HP (Garen's *Demacian Justice*; Smite-style animation); after the kill the Lionheart goes to the **Maiden** form (sheathes) and gains 12 m of movement. There is no reliable way to tell a boss from other enemies, so the rule **must work on every enemy** — how it stays fair against bosses is open | author |
 | LH61 | **Kept unchanged:** Aspect card *Infinity* (both forms for 2 turns), Tier II *Many Heads* (two Villains), Tier III *The Twelfth Labour* | author |
+| LH62 | **Courage rule (settles open question 1):** *every card pays its own Courage price; only the ultimate spends all of it.* No card scales per point except the ultimate. The **cap grows with the Awakening** (draft **3** from level 1 → **5** at Tier II → **7** at Tier III), so each tier also raises the engine's ceiling (M2). The halving on a Villain change (LH33) stays | author (option A) |
+| LH63 | **One axis of control per Maiden card** (settles open question 6) — the Maiden closes each of the beast's weapons in turn: **Grip** = the legs (movement 0; **no longer removes the reaction**, revises LH48) · **Throw** = the footing (moved + Prone; spending 2 Courage adds distance and fall damage instead of taking movement, revises LH51) · **Palm** = the claws (disarm; **no movement loss**, revises LH44/LH58) · **Hush** = the jaw (silence, breaks Concentration, removes the reaction; **no one's movement set to 0**, revises LH56) · **Strangle the Lion** = the whole beast (Restrained) | author (proposal accepted) |
+| LH64 | ***Fang***: spending 3 Courage applies **`HAMSTRING`** (movement −50%) instead of "Maimed" — the hunter cuts the tendon so the prey can't run; the Lion stays on damage and the hunt. Note: the author's "Maimed" is vanilla `CRIPPLED` (movement 0), not used — movement 0 belongs to Grip (LH63). Revises LH58 | author (proposal accepted) |
+| LH65 | ***Palm***: no Lethargic (`HASTE_LETHARGY` is a full stun). Spending 3 Courage makes the **Disarmed last longer** (working; disarming the off hand too is the fallback if the duration reads weak). Settles open question 4 | author (proposal accepted; duration chosen as the working option) |
+| LH66 | ***Lion's Judgement* vs bosses** (settles open question 3): the target **dies** if it is below **25% HP and** below a **fixed HP cap** (Power Word Kill pattern: `HasHPPercentageLessThan(25)` + `HasHPLessThan(<literal>)`); otherwise it takes **heavy damage**. Same rule for every enemy; cap value in the balance pass | author (proposal accepted) |
+| LH67 | **Maiden AC** (revises LH47): **unarmoured** — AC = 10 + DEX + **full Strength** (`ACOverrideFormula(10,true,Dexterity,Strength)`, the Nemean hide); **in light armour** — a **small flat AC bonus**, no Strength and no cap (vanilla AC boosts take no expressions). Values in the balance pass | author (proposal accepted) |
+| LH68 | **Maiden Mastery II** (settles open question 7 by constraint): allies within 3 m get a **fixed** AC bonus — "half the bonus" would need an expression | consequence of LH67 |
+| LH69 | **Maiden Mastery I (*Turn the Blow*)** revised (revises LH53): reaction — when an enemy within 1.5 m of the Lionheart attacks an ally, shove that enemy 1.5 m. **No obstacle → Prone** (no vanilla pattern) | author (proposal accepted) |
 
 ## State at hand-off (2026-10-15)
 
@@ -86,26 +94,23 @@ The brainstorm moves to the Claude Desktop session (it has the game files and th
 
 | Lvl | Pieces |
 |---|---|
-| 1 | Core: the Villain (highest max HP; level, then nearest; locked until it falls; summons excluded; Courage halved on change) · Courage (+1 turn ending in the Villain's reach, +1 when it attacks the Lionheart; cap; resets) · two forms in containers, Drawing Steel, combat starts Maiden · Lion: +1d4 vs Villain, DR −2 · Maiden: Villain −1d4 vs others, STR to AC · *Claw / Grip* · *Pounce / Step* · *Rend / Throw* |
-| 3 | Tier I *Wear the Hide* · Aspect card *Infinity* · Mastery I (dice up; Lion immune to Prone/shove; Maiden shove reaction) |
+| 1 | Core: the Villain (highest max HP; level, then nearest; locked until it falls; summons excluded; Courage halved on change) · Courage (+1 turn ending in the Villain's reach, +1 when it attacks the Lionheart; cards pay their price, the ultimate spends all; cap 3; resets) · two forms in containers, Drawing Steel, combat starts Maiden · Lion: +1d4 vs Villain, DR −2 · Maiden: Villain −1d4 vs others; AC 10 + DEX + STR unarmoured, flat bonus in light armour · *Claw / Grip* · *Pounce / Step* · *Rend / Throw* |
+| 3 | Tier I *Wear the Hide* · Aspect card *Infinity* · Mastery I (dice up; Lion immune to Prone/shove; Maiden *Turn the Blow*: shove 1.5 m) |
 | 5 | Extra attack for 1 Courage (*Second Blow*, rename) · ultimate *Strangle the Lion* · *Roar / Hush* |
-| 7 | Tier II *Many Heads* · Mastery II (dice up; Lion DR vs spells; Maiden AC to allies within 3 m, reduced) |
-| 9 | *Fang / Palm* · *The Ordeal* |
+| 7 | Tier II *Many Heads* · Courage cap 5 · Mastery II (dice up; Lion DR vs spells; Maiden fixed AC bonus to allies within 3 m) |
+| 9 | *Fang / Palm* (Fang 3: Hamstring; Palm 3: longer Disarm) · *The Ordeal* |
 | 11 | Capstone *Lion's Judgement* |
-| 12 | Tier III *The Twelfth Labour* |
+| 12 | Tier III *The Twelfth Labour* · Courage cap 7 |
 
 ### Open questions
 
-1. **Courage rule in one sentence** (M2): thresholds (LH50) vs the ultimate's "all"; does any card still scale per point (Pounce damage, Step)? Courage cap value; keep the halving on Villain change?
+Settled on 2026-10-14 (Desktop): 1 → LH62, 3 → LH66, 4 → LH65, 6 → LH63, 7 → LH68.
+
 2. **Ultimate limiter**: once per combat, no slot (proposed, not confirmed)? Minimum Courage to cast?
-3. **Lion's Judgement vs bosses**: executing a boss at 25% with no boss detection — e.g. execute only if the target's current HP is below a fixed amount as well, or heavy damage instead of death above a max-HP size. Courage cost 5 vs the cap.
-4. **Maiden side of Fang / Palm**: final effect (Lethargic or other).
 5. **Names**: Hush (Maiden's …), Pounce / Step, Second Blow, Mastery. Then the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
-6. **Movement-control overlap**: Grip (0), Throw (−3 m), Palm (−9 m), Hush (0) — differentiate durations/targets.
-7. **Mastery II Maiden**: allies get half or a fixed +1/+2.
 8. **Mystra and the Weave** (W1, W2): one-sentence relation and Weave vocabulary in names. **Science source** (S5): Rachman (courage as acting while afraid) only names the idea; Yerkes–Dodson could shape the Courage cap.
 9. **Aspect VFX**.
-10. **Eternal rework**: Bleeding / Gaping Wounds / Maimed move to the Lionheart; record the impact in the Eternal's rework.
+10. **Eternal rework**: Bleeding / Gaping Wound / Hamstring move to the Lionheart; record the impact in the Eternal's rework.
 
 ### T2 — to check in the game files / Toolkit
 
@@ -113,7 +118,7 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 
 ### Next topics (in order)
 
-1. Settle open questions 1–4 and 6–7 (rules).
+1. Settle open question 2 (rules); T2 results are in the findings table below.
 2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
 3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
