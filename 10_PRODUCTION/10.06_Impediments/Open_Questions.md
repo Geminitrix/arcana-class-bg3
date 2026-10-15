@@ -107,5 +107,10 @@
 - ❓ **Eternal card passives with vanilla names.** `Shout_Arcana_Card_Passive_InescapableDestruction` and
   `…_InuredToUndeath` use DisplayName handles that are not in the mod's `english.xml` (they reuse vanilla
   loca). Check the names show in game and in all 16 languages.
-- ❓ **Owner approvals pending:** `_SUBCLASS_STANDARD` (21.04), DoR/DoD (00.03), mod licence (00.06),
+- ❓ **Experience pillars (`21.01_Vision_and_Pillars.md`) — for the Owner** (ARC-0016, decision D5). *What 3–5
+  experiences does the Arcana promise?* Format of `27.01`: pillar · experience · yes/no filter question ·
+  anti-example. `31.01` §1 already lists four **identity** pillars (Mystra and the Weave, the tarot, the seer, a destiny
+  chosen at level 1); they describe content, not the experience. Until this is answered, Design gate question 1
+  (`21.04/_SUBCLASS_STANDARD.md` §15) checks the subclass fantasy only.
+- ❓ **Owner approvals pending:** `_SUBCLASS_STANDARD` v2 (21.04, ARC-0016), DoR/DoD (00.03), mod licence (00.06),
   ADR-0006 (Git LFS quota), mod.io guidelines summary (00.06 `PLATFORM_RULES.md`).

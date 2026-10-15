@@ -59,3 +59,8 @@ progression and stay inside the budget.
   five updated rows and a new ARC-0016 table (honest statuses: mostly skimmed or exists — not read). Handoff
   `27/HANDOFF_LeadClassDesigner_to_GameDesignDirector_ARC-0016.md` executed in session, `done`. Found: the Resonant review
   dates *Lenticular Design* 2011 (it is 2014) — to fix in Phase 6.
+- 2026-10-15 — Phase 3: v1 archived (`93/2026-10-15_SUBCLASS_STANDARD_v1/`, README, `_INDEX`); standard v2 written
+  (ids and §1.2/§2.3/§3/§15 kept; new I7–I8, S7, M7, K7, P11–P12, J1–J7, B5–B7, X1–X3; BG3 facts grounded in the
+  local extraction — high ground corrected to a flat ±2 modifier; formulas left to `22.06`). Pillars question added to
+  `10.06` (handoff to the Producer, done). Found: `31.01` §1 holds four identity pillars (content, not experience).
+  Status: awaiting Owner approval before Phase 4.
