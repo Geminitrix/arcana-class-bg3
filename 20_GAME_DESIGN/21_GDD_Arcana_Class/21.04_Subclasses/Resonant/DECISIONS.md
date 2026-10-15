@@ -6,7 +6,7 @@ role: source of the Resonant dossier (00.08) — every decision is logged here t
 
 # The Resonant — decision log
 
-Decisions R1–R48 (2026-10-08 → 2026-10-12, ticket ARC-0002). Moved here on 2026-10-15 from
+Decisions R1–R48 (2026-10-08 → 2026-10-12, ticket ARC-0002); R49+ from the refining review `REFINE_Resonant_2026-10-15.md` (ARC-0014). Moved here on 2026-10-15 from
 `55_Implementation_Specs/_wip/Resonant/decisions.md` (ADR-0009: decisions live in the dossier). The current
 design that results from them is `DESIGN.md`; when a decision replaces an earlier one, both stay here and
 `DESIGN.md` shows only the result.
@@ -66,6 +66,7 @@ Sources read: `93_Old_Versions/2026-10-15_Resonant_first_design/2026-10-06-heart
 | R46 | **Shared Heart shares feelings** (replaces R18's "a Surge lands on all" and R24's free Surges): a feeling braided in one linked creature is braided in every linked creature (counted once); a Catharsis on one still heals them all (R44). Peaks and intense emotions are not copied; Surges on linked allies cost as usual | author, 2026-10-12 |
 | R47 | **Feelings stack additively** (`StackType Additive`): a feeling braided again in the same fight adds its turns | author, 2026-10-12 |
 | R48 | **Emotional Overload is a Bonus Action** | author, 2026-10-12 |
+| R49 | **A used mood is spent; only an emotion that fades on its own leaves a mood** (written once in Emotional Alchemy). Intensify: the intense emotion leaves nothing when it ends (was: the mood returns). **Temper** (replaces R36): spend a creature's mood to make it relive the emotion it came from for 1 turn; the replayed emotion leaves nothing when it fades. Closes the Intensify and Temper loops (`REFINE_Resonant_2026-10-15.md` §6.1 L1, L4, L5) | Owner, from SG1 (ARC-0014), 2026-10-15 |
 | — | Bug: Ready: Compassion triggered on the Resonant's own Surge on an ally (the Surge has a damage functor and "hits"). Now only an enemy source triggers it, as vanilla Hellish Rebuke | 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
