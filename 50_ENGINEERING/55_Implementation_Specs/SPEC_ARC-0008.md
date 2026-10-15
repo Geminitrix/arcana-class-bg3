@@ -41,7 +41,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 | **1** | 1 | **The Wheel core**: four position statuses, King/Regent, the Osiris goal that binds, turns and crowns; *The Rota*; cantrip, *Coronation*, *Dethrone*, *Turn the Spoke*; chassis (ClassDescription, ProgressionDescription, preset, defaults, skill list), level-1 list and progression | **Written in full below**; probes P1–P8 |
 | **2** | 3 | *The Crossing* (pairs within 9 m, once per enemy per round), *Atropos' Cut*, Awakening *10 · Wheel of Fortune* (count, lone enemy ×2, Tier I *Tyche*), *Rota Fortunae* | **Written below** (2026-10-14); probes P9–P16 |
 | **3** | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | **Written below** (2026-10-15); Claude implements; probes P17–P24 at the end |
-| 4 | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | After stage 3 |
+| **4** | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | **Written below** (2026-10-15); Claude implements; probes P25–P32 at the end |
 | 5 | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | After stage 4 |
 | 6 | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers share one Wheel (SP93) | After stage 5 |
 | 7 | — | PC edition `CardDB.lua` (Claude), test cases in `60`, `05` handoff, renames and icons | DoD |
@@ -265,3 +265,47 @@ Wheel.
 | P22 | A holder dies | Its office ends; the seat isn't given back until the Long Rest | — |
 | P23 | Peripeteia with allies and enemies on the Wheel, some beyond 18 m | Within 18 m: Reigning ↔ Fallen, Rising ↔ Falling; an enemy turned Fallen next to a Reigning ally crosses at once; beyond 18 m nothing moves | — |
 | P24 | Cast Peripeteia again in the same fight, with a higher slot | It can't (once per combat, variants included) | Variants don't share the cooldown → a `PERIPETEIA_USED` status like `ARCANE_MASTERY_USED` |
+
+---
+
+## Stage 4 — Hubris, Nemesis, Usurp and two more offices (level 7)
+
+Written 2026-10-15; Claude implements (`55/_wip/Kingmaker/stage4/`, applied with `[fechado] ARC-0008`), rehearsed on a copy
+of the mod first. Probes at the end of the subclass.
+
+### What is written
+
+| # | Kind | Entry | How |
+|---|---|---|---|
+| 01 | Status BOOST | `KINGMAKER_HUBRIS` (visible), `KINGMAKER_CROSSING_HUBRIS_TECH`, `KINGMAKER_USURP_TECH`, `KINGMAKER_EXPOSED` | `40_stage4.patch` |
+| 02 | Status BOOST | `COURT_MASTER_OF_LAWS`, `COURT_MASTER_OF_SECRETS` (aura 9 m), `ASPECT_AWAKENED_WHEEL_II` | same |
+| 03 | Passive | `Arcana_Passive_Hubris`, `Arcana_Passive_Aspect_WheelOfFortune_II` (Nemesis), `Arcana_Passive_Court_Level7` (hidden: opens the level-7 offices) | same |
+| 04 | Spell Target | `Target_Arcana_Card_Spell_Usurp` (level-4 card, two targets) | same; variants `_5`, `_6` |
+| 05 | Spell Target | `Target_Arcana_Util_Court_MasterOfLaws`, `_MasterOfSecrets`; Convene the Court's `ContainerSpells` gets them | same (`@set`) |
+| 06 | LevelMap | `Kingmaker_CrossingHubris` (2d4 / 2d6 at 5 / 2d8 at 9) | `41_uuid.pl` (copy of `Kingmaker_Crossing` with one more die) |
+| 07 | Spell list, progression | *Kingmaker Level 7* = Usurp; row `743d27d7…` (level 7): `PassivesAdded` Hubris, Tier II, Court level 7; `AddSpells` | `41_uuid.pl` |
+| 08 | Osiris | `ARCANA_Kingmaker_Wheel`: + Hubris, Nemesis, Usurp, the Master of Laws (insertions only) | `42_goal.pl` |
+
+### How each rule is built
+
+| Rule (design) | Build | Anchor |
+|---|---|---|
+| **Hubris** (§8.3): an enemy that enters Reigning gains Hubris; its next Crossing deals one more die and spends it; an enemy dropped from Reigning to Fallen (Peripeteia, Usurp) pays at once | Every move notes an enemy entering Reigning (`PROC_ARCANA_Kingmaker_Fell`); `Settle` grants `KINGMAKER_HUBRIS` to those that still Reign (so an enemy the Master of Laws pushes through Reigning doesn't get it). A Crossing on an enemy with Hubris applies `KINGMAKER_CROSSING_HUBRIS_TECH` (`Cause.LevelMapValue(Kingmaker_CrossingHubris)` = two Crossing dice) and removes Hubris | `SIGIL` (`Cause.LevelMapValue`) |
+| **Nemesis** (§9.3, Tier II): that Crossing drops every Falling enemy within 3 m to Fallen; they cross if a Reigning ally is near; the chain ends | The Hubris Crossing calls `PROC_ARCANA_Kingmaker_Nemesis`, which needs `DB_ARCANA_AspectReached(owner, 2)` and collects Falling enemies within 3 m (`GetDistanceTo`); at the end of `Settle` they move one step and the Wheel settles again. Only Falling enemies move and each crosses once per round, so it stops | ARC-0007 tiers (`ARCANA_Aspect_Common`) |
+| **Usurp** (§7.7): one ally and one enemy on the Wheel trade positions; level-4 card, once per combat | `AmountOfTargets 2`; the first target waits in `DB_ARCANA_Kingmaker_UsurpFirst`, the second closes the pair; an ally + an enemy trade through a staging row (the ledger is never read while it changes); two of the same side don't trade | `Target_EnhanceAbility_3` (`AmountOfTargets 2`) |
+| **Master of Laws** (§6.2, SP105): an enemy that attacks the King falls one step further at the next turn — never past Fallen, never up to Reigning | `AttackedBy(King, enemy)` with the King's status and a Master of Laws in this Kingmaker's Court sentences the enemy (`DB_ARCANA_Kingmaker_Condemned`); at the next turn start, after every move, a sentenced enemy now Reigning (came from Rising) or Falling (came from Reigning) takes one more step; the sentence is cleared | `story_header.div` `AttackedBy` :1184; vanilla goals `AttackedBy((CHARACTER)…)` |
+| **Master of Secrets** (§6.2): enemies on the Wheel within 9 m can't be invisible or hide; Advantage against Falling enemies | Aura 9 m → `KINGMAKER_EXPOSED` on enemies on the Wheel: `StatusImmunity(SG_Invisible);StatusImmunity(SNEAKING)` and it removes both on apply; the office status has `IF(HasStatus('KINGMAKER_FALLING',context.Target)):Advantage(AttackRoll)` | `FAERIE_FIRE` (`StatusImmunity(SG_Invisible)`); a vanilla boost `IF(HasStatus('BLEEDING',context.Target)):Advantage(AttackRoll)` |
+| **Level-7 offices** | Their options need `HasPassive('Arcana_Passive_Court_Level7', context.Source)` (the card-marker pattern): vanilla uses `ClassLevelHigherOrEqualThan` only in functors, never in a target condition | the mod's `ARCANA_IS_CARD` marker |
+
+### Probes — after the whole subclass (one rule each)
+
+| # | Do | Proves it works | Plan B |
+|---|---|---|---|
+| P25 | Level 7: let an enemy reach Reigning; next turn it falls to Fallen next to a Reigning ally | It shows **Hubris** while Reigning; its Crossing deals two dice and Hubris goes | — |
+| P26 | With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling enemy within 3 m | The Falling one drops to Fallen and crosses too if an ally Reigns near; nothing loops | — |
+| P27 | Usurp on a Reigning ally and a Fallen enemy; then on a Fallen ally and a Reigning enemy with Hubris | First: the ally becomes Fallen and the enemy Reigning (it gains Hubris). Second: the enemy drops to Fallen and crosses at once if an ally Reigns near, with its Hubris die | Two targets not offered → one target that trades with the King |
+| P28 | Usurp on two allies | Nothing moves; the card is spent (once per combat) | — |
+| P29 | Master of Laws held; a Rising enemy attacks the King | At the next turn it skips Reigning and lands on Falling (no Hubris) | `AttackedBy` doesn't fire on misses → note it |
+| P30 | Same with a Reigning enemy; with a Falling one | Reigning → Fallen (and may cross); Falling → Fallen only | — |
+| P31 | Master of Secrets; an enemy on the Wheel within 9 m tries to hide or turn invisible | It can't; an invisible one becomes visible; the holder's attacks against a Falling enemy have Advantage | `SNEAKING` immunity doesn't stop hiding → look for the vanilla anti-hide status |
+| P32 | Level 5 character: open Convene the Court | Master of Laws and Master of Secrets are shown but can't be cast before level 7 | — |

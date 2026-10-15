@@ -4,5 +4,6 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §8.3"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Arcana_Passive_Hubris, KINGMAKER_HUBRIS, KINGMAKER_CROSSING_HUBRIS_TECH, LevelMapValues Kingmaker_CrossingHubris, ARCANA_Kingmaker_Wheel]
 values:
   extra_dice: { value: 1, unit: count, note: "one extra Crossing die on the amplified Crossing" }

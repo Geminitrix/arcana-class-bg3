@@ -165,3 +165,9 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   stats patch (15 entries, 18 strings), list Kingmaker Level 5 + level-5 Selectors, goal +228 lines, Peripeteia _4–_6,
   sort_stats, check_cards OK (110), validate 0 errors; the applied files are identical to the rehearsal copy. The stats
   patch ran twice by mistake: checked, no duplicate entry, field or handle. The Owner recompiles the Story.
+- 2026-10-15 — Stage 4 prepared (level 7): SPEC stage 4 (Hubris, Nemesis, Usurp, Master of Laws, Master of Secrets;
+  probes P25–P32) and `55/_wip/Kingmaker/stage4/` (`40_stage4.patch` 13 entries + Convene's container, `41_uuid.pl` list
+  Kingmaker Level 7 + level-7 row + LevelMap Kingmaker_CrossingHubris, `42_goal.pl`). Level-7 offices opened by a hidden
+  passive (vanilla uses ClassLevelHigherOrEqualThan only in functors). Two icon names fixed before use. Rehearsed on a
+  copy: Usurp _5/_6, 5 offices in the container, LevelMap 2d4/2d6/2d8, all entries grouped, check_cards OK, no
+  duplicate field or handle, every script idempotent. Waits for `[fechado] ARC-0008`.

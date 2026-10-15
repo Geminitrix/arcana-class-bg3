@@ -4,6 +4,7 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.7"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Target_Arcana_Card_Spell_Usurp, KINGMAKER_USURP_TECH, ARCANA_Kingmaker_Wheel]
 values:
   card_level: { value: 4, note: "Action; once per combat" }
   range:      { value: 18, unit: metres }
