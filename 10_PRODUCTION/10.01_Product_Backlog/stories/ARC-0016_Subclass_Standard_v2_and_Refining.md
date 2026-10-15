@@ -68,3 +68,6 @@ progression and stay inside the budget.
   the file wins (`CLAUDE.md` rule 6). Standard §8 rewritten with both citations (12 wiki pages checked); new §8.7 for
   divergences (XP totals); initiative corrected (d4 + DEX, shared result, not adjacency); bg3.wiki added to `27.07`.
   High ground confirmed as a flat bonus by both sources.
+- 2026-10-15 — Owner approved the standard v2 (status line and `10.06` updated). Phase 4: `_SUBCLASS_REFINING.md` written
+  (five variants, full and short; 12-step pipeline; 13 diagnostic tools; `SG##` format; templates). Self-review: no
+  subclass named, every `DM-` id and every standard § cited exists. Awaiting Owner approval before Phase 6.

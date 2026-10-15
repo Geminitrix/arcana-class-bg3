@@ -2,7 +2,7 @@
 id: 21.04/_SUBCLASS_STANDARD
 version: 2
 owner: Lead Class Designer
-status: proposed v2 — written 2026-10-15 (ARC-0016, Owner decisions D1–D6); in force for new work once the Owner approves it. Audits made against v1 stay valid (same ids)
+status: approved v2 — Owner, 2026-10-15 (ARC-0016, decisions D1–D6); in force for new work. Audits made against v1 stay valid (same ids)
 updated: 2026-10-15
 supersedes: v1 (2026-10-11) — 90_ARCHIVE/93_Old_Versions/2026-10-15_SUBCLASS_STANDARD_v1/
 companion: 21.04/_SUBCLASS_REFINING.md (how to diagnose and improve something that already exists)
