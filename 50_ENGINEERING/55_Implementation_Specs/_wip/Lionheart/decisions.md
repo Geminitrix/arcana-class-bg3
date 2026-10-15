@@ -61,3 +61,60 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH43 | **Principle clarified (refines LH42):** the Maiden's **focus** is combat against the enemy / the Villain — neutralise, crowd control, manoeuvre, shove, silence. Small touches of support here and there are fine as long as they are not the focus. So the LH21 draft (Maiden STR-to-AC shared with adjacent allies) and LH37 (*The Lion Standard* sharing the form's effect with allies) **stay**. The Standard object remains the open technical point (T2, author checks later) | author |
 | LH44 | **One owner per effect.** What a form already grants, no card grants again; a card may only **scale** it (with Courage) or **extend** it (another target or situation). Owners: **Lion** — extra damage vs the Villain, damage reduction; **Maiden** — the Villain's Disadvantage vs others, AC bonus. Fixes: (1) Maiden Mastery I *Guarding Hand* → ***Turn the Blow*** — reaction: when an enemy attacks an ally adjacent to the Lionheart, shove that enemy 1.5 m; (2) ***Maiden's Palm*** → **disarms** the enemy and **takes its movement**; (3) ***Maiden's Hush*** → **silences** the enemy, removes its reaction, and sets **its movement and the Lionheart's own to 0** (both held in place); (4) ***Maiden's Step*** → no AC and no swap: the Lionheart **throws an adjacent ally back up to 5 m**, no Prone, no fall damage (pulls them out of the beast's reach; working name kept until the text pass); (5) Maiden Mastery II STR-to-AC for adjacent allies **stays** (extends); (6) Lion Mastery II damage reduction vs spells **stays** (extends); (7) *Lion's Pounce* extra damage **stays** (any target, on the leap only). Note for balance: Grip, Palm and Hush all stop movement — three roots; differentiate durations/targets in §8 | author (option 1, with changes) |
 | LH45 | **Progression — *One Step Each Level*:** L1 core (the Villain, Courage, the two forms, Drawing Steel) · *Claw / Grip* (cantrip) · *Pounce / Step* (bonus) · *Rend / Throw* — L3 Tier I *Wear the Hide* + Aspect card *Infinity* · Mastery I: Lion *Unbowed* (can't be knocked Prone or shoved) / Maiden *Turn the Blow* — L5 *Lion's Second Blow* · ultimate *Strangle the Lion* · card *Roar / Hush* — L7 Tier II *Many Heads* · Mastery II: Lion damage reduction vs spells / Maiden STR-to-AC for adjacent allies — L9 card *Fang / Palm* · rule *The Greater Labour* (once per combat, choose the Villain; Courage doubles instead of halving, capped) — L11 capstone *The Lion Standard* — L12 Tier III *The Twelfth Labour*. Even levels belong to the base class | author (option 1) |
+| LH46 | **Form attack dice** (replaces LH17's Disadvantage; numbers are drafts for the balance pass): **Lion** — extra damage vs the Villain **1d4 → 1d6 (Mastery I, L3) → 1d8 (Mastery II, L7)**. **Maiden** — a *Bane*-like penalty on the Villain's **attack rolls** (weapon and spell **attack rolls only**, not saving-throw spells) against every creature that is not the Lionheart: **−1d4 → −1d6 → −1d8**. Author's build idea: the Lionheart carries a form status; the Villain carries a status that applies the penalty to attacks against targets lacking it (**T2**) | author (proposal accepted) |
+| LH47 | **Form defences** (drafts): **Maiden AC** — unarmoured: AC = 10 + DEX + **full Strength** (no cap, like the Barbarian's Unarmoured Defence); in light armour Strength is added up to a cap **2 → 4 (Mastery I) → 5 (Mastery II)**. **Lion damage reduction** — flat, against **every** enemy: **−2 → −3 → −5** (or tied to proficiency; balance pass decides). **Maiden Mastery II** — allies within 3 m receive **half** the bonus or a fixed **+1/+2** (balance pass decides). How reduction and resistances stack is the engine's rule | author (proposals accepted) |
+| LH48 | ***Claw / Grip***: Claw — weapon strike, shoves 1.5 m. Grip — **Strength save**; on a fail the target's movement is 0 **and it loses its reaction** until the Lionheart's next turn | author |
+| LH49 | ***Pounce / Step*** stays a **slot card, bonus action** (not a cantrip). Pounce — leap to an enemy within 9 m without opportunity attacks; **small** extra damage that scales lightly with level, like a cantrip. Step — gain 9 m of movement and **throw an adjacent ally back 5 m** out of an enemy's reach (no Prone, no fall damage). Names may change (candidates: Pounce/Rescue, Spring/Shelter, Leap/Pull Back) | author |
+| LH50 | **Courage spending revised (supersedes LH16's "consume all"):** a card with a Courage threshold **spends only its threshold**. Costs so far: Rend/Throw 2 · Fang/Palm 3 · the extra attack 1 · *Lion's Judgement* 5 · the ultimate spends **all** (damage scales with it). Thresholds and cap are drafts | author |
+| LH51 | ***Rend / Throw***: Rend — heavy weapon strike; spending 2 Courage leaves the target **Bleeding**. Throw — throw the enemy a few metres, Prone; spending 2 Courage also takes 3 m of its movement. **Bleeding, Gaping Wounds, Maimed, Lethargic are vanilla** (author). The Eternal will be reworked; the bleed/wound vocabulary moves to the Lionheart's identity (the Eternal rework must take that into account) | author |
+| LH52 | ***Wear the Hide*** (Tier I) revised: when the Villain dies, the Lionheart gains **resistance to all damage for 1 turn**, and Courage passes **whole** to the next Villain (no halving) | author |
+| LH53 | **Mastery I** (name to change): Lion — immune to Prone and to shoves. Maiden — reaction: when an enemy within 1.5 m of the Lionheart attacks an ally, shove it 1.5 m (does not interrupt the attack); if it hits an obstacle it falls Prone **if the Toolkit allows it** (**T2**) | author |
+| LH54 | ***Lion's Second Blow*** works **exactly like Extra Attack but costs 1 Courage**. Rename needed ("Blow" reads as a punch; the Lion always strikes with a blade): candidates *Second Edge*, *Twin Fangs*, *Relentless Edge* | author |
+| LH55 | **Ultimate *Strangle the Lion*** revised: spends **all** Courage; the Villain is **Restrained** and takes concussion damage (read as Bludgeoning — confirm); Courage spent raises the damage; the extra attack costs no Courage **for that turn only**. Incapacitated removed (works on any enemy) | author |
+| LH56 | ***Roar / Hush***: Roar — Frightened in an area. Hush — silences, **breaks Concentration**, removes the reaction; the Lionheart and the target both have movement 0. **Hush needs a new name** in the *Lion's / Maiden's* pattern ("Closed Jaw" rejected). Breaking Concentration directly: **T2** | author |
+| LH57 | **"Mastery" must be renamed** (candidates: *Taming I/II*, *The Garland I/II*, *Lemniscate I/II*; must not echo the tier names) | author |
+| LH58 | ***Fang / Palm***: Fang — heavy strike; if the target is **Bleeding**, the Bleeding becomes **Gaping Wounds**; spending 3 Courage applies **Maimed**. Palm — disarms and takes 9 m of movement; spending 3 Courage applies **Lethargic** (the Maiden side's final effect to be decided later) | author |
+| LH59 | ***The Greater Labour* replaced by *The Ordeal*** (L9): when an ally within 9 m drops to 0 HP, the enemy that downed them **becomes the Villain** and the Lionheart's Courage fills to its maximum | author (proposal accepted) |
+| LH60 | **Capstone replaced** (supersedes LH37 *The Lion Standard*): ***Lion's Judgement*** (L11, Long Rest, Unique) — spend 5 Courage (draft) to **execute** an enemy below 25% HP (Garen's *Demacian Justice*; Smite-style animation); after the kill the Lionheart goes to the **Maiden** form (sheathes) and gains 12 m of movement. There is no reliable way to tell a boss from other enemies, so the rule **must work on every enemy** — how it stays fair against bosses is open | author |
+| LH61 | **Kept unchanged:** Aspect card *Infinity* (both forms for 2 turns), Tier II *Many Heads* (two Villains), Tier III *The Twelfth Labour* | author |
+
+## State at hand-off (2026-10-15)
+
+The brainstorm moves to the Claude Desktop session (it has the game files and the Toolkit). Decisions LH1–LH61 above are the source; later rows supersede earlier ones where they say so (LH16 → LH50, LH17 → LH46, LH37 → LH60, LH38 → LH39, the Greater Labour → LH59).
+
+### Progression as it stands
+
+| Lvl | Pieces |
+|---|---|
+| 1 | Core: the Villain (highest max HP; level, then nearest; locked until it falls; summons excluded; Courage halved on change) · Courage (+1 turn ending in the Villain's reach, +1 when it attacks the Lionheart; cap; resets) · two forms in containers, Drawing Steel, combat starts Maiden · Lion: +1d4 vs Villain, DR −2 · Maiden: Villain −1d4 vs others, STR to AC · *Claw / Grip* · *Pounce / Step* · *Rend / Throw* |
+| 3 | Tier I *Wear the Hide* · Aspect card *Infinity* · Mastery I (dice up; Lion immune to Prone/shove; Maiden shove reaction) |
+| 5 | Extra attack for 1 Courage (*Second Blow*, rename) · ultimate *Strangle the Lion* · *Roar / Hush* |
+| 7 | Tier II *Many Heads* · Mastery II (dice up; Lion DR vs spells; Maiden AC to allies within 3 m, reduced) |
+| 9 | *Fang / Palm* · *The Ordeal* |
+| 11 | Capstone *Lion's Judgement* |
+| 12 | Tier III *The Twelfth Labour* |
+
+### Open questions
+
+1. **Courage rule in one sentence** (M2): thresholds (LH50) vs the ultimate's "all"; does any card still scale per point (Pounce damage, Step)? Courage cap value; keep the halving on Villain change?
+2. **Ultimate limiter**: once per combat, no slot (proposed, not confirmed)? Minimum Courage to cast?
+3. **Lion's Judgement vs bosses**: executing a boss at 25% with no boss detection — e.g. execute only if the target's current HP is below a fixed amount as well, or heavy damage instead of death above a max-HP size. Courage cost 5 vs the cap.
+4. **Maiden side of Fang / Palm**: final effect (Lethargic or other).
+5. **Names**: Hush (Maiden's …), Pounce / Step, Second Blow, Mastery. Then the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
+6. **Movement-control overlap**: Grip (0), Throw (−3 m), Palm (−9 m), Hush (0) — differentiate durations/targets.
+7. **Mastery II Maiden**: allies get half or a fixed +1/+2.
+8. **Mystra and the Weave** (W1, W2): one-sentence relation and Weave vocabulary in names. **Science source** (S5): Rachman (courage as acting while afraid) only names the idea; Yerkes–Dodson could shape the Courage cap.
+9. **Aspect VFX**.
+10. **Eternal rework**: Bleeding / Gaping Wounds / Maimed move to the Lionheart; record the impact in the Eternal's rework.
+
+### T2 — to check in the game files / Toolkit
+
+Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants via `EnteredCombat`) · the Maiden penalty status (penalty only vs targets without the form status) · a status that *holds* `Sheathing` · detecting a weapon attack to switch to the Lion · *The Twelfth Labour* "would drop to 0" · Throw size rule · Turn the Blow obstacle → Prone · Hush breaking Concentration · AC = 10 + DEX + STR boost · execute check (`HasHPPercentageLessThan`, KB 57.03) · spell containers as deck cards (pattern exists, `CardDB.lua` `D.containers`).
+
+### Next topics (in order)
+
+1. Settle open questions 1–4 and 6–7 (rules).
+2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
+3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
+4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
+5. `21.08` role/axis column; handoffs (Context Keeper, Lore Writer, Localization); `SPEC_ARC-0009`, `TOOLKIT_ARC-0009`.

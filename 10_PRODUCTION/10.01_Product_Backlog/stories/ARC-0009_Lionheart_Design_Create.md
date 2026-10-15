@@ -69,3 +69,6 @@ ProgressionDescription still reads *Titan*. They are synced to `51` and wait for
   decisions LH1–LH19 in `55/_wip/Lionheart/decisions.md` (Aspect of Courage, the Villain by highest maximum HP,
   One Labour at a Time, Stand Before the Beast, cards as Lion / Maiden containers, Finisher, Fang and Shield,
   Strength secondary). Next: chassis (saves, armour, weapons, skills), progression, Awakening, pool.
+- 2026-10-15 — brainstorm continued in the cloud session up to LH61 (chassis, Awakening, ultimate, capstone
+  *Lion's Judgement*, full 1–12 progression, form dice and defences). Hand-off to the Claude Desktop session:
+  open questions, T2 checks and next topics at the end of `55/_wip/Lionheart/decisions.md`.
