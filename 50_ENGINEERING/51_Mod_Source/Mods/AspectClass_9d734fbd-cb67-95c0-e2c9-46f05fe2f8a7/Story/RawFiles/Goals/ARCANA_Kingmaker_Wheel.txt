@@ -13,6 +13,9 @@ KBSECTION
 // Stage 4: Hubris (an enemy entering Reigning; its next Crossing deals one more die), Nemesis (Tier II: that Crossing drops
 // the Falling enemies within 3 m to Fallen), Usurp (an ally and an enemy trade places), the Master of Laws (an enemy that
 // attacks the King takes one more step at the next turn, never past Fallen nor up to Reigning), the Master of Secrets.
+// Stage 5: Succession (a dead enemy's position passes to the nearest enemy off the Wheel within 9 m of the body), the
+// Master of Ships (a Crossing also pays within 9 m of the Ships), the Master of Coin (once per Long Rest, a spell slot back).
+// Wheel of Ixion binds through KINGMAKER_BIND_ENEMY_TECH like Dethrone.
 //REGION Tables
 PROC
 PROC_ARCANA_Kingmaker_Init()
@@ -78,6 +81,8 @@ DB_ARCANA_Kingmaker_HealStep("FALLEN");
 DB_ARCANA_Kingmaker_HealStep("RISING");
 DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_LAWS", "MASTER_OF_LAWS");
 DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_SECRETS", "MASTER_OF_SECRETS");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_COIN", "MASTER_OF_COIN");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_SHIPS", "MASTER_OF_SHIPS");
 DB_ARCANA_Kingmaker_LawStep("REIGNING");
 DB_ARCANA_Kingmaker_LawStep("FALLING");
 
@@ -185,8 +190,27 @@ LongRestFinished()
 AND
 DB_ARCANA_Kingmaker_Seats(_Owner, _N)
 THEN
+RemoveStatus(_Owner, "KINGMAKER_COIN_SPENT", _Owner);
+
+IF
+LongRestFinished()
+AND
+DB_ARCANA_Kingmaker_Seats(_Owner, _N)
+THEN
 NOT DB_ARCANA_Kingmaker_Seats(_Owner, _N);
 RemoveStatus(_Owner, "COURT_FULL", _Owner);
+//END_REGION
+
+//REGION Master of Coin (level 9) - once per Long Rest, its hit on a Fallen enemy gives the Kingmaker a spell slot back
+IF
+StatusApplied((CHARACTER)_Enemy, "KINGMAKER_COIN_TECH", (CHARACTER)_Holder, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, "MASTER_OF_COIN")
+AND
+HasActiveStatus(_Owner, "KINGMAKER_COIN_SPENT", 0)
+THEN
+ApplyStatus(_Owner, "KINGMAKER_COIN_SPENT", -1.0, 1, _Owner);
+ApplyStatus(_Owner, "KINGMAKER_COIN_RESTORE", 0.0, 1, _Owner);
 //END_REGION
 
 //REGION Bind - Coronation (ally, Rising) and Dethrone (enemy, Falling); with Tyche (Tier I) one position ahead
@@ -674,6 +698,28 @@ _Dist <= 9.0
 THEN
 DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
 
+// Master of Ships (level 9): within 9 m of the Ships, as if a Reigning ally stood there
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Ships, "MASTER_OF_SHIPS")
+AND
+IsDead(_Ships, 0)
+AND
+GetDistanceTo(_Enemy, _Ships, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
@@ -792,6 +838,82 @@ AND
 DB_ARCANA_Kingmaker_Enemies(_Owner, 1)
 THEN
 PROC_ARCANA_Aspect_Step(_Owner, "WHEEL");
+//END_REGION
+
+//REGION Succession (level 9) - the nearest enemy off the Wheel within 9 m of the body takes the dead enemy's position
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Dead, _Position, 0, _)
+AND
+HasPassive(_Owner, "Arcana_Passive_Succession", 1)
+THEN
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, _Dead, _Position);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist)
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+// candidates: the owner's combat (the Awakening roster), enemies of the owner, alive, on no Wheel, within 9 m of the body
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Aspect_InCombat(_Owner, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Candidate, _Combat)
+AND
+_Candidate != _Dead
+AND
+IsEnemy(_Owner, _Candidate, 1)
+AND
+IsDead(_Candidate, 0)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Candidate, _, _, _)
+AND
+GetDistanceTo(_Dead, _Candidate, _Dist)
+AND
+_Dist <= 9.0
+AND
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _, _)
+THEN
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Aspect_InCombat(_Owner, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Candidate, _Combat)
+AND
+_Candidate != _Dead
+AND
+IsEnemy(_Owner, _Candidate, 1)
+AND
+IsDead(_Candidate, 0)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Candidate, _, _, _)
+AND
+GetDistanceTo(_Dead, _Candidate, _Dist)
+AND
+_Dist <= 9.0
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Best, _BestDist)
+AND
+_Dist < _BestDist
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Best, _BestDist);
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Heir, _Dist)
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Heir, _Dist);
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Heir, _Position, 0);
 //END_REGION
 
 //REGION Leaving the Wheel - death and the end of combat

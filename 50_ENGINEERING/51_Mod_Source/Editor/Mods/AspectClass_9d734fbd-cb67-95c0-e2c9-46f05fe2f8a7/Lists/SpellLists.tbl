@@ -323,6 +323,13 @@
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Usurp" />
       </fields>
     </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ceaf01b3-f829-4df9-9dbc-2d207ee56891" />
+        <field name="Name" type="NameTableFieldDefinition" value="Kingmaker Level 9" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WheelOfIxion" />
+      </fields>
+    </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc" />

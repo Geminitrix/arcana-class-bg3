@@ -1510,6 +1510,8 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="9" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Succession;Arcana_Passive_Court_Level9" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(ceaf01b3-f829-4df9-9dbc-2d207ee56891,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">

@@ -244,6 +244,11 @@
                     <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_Usurp"/>
                     <attribute id="UUID" type="guid" value="bb58ab5e-e55f-44d2-83e9-1527b9e543a5"/>
                 </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Kingmaker Level 9"/>
+                    <attribute id="Spells" type="LSString" value="Zone_Arcana_Card_Spell_WheelOfIxion"/>
+                    <attribute id="UUID" type="guid" value="ceaf01b3-f829-4df9-9dbc-2d207ee56891"/>
+                </node>
             </children>
         </node>
     </region>

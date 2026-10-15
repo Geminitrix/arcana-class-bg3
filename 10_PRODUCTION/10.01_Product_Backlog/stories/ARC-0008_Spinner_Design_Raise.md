@@ -180,3 +180,6 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   `51_uuid.pl` list Kingmaker Level 9 + level-9 row, `52_goal.pl`); 25.01 Ixion gets game_ids + upcast_die 1d6. Two icon
   names fixed before use. Rehearsed on a copy: Ixion _6 6d6, Zone fields and enumeration types right, all grouped
   KINGMAKER, check_cards OK, no duplicate, scripts idempotent. Waits for `[fechado] ARC-0008`.
+- 2026-10-15 — Stage 5 applied in the game ([fechado]): stats patch (10 entries + the container's seventh office), list
+  Kingmaker Level 9 + level-9 row, goal insertions, Ixion _6, sort_stats, check_cards OK (112), validate 0 errors; no
+  duplicate field or handle; identical to the rehearsal. The Owner recompiles the Story.

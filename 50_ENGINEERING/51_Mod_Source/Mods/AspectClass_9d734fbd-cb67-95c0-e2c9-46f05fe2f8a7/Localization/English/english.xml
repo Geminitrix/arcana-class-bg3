@@ -1516,4 +1516,16 @@
   <content contentuid="h450cfab1gbef7g0fffgc2f8gcb16376d9f81" version="1">Exposed</content>
   <content contentuid="hbcafa78fg7201g977fgb12cg062b5a94cb34" version="1">The Master of Secrets has its measure. Can't become &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; or hide.</content>
   <content contentuid="hba5dc8ffg3a56g0331g4d47g5c4f7f37e359" version="1">The Court: second circle</content>
+  <content contentuid="hf6a543begf6degdef6gc0aag909051d3834d" version="1">Succession</content>
+  <content contentuid="h2bf72455gf99eg2f80gc361g043ece71082f" version="1">When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king.</content>
+  <content contentuid="hdf5f609cge8aag1c39g690ag6f85cc524d70" version="1">Wheel of Ixion</content>
+  <content contentuid="h6b50fb42g7e0dg2b31g101cg9799e4ed4692" version="1">Send a burning wheel rolling through your foes and bind them to Fortune's wheel, Falling.</content>
+  <content contentuid="h2d8ca4bfgf454g2c22g0108g4f4832ef1d2e" version="1">Enemies that succeed the &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; take half damage but still join the Wheel. The wheel leaves a trail of fire behind it - allies included.</content>
+  <content contentuid="h3071c6bbgfa72g6e9eg5dd5g55f82a1e0bb0" version="1">Master of Coin</content>
+  <content contentuid="h26ba79dbg7e32g654cgfd1dg6b12172ae32d" version="1">Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;, hitting a Fallen enemy returns a spell slot to the Kingmaker.</content>
+  <content contentuid="h727fe14dga5d2g7e31g063agd262d1723893" version="1">Appoint an ally as Master of Coin. Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;, when it hits a Fallen enemy, you regain a spell slot.</content>
+  <content contentuid="h3298e45bgc841gc580ge751gfc759183f3ea" version="1">Master of Ships</content>
+  <content contentuid="h8312755bg6e76g27d3g11f6gb268c41fc2c2" version="1">Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
+  <content contentuid="h859f8ee7g4399gc9cbg6818gca91d9e2d9b5" version="1">Appoint an ally as Master of Ships. An enemy within [1] of it that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
+  <content contentuid="hb2d56260ge95egfd4fgedd9gafa51574398e" version="1">The Court: third circle</content>
 </contentList>

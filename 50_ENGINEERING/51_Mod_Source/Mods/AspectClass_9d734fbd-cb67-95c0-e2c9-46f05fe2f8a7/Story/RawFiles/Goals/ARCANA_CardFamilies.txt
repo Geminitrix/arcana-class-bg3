@@ -412,6 +412,8 @@ DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_ColorSpray_4", "Zone_Arcana_Card_Sp
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_ColorSpray_5", "Zone_Arcana_Card_Spell_ColorSpray");
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_ColorSpray_6", "Zone_Arcana_Card_Spell_ColorSpray");
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_FinalSpark", "Zone_Arcana_Card_Spell_FinalSpark");
+DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_WheelOfIxion", "Zone_Arcana_Card_Spell_WheelOfIxion");
+DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_WheelOfIxion_6", "Zone_Arcana_Card_Spell_WheelOfIxion");
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_WindBlast", "Zone_Arcana_Card_Spell_WindBlast");
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_WindBlast_3", "Zone_Arcana_Card_Spell_WindBlast");
 DB_ARCANA_CardFamily("Zone_Arcana_Card_Spell_WindBlast_4", "Zone_Arcana_Card_Spell_WindBlast");

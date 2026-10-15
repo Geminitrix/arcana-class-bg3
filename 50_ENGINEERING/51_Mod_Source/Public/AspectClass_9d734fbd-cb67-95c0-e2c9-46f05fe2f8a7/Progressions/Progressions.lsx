@@ -1155,7 +1155,9 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="9"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Succession;Arcana_Passive_Court_Level9"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(ceaf01b3-f829-4df9-9dbc-2d207ee56891,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="ac94328c-98f4-4068-805d-5a6e39b8ecb2"/>
                 </node>

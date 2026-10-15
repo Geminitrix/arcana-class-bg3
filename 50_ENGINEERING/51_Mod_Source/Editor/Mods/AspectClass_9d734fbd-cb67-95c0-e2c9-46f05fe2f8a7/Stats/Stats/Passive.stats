@@ -807,6 +807,38 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="168160cf-5017-1155-2212-d467c9c7d5ba" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Court_Level9" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb2d56260ge95egfd4fgedd9gafa51574398e" version="1" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="dbbb95ce-70a3-59d3-9de6-ee8198e00dc6" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Succession" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf6a543begf6degdef6gc0aag909051d3834d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h2bf72455gf99eg2f80gc361g043ece71082f" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b5a6cec7-e8a3-7906-7ba1-ee3fc053b2a9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Court_MasterOfCoin" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3071c6bbgfa72g6e9eg5dd5g55f82a1e0bb0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h26ba79dbg7e32g654cgfd1dg6b12172ae32d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_TossACoin" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnAttack" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="HasDamageEffectFlag(DamageFlags.Hit) and HasStatus('KINGMAKER_FALLEN')" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(KINGMAKER_COIN_TECH,100,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="40e0ad9a-8cb5-52ea-6094-2cc485ae6d8b" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Court_MasterOfHealing" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h09819edfge407ga97eged0fga3a16a364b34" version="1" />
