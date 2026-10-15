@@ -1,6 +1,6 @@
 ---
 status: done
-closed: 2026-10-15 — executed by the Game Design Director role in the same session (AGENTS.md §7): card 27.08 written, 27.07 statuses updated and sources added, _INDEX updated
+closed: 2026-10-15 — executed by the Game Design Director role in the same session (AGENTS.md §7): card 27.08 written, 27.07 statuses updated and sources added, _INDEX updated. Addendum the same day: bg3.wiki added to 27.07 as the reference for BG3 rules, always cited with the game file (Owner decision)
 ---
 # HANDOFF · Lead Class Designer → Game Design Director · ARC-0016 · research for the subclass standard v2
 

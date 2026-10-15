@@ -64,3 +64,7 @@ progression and stay inside the budget.
   local extraction — high ground corrected to a flat ±2 modifier; formulas left to `22.06`). Pillars question added to
   `10.06` (handoff to the Producer, done). Found: `31.01` §1 holds four identity pillars (content, not experience).
   Status: awaiting Owner approval before Phase 4.
+- 2026-10-15 — Owner decision on BG3 sources (option A): every BG3 fact cites the bg3.wiki page **and** the game file;
+  the file wins (`CLAUDE.md` rule 6). Standard §8 rewritten with both citations (12 wiki pages checked); new §8.7 for
+  divergences (XP totals); initiative corrected (d4 + DEX, shared result, not adjacency); bg3.wiki added to `27.07`.
+  High ground confirmed as a flat bonus by both sources.

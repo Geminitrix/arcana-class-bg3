@@ -683,28 +683,38 @@ gate.
 
 ## 8. What Baldur's Gate 3 rewards and punishes
 
-Design for the game the player is in. Each fact below names where it was checked; anything not in the data is marked
-**observed** or **estimate** and is corrected by playtest. The local extraction of the base game is
-`C:\Projetos\BG3\Base Game BG3\Assets\` (`56` in the project); paths below are relative to it.
+Design for the game the player is in.
+
+**How a BG3 fact is cited** (Owner decision, ARC-0016): each fact names **two sources** — the **bg3.wiki** page, the
+reference for the rules as the player sees them, and the **game file** that proves it. When they disagree, **the game
+file wins** (`CLAUDE.md` rule 6) and the divergence is written down (§8.7). A fact found in neither is marked
+**observed** or **estimate** and is corrected by playtest. Game-file paths are relative to the local extraction
+`C:\Projetos\BG3\Base Game BG3\Assets\` (`56` in the project). Wiki pages were checked on 2026-10-15.
 
 ### 8.1 The turn
 
-- **Action, Bonus Action and Reaction** are resources that refill every turn (`ActionPoint`, `BonusActionPoint`,
-  `ReactionActionPoint`, `ReplenishType` `Turn` — `Shared_Extracted/Public/Shared/ActionResourceDefinitions/
-  ActionResourceDefinitions.lsx`). Extra actions are the most valuable thing in the game: cost every effect in the
-  action it uses (`22.06` §4). A bonus-action card lets a turn combine two plays.
-- **Status turns:** a status lasts N turns and counts down at the bearer's turn start or end, or at round start or end
-  (`TickType` values in vanilla `Status_*.txt`), or on the **source's** turn with `TickingWithSource`. The remaining
+- **Action, Bonus Action and Reaction** are resources that refill every turn. Wiki: [Actions](https://bg3.wiki/wiki/Actions).
+  File: `ActionPoint`, `BonusActionPoint`, `ReactionActionPoint` with `ReplenishType` `Turn`
+  (`Shared_Extracted/Public/Shared/ActionResourceDefinitions/ActionResourceDefinitions.lsx`). Extra actions are the
+  most valuable thing in the game: cost every effect in the action it uses (`22.06` §4). A bonus-action card lets a
+  turn combine two plays; `Shove` and `Jump` are common bonus actions too
+  ([Shove](https://bg3.wiki/wiki/Shove), [Jump](https://bg3.wiki/wiki/Jump)), so the bonus action is contested.
+- **Status turns:** a status lasts N turns and counts down at the bearer's turn start (the default) or end, or at the
+  round's start or end; a status that ticks at turn start effectively lasts one turn less than it says. Wiki:
+  [Conditions](https://bg3.wiki/wiki/Conditions). File: `TickType` values `StartTurn`, `EndTurn`, `StartRound`,
+  `EndRound` in vanilla `Status_*.txt`; `TickingWithSource` makes it count on the **source's** turn. The remaining
   turns show on the status icon — free readability for anything timed.
 - **Reactions** fire on others' turns; the Arcana's reactions each have a per-round limit (§5.4).
-- **Initiative:** party members next to each other in the turn order can act together (**observed** in play; not in
-  the data files). A subclass that acts first sets up before enemies move.
+- **Initiative:** a d4 plus the Dexterity modifier, rolled when combat begins; party members who share an initiative
+  result act together, in any order. Wiki: [Initiative](https://bg3.wiki/wiki/Initiative). File: `InitiativeDie`
+  (`Shared_Extracted/Public/Shared/Stats/Generated/Data/Data.txt`); the shared turn is not in the data files. A
+  subclass that acts first sets up before enemies move.
 
 ### 8.2 The fight
 
-- **Length:** the reference number of rounds per fight and fights per day are declared in `22.06` §1 (an assumption,
-  corrected by playtest). Setup should pay back while the fight still matters; nothing core should wait for a fight
-  longer than the reference (P5).
+- **Length:** the reference number of rounds per fight and fights per day are declared in `22.06` §1 (an
+  **estimate**, corrected by playtest). Setup should pay back while the fight still matters; nothing core should wait
+  for a fight longer than the reference (P5).
 - **Turn 1 matters.** Every subclass needs something useful on its first turn; a pure-setup turn 1 must be paid back
   later with interest.
 - **Party of four.** A subclass shines by what it does for the other three too (P3).
@@ -713,32 +723,42 @@ Design for the game the player is in. Each fact below names where it was checked
 
 ### 8.3 The dice
 
-- **Bounded accuracy** keeps attack and save bonuses small, so **Advantage and Disadvantage** are the biggest levers,
-  and flat bonuses to attack, DC or AC must justify their effect on the hit curve (`27.02`).
-- **High ground is a flat modifier, not Advantage:** `HighGroundAttackRollBonus` and `LowGroundAttackRollPenalty`
-  (`Shared_Extracted/Public/Shared/Stats/Generated/Data/Data.txt`).
-- **Concentration:** one effect at a time (`IsConcentration` spell flag); it limits simultaneity, not uses.
+- **Bounded accuracy** keeps attack and save bonuses small (`27.02`), so **Advantage and Disadvantage** are the
+  biggest levers — and several sources of Advantage on one roll give nothing more. Wiki:
+  [Advantage](https://bg3.wiki/wiki/Advantage). Flat bonuses to attack, DC or AC must justify their effect on the hit
+  curve.
+- **High ground is a flat modifier, not Advantage:** a bonus to attack rolls from above, a penalty from below. Wiki:
+  [High ground](https://bg3.wiki/wiki/High_ground). File: `HighGroundAttackRollBonus`, `LowGroundAttackRollPenalty`
+  (`Data.txt`).
+- **Concentration:** one spell at a time; damage forces a Constitution save. Wiki:
+  [Concentration](https://bg3.wiki/wiki/Concentration). File: the `IsConcentration` spell flag (vanilla `Spell_*.txt`).
+  It limits simultaneity, not uses.
 - **Damage types and resistances** vary by enemy and act; check the vanilla stats of the enemies that matter before
   relying on a type. No type is assumed "rarely resisted" without that check.
 
 ### 8.4 The world
 
-- **Verticality and terrain:** height changes hit chances (above) and ranges; jump, shove and throw are open to every
-  character (**observed**). Mechanics that use position feel native.
-- **Surfaces and elements:** an effect that creates or reacts to a surface plugs into a system the player already
-  knows.
-- **Vanilla conditions** are understood by players and the AI; use the vanilla status type that fits (§5.3).
+- **Verticality and terrain:** height changes hit chances (§8.3) and ranges; shove and jump are bonus actions most
+  characters have (§8.1). Mechanics that use position feel native.
+- **Surfaces:** flat layers on the ground that affect whoever stands in them, created by many spells and reacting to
+  elements (water electrified by lightning, oil set alight). Wiki: [Surfaces](https://bg3.wiki/wiki/Surfaces). An
+  effect that creates or reacts to a surface plugs into a system the player already knows.
+- **Vanilla conditions** are understood by players and the AI; use the vanilla status type that fits (§5.3). Wiki:
+  [Conditions](https://bg3.wiki/wiki/Conditions). File: `Status_<TYPE>.txt`.
 
 ### 8.5 Pacing across a playthrough
 
-- **The level cap is 12** (`MaxXPLevel`, `Shared_Extracted/Public/SharedDev/Stats/Generated/Data/XPData.txt`); the class
-  must be complete at 12, and the 13–20 module never carries the core (`21.07`).
-- **Feats** come every four levels (vanilla `Progressions.lsx`, `AllowImprovement`). Vanilla's big steps (the
-  third-level and sixth-level spells for full casters, Extra Attack for martials) are where the benchmark class jumps —
-  read them in `Progressions.lsx` for the class you compare with (§10.4).
-- **Rests are cheap.** Two Short Rests per Long Rest (`MaxShortRestPoints`, `Data.txt`); Long Rests cost camp supplies
-  (`27.04`, community source — verify in game). A once-per-Long-Rest limit restricts much less than at a tabletop;
-  once-per-combat and per-turn limits do the real work.
+- **The level cap is 12.** Wiki: [Experience](https://bg3.wiki/wiki/Experience). File: `MaxXPLevel`
+  (`Shared_Extracted/Public/SharedDev/Stats/Generated/Data/XPData.txt`; see §8.7). The class must be complete at 12,
+  and the 13–20 module never carries the core (`21.07`).
+- **Feats** at class levels 4, 8 and 12 for every class, with extra ones for two martial classes. Wiki:
+  [Feats](https://bg3.wiki/wiki/Feats). File: `AllowImprovement` in vanilla `Progressions.lsx`. Vanilla's big steps
+  (the third-level and sixth-level spells for full casters, Extra Attack for martials) are where the benchmark class
+  jumps — read them in `Progressions.lsx` for the class you compare with (§10.4).
+- **Rests are cheap.** Two Short Rests per Long Rest; a Long Rest costs camp supplies (more on harder difficulties),
+  and without them a partial rest restores only part of the resources. Wiki: [Resting](https://bg3.wiki/wiki/Resting).
+  File: `MaxShortRestPoints` (`Data.txt`); the supply cost was not checked in the files. A once-per-Long-Rest limit
+  restricts much less than at a tabletop; once-per-combat and per-turn limits do the real work.
 - **Out of combat** is half the game: dialogue checks, exploration, puzzles. The base class owns the seer's utility; a
   subclass adds at most one utility, and only if it reflects its identity.
 
@@ -748,6 +768,14 @@ Design for the game the player is in. Each fact below names where it was checked
 - **Status durations as visible numbers** make timers and countdowns readable for free.
 - **Positioning**, allies included, is a decision players already enjoy.
 - **Status and stack types** carry a lot of logic without scripts (§5.3).
+
+### 8.7 Divergences between the wiki and the game files
+
+Recorded when found; the game file wins. Add a row whenever a check disagrees.
+
+| Fact | bg3.wiki says | Game file says | Reading |
+|---|---|---|---|
+| Experience per level | Level 12 at a total far above the table below (page *Experience*) | `SharedDev/…/XPData.txt` lists lower totals (the `Shared` table stops at level 5) | The cap (12) agrees. The XP totals in the extracted tables don't match the wiki: the live table may be elsewhere. Not used by any design question — don't rely on either total until checked in game |
 
 ---
 
@@ -936,7 +964,7 @@ signatures).
 | Put the journey's peak where few fights reach it | Peak-end: the journey ends flat (J6) | Make reaching the tier the trigger, or move the peak earlier |
 | Make an ultimate that ignores the state | The play that leads to it stops mattering (K7) | Let its effect read what was built |
 | Leave a decision with one right answer | It isn't a decision (B5) | Give every option a situation where it wins |
-| Claim a BG3 fact from memory or a wiki | Docs are a map; the game files are the truth | Show the vanilla example (`56`) or say "I don't know" |
+| Claim a BG3 fact from memory, or from the wiki alone | Docs are a map; the game files are the truth | Cite the bg3.wiki page and the game file (`56`); if the file can't be found, say "I don't know" (§8) |
 
 ---
 
@@ -999,7 +1027,8 @@ sources that ground this standard most directly:
 - **D&D-style classes:** Crawford, *Designing D&D Subclasses* (D&D Beyond); the 5e *Dungeon Master's Guide* (2014),
   ch. 9; `27.02`.
 - **Tarot and myth (primary):** Waite (1910); Pollack (1980); Crowley (1944); Hesiod and Apollodorus (Perseus).
-- **Baldur's Gate 3:** the game data (`56`, paths in §8), never a wiki on its own.
+- **Baldur's Gate 3:** [bg3.wiki](https://bg3.wiki/) for the rules as the player sees them, always next to the game
+  file that proves them (`56`, paths in §8); the file wins when they disagree (§8.7).
 
 Most of these were verified online and skimmed, not read in full (`27.07`): treat them as lenses until the Arcana's own
 playtests (`27.06`) confirm them.
@@ -1024,7 +1053,7 @@ playtests (`27.06`) confirm them.
 | **2.3** | **The axis** | **2.3** (same) |
 | — | Archetype, Weave, voice, ludonarrative | 2.4–2.7 (new) |
 | **3** | **Depth Model** | **3** (same ids; new ids added) |
-| 4.1–4.6 | BG3 facts | 8.1–8.6 (grounded; high ground corrected to a flat modifier) |
+| 4.1–4.6 | BG3 facts | 8.1–8.7 (each fact cites bg3.wiki and the game file; high ground corrected to a flat modifier; initiative corrected to a shared result, not adjacency) |
 | 5 | Arcana framework | 9.1, 9.2 |
 | 6 | Base-class changes | 9.3 |
 | 7.1–7.3 | Pool size, card questions, action spread | 5.8, 5.1 |
