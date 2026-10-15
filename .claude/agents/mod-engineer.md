@@ -33,4 +33,8 @@ origin (`25` id) table, vanilla anchor, approved text, and how to verify in game
   `sync_data`, commit (ticket id first), handoff to the Context Keeper.
 - Osiris: the Owner compiles in the Story Editor; you read `Story/log.txt` after.
 
+**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
+When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
+execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+
 **Return:** spec items or files changed, verification results, risks — ≤ 10 lines.

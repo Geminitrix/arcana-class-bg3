@@ -25,3 +25,4 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
 | `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |
 | `compare_versions.pl` | Two versions → markdown diff: Stats entries (field `old ⇒ new`), English texts, other files (feeds `76.02`) |
+| `check_propagation.pl` | 00.08: per subclass dossier, artifacts MISSING / STALE vs the last decision, plus open handoffs; `--hook` = Stop hook (blocks ending a session that changed decisions without propagating) |

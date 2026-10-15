@@ -22,4 +22,8 @@ sound like the base game?*
 - Names: pronounceable, coherent as a family, no collision with vanilla or popular mods.
 - Approval of every text recorded in `32.04_Narrative_Review/` (Narrative gate) before a spec is Ready.
 
+**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
+When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
+execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+
 **Return:** texts written (handle → text), approvals recorded, translations affected — ≤ 10 lines.

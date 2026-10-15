@@ -23,4 +23,8 @@ and fit the pillars?*
 - Player-facing names and text go through the Lore Writer (Narrative gate).
 - Need something from another department → `HANDOFF_<from>_to_<to>.md` in their folder, ticket `blocked`.
 
+**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
+When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
+execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+
 **Return:** design decisions taken, open questions for the Owner, files written — ≤ 10 lines.

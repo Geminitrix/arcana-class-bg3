@@ -24,4 +24,8 @@ Key question: *which decision will this test inform?*
   a bug for Engineering.
 - Compatibility (`64`): list of popular class mods tested and the recommended load order.
 
+**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
+When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
+execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+
 **Return:** test cases written, bugs opened (ids, severity), what the Owner must play next — ≤ 10 lines.

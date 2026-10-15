@@ -17,6 +17,8 @@ Studio rules, decisions, agent registry, licences.
 
 _Index maintained by the owner; generated in Stage A (2026-10-11)._
 
+| `00.08_Propagation_Map` | Which artifacts every change must update, and who owns each (rule since 2026-10-15) |
+
 ## Decisions (00.04)
 
 | ADR | Title | Status |
@@ -28,3 +30,4 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | ADR-0005 | Scope of the master data (25) | Accepted |
 | ADR-0006 | Git LFS for heavy binaries | Proposed (quota check) |
 | ADR-0007 | One write gate for mod files | Accepted |
+| ADR-0008 | Every change propagates to every department, every session | Accepted |

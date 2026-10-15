@@ -23,4 +23,8 @@ You are the **Spell Designer** of Lumox Studios (Arcana Class, a BG3 class mod).
 - Every change has a one-sentence intent (it feeds the patch notes).
 - Need a name or description → handoff to the Lore Writer; need a balance check → Balance Designer.
 
+**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
+When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
+execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+
 **Return:** sheets and YAML written, anchors used, what still needs balance or narrative — ≤ 10 lines.

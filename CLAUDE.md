@@ -35,6 +35,9 @@ Aspect** in combat. Casts with **Woven Spell Slots**; the PC edition (Script Ext
    pre-migration copy — read-only, never a source of current facts.
 8. **Git:** commit + push to `main` after every change, without asking; ticket id first in the message
    (`ARC-0142: …`). After writing mod files: `sync_data` → commit + push → handoff to the Context Keeper.
+9. **Propagate every change** to every department's folder at the end of the session (`/propagar`,
+   map in `00.08_Propagation_Map`). Decisions live in `21.04_Subclasses/<S>/DECISIONS.md`, never in `55/_wip`.
+   A Stop hook blocks ending a session with pending propagation or open handoffs.
 
 ## Language
 
@@ -52,5 +55,5 @@ that ships is in **English** (the master spec in `00.01` stays in Portuguese).
 | Paths, Toolkit workflows, environment gotchas, Divine recipes | `57.06_Workflow_and_Quality/Environment_and_Workflows.md` |
 | Tickets, sprint, board | `10.01_Product_Backlog`, `10.02_Active_Sprint` |
 | Decisions | `00.04_Decisions_ADR` |
-| Agents, slash commands, hook | `.claude/` — registry in `00.05_Agent_Registry`; commands: `/novo-ticket` `/iniciar-sprint` `/handoff` `/fechar-ticket` `/retro` `/sync-contexto` `/patch-notes` `/commit-e-push` (load when the session starts in this folder) |
+| Agents, slash commands, hook | `.claude/` — registry in `00.05_Agent_Registry`; commands: `/novo-ticket` `/iniciar-sprint` `/handoff` `/propagar` `/fechar-ticket` `/retro` `/sync-contexto` `/patch-notes` `/commit-e-push` (load when the session starts in this folder) |
 | Migration record (complete) | `00.04_Decisions_ADR/MIGRATION_PLAN.md`, `MIGRATION_MANIFEST.md` |

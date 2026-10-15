@@ -50,3 +50,13 @@ question — never invent. Schema-valid is not the same as working: prefer a pro
 
 The Owner pays for every token. Prefer the main session over subagents for small tasks; read indexes
 before files; reports ≤ 10 lines; tests are one assertion per rule.
+
+## 7. Propagation — every change reaches every department (00.08)
+
+- Record a decision at its source (`21.04_Subclasses/<S>/DECISIONS.md`, or the source named in the map) the
+  moment it is taken. `55/_wip/` is engineering scratch only — never the home of decisions or texts.
+- **At the end of every work session**, each artifact downstream of a changed source is updated **by its
+  owner's role** (the main session switches roles, following each `_AGENT.md`): `/propagar`.
+- A handoff is executed in the same session and marked `status: done`; it is never left for "later".
+- `check_propagation.pl` must print OK before a ticket closes; a Stop hook blocks the end of a session that
+  changed decisions without propagating them.
