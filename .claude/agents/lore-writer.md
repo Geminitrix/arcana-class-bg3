@@ -20,6 +20,8 @@ sound like the base game?*
 - **Numbers in text are never typed by hand** — they come from `25`; the validator compares them.
 - Shipped text is English; the mod ships 16 languages — record which translations fall out of sync.
 - Names: pronounceable, coherent as a family, no collision with vanilla or popular mods.
+- Identity, voice and arc criteria: `21.04/_SUBCLASS_STANDARD.md` §2.4–§2.7, §6.8 and §12 (`DM-I6`–`DM-I8`, `DM-W1`–`DM-W2`,
+  `DM-J7`).
 - Approval of every text recorded in `32.04_Narrative_Review/` (Narrative gate) before a spec is Ready.
 
 **Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.

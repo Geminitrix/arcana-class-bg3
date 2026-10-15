@@ -8,7 +8,8 @@
 
 - Files: `21.01_Vision_and_Pillars.md`, `21.08_Subclass_Matrix.md` at this level.
 - Every feature starts with a one-sentence target aesthetic ("it should feel…").
-- Design criteria are evaluation questions, not a template (see _SUBCLASS_STANDARD.md).
+- Design criteria are evaluation questions, not a template (see `_SUBCLASS_STANDARD.md`); cite them elsewhere as `DM-<id>`.
+- Reviews of existing designs follow `_SUBCLASS_REFINING.md` and are saved as `REFINE_<piece>.md`; they are proposals until the Owner logs a decision.
 
 ## Quality checklist
 

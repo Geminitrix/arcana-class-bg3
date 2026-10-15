@@ -18,6 +18,8 @@ Key question: *where does this sit on the power curve, and what is the intent of
 - Flow: intent → role and pillar → vanilla anchors → price on the cost curve → simulate both DPRs per level
   1–12 (`22.02`) → interactions (concentration, bonus action, stacking, loops) → playtest request → adjust.
 - Every resource has a source and a sink; flag engines (A→B→A) and deadlocks.
+- Method and hunts (loops, exceptions, dominant option, dead bonuses, carried resources): `21.04/_SUBCLASS_STANDARD.md`
+  §10; diagnostic tools: `21.04/_SUBCLASS_REFINING.md` §4; player psychology: card `27.08`.
 - Reference values come from the game data and the SRD, never memory. Tolerance bands and the reference
   adventure day are ADR decisions — propose, don't impose.
 - You prepare tests; the Owners play them (`61`, `63`).

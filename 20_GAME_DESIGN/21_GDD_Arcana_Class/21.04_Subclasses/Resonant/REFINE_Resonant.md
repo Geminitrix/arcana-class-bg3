@@ -1,5 +1,5 @@
 ---
-id: 21.04/Resonant/BALANCE_SUGGESTIONS
+id: 21.04/Resonant/REFINE_Resonant  (was BALANCE_SUGGESTIONS.md; renamed 2026-10-15, ARC-0016 — refining documents are REFINE_<piece>)
 owner: Lead Class Designer (with the Balance Designer)
 status: proposal — awaiting Owner review; nothing here is a decision until it is logged as R49+ in DECISIONS.md
 ticket: ARC-0014
@@ -22,6 +22,12 @@ sources: DESIGN.md · DECISIONS.md (R1–R48) · _SUBCLASS_STANDARD.md · 25_Mas
 > *placeholder* marked `‹…›`, and the real number is chosen in the balance pass and written once in
 > `25_Master_Data`. Estimates use the currency of `22.06/Arcana_Power_Budget.md` (A = 4 / 8 / 11 by tier; D = the
 > daily budget; E = 4 fights, T = 4 turns).
+>
+> **Written against standard v1** (2026-10-15 note, ARC-0016). The question ids still mean the same in v2. The standard
+> sections cited here moved in v2: §4.1, §4.2 → §8.1, §8.2 · §5 → §9.1 · §7.4 → §5.7, §6.3 (Appendix A of the
+> standard). The meter rule S3 discusses is now Owner decision D4 of ARC-0016: reset at combat end by default,
+> carry-over as a justified exception (`DM-B7`). The suggestion ids S1–S16 predate the `SG##` convention of
+> `_SUBCLASS_REFINING.md` and are kept as they are.
 
 ---
 
@@ -106,7 +112,7 @@ the Depth Model questions it sharpens.
 | C6 | **Framing of costs** | Kahneman and Tversky (1979), prospect theory; the *rested XP* reframing in World of Warcraft | Is a cost felt as a punishment or as a trade the player chose? | I1, P9 |
 | C7 | **Goal gradient and visible progress** | Hull (1932); Kivetz, Urminsky and Zheng (2006); Nunes and Drèze (2006), endowed progress | Does the player see the meter or the goal approach, and does it pull them forward? | P7 |
 | C8 | **Peak-end** | Kahneman et al. (1993); Redelmeier and Kahneman (1996) | Does the journey's peak actually happen in play? Do fights end on a high? | A2, level 12 |
-| C9 | **Elegance** | Rosewater, *Lenticular Design* and *New World Order* (2011) | Does the core rule carry exceptions? Is complexity kept off the board? | M2 |
+| C9 | **Elegance** | Rosewater, *New World Order* (2011) and *Lenticular Design* (2014) | Does the core rule carry exceptions? Is complexity kept off the board? | M2 |
 | C10 | **Feedback loops** | Adams and Dormans, *Game Mechanics: Advanced Game Design* (2012) | Is every positive loop damped? | B3, M6 |
 | C11 | **Kit coherence** | The standard's gears (M3); Riot's champion design for clarity and mastery | Does each piece create, change or spend the state, and does the ultimate read it? | M3, K1, K3 |
 | C12 | **A journey with a shape** | Kishōtenketsu as used by Koichi Hayashida (Nintendo, 2012): introduce, develop, twist, conclude | Do levels 1–12 tell a story the player can feel? | M4, §7.4 |
@@ -848,7 +854,7 @@ The suggestions depend on each other. The recommended order for the brainstorm (
 - Adams, E. and Dormans, J. (2012). *Game Mechanics: Advanced Game Design.* New Riders.
 - Schreiber, I. and Romero, B. (2021). *Game Balance.* CRC Press.
 - Meier, S. (2012). *Interesting Decisions.* Game Developers Conference.
-- Rosewater, M. (2011). *Lenticular Design* and *New World Order.* Making Magic, Wizards of the Coast.
+- Rosewater, M. (2011). *New World Order*; (2014). *Lenticular Design*. Making Magic, Wizards of the Coast.
 - Hayashida, K. (2012). Interview on kishōtenketsu in *Super Mario 3D Land*'s level design. Gamasutra.
 
 **Psychology of play**

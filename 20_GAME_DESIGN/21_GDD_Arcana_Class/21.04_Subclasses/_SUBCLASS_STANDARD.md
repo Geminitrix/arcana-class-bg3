@@ -1069,7 +1069,7 @@ playtests (`27.06`) confirm them.
 | **15** | **Studio gates** | **15** (same) |
 
 **Documents that cite moved sections** (written before v2, not edited — read them with this table):
-the subclass review of ARC-0014 (`21.04/<S>/BALANCE_SUGGESTIONS.md`) cites v1 §4.1, §4.2 (→ §8.1, §8.2), §5 (→ §9.1)
+the subclass review of ARC-0014 (`21.04/<S>/REFINE_<S>.md`) cites v1 §4.1, §4.2 (→ §8.1, §8.2), §5 (→ §9.1)
 and §7.4 (→ §5.7, §6.3).
 
 ### A.2 Question ids

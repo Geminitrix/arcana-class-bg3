@@ -2,7 +2,7 @@
 id: 21.04/_SUBCLASS_REFINING
 version: 1
 owner: Lead Class Designer
-status: proposed — written 2026-10-15 (ARC-0016); awaiting Owner approval
+status: approved — Owner, 2026-10-15 (ARC-0016)
 updated: 2026-10-15
 uses: 21.04/_SUBCLASS_STANDARD.md v2 (the Depth Model, cited as DM-<id>)
 ---
@@ -16,6 +16,9 @@ uses: 21.04/_SUBCLASS_STANDARD.md v2 (the Depth Model, cited as DM-<id>)
 > It never restates a criterion. Every judgement cites a Depth Model question by id (`DM-K3`); every "why" cites a card
 > of `27`. Numbers never live here or in a review (ADR-0005): a review uses the currency of `22.06` for direction and
 > placeholders `‹…›` for sizes.
+
+**See also:** a full subclass review written before this method — `21.04_Subclasses/<S>/REFINE_<S>.md` of ARC-0014 (it
+uses the v1 section numbers and `S#` suggestion ids; its header explains the mapping).
 
 ## Contents
 
@@ -43,13 +46,13 @@ uses: 21.04/_SUBCLASS_STANDARD.md v2 (the Depth Model, cited as DM-<id>)
 | Variant | Scope | Depth Model families that apply | Output (where it is saved) |
 |---|---|---|---|
 | **Base class** | Chassis, resources, deck rules, Awakening framework, utilities | M, P, B, X, T, D — and the impact matrix (standard §9.3) for every subclass | `21.05_Class_Features/REFINE_<System>.md` |
-| **Subclass** | The whole kit, levels 1–12 | All of them | `21.04_Subclasses/<S>/BALANCE_SUGGESTIONS.md` |
+| **Subclass** | The whole kit, levels 1–12 | All of them | `21.04_Subclasses/<S>/REFINE_<S>.md` |
 | **Feature** — an ultimate, the Awakening, a resource or meter | One piece and the gears it touches | M2–M7, K, J, A (if Awakening), B, X | `21.04_Subclasses/<S>/REFINE_<Piece>.md` |
 | **Card** | One spell or card and its place in the deck | K, P5–P7, P11–P12, B, the card checklist (standard §5.1) | `21.04_Subclasses/<S>/REFINE_<Piece>.md` (short template) |
 | **Status family** | A set of statuses that share a rule or a generator | M5, M6, P7, B3, B6, T3, the status checklist (standard §5.3) | `21.04_Subclasses/<S>/REFINE_<Piece>.md` |
 
 A piece that belongs to the base class is saved under `21.05`; a piece of a subclass, in its dossier. When a
-subclass already has a review, a new one gets a dated name (`BALANCE_SUGGESTIONS_<YYYY-MM-DD>.md`) and the old one
+piece already has a review, a new one gets a dated name (`REFINE_<Piece>_<YYYY-MM-DD>.md`) and the old one
 stays.
 
 ### 1.2 Full or short
@@ -371,7 +374,7 @@ written. Every gameplay effect stays in Stats, Osiris, Khonsu or LSX, so both ed
 
 ```markdown
 ---
-id: 21.04/<S>/BALANCE_SUGGESTIONS            # or 21.05/REFINE_<System>, 21.04/<S>/REFINE_<Piece>
+id: 21.04/<S>/REFINE_<S>            # or 21.04/<S>/REFINE_<Piece>, 21.05/REFINE_<System>
 owner: Lead Class Designer (with the Balance Designer)
 status: proposal — awaiting Owner review; nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-####

@@ -3,15 +3,15 @@ id: ARC-0016
 title: "Subclass standard v2 and refining method"
 type: design
 epic: EPIC_Rework_Subclasses
-status: in_progress
+status: review
 owner: Lead Class Designer
 implementation: pending
 priority: should
 value: 4
 effort: 3
-inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/BALANCE_SUGGESTIONS.md, 21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md, 21.08, 22.06, 27.01, 27.02, 27.03, 27.04, 27.05, 27.06, 27.07, 05.00, 00.08]
-outputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/_SUBCLASS_REFINING.md, 27.08_Player_Psychology_and_Progression, 27.07, 93/2026-10-15_SUBCLASS_STANDARD_v1]
-blocked_by: []
+inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/Resonant/REFINE_Resonant.md, 21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md, 21.08, 22.06, 27.01, 27.02, 27.03, 27.04, 27.05, 27.06, 27.07, 05.00, 00.08]
+outputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/_SUBCLASS_REFINING.md, 27.08_Player_Psychology_and_Progression, 27.07, 93/2026-10-15_SUBCLASS_STANDARD_v1, 27.08, 21.04/Resonant/REFINE_Resonant.md (renamed), 21_INDEX, .claude/agents (4), 10.06, 00.04/PROPOSALS/PROPOSAL_Subclass_Standard_v2_References.md]
+blocked_by: [propagation of older Deceiver and Lionheart dossiers (not caused by this ticket)]
 sprint:
 created: 2026-10-15
 ---
@@ -34,15 +34,17 @@ progression and stay inside the budget.
 | D4 | Subclass meters and resources reset at combat end by default; carrying over is an exception logged in DECISIONS with three questions |
 | D5 | Pillars (`21.01`) stay an open dependency; the question goes to `10.06/Open_Questions.md`; nothing invented |
 | D6 | New research lives in a new card `27.08_Player_Psychology_and_Progression`; `27.07` gets honest statuses (handoff to the 27 owner, run in session) |
+| D7 | Every BG3 fact cites the bg3.wiki page and the game file; the game file wins (standard §8) |
+| D8 | Every refining document is `REFINE_<piece>.md`, the subclass review included (`REFINE_<S>.md`); the existing Resonant review is renamed |
 
 ## Acceptance criteria
 
-- [ ] Research: every source used verified and logged in `27.07` with its real status; card `27.08` written
-- [ ] v1 archived in `90_ARCHIVE/93_Old_Versions/2026-10-15_SUBCLASS_STANDARD_v1/` with date and reason
-- [ ] `_SUBCLASS_STANDARD.md` v2 written (Owner approves before the refining method starts)
-- [ ] `_SUBCLASS_REFINING.md` written and approved
-- [ ] Self-review of both: no dead paths, ids compatible, no copied numbers, no subclass named in the standard
-- [ ] Indexes, agents and citing files updated or handed off; pillars question in `10.06`
+- [x] Research: every source used verified and logged in `27.07` with its real status; card `27.08` written
+- [x] v1 archived in `90_ARCHIVE/93_Old_Versions/2026-10-15_SUBCLASS_STANDARD_v1/` with date and reason
+- [x] `_SUBCLASS_STANDARD.md` v2 written (Owner approves before the refining method starts)
+- [x] `_SUBCLASS_REFINING.md` written and approved
+- [x] Self-review of both: no dead paths, ids compatible, no copied numbers, no subclass named in the standard
+- [x] Indexes, agents and citing files updated or handed off; pillars question in `10.06`
 - [ ] `/propagar` run, `check_propagation.pl` OK, daily log, board updated
 
 ## Gates
@@ -71,3 +73,11 @@ progression and stay inside the budget.
 - 2026-10-15 — Owner approved the standard v2 (status line and `10.06` updated). Phase 4: `_SUBCLASS_REFINING.md` written
   (five variants, full and short; 12-step pipeline; 13 diagnostic tools; `SG##` format; templates). Self-review: no
   subclass named, every `DM-` id and every standard § cited exists. Awaiting Owner approval before Phase 6.
+- 2026-10-15 — Owner approved the refining method, with one change (D8): every refining document is `REFINE_<piece>.md`.
+  `Resonant/BALANCE_SUGGESTIONS.md` renamed `Resonant/REFINE_Resonant.md` (git mv; header notes the v1 § mapping and the
+  D4 meter rule; *Lenticular Design* dated 2014); live references updated (ARC-0014, 27.07, standard Appendix A).
+  "See also" line added to the refining method. Phase 6: agents lead-class-designer, spell-designer, balance-designer,
+  lore-writer point at the standard v2 / refining / `DM-` ids; 21 `_INDEX` and `_AGENT` updated; proposal for the
+  Owners in `00.04/PROPOSALS/PROPOSAL_Subclass_Standard_v2_References.md` (`CLAUDE.md` "Where to look" and rule 6,
+  `00.05` registry). `check_propagation.pl`: 21 pending, all from the Deceiver and Lionheart dossiers (older than this
+  ticket) — status `review` until they are propagated. Daily log written.
