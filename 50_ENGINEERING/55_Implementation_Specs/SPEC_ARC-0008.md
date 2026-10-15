@@ -42,7 +42,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 | **2** | 3 | *The Crossing* (pairs within 9 m, once per enemy per round), *Atropos' Cut*, Awakening *10 · Wheel of Fortune* (count, lone enemy ×2, Tier I *Tyche*), *Rota Fortunae* | **Written below** (2026-10-14); probes P9–P16 |
 | **3** | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | **Written below** (2026-10-15); Claude implements; probes P17–P24 at the end |
 | **4** | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | **Written below** (2026-10-15); Claude implements; probes P25–P32 at the end |
-| 5 | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | After stage 4 |
+| **5** | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | **Written below** (2026-10-15); Claude implements; probes P33–P40 at the end |
 | 6 | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers share one Wheel (SP93) | After stage 5 |
 | 7 | — | PC edition `CardDB.lua` (Claude), test cases in `60`, `05` handoff, renames and icons | DoD |
 
@@ -314,3 +314,44 @@ hiding already in place.
 | P30 | Same with a Reigning enemy; with a Falling one | Reigning → Fallen (and may cross); Falling → Fallen only | — |
 | P31 | Master of Secrets; an enemy on the Wheel within 9 m tries to hide or turn invisible | It can't; an invisible one becomes visible; the holder's attacks against a Falling enemy have Advantage | `SNEAKING` immunity doesn't stop hiding → look for the vanilla anti-hide status |
 | P32 | Level 5 character: open Convene the Court | Master of Laws and Master of Secrets are shown but can't be cast before level 7 | — |
+
+---
+
+## Stage 5 — Succession, the Wheel of Ixion and the last two offices (level 9)
+
+Written 2026-10-15; Claude implements (`55/_wip/Kingmaker/stage5/`, applied with `[fechado] ARC-0008`), rehearsed on a copy
+of the mod first. Probes at the end of the subclass.
+
+### What is written
+
+| # | Kind | Entry | How |
+|---|---|---|---|
+| 01 | Status BOOST | `KINGMAKER_COIN_TECH`, `KINGMAKER_COIN_RESTORE`, `KINGMAKER_COIN_SPENT` (technical); `COURT_MASTER_OF_COIN`, `COURT_MASTER_OF_SHIPS` | `50_stage5.patch` |
+| 02 | Passive | `Arcana_Passive_Succession`, `Arcana_Passive_Court_MasterOfCoin` (hidden, given by the office), `Arcana_Passive_Court_Level9` (hidden: opens the level-9 offices) | same |
+| 03 | Spell Zone | `Zone_Arcana_Card_Spell_WheelOfIxion` (level-5 card) | same; variant `_6` with 6d6 (`upcast_die` in `25.01`) |
+| 04 | Spell Target | `Target_Arcana_Util_Court_MasterOfCoin`, `_MasterOfShips`; Convene the Court holds all seven offices | same (`@set`) |
+| 05 | Spell list, progression | *Kingmaker Level 9* = Wheel of Ixion; row `ac94328c…` (level 9): `PassivesAdded` Succession, Court level 9; `AddSpells` | `51_uuid.pl` |
+| 06 | Osiris | `ARCANA_Kingmaker_Wheel`: + Succession, the Master of Ships' Crossing, the Master of Coin (insertions only) | `52_goal.pl` |
+
+### How each rule is built
+
+| Rule (design) | Build | Anchor |
+|---|---|---|
+| **Succession** (§8.4): a dead enemy's position passes to the nearest enemy off the Wheel within 9 m of the body; an heir entering Reigning gains Hubris | On `Died` of an enemy on the Wheel (before the rule that takes it off), the candidates are the enemies of the Kingmaker in the same combat (`DB_ARCANA_Aspect_InCombat`, ARC-0007's roster), alive, on no Wheel, within 9 m of the body; the nearest is kept (`DB_ARCANA_Kingmaker_Heir`, the crown's best-of pattern) and bound at the dead one's position through `PROC_ARCANA_Kingmaker_Bind` — so Fallen crosses and Reigning gets Hubris like any binding | `IsEnemy` (`story_header.div` :1026), `GetDistanceTo` |
+| **Wheel of Ixion** (§7.8): line 18 × 2 m, Fire 5d6, CHA save half, enemies only, binds at Falling (Fallen with Tyche), fire trail 2 turns that burns allies too | Zone `Shape Square`, `Range 18`, `Base 2`, `FrontOffset -2` (Lightning Bolt's line); `TargetConditions Enemy()` for the damage and the binding (`KINGMAKER_BIND_ENEMY_TECH`); `SurfaceType Fire`, `SurfaceLifetime 2` for the trail, which ignores the target conditions | `Zone_LightningBolt` (line), `Zone_Mephit_FireBreath` (fire surface), `Zone_BurningHands` (look) |
+| **Master of Coin** (§6.2): once per Long Rest, when it hits a Fallen enemy, the Kingmaker regains a spell slot | The office gives a hidden passive, `StatsFunctorContext OnAttack`, `HasDamageEffectFlag(DamageFlags.Hit) and HasStatus('KINGMAKER_FALLEN')` → `KINGMAKER_COIN_TECH` on the enemy; Osiris checks the holder holds this Kingmaker's office and the Kingmaker hasn't `KINGMAKER_COIN_SPENT`, then applies it and `KINGMAKER_COIN_RESTORE` (`RestoreResource` of a Thread and of an `ArcanaSpellSlot` of the Kingmaker's slot level, the chain of `Arcana_Passive_ArcaneOverflow`). The spent mark ends at the Long Rest | `AgonizingBlast` (`OnAttack` + `HasDamageEffectFlag(DamageFlags.Hit)`); `RestoreResource(SpellSlot,…)` in vanilla status functors |
+| **Master of Ships** (§6.2): a Crossing also pays within 9 m of the Ships | A second rule in `Settle` puts an enemy entering Fallen in the Crossing queue when it is within 9 m of a living Master of Ships of this Kingmaker's Court (once per round still holds) | — |
+| **Level-9 offices** | Their options need `HasPassive('Arcana_Passive_Court_Level9', context.Source)` | stage 4 |
+
+### Probes — after the whole subclass (one rule each)
+
+| # | Do | Proves it works | Plan B |
+|---|---|---|---|
+| P33 | Level 9: kill a Falling enemy with another enemy off the Wheel 5 m from it and a third 8 m away | The 5 m one becomes Falling (Succession); the third doesn't | Roster empty (enemies not in `DB_ARCANA_Aspect_InCombat`) → collect candidates from `EnteredCombat` in this goal |
+| P34 | Kill a Reigning enemy with an heir in range | The heir enters Reigning with Hubris | — |
+| P35 | Wheel of Ixion through two enemies and an ally | Enemies take 5d6 (half on a CHA save) and enter Falling; the ally takes no damage from the wheel; the line burns for 2 turns and the ally standing in it burns | The Kingmaker's own square catches fire → `FrontOffset 0` |
+| P36 | Ixion with a level-6 slot | 6d6 | — |
+| P37 | Master of Coin hits a Fallen enemy, then another | One spell slot (of your slot level) comes back the first time only; after a Long Rest it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF` |
+| P38 | Master of Ships 5 m from an enemy entering Fallen, no Reigning ally near | The enemy crosses | — |
+| P39 | Level 7 character: open Convene the Court | Coin and Ships are shown but locked; at 9 they open | — |
+| P40 | Seven offices with CHA 20 (+5) | Five appointed, then the rest are locked (`COURT_FULL`) | — |

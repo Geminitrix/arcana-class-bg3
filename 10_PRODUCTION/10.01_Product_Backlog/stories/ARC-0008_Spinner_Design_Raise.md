@@ -175,3 +175,8 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   container), list Kingmaker Level 7 + level-7 row + LevelMap Kingmaker_CrossingHubris, goal insertions, Usurp _5/_6,
   sort_stats, check_cards OK (111), validate 0 errors; no duplicate field or handle; identical to the rehearsal. The Owner
   recompiles the Story.
+- 2026-10-15 — Stage 5 prepared (level 9): SPEC stage 5 (Succession, Wheel of Ixion, Master of Coin, Master of Ships;
+  probes P33–P40) and `55/_wip/Kingmaker/stage5/` (`50_stage5.patch` 10 entries + the seventh office in the container,
+  `51_uuid.pl` list Kingmaker Level 9 + level-9 row, `52_goal.pl`); 25.01 Ixion gets game_ids + upcast_die 1d6. Two icon
+  names fixed before use. Rehearsed on a copy: Ixion _6 6d6, Zone fields and enumeration types right, all grouped
+  KINGMAKER, check_cards OK, no duplicate, scripts idempotent. Waits for `[fechado] ARC-0008`.

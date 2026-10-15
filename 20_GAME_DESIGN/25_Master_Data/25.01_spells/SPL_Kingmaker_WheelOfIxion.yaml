@@ -4,9 +4,11 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.8"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Zone_Arcana_Card_Spell_WheelOfIxion]
 values:
   card_level:  { value: 5, note: "Action" }
   line_length: { value: 18, unit: metres }
   line_width:  { value: 2, unit: metres }
   damage:      { value: 5d6, unit: damage, type: Fire, note: "+1d6 at slot 6; Charisma save for half; enemies only; the binding always lands" }
   surface:     { value: 2, unit: turns, note: "vanilla fire surface along the line; it burns allies too" }
+  upcast_die:  { value: 1d6, unit: damage, note: "added per slot level above the card level to every d6 damage term (gen_upcast_variants.pl)" }

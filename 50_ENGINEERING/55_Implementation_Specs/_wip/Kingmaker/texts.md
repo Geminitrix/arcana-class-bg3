@@ -80,6 +80,8 @@ Status descriptions are written from outside the creature. Each position opens w
 | `COURT_MASTER_OF_COIN` | Master of Coin | Once per <LSTag Tooltip="LongRest">Long Rest</LSTag>, hitting a Fallen enemy returns a spell slot to the Kingmaker. | — |
 | `COURT_MASTER_OF_SHIPS` | Master of Ships | Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
 
+Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*`); the Master of Coin's option reads "Appoint an ally as Master of Coin. Once per Long Rest, when it hits a Fallen enemy, you regain a spell slot."
+
 ## 4. Spells
 
 `Description` is the imperative line; `ExtraDescription` holds the fine print.
