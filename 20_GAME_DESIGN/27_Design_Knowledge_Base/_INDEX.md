@@ -12,5 +12,7 @@ Short cards from spec Part II, one per topic.
 | `27.04_Economy` | Resources, rests, actions (§20) |
 | `27.05_Narrative_and_Lore` | Ludonarrative harmony, lore bible, tone (§21) |
 | `27.06_Playtest` | Protocols and templates (§22) |
+| `27.07_Sources.md` | Every source with its real status |
+| `27.08_Player_Psychology_and_Progression` | Motivation, cognitive load, framing, peak-end, goal gradient, loops, journey shape (ARC-0016) |
 
 _Index maintained by the owner; generated in Stage A (2026-10-11)._

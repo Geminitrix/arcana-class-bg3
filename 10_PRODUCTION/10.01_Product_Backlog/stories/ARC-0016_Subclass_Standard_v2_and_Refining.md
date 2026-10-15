@@ -55,3 +55,7 @@ progression and stay inside the budget.
 
 - 2026-10-15 — created; Phase 1 diagnosis delivered and the table of contents approved by the Owner (D1–D6).
   Note: the brief named the next id ARC-0015, which was already taken (Kingmaker icons); this is ARC-0016.
+- 2026-10-15 — Phase 2 (research): ~30 sources checked online; card `27.08` written; `27.07` gets a status legend,
+  five updated rows and a new ARC-0016 table (honest statuses: mostly skimmed or exists — not read). Handoff
+  `27/HANDOFF_LeadClassDesigner_to_GameDesignDirector_ARC-0016.md` executed in session, `done`. Found: the Resonant review
+  dates *Lenticular Design* 2011 (it is 2014) — to fix in Phase 6.
