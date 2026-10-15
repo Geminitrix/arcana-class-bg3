@@ -674,5 +674,37 @@
         <field name="Level20" type="StringTableFieldDefinition" value="5d8" />
       </fields>
     </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER LEVELMAP" />
+        <field name="UUID" type="IdTableFieldDefinition" value="aa15085f-5af5-45b2-9104-2606b195bcfa" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="Kingmaker_Crossing" />
+        <field name="UUID" type="IdTableFieldDefinition" value="cbcd0570-33d1-4182-a148-9770802881f3" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level5" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level6" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level7" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level8" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level9" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level10" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level11" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level12" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level13" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level14" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level15" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level16" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level17" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level18" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level19" type="StringTableFieldDefinition" value="1d8" />
+        <field name="Level20" type="StringTableFieldDefinition" value="1d8" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

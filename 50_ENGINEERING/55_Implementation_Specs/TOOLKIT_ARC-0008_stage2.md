@@ -2,7 +2,7 @@
 id: TOOLKIT_ARC-0008_stage2
 ticket: ARC-0008
 spec: SPEC_ARC-0008
-status: ready
+status: entered
 derived_from: [25.01/SPL_Kingmaker_AtroposCut.yaml, 25.01/SPL_Kingmaker_RotaFortunae.yaml, 25.01/SPL_Kingmaker_Dethrone.yaml, 25.02/FEAT_Kingmaker_Crossing.yaml, 25.02/FEAT_Kingmaker_AspectAwakening.yaml]
 generated_at: 2026-10-14
 author: Mod Engineer

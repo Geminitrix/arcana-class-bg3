@@ -3293,5 +3293,34 @@
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Psychic" enumeration_type_name="Damage Type" version="1" />
       </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c47cee47-ff3c-468b-8db6-e5c3ab71d8f1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_Aspect_RotaFortunae" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_TURN_TECH,100,0);" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd95f4fafg68c7ge8c4g4954ga7640ec8605b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h88178c6eg22fegf75agdae5g2f781ac80ab8" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h25b7900fgd95agee13gce75g133de13933ca" version="1" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="04aeb2b0-3837-4a0c-9559-bd1f53808c51" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER SPELLS" />
+      </fields>
     </stat_object></stat_objects>
 </stats>

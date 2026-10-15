@@ -775,6 +775,17 @@
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d6074463-85af-48da-b2a6-2cff55fdd576" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheCrossing" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h06183e99g29b9gf53bgfad9gb486733b49b5" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he8aeaef6ge103gb1eeg33bfg1739036090df" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9);DealDamage(LevelMapValue(Kingmaker_Crossing),Force)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_MagicMissile" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FF1E90FF" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6d30956a-08e3-0869-5c71-1b4cd83cfa96" />
@@ -1145,6 +1156,26 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae71e866g25bagb7d2g2d7bga2340c175f70" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6e042712-fb0b-4f4c-87c5-6f0cc3e07071" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_WheelOfFortune_Awakening" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2f7f5740g81edg3c01g9158g0df9738978b3" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h14195875g0974g11f1g034dgfee9405d137d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b7fccfb9-e8a4-414e-94fc-6acfd9f16114" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_WheelOfFortune_I" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfe7a348fg85b7g6307gf98dg83b6d54bd789" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5ef1fcf4gc897gfbeegfb34g3977e816a895" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>

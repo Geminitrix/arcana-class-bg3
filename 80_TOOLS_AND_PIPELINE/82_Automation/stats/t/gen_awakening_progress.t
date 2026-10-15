@@ -15,7 +15,7 @@ is_deeply($goals{STAR}, [500, 800, 1200], 'goals: Star (healing x 100 / level)')
 
 my ($p, %lt) = Awake::build_patch();
 my @ids = map { my $a = $_; map { "ASPECT_PROGRESS_${a}_$_" } qw(I II III) } @Awake::ORDER;
-is(scalar(@ids), 15, '5 Aspects x 3 tiers');
+is(scalar(@ids), 18, '6 Aspects x 3 tiers');
 none('every tier has its progress status', grep { block($p, $_) eq '' } @ids);
 none('progress statuses share the Aspect\'s StackId, so the next tier replaces the last', map { my $a = $_;
     grep { block($p, "ASPECT_PROGRESS_${a}_$_") !~ /^data "StackId" "ASPECT_PROGRESS_$a"$/m } qw(I II III) } @Awake::ORDER);
@@ -49,7 +49,7 @@ like($d, qr/IntegerSubtract\(_Goal, _Value, _Left\)/, 'left = goal - value');
 like($d, qr/DB_ARCANA_AspectShow\(_Aspect, "HEAL"\)\r?\nAND\r?\nGetLevel\(_Char, _Level\)\r?\nAND\r?\nIntegerProduct\(_Left, _Level, _X\)\r?\nAND\r?\nIntegerSum\(_X, 99, _Up\)\r?\nAND\r?\nIntegerDivide\(_Up, 100, _HP\)/, 'Star: left x level / 100, rounded up');
 like($d, qr/DB_ARCANA_AspectShow\(_Aspect, "LOSS"\)\r?\nAND\r?\nGetMaxHitpoints\(_Char, _Max\)\r?\nAND\r?\nIntegerProduct\(_Left, _Max, _X\)\r?\nAND\r?\nIntegerSum\(_X, 999, _Up\)\r?\nAND\r?\nIntegerDivide\(_Up, 1000, _HP\)/, 'Death: left x max HP / 1000, rounded up');
 unlike($d, qr/_N < 100/, 'no 99 cap (it was for percentages)');
-is(scalar(() = $d =~ /DB_ARCANA_AspectProgress\("\w+", [123], "ASPECT_PROGRESS_\w+_I+"\);/g), 15, 'the 15 progress rows');
+is(scalar(() = $d =~ /DB_ARCANA_AspectProgress\("\w+", [123], "ASPECT_PROGRESS_\w+_I+"\);/g), 18, 'the 18 progress rows');
 like($d, qr/PROC_ARCANA_Aspect_Reset\(\(CHARACTER\)_Char\)\r?\nAND\r?\nDB_ARCANA_AspectProgress\(_Aspect, _Tier, _Status\)\r?\nTHEN\r?\nRemoveStatus\(_Char, _Status, _Char\);/, 'leaving the combat removes every progress status');
 unlike($d, qr/[^\x00-\x7F]/, 'ASCII');
 like($d, qr/\r\n/, 'CRLF');

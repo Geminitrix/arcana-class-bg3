@@ -3,8 +3,11 @@ SubGoalCombiner SGC_AND
 INITSECTION
 PROC_ARCANA_Kingmaker_Init();
 KBSECTION
-// The Kingmaker's Wheel (ARC-0008, SPEC_ARC-0008 stage 1). Ledger: owner, creature, position, side (1 ally / 0 enemy,
-// fixed at entry), entry order. The Wheel turns at the owner's turn start; one Kingmaker per Wheel in stage 1.
+// The Kingmaker's Wheel (ARC-0008, SPEC_ARC-0008 stages 1-2). Ledger: owner, creature, position, side (1 ally / 0 enemy,
+// fixed at entry), entry order. The Wheel turns at the owner's turn start; one Kingmaker per Wheel until stage 6.
+// Stage 2: the Crossing (an enemy entering Fallen with a Reigning ally within 9 m takes Force damage, once per enemy per
+// round), its count for the Awakening (a lone enemy counts twice), Tyche (bindings one position ahead), Rota Fortunae
+// (the Wheel turns once more) and Atropos' Cut (the thread is cut).
 //REGION Tables
 PROC
 PROC_ARCANA_Kingmaker_Init()
@@ -31,18 +34,41 @@ DB_ARCANA_Kingmaker_PositionStatus("RISING", "KINGMAKER_RISING");
 DB_ARCANA_Kingmaker_PositionStatus("REIGNING", "KINGMAKER_REIGNING");
 DB_ARCANA_Kingmaker_PositionStatus("FALLING", "KINGMAKER_FALLING");
 DB_ARCANA_Kingmaker_PositionStatus("FALLEN", "KINGMAKER_FALLEN");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Kingmaker_Init();
 //END_REGION
 
-//REGION Bind - Coronation (ally, Rising) and Dethrone (enemy, Falling)
+//REGION Bind - Coronation (ally, Rising) and Dethrone (enemy, Falling); with Tyche (Tier I) one position ahead
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
+AND
+NOT DB_ARCANA_AspectReached(_Owner, 1)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 1);
 
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_AspectReached(_Owner, 1)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "REIGNING", 1);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
+AND
+NOT DB_ARCANA_AspectReached(_Owner, 1)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 0);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_AspectReached(_Owner, 1)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLEN", 0);
 
 PROC
 PROC_ARCANA_Kingmaker_Bind((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
@@ -68,7 +94,9 @@ NOT DB_ARCANA_Kingmaker_Counter(_Owner, _Old);
 DB_ARCANA_Kingmaker_Counter(_Owner, _New);
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _New);
 ApplyStatus(_Creature, _Status, -1.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_Fell(_Owner, _Creature, _Position, _Side);
 PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
 //END_REGION
 
 //REGION Move one step (collected first, so the ledger is never changed while it is read)
@@ -95,9 +123,27 @@ NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _NextPosition, _Side, _Order);
 RemoveStatus(_Creature, _OldStatus, _Owner);
 ApplyStatus(_Creature, _NewStatus, -1.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_Fell(_Owner, _Creature, _NextPosition, _Side);
+
+// an enemy that enters Fallen waits for the Crossing check, made after every creature has moved
+PROC
+PROC_ARCANA_Kingmaker_Fell((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "FALLEN"
+AND
+_Side == 0
+THEN
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Creature);
 //END_REGION
 
-//REGION The Wheel turns at the owner's turn start
+//REGION The Wheel turns at the owner's turn start (a new round: every enemy may cross again)
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+
 IF
 TurnStarted(_Owner)
 AND
@@ -119,6 +165,32 @@ AND
 DB_ARCANA_Kingmaker_Counter(_Owner, _)
 THEN
 PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+
+//REGION Rota Fortunae (Tier I card) - the Wheel turns once more, now
+IF
+StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+
+IF
+StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature)
+THEN
+NOT DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+
+IF
+StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
 //END_REGION
 
 //REGION Turn the Spoke - one step for one creature
@@ -129,6 +201,32 @@ DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
 THEN
 PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
 PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+
+//REGION Atropos' Cut - the creature leaves the Wheel (the damage is in Stats); an ally cut while Reigning keeps it a turn
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_CUT_TECH", _Owner, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+RemoveStatus(_Creature, _Status, _Owner);
+RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+PROC_ARCANA_Kingmaker_Cut(_Owner, _Creature, _Position, _Side);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Cut((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "REIGNING"
+AND
+_Side == 1
+THEN
+ApplyStatus(_Creature, "KINGMAKER_REIGNING_LINGER", 6.0, 1, _Owner);
 //END_REGION
 
 //REGION The crown - the ally Reigning longest (lowest order, not a summon) is King; other Reigning allies are Regents
@@ -189,6 +287,91 @@ THEN
 ApplyStatus(_Creature, "KINGMAKER_REGENT", -1.0, 1, _Owner);
 //END_REGION
 
+//REGION The Crossing (level 3) - after every change; once per enemy per round, however many allies Reign near it
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+GetDistanceTo(_Enemy, _Ally, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+ApplyStatus(_Enemy, "KINGMAKER_CROSSING_TECH", 0.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner);
+//END_REGION
+
+//REGION Awakening 10 - Wheel of Fortune: every Crossing counts 1, or 2 while only one enemy is on the Wheel
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_Enemies(_Owner, _N);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+THEN
+DB_ARCANA_Kingmaker_Enemies(_Owner, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _, 0, _)
+THEN
+PROC_ARCANA_Kingmaker_AddEnemy(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_AddEnemy((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_Enemies(_Owner, _Old);
+DB_ARCANA_Kingmaker_Enemies(_Owner, _New);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+HasPassive(_Owner, "Arcana_Passive_Aspect_WheelOfFortune_Awakening", 1)
+THEN
+PROC_ARCANA_Aspect_Step(_Owner, "WHEEL");
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+HasPassive(_Owner, "Arcana_Passive_Aspect_WheelOfFortune_Awakening", 1)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, 1)
+THEN
+PROC_ARCANA_Aspect_Step(_Owner, "WHEEL");
+//END_REGION
+
 //REGION Leaving the Wheel - death and the end of combat
 IF
 Died(_Creature)
@@ -223,6 +406,27 @@ AND
 DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order)
 THEN
 NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy);
+
+IF
+CombatEnded(_)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_Enemies(_Owner, _N);
 //END_REGION
 EXITSECTION
 

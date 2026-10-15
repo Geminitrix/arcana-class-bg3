@@ -5,6 +5,34 @@
         <node id="root">
             <children>
                 <node id="LevelMapSeries">
+                    <attribute id="Name" type="FixedString" value="DEBUG LEVELMAP"/>
+                    <attribute id="UUID" type="guid" value="f2820f20-6b55-4b21-9d0f-7ce98482a96a"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2"/>
+                    <attribute id="Level10" type="LSString" value="2"/>
+                    <attribute id="Level11" type="LSString" value="2"/>
+                    <attribute id="Level12" type="LSString" value="2"/>
+                    <attribute id="Level13" type="LSString" value="2"/>
+                    <attribute id="Level14" type="LSString" value="2"/>
+                    <attribute id="Level15" type="LSString" value="2"/>
+                    <attribute id="Level16" type="LSString" value="2"/>
+                    <attribute id="Level17" type="LSString" value="2"/>
+                    <attribute id="Level18" type="LSString" value="2"/>
+                    <attribute id="Level19" type="LSString" value="2"/>
+                    <attribute id="Level2" type="LSString" value="2"/>
+                    <attribute id="Level20" type="LSString" value="2"/>
+                    <attribute id="Level3" type="LSString" value="2"/>
+                    <attribute id="Level4" type="LSString" value="2"/>
+                    <attribute id="Level5" type="LSString" value="2"/>
+                    <attribute id="Level6" type="LSString" value="2"/>
+                    <attribute id="Level7" type="LSString" value="2"/>
+                    <attribute id="Level8" type="LSString" value="2"/>
+                    <attribute id="Level9" type="LSString" value="2"/>
+                    <attribute id="Name" type="FixedString" value="Debug_Damage"/>
+                    <attribute id="UUID" type="guid" value="1acc0f76-f326-411f-8a9d-aa56d025464c"/>
+                </node>
+                <node id="LevelMapSeries">
                     <attribute id="Name" type="FixedString" value="STARCHILD LEVELMAP"/>
                     <attribute id="UUID" type="guid" value="8d78f8d8-3459-4278-81e1-17c83219ae82"/>
                 </node>
@@ -590,32 +618,32 @@
                     <attribute id="UUID" type="guid" value="635ba3e3-7488-4baa-b0a5-31be24773f6f"/>
                 </node>
                 <node id="LevelMapSeries">
-                    <attribute id="Level1" type="LSString" value="2"/>
-                    <attribute id="Level10" type="LSString" value="2"/>
-                    <attribute id="Level11" type="LSString" value="2"/>
-                    <attribute id="Level12" type="LSString" value="2"/>
-                    <attribute id="Level13" type="LSString" value="2"/>
-                    <attribute id="Level14" type="LSString" value="2"/>
-                    <attribute id="Level15" type="LSString" value="2"/>
-                    <attribute id="Level16" type="LSString" value="2"/>
-                    <attribute id="Level17" type="LSString" value="2"/>
-                    <attribute id="Level18" type="LSString" value="2"/>
-                    <attribute id="Level19" type="LSString" value="2"/>
-                    <attribute id="Level2" type="LSString" value="2"/>
-                    <attribute id="Level20" type="LSString" value="2"/>
-                    <attribute id="Level3" type="LSString" value="2"/>
-                    <attribute id="Level4" type="LSString" value="2"/>
-                    <attribute id="Level5" type="LSString" value="2"/>
-                    <attribute id="Level6" type="LSString" value="2"/>
-                    <attribute id="Level7" type="LSString" value="2"/>
-                    <attribute id="Level8" type="LSString" value="2"/>
-                    <attribute id="Level9" type="LSString" value="2"/>
-                    <attribute id="Name" type="FixedString" value="Debug_Damage"/>
-                    <attribute id="UUID" type="guid" value="1acc0f76-f326-411f-8a9d-aa56d025464c"/>
+                    <attribute id="Name" type="FixedString" value="KINGMAKER LEVELMAP"/>
+                    <attribute id="UUID" type="guid" value="aa15085f-5af5-45b2-9104-2606b195bcfa"/>
                 </node>
                 <node id="LevelMapSeries">
-                    <attribute id="Name" type="FixedString" value="DEBUG LEVELMAP"/>
-                    <attribute id="UUID" type="guid" value="f2820f20-6b55-4b21-9d0f-7ce98482a96a"/>
+                    <attribute id="Level1" type="LSString" value="1d4"/>
+                    <attribute id="Level10" type="LSString" value="1d8"/>
+                    <attribute id="Level11" type="LSString" value="1d8"/>
+                    <attribute id="Level12" type="LSString" value="1d8"/>
+                    <attribute id="Level13" type="LSString" value="1d8"/>
+                    <attribute id="Level14" type="LSString" value="1d8"/>
+                    <attribute id="Level15" type="LSString" value="1d8"/>
+                    <attribute id="Level16" type="LSString" value="1d8"/>
+                    <attribute id="Level17" type="LSString" value="1d8"/>
+                    <attribute id="Level18" type="LSString" value="1d8"/>
+                    <attribute id="Level19" type="LSString" value="1d8"/>
+                    <attribute id="Level2" type="LSString" value="1d4"/>
+                    <attribute id="Level20" type="LSString" value="1d8"/>
+                    <attribute id="Level3" type="LSString" value="1d4"/>
+                    <attribute id="Level4" type="LSString" value="1d4"/>
+                    <attribute id="Level5" type="LSString" value="1d6"/>
+                    <attribute id="Level6" type="LSString" value="1d6"/>
+                    <attribute id="Level7" type="LSString" value="1d6"/>
+                    <attribute id="Level8" type="LSString" value="1d6"/>
+                    <attribute id="Level9" type="LSString" value="1d8"/>
+                    <attribute id="Name" type="FixedString" value="Kingmaker_Crossing"/>
+                    <attribute id="UUID" type="guid" value="cbcd0570-33d1-4182-a148-9770802881f3"/>
                 </node>
             </children>
         </node>

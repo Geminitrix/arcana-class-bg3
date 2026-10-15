@@ -57,6 +57,8 @@ my $AWAKEN_ROOT = qr/^(?:Arcana_Passive_Aspect_|ASPECT_|Interrupt_Arcana_Aspect_
 # Resonant (2026-10-06): the subclass has no progression yet, so its engine is recognised by name. Remove
 # this once the Resonant progression and lists exist (they become its roots like any subclass).
 my $RESONANT_ROOT = qr/^(?:Target_Arcana_Card_Spell_Emotion[A-Z]|EMOTION_|MOOD_|FEELING_|CATHARSIS$|Arcana_Passive_(?:EmotionalAlchemy|EmpathicSight|ComplexFeelings|Overwhelm|MixedFeelings|Feeling[A-Z]))/;
+# Kingmaker (2026-10-15): its statuses that only Osiris applies (the Crossing, the crown) are recognised by name.
+my $KINGMAKER_ROOT = qr/^(?:KINGMAKER_|COURT_)/;
 
 sub slurp { open my $h, '<:raw', $_[0] or die "$_[0]: $!"; local $/; my $s = <$h>; close $h; $s }
 sub uuid_for { my @h = unpack '(A4)8', md5_hex("arcana-divider:" . shift); "$h[0]$h[1]-$h[2]-$h[3]-$h[4]-$h[5]$h[6]$h[7]" }
@@ -121,6 +123,7 @@ my (%GRP, %WHY);
 for my $n (@ORDER) {
     if ($n =~ /DEBUG/i)                                      { $GRP{$n} = 'DEBUG';  $WHY{$n} = 'nome' }
     elsif ($n =~ $AWAKEN_ROOT)                               { $GRP{$n} = 'AWAKEN'; $WHY{$n} = 'Despertar' }
+    elsif ($n =~ $KINGMAKER_ROOT)                      { $GRP{$n} = 'KINGMAKER'; $WHY{$n} = 'Kingmaker (nome)' }
     elsif ($n =~ $RESONANT_ROOT)                        { $GRP{$n} = 'RESONANT'; $WHY{$n} = 'Resonant (nome)' } }
 # WEAPON / EQUIPMENT / BOON / CC SET so valem para quem nenhuma raiz alcanca: uma publicacao do Toolkit ja
 # despejou passivas do Despertar debaixo de EQUIPMENT PASSIVES.
@@ -132,7 +135,7 @@ sub bfs { my ($starts, $ok) = @_; my (@q, %seen, @out) = (@$starts);
 for my $n (bfs([ map { $_->[0] } @{ $ROOT{ARCANA} // [] } ], sub { !exists $GRP{$_[0]} })) { $GRP{$n} = 'ARCANA'; $WHY{$n} = 'progressao Arcana' }
 # subclasses: quem so uma alcanca e dela; quem varias alcancam fica onde estava
 my %REACH;
-for my $g (qw(DECEIVER STARCHILD UNBOUND ETERNAL)) {
+for my $g (qw(DECEIVER STARCHILD UNBOUND ETERNAL KINGMAKER)) {
     $REACH{$_}{$g} = 1 for bfs([ map { $_->[0] } @{ $ROOT{$g} // [] } ], sub { !exists $GRP{$_[0]} }) }
 my @conflict;
 for my $n (sort keys %REACH) { my @g = sort { $GRANK{$a} <=> $GRANK{$b} } keys %{ $REACH{$n} };

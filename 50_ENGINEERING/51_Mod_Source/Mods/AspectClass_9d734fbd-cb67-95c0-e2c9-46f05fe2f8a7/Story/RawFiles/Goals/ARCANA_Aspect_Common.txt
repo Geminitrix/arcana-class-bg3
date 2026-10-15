@@ -68,6 +68,12 @@ DB_ARCANA_AspectTier("TEMPERANCE", 1, "Arcana_Passive_Aspect_Temperance_I", "ASP
 DB_ARCANA_AspectTier("TEMPERANCE", 2, "Arcana_Passive_Aspect_Temperance_II", "ASPECT_AWAKENED_TEMPERANCE_II", 6);
 DB_ARCANA_AspectTier("TEMPERANCE", 3, "Arcana_Passive_Aspect_Temperance_III", "ASPECT_AWAKENED_TEMPERANCE_III", 15);
 DB_ARCANA_AspectShow("TEMPERANCE", "COUNT");
+// 10 - Wheel of Fortune (the Kingmaker): Crossings caused in the fight (ARC-0008)
+DB_ARCANA_Aspect("WHEEL", "ASPECT_PROGRESS_WHEEL", "ASPECT_AWAKENED_WHEEL", "Arcana_Passive_Aspect_WheelOfFortune_I");
+DB_ARCANA_AspectTier("WHEEL", 1, "Arcana_Passive_Aspect_WheelOfFortune_I", "ASPECT_AWAKENED_WHEEL_I", 3);
+DB_ARCANA_AspectTier("WHEEL", 2, "Arcana_Passive_Aspect_WheelOfFortune_II", "ASPECT_AWAKENED_WHEEL_II", 5);
+DB_ARCANA_AspectTier("WHEEL", 3, "Arcana_Passive_Aspect_WheelOfFortune_III", "ASPECT_AWAKENED_WHEEL_III", 8);
+DB_ARCANA_AspectShow("WHEEL", "COUNT");
 
 // INITSECTION nao roda de novo em save existente
 IF
@@ -212,6 +218,9 @@ DB_ARCANA_AspectProgress("EMPRESS", 3, "ASPECT_PROGRESS_EMPRESS_III");
 DB_ARCANA_AspectProgress("TEMPERANCE", 1, "ASPECT_PROGRESS_TEMPERANCE_I");
 DB_ARCANA_AspectProgress("TEMPERANCE", 2, "ASPECT_PROGRESS_TEMPERANCE_II");
 DB_ARCANA_AspectProgress("TEMPERANCE", 3, "ASPECT_PROGRESS_TEMPERANCE_III");
+DB_ARCANA_AspectProgress("WHEEL", 1, "ASPECT_PROGRESS_WHEEL_I");
+DB_ARCANA_AspectProgress("WHEEL", 2, "ASPECT_PROGRESS_WHEEL_II");
+DB_ARCANA_AspectProgress("WHEEL", 3, "ASPECT_PROGRESS_WHEEL_III");
 DB_ARCANA_AspectProgress("STAR", 1, "ASPECT_PROGRESS_STAR_I");
 DB_ARCANA_AspectProgress("STAR", 2, "ASPECT_PROGRESS_STAR_II");
 DB_ARCANA_AspectProgress("STAR", 3, "ASPECT_PROGRESS_STAR_III");

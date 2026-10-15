@@ -1077,6 +1077,17 @@
                     <attribute id="UUID" type="guid" value="d1a9d96e-097c-c2c9-b47b-6a718742c69d"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)"/>
+                    <attribute id="IsMulticlass" type="bool" value="true"/>
+                    <attribute id="Level" type="uint8" value="1"/>
+                    <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheRota"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)"/>
+                    <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
+                    <attribute id="UUID" type="guid" value="5417d057-d685-4302-b6d7-b5356a9a118d"/>
+                </node>
+                <node id="Progression">
                     <attribute id="Boosts" type="LSString" value="ProficiencyBonus(SavingThrow,Charisma);ProficiencyBonus(SavingThrow,Wisdom);Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)"/>
                     <attribute id="IsMulticlass" type="bool" value="false"/>
                     <attribute id="Level" type="uint8" value="1"/>
@@ -1097,7 +1108,9 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="3"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheCrossing;Arcana_Passive_Aspect_WheelOfFortune_Awakening;Arcana_Passive_Aspect_WheelOfFortune_I"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(f48fbecb-c8b6-4837-a3f9-270a905caa19,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="504e7b34-f08d-48d6-a817-4be73d9064c5"/>
                 </node>
@@ -1250,17 +1263,6 @@
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="7643bf5a-62fa-44c4-ab73-572e655554d2"/>
                     <attribute id="UUID" type="guid" value="85818201-d580-4c98-b8d5-75e277225200"/>
-                </node>
-                <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(MediumArmor);Proficiency(SimpleWeapons);Proficiency(Rapiers);Proficiency(HandCrossbows)"/>
-                    <attribute id="IsMulticlass" type="bool" value="true"/>
-                    <attribute id="Level" type="uint8" value="1"/>
-                    <attribute id="Name" type="LSString" value="Kingmaker"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheRota"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="AddSpells(8749e2ed-fd67-4448-8313-50be6e541b22,,,,AlwaysPrepared)"/>
-                    <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
-                    <attribute id="UUID" type="guid" value="5417d057-d685-4302-b6d7-b5356a9a118d"/>
                 </node>
             </children>
         </node>

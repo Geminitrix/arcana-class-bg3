@@ -22,7 +22,7 @@ our $M = 'AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7';
 our $ROOT = abs_path(dirname(__FILE__) . '/../../..');
 sub slurp { my $p = shift; open my $h, '<:raw', $p or die "$p: $!"; local $/; my $s = <$h>; close $h; $s =~ s/\r\n/\n/g; $s }
 
-our @ORDER = qw(FOOL EMPRESS TEMPERANCE STAR DEATH);
+our @ORDER = qw(FOOL EMPRESS TEMPERANCE WHEEL STAR DEATH);
 # passive: the tier passives' infix; tiers: their names; left: what the number counts (the status text);
 # do: the passive's opening; rule: an extra sentence; goal: the goal in words from the row value
 our %A = (
@@ -43,8 +43,7 @@ our %A = (
         do => 'Cause reactions',
         rule => 'Every feeling you braid, every emotion you intensify and every Catharsis counts.',
         goal => sub { "cause $_[0] reactions" } },
-    # ARC-0008 stage 2 (the Kingmaker): goes into @ORDER once the WHEEL rows are in ARCANA_Aspect_Common and the
-    # passive Arcana_Passive_Aspect_WheelOfFortune_Awakening exists in the game (TOOLKIT_ARC-0008_stage2.md §1, §3)
+    # ARC-0008 stage 2 (the Kingmaker), 10 - Wheel of Fortune: Crossings (TOOLKIT_ARC-0008_stage2.md)
     WHEEL => { passive => 'WheelOfFortune', aspect => 'Anticipation', icon => 'Spell_Divination_DetectThoughts', mode => 'COUNT',
         tiers => ['Tyche', 'Nemesis', 'Aspect of Anticipation'],
         left => 'Crossings left to cause',

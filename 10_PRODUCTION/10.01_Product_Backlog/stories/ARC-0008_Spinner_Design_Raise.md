@@ -5,7 +5,7 @@ type: design
 epic: EPIC_Rework_Subclasses
 status: in_progress
 owner: Lead Class Designer
-implementation: owner
+implementation: claude
 priority: must
 value: 5
 effort: 4
@@ -144,3 +144,14 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   `Using` (CloudOfDaggers, Arcana_Created_Aspect_TwoCups) only to copy Spell Animation and the effects, then drop it;
   TooltipUpcastDescription given by its list name (*Additional damage*). Template rule 12 (look fields via `Using`,
   list tooltips by name, read from vanilla TooltipExtras) for every next guide, ARC-0009 included.
+- 2026-10-15 — implementation owner → **claude** (Owner, option 1): the Owner types each stage in the Toolkit; when the
+  Owner asks, Claude fixes what the review finds and runs the generators in the game files. Stage 1's fixes and generator
+  run were written before this change (the jt-gate heuristic didn't see the game path inside the scripts).
+- 2026-10-15 — Stage 2 entered by the Owner; reviewed against TOOLKIT_ARC-0008_stage2 (105 stats fields, goal identical,
+  Common rows, LevelMap, level-3 list and progression, look fields equal to their parents). Fixed: Rota Fortunae kept
+  `Using` Two Cups and inherited its 18 m area, mood targets and Psychic damage (Using removed); the level-3 list was
+  named "Kingmaker Level 2". Generated: Atropos' Cut _3…_6 (4d8…7d8 / 3d8…6d8 / 2d8…5d8) and Dethrone _2…_6 damage
+  (4d6…8d6); WHEEL in gen_awakening_progress (ASPECT_PROGRESS_WHEEL_I–III, countdown rows in Common; Awakening text
+  already identical). sort_stats: KINGMAKER walked from its progression + `KINGMAKER_`/`COURT_` by name (only Kingmaker
+  entries changed group). check_cards OK, validate 0 errors. The Owner recompiles the Story (Common, CardFamilies
+  changed), then plays P9–P16 (and P1–P8).

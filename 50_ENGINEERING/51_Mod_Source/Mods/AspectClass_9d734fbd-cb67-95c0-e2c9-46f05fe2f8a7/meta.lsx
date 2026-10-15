@@ -112,7 +112,7 @@
                     <attribute id="FileSize" type="uint64" value="23902715"/>
                     <attribute id="Folder" type="LSString" value="AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="2b5b3edef30e90301a91dcd407ea3b63"/>
+                    <attribute id="MD5" type="LSString" value="d5d6630219a4933f463782c019dc991b"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="Arcana Class"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
@@ -120,7 +120,7 @@
                     <attribute id="PublishHandle" type="uint64" value="6006029"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
                     <attribute id="UUID" type="FixedString" value="9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7"/>
-                    <attribute id="Version64" type="int64" value="108227128545247278"/>
+                    <attribute id="Version64" type="int64" value="108227128545247279"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927718452951"/>

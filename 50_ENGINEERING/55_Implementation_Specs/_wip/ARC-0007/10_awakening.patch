@@ -21,6 +21,13 @@
 @loca AW_ASPECT_PROGRESS_TEMPERANCE_II_DESC Reactions left to cause to awaken Harmony.
 @loca AW_ASPECT_PROGRESS_TEMPERANCE_III_NAME Awakening
 @loca AW_ASPECT_PROGRESS_TEMPERANCE_III_DESC Reactions left to cause to awaken the Aspect of Empathy.
+@loca AW_ASPECT_PROGRESS_WHEEL_I_NAME Awakening
+@loca AW_ASPECT_PROGRESS_WHEEL_I_DESC Crossings left to cause to awaken Tyche.
+@loca AW_ASPECT_PROGRESS_WHEEL_II_NAME Awakening
+@loca AW_ASPECT_PROGRESS_WHEEL_II_DESC Crossings left to cause to awaken Nemesis.
+@loca AW_ASPECT_PROGRESS_WHEEL_III_NAME Awakening
+@loca AW_ASPECT_PROGRESS_WHEEL_III_DESC Crossings left to cause to awaken the Aspect of Anticipation.
+@loca h14195875g0974g11f1g034dgfee9405d137d Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 Crossings to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I">Tyche</LSTag>.<br><br>Level 7: cause 5 Crossings to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II">Nemesis</LSTag>.<br><br>Level 12: cause 8 Crossings to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III">Aspect of Anticipation</LSTag>.<br><br>The Awakening status shows how much is left to the next tier.
 @loca AW_ASPECT_PROGRESS_STAR_I_NAME Awakening
 @loca AW_ASPECT_PROGRESS_STAR_I_DESC Hit points left to heal to awaken Beacon.
 @loca AW_ASPECT_PROGRESS_STAR_II_NAME Awakening
@@ -142,6 +149,42 @@ data "DisplayName" "{{AW_ASPECT_PROGRESS_TEMPERANCE_III_NAME}}"
 data "Description" "{{AW_ASPECT_PROGRESS_TEMPERANCE_III_DESC}}"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "ASPECT_PROGRESS_TEMPERANCE"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ASPECT_PROGRESS_WHEEL_I"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{AW_ASPECT_PROGRESS_WHEEL_I_NAME}}"
+data "Description" "{{AW_ASPECT_PROGRESS_WHEEL_I_DESC}}"
+data "Icon" "Spell_Divination_DetectThoughts"
+data "StackId" "ASPECT_PROGRESS_WHEEL"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ASPECT_PROGRESS_WHEEL_II"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{AW_ASPECT_PROGRESS_WHEEL_II_NAME}}"
+data "Description" "{{AW_ASPECT_PROGRESS_WHEEL_II_DESC}}"
+data "Icon" "Spell_Divination_DetectThoughts"
+data "StackId" "ASPECT_PROGRESS_WHEEL"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "ASPECT_PROGRESS_WHEEL_III"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{AW_ASPECT_PROGRESS_WHEEL_III_NAME}}"
+data "Description" "{{AW_ASPECT_PROGRESS_WHEEL_III_DESC}}"
+data "Icon" "Spell_Divination_DetectThoughts"
+data "StackId" "ASPECT_PROGRESS_WHEEL"
 data "StackType" "Overwrite"
 data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "FreezeDuration;IgnoreResting;ForceOverhead"

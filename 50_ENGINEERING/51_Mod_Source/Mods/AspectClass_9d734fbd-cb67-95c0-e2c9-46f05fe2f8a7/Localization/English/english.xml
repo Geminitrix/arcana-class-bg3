@@ -1452,4 +1452,30 @@
   <content contentuid="h98cb786bgf1c9g7366g8692ga35cf949660c" version="1">Turn the Spoke</content>
   <content contentuid="h3c506cfaged5ag884bgefafg72d75052d2ef" version="1">Turn a creature on the Wheel one position onward.</content>
   <content contentuid="h1fa3bf1bg4f8dg2990g86b8g197be1f8030e" version="1">The Wheel only turns forward.</content>
+  <content contentuid="hcfba5c96g92a7g281bg7601gf8adc9e673a1" version="1">The Crossing</content>
+  <content contentuid="h8056fb4fgea1fg274cg6ef6gd12ea0f42956" version="1">Fell while an ally reigned nearby, and took Force damage.</content>
+  <content contentuid="hb81e64e2g70cfgd202gb4f3g490aa52a448f" version="1">Reigning</content>
+  <content contentuid="hc712d2d8g2f3dgc035ga772gcc7bbb8c8dce" version="1">Cut from the Wheel at its peak. Lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20 and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; until the end of its next turn.</content>
+  <content contentuid="h9e143a95gbbf4gf914g6208ge3e2799b7869" version="1">10 - Wheel of Fortune</content>
+  <content contentuid="ha5a150abgc002gfe51ga076ge6efd784374e" version="1">Awakened as the Aspect of Anticipation until combat ends.</content>
+  <content contentuid="h4a5d90f1g7629ga2aeg82cagb5ca388b3851" version="1">10 - Wheel of Fortune: Awakened I</content>
+  <content contentuid="hdb57b761g4bccg9dc0gc0bbga4b8608b80c0" version="1">Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.</content>
+  <content contentuid="h06183e99g29b9gf53bgfad9gb486733b49b5" version="1">The Crossing</content>
+  <content contentuid="he8aeaef6ge103gb1eeg33bfg1739036090df" version="1">When an enemy on the Wheel becomes Fallen while an ally on the Wheel is Reigning within [1], the enemy takes [2]. Once per enemy per round.</content>
+  <content contentuid="h2f7f5740g81edg3c01g9158g0df9738978b3" version="1">10 - Wheel of Fortune: Awakening</content>
+  <content contentuid="h14195875g0974g11f1g034dgfee9405d137d" version="1">Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.&lt;br&gt;&lt;br&gt;Level 3: cause 3 Crossings to gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I"&gt;Tyche&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 7: cause 5 Crossings to also gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II"&gt;Nemesis&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 12: cause 8 Crossings to awaken as the &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III"&gt;Aspect of Anticipation&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;The Awakening status shows how much is left to the next tier.</content>
+  <content contentuid="hfe7a348fg85b7g6307gf98dg83b6d54bd789" version="1">Tyche</content>
+  <content contentuid="h5ef1fcf4gc897gfbeegfb34g3977e816a895" version="1">Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.</content>
+  <content contentuid="hc06d5981g3cb4ga10cg190dg9235cb383839" version="1">Atropos' Cut</content>
+  <content contentuid="h50445669g1cbbg2708g7451g8b0acee10b89" version="1">Cut a creature's thread from Fortune's wheel.</content>
+  <content contentuid="h1bc4a777gb3eeg0bb4gd028g15320228c305" version="1">An enemy takes damage that grows the lower it sits: [1] if Fallen, [2] if Falling, [3] if Rising or Reigning.&lt;br&gt;&lt;br&gt;An ally leaves the Wheel. If it was Reigning, it keeps Reigning until the end of its next turn.</content>
+  <content contentuid="hd95f4fafg68c7ge8c4g4954ga7640ec8605b" version="1">Rota Fortunae</content>
+  <content contentuid="h88178c6eg22fegf75agdae5g2f781ac80ab8" version="1">Turn Fortune's wheel once more. Every creature on it moves one position onward.</content>
+  <content contentuid="h25b7900fgd95agee13gce75g133de13933ca" version="1">Crossings happen as they do when the Wheel turns.&lt;br&gt;&lt;br&gt;Once per combat.</content>
+  <content contentuid="hcef4c21bgdefcgda43gf9c6g6ec743a490d4" version="1">Awakening</content>
+  <content contentuid="h4ee0c309g9c55g5db9g708bgb3b133523903" version="1">Crossings left to cause to awaken Tyche.</content>
+  <content contentuid="h967b1942g92e5g1539gdfc4gca2b78a0b3fd" version="1">Awakening</content>
+  <content contentuid="h928a775dgfacdg0be8ge36ag4244d2ce000e" version="1">Crossings left to cause to awaken Nemesis.</content>
+  <content contentuid="h0c01899cg31fcg8f3cg03fcgb24dc20ac352" version="1">Awakening</content>
+  <content contentuid="hb652b230gc104ge516gdcc0gd61334cbc371" version="1">Crossings left to cause to awaken the Aspect of Anticipation.</content>
 </contentList>

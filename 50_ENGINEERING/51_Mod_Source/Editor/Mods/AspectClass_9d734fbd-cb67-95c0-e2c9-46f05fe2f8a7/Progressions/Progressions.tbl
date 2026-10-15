@@ -1445,6 +1445,8 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="3" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_TheCrossing;Arcana_Passive_Aspect_WheelOfFortune_Awakening;Arcana_Passive_Aspect_WheelOfFortune_I" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(f48fbecb-c8b6-4837-a3f9-270a905caa19,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">
