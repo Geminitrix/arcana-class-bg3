@@ -43,7 +43,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 | **3** | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | **Written below** (2026-10-15); Claude implements; probes P17–P24 at the end |
 | **4** | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | **Written below** (2026-10-15); Claude implements; probes P25–P32 at the end |
 | **5** | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | **Written below** (2026-10-15); Claude implements; probes P33–P40 at the end |
-| 6 | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers share one Wheel (SP93) | After stage 5 |
+| **6** | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers keep separate Wheels (SP113, amends SP93) | **Written below** (2026-10-15); Claude implements; probes P41–P48 at the end |
 | 7 | — | PC edition `CardDB.lua` (Claude), test cases in `60`, `05` handoff, renames and icons | DoD |
 
 ---
@@ -355,3 +355,45 @@ of the mod first. Probes at the end of the subclass.
 | P38 | Master of Ships 5 m from an enemy entering Fallen, no Reigning ally near | The enemy crosses | — |
 | P39 | Level 7 character: open Convene the Court | Coin and Ships are shown but locked; at 9 they open | — |
 | P40 | Seven offices with CHA 20 (+5) | Five appointed, then the rest are locked (`COURT_FULL`) | — |
+
+---
+
+## Stage 6 — The Wheel Stops, Fortune's Reach, Tier III and Foreseen (levels 11–12)
+
+Written 2026-10-15; Claude implements (`55/_wip/Kingmaker/stage6/`, applied with `[fechado] ARC-0008`), rehearsed on a copy
+of the mod first. Decisions of the Owner for this stage: **SP112** (The Wheel Stops freezes the turn only), **SP113** (two
+Kingmakers keep separate Wheels — amends SP93), **SP114** (Ready: Foreseen costs a Bonus Action). Probes at the end.
+
+### What is written
+
+| # | Kind | Entry | How |
+|---|---|---|---|
+| 01 | Status BOOST | `KINGMAKER_STOP_TECH`, `KINGMAKER_FORESEEN_TECH` (technical); `KINGMAKER_WHEEL_STOPPED`, `KINGMAKER_FORESEEN_READY` (visible); `ASPECT_AWAKENED_WHEEL_III` (unlocks *Ready: Foreseen*) | `60_stage6.patch` |
+| 02 | Passive | `Arcana_Passive_FortunesReach`, `Arcana_Passive_Aspect_WheelOfFortune_III` | same |
+| 03 | Interrupt | `Interrupt_Arcana_Aspect_Foreseen` (the mod's Aspect-reaction prefix; texts.md's working id was `Interrupt_Arcana_Reaction_Foreseen`) | same |
+| 04 | Spell Shout | `Shout_Arcana_Card_Spell_TheWheelStops` (level-6 card, once per Long Rest), `Shout_Arcana_Created_Aspect_ReadyForeseen` (Bonus Action, once per combat) | same |
+| 05 | Spell list, progression | *Kingmaker Level 11* = The Wheel Stops (row `10cd57aa…`); row `599e1b1a…` (level 12): `PassivesAdded` Fortune's Reach, Tier III | `61_uuid.pl` |
+| 06 | Osiris | `ARCANA_Kingmaker_Wheel`: + the stop, the pressing, Tier III's hold, Foreseen, Fortune's Reach; **two rules changed** (the turn and the Master of Laws' step wait while the Wheel is stopped) | `62_goal.pl` |
+
+### How each rule is built
+
+| Rule (design) | Build | Anchor |
+|---|---|---|
+| **The Wheel Stops** (§7.10, SP112): for 2 of the Kingmaker's turns the Wheel doesn't turn; at each of those turn starts every Fallen enemy near a Reigning ally crosses | The card (self Shout) applies `KINGMAKER_STOP_TECH`; Osiris sets `DB_ARCANA_Kingmaker_Stopped(owner, 2)` and marks every creature on the Wheel (and every creature bound during the stop) with `KINGMAKER_WHEEL_STOPPED`. At the owner's turn start the move and the Master of Laws' step need `NOT Stopped`; every Fallen enemy is put back in the Crossing check (the once-per-round rule holds); then the count goes down and at 0 the marks go. The count `2` is written in the goal (`SPL_Kingmaker_TheWheelStops#duration`) | stage 2's Crossing check |
+| **Fortune's Reach** (§8.5, level 12): the Crossing needs no distance | A third source in `Settle`: any Reigning ally on the Wheel, with the passive | — |
+| **Tier III** (§9.4): an ally never enters Fallen; it stays Falling one more turn | Whatever the cause, an ally entering Fallen while the Kingmaker has `ASPECT_AWAKENED_WHEEL_III` is put back at Falling and held (`DB_ARCANA_Kingmaker_Held`); the next step of a held ally goes to Rising. The cycle keeps four steps | ARC-0007 tier statuses |
+| **Ready: Foreseen** (§7.9, SP114) | Tier III's status unlocks the created card (Bonus Action, once per combat); it gives `KINGMAKER_FORESEEN_READY` until combat ends, which unlocks the reaction. The reaction: `OnSpellCast`, `Nearby`, an enemy attacking the Kingmaker or an ally while Reigning or Falling → `KINGMAKER_FORESEEN_TECH` on the attacker; Osiris moves it one step (Reigning → Falling, Falling → Fallen and a possible Crossing), keeping its Hubris | `Interrupt_Counterspell` (`OnSpellCast`, `Enemy(context.Source, context.Observer)`, `OBSERVER_SOURCE`) |
+| **Two Kingmakers** (SP113) | Nothing to build: each Kingmaker's ledger is its own Wheel; a creature can be bound to one only | stage 1 |
+
+### Probes — after the whole subclass (one rule each)
+
+| # | Do | Proves it works | Plan B |
+|---|---|---|---|
+| P41 | Level 11: The Wheel Stops with an ally Reigning and an enemy Fallen 5 m away | For your next 2 turn starts nothing moves and the enemy crosses each time (not twice in a round); at the third the Wheel turns again and the marks go | — |
+| P42 | During the stop: Turn the Spoke, Rota Fortunae, Dethrone a new enemy | They still move / bind; the new enemy is marked stopped | — |
+| P43 | Level 12: an enemy enters Fallen 20 m from the only Reigning ally | It crosses (Fortune's Reach) | — |
+| P44 | Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia an ally from Reigning | Rising → Reigning → Falling → Falling → Rising, never Fallen; Peripeteia leaves it Falling | — |
+| P45 | Tier III: cast Ready: Foreseen | It costs a Bonus Action, can't be cast twice in the fight, and *Foreseen* shows as a reaction | — |
+| P46 | A Reigning enemy on the Wheel attacks an ally; take Foreseen | Before the roll it becomes Falling (no 19–20 crit, −1d4); a Falling attacker becomes Fallen and may cross | The step lands after the roll → swap the position statuses in the interrupt's own Properties |
+| P47 | A Rising or Fallen enemy attacks | Foreseen isn't offered | `IsAttack()` false in `OnSpellCast` → drop it and keep the target condition |
+| P48 | Two Kingmakers in the party | Each crowns and turns their own Wheel; one creature can't be on both | — |

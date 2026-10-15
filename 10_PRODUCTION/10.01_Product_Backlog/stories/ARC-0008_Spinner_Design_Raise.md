@@ -183,3 +183,9 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-15 — Stage 5 applied in the game ([fechado]): stats patch (10 entries + the container's seventh office), list
   Kingmaker Level 9 + level-9 row, goal insertions, Ixion _6, sort_stats, check_cards OK (112), validate 0 errors; no
   duplicate field or handle; identical to the rehearsal. The Owner recompiles the Story.
+- 2026-10-15 — Stage 6 prepared (levels 11–12), decisions SP112 (The Wheel Stops freezes the turn only), SP113 (two
+  Kingmakers keep separate Wheels, amends SP93), SP114 (Ready: Foreseen costs a Bonus Action): SPEC stage 6 (probes
+  P41–P48) and `55/_wip/Kingmaker/stage6/` (`60_stage6.patch` 10 entries, `61_uuid.pl` list Kingmaker Level 11 + rows 11
+  and 12, `62_goal.pl` with two exact rule replacements). The interrupt is `Interrupt_Arcana_Aspect_Foreseen` (the
+  rehearsal grouped the working id under UNBOUND). Rehearsed on a copy: all grouped, check_cards OK, no duplicate,
+  scripts idempotent. Waits for `[fechado] ARC-0008`.

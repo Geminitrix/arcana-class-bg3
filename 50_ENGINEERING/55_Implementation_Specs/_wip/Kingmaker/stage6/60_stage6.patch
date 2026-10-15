@@ -1,0 +1,165 @@
+# ARC-0008 stage 6 (levels 11-12): The Wheel Stops, Fortune's Reach, Tier III (Aspect of Anticipation), Ready: Foreseen.
+# Spec: 50_ENGINEERING/55_Implementation_Specs/SPEC_ARC-0008.md (stage 6); decisions SP112-SP114. Applied with
+#   perl 80_TOOLS_AND_PIPELINE/82_Automation/stats/stats_add.pl <this> --apply      ([fechado] ARC-0008)
+# No `using`: every field is written. Numbers: 25.01/SPL_Kingmaker_TheWheelStops (level 6, 2 turns, 9 m),
+# 25.01/SPL_Kingmaker_Foreseen (once per round: the reaction cost).
+
+@loca KM_WHEEL_STOPS_NAME The Wheel Stops
+@loca KM_WHEEL_STOPS_DESC Stop Fortune's wheel. It doesn't turn at the start of your next [1] turns.
+@loca KM_WHEEL_STOPS_EXTRA While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing.<br><br>Once per <LSTag Tooltip="LongRest">Long Rest</LSTag>.
+@loca KM_WHEEL_STOPPED_DESC Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped.
+@loca KM_REACH_NAME Fortune's Reach
+@loca KM_REACH_DESC Your Crossings no longer need an ally nearby: an enemy that becomes Fallen while any ally on the Wheel is Reigning suffers its Crossing.
+@loca KM_ANTICIPATION_NAME Aspect of Anticipation
+@loca KM_ANTICIPATION_DESC Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Aspect_ReadyForeseen">Foreseen</LSTag>.
+@loca KM_AWAKENED_III_NAME 10 - Wheel of Fortune: Awakened III
+@loca KM_AWAKENED_III_DESC Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.<br><br>Nemesis: when an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.<br><br>Aspect of Anticipation: your allies never touch the bottom of the Wheel; they stay Falling for one more turn instead of becoming Fallen.
+@loca KM_READY_FORESEEN_NAME Ready: Foreseen
+@loca KM_READY_FORESEEN_DESC Watch the Wheel. Until combat ends you can react with <LSTag Type="Spell" Tooltip="Interrupt_Arcana_Aspect_Foreseen">Foreseen</LSTag>.
+@loca KM_FORESEEN_NAME Foreseen
+@loca KM_FORESEEN_DESC When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling.
+@loca KM_FORESEEN_EXTRA You saw it coming.
+@loca KM_FORESEEN_READY_DESC Watching the Wheel. Can react with Foreseen until combat ends.
+
+@file Status_BOOST
+@section KINGMAKER STATUS
+
+new entry "KINGMAKER_STOP_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "KINGMAKER_STOP_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "KINGMAKER_WHEEL_STOPPED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{KM_WHEEL_STOPS_NAME}}"
+data "Description" "{{KM_WHEEL_STOPPED_DESC}}"
+data "Icon" "Spell_Transmutation_Slow"
+data "StackId" "KINGMAKER_WHEEL_STOPPED"
+data "StackType" "Overwrite"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "KINGMAKER_FORESEEN_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "KINGMAKER_FORESEEN_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "KINGMAKER_FORESEEN_READY"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{KM_FORESEEN_NAME}}"
+data "Description" "{{KM_FORESEEN_READY_DESC}}"
+data "Icon" "Spell_Divination_TrueStrike"
+data "StackId" "KINGMAKER_FORESEEN_READY"
+data "StackType" "Overwrite"
+data "Boosts" "UnlockInterrupt(Interrupt_Arcana_Aspect_Foreseen)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "ASPECT_AWAKENED_WHEEL_III"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{KM_AWAKENED_III_NAME}}"
+data "Description" "{{KM_AWAKENED_III_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "Icon" "Spell_Divination_DetectThoughts"
+data "StackId" "ASPECT_AWAKENED_WHEEL_TIER"
+data "StackPriority" "3"
+data "StackType" "Overwrite"
+data "Boosts" "UnlockSpell(Shout_Arcana_Created_Aspect_ReadyForeseen)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+@file Passive
+@section KINGMAKER PASSIVES
+
+new entry "Arcana_Passive_FortunesReach"
+type "PassiveData"
+data "DisplayName" "{{KM_REACH_NAME}}"
+data "Description" "{{KM_REACH_DESC}}"
+data "Icon" "Spell_Divination_HuntersMark"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Aspect_WheelOfFortune_III"
+type "PassiveData"
+data "DisplayName" "{{KM_ANTICIPATION_NAME}}"
+data "Description" "{{KM_ANTICIPATION_DESC}}"
+data "Icon" "Spell_Divination_DetectThoughts"
+data "Properties" "IsHidden"
+
+@file Interrupt
+@section -
+
+new entry "Interrupt_Arcana_Aspect_Foreseen"
+type "InterruptData"
+data "DisplayName" "{{KM_FORESEEN_NAME}}"
+data "Description" "{{KM_FORESEEN_DESC}}"
+data "ExtraDescription" "{{KM_FORESEEN_EXTRA}}"
+data "Icon" "Spell_Divination_TrueStrike"
+data "InterruptContext" "OnSpellCast"
+data "InterruptContextScope" "Nearby"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source, context.Observer) and IsAttack() and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source))"
+data "Properties" "ApplyStatus(OBSERVER_SOURCE,KINGMAKER_FORESEEN_TECH,100,0)"
+data "Cost" "ReactionActionPoint:1"
+
+@file Spell_Shout
+@section Shout_KINGMAKER SPELLS
+
+new entry "Shout_Arcana_Card_Spell_TheWheelStops"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "6"
+data "SpellSchool" "Transmutation"
+data "Cooldown" "OncePerRest"
+data "SpellProperties" "ApplyStatus(KINGMAKER_STOP_TECH,100,0)"
+data "TargetConditions" "Self() and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Spell_Transmutation_Slow"
+data "DisplayName" "{{KM_WHEEL_STOPS_NAME}}"
+data "Description" "{{KM_WHEEL_STOPS_DESC}}"
+data "DescriptionParams" "2"
+data "ExtraDescription" "{{KM_WHEEL_STOPS_EXTRA}}"
+data "ExtraDescriptionParams" "Distance(9)"
+data "PrepareSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3"
+data "PrepareLoopSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop"
+data "CastSound" "Spell_Cast_Damage_Radiant_SpiritGuardian_L1to3"
+data "TargetSound" "Spell_Impact_Damage_Radiant_SpiritGuardian_L1to3"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "VerbalIntent" "Control"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+data "HitAnimationType" "MagicalNonDamage"
+data "Requirements" "Combat"
+data "PrepareEffect" "2534712b-d31e-45a4-b8e3-6385caa9ddc1"
+data "CastEffect" "56ea5092-8ecd-4b86-8686-c1c35d016928"
+
+new entry "Shout_Arcana_Created_Aspect_ReadyForeseen"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Divination"
+data "Cooldown" "OncePerCombat"
+data "SpellProperties" "ApplyStatus(KINGMAKER_FORESEEN_READY,100,-1)"
+data "Icon" "Spell_Divination_TrueStrike"
+data "DisplayName" "{{KM_READY_FORESEEN_NAME}}"
+data "Description" "{{KM_READY_FORESEEN_DESC}}"
+data "TooltipStatusApply" "ApplyStatus(KINGMAKER_FORESEEN_READY,100,-1)"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "UseCosts" "BonusActionPoint:1"
+data "SpellAnimation" "355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+data "HitAnimationType" "MagicalNonDamage"
+data "Requirements" "Combat"
+
