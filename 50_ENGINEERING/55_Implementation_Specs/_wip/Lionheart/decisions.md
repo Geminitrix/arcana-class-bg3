@@ -85,6 +85,7 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH67 | **Maiden AC** (revises LH47): **unarmoured** — AC = 10 + DEX + **full Strength** (`ACOverrideFormula(10,true,Dexterity,Strength)`, the Nemean hide); **in light armour** — a **small flat AC bonus**, no Strength and no cap (vanilla AC boosts take no expressions). Values in the balance pass | author (proposal accepted) |
 | LH68 | **Maiden Mastery II** (settles open question 7 by constraint): allies within 3 m get a **fixed** AC bonus — "half the bonus" would need an expression | consequence of LH67 |
 | LH69 | **Maiden Mastery I (*Turn the Blow*)** revised (revises LH53): reaction — when an enemy within 1.5 m of the Lionheart attacks an ally, shove that enemy 1.5 m. **No obstacle → Prone** (no vanilla pattern) | author (proposal accepted) |
+| LH70 | **Ultimate limiter** (settles open question 2): *Strangle the Lion* is **once per combat**, costs a slot / Threads like any card, and needs **at least 2 Courage** to cast (draft; at level 5 the cap is 3, so without a minimum it would be a free Restrained at the start of every fight) | author (option A) |
 
 ## State at hand-off (2026-10-15)
 
@@ -104,9 +105,8 @@ The brainstorm moves to the Claude Desktop session (it has the game files and th
 
 ### Open questions
 
-Settled on 2026-10-14 (Desktop): 1 → LH62, 3 → LH66, 4 → LH65, 6 → LH63, 7 → LH68.
+Settled on 2026-10-14 (Desktop): 1 → LH62, 2 → LH70, 3 → LH66, 4 → LH65, 6 → LH63, 7 → LH68.
 
-2. **Ultimate limiter**: once per combat, no slot (proposed, not confirmed)? Minimum Courage to cast?
 5. **Names**: Hush (Maiden's …), Pounce / Step, Second Blow, Mastery. Then the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
 8. **Mystra and the Weave** (W1, W2): one-sentence relation and Weave vocabulary in names. **Science source** (S5): Rachman (courage as acting while afraid) only names the idea; Yerkes–Dodson could shape the Courage cap.
 9. **Aspect VFX**.
@@ -118,7 +118,7 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 
 ### Next topics (in order)
 
-1. Settle open question 2 (rules); T2 results are in the findings table below.
+1. Rules settled (open questions 1–4, 6–7); T2 results are in the findings table below. Still to confirm: *Strangle the Lion*'s damage type (LH55, read as Bludgeoning).
 2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
 3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
