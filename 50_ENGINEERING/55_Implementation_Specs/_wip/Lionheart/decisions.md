@@ -118,3 +118,20 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
 5. `21.08` role/axis column; handoffs (Context Keeper, Lore Writer, Localization); `SPEC_ARC-0009`, `TOOLKIT_ARC-0009`.
+
+## T2 findings (2026-10-14, Desktop session — vanilla extraction + KB 57.05)
+
+| Item | Finding | Vanilla evidence |
+|---|---|---|
+| Villain choice in Osiris | ✅ All pieces exist: `EnteredCombat`, `IsEnemy`, `IsSummon`, `GetMaxHitpoints`, `GetLevel`, `GetDistanceTo` | KB `57.05/OSIRIS.md` (signatures) |
+| Weapon attack → Lion | ✅ No Osiris needed: a passive with `StatsFunctorContext "OnAttack"` and `IsWeaponAttack()` applies the Lion status | `IsWeaponAttack()` 75× in vanilla stats |
+| Maiden penalty vs others (LH46) | ✅ On the Villain's status: `IF(not HasStatus('<form status>',context.Target)):RollBonus(Attack,-1d4)` | `IF(HasStatus('BLEEDING',context.Target)):Advantage(AttackRoll)`; `RollBonus(Attack,-1d4)` / `-1d6` exist (`-1d8` has no vanilla example — test) |
+| Hush breaks Concentration | ✅ `BreakConcentration()` in the status's `OnApplyFunctors` | 48× vanilla |
+| *The Twelfth Labour* "would drop to 0" | ✅ Relentless Endurance pattern: a BOOST status with `DownedStatus(<X>_DOWNED,…)`; the DOWNED status's `OnApplyFunctors` heal and remove the boost. "While a Villain stands" = Osiris applies/removes the boost status | `RELENTLESS_ENDURANCE`, `RELENTLESS_ENDURANCE_DOWNED` |
+| Execute (Lion's Judgement) | ✅ `HasHPPercentageLessThan(25, context.Target)`; an absolute cap is possible with `HasHPLessThan(<literal>)` (Power Word Kill style, literals only, no expressions) | `HasHPLessThan(101)` |
+| Throw size rule | ✅ `SizeEqualOrSmaller(Size.Medium / Size.Large)` | 23× / 12× |
+| Maiden AC unarmoured | ✅ `ACOverrideFormula(10,true,Dexterity,Strength)` | Barbarian `(10,true,Dexterity,Constitution)`, Monk `(…,Wisdom)` |
+| Maiden AC in light armour, STR up to a cap | ⚠️ No vanilla AC boost takes an expression; needs tiered statuses per STR modifier (Osiris `GetAbility`) or a flat bonus instead | none found |
+| A status that holds `Sheathing` | ⚠️ Plausible, test in game: `Sheathed` appears only on PRONE / SLEEPING / KNOCKED_OUT; but BOOST statuses hold `Instrument` while active (`PERFORM_POSITIVE`) | Status_BOOST.txt |
+| Turn the Blow: obstacle → Prone | ❓ No vanilla pattern found | — |
+| Status names (LH51, LH58) | `BLEEDING` ✅ · `GAPING_WOUND` ✅ (singular, `DamageTakenBonus(2)`) · **"Lethargic" = `HASTE_LETHARGY`, INCAPACITATED `using "STUNNED"` — a full stun** · **"Maimed" does not exist**; nearest: `CRIPPLED` (movement 0, Disadvantage on DEX saves) and `HAMSTRING` (movement −50%) | Status_BOOST / Status_INCAPACITATED |
