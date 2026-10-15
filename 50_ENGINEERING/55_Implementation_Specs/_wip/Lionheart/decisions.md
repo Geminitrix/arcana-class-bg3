@@ -90,6 +90,8 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH72 | **Names** (settles part of open question 5): Mastery I / II → ***The Garland I / II*** (the garland of flowers that binds the Maiden to the Lion on the card; does not echo the Labour tier names) · Maiden's Hush → ***Maiden's Seal*** (she seals the Weave against the beast; pairs with *Lion's Roar*: the card is *Roar / Seal*) · Maiden's Step → ***Maiden's Shelter*** (the card is *Pounce / Shelter*) · Lion's Second Blow → ***Second Edge*** | author (proposals accepted) |
 | LH73 | **Relation to Mystra and the Weave (W1): *the thread with no end*** — the lemniscate above the Maiden's head is a thread of the Weave looped back on itself; Mystra wove the Lionheart from the moment fear is faced instead of fled, and their courage is the thread that never breaks. *The Twelfth Labour* (rising when they should fall) reads as that thread literally not ending. Rejected: B (the garland binds beast and hand — kept as an image for *The Garland*), C (guardian of the Weave — makes every Villain an enemy of Mystra) | author (option A) |
 | LH74 | **Voice and identity package approved** (settles open question 5's text pass and question 8): class description, panel line, tag line, archetype *The champion who stands before the beast*, fantasy line *"Every fight has a beast. You are the one who walks up to it."*, the Weave in the features (W2) and the real source **Rachman, *Fear and Courage* (1978)** (S5) — texts in `texts.md` | author |
+| LH75 | **Courage cap grows with level, not with the in-fight tiers** (revises LH62): **3** at levels 1–6, **5** at 7–11, **7** from 12 (drafts → 25). Reason: Awakening tiers are reached inside each fight, so a tier-bound cap would lock *Lion's Judgement* (5) behind Tier II in every fight and drop back to 3 at each combat start | author (option A) |
+| LH76 | **Interpretations written into the spec** (stated to the author 2026-10-14, for review in the spec): (1) a card with a Courage price **pays it automatically** when the Lionheart can, otherwise plays its base effect; (2) *Second Edge* is offered while Courage is 1 or more and spends 1 **only when used**; (3) *Lion's Judgement* **requires** 5 Courage; (4) the Lion's damage reduction covers **weapon attacks**, *The Garland II* extends it to spells; (5) *The Ordeal*'s enemy **replaces** the current Villain (at Tier II, the head with the lower maximum HP); (6) halving **rounds down**; (7) "within reach" is an Osiris distance check whose value (25) covers reach weapons | proposal (spec review) |
 
 ## State at hand-off (2026-10-15)
 
@@ -124,7 +126,7 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 
 1. Rules settled (open questions 1–4, 6–7); T2 results are in the findings table below. Strangle's damage type confirmed (LH71).
 2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
-3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
+3. Design spec written: `21.04/Lionheart/2026-10-15-lionheart-design.md` (author review pending); the §3 audit goes to `05.02_Subclasses/Lionheart.md`.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
 5. `21.08` role/axis column; handoffs (Context Keeper, Lore Writer, Localization); `SPEC_ARC-0009`, `TOOLKIT_ARC-0009`.
 
