@@ -86,6 +86,8 @@ Working note for the design of **VIII · Strength**. Decisions LH1 on, from the 
 | LH68 | **Maiden Mastery II** (settles open question 7 by constraint): allies within 3 m get a **fixed** AC bonus — "half the bonus" would need an expression | consequence of LH67 |
 | LH69 | **Maiden Mastery I (*Turn the Blow*)** revised (revises LH53): reaction — when an enemy within 1.5 m of the Lionheart attacks an ally, shove that enemy 1.5 m. **No obstacle → Prone** (no vanilla pattern) | author (proposal accepted) |
 | LH70 | **Ultimate limiter** (settles open question 2): *Strangle the Lion* is **once per combat**, costs a slot / Threads like any card, and needs **at least 2 Courage** to cast (draft; at level 5 the cap is 3, so without a minimum it would be a free Restrained at the start of every fight) | author (option A) |
+| LH71 | ***Strangle the Lion*** deals **Bludgeoning** damage (the concussion of the closing grip; confirms LH55) | author |
+| LH72 | **Names** (settles part of open question 5): Mastery I / II → ***The Garland I / II*** (the garland of flowers that binds the Maiden to the Lion on the card; does not echo the Labour tier names) · Maiden's Hush → ***Maiden's Seal*** (she seals the Weave against the beast; pairs with *Lion's Roar*: the card is *Roar / Seal*) · Maiden's Step → ***Maiden's Shelter*** (the card is *Pounce / Shelter*) · Lion's Second Blow → ***Second Edge*** | author (proposals accepted) |
 
 ## State at hand-off (2026-10-15)
 
@@ -95,10 +97,10 @@ The brainstorm moves to the Claude Desktop session (it has the game files and th
 
 | Lvl | Pieces |
 |---|---|
-| 1 | Core: the Villain (highest max HP; level, then nearest; locked until it falls; summons excluded; Courage halved on change) · Courage (+1 turn ending in the Villain's reach, +1 when it attacks the Lionheart; cards pay their price, the ultimate spends all; cap 3; resets) · two forms in containers, Drawing Steel, combat starts Maiden · Lion: +1d4 vs Villain, DR −2 · Maiden: Villain −1d4 vs others; AC 10 + DEX + STR unarmoured, flat bonus in light armour · *Claw / Grip* · *Pounce / Step* · *Rend / Throw* |
-| 3 | Tier I *Wear the Hide* · Aspect card *Infinity* · Mastery I (dice up; Lion immune to Prone/shove; Maiden *Turn the Blow*: shove 1.5 m) |
-| 5 | Extra attack for 1 Courage (*Second Blow*, rename) · ultimate *Strangle the Lion* · *Roar / Hush* |
-| 7 | Tier II *Many Heads* · Courage cap 5 · Mastery II (dice up; Lion DR vs spells; Maiden fixed AC bonus to allies within 3 m) |
+| 1 | Core: the Villain (highest max HP; level, then nearest; locked until it falls; summons excluded; Courage halved on change) · Courage (+1 turn ending in the Villain's reach, +1 when it attacks the Lionheart; cards pay their price, the ultimate spends all; cap 3; resets) · two forms in containers, Drawing Steel, combat starts Maiden · Lion: +1d4 vs Villain, DR −2 · Maiden: Villain −1d4 vs others; AC 10 + DEX + STR unarmoured, flat bonus in light armour · *Claw / Grip* · *Pounce / Shelter* · *Rend / Throw* |
+| 3 | Tier I *Wear the Hide* · Aspect card *Infinity* · The Garland I (dice up; Lion immune to Prone/shove; Maiden *Turn the Blow*: shove 1.5 m) |
+| 5 | *Second Edge* (extra attack for 1 Courage) · ultimate *Strangle the Lion* · *Roar / Seal* |
+| 7 | Tier II *Many Heads* · Courage cap 5 · The Garland II (dice up; Lion DR vs spells; Maiden fixed AC bonus to allies within 3 m) |
 | 9 | *Fang / Palm* (Fang 3: Hamstring; Palm 3: longer Disarm) · *The Ordeal* |
 | 11 | Capstone *Lion's Judgement* |
 | 12 | Tier III *The Twelfth Labour* · Courage cap 7 |
@@ -107,7 +109,7 @@ The brainstorm moves to the Claude Desktop session (it has the game files and th
 
 Settled on 2026-10-14 (Desktop): 1 → LH62, 2 → LH70, 3 → LH66, 4 → LH65, 6 → LH63, 7 → LH68.
 
-5. **Names**: Hush (Maiden's …), Pounce / Step, Second Blow, Mastery. Then the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
+5. **Names** settled (LH72). Next, the text pass: class description, panel line, tag line, fantasy line, archetype (D1).
 8. **Mystra and the Weave** (W1, W2): one-sentence relation and Weave vocabulary in names. **Science source** (S5): Rachman (courage as acting while afraid) only names the idea; Yerkes–Dodson could shape the Courage cap.
 9. **Aspect VFX**.
 10. **Eternal rework**: Bleeding / Gaping Wound / Hamstring move to the Lionheart; record the impact in the Eternal's rework.
@@ -118,7 +120,7 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 
 ### Next topics (in order)
 
-1. Rules settled (open questions 1–4, 6–7); T2 results are in the findings table below. Still to confirm: *Strangle the Lion*'s damage type (LH55, read as Bludgeoning).
+1. Rules settled (open questions 1–4, 6–7); T2 results are in the findings table below. Strangle's damage type confirmed (LH71).
 2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
 3. Design spec `21.04/Lionheart/YYYY-MM-DD-lionheart-design.md` (standard §1.5) and the §3 audit.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
