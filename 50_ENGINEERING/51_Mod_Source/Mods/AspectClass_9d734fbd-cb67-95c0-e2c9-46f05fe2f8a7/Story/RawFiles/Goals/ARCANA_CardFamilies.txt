@@ -327,6 +327,9 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_4", "Target_Arcana_Ca
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_5", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Transfusion_6", "Target_Arcana_Card_Spell_Transfusion");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_TurnTheSpoke", "Target_Arcana_Card_Spell_TurnTheSpoke");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Usurp", "Target_Arcana_Card_Spell_Usurp");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Usurp_5", "Target_Arcana_Card_Spell_Usurp");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_Usurp_6", "Target_Arcana_Card_Spell_Usurp");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_3", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_4", "Target_Arcana_Card_Spell_VeiledPrison");

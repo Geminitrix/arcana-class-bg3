@@ -1496,4 +1496,24 @@
   <content contentuid="hbc36db5bgb16bgc662gd3c5g79b4915f2eb3" version="1">Appoint an ally as Master of Healing. When it heals an ally on the Wheel that is Fallen or Rising, that ally moves one position closer to Reigning.</content>
   <content contentuid="hd0353438g9d26g4866g896bg0715dce8b9a7" version="1">Guarded</content>
   <content contentuid="h28d847e6g3909gaf8eg7f1ag0c89d139d180" version="1">The Lord Commander stands guard. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against it have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
+  <content contentuid="h8adfe02bgf63fg1203g4d31g596dde2ad9f0" version="1">Hubris</content>
+  <content contentuid="h98a1667ag257bg89c1g3a7bg812ce656a521" version="1">An enemy that begins Reigning on the Wheel gains &lt;LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS"&gt;Hubris&lt;/LSTag&gt;. The higher it climbs, the harder it falls - its next Crossing deals an additional [1].</content>
+  <content contentuid="hbf648abdgae22gea64g24cegda87df7bc3d1" version="1">Climbed too high. The next Crossing it suffers deals an additional [1].</content>
+  <content contentuid="h3e7937f4g3296ge4d8gbd57ga4276ec1a9dc" version="1">Fell from its pride while an ally reigned nearby, and took greater Force damage.</content>
+  <content contentuid="hac983c2bg4ea9gf279g49ffg7d9552b3e73f" version="1">Nemesis</content>
+  <content contentuid="h2b2d03bcg2776g680fg1348g757ae9305db7" version="1">When an enemy with &lt;LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS"&gt;Hubris&lt;/LSTag&gt; suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.</content>
+  <content contentuid="h8e4fbc1eg45acg3565gbafdgdf46b5022e95" version="1">10 - Wheel of Fortune: Awakened II</content>
+  <content contentuid="hca6c0fb0g05f5g90efg3166g67d75daf320e" version="1">Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.&lt;br&gt;&lt;br&gt;Nemesis: when an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.</content>
+  <content contentuid="h2778f97ag03b2g91d4g6e76gf3aaf17e0b7f" version="1">Usurp</content>
+  <content contentuid="hd5a18731gdaa4gcc54gfafcgd3fc5d6e33c9" version="1">An ally and an enemy on the Wheel trade places on it.</content>
+  <content contentuid="he6cc884eg8cd2g45eeg7257g296b3f89ac49" version="1">Choose one ally and one enemy. Two allies or two enemies don't trade.&lt;br&gt;&lt;br&gt;Once per combat.</content>
+  <content contentuid="h81126b66gd822g7717g40c8gacae93f468eb" version="1">Master of Laws</content>
+  <content contentuid="hbcf6d820gd721g0725g1265gfff3febb88a1" version="1">An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning.</content>
+  <content contentuid="hc728f411gba4ag50f4gcdb9gc43afe8ec577" version="1">Appoint an ally as Master of Laws. An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning.</content>
+  <content contentuid="ha7d3cdf2g544eg1990ge84eg828353fb284f" version="1">Master of Secrets</content>
+  <content contentuid="h698cbec2g5cfag372dg293bg22641131f8d8" version="1">Enemies on the Wheel within [1] can't be &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; or hide. Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Falling enemies.</content>
+  <content contentuid="hc6be139bg2eb1gc761g7901g5e8f8f22ffbe" version="1">Appoint an ally as Master of Secrets. Enemies on the Wheel within [1] of it can't be &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; or hide, and it has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Falling enemies.</content>
+  <content contentuid="h450cfab1gbef7g0fffgc2f8gcb16376d9f81" version="1">Exposed</content>
+  <content contentuid="hbcafa78fg7201g977fgb12cg062b5a94cb34" version="1">The Master of Secrets has its measure. Can't become &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; or hide.</content>
+  <content contentuid="hba5dc8ffg3a56g0331g4d47g5c4f7f37e359" version="1">The Court: second circle</content>
 </contentList>

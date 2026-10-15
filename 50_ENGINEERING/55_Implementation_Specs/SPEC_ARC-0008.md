@@ -297,6 +297,11 @@ of the mod first. Probes at the end of the subclass.
 | **Master of Secrets** (§6.2): enemies on the Wheel within 9 m can't be invisible or hide; Advantage against Falling enemies | Aura 9 m → `KINGMAKER_EXPOSED` on enemies on the Wheel: `StatusImmunity(SG_Invisible);StatusImmunity(SNEAKING)` and it removes both on apply; the office status has `IF(HasStatus('KINGMAKER_FALLING',context.Target)):Advantage(AttackRoll)` | `FAERIE_FIRE` (`StatusImmunity(SG_Invisible)`); a vanilla boost `IF(HasStatus('BLEEDING',context.Target)):Advantage(AttackRoll)` |
 | **Level-7 offices** | Their options need `HasPassive('Arcana_Passive_Court_Level7', context.Source)` (the card-marker pattern): vanilla uses `ClassLevelHigherOrEqualThan` only in functors, never in a target condition | the mod's `ARCANA_IS_CARD` marker |
 
+Interpretations accepted by the Owner with the `[fechado]` that applied the stage (2026-10-15): Hubris only for an enemy
+that still Reigns after every step; Usurp on two of the same side moves nothing and spends the card; the Master of Laws
+counts the blows that hit the King; the level-7 offices show locked before level 7; Exposed also ends an invisibility or a
+hiding already in place.
+
 ### Probes — after the whole subclass (one rule each)
 
 | # | Do | Proves it works | Plan B |

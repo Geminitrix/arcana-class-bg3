@@ -645,6 +645,30 @@
                     <attribute id="Name" type="FixedString" value="Kingmaker_Crossing"/>
                     <attribute id="UUID" type="guid" value="cbcd0570-33d1-4182-a148-9770802881f3"/>
                 </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2d4"/>
+                    <attribute id="Level10" type="LSString" value="2d8"/>
+                    <attribute id="Level11" type="LSString" value="2d8"/>
+                    <attribute id="Level12" type="LSString" value="2d8"/>
+                    <attribute id="Level13" type="LSString" value="2d8"/>
+                    <attribute id="Level14" type="LSString" value="2d8"/>
+                    <attribute id="Level15" type="LSString" value="2d8"/>
+                    <attribute id="Level16" type="LSString" value="2d8"/>
+                    <attribute id="Level17" type="LSString" value="2d8"/>
+                    <attribute id="Level18" type="LSString" value="2d8"/>
+                    <attribute id="Level19" type="LSString" value="2d8"/>
+                    <attribute id="Level2" type="LSString" value="2d4"/>
+                    <attribute id="Level20" type="LSString" value="2d8"/>
+                    <attribute id="Level3" type="LSString" value="2d4"/>
+                    <attribute id="Level4" type="LSString" value="2d4"/>
+                    <attribute id="Level5" type="LSString" value="2d6"/>
+                    <attribute id="Level6" type="LSString" value="2d6"/>
+                    <attribute id="Level7" type="LSString" value="2d6"/>
+                    <attribute id="Level8" type="LSString" value="2d6"/>
+                    <attribute id="Level9" type="LSString" value="2d8"/>
+                    <attribute id="Name" type="FixedString" value="Kingmaker_CrossingHubris"/>
+                    <attribute id="UUID" type="guid" value="a762c7e1-97e4-4374-ab11-f4a3825a2720"/>
+                </node>
             </children>
         </node>
     </region>

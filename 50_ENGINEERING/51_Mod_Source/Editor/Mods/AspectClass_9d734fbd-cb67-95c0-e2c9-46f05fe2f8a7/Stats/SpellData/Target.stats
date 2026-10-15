@@ -4456,7 +4456,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_ConveneTheCourt" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Util_Court_KingsHand;Target_Arcana_Util_Court_LordCommander;Target_Arcana_Util_Court_MasterOfHealing" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Util_Court_KingsHand;Target_Arcana_Util_Court_LordCommander;Target_Arcana_Util_Court_MasterOfHealing;Target_Arcana_Util_Court_MasterOfLaws;Target_Arcana_Util_Court_MasterOfSecrets" />
         <field name="AIFlags" type="EnumerationListTableFieldDefinition" value="CanNotUse" enumeration_type_name="AIFlags" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_AuraOfLeadership" />
@@ -4556,6 +4556,75 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hbc36db5bgb16bgc662gd3c5g79b4915f2eb3" version="1" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h196b11c4gb519g19d8g5f30g7793523ebd11" version="1" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(COURT_MASTER_OF_HEALING,100,-1)" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Buff_ShieldOfFaith_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Buff_ShieldOfFaith_L1to3" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;7abe77ed-9c77-4eac-872c-5b8caed070b6,,;cb171bda-f065-4520-b470-e447f678ba1f,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="!Combat" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="60ec0a2d-1b72-4fb2-9eaf-571638aca25d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="1c5d1c5b-d8ff-42b5-8586-99aeaf901192" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="b76f528c-3b42-4283-a10d-d0217baf3c7c" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8636283d-6432-5cbc-a699-e828dbfc863b" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_Court_MasterOfLaws" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Util_ConveneTheCourt" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerRest" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(COURT_MASTER_OF_LAWS,100,-1)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Ally() and not Self() and Character() and not Dead() and not HasStatus('COURT_HOLDER') and not HasStatus('COURT_FULL', context.Source) and HasPassive('Arcana_Passive_Court_Level7', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CommandHalt" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h81126b66gd822g7717g40c8gacae93f468eb" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc728f411gba4ag50f4gcdb9gc43afe8ec577" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h196b11c4gb519g19d8g5f30g7793523ebd11" version="1" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(COURT_MASTER_OF_LAWS,100,-1)" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Buff_ShieldOfFaith_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Buff_ShieldOfFaith_L1to3" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;7abe77ed-9c77-4eac-872c-5b8caed070b6,,;cb171bda-f065-4520-b470-e447f678ba1f,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="!Combat" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="60ec0a2d-1b72-4fb2-9eaf-571638aca25d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="1c5d1c5b-d8ff-42b5-8586-99aeaf901192" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="b76f528c-3b42-4283-a10d-d0217baf3c7c" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="baf080b7-0d21-5320-4e69-1cd05dc618a1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_Court_MasterOfSecrets" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Util_ConveneTheCourt" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerRest" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(COURT_MASTER_OF_SECRETS,100,-1)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Ally() and not Self() and Character() and not Dead() and not HasStatus('COURT_HOLDER') and not HasStatus('COURT_FULL', context.Source) and HasPassive('Arcana_Passive_Court_Level7', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha7d3cdf2g544eg1990ge84eg828353fb284f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc6be139bg2eb1gc761g7901g5e8f8f22ffbe" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9)" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h196b11c4gb519g19d8g5f30g7793523ebd11" version="1" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(COURT_MASTER_OF_SECRETS,100,-1)" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Buff_ShieldOfFaith_L1to3" />
@@ -4843,6 +4912,58 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(Enemy() and HasStatus('KINGMAKER_FALLEN')):DealDamage(7d8,Slashing,Magical);IF(Enemy() and HasStatus('KINGMAKER_FALLING')):DealDamage(6d8,Slashing,Magical);IF(Enemy() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING'))):DealDamage(5d8,Slashing,Magical);ApplyStatus(KINGMAKER_CUT_TECH,100,0);" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(7d8,Slashing)" />
         <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" value="DealDamage(7d8,Slashing);DealDamage(6d8,Slashing);DealDamage(5d8,Slashing)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f533b59f-d444-8bc1-e25c-a6a37138a2df" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Usurp" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="4" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_USURP_TECH,100,0)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING') or HasStatus('KINGMAKER_FALLING') or HasStatus('KINGMAKER_FALLEN')) and not HasPassive('ARCANA_IS_CARD', context.Source)" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_WildMagic_Swap" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2778f97ag03b2g91d4g6e76gf3aaf17e0b7f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd5a18731gdaa4gcc54gfafcgd3fc5d6e33c9" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="he6cc884eg8cd2g45eeg7257g296b3f89ac49" version="1" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Psychic_DissonantWhispers_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Damage_Psychic_DissonantWhispers_L1to3" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_DamagePsychicDiscordantMelody" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;af94aac1-d8eb-4ccb-9520-694ade11b61c,,;f5db4001-b136-4c48-9aa4-026c4a7dd3b7,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="752219e2-351d-46ea-9448-3a714b3d3acc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="bd2fc245-5645-452f-a2cd-d158b751bbe4" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="a0aee53a-d702-4901-9bb3-7cf08e214346" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="49f0a9bb-b0c3-4d64-b8c2-45e42bb06065" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Usurp_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f533b59f-d444-8bc1-e25c-a6a37138a2df" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Usurp" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1f3d55e6-c2a8-45d0-a3c1-5647740fa2b2" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Usurp_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f533b59f-d444-8bc1-e25c-a6a37138a2df" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Usurp" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
       </fields>
     </stat_object>
     <stat_object color="#FF1E90FF" is_substat="false">

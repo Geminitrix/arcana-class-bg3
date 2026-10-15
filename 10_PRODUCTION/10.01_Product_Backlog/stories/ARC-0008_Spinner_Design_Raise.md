@@ -171,3 +171,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   passive (vanilla uses ClassLevelHigherOrEqualThan only in functors). Two icon names fixed before use. Rehearsed on a
   copy: Usurp _5/_6, 5 offices in the container, LevelMap 2d4/2d6/2d8, all entries grouped, check_cards OK, no
   duplicate field or handle, every script idempotent. Waits for `[fechado] ARC-0008`.
+- 2026-10-15 — Stage 4 applied in the game ([fechado], interpretations accepted): stats patch (13 entries + Convene's
+  container), list Kingmaker Level 7 + level-7 row + LevelMap Kingmaker_CrossingHubris, goal insertions, Usurp _5/_6,
+  sort_stats, check_cards OK (111), validate 0 errors; no duplicate field or handle; identical to the rehearsal. The Owner
+  recompiles the Story.

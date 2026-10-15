@@ -1488,6 +1488,8 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="7" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_Hubris;Arcana_Passive_Aspect_WheelOfFortune_II;Arcana_Passive_Court_Level7" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(bb58ab5e-e55f-44d2-83e9-1527b9e543a5,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">

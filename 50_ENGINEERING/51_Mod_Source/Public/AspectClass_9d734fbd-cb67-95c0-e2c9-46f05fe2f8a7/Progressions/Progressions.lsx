@@ -1139,7 +1139,9 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Hubris;Arcana_Passive_Aspect_WheelOfFortune_II;Arcana_Passive_Court_Level7"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(bb58ab5e-e55f-44d2-83e9-1527b9e543a5,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="743d27d7-27a0-414a-bbad-1407a944df0b"/>
                 </node>
