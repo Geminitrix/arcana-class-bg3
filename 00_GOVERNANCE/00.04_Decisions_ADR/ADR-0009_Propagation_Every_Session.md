@@ -1,4 +1,4 @@
-# ADR-0008 · Every change propagates to every department, every session
+# ADR-0009 · Every change propagates to every department, every session
 
 - **Status:** Accepted · 2026-10-15 · Owner
 

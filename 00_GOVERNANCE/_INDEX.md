@@ -30,4 +30,4 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | ADR-0005 | Scope of the master data (25) | Accepted |
 | ADR-0006 | Git LFS for heavy binaries | Proposed (quota check) |
 | ADR-0007 | One write gate for mod files | Accepted |
-| ADR-0008 | Every change propagates to every department, every session | Accepted |
+| ADR-0009 | Every change propagates to every department, every session | Accepted |

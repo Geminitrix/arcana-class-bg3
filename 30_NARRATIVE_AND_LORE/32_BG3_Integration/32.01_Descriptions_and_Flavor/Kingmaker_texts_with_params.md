@@ -3,7 +3,7 @@
 Draft English for every string the Kingmaker shows in game, written against `31.03_BG3_Style_Guide/ENGLISH_WRITING_STYLE.md`
 (British spelling; spaced hyphen ` - `, never an em dash; single quotes; Title Case for rules nouns, lowercase for
 resources; `[1]`-style placeholders as noun phrases; `<br><br>` only between separate rules). **Status: draft, to the
-Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/2026-10-13-kingmaker-design.md`.
+Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/DESIGN.md`.
 
 - **Placeholders:** a `[n]` in a Description reads `DescriptionParams`; in an ExtraDescription it reads `ExtraDescriptionParams`; each list starts at `[1]`.
 - **Numbers** never appear as typed figures where a placeholder can carry them: `[n]` lists the `DescriptionParams`

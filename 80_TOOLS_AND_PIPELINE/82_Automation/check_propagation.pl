@@ -67,8 +67,8 @@ for my $s (@dossiers) {
   for my $p (@sources) { (my $x = $p) =~ s/<S>/$s/g; $x =~ s{/$}{};
     if ($x =~ m{/21\.04_Subclasses/$s$}) { next }   # folder itself handled below
     my $t = newest($x); $src = $t if defined $t && (!defined $src || $t > $src) }
-  # dated specs in the dossier folder count as sources (DESIGN.md does not)
-  for my $f (glob "$SUB/$s/*.md") { next if $f =~ m{/DESIGN\.md$}; my $t = (stat $f)[9]; $src = $t if !defined $src || $t > $src }
+  # dated specs in the dossier folder count as sources (DESIGN.md and undated proposals do not; DECISIONS.md is in @sources)
+  for my $f (glob "$SUB/$s/*.md") { next unless $f =~ m{/\d{4}-\d{2}-\d{2}[^/]*\.md$}; my $t = (stat $f)[9]; $src = $t if !defined $src || $t > $src }
   unless (defined $src) { push @report, "## $s — no decisions recorded yet (skipped)"; next }
   my @lines;
   for my $a (@arts) { my ($p, $owner) = @$a; (my $x = $p) =~ s/<S>/$s/g; my $isdir = $x =~ s{/$}{};

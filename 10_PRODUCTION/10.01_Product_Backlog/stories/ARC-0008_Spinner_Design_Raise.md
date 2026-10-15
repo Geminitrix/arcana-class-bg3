@@ -9,8 +9,8 @@ implementation: claude
 priority: must
 value: 5
 effort: 4
-inputs: [21.04/_SUBCLASS_STANDARD.md, 55/_wip/Kingmaker/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
-outputs: [55/_wip/Kingmaker/decisions.md, 21.04/Kingmaker/2026-10-13-kingmaker-design.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/TOOLKIT_ARC-0008_stage2.md, 55/_wip/Kingmaker/texts.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
+inputs: [21.04/_SUBCLASS_STANDARD.md, 93/2026-10-15_Kingmaker_raise_proposals/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
+outputs: [21.04/Kingmaker/DECISIONS.md, 21.04/Kingmaker/DESIGN.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/TOOLKIT_ARC-0008_stage2.md, 32.01/Kingmaker_texts_with_params.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
 blocked_by: []
 sprint:
 created: 2026-10-13
@@ -29,14 +29,14 @@ elements — with an ultimate that ties it together and a kit the player can hol
 - [x] The decisions of the 2026-10-08 design conversation recorded in `55/_wip/Spinner/decisions.md` (SP1–SP43).
 - [x] Depth audit of the old Spinner handed to the Context Keeper, then archived (design replaced). The Kingmaker audit goes with its 05 handoff.
 - [x] Handoffs for the Kingmaker: Context Keeper (`05.02` + Depth audit, `05.00`, `05.06`), Lore Writer (`31.01`), Localization (`33.03`); `21.08` Kingmaker column with Axis = Balance; `10.06` updated.
-- [x] Every gap resolved by a decision in `55/_wip/Kingmaker/decisions.md` (SP47–SP103) or listed as open (spec §14).
-- [x] Raising spec written: `21.04/Kingmaker/2026-10-13-kingmaker-design.md` (§1.5 sections, Identity Sheet complete, no audit inside).
+- [x] Every gap resolved by a decision in `21.04/Kingmaker/DECISIONS.md` (SP47–SP103) or listed as open (spec §14).
+- [x] Raising spec written: `21.04/Kingmaker/DESIGN.md` (§1.5 sections, Identity Sheet complete, no audit inside).
 - [x] Balance pass: numbers in `25.01`–`25.02` (11 SPL, 6 FEAT), arithmetic in `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md` (approved).
 
 ## Gates
 
 - [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — answered 2026-10-13, passes with three notes (below)
-- [ ] Narrative gate (`32.04`) — the class description's second sentence and every tooltip; handoff to the Lore Writer sent
+- [x] Narrative gate (`32.04`) — passed 2026-10-15, recorded in `32.04/ARC-0008_Kingmaker.md` (second sentence, panel line, tag line, *Fortune's Reach*, 52 tooltips)
 - [ ] DoD (`00.03`)
 
 ### Design gate (2026-10-13)
@@ -64,7 +64,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   §3 done and handed to the Context Keeper. Gaps to brainstorm, in order: **K3 ultimate** (and A3), the
   **complexity budget** (§15: ~25 combat actions), then I6 names, W1, D1/D2; balance pass after.
 - 2026-10-13 — three alternative proposals for the raise (A Measured Thread · B Rise and Fall · C Fortuna's
-  Wager) in `55/_wip/Spinner/2026-10-13-spinner-three-proposals.md`; awaiting the Owner's choice (SP47).
+  Wager) in `93/2026-10-15_Kingmaker_raise_proposals/2026-10-13-spinner-three-proposals.md`; awaiting the Owner's choice (SP47).
 - 2026-10-13 — brainstorm with the Owner: direction B *Rise and Fall* chosen, subclass renamed **The Kingmaker**;
   decisions SP47–SP71 (Wheel positions, King/Regent, the Court/Small Council, verbs, Crossing, Cut, Peripeteia,
   The Wheel Stops, chassis, progression). Next: Hubris fix, Awakening, card details, edge cases, raising spec.
@@ -77,7 +77,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   Owner's request: the Toolkit entry guide standard `55/_TEMPLATE_TOOLKIT_GUIDE.md` (one `TOOLKIT_ARC-####.md` per
   ticket beside its SPEC; icons as suggestions; generated families not typed) and the ADR-0005 amendment proposal
   `00.04/PROPOSALS/PROPOSAL_Toolkit_Guide_Derived_Numbers.md`. Next: the raising spec in `21.04/Kingmaker/`.
-- 2026-10-13 — raising spec `21.04/Kingmaker/2026-10-13-kingmaker-design.md` written; the Spinner spec archived in
+- 2026-10-13 — raising spec `21.04/Kingmaker/DESIGN.md` written; the Spinner spec archived in
   `90/93/2026-10-13_ARC-0008_spinner_design`; `55/_wip/Spinner` renamed `55/_wip/Kingmaker`. Self-review found two
   open rules (Master of Healing "toward Reigning" and Master of Laws "one extra position" conflict with SP62 / can
   help the enemy) — listed in spec §14 for the Owner. Next: handoff to the Context Keeper, balance pass.
@@ -98,7 +98,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   T1/T3 percentages rough); `22.05` §6 gains T1 and T3 figures. Narrative gate pending (Lore Writer). Next:
   `SPEC_ARC-0008` and `TOOLKIT_ARC-0008`.
 - 2026-10-13 — Owner approved the ADR-0005 amendment: `ADR-0008_Toolkit_Guides_Derived_Numbers.md`. Player-facing texts
-  drafted in `55/_wip/Kingmaker/texts.md` (class, 9 passives, 15 statuses, 12 spells) against `31.03`; Narrative gate
+  drafted in `32.01/Kingmaker_texts_with_params.md` (class, 9 passives, 15 statuses, 12 spells) against `31.03`; Narrative gate
   handed to the Lore Writer (`32.04/HANDOFF_LeadClassDesigner_to_LoreWriter_ARC-0008.md`). Next: `SPEC_ARC-0008`,
   `TOOLKIT_ARC-0008`.
 - 2026-10-13 — `SPEC_ARC-0008` (stages 1–7 indexed, stage 1 in full: positions, crown, techs, The Rota, cantrip,
@@ -193,3 +193,9 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   goal (insertions + the two rule replacements), sort_stats, check_cards OK (113), validate 0 errors; no duplicate field
   or handle; identical to the rehearsal. Every level 1–12 of the Kingmaker now has its content. The Owner recompiles the
   Story; probes P1–P48 at the end; stage 7 (PC deck, test cases, handoff, renames, icons) next.
+- 2026-10-15 — Propagated (00.08, ADR-0009), each department in its role: decisions moved to `21.04/Kingmaker/DECISIONS.md`,
+  design renamed `DESIGN.md` and brought up to SP112–SP114, proposals archived (`93/2026-10-15_Kingmaker_raise_proposals`);
+  `21.03`, `21.08`, 23 sheets in `23.02/Kingmaker/`, 17 `25` YAMLs stamped, `22.05` and `26.01` verdicts; `31.01`, `31.02`,
+  `32.01` (game text), Narrative gate `32.04` passed, `33.03` terms; `42.04` icon brief; `61.02/Kingmaker/TC_ARC-0008.md`
+  (static S1–S5 pass); `05.02/Kingmaker.md` with the Depth audit, `05.00`, README. Four handoffs closed. Found: the subclass
+  icon doesn't show (`Spinner.DDS` vs `Name` Kingmaker — stage 7); shared vanilla icons → ARC-0015.

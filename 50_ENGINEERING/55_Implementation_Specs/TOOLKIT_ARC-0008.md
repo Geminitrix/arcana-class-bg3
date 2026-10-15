@@ -13,7 +13,7 @@ author: Mod Engineer
 > **What this file is.** The point-by-point guide to enter **stage 1** of `SPEC_ARC-0008` by hand in the BG3
 > Toolkit: where to click, which entry to create or change, and what to type in every field. Later stages are added
 > to this file when their part of the SPEC is written. Texts are drafts pending the Narrative gate
-> (`55/_wip/Kingmaker/texts.md`).
+> (`32.01/Kingmaker_texts_with_params.md`).
 
 ---
 

@@ -24,7 +24,7 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 | Starchild | XVII · The Star | Existing — rework |
 | Eternal | XIII · Death | Existing — rework |
 | Resonant | XIV · Temperance | Implemented — raised (ARC-0002) |
-| Spinner | X · Wheel of Fortune | New — in design |
+| Kingmaker | X · Wheel of Fortune | Implemented — built 1–12 (ARC-0008), probes pending |
 | Lionheart | — | New — in design |
 
 ## Repository map

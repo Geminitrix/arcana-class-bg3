@@ -1,8 +1,9 @@
 id: SPL_Kingmaker_TheWheelStops
+reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
 kind: spell
 subclass: Kingmaker
 ticket: ARC-0008
-design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.10"
+design: "21.04/Kingmaker/DESIGN.md §7.10"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
 game_ids: [Shout_Arcana_Card_Spell_TheWheelStops, KINGMAKER_STOP_TECH, KINGMAKER_WHEEL_STOPPED, ARCANA_Kingmaker_Wheel]
 values:

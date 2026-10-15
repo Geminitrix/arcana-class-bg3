@@ -47,6 +47,21 @@ colour coral.
 Control from level 1 · one spell buffs or debuffs · ally effects never roll · slots last through refunds —
 needs a turn of setup · enemies resist with WIS saves · constructs feel nothing · the Overload hurts if held.
 
+## Depth audit (2026-10-11, updated 2026-10-15)
+Against `21.04/_SUBCLASS_STANDARD.md` §3; the gaps found before the raise were closed by R1–R48 (HANDOFF ARC-0002 §2).
+
+| Question | State | Evidence / what is still due |
+|---|---|---|
+| I1 fun | ✅ | Probes P0–P33 played and passed (Owner, 2026-10-11/12); balance playtest still proposed (ARC-0010) |
+| I3, S3–S6, I6 | ✅ | Archetype "the empath who plays the room"; Iris, Harmonia (R2); fiction R3; Heartweaver names retired (R20–R21, ARC-0003) |
+| M3–M6, K2–K6 | ✅ | Emotional Alchemy at 1, converters, ultimate Emotional Overload, Temper and Heartstring at 1–3 |
+| P5 fight length | ✅ | Slot refund on a reaction, once per turn (R16) |
+| A2 tiers | ✅ | Tier III Aspect of Empathy (R14) |
+| B1–B4 | ⚠️ | Numbers in `25`; Emotional Overload 3–4 uses a day since R31 and Harmony to watch (`22.05/Resonant.md`) |
+| D2 sources agree | ⚠️ | Two descriptions behind the mechanic (ARC-0011); the player guide (`75.02`) still shows the old kit (ARC-0006) |
+
+Every other question: ✅.
+
 ## Open
 Balance watch (`22.05/Resonant.md`): Emotional Overload frequency, Harmony. Texts: two descriptions behind the mechanic
 (`32.01/Resonant.md`). Icons all borrowed (`42.04/Resonant.md`). Player guide: ARC-0006 (after the rework).

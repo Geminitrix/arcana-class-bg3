@@ -7,7 +7,7 @@ role: source of the Resonant dossier (00.08) — every decision is logged here t
 # The Resonant — decision log
 
 Decisions R1–R48 (2026-10-08 → 2026-10-12, ticket ARC-0002). Moved here on 2026-10-15 from
-`55_Implementation_Specs/_wip/Resonant/decisions.md` (ADR-0008: decisions live in the dossier). The current
+`55_Implementation_Specs/_wip/Resonant/decisions.md` (ADR-0009: decisions live in the dossier). The current
 design that results from them is `DESIGN.md`; when a decision replaces an earlier one, both stay here and
 `DESIGN.md` shows only the result.
 

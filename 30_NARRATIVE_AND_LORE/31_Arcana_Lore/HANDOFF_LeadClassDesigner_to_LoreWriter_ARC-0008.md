@@ -1,7 +1,11 @@
+---
+status: done
+closed: 2026-10-15 — executed by the Lore Writer role during propagation (00.08): 31.01 §3 tarot, §4 inspirations, §5 identity and description, §6 colours; theme in 31.02/Kingmaker.md
+---
 # HANDOFF · Lead Class Designer → Lore Writer · ARC-0008
 
 **What:** *The Spinner* is now **The Kingmaker** (X · Wheel of Fortune · Aspect of Anticipation). Update
-`31.01_Lore_Bible.md`. Source: `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md` §2 and §12.
+`31.01_Lore_Bible.md`. Source: `21.04_Subclasses/Kingmaker/DESIGN.md` §2 and §12.
 
 ## Changes in `31.01_Lore_Bible.md`
 

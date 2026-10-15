@@ -10,7 +10,7 @@ use strict; use warnings; use utf8;
 binmode STDOUT, ':utf8';
 
 my %file = (Arcana => '05_LIVE_CONTEXT/05.01_Class/Arcana_Base_Class.md');
-$file{$_} = "05_LIVE_CONTEXT/05.02_Subclasses/$_.md" for qw(Unbound Deceiver Starchild Eternal Resonant Spinner Lionheart);
+$file{$_} = "05_LIVE_CONTEXT/05.02_Subclasses/$_.md" for qw(Unbound Deceiver Starchild Eternal Resonant Kingmaker Lionheart);
 my %alias = (Titan => 'Lionheart');   # internal progression name → studio name (to confirm)
 
 # known stats entries

@@ -13,7 +13,7 @@ author: Mod Engineer
 > **What this file is.** The point-by-point guide to enter **stage 2** of `SPEC_ARC-0008` by hand in the BG3
 > Toolkit: *The Crossing*, *Atropos' Cut*, the Awakening *10 - Wheel of Fortune* with Tier I *Tyche*, and the Aspect
 > card *Rota Fortunae*. Stage 1 is `TOOLKIT_ARC-0008.md` (entered 2026-10-14). Texts are drafts pending the Narrative
-> gate (`55/_wip/Kingmaker/texts.md`).
+> gate (`32.01/Kingmaker_texts_with_params.md`).
 >
 > **Before you start:** stage 1's probes P1–P8 haven't been played yet. Stage 2 builds on the Wheel core; if a probe
 > fails, tell me before typing this stage — the goal below replaces stage 1's and carries any fix.

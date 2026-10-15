@@ -1,8 +1,9 @@
 id: FEAT_Kingmaker_Crossing
+reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
-design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §5"
+design: "21.04/Kingmaker/DESIGN.md §5"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
 game_ids: [Arcana_Passive_TheCrossing, KINGMAKER_CROSSING_TECH, LevelMapValues Kingmaker_Crossing, ARCANA_Kingmaker_Wheel]
 values:

@@ -71,6 +71,23 @@ English is final in game; the other 15 languages have no Resonant strings yet (L
 | Resonance · Harmony · Aspect of Empathy | Awakening tiers I · II · III | Attunement (deck keyword Attuned) |
 | The Resonant | The subclass | Heartweaver (retired working name) |
 
+## The Kingmaker (reviewed 2026-10-15 ARC-0008 — propagation, 00.08)
+
+English is final in game (`32.01/Kingmaker.md`); the other 15 languages have no Kingmaker strings yet (Localization, pending).
+
+| English | Meaning | Never |
+|---|---|---|
+| the Wheel · on the Wheel | The Kingmaker's mechanic; *Fortune's wheel* (lowercase) only in flavour | — |
+| Rising · Reigning · Falling · Fallen | The four positions; tooltips open with *Regnabo · Regno · Regnavi · Sum sine regno* (keep the Latin untranslated) | — |
+| King · Regent | The ally wearing the crown · other Reigning allies | — |
+| Crossing · Hubris | Damage to an enemy entering Fallen beside a Reigning ally · an enemy that reigned | — |
+| The Court · Convene the Court · office · appoint | Offices named before battle | — |
+| King's Hand, Lord Commander, Master of Healing, Master of Laws, Master of Secrets, Master of Coin, Master of Ships | The seven offices (SP101) | Hand of the King |
+| Spoke of the Wheel, Coronation, Dethrone, Turn the Spoke, Atropos' Cut, Peripeteia, Usurp, Wheel of Ixion, The Wheel Stops, Rota Fortunae, Ready: Foreseen | The cards | Crown, Cast Down, Nudge (renamed SP102) |
+| The Rota, The Crossing, Hubris, Succession, Fortune's Reach | The passives | — |
+| Tyche · Nemesis · Aspect of Anticipation | Awakening tiers I · II · III | — |
+| The Kingmaker | The subclass | Spinner (retired working name) |
+
 > Note (Lore Writer, 2026-10-15): the sections above describe the **pre-rework** mod (Arcane Cards, Arcane Shards).
 > The whole file needs a rework pass — proposed as its own ticket.
 

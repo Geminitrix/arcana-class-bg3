@@ -1,3 +1,10 @@
+---
+id: 21.04/Kingmaker/DESIGN
+owner: Lead Class Designer
+state: current — built in game, levels 1–12 (ARC-0008 stages 1–6, 2026-10-14/15); probes P1–P48 not played yet
+reviewed: 2026-10-15 ARC-0008 — propagation (00.08): SP112–SP114 folded in (§4.6, §7.9, §7.10), build state in §3, §13.4, §14; renamed from 2026-10-13-kingmaker-design.md
+---
+
 # The Kingmaker — X · Wheel of Fortune · Aspect of Anticipation
 
 > Design document for the Arcana's subclass **The Kingmaker**. It describes everything the subclass is and
@@ -5,7 +12,7 @@
 > the Aspect Awakening, the progression, the edge cases and the technical pattern that builds it.
 >
 > Designed 2026-10-13 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket ARC-0008;
-> decisions SP47–SP103 in `55_Implementation_Specs/_wip/Kingmaker/decisions.md`). It replaces the Spinner
+> decisions SP47–SP114 in `21.04_Subclasses/Kingmaker/DECISIONS.md`). It replaces the Spinner
 > design of 2026-10-08 (archived in `90_ARCHIVE/93_Old_Versions/2026-10-13_ARC-0008_spinner_design/`). Every
 > gameplay effect lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions** (PC with the
 > deck, console without Script Extender).
@@ -125,9 +132,9 @@ crown one, cast down another, cut a thread off the Wheel.
 | Starting gear | Court clothes, Rapier, Hand Crossbow (built in the Toolkit) |
 | Sound set | Sorcerer (used by no other subclass) |
 
-> The game holds a **placeholder** progression named *Spinner* (`a688d11f-edff-44c5-95ac-0e4999ebf876`)
-> whose level 1 copies the Resonant's. The build replaces it with this chassis and §10, and renames
-> ClassDescription, progression and texts to the Kingmaker.
+> Built (ARC-0008 stage 1): the former *Spinner* placeholder (`a688d11f-edff-44c5-95ac-0e4999ebf876`) now holds
+> this chassis and §10 under the name Kingmaker; tag `THEKINGMAKER`, starting gear `EQP_CC_Kingmaker`, class tag
+> Sorcerer, default skills Persuasion · Intimidation · Insight · History.
 
 ---
 
@@ -204,7 +211,7 @@ Ready: Foreseen do. The whole round is played in a known state.
 | **Summons and temporary allies** | Can be on the Wheel (summons count as allies, enemy summons as enemies); a creature unsummoned leaves the Wheel; a summon is never King |
 | **Charm, domination, a change of faction** | **A creature's side is fixed when it enters the Wheel.** Whoever entered as an ally counts as an ally until it leaves, and the reverse. The party never takes its own Crossing; an enemy dominated by the Deceiver's Marionette can still be crossed |
 | **Creatures that join mid-combat** | Start off the Wheel until bound |
-| **Two Kingmakers in the party** | **One shared Wheel that turns once per round.** Its **owner** is the Kingmaker who acts first in initiative; every binding, by either Kingmaker, is registered to the owner and the Wheel turns at the start of the owner's turn only. If the owner dies or leaves combat, the next Kingmaker in initiative becomes the owner. One King for the whole Wheel; each Kingmaker keeps their own Court; every Crossing counts for every Kingmaker's Awakening |
+| **Two Kingmakers in the party** | **Each Kingmaker owns a separate Wheel** (SP113, replaces SP93's shared Wheel): it turns at that Kingmaker's own turn start, with its own King and Court; **a creature can be on one Wheel only**. (The shared Wheel would have refactored the whole goal and can't be tested without two Kingmakers; Osiris can't read initiative order) |
 
 ---
 
@@ -315,6 +322,7 @@ allies included — aim it away from the party.
 
 ### 7.9 *Ready: Foreseen* (Tier III)
 
+**Readied with a Bonus Action, no slot** (SP114): the Tier III card readies the reaction until combat ends.
 **Reaction, once per round.** When an enemy on the Wheel is about to attack you or an ally: if it is
 **Reigning** or **Falling**, it moves one position on **before** the attack — Reigning → Falling (loses the
 19–20 crit, takes −1d4), Falling → Fallen (Advantage against it, and a Crossing if a Reigning ally is within
@@ -327,7 +335,10 @@ in hand is the charge (`02-systems` §8).
 **Action, Long Rest, Unique.** Every position on the Wheel is **frozen** for a few turns *(25)*: the Wheel
 doesn't turn. While it is stopped, at the start of each of the Kingmaker's turns, every Fallen enemy within
 9 m of a Reigning ally takes Crossing damage — the stopped Wheel keeps pressing (an explicit exception to
-"enters Fallen"). It is the only way to hold positions.
+"enters Fallen"). It is the only way to hold positions. **It freezes the turn only** (SP112): the Wheel doesn't turn at
+the owner's turn start and the Master of Laws' extra step waits, but the Kingmaker's own cards (Turn the Spoke, Rota
+Fortunae, Peripeteia, Usurp) and the Master of Healing still move creatures, and a creature bound during the stop is
+held too.
 
 ### 7.11 *Rota Fortunae* — the Aspect card (Tier I)
 
@@ -360,7 +371,7 @@ When an enemy on the Wheel dies, its position passes to the **nearest enemy not 
 the body**; enemies already on the Wheel are skipped, and with no such enemy the position is lost. An heir
 that enters Reigning gains *Hubris*. Several deaths at once resolve oldest on the Wheel first.
 
-### 8.5 The Crossing across the field (level 12)
+### 8.5 *Fortune's Reach* (level 12) — the Crossing across the field
 The Crossing loses its 9 m limit (§5).
 
 ---
@@ -414,7 +425,7 @@ grants ***Ready: Foreseen*** (§7.9). No ability score bonus.
 | **9** | **Succession** | *Wheel of Ixion* · Court: + Master of Coin, Master of Ships |
 | 10 | — | — |
 | **11** | — | ***The Wheel Stops*** (capstone) |
-| **12** | **The Crossing across the field** · Tier III **Aspect of Anticipation** → *Ready: Foreseen* | — |
+| **12** | **Fortune's Reach** (the Crossing across the field) · Tier III **Aspect of Anticipation** → *Ready: Foreseen* | — |
 | 13–20 | Reserved, like the rest of the class | |
 
 **The journey:** learn the Wheel (1–3), then govern (5+). Level 1 already plays it — bind both sides, nudge
@@ -509,10 +520,11 @@ Everything is Stats, Osiris and Khonsu; nothing needs Script Extender. Signature
 
 ### 13.4 Ids
 
-Final ids are fixed in `SPEC_ARC-0008` against `33.03` (glossary) and ADR-0002: cards
-`<Type>_Arcana_Card_Spell_*`, the Aspect card `<Type>_Arcana_Created_RotaFortunae`, the reaction
-`Interrupt_Arcana_Reaction_Foreseen`, the utility `<Type>_Arcana_Util_ConveneTheCourt` (a *Choose*
-container), passives `Arcana_Passive_*`, statuses in `SCREAMING_SNAKE_CASE`, technical ones ending in `_TECH`.
+Ids as built (`SPEC_ARC-0008`, ADR-0002): cards `<Type>_Arcana_Card_Spell_*`; the Aspect cards
+`Shout_Arcana_Created_Aspect_RotaFortunae` and `Shout_Arcana_Created_Aspect_ReadyForeseen`; the reaction
+`Interrupt_Arcana_Aspect_Foreseen`; the utility `Target_Arcana_Util_ConveneTheCourt` (a *Choose* container);
+passives `Arcana_Passive_*` (level 12: `Arcana_Passive_FortunesReach`); statuses `KINGMAKER_*` and `COURT_*`,
+technical ones ending in `_TECH`; Osiris goal `ARCANA_Kingmaker_Wheel`. Full catalogue: `23.02/Kingmaker/`, `05.03`, `05.04`.
 
 ---
 
@@ -523,7 +535,8 @@ container), passives `Arcana_Passive_*`, statuses in `SCREAMING_SNAKE_CASE`, tec
 | Every value marked *(25)*: set in `25_Master_Data` from the approved balance pass (`22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md`); playtest checks in its §8 | Playtest |
 | Ranges of Dethrone, Usurp and Cut (18 m assumed) | Owner, with the balance pass |
 | Emoji and Aspect VFX; a crown on the emblem | Owner, Icon Artist |
-| Renames in the game files (ClassDescription, progression, ProgressionDescription, icons) from Spinner to Kingmaker | Build |
+| Icons: every Kingmaker entry borrows a vanilla icon (`42.04/Kingmaker.md`) | Icon Artist, ARC-0008 stage 7 |
+| PC deck entries (CardDB) and the stage-7 wrap-up | ARC-0008 stage 7 |
 | The role sits close to the Resonant's (support through states); a future magical burst/DPR subclass fills the class's gap | Future ticket (Owner) |
 
 ## 15. To test in game

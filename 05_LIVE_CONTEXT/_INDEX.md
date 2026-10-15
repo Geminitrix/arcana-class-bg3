@@ -7,7 +7,7 @@ Mirror of the mod as it is TODAY. Read first by every agent. No history.
 | Item | What it holds |
 |---|---|
 | `05.01_Class` | Identity, current progression 1-12 and module 13-20, resources |
-| `05.02_Subclasses` | One file per subclass as it is now (Deceiver, Starchild, Eternal, Unbound, Resonant, Spinner, Lionheart) |
+| `05.02_Subclasses` | One file per subclass as it is now (Deceiver, Starchild, Eternal, Unbound, Resonant, Kingmaker, Lionheart) |
 | `05.03_Spells_and_Passives` | Current catalogue: internal name, level, type, what it does |
 | `05.04_Statuses_and_Conditions` | Current statuses |
 | `05.05_Current_Text_and_Lore` | Official names, adopted tone, glossary in use |

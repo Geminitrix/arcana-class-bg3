@@ -1,11 +1,15 @@
+---
+status: done
+closed: 2026-10-15 — executed by the Context Keeper role during propagation (00.08): 05.02/Spinner.md renamed Kingmaker.md and rewritten from the game (built 1–12) with the Depth audit updated after the build; 05.00 row, 05/_INDEX, 05.06 roadmap line; verify_context maps Kingmaker
+---
 # HANDOFF · Lead Class Designer → Context Keeper · ARC-0008
 
 **What:** the subclass designed as *The Spinner* was redesigned and renamed **The Kingmaker** (design only;
 nothing changed in the game files). Replace the Spinner's entry in `05` with the Kingmaker's and add its
 Depth audit.
 
-**Sources:** `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md` (the design) ·
-`55_Implementation_Specs/_wip/Kingmaker/decisions.md` (SP47–SP105) · `21.04_Subclasses/_SUBCLASS_STANDARD.md` §3.
+**Sources:** `21.04_Subclasses/Kingmaker/DESIGN.md` (the design) ·
+`21.04_Subclasses/Kingmaker/DECISIONS.md` (SP47–SP105) · `21.04_Subclasses/_SUBCLASS_STANDARD.md` §3.
 The old Spinner design and its audit are archived (`90/93/2026-10-13_ARC-0008_spinner_design`, `…_spinner_audit`).
 
 ## 1. `05.02_Subclasses/Spinner.md` → the Kingmaker
@@ -13,7 +17,7 @@ The old Spinner design and its audit are archived (`90/93/2026-10-13_ARC-0008_sp
 - Title: **⏳ Kingmaker — X · Wheel of Fortune · Aspect of Anticipation** (emoji still to confirm).
 - One line: *Designed, not built. Force multiplier: creatures ride the Wheel of Fortune's four positions;
   an enemy that falls while an ally reigns suffers a Crossing. Secondary ability CHA.*
-- Design pointer: `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md`.
+- Design pointer: `21.04_Subclasses/Kingmaker/DESIGN.md`.
 - "In the game today" stays true: the progression named *Spinner* (`a688d11f-…`) is a placeholder copying
   the Resonant's level 1. Add: the build will rename ClassDescription, progression and ProgressionDescription
   to the Kingmaker.

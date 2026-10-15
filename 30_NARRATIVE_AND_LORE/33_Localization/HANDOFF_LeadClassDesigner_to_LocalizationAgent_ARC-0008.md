@@ -1,8 +1,12 @@
+---
+status: done
+closed: 2026-10-15 — executed by the Lore Writer role (Localization) during propagation (00.08): Spinner row replaced and seven Kingmaker term rows added in 33.03/Glossary_Game_and_Code_Names.md; MOD_TERMINOLOGY.md Kingmaker section added
+---
 # HANDOFF · Lead Class Designer → Localization Agent (Lore Writer acting) · ARC-0008
 
 **What:** new terms for the subclass **The Kingmaker** (was *The Spinner*). Update
 `33.03_Term_Glossary/Glossary_Game_and_Code_Names.md` (and `MOD_TERMINOLOGY.md` when the strings exist).
-Source: `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md` §12–§13. No strings exist in the game yet;
+Source: `21.04_Subclasses/Kingmaker/DESIGN.md` §12–§13. No strings exist in the game yet;
 ids are fixed in `SPEC_ARC-0008`.
 
 ## Replace

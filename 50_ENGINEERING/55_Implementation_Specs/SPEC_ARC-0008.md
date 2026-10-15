@@ -16,8 +16,8 @@ updated: 2026-10-15
 **Intent** (ARC-0008): *the Kingmaker makes the party stronger by keeping allies at the top of Fortune's Wheel while
 enemies hit the bottom — and every fall beside a reign hurts.*
 
-**Design:** `21.04/Kingmaker/2026-10-13-kingmaker-design.md` · **Decisions:** `55/_wip/Kingmaker/decisions.md`
-(SP47–SP111) · **Numbers:** `25.01/SPL_Kingmaker_*`, `25.02/FEAT_Kingmaker_*` · **Texts:** `55/_wip/Kingmaker/texts.md`
+**Design:** `21.04/Kingmaker/DESIGN.md` · **Decisions:** `21.04/Kingmaker/DECISIONS.md`
+(SP47–SP111) · **Numbers:** `25.01/SPL_Kingmaker_*`, `25.02/FEAT_Kingmaker_*` · **Texts:** `32.01/Kingmaker_texts_with_params.md`
 (pending the Narrative gate) · **Balance:** `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md`.
 
 ## Global constraints

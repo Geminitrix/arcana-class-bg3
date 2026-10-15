@@ -1,8 +1,9 @@
 id: SPL_Kingmaker_TurnTheSpoke
+reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
 kind: spell
 subclass: Kingmaker
 ticket: ARC-0008
-design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §7.4"
+design: "21.04/Kingmaker/DESIGN.md §7.4"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
 values:
   card_level: { value: 0, note: "Bonus Action, no slot; PC edition 1 Thread" }

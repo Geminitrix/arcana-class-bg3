@@ -1,6 +1,6 @@
 # 06 · Glossary
 
-> Last verified: **2026-10-02**. In-game name ↔ code name ↔ meaning. Code names in `backticks`.
+> Last verified: **2026-10-02**; Kingmaker rows reviewed 2026-10-15 ARC-0008 (propagation, 00.08). In-game name ↔ code name ↔ meaning. Code names in `backticks`.
 
 ## Class and lore
 
@@ -14,7 +14,7 @@
 | **Aspect card** | The Created card unlocked at Tier I (Leap of Faith, The Veil Lifts, Wish Upon a Star, The Final Toll) |
 | **Mystra / the Weave** | Goddess of magic / the fabric of magic; the class's patron and theme |
 | **Titan** | Subclass in development (red), based on the tarot's **Strength** (VIII); has a ClassDescription, progression table and icons, and is selectable at level 1 |
-| **Spinner** | Subclass in development, based on the tarot's **Wheel of Fortune** (X), **Aspect of Anticipation**; time, cycles and cascading effects. Has a ClassDescription, progression table and icons, and is selectable at level 1 |
+| **Kingmaker** | Subclass (X · **Wheel of Fortune**, **Aspect of Anticipation**; teal), was the *Spinner* (renamed in ARC-0008); creatures ride the Wheel's four positions. Built 1–12; internal progression name and ids keep `Kingmaker` |
 | **Secondary ability** | The subclass's own stat beside Intelligence: Unbound DEX, Deceiver CHA, Starchild WIS, Eternal CON |
 
 ## Resources
@@ -79,3 +79,10 @@
 | **Mourning** | Eternal | Tier II: drop to 1 HP once; isolated enemy has Disadvantage |
 | **Harvest** | Eternal | Tier III: extra action when a hostile dies within 9 m |
 | **Sorrow ledger** | Eternal | Running total of HP lost this fight (goal + Final Toll) |
+| **The Wheel / on the Wheel** | Kingmaker | A creature carrying one of the four positions; turns at the Kingmaker's turn (`ARCANA_Kingmaker_Wheel`) |
+| **Rising · Reigning · Falling · Fallen** | Kingmaker | The four positions (`KINGMAKER_RISING/REIGNING/FALLING/FALLEN`), Latin *Regnabo · Regno · Regnavi · Sum sine regno* in the tooltip |
+| **King · Regent** | Kingmaker | The ally Reigning longest wears the crown (`KINGMAKER_KING`); other Reigning allies (`KINGMAKER_REGENT`) |
+| **Crossing** | Kingmaker | Force damage to an enemy that enters Fallen while an ally Reigns within 9 m (`KINGMAKER_CROSSING_TECH`) |
+| **Hubris** | Kingmaker | An enemy that reigned; its next Crossing deals one extra die (`KINGMAKER_HUBRIS`) |
+| **The Court / Convene the Court** | Kingmaker | Offices named out of combat until the Long Rest (`Target_Arcana_Util_ConveneTheCourt`, `COURT_*`): King's Hand, Lord Commander, Master of Healing, Master of Laws, Master of Secrets, Master of Coin, Master of Ships |
+| **Tyche · Nemesis · Aspect of Anticipation** | Kingmaker | Awakening tiers I · II · III (goal: Crossings) |

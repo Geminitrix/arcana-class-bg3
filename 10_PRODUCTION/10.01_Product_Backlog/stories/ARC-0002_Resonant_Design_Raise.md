@@ -74,7 +74,7 @@ Surges, an overload meter and its Overflow — without running out of slots.
 - 2026-10-12 — Owner: Shared Heart not working (cause: Story compiled before its goal was applied). R46 (Shared Heart shares feelings only + the Catharsis heal; free Surges dropped), R47 (feelings Additive), R48 (Emotional Overload a bonus action); bug fixed: Compassion triggered on the Resonant's own Surge (now enemy source only). Built, not applied (tests 247/247).
 - 2026-10-12 — R46–R48 + the Compassion fix applied (`[fechado]`): selftest 1008/0, check_cards OK, 24 feelings Additive, the free-Surge refund removed; goals Overload and Shared Heart copied. Owner: compile the Story; P27b, P28b, P30, P34, P35.
 - 2026-10-12 — **closed by the Owner** after the in-game tests (all probes pass, P25–P35 included). Narrative gate not run (recorded). ARC-0006 (player guide) unblocked.
-- 2026-10-15 — **Propagation (00.08, ADR-0008)** in each owner's role. Lead Class Designer: `decisions.md` moved to
+- 2026-10-15 — **Propagation (00.08, ADR-0009)** in each owner's role. Lead Class Designer: `decisions.md` moved to
   `21.04/Resonant/DECISIONS.md`, the design renamed `DESIGN.md` (R45 folded into §7.2; first version archived in
   `93/2026-10-15_Resonant_first_design`), `21.03/Resonant.md` created, Resonant column in `21.08`. Spell Designer: 28 sheets
   in `23.02/Resonant/`; `25` fixed against R36/R45/R46 (Temper, Shared Heart) and stamped. Balance Designer:

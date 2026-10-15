@@ -144,5 +144,5 @@ SE console (PC): `!arcanatest`, `!arcanahand`, `!arcanapool`, `!arcanathreads`, 
 3. **Content for levels 13–20** (reserved; the core must fit a game that ends at 12).
 4. Keyword framework: Echo, Invoke, Foresee, Landmark, Mantle, Refine; in-game deck editor; card UI.
 5. **Boons** (Greek deities as quest rewards) and **equipment** (4 items already defined, not granted).
-6. **The Titan** and **The Spinner** subclasses.
+6. **The Lionheart** (was the Titan) subclass; **the Kingmaker** (was the Spinner) is built 1–12 and waits for its probes (ARC-0008).
 7. Localisation round for the 15 non-English languages.

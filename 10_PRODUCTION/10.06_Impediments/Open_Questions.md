@@ -12,7 +12,7 @@
 - ❓ **The Titan** (red, tarot **VIII · Strength**, in development): which Aspect, which role, which
   characters inspire it?
 - 🎯 **The Kingmaker** (was *The Spinner*; **X · Wheel of Fortune · Aspect of Anticipation**, teal `#60d7d2`).
-  **Designed 2026-10-13** (ARC-0008): `21.04_Subclasses/Kingmaker/2026-10-13-kingmaker-design.md` — creatures ride
+  **Designed 2026-10-13** (ARC-0008): `21.04_Subclasses/Kingmaker/DESIGN.md` — creatures ride
   the Wheel's four positions, Crossings, the Court, ultimate Peripeteia; Awakening Tyche / Nemesis / Aspect of
   Anticipation. In the mod: only the ClassDescription, icons and a placeholder progression named *Spinner*
   (`a688d11f`) whose level 1 still carries the Resonant's passives and saves. Open: every number (balance pass),

@@ -1,11 +1,17 @@
-# The Kingmaker (was the Spinner) — design decisions (ARC-0008)
+---
+id: 21.04/Kingmaker/DECISIONS
+owner: Lead Class Designer
+role: source of the Kingmaker dossier (00.08) — every decision is logged here the moment it is taken
+---
 
-Working note. SP1–SP46 are the Spinner's decisions (the design conversation of 2026-10-08 and the first
+# The Kingmaker (was the Spinner) — decision log (ARC-0008)
+
+Moved here on 2026-10-15 from `55_Implementation_Specs/_wip/Kingmaker/decisions.md` (ADR-0009). SP1–SP46 are the Spinner's decisions (the design conversation of 2026-10-08 and the first
 ARC-0008 round); its design is archived in `90/93/2026-10-13_ARC-0008_spinner_design/`. **SP47 on are the
-Kingmaker** (direction B, *Rise and Fall*), described in `21.04/Kingmaker/2026-10-13-kingmaker-design.md`.
+Kingmaker** (direction B, *Rise and Fall*), described in `21.04/Kingmaker/DESIGN.md`.
 Where a later decision replaces an earlier one, the later one says so.
 
-Sources: the design conversations of 2026-10-08 and 2026-10-13; `55/_wip/Kingmaker/2026-10-13-spinner-three-proposals.md`.
+Sources: the design conversations of 2026-10-08 and 2026-10-13; `93/2026-10-15_Kingmaker_raise_proposals/2026-10-13-spinner-three-proposals.md`.
 
 ## Decision log
 
