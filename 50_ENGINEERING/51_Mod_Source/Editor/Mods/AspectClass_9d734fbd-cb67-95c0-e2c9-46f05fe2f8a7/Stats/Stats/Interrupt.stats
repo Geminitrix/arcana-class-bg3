@@ -154,6 +154,22 @@
         <field name="EnableContext" type="EnumerationListTableFieldDefinition" value="OnActionResourcesChanged" enumeration_type_name="StatsFunctorContext" version="1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2a441d6a-4fdf-bc6d-d0d9-0e7d940814cb" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Aspect_Foreseen" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6751e25fg245dg6ea4gec87ga75748d59f76" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76d134b8g69ceg3a44g5aa9g53b28e79fc09" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="he938ff6fgf1dfgf6a0g20bag6fe87eb1c7e1" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_TrueStrike" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnSpellCast" enumeration_type_name="InterruptContext" version="1" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Nearby" enumeration_type_name="InterruptContextScope" version="1" />
+        <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source, context.Observer) and IsAttack() and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source))" />
+        <field name="Properties" type="StringTableFieldDefinition" value="ApplyStatus(OBSERVER_SOURCE,KINGMAKER_FORESEEN_TECH,100,0)" />
+        <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FFFF69B4" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="031b6230-93dd-a065-fb5c-4576fbf8c454" />

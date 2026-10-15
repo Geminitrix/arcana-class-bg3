@@ -249,6 +249,11 @@
                     <attribute id="Spells" type="LSString" value="Zone_Arcana_Card_Spell_WheelOfIxion"/>
                     <attribute id="UUID" type="guid" value="ceaf01b3-f829-4df9-9dbc-2d207ee56891"/>
                 </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Kingmaker Level 11"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_TheWheelStops"/>
+                    <attribute id="UUID" type="guid" value="72df5574-9198-4cd6-9013-61ec2ce8bf59"/>
+                </node>
             </children>
         </node>
     </region>

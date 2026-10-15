@@ -826,6 +826,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4bd94d9b-5ef4-455e-e1c0-04f3f2efad53" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_FortunesReach" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6defdf68g7af0gb2d4g6f37g66e860c9cdb5" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6151f413g0c66gb00bg764agd7b88239daf0" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_HuntersMark" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="b5a6cec7-e8a3-7906-7ba1-ee3fc053b2a9" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Court_MasterOfCoin" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3071c6bbgfa72g6e9eg5dd5g55f82a1e0bb0" version="1" />
@@ -1250,6 +1260,16 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hac983c2bg4ea9gf279g49ffg7d9552b3e73f" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h2b2d03bcg2776g680fg1348g757ae9305db7" version="1" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4236967c-f927-66c0-3066-c7dccd7ae5be" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_WheelOfFortune_III" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h42261336gc225ge9e2gee54g3c68b040ee8e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h08241d70gd3f4g3786g9608g114930936eb7" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_DetectThoughts" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>

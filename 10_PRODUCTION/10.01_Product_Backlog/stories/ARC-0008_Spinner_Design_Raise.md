@@ -189,3 +189,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   and 12, `62_goal.pl` with two exact rule replacements). The interrupt is `Interrupt_Arcana_Aspect_Foreseen` (the
   rehearsal grouped the working id under UNBOUND). Rehearsed on a copy: all grouped, check_cards OK, no duplicate,
   scripts idempotent. Waits for `[fechado] ARC-0008`.
+- 2026-10-15 — Stage 6 applied in the game ([fechado]): stats patch (10 entries), list Kingmaker Level 11 + rows 11 and 12,
+  goal (insertions + the two rule replacements), sort_stats, check_cards OK (113), validate 0 errors; no duplicate field
+  or handle; identical to the rehearsal. Every level 1–12 of the Kingmaker now has its content. The Owner recompiles the
+  Story; probes P1–P48 at the end; stage 7 (PC deck, test cases, handoff, renames, icons) next.

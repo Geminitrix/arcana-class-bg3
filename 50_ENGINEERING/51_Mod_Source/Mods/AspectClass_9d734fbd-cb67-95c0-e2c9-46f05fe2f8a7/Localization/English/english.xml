@@ -1528,4 +1528,20 @@
   <content contentuid="h8312755bg6e76g27d3g11f6gb268c41fc2c2" version="1">Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
   <content contentuid="h859f8ee7g4399gc9cbg6818gca91d9e2d9b5" version="1">Appoint an ally as Master of Ships. An enemy within [1] of it that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
   <content contentuid="hb2d56260ge95egfd4fgedd9gafa51574398e" version="1">The Court: third circle</content>
+  <content contentuid="ha055ffbbg3af1gdb81g6274g1ec383292e52" version="1">The Wheel Stops</content>
+  <content contentuid="h77e3ad6dg71bdg769ag334ag4c16fd4e5146" version="1">Stop Fortune's wheel. It doesn't turn at the start of your next [1] turns.</content>
+  <content contentuid="h2b856c7dgb197ga7c8g2760g0374ef737c6a" version="1">While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing.&lt;br&gt;&lt;br&gt;Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
+  <content contentuid="h8237a025g5097g4444g2c79g190a63bee6f8" version="1">Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped.</content>
+  <content contentuid="h6defdf68g7af0gb2d4g6f37g66e860c9cdb5" version="1">Fortune's Reach</content>
+  <content contentuid="h6151f413g0c66gb00bg764agd7b88239daf0" version="1">Your Crossings no longer need an ally nearby: an enemy that becomes Fallen while any ally on the Wheel is Reigning suffers its Crossing.</content>
+  <content contentuid="h42261336gc225ge9e2gee54g3c68b040ee8e" version="1">Aspect of Anticipation</content>
+  <content contentuid="h08241d70gd3f4g3786g9608g114930936eb7" version="1">Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Aspect_ReadyForeseen"&gt;Foreseen&lt;/LSTag&gt;.</content>
+  <content contentuid="h943cca70ge372g10d0g7a33g6e11a0fae93f" version="1">10 - Wheel of Fortune: Awakened III</content>
+  <content contentuid="hf988d590gcd2fg4d99g9955ge9d1b74382a2" version="1">Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.&lt;br&gt;&lt;br&gt;Nemesis: when an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.&lt;br&gt;&lt;br&gt;Aspect of Anticipation: your allies never touch the bottom of the Wheel; they stay Falling for one more turn instead of becoming Fallen.</content>
+  <content contentuid="hc4390e98g4788g21b3ge32cgd6ea3e410597" version="1">Ready: Foreseen</content>
+  <content contentuid="hfb3bd950gb2e0gf9b1gc8ecg9caa22e0282c" version="1">Watch the Wheel. Until combat ends you can react with &lt;LSTag Type="Spell" Tooltip="Interrupt_Arcana_Aspect_Foreseen"&gt;Foreseen&lt;/LSTag&gt;.</content>
+  <content contentuid="h6751e25fg245dg6ea4gec87ga75748d59f76" version="1">Foreseen</content>
+  <content contentuid="h76d134b8g69ceg3a44g5aa9g53b28e79fc09" version="1">When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling.</content>
+  <content contentuid="he938ff6fgf1dfgf6a0g20bag6fe87eb1c7e1" version="1">You saw it coming.</content>
+  <content contentuid="hf098e7acgf400g4524ge3d9g6c8afcd69067" version="1">Watching the Wheel. Can react with Foreseen until combat ends.</content>
 </contentList>

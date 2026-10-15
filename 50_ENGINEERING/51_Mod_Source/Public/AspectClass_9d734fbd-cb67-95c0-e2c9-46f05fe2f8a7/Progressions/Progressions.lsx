@@ -1172,12 +1172,14 @@
                     <attribute id="Level" type="uint8" value="11"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(72df5574-9198-4cd6-9013-61ec2ce8bf59,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="10cd57aa-594a-4828-b934-1ed04d46d613"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_FortunesReach;Arcana_Passive_Aspect_WheelOfFortune_III"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="599e1b1a-c8cd-47d1-b790-c169bca584bb"/>

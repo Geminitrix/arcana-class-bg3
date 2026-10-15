@@ -1532,6 +1532,7 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="11" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(72df5574-9198-4cd6-9013-61ec2ce8bf59,,,,AlwaysPrepared)" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">
@@ -1542,6 +1543,7 @@
         <field name="FSName" type="StringTableFieldDefinition" value="Kingmaker" />
         <field name="Level" type="ByteTableFieldDefinition" value="12" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_FortunesReach;Arcana_Passive_Aspect_WheelOfFortune_III" />
       </fields>
     </stat_object>
     <stat_object color="#FFA52A2A" is_substat="false">
