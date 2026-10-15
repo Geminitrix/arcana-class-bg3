@@ -249,8 +249,9 @@ short of play: patch dry-run, scripts on a copy of the mod, goal built from the 
 | **Lord Commander** (§6.2): attack rolls against the King within 3 m have Disadvantage | Office status with `AuraRadius 3`, `AuraStatuses TARGET:IF(HasStatus('KINGMAKER_KING')):ApplyStatus(KINGMAKER_GUARDED,100,1)`; `KINGMAKER_GUARDED` = `Disadvantage(AttackTarget)` | vanilla aura statuses (`AuraStatuses "TARGET:IF(…)"`); `Disadvantage(AttackTarget)` (11 vanilla statuses) |
 | **Master of Healing** (§6.2, SP104): healing an ally on the Wheel that is Fallen or Rising moves it one step | The office status gives a hidden passive, `StatsFunctorContext OnHeal`, which applies `KINGMAKER_HEAL_STEP_TECH` to a healed creature that is Fallen or Rising; Osiris checks the healer holds this Kingmaker's office and the creature is an ally on the Wheel, then moves it one step, crowns and settles | `DiscipleOfLife`, `DEN_HellridersPride_Passive` (`OnHeal` functors on the healed creature) |
 
-Assumption to confirm in play: each office is unique (one King's Hand, one Lord Commander…), which the once-per-Long-Rest
-cooldown of each option gives.
+Confirmed by the Owner (2026-10-15): each office is unique (one King's Hand, one Lord Commander…), given by the
+once-per-Long-Rest cooldown of each option; the King's Hand is crowned at the Kingmaker's turn start even with nobody on the
+Wheel.
 
 ### Probes — after the whole subclass (one rule each)
 

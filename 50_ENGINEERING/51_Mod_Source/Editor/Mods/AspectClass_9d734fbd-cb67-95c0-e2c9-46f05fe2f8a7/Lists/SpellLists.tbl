@@ -309,6 +309,13 @@
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_AtroposCut" />
       </fields>
     </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="293ae797-c86c-41fd-a0e0-dff628b1ea57" />
+        <field name="Name" type="NameTableFieldDefinition" value="Kingmaker Level 5" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_Peripeteia;Target_Arcana_Util_ConveneTheCourt" />
+      </fields>
+    </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc" />

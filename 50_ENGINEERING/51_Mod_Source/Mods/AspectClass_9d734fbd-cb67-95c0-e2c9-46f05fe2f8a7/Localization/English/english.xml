@@ -1478,4 +1478,22 @@
   <content contentuid="h928a775dgfacdg0be8ge36ag4244d2ce000e" version="1">Crossings left to cause to awaken Nemesis.</content>
   <content contentuid="h0c01899cg31fcg8f3cg03fcgb24dc20ac352" version="1">Awakening</content>
   <content contentuid="hb652b230gc104ge516gdcc0gd61334cbc371" version="1">Crossings left to cause to awaken the Aspect of Anticipation.</content>
+  <content contentuid="ha0dae489g36f1gc4c8gdd1bg62131b382d41" version="1">Peripeteia</content>
+  <content contentuid="hd2e0249cgf65bg4e90gc9c9g11a60c28e718" version="1">Reverse the fortunes of every creature on the Wheel within [1].</content>
+  <content contentuid="he37de579gccc3g22c8ge940gc2ad6234296a" version="1">Reigning becomes Fallen and Rising becomes Falling, and the reverse. Your allies turn too.&lt;br&gt;&lt;br&gt;Once per combat.</content>
+  <content contentuid="h9456d0fdg86ecgd53fgfbd1g85fdd30ce483" version="1">Convene the Court</content>
+  <content contentuid="h3c47e40ag0ca9g7ee5g3da5g7fc7b9ec55ff" version="1">Name your Court. Each ally you appoint holds an office until your next &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
+  <content contentuid="h9bb75814g8d2egb3f5g0f1dg1b32b311095b" version="1">You can appoint as many offices as your Charisma &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;, at least one. You can't hold an office yourself, and an ally holds one office at most.</content>
+  <content contentuid="h196b11c4gb519g19d8g5f30g7793523ebd11" version="1">The office lasts until your next &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. Each office can be given once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
+  <content contentuid="h647688e8g26f4g19a2g037ag6c8a3b51f98a" version="1">King's Hand</content>
+  <content contentuid="hf5ce5edag27cdgeb7cg6ab0g0dd731cae197" version="1">Serves as the King's Hand. While no ally is Reigning, wears the crown and lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
+  <content contentuid="hae806e9bg81e9gff5dgdadfg62be7fc047d4" version="1">Appoint an ally as the King's Hand. While no ally is Reigning, it wears the crown and lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
+  <content contentuid="h12f8ae7agd8abg61f5ge445g98e99b21605d" version="1">Lord Commander</content>
+  <content contentuid="hd7dd31a3g4ee4g4d81gba04g4965922b5084" version="1">Guards the crown. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against the King have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; while the King is within [1].</content>
+  <content contentuid="h06f83a82gca58gda8eg6cf3g5219f1c04bfd" version="1">Appoint an ally as Lord Commander. While the King is within [1] of it, &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against the King have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
+  <content contentuid="h09819edfge407ga97eged0fga3a16a364b34" version="1">Master of Healing</content>
+  <content contentuid="h89c514a4g9314gbb2bg0b02g324daecfb326" version="1">Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising.</content>
+  <content contentuid="hbc36db5bgb16bgc662gd3c5g79b4915f2eb3" version="1">Appoint an ally as Master of Healing. When it heals an ally on the Wheel that is Fallen or Rising, that ally moves one position closer to Reigning.</content>
+  <content contentuid="hd0353438g9d26g4866g896bg0715dce8b9a7" version="1">Guarded</content>
+  <content contentuid="h28d847e6g3909gaf8eg7f1ag0c89d139d180" version="1">The Lord Commander stands guard. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against it have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
 </contentList>

@@ -234,6 +234,11 @@
                     <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_AtroposCut"/>
                     <attribute id="UUID" type="guid" value="f48fbecb-c8b6-4837-a3f9-270a905caa19"/>
                 </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Kingmaker Level 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_Peripeteia;Target_Arcana_Util_ConveneTheCourt"/>
+                    <attribute id="UUID" type="guid" value="293ae797-c86c-41fd-a0e0-dff628b1ea57"/>
+                </node>
             </children>
         </node>
     </region>
