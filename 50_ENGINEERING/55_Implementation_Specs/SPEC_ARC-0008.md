@@ -4,7 +4,7 @@ ticket: ARC-0008
 status: draft
 implementation: owner
 author: Mod Engineer
-updated: 2026-10-14
+updated: 2026-10-15
 ---
 
 # SPEC_ARC-0008 · The Kingmaker — implementation plan
@@ -40,7 +40,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 |---|---|---|---|
 | **1** | 1 | **The Wheel core**: four position statuses, King/Regent, the Osiris goal that binds, turns and crowns; *The Rota*; cantrip, *Coronation*, *Dethrone*, *Turn the Spoke*; chassis (ClassDescription, ProgressionDescription, preset, defaults, skill list), level-1 list and progression | **Written in full below**; probes P1–P8 |
 | **2** | 3 | *The Crossing* (pairs within 9 m, once per enemy per round), *Atropos' Cut*, Awakening *10 · Wheel of Fortune* (count, lone enemy ×2, Tier I *Tyche*), *Rota Fortunae* | **Written below** (2026-10-14); probes P9–P16 |
-| 3 | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | After stage 2 |
+| **3** | 5 | *Peripeteia*, *Convene the Court* (container) + King's Hand, Lord Commander, Master of Healing | **Written below** (2026-10-15); Claude implements; probes P17–P24 at the end |
 | 4 | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | After stage 3 |
 | 5 | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | After stage 4 |
 | 6 | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers share one Wheel (SP93) | After stage 5 |
@@ -216,3 +216,51 @@ replaces the goal and the hook is `PROC_ARCANA_Kingmaker_Fell` + `PROC_ARCANA_Ki
 | P14 | Rota Fortunae | Every creature on the Wheel moves one step; a Falling enemy near a Reigning ally crosses; it can't be cast again this combat | — |
 | P15 | Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each) | 3d8 / 2d8 / 1d8 Slashing; the enemy loses its position status and the Wheel ignores it | — |
 | P16 | Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' Cut with a higher slot | The ally leaves the Wheel, keeps *Reigning* until the end of its next turn, loses the crown; Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 | — |
+
+---
+
+## Stage 3 — Peripeteia and the Court (level 5)
+
+Written 2026-10-15. **Implementation: Claude** (the ticket switched to `implementation: claude`, Owner option 1): no
+Toolkit guide; the stage is a set of scripts in `55/_wip/Kingmaker/stage3/` applied in the game with `[fechado] ARC-0008`.
+The Owner plays all probes at the end of the subclass (the Owner's choice, 2026-10-15), so each stage is validated by everything
+short of play: patch dry-run, scripts on a copy of the mod, goal built from the live one by exact anchors.
+
+### What is written
+
+| # | Kind | Entry | How |
+|---|---|---|---|
+| 01 | Status BOOST | `KINGMAKER_INVERT_TECH`, `KINGMAKER_HEAL_STEP_TECH`, `KINGMAKER_HAND_CROWN`, `COURT_HOLDER`, `COURT_FULL` (technical) | `30_stage3.patch` (`stats_add.pl`, both sides) |
+| 02 | Status BOOST | `COURT_KINGS_HAND`, `COURT_LORD_COMMANDER` (aura), `COURT_MASTER_OF_HEALING`, `KINGMAKER_GUARDED` | same |
+| 03 | Passive | `Arcana_Passive_Court_MasterOfHealing` (hidden, given by the office status) | same |
+| 04 | Spell Shout | `Shout_Arcana_Card_Spell_Peripeteia` (level-3 card) | same; variants `_4`–`_6` by `gen_upcast_variants.pl` |
+| 05 | Spell Target | `Target_Arcana_Util_ConveneTheCourt` (container) + `Target_Arcana_Util_Court_KingsHand` / `_LordCommander` / `_MasterOfHealing` | same |
+| 06 | Spell list | *Kingmaker Level 5* = Peripeteia, Convene the Court (UUID `293ae797-c86c-41fd-a0e0-dff628b1ea57`, deterministic) | `31_uuid.pl` (`.lsx` and `.tbl`) |
+| 07 | Progression | `856b4cd7…` (level 5): `Selectors AddSpells(<06>,,,,AlwaysPrepared)` | `31_uuid.pl` |
+| 08 | Osiris | `ARCANA_Kingmaker_Wheel`: + the Court, Peripeteia, Master of Healing, the Hand's crown (228 lines added, none changed) | `32_goal.pl` builds it from the live goal |
+
+### How each rule is built
+
+| Rule (design) | Build | Anchor |
+|---|---|---|
+| **Peripeteia** (§7.6): every creature on the Wheel within 18 m to the opposite position, Crossings at once; level-3 card, once per combat | Shout on the Kingmaker (`AreaRadius 18` for the preview, `TargetConditions Self()`), `KINGMAKER_INVERT_TECH`; Osiris collects every ledger row within 18 m (`GetDistanceTo`), then swaps each to `DB_ARCANA_Kingmaker_Opposite` (staged, like the turn), notes enemies entering Fallen, crowns and settles the Crossings. `Cooldown OncePerCombat` on the base card; the variants inherit it | `Shout_SpiritGuardians` (self Shout with a radius; its look); `Shout_Arcana_Card_Spell_Wish` (once-per-combat card with variants) |
+| **Convene the Court** (§6.1): out of combat; one office per ally; never the Kingmaker; offices until the next Long Rest; seats = CHA modifier (min 1); each office once per Long Rest | Container `IsLinkedSpellContainer`, `Requirements !Combat`; each option: `Cooldown OncePerRest`, `TargetConditions Ally() and not Self() … not HasStatus('COURT_HOLDER') and not HasStatus('COURT_FULL', context.Source)`, applies its office status with duration −1 (no `IgnoreResting`, so the Long Rest ends it). Osiris registers `DB_ARCANA_Kingmaker_Court(owner, holder, office)`, marks the holder `COURT_HOLDER`, counts the seats and sets `COURT_FULL` on the Kingmaker when they reach `max(1, (Charisma − 10) / 2)` (`GetAbility`). An office that ends (death, Long Rest) leaves the Court; its seat stays taken until `LongRestFinished` | `Shout_Arcana_Util_Faceless` (the mod's container); `story_header.div` `GetAbility` :154, `StatusRemoved` :1170, `LongRestFinished` :1250 |
+| **King's Hand** (§6.2): while no ally Reigns, the Hand wears the crown and crits on 19–20 | The crown proc takes `KINGMAKER_KING` and `KINGMAKER_HAND_CROWN` (`ReduceCriticalAttackThreshold(1)`) off the Hand first; when no ally is chosen King, the Hand (alive, in combat) gets both. The crown is also checked at the Kingmaker's turn start when nobody is on the Wheel yet | `KINGMAKER_REIGNING` (the crit boost) |
+| **Lord Commander** (§6.2): attack rolls against the King within 3 m have Disadvantage | Office status with `AuraRadius 3`, `AuraStatuses TARGET:IF(HasStatus('KINGMAKER_KING')):ApplyStatus(KINGMAKER_GUARDED,100,1)`; `KINGMAKER_GUARDED` = `Disadvantage(AttackTarget)` | vanilla aura statuses (`AuraStatuses "TARGET:IF(…)"`); `Disadvantage(AttackTarget)` (11 vanilla statuses) |
+| **Master of Healing** (§6.2, SP104): healing an ally on the Wheel that is Fallen or Rising moves it one step | The office status gives a hidden passive, `StatsFunctorContext OnHeal`, which applies `KINGMAKER_HEAL_STEP_TECH` to a healed creature that is Fallen or Rising; Osiris checks the healer holds this Kingmaker's office and the creature is an ally on the Wheel, then moves it one step, crowns and settles | `DiscipleOfLife`, `DEN_HellridersPride_Passive` (`OnHeal` functors on the healed creature) |
+
+Assumption to confirm in play: each office is unique (one King's Hand, one Lord Commander…), which the once-per-Long-Rest
+cooldown of each option gives.
+
+### Probes — after the whole subclass (one rule each)
+
+| # | Do | Proves it works | Plan B |
+|---|---|---|---|
+| P17 | Level 5, CHA 15 (+2): Convene the Court twice out of combat, then try a third | Two offices land; the third option can't be cast (`COURT_FULL`); in combat the container can't be cast | `GetAbility` key not `"Charisma"` → read the modifier from a boost-free stat |
+| P18 | Appoint the King's Hand; start a fight with nobody on the Wheel | At your turn start the Hand wears **King** and crits on 19–20; when an ally reigns, the crown moves to it | — |
+| P19 | Appoint the Lord Commander next to the King | Attacks against the King show Disadvantage while the King is within 3 m of the Commander | — |
+| P20 | Master of Healing heals a Fallen ally, then a Falling one | Fallen → Rising at once; the Falling ally doesn't move | `OnHeal` doesn't fire from potions/items → note it |
+| P21 | Long Rest | Every office and `COURT_FULL` are gone; the options can be cast again | Statuses survive the rest → Osiris removes them at `LongRestFinished` (already written) |
+| P22 | A holder dies | Its office ends; the seat isn't given back until the Long Rest | — |
+| P23 | Peripeteia with allies and enemies on the Wheel, some beyond 18 m | Within 18 m: Reigning ↔ Fallen, Rising ↔ Falling; an enemy turned Fallen next to a Reigning ally crosses at once; beyond 18 m nothing moves | — |
+| P24 | Cast Peripeteia again in the same fight, with a higher slot | It can't (once per combat, variants included) | Variants don't share the cooldown → a `PERIPETEIA_USED` status like `ARCANE_MASTERY_USED` |

@@ -155,3 +155,9 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   already identical). sort_stats: KINGMAKER walked from its progression + `KINGMAKER_`/`COURT_` by name (only Kingmaker
   entries changed group). check_cards OK, validate 0 errors. The Owner recompiles the Story (Common, CardFamilies
   changed), then plays P9–P16 (and P1–P8).
+- 2026-10-15 — Stage 3 prepared (Claude implements; the Owner plays every probe at the end of the subclass): SPEC stage 3
+  (Peripeteia, Convene the Court + King's Hand / Lord Commander / Master of Healing; probes P17–P24) and
+  `55/_wip/Kingmaker/stage3/`: `30_stage3.patch` (15 entries, both sides, 21 strings), `31_uuid.pl` (list Kingmaker Level 5
+  + level-5 Selectors, .lsx and .tbl), `32_goal.pl` (+228 goal lines from the live goal by exact anchors). Rehearsed on a
+  copy of the mod: patch, list, progression, goal, 3 Peripeteia variants, CardFamilies, sort_stats (all KINGMAKER),
+  check_cards OK. Waits for `[fechado] ARC-0008` to apply in the game.

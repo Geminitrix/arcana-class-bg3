@@ -70,6 +70,7 @@ Status descriptions are written from outside the creature. Each position opens w
 |---|---|---|---|
 | `COURT_KINGS_HAND` | King's Hand | Serves as the King's Hand. While no ally is Reigning, wears the crown and lands a Critical Hit on a roll of 19 or 20. | — |
 | `COURT_LORD_COMMANDER` | Lord Commander | Guards the crown. Attack Rolls against the King have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> while the King is within [1]. | [1] `Distance(3)` — `FEAT_Kingmaker_Court` |
+| `KINGMAKER_GUARDED` | Guarded | The Lord Commander stands guard. <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against it have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag>. | — |
 | `COURT_MASTER_OF_HEALING` | Master of Healing | Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising. | — |
 | `COURT_MASTER_OF_LAWS` | Master of Laws | An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning. | — |
 | `COURT_MASTER_OF_SECRETS` | Master of Secrets | Enemies on the Wheel within [1] can't be <LSTag Type="Status" Tooltip="INVISIBLE">Invisible</LSTag> or hide. Has Advantage on Attack Rolls against Falling enemies. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
@@ -93,9 +94,9 @@ Status descriptions are written from outside the creature. Each position opens w
 | `Shout_Arcana_Card_Spell_TheWheelStops` | The Wheel Stops | Stop Fortune's wheel. No creature on it changes position for [1]. | While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing. | DescriptionParams [1] `2` turns · ExtraDescriptionParams [1] `Distance(9)` — `SPL_Kingmaker_TheWheelStops` |
 | `Shout_Arcana_Created_Aspect_RotaFortunae` | Rota Fortunae | Turn Fortune's wheel once more. Every creature on it moves one position onward. | Crossings happen as they do when the Wheel turns.<br><br>Once per combat. | — |
 | `Interrupt_Arcana_Reaction_Foreseen` | Foreseen | When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. | You saw it coming. | — |
-| `Shout_Arcana_Util_ConveneTheCourt` | Convene the Court | Name your Court. Each ally you appoint holds an office until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. | You can appoint as many offices as your Charisma <LSTag Tooltip="AbilityModifier">Modifier</LSTag>. You can't hold an office yourself. | — |
+| `Target_Arcana_Util_ConveneTheCourt` | Convene the Court | Name your Court. Each ally you appoint holds an office until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. | You can appoint as many offices as your Charisma <LSTag Tooltip="AbilityModifier">Modifier</LSTag>, at least one. You can't hold an office yourself, and an ally holds one office at most. | — |
 
-The seven *Convene the Court* options take the office's DisplayName and its status Description (§3).
+The seven *Convene the Court* options (`Target_Arcana_Util_Court_<Office>`) take the office's name; their Description appoints (stage 3: "Appoint an ally as the King's Hand. While no ally is Reigning, it wears the crown…"), and every option's ExtraDescription reads: The office lasts until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. Each office can be given once per <LSTag Tooltip="LongRest">Long Rest</LSTag>. The exact strings are in `55/_wip/Kingmaker/stage3/30_stage3.patch` (`@loca KM_*`).
 
 ## 5. Notes for the Lore Writer
 

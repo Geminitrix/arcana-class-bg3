@@ -4,6 +4,7 @@ subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/2026-10-13-kingmaker-design.md §6"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Target_Arcana_Util_ConveneTheCourt, COURT_KINGS_HAND, COURT_LORD_COMMANDER, COURT_MASTER_OF_HEALING, KINGMAKER_GUARDED, ARCANA_Kingmaker_Wheel]
 values:
   offices:                  { value: "Charisma modifier, minimum 1", unit: count }
   lord_commander_radius:    { value: 3, unit: metres }
