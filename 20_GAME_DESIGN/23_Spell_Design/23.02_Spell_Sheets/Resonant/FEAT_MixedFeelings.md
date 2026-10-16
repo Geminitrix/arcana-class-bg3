@@ -3,7 +3,7 @@ id: 23.02/Resonant/FEAT_MixedFeelings
 owner: Spell Designer
 game_id: Arcana_Passive_MixedFeelings
 design: 21.04/Resonant/DESIGN.md §4.3
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — no change (R49–R68 checked)
 ---
 
 # Mixed Feelings — passive

@@ -1,5 +1,5 @@
 id: STA_Resonant_Feelings
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: status
 subclass: Resonant
 ticket: ARC-0002
@@ -13,3 +13,14 @@ values:
   pessimism_penalty:       { value: 1d6, unit: penalty, note: "Saving Throws and Ability Checks" }
   morbidness_healing:      { value: 1d6, unit: healing, note: "first weapon hit each turn" }
   optimism_temp_hp:        { value: "Intelligence modifier", unit: temp_hp, note: "each turn" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  remorse_damage_next:        { value: "‹1d6›", unit: damage, by_level: { 1: "‹1d6›", 5: "‹1d8›", 9: "‹1d10›" }, note: "R62/R67" }
+  aggressiveness_damage_next: { value: "‹1d4›", unit: damage, by_level: { 1: "‹1d4›", 5: "‹1d6›", 9: "‹1d8›" } }
+  delight_regeneration_next:  { value: "‹1d6›", unit: healing, by_level: { 1: "‹1d6›", 5: "‹1d8›", 9: "‹1d10›" } }
+  pessimism_penalty_next:     { value: "‹1d6›", unit: penalty, by_level: { 1: "‹1d6›", 5: "‹1d8›", 9: "‹1d10›" } }
+  morbidness_healing_next:    { value: "‹1d6›", unit: healing, by_level: { 1: "‹1d6›", 5: "‹1d8›", 9: "‹1d10›" } }
+  hope_bonus_next:            { value: "‹1d4›", unit: bonus, by_level: { 1: "‹1d4›", 5: "‹1d6›", 9: "‹1d8›" }, note: "today in the generator table; moves here at the build" }
+  despair_penalty_next:       { value: "‹1d4›", unit: penalty, by_level: { 1: "‹1d4›", 5: "‹1d6›", 9: "‹1d8›" }, note: "today in the generator table" }

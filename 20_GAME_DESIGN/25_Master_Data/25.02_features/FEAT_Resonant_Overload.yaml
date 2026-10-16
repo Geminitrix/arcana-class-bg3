@@ -1,5 +1,5 @@
 id: FEAT_Resonant_Overload
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: feature
 subclass: Resonant
 ticket: ARC-0002
@@ -13,3 +13,12 @@ values:
   full_damage:     { value: "Woven Spell Slot level", unit: damage, type: Psychic, note: "start of each of the Resonant's turns while full" }
   overloaded_duration: { value: "character level", unit: turns, note: "R29: silenced; ended early by Emotional Overload from level 5" }
   weapon_psychic:  { value: 1d6, unit: damage, type: Psychic, by_level: { 1: 1d6, 5: 2d6, 10: 3d6 }, note: "R30: extra on weapon attacks while Overloaded" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  overloaded_save_penalty_next: { value: -1, unit: modifier, by_level: { 1: -1, 5: -2, 9: -3 }, note: "R51/R52/R67: Intelligence, Wisdom, Charisma saves; flat" }
+  overloaded_tick_next:  { value: 1d4, unit: damage, type: Psychic, by_level: { 1: 1d4, 5: 2d4, 9: 3d4 }, note: "start of each of the Resonant's turns" }
+  surge_rider_next:      { value: "as overloaded_tick_next", unit: damage, type: Psychic, note: "once per turn, a Surge that lands on an enemy; number of targets in the balance pass" }
+  combat_end_next:       { value: 0.5, unit: fraction, note: "R53: the meter settles to half and Overloaded ends" }
+  retires:               { value: "full_damage, weapon_psychic", unit: list, note: "R51: no silence, no weapon rider" }

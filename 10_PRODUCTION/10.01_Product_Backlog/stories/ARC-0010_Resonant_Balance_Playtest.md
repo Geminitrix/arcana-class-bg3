@@ -26,7 +26,9 @@ created: 2026-10-15
 - [ ] Surges per turn and enemies controlled after Tier II recorded
 - [ ] Shared Heart: feelings braided per reaction recorded
 - [ ] Results in `63_Balance_Testing`, verdicts updated in `22.05/Resonant.md`
+- [ ] After the ARC-0014 build: the verification rows V1–V13 of `61.02/Resonant/TC_ARC-0014.md` (releases per day, ride vs release, feelings at release, loops closed)
 
 ## Log
 
 - 2026-10-15 — created by the Producer from the Resonant propagation (ARC-0002, 00.08).
+- 2026-10-16 — ARC-0014 refining (R49–R68) adds its verification rows: `61.02/Resonant/TC_ARC-0014.md` (run after that build; the R1–R48 rows above still describe today's game).

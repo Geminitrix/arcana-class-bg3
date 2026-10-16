@@ -1,5 +1,5 @@
 id: SPL_Resonant_Compassion
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002
@@ -8,3 +8,8 @@ balance_report: "22.05/2026-10-11_ARC-0002_Resonant_Balance.md"
 values:
   range:      { value: 9, unit: metres, note: "an ally this close that takes damage" }
   card_level: { value: 3, unit: count, note: "R34" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  level_next:    { value: 10, unit: level, note: "R59: gained at 10" }

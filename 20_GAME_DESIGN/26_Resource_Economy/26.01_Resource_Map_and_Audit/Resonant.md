@@ -2,7 +2,7 @@
 id: 26.01/Resonant
 owner: Balance Designer
 source: 21.04/Resonant/DECISIONS.md (R1–R48), DESIGN.md §4.4, §6, §7, §9
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design, build pending) added below
 ---
 
 # 26.01 · Resource audit — The Resonant
@@ -26,3 +26,19 @@ reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
 | **Bonus Action** | Temper (3+), Emotional Overload (5+, only while Overloaded) | Rarely on the same turn: Emotional Overload only when the meter is full. Acceptable |
 | Reaction | Ready: Compassion; peaks Trust and Anticipation give reactions to **other** creatures | None for the Resonant |
 | Concentration | Emotional Contagion only | None |
+
+## After the ARC-0014 build (R49–R68, approved 2026-10-16)
+
+| Resource | Change |
+|---|---|
+| **Moods** | A used mood is spent — by a reaction, Intensify or Temper (R49); only a peak that fades on its own leaves one. No self-renewing mood remains |
+| **Intense emotions** | Once per creature per fight (R50): a marker cleared at combat end |
+| **Overload meter** | When a fight ends it settles to half (R53) — the carry-over exception with its three answers (`DM-B7`): ‹1–2› releases a day, the counter shows out of combat, the first and fourth fights differ by at most half a meter. Waking Tier III fills it (R56) |
+| ***Overloaded*** | No silence; a flat mental-save penalty and Psychic each turn by band 1/5/9; once per turn a landing Surge deals the same to an enemy (R51, R52, R67). Ends by time, by Emotional Overload, or at combat end. A trade, not a punishment |
+| **Emotional Overload** | A level-1 slot spell with upcast variants, made free by a hidden passive (R66); its real cost is the full meter. Ranks by slot: 1–2, 3–4, 5–6 |
+| **PC deck** | *Weave Surge* is one card holding 3 copies per emotion known (R55) — the same density as today's eight cards; Temper still 1 Thread |
+
+| Slot (after the build) | Users | Conflict |
+|---|---|---|
+| Bonus Action | Temper (2+), Emotional Overload (1+, only while *Overloaded*) | Rarely the same turn; acceptable |
+| Reaction | Ready: Compassion (10+) | Competes with vanilla reactions |

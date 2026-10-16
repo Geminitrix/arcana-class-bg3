@@ -3,7 +3,7 @@ id: 23.02/Resonant/FEAT_EmpathicSight
 owner: Spell Designer
 game_id: Arcana_Passive_EmpathicSight
 design: 21.04/Resonant/DESIGN.md §8
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — no change (R49–R68 checked)
 ---
 
 # Empathic Sight — passive

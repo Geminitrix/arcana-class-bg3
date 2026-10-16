@@ -1,5 +1,5 @@
 id: STA_Resonant_States
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: status
 subclass: Resonant
 ticket: ARC-0002
@@ -11,3 +11,10 @@ values:
   mood_duration:     { value: 5, unit: turns }
   feeling_duration:  { value: 2, unit: turns }
   intense_duration:  { value: 1, unit: turns, note: "then the mood returns" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  intense_next:            { value: 1, unit: turns, note: "R49: leaves nothing when it ends" }
+  intense_per_fight_next:  { value: 1, unit: count, note: "R50: per creature, marker cleared at combat end" }
+  apprehensive_penalty_next: { value: "‹1d4›", unit: penalty, by_level: { 1: "‹1d4›", 5: "‹1d6›", 9: "‹1d8›" }, note: "R62; today in the generator table" }

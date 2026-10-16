@@ -2,7 +2,7 @@
 id: 32.01/Resonant
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-15; 21.04/Resonant/DESIGN.md §12
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — texts the R49–R68 build needs (drafts) added at the end
 ---
 
 # 32.01 · Player-facing text — The Resonant
@@ -125,3 +125,31 @@ Polishing the English waits for the end of the rework (Owner, ARC-0006); the mou
 | `FEELING_AWE` | Feeling: Awe | Fear and Surprise, braided together. Incapacitated: can't move or take actions, bonus actions or reactions. Taking damage ends the effect. |
 | `EMOTION_GRIEF` | Emotion: Grief | Sadness surged again on its own echo. Incapacitated: can't move or take actions, bonus actions or reactions. |
 | `EMOTION_AMAZEMENT` | Emotion: Amazement | Surprise surged again on its own echo. Stunned: can't move or take actions or reactions. Automatically fails Strength and Dexterity Saving Throws, and attacks against it have Advantage. |
+
+## Texts the ARC-0014 build needs (R49–R68) — drafts
+
+**Drafts, not in the game yet.** They replace or add to the rows above when the build ships; the Narrative gate
+(`32.04`) records the approval, and the polish waits for ARC-0006. `[n]` parameters come from `25` (`pending_build`).
+
+| Piece | Name | Draft description | Decision |
+|---|---|---|---|
+| New container | Weave Surge | Pour an emotion into a creature's Weave. Choose the emotion. | R54 |
+| The eight emotions | Joy · Trust · Fear · Surprise · Sadness · Disgust · Anger · Anticipation | Today's descriptions, without the "Weave Surge:" prefix in the name; each lists the moods it reacts with | R54, R64 |
+| Anger (emotion) | Anger | Set a red thread of fury alight in a creature's mind. It attacks the last creature that hurt it, or the nearest one if nobody has. Strike it first to draw its rage. | R65 |
+| Every mood | Mood: <Mood> | Today's text, then one line of reactions — e.g. *Mood: Serene*: "…Trust: Love. Anticipation: Optimism. Sadness: Catharsis. Fear: Guilt (level 6). Joy: Ecstasy (level 7)…" | R64 |
+| Emotional Alchemy | Emotional Alchemy | When your Weave Surge touches a creature that already carries a mood, the threads react instead of landing alone, and the mood is spent. Only an emotion that fades on its own leaves a mood. Your Weave Surges cast for you never braid a hindering feeling into an ally. | R49, R57 |
+| New passive (level 3) | Opposites *(working name)* | A Weave Surge poured into the mood of its opposite emotion snaps into Catharsis: an enemy takes [1], an ally regains [2]. | R60 |
+| Overload | Overload | You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more. When it is full you are Overloaded. After a fight it settles to half. | R51, R53 |
+| *Overloaded* (status) | Overloaded | Your own feelings overwhelm you. Subtracts [1] from Intelligence, Wisdom and Charisma Saving Throws, and you take [2] at the start of each turn. Once per turn, a Weave Surge that takes hold of an enemy also deals it [2]. | R51, R52 |
+| Emotional Overload | Emotional Overload | Pour everything you feel into a creature's mind. Every feeling it carries is spent. If it fails a Wisdom Saving Throw, each feeling deals [1] and it dances helplessly for 1 turn; if it succeeds, each feeling deals half. Either way it suffers Mental Fatigue. Ends Overloaded. | R51, R68 |
+| Temper | Temper | Spend a creature's mood to make it relive the emotion it came from for 1 turn. That emotion leaves nothing behind when it fades. A creature that is not your ally can resist with a Wisdom Saving Throw. | R49 |
+| Heartstring | Heartstring | Pluck the string a creature's heart hangs from. It takes [1], and [2] more for each feeling it carries. | R61 |
+| Ready: Compassion | Ready: Compassion | Today's text, with "takes damage **from an enemy**", and: "If Trust would braid a hindering feeling, it lands alone." | R57 (and the 2026-10-12 fix) |
+| Shared Heart | Shared Heart | Today's text, plus: "When you cast it, every linked creature feels Joy." and "helpful feelings" in place of "feelings". | R57, R58 |
+| Overwhelm | Overwhelm | Today's text, plus: "A creature can be overwhelmed only once per fight, and the overwhelming emotion leaves nothing behind." | R49, R50 |
+| Resonance (Tier I) | Resonance | Catharsis deals or restores an extra 1d8. | R63 |
+| Aspect of Empathy (Tier III) | Aspect of Empathy | When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for [1] turns. | R56, R68 |
+| Level-up text (5, 9) | — | Your moods and feelings grow stronger. | R62, R67 |
+
+The two review notes above (Emotional Contagion's "every creature"; Emotional Overload's "this fight") are fixed by the
+build's texts.

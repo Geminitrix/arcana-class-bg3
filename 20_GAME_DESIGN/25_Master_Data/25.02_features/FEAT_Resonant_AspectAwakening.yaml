@@ -1,5 +1,5 @@
 id: FEAT_Resonant_AspectAwakening
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: feature
 subclass: Resonant
 ticket: ARC-0002
@@ -15,3 +15,10 @@ values:
   tier1_mood_extend: { value: 2, unit: turns, note: "Resonance: moods you create last this much longer" }
   tier3_radius: { value: 6, unit: metres, note: "Aspect of Empathy: Emotional Overload reaches enemies this close to the target" }
   tier3_paralysed_others: { value: 1, unit: turns, note: "the target keeps Emotional Overload's own 2 turns" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  tier3_fills_meter_next: { value: true, unit: flag, note: "R56" }
+  tier3_dance_next:      { value: "‹2›", unit: turns, note: "R68: Emotional Overload's dance at Tier III" }
+  retires:               { value: "tier1_mood_extend, tier3_radius, tier3_paralysed_others", unit: list, note: "R63; the area moved to rank III (R67)" }

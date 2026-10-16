@@ -2,7 +2,7 @@
 id: 31.02/Resonant
 owner: Lore Writer
 source: 21.04/Resonant/DESIGN.md §2, §12 · DECISIONS.md R1–R3, R20–R21 · 31.01_Lore_Bible.md
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — R49–R68: the Overload as compassion fatigue (Mental Fatigue), the dance (Seraphine), excess once per fight
 ---
 
 # 31.02 · Theme — The Resonant (XIV · Temperance · Aspect of Empathy)
@@ -21,7 +21,7 @@ clashing extremes. The name **Resonant** comes from *tempering* — bringing two
 | Blending two into a third | Emotional Alchemy: a Surge poured into a mood becomes a feeling |
 | Pouring cup to cup | Every Surge pours one emotion into a creature that already holds another |
 | Balance, healing | The ally side; Catharsis heals allies |
-| Excess, extremes (reversed) | Intensify, Catharsis between opposites, the Overload, Emotional Overload |
+| Excess, extremes (reversed) | Intensify (an extreme is felt once a fight, R50), Catharsis between opposites, the Overload, Emotional Overload |
 | The two cups | The Aspect card **The Two Cups** |
 | One foot on land, one in water | Every reaction exists on allies and on enemies |
 
@@ -31,11 +31,11 @@ clashing extremes. The name **Resonant** comes from *tempering* — bringing two
 - **Myth:** Iris (the rainbow, the golden ewer — the wheel of emotions as a spectrum); Harmonia, daughter of Ares
   and Aphrodite (concord from opposites → Catharsis, Tier II *Harmony*) (R2).
 - **Science:** Plutchik's wheel structures the kit (8 emotions, moods, intense ring, 24 dyads, 4 opposite pairs);
-  emotional contagion (Hatfield et al.) and compassion fatigue (the Overload).
-- **Fiction:** *Inside Out*, Mantis, Seraphine, Jean Grey, Deanna Troi, the DC Emotional Spectrum (R3).
+  emotional contagion (Hatfield et al.) and compassion fatigue — the Overload, built on BG3's own Mental Fatigue (R51): the Resonant's mind frays, and for a while that feeling is also a weapon.
+- **Fiction:** *Inside Out*, Mantis, Seraphine (her *Encore* sweeps everyone into her rhythm → Emotional Overload's dance, R68), Jean Grey, Deanna Troi, the DC Emotional Spectrum (R3).
 
 ## Vocabulary
-Use: **thread, braid, pour, tune, temper, surge, the wheel, mood, feeling, peak, Catharsis, Overload**.
+Use: **thread, braid, pour, tune, temper, surge, the wheel, mood, feeling, peak, Catharsis, Overload, Overloaded, dance**; vanilla names as in the game: *Mental Fatigue*, *Irresistible Dance*.
 Never: **Overflow** (the base class's Arcane Overflow), **Attunement** (the deck keyword Attuned), **Heartweaver**
 (the retired working name, R20–R21).
 

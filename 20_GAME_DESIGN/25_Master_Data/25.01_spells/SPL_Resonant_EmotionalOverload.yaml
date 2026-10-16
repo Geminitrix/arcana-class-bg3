@@ -1,5 +1,5 @@
 id: SPL_Resonant_EmotionalOverload
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002
@@ -11,3 +11,15 @@ values:
   paralysed:          { value: 2, unit: turns, note: "no saving throw" }
   tier3_area:         { value: 6, unit: metres, note: "enemies carrying one of the Resonant's feelings" }
   tier3_paralysed_others: { value: 1, unit: turns }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  slot_level_next:      { value: 1, unit: count, note: "R66: a level-1 slot spell with upcast variants, made free by a hidden passive" }
+  targets_next:         { value: 1, unit: count, by_level: { 1: 1, 5: 2, 9: area }, note: "R51/R67: ranks by slot variant (1-2, 3-4, 5-6)" }
+  rank3_radius_next:    { value: 9, unit: metres, note: "R51: every enemy within this of a point within range" }
+  save_next:            { value: Wisdom, unit: save, note: "R51: feelings spent either way; half damage on a success" }
+  dance_next:           { value: 1, unit: turns, note: "R68: IRRESISTIBLE_DANCE on a failed save; replaces paralysed" }
+  dance_tier3_next:     { value: "‹2›", unit: turns, note: "R68: at Tier III" }
+  mental_fatigue_next:  { value: "character level", unit: turns, note: "R51: vanilla MAG_PSYCHIC_MENTAL_FATIGUE (cap 7), either way" }
+  retires:              { value: "paralysed, tier3_area, tier3_paralysed_others", unit: list }

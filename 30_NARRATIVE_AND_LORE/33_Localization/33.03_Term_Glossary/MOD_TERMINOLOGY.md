@@ -53,19 +53,22 @@ Some capstone features use a `N - Name` tarot-card pattern — keep the number, 
 | 13 - Death | 13 — A Morte |
 | 17 - The Star | 17 — A Estrela |
 
-## The Resonant (reviewed 2026-10-15 ARC-0002 — propagation, 00.08)
+## The Resonant (reviewed 2026-10-16 ARC-0014 — R49–R68 terms; rows marked ★ reach the game with the build)
 
 English is final in game; the other 15 languages have no Resonant strings yet (Localization, pending).
 
 | English | Meaning | Never |
 |---|---|---|
-| Weave Surge: <Emotion> | The 8 spells that pour one emotion (Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, Anticipation) | — |
+| Weave Surge: <Emotion> | The 8 spells that pour one emotion (Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, Anticipation) — the game today | — |
+| ★ Weave Surge | The container that holds the eight emotions, each named by its emotion alone (R54) | "Weave Surge: <Emotion>" after the build |
+| ★ Opposites *(working name)* | The level-3 passive that teaches Catharsis (R60) | — |
+| ★ Mental Fatigue · Irresistible Dance | Vanilla conditions that Emotional Overload applies; names kept as in the game (R51, R68) | — |
 | Emotion: <Emotion> (peak) | 1-turn state a Surge applies; changes what the creature does | — |
 | Mood: <Mood> | 5-turn echo left by a peak (Serene, Accepting, Apprehensive, Distracted, Pensive, Bored, Annoyed, Interested) | — |
 | Feeling: <Feeling> | Two emotions braided (24 dyads of Plutchik's wheel) | — |
 | Catharsis | Opposite emotions snap: damage to enemies, healing to allies | — |
 | Emotional Alchemy | The core rule (reaction by distance on the wheel) | — |
-| Overload / Overloaded | The meter of what the Resonant feels / its full state | Overflow (base class: Arcane Overflow) |
+| Overload / Overloaded | The meter of what the Resonant feels / its full state (★ a Mental Fatigue variant on the Resonant, R51) | Overflow (base class: Arcane Overflow) |
 | Emotional Overload | The ultimate that spends the full meter | Overflow |
 | Temper · Heartstring · Emotional Contagion · Ready: Compassion · Shared Heart · The Two Cups | The Resonant's other cards | Turn the Wheel (retired, R4) |
 | Resonance · Harmony · Aspect of Empathy | Awakening tiers I · II · III | Attunement (deck keyword Attuned) |

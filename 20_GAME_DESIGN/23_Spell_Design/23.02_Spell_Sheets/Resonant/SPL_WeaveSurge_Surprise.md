@@ -3,10 +3,10 @@ id: 23.02/Resonant/SPL_WeaveSurge_Surprise
 owner: Spell Designer
 game_id: Target_Arcana_Card_Spell_EmotionSurprise
 design: 21.04/Resonant/DESIGN.md §5.1
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
 ---
 
-# Weave Surge: Surprise — card (spell)
+# Surprise — an emotion of Weave Surge (container child)
 
 **Intent:** Open an enemy up for the party.
 
@@ -14,7 +14,7 @@ reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
 
 | | |
 |---|---|
-| Gained at | level 3 |
-| Cost / resource | as Joy |
+| Gained at | level 3 (R59) |
+| Cost / resource | Action · level-1 slot (PC: 1 Thread) · +1 target per slot level · inside the *Weave Surge* container (R54); PC: one card, 3 copies per emotion known (R55) |
 | Numbers | `25.03_statuses/STA_Resonant_States.yaml` |
-| In game | built; passed in game (ARC-0002, closed 2026-10-12) |
+| In game | R1–R48 built and passed (ARC-0002); R49–R68 approved 2026-10-16 (ARC-0014) — build pending |

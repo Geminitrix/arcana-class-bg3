@@ -1,5 +1,5 @@
 id: SPL_Resonant_Temper
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002
@@ -10,3 +10,8 @@ values:
   card_level: { value: 0, unit: count, note: "R34: Bonus Action, no slot" }
   thread_cost_pc: { value: 1, unit: count, note: "R45: PC (SE) edition only, like every level-0 card; console = Bonus Action only" }
   replay:     { value: 1, unit: turns, note: "R36 (replaces the one-step turn): the mood replays its root emotion for this long, then returns at full length" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  level_next:    { value: 2, unit: level, note: "R59: gained at 2; R49: spends the mood" }

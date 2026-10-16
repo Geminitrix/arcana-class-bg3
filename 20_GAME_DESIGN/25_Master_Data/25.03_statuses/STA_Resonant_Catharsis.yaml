@@ -1,5 +1,5 @@
 id: STA_Resonant_Catharsis
-reviewed: "2026-10-15 ARC-0002 — propagation (00.08): checked against R1–R48"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
 kind: status
 subclass: Resonant
 ticket: ARC-0002
@@ -10,3 +10,9 @@ values:
   damage:  { value: 2d8, unit: damage, type: Psychic, by_level: { 1: 2d8, 5: 3d8, 10: 4d8 }, note: "non-ally" }
   healing: { value: 2d8, unit: healing, by_level: { 1: 2d8, 5: 3d8, 10: 4d8 }, note: "ally" }
   tier1_bonus: { value: 1d8, unit: damage, note: "Tier I Resonance adds it to damage and healing" }
+
+# Approved in ARC-0014 (R49–R68), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  damage_next:  { value: 2d8, unit: damage, type: Psychic, by_level: { 1: 2d8, 5: 3d8, 9: 4d8 }, note: "R67: rhythm 1/5/9" }
+  healing_next: { value: 2d8, unit: healing, by_level: { 1: 2d8, 5: 3d8, 9: 4d8 } }

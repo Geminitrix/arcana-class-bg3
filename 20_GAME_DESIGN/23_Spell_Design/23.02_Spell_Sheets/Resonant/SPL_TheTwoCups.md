@@ -3,7 +3,7 @@ id: 23.02/Resonant/SPL_TheTwoCups
 owner: Spell Designer
 game_id: Shout_Arcana_Created_Aspect_TwoCups
 design: 21.04/Resonant/DESIGN.md §9.1
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — no change (R49–R68 checked)
 ---
 
 # The Two Cups — Aspect card (created)

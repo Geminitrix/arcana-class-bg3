@@ -2,7 +2,7 @@
 id: 42.04/Resonant
 owner: Icon Artist
 source: 21.04/Resonant/DESIGN.md §2.7 (colours, spectrum), §5; 31.02/Resonant.md; icons in game (Stats `Icon`, 2026-10-15)
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0014 — R49–R68: the Weave Surge container, Opposites, Overloaded; Emotional Overload takes the vanilla Synaptic Discharge icon (R51)
 ---
 
 # 42.04 · Icon briefs — The Resonant
@@ -28,6 +28,7 @@ Pipeline: source `42.01` → PNG `42.02/features/the resonant/` → DDS BC7 `42.
 | ICO_Resonant_Surge_Anticipation | Weave Surge: Anticipation | An open eye in the stream, poised | Orange | Spell_Transmutation_Longstrider | 2 |
 | ICO_Resonant_Heartstring | Heartstring (cantrip) | A heart hanging from one plucked thread | Coral | Spell_Enchantment_ViciousMockery | 3 |
 | ICO_Resonant_Temper | Temper | A stream flowing back up into its cup | Coral + the spectrum | Spell_Enchantment_CalmEmotions (shared) | **1** |
+| ~~ICO_Resonant_EmotionalOverload~~ | Emotional Overload — **no brief needed after the build:** it uses vanilla `Spell_IntellectDevourer_SynapticDischarge` (R51); the row below stays as an option |
 | ICO_Resonant_EmotionalOverload | Emotional Overload (ultimate) | A cup overflowing with every colour into one figure | Full spectrum, dark ground | Spell_Enchantment_CalmEmotions (shared) | **1** |
 | ICO_Resonant_EmotionalContagion | Emotional Contagion | One figure's colour rippling to the figures around it | Coral | Spell_Enchantment_Friends | 3 |
 | ICO_Resonant_ReadyCompassion | Ready: Compassion | A hand catching a falling drop | Indigo (Compassion, DESIGN §2.6) | Spell_Abjuration_Sanctuary | 3 |
@@ -43,3 +44,13 @@ Pipeline: source `42.01` → PNG `42.02/features/the resonant/` → DDS BC7 `42.
 
 Priority 1 = the six that today share one icon (readability bug in the hotbar). Statuses (peaks, moods, feelings)
 keep vanilla icons until a status-icon pass is decided.
+
+## New after ARC-0014 (R49–R68, build pending)
+
+| Icon | For | Subject · symbol | Palette | Replaces (vanilla today) | Priority |
+|---|---|---|---|---|---|
+| ICO_Resonant_WeaveSurge | *Weave Surge* — the container of the eight emotions (R54) | A golden ewer pouring a rainbow stream | The full spectrum on coral | — (new; until drawn, a vanilla enchantment icon) | **1** |
+| ICO_Resonant_Opposites | Opposites *(working name)* — the level-3 passive (R60) | Two opposite colours meeting and snapping in a spark | Spectrum pairs | — (new) | 3 |
+| ICO_Resonant_Overloaded | *Overloaded* — the Mental Fatigue variant on the Resonant (R51) | A cracked cup leaking every colour into the figure holding it | Coral → red | vanilla Mental Fatigue's `GenericIcon_Intent_Debuff` until drawn | 2 |
+
+The eight emotion icons above become the container's children: they stay, one per emotion.

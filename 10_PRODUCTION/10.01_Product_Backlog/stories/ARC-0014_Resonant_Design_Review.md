@@ -27,8 +27,8 @@ suggested change, its reasons, alternatives, impact and verification.
 - [x] v2-format review written: `21.04/Resonant/REFINE_Resonant_2026-10-15.md` (SG1–SG18, V1–V11; brainstorm order in §12)
 - [x] Owner reviewed each suggestion (2026-10-16): SG1–SG3, SG6–SG17 approved as R49–R65; SG4, SG5 superseded by R51; SG18 by R54–R55; SG13 goes into the DESIGN rewrite
 - [x] Approved suggestions logged as R49–R65 in `DECISIONS.md`
-- [ ] `DESIGN.md` rewritten and the change propagated (00.08)
-- [ ] Playtest metrics merged into ARC-0010
+- [x] `DESIGN.md` rewritten and the change propagated (00.08), 2026-10-16
+- [x] Playtest metrics merged into ARC-0010 (`61.02/Resonant/TC_ARC-0014.md`)
 
 ## Log
 
@@ -52,3 +52,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R65 (SG14): Anger said as a taunt. Brainstorm round closed: R49–R65.
 - 2026-10-16 — R66 (Emotional Overload ranks by slot variant, one zero-cost passive; Owner-tested engine fact) and R67 (growth rhythm 1/5/9). Open: Tier III bonus at 12.
 - 2026-10-16 — R68: Emotional Overload applies vanilla Irresistible Dance (1 turn; 2 at Tier III) instead of Paralysis.
+- 2026-10-16 — Propagation (00.08) of R49–R68, each role in session: `DESIGN.md` rewritten (present tense, SG13 fixes); `21.03/Resonant.md` (spread map); `21.08` (Resonant rows); `23.02/Resonant/` (24 sheets updated, 4 reviewed, new `SPL_WeaveSurge`, `FEAT_Opposites`, index); `25` (13 files: `pending_build` blocks — the generator still reads today's values; validate OK, 247 tests pass); `22.05/Resonant.md` and `26.01/Resonant.md` (directions, resources); `31.02` (theme); `32.01` (draft texts for the build); `33.03` (terms); `42.04` (icon briefs); `61.02/Resonant/TC_ARC-0014.md` (probes B1–B5, rows V1–V13) and ARC-0010; `05.02` reviewed (game unchanged). Next: the build spec and an implementation ticket.
