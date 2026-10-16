@@ -1,0 +1,37 @@
+---
+id: ARC-0017
+title: "Resonant refining build — R49–R68 in the game"
+type: feature
+epic: EPIC_Rework_Subclasses
+status: ready
+owner: Mod Engineer
+implementation: claude
+priority: should
+value: 5
+effort: 5
+inputs: [21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md (R49–R68), 25 (*_Resonant_* pending_build), 55_Implementation_Specs/SPEC_ARC-0017.md, 61.02/Resonant/TC_ARC-0014.md]
+outputs: [gen_emotion_alchemy.pl + tests, the Resonant's Stats/LSX/Osiris/Khonsu in Data, CardDB.lua + tests, 25 values moved from pending_build, 32.01 texts, 05.02/Resonant.md]
+blocked_by: []
+sprint:
+created: 2026-10-16
+---
+
+# ARC-0017 · Resonant refining build — R49–R68 in the game
+
+**Goal:** the game plays the Resonant as `DESIGN.md` describes it after the ARC-0014 refining (R49–R68).
+**Intent:** close the loops, turn the Overload into a trade, spread the progression and make the kit read on screen —
+in both editions.
+
+## Acceptance criteria
+
+- [ ] Stage 0 — generator and Lua tests written first (RED), then green; the patches generated (SPEC_ARC-0017 §Stage 0)
+- [ ] Stage 1 — moods and loops (R49, R50, R57) applied; probe B1 and rows V1, V2 pass
+- [ ] Stage 2 — the Overload (R51–R53, R56, R66–R68) applied; probes B2–B5 and rows V4–V7, V11, V13 pass
+- [ ] Stage 3 — the *Weave Surge* container and the PC deck copies (R54, R55) applied; row V9 and the Lua tests pass
+- [ ] Stage 4 — progression, passives, growth, Heartstring, Shared Heart, texts (R58–R65, R67) applied; rows V3, V8, V10, V12 pass
+- [ ] Stage 5 — `25` values moved out of `pending_build`; `05.02` synced; ARC-0010 can run
+- [ ] Every stage: one `[fechado] ARC-0017` message, sync before apply, the apply chain, sync + commit + push after
+
+## Log
+
+- 2026-10-16 — created at the Owner's request after the ARC-0014 refining round; spec `SPEC_ARC-0017.md` written.
