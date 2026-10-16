@@ -399,7 +399,7 @@ M4 asks whether the mechanic grows. These questions ask whether the **player fee
 | J5 | **Is every rule usable when it is taught?** | No rule is explained before the player has the pieces to use it | Rule → first level it can happen | Cognitive load (`27.08`) |
 | J6 | **Does the peak of the journey happen in a typical fight?** | The level-12 promise shows up in an ordinary fight, not only in a long one | The peak timeline (§6.7); playtest at level 12: wrong if the peak shows in a minority of fights | Peak-end (`27.08`) |
 | J7 | **Do levels 1–12 read as an arc?** | Introduce, develop, turn, conclude — the level-up texts tell it | The arc table (§6.8) | Kishōtenketsu (`27.08`), `27.05` |
-| J8 *(v2.1)* | **Is the journey spread across the levels?** | Small pieces at most levels from 1 to 12, odd and even; no long stretch with nothing, no level holding most of a stretch; feat levels stay light | The per-level count of the level map (§6.3); wrong if two levels in a row bring nothing, or one level-up carries most of what its stretch adds | Flow and learning, pull toward a goal (`27.08`) |
+| J8 *(v2.1)* | **Is the journey spread across the levels?** | Small pieces at most levels from 1 to 12, odd and even; no long stretch with nothing, no level holding most of a stretch; levels 4 and 8 stay empty (§6.3) | The per-level count of the level map (§6.3); wrong if two levels in a row bring nothing, or one level-up carries most of what its stretch adds | Flow and learning, pull toward a goal (`27.08`) |
 
 ### 3.9 Awakening (A)
 
@@ -621,9 +621,10 @@ Guidance on where things tend to land; the mechanic decides the details.
   several new things is split over two neighbouring levels; a stretch of two levels with nothing is a red flag.
 - **Each level that brings something has a headline** (J1). A level with nothing is allowed when it has a reason (the
   base class or a feat already fills it).
-- **Feat levels stay light.** The Arcana's feats arrive at 4, 8, 12, 16 and 20 (`Progressions.lsx`, `AllowImprovement`
-  on those levels, checked with `dump_progression.pl`). On them a subclass adds at most one small piece — a vertical
-  breakpoint, a passive — never a new list or a dense level (`22.06` §17, tier milestones).
+- **Levels 4 and 8 carry no subclass content.** They are feat levels (the Arcana's feats arrive at 4, 8, 12, 16 and 20 —
+  `Progressions.lsx`, `AllowImprovement`, checked with `dump_progression.pl`), and no subclass uses them today (all six
+  dumps empty at 4 and 8, 2026-10-16). Level 12 is the exception the framework makes: Awakening Tier III. Two empty
+  levels in a row are still a red flag — 4 and 8 never sit next to another empty level.
 - **The base class still levels up underneath** (slots and its own lists): read its level-up before placing a heavy
   subclass piece on the same level.
 - **The ultimate** lands where the kit needs it (§5.5).
@@ -1113,7 +1114,7 @@ arrive often and a few at a time — a quality-of-life gain for the player (`27.
 | J1 | "Does every odd level have a headline?" | "Does every level that brings something have a headline?" — still asks whether each step is felt |
 | J8 | — | New: is the journey spread across the levels? |
 | §6.1 | Example rows at levels 1 and 3 | One row per level |
-| §6.3 | Odd levels carry the subclass; an even level needs a written reason | Any level can carry content; feat levels (4, 8, 12, 16, 20) stay light; two empty levels in a row are a red flag |
+| §6.3 | Odd levels carry the subclass; an even level needs a written reason | Any level can carry content except 4 and 8 (feat levels, empty in every subclass); two empty levels in a row are a red flag |
 
 M4 and J1 keep their ids because the question they ask is the same; only the level restriction, which was guidance,
 moved to §6.3. An audit made against v2 that says "odd level" reads as "level that brings something". Existing

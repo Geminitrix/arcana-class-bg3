@@ -281,7 +281,7 @@ Run it in every full review. It applies the standard's §6 to the piece as it is
 
 1. **Level table, current vs proposed** — one row per level, 1–12 — with the headline column (`DM-J1`): what the player would say changed. Mark
    levels whose headline is only a number.
-   Check the spread (`DM-J8`, standard §6.3): two empty levels in a row, a dense level, or a heavy piece on a feat level.
+   Check the spread (`DM-J8`, standard §6.3): two empty levels in a row, a dense level, or subclass content on level 4 or 8.
 2. **The arc** (`DM-J7`): name the four parts (introduce, develop, turn, conclude) and the levels of each; say what the
    player feels in each.
 3. **The complexity curve, before and after** (tool §4.1, `DM-J4`).

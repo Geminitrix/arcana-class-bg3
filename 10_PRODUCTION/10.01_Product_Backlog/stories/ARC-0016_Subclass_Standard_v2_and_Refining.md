@@ -36,7 +36,7 @@ progression and stay inside the budget.
 | D6 | New research lives in a new card `27.08_Player_Psychology_and_Progression`; `27.07` gets honest statuses (handoff to the 27 owner, run in session) |
 | D7 | Every BG3 fact cites the bg3.wiki page and the game file; the game file wins (standard §8) |
 | D8 | Every refining document is `REFINE_<piece>.md`, the subclass review included (`REFINE_<S>.md`); the existing Resonant review is renamed |
-| D9 | A subclass may grant content at **any** level, odd or even (quality of life: things arrive more often, a few at a time); feat levels stay light — standard v2.1 (M4, J1 amended, J8 new, §6.3, Appendix A.4) |
+| D9 | A subclass may grant content at **any** level, odd or even (quality of life: things arrive more often, a few at a time); levels 4 and 8 (feats) stay empty, as in every subclass today — standard v2.1 (M4, J1 amended, J8 new, §6.3, Appendix A.4) |
 
 ## Acceptance criteria
 
@@ -83,3 +83,4 @@ progression and stay inside the budget.
   `00.05` registry). `check_propagation.pl`: 21 pending, all from the Deceiver and Lionheart dossiers (older than this
   ticket) — status `review` until they are propagated. Daily log written.
 - 2026-10-15 — Owner decision D9 (during the Resonant refining): progression spread over every level. Standard → v2.1 (M4 and J1 lose "odd", new J8, §6.1 and §6.3 rewritten, Appendix A.4); `_SUBCLASS_REFINING.md` step 8 and §6 check the spread; `21.08` level rhythm notes it. Existing subclasses move in their own refining.
+- 2026-10-16 — D9 refined by the Owner: levels 4 and 8 carry no subclass content (checked: all six subclasses are empty there in the game). Standard §6.3, J8, A.4, `_SUBCLASS_REFINING.md` §6 and `21.08` updated.
