@@ -73,3 +73,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: Zephyr ranks Breeze 1, Gale 4, Storm 8, Hurricane 12 (WB16) — an exception to the standard's
   empty levels 4 and 8 for the Windborn, with the vanilla precedent (Four Elements monk at 4 and 8). The standard is
   unchanged; 21.08 "Level rhythm" to note the exception at propagation.
+- 2026-10-16 — Owner: at Storm, Zephyr chains one more Rush to another unmarked enemy (WB17).
