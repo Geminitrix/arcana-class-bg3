@@ -70,3 +70,6 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: the bag needs at least one mark; X is capped by Zephyr's Beaufort rank (WB13).
 - 2026-10-16 — Owner: the bag arrives at level 2 (WB14); the winds join with the ranks — Zephyrus is Zephyr Strike,
   Boreas and Notus at Breeze, Eurus (attack) at Gale, two winds at once at Hurricane (WB15).
+- 2026-10-16 — Owner: Zephyr ranks Breeze 1, Gale 4, Storm 8, Hurricane 12 (WB16) — an exception to the standard's
+  empty levels 4 and 8 for the Windborn, with the vanilla precedent (Four Elements monk at 4 and 8). The standard is
+  unchanged; 21.08 "Level rhythm" to note the exception at propagation.
