@@ -8,6 +8,7 @@
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_progress | owner |  |
 | [ARC-0019](stories/ARC-0019_Deceiver_Refining.md) | "Deceiver refining: raise the Veil design to the subclass standard v2.1 (SG1–SG10)" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | ready | claude |  |
+| [ARC-0022](stories/ARC-0022_Windborn_Refining.md) | "Windborn (Unbound) refining: rework to the subclass standard v2.1" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA | should | 4/2 | backlog | pending |  |
 | [ARC-0014](stories/ARC-0014_Resonant_Design_Review.md) | "Resonant design review: balance, structure and felt progression (proposals S1–S16)" | design | Lead Class Designer | should | 4/2 | in_review | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | backlog | claude |  |
