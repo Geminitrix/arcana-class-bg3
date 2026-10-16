@@ -51,7 +51,8 @@ New here? Read `CLAUDE.md`, `AGENTS.md`, then `05_LIVE_CONTEXT/05.00_READ_FIRST.
 ## Migration status
 
 The migration to this structure is complete (stages A–E, 2026-10-11; record in
-`00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`). Sprint 0 is running — board in `10.02_Active_Sprint`.
+`00_GOVERNANCE/00.04_Decisions_ADR/MIGRATION_PLAN.md`). Sprint 0 is running — board in `10.02_Active_Sprint`; the whole backlog as a kanban
+board artifact in `80_TOOLS_AND_PIPELINE/82_Automation/kanban` (ARC-0018).
 
 ## Credits & disclaimer
 

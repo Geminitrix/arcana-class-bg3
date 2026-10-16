@@ -4,14 +4,14 @@ title: Kanban board artifact for the whole backlog
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: spec_ready
+status: done
 owner: Tools
 implementation: claude
 priority: should
 value: 4
 effort: 3
 inputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories, 82_Automation/update_board.pl, 00.03, 31.01 §6, 75.02/src/index.css]
-outputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories (subclass, statuses), 82_Automation/update_board.pl, 82_Automation/kanban/, 82_Automation/_INDEX.md]
+outputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories (subclass, statuses), 82_Automation/update_board.pl, 82_Automation/kanban/, 82_Automation/_INDEX.md, README.md]
 blocked_by: []
 sprint:
 created: 2026-10-16
@@ -43,7 +43,7 @@ created: 2026-10-16
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`) — criteria met with evidence (local test, first real sync), outputs in 82, no game numbers, no mod files (05 untouched), README updated, daily log, board, commit
 
 ## Log
 
@@ -57,3 +57,5 @@ created: 2026-10-16
 - 2026-10-16 — moved to spec_ready on the board (Owner).
 - 2026-10-16 — Owner comment: sincroniza o kanban
 - 2026-10-16 — first kanban sync: the real artifact store kept the Owner's move and comment; procedure works end to end.
+- 2026-10-16 — closed. DoD: criteria 10/10; no mod file changed, so no sync_data and no 05 change; README names the
+  board; propagation check has no ARC-0018 dossier (subclass: none), open handoffs 0.
