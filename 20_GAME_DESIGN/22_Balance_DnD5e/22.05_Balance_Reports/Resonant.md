@@ -2,7 +2,7 @@
 id: 22.05/Resonant
 owner: Balance Designer
 source: 21.04/Resonant/DECISIONS.md (R1–R48) and R49–R68 (ARC-0014), 25 (*_Resonant_*), 2026-10-11_ARC-0002_Resonant_Balance.md
-reviewed: 2026-10-16 ARC-0014 — directions of R49–R68 added (design, build pending)
+reviewed: 2026-10-16 ARC-0014 — directions of R49–R68 added (design, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # 22.05 · Balance — The Resonant (current verdict)

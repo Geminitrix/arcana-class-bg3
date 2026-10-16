@@ -3,7 +3,7 @@ id: 23.02/Resonant/STA_Peaks
 owner: Spell Designer
 game_id: EMOTION_JOY … EMOTION_ANTICIPATION, RESONANT_JOY_CONTAGION, RESONANT_TRUST_SHOULDERED, RESONANT_SURPRISE_OPENING, RESONANT_GRUDGE, RESONANT_ANGER_FALLBACK
 design: 21.04/Resonant/DESIGN.md §4.2, §5.1
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Peaks (EMOTION_*) — status family

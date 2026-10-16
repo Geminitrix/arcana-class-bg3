@@ -3,7 +3,7 @@ id: 23.02/Resonant/SPL_EmotionalContagion
 owner: Spell Designer
 game_id: Target_Arcana_Card_Spell_EmotionalContagion
 design: 21.04/Resonant/DESIGN.md §7.3
-reviewed: 2026-10-16 ARC-0014 — no change (R49–R68 checked)
+reviewed: 2026-10-16 ARC-0014 — no change (R49–R68 checked); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Emotional Contagion — card (level 3)

@@ -2,7 +2,7 @@
 id: 42.04/Resonant
 owner: Icon Artist
 source: 21.04/Resonant/DESIGN.md §2.7 (colours, spectrum), §5; 31.02/Resonant.md; icons in game (Stats `Icon`, 2026-10-15)
-reviewed: 2026-10-16 ARC-0014 — R49–R68: the Weave Surge container, Opposites, Overloaded; Emotional Overload takes the vanilla Synaptic Discharge icon (R51)
+reviewed: 2026-10-16 ARC-0014 — R49–R68: the Weave Surge container, Opposites, Overloaded; Emotional Overload takes the vanilla Synaptic Discharge icon (R51); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # 42.04 · Icon briefs — The Resonant

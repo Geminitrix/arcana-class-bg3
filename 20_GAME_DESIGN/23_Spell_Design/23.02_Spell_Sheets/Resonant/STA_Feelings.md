@@ -3,7 +3,7 @@ id: 23.02/Resonant/STA_Feelings
 owner: Spell Designer
 game_id: FEELING_* (24)
 design: 21.04/Resonant/DESIGN.md §5.4
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Feelings (FEELING_*) — status family

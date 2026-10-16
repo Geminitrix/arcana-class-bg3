@@ -1,5 +1,5 @@
 id: SPL_Deceiver_SplinterOnCommand
-reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build; 2026-10-16 ARC-0020 checked"
+reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build; 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019

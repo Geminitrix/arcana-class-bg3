@@ -2,10 +2,10 @@
 id: 31.02/Deceiver
 owner: Lore Writer
 source: 21.04/Deceiver/DESIGN.md §2, §11 · DECISIONS.md DV1–DV2, DV13, DV18–DV20, DV29–DV30 · 31.01_Lore_Bible.md
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); DV31 checked, no change; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); DV31 checked, no change; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33)
 ---
 
-# 31.02 · Theme — The Deceiver (II · The High Priestess · Aspect of Doubt)
+# 31.02 · Theme — The Veilwalker (internal: Deceiver) (II · The High Priestess · Aspect of Doubt)
 
 **Fantasy:** *"No one watching can say which of her is real."*
 **Theme:** the veil between what is and what seems — she fights with lies, and every lie an enemy believes plants

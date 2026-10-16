@@ -26,9 +26,9 @@ theme plus a word for the person — so the class panel looks designed as a whol
 
 ## Acceptance criteria
 
-- [ ] Style written down (`31.01` §5 or `33.03`): what the three current names share, so later names follow it
-- [ ] Owner picks a name for each of the four (suggestions in the session of 2026-10-16)
-- [ ] Each choice logged in its dossier's `DECISIONS.md`; the Deceiver's lands before the ARC-0020 build applies texts
+- [x] Style written down (`31.01` §5 or `33.03`): what the three current names share, so later names follow it
+- [x] Owner picks a name for each of the four: Veilwalker, Windborn, Palerider, Heartsong
+- [ ] Each choice logged in its dossier's `DECISIONS.md` — Deceiver DV33 ✓, Resonant R69 ✓; Unbound and Eternal when their dossiers open (names held in `31.01` §3, `33.03`)
 - [ ] Collisions checked: other subclasses' words (DM-I6), vanilla BG3 names, well-known game names
 - [ ] Player-facing text changed through a build ticket per subclass; internal ids and the folder name stay (ADR-0002)
 - [ ] Mod pages, lore bible, matrix, glossary and wiki follow (propagation, 00.08)
@@ -42,3 +42,4 @@ theme plus a word for the person — so the class panel looks designed as a whol
 
 - 2026-10-16 — created at the Owner's request, separate from ARC-0019/ARC-0020. Owner's lead for the Resonant:
   *Heartsong*. Nothing changed in the game or the design.
+- 2026-10-16 — Owner chose: Deceiver → **Veilwalker** (DV33), Unbound → **Windborn**, Eternal → **Palerider**, Resonant → **Heartsong** (R69). Unbound and Eternal have no dossier yet: their names live here, in `31.01` §3 and `33.03` until their refining opens `DECISIONS.md`. Written: style rule (`31.01` §5), `33.03`, `21.08` header, Deceiver and Resonant dossier titles and text sections, `32.04/ARC-0020_Deceiver.md` addendum; the Veilwalker strings joined `ARC-0020` `10_names.patch` (54 strings, dry run clean). Pending: game text of Windborn, Palerider, Heartsong (their build tickets; Heartsong can ride ARC-0017), translations (ARC-0013), mod pages.

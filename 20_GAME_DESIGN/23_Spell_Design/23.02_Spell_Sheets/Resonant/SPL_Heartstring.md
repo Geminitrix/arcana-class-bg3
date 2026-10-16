@@ -3,7 +3,7 @@ id: 23.02/Resonant/SPL_Heartstring
 owner: Spell Designer
 game_id: Target_Arcana_Card_Spell_Heartstring
 design: 21.04/Resonant/DESIGN.md §7.2
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Heartstring — cantrip

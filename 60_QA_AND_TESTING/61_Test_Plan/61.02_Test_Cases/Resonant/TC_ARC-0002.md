@@ -2,7 +2,7 @@
 id: 61.02/Resonant/TC_ARC-0002
 owner: QA Lead
 source: HANDOFF_LeadClassDesigner_to_QALead_ARC-0002.md · SPEC_ARC-0002.md (probes P0–P33) · 21.04/Resonant/DESIGN.md §15
-reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08)
+reviewed: 2026-10-15 ARC-0002 — created (propagation, 00.08); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # TC_ARC-0002 · The Resonant — regression suite

@@ -2,10 +2,10 @@
 id: 32.01/Deceiver
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-16 with dossier_texts.pl; 21.04/Deceiver/DESIGN.md §11; DECISIONS.md DV29
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — the build's texts drafted in `55/_wip/Deceiver/arc0020/10_names.patch`, Narrative gate passed (32.04/ARC-0020_Deceiver.md)
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — the build's texts drafted in `55/_wip/Deceiver/arc0020/10_names.patch`, Narrative gate passed (32.04/ARC-0020_Deceiver.md); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33)
 ---
 
-# 32.01 · Player-facing text — The Deceiver
+# 32.01 · Player-facing text — The Veilwalker (internal: Deceiver)
 
 Every name and description the player reads, **as it is in the game today** (the Veil build of 2026-10-07; English;
 `[n]` are the game's parameters, numbers come from `25`). The 15 other languages do not have these strings yet

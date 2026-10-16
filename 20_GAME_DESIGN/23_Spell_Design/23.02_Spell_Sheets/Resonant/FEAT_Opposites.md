@@ -3,7 +3,7 @@ id: 23.02/Resonant/FEAT_Opposites
 owner: Spell Designer
 game_id: (new passive — id per 33.03 at the build)
 design: 21.04/Resonant/DESIGN.md §4.3, §8
-reviewed: 2026-10-16 ARC-0014 — created (R60)
+reviewed: 2026-10-16 ARC-0014 — created (R60); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Opposites *(working name)* — passive

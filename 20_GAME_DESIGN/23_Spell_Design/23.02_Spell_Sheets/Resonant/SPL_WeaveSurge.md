@@ -3,7 +3,7 @@ id: 23.02/Resonant/SPL_WeaveSurge
 owner: Spell Designer
 game_id: (new container — id per 33.03 at the build)
 design: 21.04/Resonant/DESIGN.md §7.1
-reviewed: 2026-10-16 ARC-0014 — created (R54, R55)
+reviewed: 2026-10-16 ARC-0014 — created (R54, R55); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Weave Surge — container (the eight emotions)

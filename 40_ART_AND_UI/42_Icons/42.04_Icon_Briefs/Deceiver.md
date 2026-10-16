@@ -2,7 +2,7 @@
 id: 42.04/Deceiver
 owner: Icon Artist
 source: 21.04/Deceiver/DESIGN.md §2.1 (card readings), §2.5 (colour), §5–§8; 31.02/Deceiver.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-16)
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); new names (DV29), Splinter on command (DV24, DV31), Tier III burst (DV21); 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); new names (DV29), Splinter on command (DV24, DV31), Tier III burst (DV21); 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # 42.04 · Icon briefs — The Deceiver

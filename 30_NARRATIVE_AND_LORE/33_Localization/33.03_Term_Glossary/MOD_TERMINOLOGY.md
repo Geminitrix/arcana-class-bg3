@@ -35,6 +35,10 @@ Internal identifiers (`ArcaneEssence`, `Target_IND_MageHand`, `ARCANE_SHARDS`) a
 
 ## Subclass display names (see [[Subclasses Comparison]] for mechanics)
 
+**From ARC-0021 (Owner, 2026-10-16), English:** The Windborn (internal Unbound) · The Veilwalker (Deceiver) · The
+Palerider (Eternal) · The Heartsong (Resonant); Starchild, Kingmaker and Lionheart unchanged. The table below is the
+game today; each subclass's row changes with its build, and the translations in the localization round (ARC-0013).
+
 | English | PT-BR | FR | DE | RU |
 |---|---|---|---|---|
 | Arcane Spells: The Unbound | Magias Arcanas: O Desprendido | Sorts arcaniques : L'Affranchi | Arkane Zauber: Der Ungebundene | Заклинания Арканы: Освобождённый |

@@ -3,7 +3,7 @@ id: 23.02/Resonant/FEAT_AspectAwakening
 owner: Spell Designer
 game_id: Arcana_Passive_Aspect_Temperance_Awakening, _I, _II, _III
 design: 21.04/Resonant/DESIGN.md §9
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # 14 - Temperance: Awakening (Resonance · Harmony · Aspect of Empathy) — passive + tiers

@@ -2,10 +2,10 @@
 id: 21.03/Resonant
 owner: Lead Class Designer
 source: 21.04_Subclasses/Resonant/DESIGN.md §10 (R59, R67)
-reviewed: 2026-10-16 ARC-0014 — rewritten with the spread map (R59) and the 1/5/9 growth (R67); build pending
+reviewed: 2026-10-16 ARC-0014 — rewritten with the spread map (R59) and the 1/5/9 growth (R67); build pending; 2026-10-16 ARC-0021 — display name *Heartsong* (R69)
 ---
 
-# 21.03 · Progression — The Resonant (levels 1–12)
+# 21.03 · Progression — The Heartsong (internal: Resonant) (levels 1–12)
 
 What each level grants **on top of the base class** (`21.03/Arcana.md`). **Approved design (R1–R68); the game still
 has the R1–R48 map** (odd levels only — `05.02/Resonant.md`) until the ARC-0014 build ships. Numbers:

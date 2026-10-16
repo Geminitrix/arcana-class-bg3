@@ -2,7 +2,7 @@
 id: 61.02/Resonant/TC_ARC-0014
 owner: QA Lead
 source: 21.04/Resonant/DECISIONS.md R49–R68 · REFINE_Resonant_2026-10-15.md §11 · DESIGN.md §14
-reviewed: 2026-10-16 ARC-0014 — created (propagation, 00.08); planned, runs after the build
+reviewed: 2026-10-16 ARC-0014 — created (propagation, 00.08); planned, runs after the build; 2026-10-16 ARC-0021 — display name checked, no change
 status: planned — nothing to run until the R49–R68 build ships
 ---
 

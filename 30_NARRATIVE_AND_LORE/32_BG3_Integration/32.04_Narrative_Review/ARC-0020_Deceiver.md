@@ -19,3 +19,11 @@ Result: **pass** — Owner, 2026-10-16 ("todos aprovados"). Applied with stage 1
 
 **Not in this gate:** Tier III and Grand Deception texts (stage 3), Mirrored Self (stage 4), Splinter on command (stage 2).
 **Translations affected:** the 15 other languages keep the old names until the localization round (ARC-0013).
+
+## Addendum — the subclass name (DV33, ARC-0021, 2026-10-16)
+
+The Owner renamed the subclass **The Veilwalker**. `10_names.patch` now also carries 9 strings that name it (class
+name, panel line, Unveil, Doubt, the Double's passive, the debug Doubt spell, the robe) and the approved texts above
+read *Veilwalker* where they said *Deceiver*. Panel line: *The Veilwalker steps through the veil of the Weave,
+scattering Doubles and sowing Doubt until no enemy can tell which of them is real.* — mechanical change of a name the
+Owner chose; "walks" became "steps through" so the line doesn't repeat the name. Verdict: pass.

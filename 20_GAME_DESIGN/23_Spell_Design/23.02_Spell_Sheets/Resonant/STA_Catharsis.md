@@ -3,7 +3,7 @@ id: 23.02/Resonant/STA_Catharsis
 owner: Spell Designer
 game_id: CATHARSIS, RESONANT_SHARED_CATHARSIS, RESONANT_TWO_CUPS_CATHARSIS
 design: 21.04/Resonant/DESIGN.md §5.5
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Catharsis — status

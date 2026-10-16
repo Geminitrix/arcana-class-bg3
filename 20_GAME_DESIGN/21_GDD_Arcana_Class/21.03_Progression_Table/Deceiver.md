@@ -2,10 +2,10 @@
 id: 21.03/Deceiver
 owner: Lead Class Designer
 source: 21.04_Subclasses/Deceiver/DESIGN.md §9 (DV23, DV28)
-reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
+reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33)
 ---
 
-# 21.03 · Progression — The Deceiver (levels 1–12)
+# 21.03 · Progression — The Veilwalker (internal: Deceiver) (levels 1–12)
 
 What each level grants **on top of the base class** (`21.03/Arcana.md`). **Approved design (DV1–DV30); the game still
 has the Veil build's map and names** (odd levels, Telepathy at 1 — `05.02/Deceiver.md`) until the ARC-0019 build

@@ -14,9 +14,9 @@
 @loca hfde409a6gdc0eg96deg50a5g4285eae83cb1 Twice-Told: Seed of Doubt
 @loca he624619ag7ba5gd55fge4dfgc5905104b8f4 Recast <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at a creature, dealing [1] and planting a <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
 @loca hd66f5137g5a56g8f90g2a7eg143cdc0b770e Reflected Seed
-@loca hf22a0eedgbc8dgc316g2434g51c6f4982dc4 Hurl a reflection of <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at a creature, dealing [1] and planting the Deceiver's <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
+@loca hf22a0eedgbc8dgc316g2434g51c6f4982dc4 Hurl a reflection of <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at a creature, dealing [1] and planting the Veilwalker's <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
 @loca h5a9834b3g29bfg7f21g71c4ga9b6a3271088 Seed
-@loca h28e6ebc5g3632g32ddgd3d7ge688706a5796 A seed of doubt planted by the Deceiver. Their next Arcane spell damage makes it burst for an additional [1] and sow <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag>.
+@loca h28e6ebc5g3632g32ddgd3d7ge688706a5796 A seed of doubt planted by the Veilwalker. Their next Arcane spell damage makes it burst for an additional [1] and sow <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag>.
 @loca h2a283036g31f4ga58bgc5d4g83b36478a82e Last Cast: Seed of Doubt
 @loca hdb9aca65g1d8ag0b4fg4907g7797d5506932 Seed Tech
 
@@ -52,7 +52,7 @@
 @loca h805db51fg1ce6g5aa9g3a26g99b6279b2218 Summon a Double of the Veil: an illusion of you with 1 <LSTag Tooltip="HitPoints">hit point</LSTag> that acts on its own turn and can <LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter">Splinter</LSTag>.
 @loca h122c76dbgdcf9g6f07gcc55gacfcd3a5e30b Splinter
 @loca hb6cf1a80gfaf5gffb3g2465g6823f5198bc6 Splinter into shards of illusion, dealing [1] to enemies within [2] and sowing <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> in their minds. The Double is destroyed.
-@loca DOUBLE_STATUS_DESC An illusion of the Deceiver with 1 <LSTag Tooltip="HitPoints">hit point</LSTag>. A single blow dispels it.
+@loca DOUBLE_STATUS_DESC An illusion of the Veilwalker with 1 <LSTag Tooltip="HitPoints">hit point</LSTag>. A single blow dispels it.
 @file Status_BOOST
 @set DOUBLE_OF_THE_VEIL Description {{DOUBLE_STATUS_DESC}}
 
@@ -71,4 +71,16 @@
 @loca h276f6c80g8b5dgf22agcc4fgc1770431d3e4 Veiled: Enemies with <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against you and your Doubles.<br><br>Two Pillars: Once per turn, when an enemy becomes <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>, the nearest enemy within [1] of it that carries no <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> gains yours.
 
 # --- Class description (ClassDescriptions.lsx uses this handle)
-@loca hcf1e5160g3e20g0953g6e16gd8b38b0e15f7 Mystra wove the Deceiver from the veil between what is and what seems, a thread that no one watching can follow. They scatter Doubles that splinter when struck, plant seeds of doubt until enemies can't trust their own eyes, and bind them with woven lies.
+@loca hcf1e5160g3e20g0953g6e16gd8b38b0e15f7 Mystra wove the Veilwalker from the veil between what is and what seems, a thread that no one watching can follow. They scatter Doubles that splinter when struck, plant seeds of doubt until enemies can't trust their own eyes, and bind them with woven lies.
+
+# ===== Subclass name: Veilwalker (DV33, ARC-0021) — every English string that names the subclass =====
+# Ids, the folder and the Stats/Osiris names keep "Deceiver" (ADR-0002). Orphan strings are left alone.
+@loca hb81e98eega13fg6615g76c0g3efacc02c3f3 The Veilwalker
+@loca h3b83909bgdf5ag45c0gb469gf85768156c96 The Veilwalker
+@loca h8b19f5f0ge250g11dag5e72ge061bcb595b7 The Veilwalker steps through the veil of the Weave, scattering Doubles and sowing <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> until no enemy can tell which of them is real.
+@loca h106b8b3bg25ccg066fg28acg0e425f34aa38 Only one of the Veilwalker's Doubles can do this each round.
+@loca hf9ac4424g5ed1g39fdg9ee5g6f1154bf2b90 Swap places with the Veilwalker.
+@loca h5095a420gb43eg2aeegf951g776e0fd2e822 Unable to tell what is real. Reduces Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> by [1], and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against the Veilwalker and her Doubles by [1].<br><br>A third stack leaves the creature <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>.
+@loca h8b071361g9da5g4fd5g3ed3g14d0da4b5153 An illusion of the Veilwalker. It has 1 <LSTag Tooltip="HitPoints">hit point</LSTag>, can't be healed and acts only through its own spells, Dash and Disengage.<br><br>Cannot be Charmed, Possessed or Dominated, driven mad or made to flee. An enemy that destroys it gains <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag>.
+@loca hcd45f700gbe75gf849g7994gaf567019c8ee Add one stack of Doubt to the target, as if the Veilwalker had applied it. Cast it three times on the same creature to make it Deluded.
+@loca hd2192734gab71g0230g3bf1g2c980e11a2d1 Veilwalker's Robe

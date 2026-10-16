@@ -3,7 +3,7 @@ id: 23.02/Resonant/STA_Intense
 owner: Spell Designer
 game_id: EMOTION_ECSTASY … EMOTION_RAGE
 design: 21.04/Resonant/DESIGN.md §5.3
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending)
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design approved, build pending); 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # Intense emotions — status family

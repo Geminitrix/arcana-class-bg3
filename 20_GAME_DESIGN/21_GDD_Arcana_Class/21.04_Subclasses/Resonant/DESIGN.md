@@ -2,10 +2,10 @@
 id: 21.04/Resonant/DESIGN
 owner: Lead Class Designer
 state: approved design R1–R68 — R1–R48 built and tested (ARC-0002, closed 2026-10-12); R49–R68 approved 2026-10-15/16 (ARC-0014 refining), build pending. The game today: 05.02/Resonant.md
-reviewed: 2026-10-16 ARC-0014 — rewritten with R49–R68 and the documentation fixes of SG13
+reviewed: 2026-10-16 ARC-0014 — rewritten with R49–R68 and the documentation fixes of SG13; 2026-10-16 ARC-0021 — display name *Heartsong* (R69)
 ---
 
-# The Resonant — XIV · Temperance · Aspect of Empathy
+# The Heartsong (internal: Resonant) — XIV · Temperance · Aspect of Empathy
 
 > Design document for the Arcana's subclass **The Resonant**: identity, the emotion mechanic and every one of its
 > rules, every state, spell and passive, the Overload, the progression, the Aspect Awakening, the edge cases and the
@@ -544,6 +544,8 @@ who deal damage the plain way.
 ---
 
 ## 12. Text
+
+- **Subclass name in game: The Heartsong** (R69, ARC-0021); internal names stay *Resonant*. Every text that names the subclass changes with its build (the class description, panel line and tag line below still say "Resonant" until then).
 
 All player-facing text is English, in Larian's voice (`31.03_BG3_Style_Guide`), following the shared formulas of the
 Lore Bible:

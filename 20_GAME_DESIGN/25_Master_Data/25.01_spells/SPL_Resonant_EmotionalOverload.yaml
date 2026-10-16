@@ -1,5 +1,5 @@
 id: SPL_Resonant_EmotionalOverload
-reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then)"
+reviewed: "2026-10-16 ARC-0014 — R49–R68 approved; the block pending_build holds the values the build applies (the generator still reads values: until then); 2026-10-16 ARC-0021 checked"
 kind: spell
 subclass: Resonant
 ticket: ARC-0002

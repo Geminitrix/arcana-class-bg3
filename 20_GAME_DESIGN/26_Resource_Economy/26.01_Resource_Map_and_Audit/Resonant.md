@@ -2,7 +2,7 @@
 id: 26.01/Resonant
 owner: Balance Designer
 source: 21.04/Resonant/DECISIONS.md (R1–R48), DESIGN.md §4.4, §6, §7, §9
-reviewed: 2026-10-16 ARC-0014 — R49–R68 (design, build pending) added below
+reviewed: 2026-10-16 ARC-0014 — R49–R68 (design, build pending) added below; 2026-10-16 ARC-0021 — display name checked, no change
 ---
 
 # 26.01 · Resource audit — The Resonant

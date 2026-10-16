@@ -75,7 +75,7 @@ area 9 m today.
 
 ### Task 0.2 · names (DV29, DV31) — `arc0020/10_names.patch`
 
-**Prepared 2026-10-16:** 43 strings replaced + 2 new (The Veil's ExtraDescription, the Double status's Description); dry run clean. Narrative gate passed (`32.04/ARC-0020_Deceiver.md`). Tier III and Grand Deception texts move to stage 3 with their rules.
+**Prepared 2026-10-16:** 52 strings replaced + 2 new (9 of them the subclass name Veilwalker, DV33) (The Veil's ExtraDescription, the Double status's Description); dry run clean. Narrative gate passed (`32.04/ARC-0020_Deceiver.md`). Tier III and Grand Deception texts move to stage 3 with their rules.
 
 `@loca` rows for every English string that shows an old name. The game holds them today: *Sigil* 21 strings,
 *Ethereal Chains* 11, *Mimic* 9, *Distortion* 7, *Shatter* 4, *Mirror Image* 3 (counted 2026-10-16 in

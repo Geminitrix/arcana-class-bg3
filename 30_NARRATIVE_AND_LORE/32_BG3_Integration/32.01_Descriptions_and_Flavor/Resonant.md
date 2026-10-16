@@ -2,10 +2,10 @@
 id: 32.01/Resonant
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-15; 21.04/Resonant/DESIGN.md §12
-reviewed: 2026-10-16 ARC-0014 — texts the R49–R68 build needs (drafts) added at the end
+reviewed: 2026-10-16 ARC-0014 — texts the R49–R68 build needs (drafts) added at the end; 2026-10-16 ARC-0021 — display name *Heartsong* (R69)
 ---
 
-# 32.01 · Player-facing text — The Resonant
+# 32.01 · Player-facing text — The Heartsong (internal: Resonant)
 
 Every name and description the player reads, **as it is in the game today** (English; `[n]` are the game's
 parameters, numbers come from `25`). The 15 other languages do not have these strings yet (Localization).

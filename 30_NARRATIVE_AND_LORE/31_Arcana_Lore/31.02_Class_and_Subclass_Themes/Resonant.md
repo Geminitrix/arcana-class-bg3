@@ -2,10 +2,10 @@
 id: 31.02/Resonant
 owner: Lore Writer
 source: 21.04/Resonant/DESIGN.md §2, §12 · DECISIONS.md R1–R3, R20–R21 · 31.01_Lore_Bible.md
-reviewed: 2026-10-16 ARC-0014 — R49–R68: the Overload as compassion fatigue (Mental Fatigue), the dance (Seraphine), excess once per fight
+reviewed: 2026-10-16 ARC-0014 — R49–R68: the Overload as compassion fatigue (Mental Fatigue), the dance (Seraphine), excess once per fight; 2026-10-16 ARC-0021 — display name *Heartsong* (R69)
 ---
 
-# 31.02 · Theme — The Resonant (XIV · Temperance · Aspect of Empathy)
+# 31.02 · Theme — The Heartsong (internal: Resonant) (XIV · Temperance · Aspect of Empathy)
 
 **Fantasy:** *"No one in the room feels anything the Resonant hasn't braided."*
 **Theme:** empathy as power and as cost — to be in tune with what another feels is to be able to change it, and
