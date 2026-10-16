@@ -47,6 +47,7 @@ my $p = Alchemy::build_engine_patch();
 # today's game (ARC17_STAGE=0): the ARC-0002 assertions below that the refining changed run against it, as a regression
 my ($p0, $g0, $ag0); { local $Alchemy::STAGE = 0; $p0 = Alchemy::build_engine_patch(); $g0 = Alchemy::overload_goal(); $ag0 = Alchemy::temperance_goal(); }
 my %lt0 = $p0 =~ /^\@loca (\S+) (.*)$/mg;
+my $p3; { local $Alchemy::STAGE = 3; $p3 = Alchemy::build_engine_patch(); }   # before R63 (Tier I lengthens moods)
 my @entries = $p =~ /^new entry "([^"]+)"/mg;
 my %defined = map { $_ => 1 } @entries;
 my $surge_re = '^Target_Arcana_Card_Spell_Emotion(?:' . join('|', @W) . ')$';
@@ -125,7 +126,7 @@ is_deeply(Alchemy::master('STA_Resonant_Catharsis', 'damage')->{by_level}, { 1 =
 like(Alchemy::master('STA_Resonant_States', 'mood_duration')->{value}, qr/^\d+$/, 'mood duration is a number read from 25');
 
 # ---- Catharsis by level
-my $lm = Alchemy::catharsis_levelmap();
+my $lm; { local $Alchemy::STAGE = 0; $lm = Alchemy::catharsis_levelmap(); }   # stage 0 (R67 moves the last step to 9)
 like($lm, qr/<attribute id="Level4" type="LSString" value="2d8"\/>/, 'level 4: 2d8');
 like($lm, qr/<attribute id="Level5" type="LSString" value="3d8"\/>/, 'level 5: 3d8');
 like($lm, qr/<attribute id="Level9" type="LSString" value="3d8"\/>/, 'level 9: 3d8');
@@ -247,7 +248,7 @@ none('the meter also appears on level up, on joining the party and on entering a
 like($g, qr/PROC_ARCANA_Resonant_Overload_Reset\(\(CHARACTER\)_Resonant\)\r?\nTHEN\r?\nRemoveStatus\(_Resonant, "RESONANT_OVERLOAD_FULL", _Resonant\);\r?\nPROC_ARCANA_Resonant_Overload_ShowEmpty\(_Resonant\);/, 'a reset shows the empty meter instead of removing it');
 
 # ---- stage 3.1: Heartstring (cantrip, the Deceiver cantrip's pattern: Malicious Whispers)
-my $hs = block($p, 'Target_Arcana_Card_Spell_Heartstring');
+my $hs = block($p0, 'Target_Arcana_Card_Spell_Heartstring');
 like($hs, qr/^data "Level" "0"$/m, 'Heartstring is a cantrip');
 like($hs, qr/^data "UseCosts" "ActionPoint:1"$/m, 'Heartstring: an action, no slot');
 like($hs, qr/^data "TargetRadius" "18"$/m, 'Heartstring range from 25');
@@ -319,7 +320,7 @@ like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self() and $
 like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and (Ally() or Self()) and $AW):RegainHitPoints(1d8)\E/, 'Tier I: Catharsis heals 1d8 more');
 # 4.4 Tier I: the moods you create last 2 turns longer (25: FEAT_Resonant_AspectAwakening#tier1_mood_extend)
 none('Tier I: every peak leaves its mood 2 turns longer once awakened (not after a Temper replay, R49)', map { my $e = $_; my $m = Alchemy::mood_id($e);
-    grep { block($p, $_) !~ /\QIF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not $AW):ApplyStatus($m,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and $AW):ApplyStatus($m,100,7)\E/ }
+    grep { block($p3, $_) !~ /\QIF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not $AW):ApplyStatus($m,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and $AW):ApplyStatus($m,100,7)\E/ }
     Alchemy::peak_id($e) } @W);
 # 4.2 tier statuses and passives
 my $awk = block($p, 'ASPECT_AWAKENED_TEMPERANCE');
@@ -380,7 +381,7 @@ like($lt{'HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC'} // '', qr/Harmony: Feelings yo
 # upcast Surge's targets). In the peak's own OnApplyFunctors: the free Surge is still on the caster while the spell
 # resolves on all its targets; Osiris removes it only after the cast.
 none('R42: every peak brings its mood at once while the caster has the free Surge (7 turns: Tier I +2)', grep { my $m = Alchemy::mood_id($_);
-    block($p, Alchemy::peak_id($_)) !~ /^data "OnApplyFunctors" "[^"]*\QIF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus($m,100,7)\E/m } @W);
+    block($p3, Alchemy::peak_id($_)) !~ /^data "OnApplyFunctors" "[^"]*\QIF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus($m,100,7)\E/m } @W);
 like(block($p, 'EMOTION_SURPRISE'), qr/^data "OnApplyFunctors" "ApplyStatus\(RESONANT_SURPRISE_OPENING,100,1\);IF\(HasStatus\('RESONANT_SURGE_FREE'/m, 'R42 keeps a peak\'s own OnApply (Surprise)');
 none('R42 is only on the peaks, not on the intense emotions', grep { block($p, Alchemy::intense_id($_)) =~ /RESONANT_SURGE_FREE/ } @W);
 unlike($ag, qr/DB_ARCANA_Resonant_Echo|DB_ARCANA_Resonant_PeakMood/, 'R42: no Osiris mark any more');
@@ -518,5 +519,48 @@ my %unlock = (Joy => 1, Trust => 1, Fear => 1, Anticipation => 2, Surprise => 3,
 none('R54/R59: an emotion opens at the level the Resonant learns it (probe B6)', grep { my $b = block($p, Alchemy::spell_id($_)); my $l = $unlock{$_};
     $l == 1 ? $b =~ /RequirementConditions/ : $b !~ /^data "RequirementConditions" "ClassLevelHigherOrEqualThan\($l,'Arcana'\)"$/m } @W);
 { local $Alchemy::STAGE = 2; unlike(Alchemy::build_engine_patch(), qr/Target_Arcana_Card_Spell_WeaveSurge/, 'stage 2 has no container yet'); }
+
+# ==== ARC-0017 stage 4 -- growth, cantrip, capstone, passives, texts (R58-R65, R67)
+# R62/R67: the dice states grow at 5 and 9 through level maps (vanilla RollBonus(Attack,LevelMapValue(SuperiorityDie)); probe B7)
+like(block($p, 'FEELING_HOPE'), qr/RollBonus\(Attack,LevelMapValue\(Resonant_Die4\)\)/, 'R62: Hope grows');
+like(block($p, 'FEELING_DESPAIR'), qr/RollBonus\(Attack,LevelMapValue\(Resonant_Die4Neg\)\)/, 'R62: Despair grows (a negative map)');
+like(block($p, 'MOOD_APPREHENSIVE'), qr/RollBonus\(SavingThrow,LevelMapValue\(Resonant_Die4Neg\),Wisdom\)/, 'R62: Apprehensive grows');
+like(block($p, 'FEELING_AGGRESSIVENESS'), qr/CharacterWeaponDamage\(LevelMapValue\(Resonant_Die4\)\)/, 'R62: Aggressiveness grows');
+like(block($p, 'FEELING_REMORSE_TECH'), qr/DealDamage\(LevelMapValue\(Resonant_Die6\),Psychic,Magical\)/, 'R62: Remorse grows');
+like(block($p, 'FEELING_MORBIDNESS_TECH'), qr/RegainHitPoints\(LevelMapValue\(Resonant_Die6\)\)/, 'R62: Morbidness grows');
+none('R62: no flat die left in the growing states', grep { block($p, $_) =~ /(?<![\w(])-?1d[46]\b/ }
+    qw(FEELING_HOPE FEELING_DESPAIR MOOD_APPREHENSIVE FEELING_AGGRESSIVENESS FEELING_REMORSE_TECH FEELING_MORBIDNESS_TECH FEELING_DELIGHT FEELING_PESSIMISM));
+my $dl = Alchemy::dice_levelmaps();
+like($dl, qr/id="Level4" type="LSString" value="1d4".*id="Level5" type="LSString" value="1d6".*id="Level9" type="LSString" value="1d8".*value="Resonant_Die4"/s, 'R67: the d4 map 1d4 / 1d6 at 5 / 1d8 at 9');
+like($dl, qr/id="Level9" type="LSString" value="1d10".*value="Resonant_Die6"/s, 'R67: the d6 map up to 1d10 at 9');
+like($dl, qr/id="Level1" type="LSString" value="-1d4".*value="Resonant_Die4Neg"/s, 'R67: the negative d4 map');
+like(Alchemy::catharsis_levelmap(), qr/id="Level8" type="LSString" value="3d8".*id="Level9" type="LSString" value="4d8"/s, 'R67: Catharsis grows at 9, not 10');
+# R61 Heartstring
+my $hs17 = block($p, 'Target_Arcana_Card_Spell_Heartstring');
+like($hs17, qr/IF\(HasStatus\('FEELING_LOVE'\)\):DealDamage\(1d4,Psychic,Magical\)/, 'R61: +1d4 per feeling the target carries');
+unlike($hs17, qr/SetStatusDuration/, 'R61: the mood extension is gone');
+# R63 Tier I
+none('R63: a peak fades into its mood for the normal length, Tier I or not', grep { my $m = Alchemy::mood_id($_);
+    block($p, Alchemy::peak_id($_)) !~ /^data "OnRemoveFunctors" "IF\(RemoveCause\(StatusRemoveCause\.TimeOut\) and not HasStatus\('RESONANT_REPLAY'\)\):ApplyStatus\($m,100,5\);RemoveStatus\(RESONANT_REPLAY\)"$/m } @W);
+is($lt{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_DESC}, 'Catharsis deals or restores an extra 1d8.', 'R63: Resonance text');
+# R58 Shared Heart
+like(block($p, 'Shout_Arcana_Card_Spell_SharedHeart'), qr/ApplyStatus\(RESONANT_SHARED_JOY,100,1\)/, 'R58: Joy on cast');
+like(block($p, 'RESONANT_SHARED_JOY'), qr/^using "EMOTION_JOY"$/m, 'R58: the Joy peak (it fades into Serene)');
+unlike(Alchemy::overload_goal(), qr/RESONANT_SHARED_JOY/, 'R58: it fills no Overload');
+# R60 / R49 / R57 texts
+my $op = block($p, 'Arcana_Passive_Opposites');
+like($op, qr/"Properties" "Highlighted"/, 'R60: Opposites is a visible passive');
+like($lt{HW_ARCANA_PASSIVE_OPPOSITES_DESC} // '', qr/Catharsis/, 'R60: it teaches Catharsis');
+unlike($lt{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC} // '', qr/Opposing emotions/, 'R60: Emotional Alchemy no longer teaches it');
+like($lt{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC} // '', qr/Only an emotion that fades on its own leaves a mood.*never braid a hindering feeling/s, 'R49/R57 in Emotional Alchemy');
+# R62 announced
+for my $l (5, 9) { like(block($p, "Arcana_Passive_DeeperFeelings_$l"), qr/"Properties" "Highlighted"/, "R62: the level-$l growth is announced") }
+like($lt{HW_ARCANA_PASSIVE_DEEPERFEELINGS_5_DESC} // '', qr/^Your moods and feelings grow stronger\./, 'R62: the level-up text');
+# R64 moods list their reactions
+like($lt{HW_MOOD_SERENE_DESC} // '', qr/Tooltip="FEELING_LOVE">Love<\/LSTag>/, 'R64: Serene says Trust makes Love');
+like($lt{HW_MOOD_SERENE_DESC} // '', qr/Ecstasy<\/LSTag> \(level 7\)/, 'R64: and when Ecstasy unlocks');
+like($lt{ Alchemy::key(Alchemy::spell_id('Joy'), 'EXTRA') } // '', qr/\(level 6\)/, 'R59: Complex Feelings at level 6 in the lists');
+# R65
+like($lt{ Alchemy::key(Alchemy::spell_id('Anger'), 'DESC') } // '', qr/Strike it first to draw its rage\./, 'R65: Anger is a taunt');
 
 done_testing();

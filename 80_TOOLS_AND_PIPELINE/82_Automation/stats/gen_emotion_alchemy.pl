@@ -28,7 +28,7 @@ our $MASTER = "$ROOT/20_GAME_DESIGN/25_Master_Data";
 our $STAGE = $ENV{ARC17_STAGE} // 0;
 sub at { $STAGE >= $_[0] }
 # 25 placeholders ‹…› are the balance pass's proposals: the build uses the number inside
-sub plain { (my $v = shift // '') =~ s/[^\x00-\x7F]//g; $v }
+sub plain { (my $v = shift // '') =~ s/[^\x00-\x7F]|"//g; $v }   # by_level keeps the quotes of "‹1d6›"
 # a 25 by_level table (1 / 5 / 9) as bands [from, next band or undef, value]
 sub bands { my $by = shift; my @l = sort { $a <=> $b } keys %$by; map { [$l[$_], $l[$_ + 1], plain($by->{ $l[$_] })] } 0 .. $#l }
 sub band_if { my ($lo, $hi) = @_; my @c;
@@ -93,7 +93,24 @@ sub levelmap_node {
     $s .= qq{                    <attribute id="Name" type="FixedString" value="$name"/>\n};
     $s .= qq{                    <attribute id="UUID" type="guid" value="$uuid"/>\n                </node>\n};
 }
-sub catharsis_levelmap { levelmap_node($CATHARSIS_MAP, $CATHARSIS_MAP_UUID, master('STA_Resonant_Catharsis', 'damage')->{by_level}) }
+sub catharsis_levelmap { levelmap_node($CATHARSIS_MAP, $CATHARSIS_MAP_UUID,
+    master('STA_Resonant_Catharsis', at(4) ? 'damage_next' : 'damage')->{by_level}) }   # R67: 1 / 5 / 9 from stage 4
+# ARC-0017 stage 4 (R62, R67): the dice states grow at 5 and 9 -- one level map per die family (fixed UUIDs), negative
+# twins for the penalties. Pattern: vanilla RollBonus(Attack,LevelMapValue(SuperiorityDie)); whose level -- probe B7.
+our %DICE_MAP = (Resonant_Die4 => 'e7480976-ff78-4826-9576-e31f2ee9e7e0', Resonant_Die4Neg => '259ccc06-9888-4067-ae84-429e4cea474e',
+                 Resonant_Die6 => 'c80921ce-0450-4e6f-a496-2f69e637a3de', Resonant_Die6Neg => 'f547421b-e27b-4f6c-b969-e2861132421b');
+sub dice_by { my ($key, $neg) = @_; my $by = master('STA_Resonant_Feelings', $key)->{by_level};
+    +{ map { $_ => ($neg ? '-' : '') . plain($by->{$_}) } keys %$by } }
+sub dice_levelmaps {
+    levelmap_node('Resonant_Die4', $DICE_MAP{Resonant_Die4}, dice_by('hope_bonus_next'))
+  . levelmap_node('Resonant_Die4Neg', $DICE_MAP{Resonant_Die4Neg}, dice_by('hope_bonus_next', 1))
+  . levelmap_node('Resonant_Die6', $DICE_MAP{Resonant_Die6}, dice_by('remorse_damage_next'))
+  . levelmap_node('Resonant_Die6Neg', $DICE_MAP{Resonant_Die6Neg}, dice_by('remorse_damage_next', 1));
+}
+our @GROWING = qw(FEELING_HOPE FEELING_DESPAIR MOOD_APPREHENSIVE FEELING_AGGRESSIVENESS FEELING_REMORSE_TECH FEELING_MORBIDNESS_TECH FEELING_DELIGHT FEELING_PESSIMISM);
+sub grow { my $s = shift;
+    $s =~ s/-1d4\b/LevelMapValue(Resonant_Die4Neg)/g; $s =~ s/\b1d4\b/LevelMapValue(Resonant_Die4)/g;
+    $s =~ s/-1d6\b/LevelMapValue(Resonant_Die6Neg)/g; $s =~ s/\b1d6\b/LevelMapValue(Resonant_Die6)/g; $s }
 sub weapon_levelmap    { levelmap_node($WEAPON_MAP, $WEAPON_MAP_UUID, master('FEAT_Resonant_Overload', 'weapon_psychic')->{by_level}) }
 # the level each gate passive arrives at (Resonant progression), shown in the Surges' list of reactions
 our %GATE_LEVEL = (Arcana_Passive_Overwhelm => 7, Arcana_Passive_ComplexFeelings => 5, Arcana_Passive_MixedFeelings => 9);
@@ -435,8 +452,10 @@ sub build_statuses {
         my ($m, $long) = (mood_id($e), $MOOD_TURNS + $TIER1_EXTEND);
         # R49: an emotion Temper replayed leaves nothing -- the fade reads the replay marker, then clears it
         my $replay = at(1) ? " and not HasStatus('RESONANT_REPLAY')" : '';
-        my $fade = "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and not $AW_COND):ApplyStatus($m,100,$MOOD_TURNS);"
-                 . "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and $AW_COND):ApplyStatus($m,100,$long)"
+        $long = $MOOD_TURNS if at(4);   # R63: Tier I no longer lengthens moods
+        my $fade = (at(4) ? "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay):ApplyStatus($m,100,$MOOD_TURNS)"
+                 : "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and not $AW_COND):ApplyStatus($m,100,$MOOD_TURNS);"
+                 . "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and $AW_COND):ApplyStatus($m,100,$long)")
                  . (at(1) ? ';RemoveStatus(RESONANT_REPLAY)' : '');
         push @out, status_entry(peak_id($e), "Emotion: $e",
             tag_terms("Surging with $e. $E->{peak}{text}"),
@@ -444,7 +463,7 @@ sub build_statuses {
                 # R42: the free Surge (Tier II) leaves the mood at once -- on every target, while the spell resolves
                 onapply => join(';', grep { defined } $E->{peak}{onapply}, "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus($m,100,$long)") });
         push @out, status_entry(mood_id($e), "Mood: $E->{mood}{name}",
-            tag_terms("The fading echo of $e. $E->{mood}{text}"),
+            tag_terms("The fading echo of $e. $E->{mood}{text}") . (at(4) ? ' ' . mood_reactions($e) : ''),   # one line: a status text has no <br>
             $E->{icon}, 'mood', { %{ $E->{mood} }, stack => 'MOOD' });
         my $I = $E->{intense};
         push @out, status_entry(intense_id($e), "Emotion: $I->{name}",
@@ -552,6 +571,10 @@ sub build_statuses {
         'Opposing emotions, snapped at once. Every mood is spent.',
         'Spell_Enchantment_CalmEmotions', 'mood', { stack => 'CATHARSIS',
         onapply => join(';', map { 'RemoveStatus(' . mood_id($_) . ')' } @WHEEL) });
+    if (at(4)) {   # R62/R67: the dice states grow (the entry, not its text)
+        my %g = map { $_ => 1 } @GROWING;
+        for my $e (@out) { my ($n) = $e->[1] =~ /^new entry "([^"]+)"/; $e->[1] = grow($e->[1]) if $n && $g{$n} }
+    }
     @out;
 }
 
@@ -566,7 +589,16 @@ our $OVERLOAD_SPELL = 'Target_Arcana_Created_EmotionalOverload';
 sub build_passives {
     my $love = st_tag('FEELING_LOVE', 'Love'); my $catharsis = st_tag('CATHARSIS', 'Catharsis');
     my $out = '';
-    $out .= passive('Arcana_Passive_EmotionalAlchemy', 'Emotional Alchemy',
+    $out .= at(4)   # R49, R57, R60: Catharsis moves to Opposites (level 3)
+        ? passive('Arcana_Passive_EmotionalAlchemy', 'Emotional Alchemy',
+            "When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent. Only an emotion that fades on its own leaves a mood.<br><br>Neighbouring emotions braid into a feeling, such as $love, that lasts $FEELING_TURNS turns.<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.<br><br>Weave Surges cast for you never braid a hindering feeling into an ally.",
+            'Spell_Enchantment_CalmEmotions')
+          . passive('Arcana_Passive_Opposites', 'Opposites',
+            "A Weave Surge poured into the mood of its opposite emotion snaps into $catharsis: an enemy takes [1] and an ally regains [2], and the mood is spent.",
+            'Spell_Enchantment_CalmEmotions', DescriptionParams => "DealDamage($CATHARSIS_DICE,Psychic);RegainHitPoints($CATHARSIS_DICE)")
+          . join('', map { passive("Arcana_Passive_DeeperFeelings_$_", 'Deeper Feelings',   # R62: the growth, announced at 5 and 9
+            'Your moods and feelings grow stronger.', 'Spell_Enchantment_Bless') } 5, 9)
+        : passive('Arcana_Passive_EmotionalAlchemy', 'Emotional Alchemy',
         "When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as $love, that lasts $FEELING_TURNS turns.<br><br>Opposing emotions snap into $catharsis: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.",
         'Spell_Enchantment_CalmEmotions', DescriptionParams => "DealDamage($CATHARSIS_DICE,Psychic);RegainHitPoints($CATHARSIS_DICE)");
     $out .= at(2)   # ARC-0017 stage 2 (R51, R53, R66): no silence; the free cast of Emotional Overload rides on this passive
@@ -622,13 +654,19 @@ our @CAST = (
 our @REACTION_LINES = ([0, 'Intense'], [1, 'Primary'], [2, 'Secondary'], [3, 'Tertiary'], [4, 'Catharsis']);
 sub result_name { my ($s, $m, $r) = @_;
     $r->{kind} eq 'catharsis' ? 'Catharsis' : $r->{kind} eq 'intensify' ? $EMO{$s}{intense}{name} : feeling_of($s, $m)->{name} }
+# R59: Complex Feelings arrives at 6 from stage 4
+sub gate_level { my $g = shift; at(4) && $g eq 'Arcana_Passive_ComplexFeelings' ? 6 : $GATE_LEVEL{$g} }
+# R64: a mood says what each emotion would make of it (names only; the effect is one hover away)
+sub mood_reactions { my $m = shift;
+    'Poured into it: ' . join('; ', map { my $s = $_; my $r = reaction($s, $m);
+        "$s makes " . st_tag($r->{status}, result_name($s, $m, $r)) . ($r->{gate} ? ' (level ' . gate_level($r->{gate}) . ')' : '') } @WHEEL) . '.' }
 sub reaction_list {
     my $s = shift;
     my @lines;
     for my $l (@REACTION_LINES) {
         my ($d, $label) = @$l;
         my $gate = $GATE{$d};
-        my $head = $gate ? "$label (level $GATE_LEVEL{$gate})" : $label;
+        my $head = $gate ? "$label (level " . gate_level($gate) . ")" : $label;
         push @lines, map { my $r = reaction($s, $_);
             "$head: " . st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag($r->{status}, result_name($s, $_, $r)) . '.' }
             grep { distance($s, $_) == $d } @WHEEL;
@@ -644,7 +682,7 @@ sub build_spells {
     my $out = '';
     for my $e (@WHEEL) {
         my $E = $EMO{$e}; my $dark = $E->{side} eq 'I';
-        my $desc = tag_terms("$E->{flavour} $E->{effect}<br><br>When the surge fades, it leaves the target "
+        my $desc = tag_terms("$E->{flavour} $E->{effect}" . ($e eq 'Anger' && at(4) ? ' Strike it first to draw its rage.' : '') . "<br><br>When the surge fades, it leaves the target "
                  . st_tag(mood_id($e), $E->{mood}{name}) . " for $MOOD_TURNS turns, $E->{mood}{fx}.");
         $out .= entry(spell_id($e), 'SpellData',
             SpellType => 'Target', Level => 1, SpellSchool => 'Enchantment', TargetRadius => 18, AmountOfTargets => 1,
@@ -1001,8 +1039,11 @@ sub build_heartstring {
     my $id = 'Target_Arcana_Card_Spell_Heartstring';
     my $ext = master('SPL_Resonant_Heartstring', 'mood_extend')->{value};
     my $dmg = 'LevelMapValue(D4Cantrip)';   # 25 SPL_Resonant_Heartstring#damage: 1d4 / 2d4 / 3d4, the vanilla cantrip map
-    my $success = join ';', "DealDamage($dmg,Psychic,Magical)",
-        map { my $m = mood_id($_); "IF(HasStatus('$m')):SetStatusDuration($m,$ext,Add)" } @WHEEL;
+    my $per = plain(master('SPL_Resonant_Heartstring', 'per_feeling_next')->{value});
+    my @feel = map { 'FEELING_' . uc $FEELING{$_}{name} } sort { $FEELING{$a}{name} cmp $FEELING{$b}{name} } keys %FEELING;
+    my $success = at(4)   # R61: extra Psychic per feeling the target carries (Emotional Overload's pattern); no mood extension
+        ? join(';', "DealDamage($dmg,Psychic,Magical)", map { "IF(HasStatus('$_')):DealDamage($per,Psychic,Magical)" } @feel)
+        : join(';', "DealDamage($dmg,Psychic,Magical)", map { my $m = mood_id($_); "IF(HasStatus('$m')):SetStatusDuration($m,$ext,Add)" } @WHEEL);
     entry($id, 'SpellData', SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
         TargetRadius => master('SPL_Resonant_Heartstring', 'range')->{value}, AmountOfTargets => 1,
         SpellRoll => 'not SavingThrow(Ability.Wisdom, SourceSpellDC())',
@@ -1011,7 +1052,7 @@ sub build_heartstring {
         TargetConditions => "Character() and not Self() and not Dead() and $CARD_MARK",
         Icon => 'Spell_Enchantment_ViciousMockery',
         DisplayName => loca(key($id, 'NAME'), 'Heartstring'),
-        Description => loca(key($id, 'DESC'), tag_terms("Pluck the string a creature's heart hangs from. It takes [1], and a mood it carries lasts $ext turns longer.")),
+        Description => loca(key($id, 'DESC'), tag_terms(at(4) ? "Pluck the string a creature's heart hangs from. It takes [1], and $per more for each feeling it carries." : "Pluck the string a creature's heart hangs from. It takes [1], and a mood it carries lasts $ext turns longer.")),
         DescriptionParams => "DealDamage($dmg,Psychic)",
         TooltipDamageList => "DealDamage($dmg,Psychic)", TooltipAttackSave => 'Wisdom',
         @CAST, PreviewCursor => 'Cast', CastTextEvent => 'Cast',
@@ -1135,7 +1176,7 @@ sub build_contagion {
 # and the Osiris effects.
 sub aspect_goal { master('FEAT_Resonant_AspectAwakening', "goal_tier$_[0]")->{value} }
 sub tier_texts {   # [label, text] for each tier, with DescriptionParams [1] Tier III's radius
-    (['Resonance', "Catharsis deals or restores an extra $TIER1_BONUS, and the moods you create last $TIER1_EXTEND turns longer."],
+    (['Resonance', at(4) ? "Catharsis deals or restores an extra $TIER1_BONUS." : "Catharsis deals or restores an extra $TIER1_BONUS, and the moods you create last $TIER1_EXTEND turns longer."],
      ['Harmony', "Feelings you braid last $TIER2_EXTEND turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once."],   # R40, R42
      ['Aspect of Empathy', (at(2) ? 'When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for ' . plain(master('SPL_Resonant_EmotionalOverload', 'dance_tier3_next')->{value}) . ' turns.' : 'Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for ' . master('FEAT_Resonant_AspectAwakening', 'tier3_paralysed_others')->{value} . ' turn.')])
 }
@@ -1290,7 +1331,7 @@ sub build_shared_heart {
     my $r = master('SPL_Resonant_SharedHeart', 'range')->{value};
     my $icon = 'Spell_Abjuration_WardingBond';
     my $card = entry($id, 'SpellData', SpellType => 'Shout', Level => $lvl, SpellSchool => 'Enchantment', Cooldown => 'OncePerRest',
-        SpellProperties => 'ApplyStatus(SHARED_HEART,100,-1)', AreaRadius => $r,
+        SpellProperties => 'ApplyStatus(SHARED_HEART,100,-1)' . (at(4) ? ';ApplyStatus(RESONANT_SHARED_JOY,100,1)' : ''), AreaRadius => $r,
         TargetConditions => "(Ally() or Self()) and Character() and not Dead() and $CARD_MARK",
         Icon => $icon,
         DisplayName => loca(key($id, 'NAME'), 'Shared Heart'),
@@ -1305,6 +1346,9 @@ sub build_shared_heart {
         Description => loca(key('SHARED_HEART', 'DESC'), "Linked to the Resonant's heart. A feeling braided in any linked creature is braided in all of them; a Catharsis heals them all."),
         Icon => $icon, StackId => 'SHARED_HEART', StackType => 'Overwrite', RemoveEvents => 'OnCombatEnded',
         StatusPropertyFlags => 'IgnoreResting;ForceOverhead', StatusGroups => 'SG_RemoveOnRespec')];
+    # R58: Joy on every linked creature -- the peak itself (it fades into Serene), but no Overload or Awakening counts it
+    push @st, ['Status_BOOST', entry('RESONANT_SHARED_JOY', 'StatusData', StatusType => 'BOOST', using => peak_id('Joy'),
+        StackId => 'EMOTION')] if at(4);
     # R44: a Catharsis on a linked ally heals the others the base amount and spends their moods
     push @st, status_entry('RESONANT_SHARED_CATHARSIS', 'Catharsis', 'Opposing emotions, snapped through a Shared Heart. Heals, and every mood is spent.',
         $icon, 'mood', { stack => 'RESONANT_SHARED_CATHARSIS',
@@ -1350,7 +1394,7 @@ sub main {
     my ($up, $n) = build_upcast_patch();
     write_file("$out/20_upcast_targets.patch", $up);
     write_file("$out/30_catharsis_levelmap.lsx-fragment", catharsis_levelmap());
-    write_file("$out/31_overload_weapon_levelmap.lsx-fragment", weapon_levelmap());
+    write_file("$out/32_dice_levelmaps.lsx-fragment", dice_levelmaps()) if at(4);   # ARC-0017 R62/R67
     write_file("$out/40_overload_goal.txt", overload_goal());
     write_file("$out/42_temperance_goal.txt", temperance_goal());
     write_file("$out/43_common_rows.txt", common_rows());
