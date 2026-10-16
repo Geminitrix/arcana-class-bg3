@@ -89,3 +89,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   pattern, `Force(-6, TargetToEntity)`) is the Owner's candidate for the level-11 capstone.
 - 2026-10-16 — Owner: capstone is Where the Winds Meet, usable only while no wind blows (WB26).
 - 2026-10-16 — Owner approved SG1–SG16 and the level map (WB27–WB43). Next: names, then numbers, DESIGN.md, 21.03.
+- 2026-10-16 — Owner approved the names (WB44).
