@@ -79,3 +79,5 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: role is a balanced mix of mobile striker and party support (WB19); 21.08 Role row updated.
 - 2026-10-16 — Owner: card DCs from Dexterity via vanilla `ManeuverSaveDC()`, AC stays DEX + WIS, preset DEX/WIS
   (WB20). Exception to "every subclass casts with Intelligence" — 05.01, class text and 10.06 #12 at propagation.
+- 2026-10-16 — Owner changed WB20 → WB21: Be the Leaf AC = 10 + DEX + INT, cards keep INT casting, preset DEX/INT; no
+  exception to the class's Intelligence casting. Matrix row corrected.
