@@ -40,3 +40,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R52 (R51 penalty at 5/10, once per turn confirmed), R53 (SG6: the meter settles to half and *Overloaded* ends when a fight ends), R54 (the Surges become one container *Weave Surge*, children named after the emotions; supersedes SG18; the PC copy count is open).
 - 2026-10-16 — R55: on PC, *Weave Surge* holds 3 copies per emotion known (an exception to the 3-copies rule, this card only).
 - 2026-10-16 — R56 (SG7): waking Tier III fills the meter.
+- 2026-10-16 — R57 (SG8): the kindness rule.
