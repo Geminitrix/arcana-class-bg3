@@ -67,3 +67,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: the ultimate is Aeolus' Bag of the four winds — bonus action, choose a wind, lasts X turns
   (X = enemies marked when opened), can't reopen until it stops, around level 5, epic (WB11).
 - 2026-10-16 — Owner: opening the bag clears the marks; the wind's bane falls on Windswept enemies (WB12).
+- 2026-10-16 — Owner: the bag needs at least one mark; X is capped by Zephyr's Beaufort rank (WB13).
