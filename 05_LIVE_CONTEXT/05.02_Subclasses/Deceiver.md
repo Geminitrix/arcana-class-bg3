@@ -2,6 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-07)
 state: synced
+reviewed: 2026-10-16 ARC-0019 — DV31 checked, no change (game unchanged)
 ---
 
 # 🪞 The Deceiver — II · The High Priestess · Aspect of Doubt

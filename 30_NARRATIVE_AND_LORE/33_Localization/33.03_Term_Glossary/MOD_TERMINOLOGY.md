@@ -109,7 +109,7 @@ yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `Si
 | ★ Twice-Told · ★ Twice-Told: <Card> | The bonus-action recast · its per-card copies | Mimic, Mimic: <Card> |
 | ★ Splinter | A Double's burst (3 m, Doubt) | Shatter (vanilla spell name) |
 | ★ Reflected Seed · ★ Reflected Falsehood | The Doubles' half-strength copies of her cards (Two Truths) | Mirror: Sigil of Malice, Mirror: Ethereal Chains |
-| ★ Shatter on command *(working name, DESIGN §5)* | Her bonus action: one Double splinters now (DV24) | — |
+| ★ Splinter on command (DV31) | Her bonus action: one Double splinters now (DV24) | — |
 | Withdraw · Unveil · Dismiss | Swap with Veilstep's Double · a Double swaps with her · a Double ends without a burst | — |
 | Malicious Whispers · Paranoia | The cantrip · its no-reactions status on a Seeded target | — |
 | Faceless · Friends | The two utilities (DV26) | Faux Amis (retired), Telepathy (leaves, DV26) |

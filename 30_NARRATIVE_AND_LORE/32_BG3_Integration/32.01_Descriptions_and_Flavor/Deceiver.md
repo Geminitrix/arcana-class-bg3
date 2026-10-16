@@ -102,6 +102,6 @@ Internal ids keep their names until the build decides (DV12's rule).
 | `Shout_Deceiver_Double_Shatter` | Shatter | **Splinter** |
 | `Projectile_Deceiver_Double_MirrorSigil` | Mirror: Sigil of Malice | **Reflected Seed** |
 | `Target_Deceiver_Double_MirrorChains` | Mirror: Ethereal Chains | **Reflected Falsehood** |
-| — (new, DV24) | — | **Shatter on command** *(working name kept by DESIGN §5)* |
+| — (new, DV24) | — | **Splinter on command** (DV31) |
 | `Arcana_Passive_Doubt` | Doubt | leaves (DV19) — *Doubt* stays as the status name |
 | Telepathy (level 1) | Telepathy | leaves the Deceiver (DV26) |

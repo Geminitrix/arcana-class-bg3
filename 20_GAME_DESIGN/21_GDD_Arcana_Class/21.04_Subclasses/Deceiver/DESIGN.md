@@ -1,15 +1,15 @@
 ---
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
-state: approved design (DV1–DV30, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV30) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived)
+state: approved design (DV1–DV31, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV31) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived)
 ---
 
 # The Deceiver — II · The High Priestess · Aspect of Doubt
 
 > Design document for the Arcana's subclass **The Deceiver**: identity, the Veil and every one of its rules, every
 > spell and passive, the Aspect Awakening, the progression and the technical pattern. Decisions are in
-> `DECISIONS.md` (DV1–DV30); the review behind DV18–DV30 is `REFINE_Deceiver.md` (ARC-0019). Every gameplay effect
+> `DECISIONS.md` (DV1–DV31); the review behind DV18–DV30 is `REFINE_Deceiver.md` (ARC-0019). Every gameplay effect
 > lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions**.
 >
 > **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this document says *(25)*; the Deceiver's
@@ -176,7 +176,7 @@ Every chain ends: Doubles are finite, Deluded resets the stacks, Two Pillars is 
 | 1 | *Eidolon* (2 Doubles) ahead of the party; *Seed of Doubt* on the ogre | 2 Doubles (her AC +2) · ogre: Seed |
 | Ogre | Smashes a Double | 1 Double · ogre: 1 Doubt (it believed the lie) |
 | Double | Walks beside the ogre and the goblin; casts *Reflected Seed* on the ogre | Ogre: Seed bursts → 2 Doubt · goblin untouched |
-| 2 | *Shatter on command* (bonus action): the Double splinters | 0 Doubles · ogre: 3rd Doubt → **Deluded** · goblin: 1 Doubt |
+| 2 | *Splinter on command* (bonus action): the Double splinters | 0 Doubles · ogre: 3rd Doubt → **Deluded** · goblin: 1 Doubt |
 | 2 | *Veiled Prison* on the goblin | Goblin saves at −1; Disadvantage only at 2+ Doubt |
 
 ### 4.8 Edge cases
@@ -198,7 +198,7 @@ Every chain ends: Doubles are finite, Deluded resets the stacks, Two Pillars is 
 | **Malicious Whispers** *(cantrip)* | 1 | 0 | 18 m, WIS save: Psychic *(25)*, Disadvantage on its next attack; Seeded target: Paranoia + 1 Doubt | — |
 | **Eidolon** | 1 | 1 | Summon 1 Double within 9 m; 2 from slot 3, 3 from slot 5 | — |
 | **Seed of Doubt** | 1 | 1 | 18 m, never misses: Force *(25)* and a Seed (§4.4) | — |
-| **Shatter on command** | 2 | — | Bonus action: one of her Doubles splinters now (DV24) | — |
+| **Splinter on command** | 2 | — | Bonus action: one of her Doubles splinters now (DV24, DV31) | — |
 | **Faceless** *(utility)* | 2 | 0 | Assume the identity of another person, altering her appearance | — |
 | **Friends** *(utility)* | 2 | 1 | Advantage on Charisma checks; at slot 6 no Concentration and the target never notices (DV14) | Concentration (below slot 6) |
 | **Binding Falsehood** | 3 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn | — |
@@ -263,7 +263,7 @@ No tier gives an ability bonus (DV21 replaces the old +3 Charisma and Charisma t
 | Level | What arrives | Headline the player feels | Kind | New concepts |
 |---|---|---|---|---|
 | 1 | The Veil · Eidolon · Seed of Doubt · Malicious Whispers | "I fight with lies: Doubles on the field, Doubt on enemies" | rule + buttons | ~8 |
-| 2 | Shatter on command · Faceless · Friends | "I burst a Double when I choose — and wear other faces" | button | 1 (+2 utilities) |
+| 2 | Splinter on command · Faceless · Friends | "I burst a Double when I choose — and wear other faces" | button | 1 (+2 utilities) |
 | 3 | Tier I *Veiled* · Binding Falsehood · Veiled Prison · The Veil Lifts | "Doubt pays: doubting minds fail my prisons" | rule + buttons | 3 |
 | 4 | — (feat) | — | — | 0 |
 | 5 | Two Truths · Veilstep | "My Doubles cast my spells; I leave myself behind" | rule + button | 2 |
@@ -302,7 +302,7 @@ Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye a
 
 ## 10. How it plays
 
-- **A turn:** an action (a card or Eidolon), a bonus action (Shatter on command, Twice-Told, Withdraw), and one
+- **A turn:** an action (a card or Eidolon), a bonus action (Splinter on command, Twice-Told, Withdraw), and one
   action per Double on its own turn.
 - **A fight:** turn 1 sets Doubles in front of the party and a Seed on the biggest threat; turns 2–3 burst Seeds and
   Splinters until the first Deluded; then the prisons land with Disadvantage.
@@ -336,7 +336,7 @@ Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye a
 
 | Goal | Role |
 |---|---|
-| `ARCANA_Deceiver_Doubles.txt` | Summon, transform, kit by level, cap, AC layers, Doubt on destruction, cleanup; **new:** Shatter on command, the Tier III burst, the Doubles counted by Grand Deception |
+| `ARCANA_Deceiver_Doubles.txt` | Summon, transform, kit by level, cap, AC layers, Doubt on destruction, cleanup; **new:** Splinter on command, the Tier III burst, the Doubles counted by Grand Deception |
 | `ARCANA_Deceiver_Doubt.txt` | Doubt counter, Deluded, Awakening steps |
 | `ARCANA_Aspect_Empress.txt` | Tier bonuses, The Veil Lifts, Which One? (ids keep *Empress*, DV12) |
 | `ARCANA_Status_Sigil.txt` | The Seed's burst and its Doubt (file and status ids renamed or kept in the build) |
@@ -372,5 +372,5 @@ is *Seed of Doubt* in game text. A rename of ids, if chosen, follows ADR-0002 an
 ## 15. To test in game
 
 From the Veil build (`05.02` §8): the Doubles' spells by tier, the Mirror damage, Veiled Prison, Grand Deception,
-the Awakening. New: V1–V4 of `REFINE_Deceiver.md` §5 (Shatter on command use, Grand Deception placement, the Tier III
+the Awakening. New: V1–V4 of `REFINE_Deceiver.md` §5 (Splinter on command use, Grand Deception placement, the Tier III
 burst, Mirrored Self from a Double).

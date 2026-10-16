@@ -2,7 +2,7 @@
 id: 42.04/Deceiver
 owner: Icon Artist
 source: 21.04/Deceiver/DESIGN.md §2.1 (card readings), §2.5 (colour), §5–§8; 31.02/Deceiver.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-16)
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); new names (DV29), Shatter on command (DV24), Tier III burst (DV21)
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); new names (DV29), Splinter on command (DV24, DV31), Tier III burst (DV21)
 ---
 
 # 42.04 · Icon briefs — The Deceiver
@@ -25,7 +25,7 @@ Pipeline: source `42.01` → PNG `42.02/features/the deceiver/` → DDS BC7 `42.
 | ICO_Deceiver_BindingFalsehood | Binding Falsehood | Threads of woven script binding a figure | Pink + silver | Spell_Conjuration_Entangled (shared) | **1** |
 | ICO_Deceiver_ReflectedFalsehood | Reflected Falsehood (Double) | The binding threads in a mirror, paler | Pale pink | Spell_Conjuration_Entangled (shared) | 2 |
 | ICO_Deceiver_Splinter | Splinter (Double) | A figure bursting into shards of glass | Pink shards on violet | Spell_Evocation_Shatter (vanilla name clash) | **1** |
-| ICO_Deceiver_ShatterOnCommand | Shatter on command (new, DV24) | A hand closing, a distant twin splintering | Pink + white | — (new) | **1** |
+| ICO_Deceiver_SplinterOnCommand | Splinter on command (new, DV24, DV31) | A hand closing, a distant twin splintering | Pink + white | — (new) | **1** |
 | ICO_Deceiver_Veilstep | Veilstep | A figure passing through a veil, its outline left behind | Pink, violet | Spell_WildMagic_Teleport_Activate | 2 |
 | ICO_Deceiver_Withdraw | Withdraw | Two outlines swapping across a veil | Pink | Spell_Transmutation_Blink_Teleport | 3 |
 | ICO_Deceiver_TwiceTold | Twice-Told and Twice-Told: <Card> | Two overlapping mouths, or one rune drawn twice | Pink + gold | Spell_Illusion_Blur (copies: none) | 2 |

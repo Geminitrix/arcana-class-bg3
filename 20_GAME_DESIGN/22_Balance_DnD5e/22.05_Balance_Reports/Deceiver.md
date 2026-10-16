@@ -30,20 +30,20 @@ balance report and is largely untested in game (`05.02` §8). This file holds th
 |---|---|---|---|
 | DV21 Tier III *the lie explodes*: a Double destroyed by an enemy splinters by itself; Splinter's area grows | **Up** at 12, the old Charisma bonus **leaves** | `SPL_Deceiver_Splinter` `tier3_radius_next` ‹wide› | ⚠️ watch bursts per fight at level 12 (V3); every Double struck becomes damage plus Doubt |
 | DV22 Grand Deception reads the Doubles near each enemy | **Up or down** with placement (flat 2 Doubt today) | `SPL_Deceiver_GrandDeception` `doubt_per_double_next` ‹1›, `doubles_range_next` ‹x› | ⚠️ can Delude a crowd in one cast; the per-enemy count is the knob (V2) |
-| DV24 Shatter on command (bonus action) | **Up** from level 2 | `SPL_Deceiver_ShatterOnCommand` | A burst a turn without an action, paid with a body and its AC; dominant if used every turn (V1) |
+| DV24 Splinter on command (bonus action) | **Up** from level 2 | `SPL_Deceiver_SplinterOnCommand` | A burst a turn without an action, paid with a body and its AC; dominant if used every turn (V1) |
 | DV25 Mirrored Self from a Double's position | Flat (same extra target) | `SPL_Deceiver_MirroredSelf` `plan_b_range_next` ‹x› | Positional only; engine support is V4 |
 | DV28 the spread map (Twice-Told 7 → 6, Mirrored Spell 12 → 6, Mirrored Self 12 → 10, Friends and Faceless 1 → 2) | **Up** mid-game, flat overall | `level_next` keys | Same content, earlier; watch Twice-Told at 6 with Reflected spells at 5 |
 | DV26 Telepathy leaves | Flat (utility) | `FEAT_Deceiver_TheVeil` `telepathy_next` | — |
 | DV19, DV29 one passive, new names | Flat | `name_next` keys | — |
 
-**Net reading:** power moves from a flat Tier III stat bonus into the Doubles (Tier III burst, Shatter on command) and
+**Net reading:** power moves from a flat Tier III stat bonus into the Doubles (Tier III burst, Splinter on command) and
 into positioning (Grand Deception). The Presence axis (DV18) is the brake: every burst spends a body and its AC.
 
 ## What would prove it wrong (playtest — merge into the playtest ticket)
 
 | V# | Fight | Metric | Right if | Wrong if |
 |---|---|---|---|---|
-| V1 | Level 2, any | Turns with Shatter on command | Used in most fights, not every turn | Never, or every turn |
+| V1 | Level 2, any | Turns with Splinter on command | Used in most fights, not every turn | Never, or every turn |
 | V2 | Level 11 | Doubt from Grand Deception with Doubles placed vs none | Placement changes the result clearly | Same either way |
 | V3 | Level 12, Tier III | Turn Tier III wakes; bursts per fight | Wakes in a normal fight; bursts feel like the peak | Wakes after the fight is decided |
 | V4 | Level 10 | Mirrored Self's extra target from a Double's position | Works in the engine | Needs plan B |

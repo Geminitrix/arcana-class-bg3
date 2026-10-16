@@ -59,3 +59,7 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   (Deceiver section). Icon Artist: `42.04/Deceiver.md` (17 briefs). QA Lead: `61.02/Deceiver/TC_ARC-0019.md` (Veil build
   A1–A8, build probes B1–B7, V1–V4). Context Keeper: `05.02` unchanged (game unchanged). Open for the Owner: `31.01` §4/§5
   still name the LeBlanc abilities and Sigils (base-class change); *Shatter on command* keeps the word DV29 cleared.
+- 2026-10-16 — Owner: *Shatter on command* becomes **Splinter on command** → DV31 (amends DV24, follows DV29). Propagated:
+  DESIGN.md, 21.03, 23.02 (`SPL_SplinterOnCommand`, renamed), 25 (`SPL_Deceiver_SplinterOnCommand`, renamed), 22.05,
+  26.01, 32.01, 33.03, 42.04, 61.02. Lore Writer fixed `31.01` §4 and §5 (no LeBlanc names, no Sigils; the Deceiver's
+  in-game description kept as the game text, with a draft for the build). DV24/DV28 and REFINE stay as the record.

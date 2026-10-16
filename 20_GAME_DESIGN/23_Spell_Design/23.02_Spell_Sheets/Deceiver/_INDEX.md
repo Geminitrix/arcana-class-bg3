@@ -7,7 +7,7 @@ One sheet per card, passive and status family (00.08). Design: `21.04/Deceiver/D
 | [SPL_MaliciousWhispers](SPL_MaliciousWhispers.md) | Malicious Whispers | cantrip | 1 |
 | [SPL_Eidolon](SPL_Eidolon.md) | Eidolon | card (level 1) | 1 |
 | [SPL_SeedOfDoubt](SPL_SeedOfDoubt.md) | Seed of Doubt | card (level 1) | 1 |
-| [SPL_ShatterOnCommand](SPL_ShatterOnCommand.md) | Shatter on command | bonus-action spell | 2 |
+| [SPL_SplinterOnCommand](SPL_SplinterOnCommand.md) | Splinter on command | bonus-action spell | 2 |
 | [SPL_Faceless](SPL_Faceless.md) | Faceless | utility (level 0) | 2 |
 | [SPL_Friends](SPL_Friends.md) | Friends | utility (level 1) | 2 |
 | [SPL_BindingFalsehood](SPL_BindingFalsehood.md) | Binding Falsehood | card (level 2) | 3 |
