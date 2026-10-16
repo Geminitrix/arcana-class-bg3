@@ -1392,12 +1392,12 @@
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Wisdom, SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(HasStatus('MOOD_SERENE')):SetStatusDuration(MOOD_SERENE,2,Add);IF(HasStatus('MOOD_ACCEPTING')):SetStatusDuration(MOOD_ACCEPTING,2,Add);IF(HasStatus('MOOD_APPREHENSIVE')):SetStatusDuration(MOOD_APPREHENSIVE,2,Add);IF(HasStatus('MOOD_DISTRACTED')):SetStatusDuration(MOOD_DISTRACTED,2,Add);IF(HasStatus('MOOD_PENSIVE')):SetStatusDuration(MOOD_PENSIVE,2,Add);IF(HasStatus('MOOD_BORED')):SetStatusDuration(MOOD_BORED,2,Add);IF(HasStatus('MOOD_ANNOYED')):SetStatusDuration(MOOD_ANNOYED,2,Add);IF(HasStatus('MOOD_INTERESTED')):SetStatusDuration(MOOD_INTERESTED,2,Add)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_AWE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d4,Psychic,Magical)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D4Cantrip))/2,Psychic,Magical);IF(not HasPassive('PotentCantrip',context.Source)):ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_ViciousMockery" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4429ea88g47bagb3d4g6f7bg5e631985e8de" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h27cd9c35g79dcgfe8ag4a28gffbbc9c787bd" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h27cd9c35g79dcgfe8ag4a28gffbbc9c787bd" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
@@ -3805,8 +3805,8 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9fef010dg839fgba01g7e54g3c5478e9271c" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h045bd194g26d5g807cgc80fga2a739761ca6" version="3" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="4" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h045bd194g26d5g807cgc80fga2a739761ca6" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANGER,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3909,7 +3909,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8bac4abgf6c5ga7f0g8314gd41d51e1564f" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae5b626egd26age05dg4867gce9f3d9f29f6" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc0dfda48gc315g7382gba67g44581519082f" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc0dfda48gc315g7382gba67g44581519082f" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANTICIPATION,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -3933,7 +3933,7 @@
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(3,'Arcana')" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(2,'Arcana')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4011,7 +4011,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_StinkingCloud" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hedf8f2eegaa05gad6dg11e0g8fd683911dee" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb340903g9895g7abagab32g73757d36a3fa" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_DISGUST,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4113,7 +4113,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h93ff502bg4574gae2fgc2d8g33efc8e11c61" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h08f3c330g8eb4g2559ge791g94b197007040" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="5" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="6" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_FEAR,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4214,7 +4214,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h39115ecdg0fcdg6b48g6ba7g8c4b34bd7d34" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0ac2085dg0c9eg1dc1geab9g59ef83e06ef5" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="5" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="6" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_JOY,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4316,7 +4316,7 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a75a416ga986g5255g13ffgf34e03ac8db6" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1f4e5c22g0007g4c4fga726g4383f2932cbd" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h20aa88d3gc278gc480g998fg7de3110adeaf" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h20aa88d3gc278gc480g998fg7de3110adeaf" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_SADNESS,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4418,7 +4418,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf137ae58g8126gd700g14b1g88a3dc40c0df" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h89b5caf8g4647gf8f8g1327g37736377b9c3" version="3" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6aec769dg5657g2de2gdda8g98468f8b1b3e" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6aec769dg5657g2de2gdda8g98468f8b1b3e" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_SURPRISE,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
@@ -4520,7 +4520,7 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0a3dddg6627g7f4cg1ec0g0a8b3fa96be8" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb3156ccdg87f0g5ca8gbf2eg4d66af967adb" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="5" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_TRUST,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />

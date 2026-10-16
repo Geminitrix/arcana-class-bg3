@@ -350,7 +350,7 @@
         <field name="Level" type="IntegerTableFieldDefinition" value="5" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerRest" enumeration_type_name="CooldownType" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SHARED_HEART,100,-1)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SHARED_HEART,100,-1);ApplyStatus(RESONANT_SHARED_JOY,100,1)" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="(Ally() or Self()) and Character() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_WardingBond" />

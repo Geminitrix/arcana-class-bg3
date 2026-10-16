@@ -155,6 +155,37 @@
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_ArcaneWard" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1b031160-3229-cce2-1455-b449f6aae3c3" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_DeeperFeelings_5" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h31915597gd2d5g7cbdg2883gc2f09b999d94" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hce69a2bfg67e8gfc6cg6f3cg6874e32b981a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bless" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0d18fc33-65ab-0a2e-458a-302de1b1c15a" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_DeeperFeelings_9" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h30d60507gbcf3g81d4gc1a2g17fa8495f79b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8bed1054g505dgcedagc365g910b46a8820b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bless" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a9aaa3ad-141c-7211-dbe7-a33ca83c4148" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Opposites" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h92dbff2dg13a7g4cafg3018gbd3e942003ca" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7c9f194ag24f1gdff8g4335g25b7a9ae33f3" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage))" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
     <stat_object color="#FFFF69B4" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ce4ad834-2163-4135-8c12-96065841b28b" />
@@ -680,8 +711,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="4d561166-4e56-8c48-9df6-48b09aed5d48" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_EmotionalAlchemy" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1eed7cf2g32ecg6457g066cg32e70b156dca" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha450de33gbdceg52f7g4683g5f6c92fad31b" version="2" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage))" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha450de33gbdceg52f7g4683g5f6c92fad31b" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1206,7 +1236,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="1f9095ba-357c-86b6-d08d-390a19b6f224" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Temperance_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h566c1015g2591gcbf4g72a5g3658701025a2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5fa3e61ag16c8g4653gc409g3f6c594fecce" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5fa3e61ag16c8g4653gc409g3f6c594fecce" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>

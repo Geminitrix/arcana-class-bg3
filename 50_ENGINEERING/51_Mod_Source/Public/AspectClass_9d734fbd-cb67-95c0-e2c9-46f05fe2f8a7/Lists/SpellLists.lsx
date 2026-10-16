@@ -195,7 +195,7 @@
                     <attribute id="UUID" type="guid" value="05269c79-116f-2b07-6dc1-deeefddc7ae4"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Resonant Level 3"/>
+                    <attribute id="Name" type="FixedString" value="Resonant Level 2"/>
                     <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_Temper"/>
                     <attribute id="UUID" type="guid" value="74e89dac-4330-83f6-cf7b-881854bd4663"/>
                 </node>
@@ -210,8 +210,13 @@
                     <attribute id="UUID" type="guid" value="f015022c-43e0-42f3-8f0a-0ab542e8641d"/>
                 </node>
                 <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Resonant Level 10"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_Compassion"/>
+                    <attribute id="UUID" type="guid" value="e9fb9260-2979-4c45-b326-59886e342963"/>
+                </node>
+                <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 11"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_SharedHeart"/>
                     <attribute id="UUID" type="guid" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f"/>
                 </node>
                 <node id="SpellList">

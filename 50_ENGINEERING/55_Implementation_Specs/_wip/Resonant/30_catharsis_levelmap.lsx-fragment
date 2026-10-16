@@ -18,7 +18,7 @@
                     <attribute id="Level6" type="LSString" value="3d8"/>
                     <attribute id="Level7" type="LSString" value="3d8"/>
                     <attribute id="Level8" type="LSString" value="3d8"/>
-                    <attribute id="Level9" type="LSString" value="3d8"/>
+                    <attribute id="Level9" type="LSString" value="4d8"/>
                     <attribute id="Name" type="FixedString" value="Catharsis_Damage"/>
                     <attribute id="UUID" type="guid" value="11006542-a7b5-4599-938a-2840982c4bb1"/>
                 </node>

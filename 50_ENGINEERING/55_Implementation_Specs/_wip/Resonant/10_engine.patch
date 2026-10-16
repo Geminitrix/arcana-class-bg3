@@ -14,45 +14,45 @@
 @loca HW_RESONANT_CONTAGION_DESC Its mood spills over: every creature within [1] catches it, again each turn.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_NAME Joy
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_DESC Pluck a bright thread of joy in an ally's Weave. The target's joy is contagious: it and allies near it have <LSTag Tooltip="Advantage">Advantage</LSTag> on their next attack.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> for 5 turns, with Advantage on Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ECSTASY">Ecstasy</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ECSTASY">Ecstasy</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_NAME Trust
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_DESC Steady an ally with a thread of trust. The target stands shoulder to shoulder with its allies, sharing the blows meant for them.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> for 5 turns, with a +1 bonus to <LSTag Tooltip="ArmourClass">Armour Class</LSTag>.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ADMIRATION">Admiration</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ADMIRATION">Admiration</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_NAME Fear
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_DESC Wrap a creature in a cold thread of fear. The target can't move and has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AbilityCheck">Ability Checks</LSTag> and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> for 5 turns, subtracting 1d4 from its Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_TERROR">Terror</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_TERROR">Terror</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_NAME Surprise
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_DESC Snap a thread of surprise before a creature's eyes. The target is caught off guard: it loses its reaction, and the next attack against it has <LSTag Tooltip="Advantage">Advantage</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> for 5 turns, with <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> to maintain Concentration.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_AMAZEMENT">Amazement</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_AMAZEMENT">Amazement</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_NAME Sadness
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_DESC Weigh a creature down with a grey thread of sorrow. The target lets go of what it holds: it loses Concentration and its bonus action.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> for 5 turns, with its <LSTag Tooltip="MovementSpeed">movement speed</LSTag> reduced by [1].
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_GRIEF">Grief</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_GRIEF">Grief</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_NAME Disgust
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_DESC Twist a creature's Weave into revulsion. The target can't take actions and has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on Constitution <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> for 5 turns, unable to take reactions.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_LOATHING">Loathing</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_LOATHING">Loathing</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_NAME Anger
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_DESC Set a red thread of fury alight in a creature's mind. The target bears a grudge: it attacks the last creature that hurt it, or the nearest one if nobody has.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> for 5 turns, with its <LSTag Tooltip="ArmourClass">Armour Class</LSTag> reduced by 1.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_RAGE">Rage</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_DESC Set a red thread of fury alight in a creature's mind. The target bears a grudge: it attacks the last creature that hurt it, or the nearest one if nobody has. Strike it first to draw its rage.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> for 5 turns, with its <LSTag Tooltip="ArmourClass">Armour Class</LSTag> reduced by 1.
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_RAGE">Rage</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_NAME Anticipation
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_DESC Pull a taut thread of anticipation through an ally's Weave. The target stands on guard and strikes the first enemy that comes within reach.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> for 5 turns, with its <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increased by [1].
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_VIGILANCE">Vigilance</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_VIGILANCE">Vigilance</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Secondary (level 6): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_NAME Weave Surge
 @loca HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_DESC Pour an emotion into a creature's Weave. Choose the emotion.
 @loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_NAME Emotional Overload
 @loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_DESC Pour everything you feel into a creature's mind. Every feeling it carries is spent. If it fails a Wisdom <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>, each feeling deals [1] and it dances helplessly for 1 turn; if it succeeds, each feeling deals half. Either way it suffers Mental Fatigue. Ends Overloaded.
 @loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_NAME Heartstring
-@loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_DESC Pluck the string a creature's heart hangs from. It takes [1], and a mood it carries lasts 2 turns longer.
+@loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_DESC Pluck the string a creature's heart hangs from. It takes [1], and 1d4 more for each feeling it carries.
 @loca HW_TARGET_ARCANA_CARD_SPELL_TEMPER_NAME Temper
 @loca HW_TARGET_ARCANA_CARD_SPELL_TEMPER_DESC Spend a creature's mood to make it relive the emotion it came from for 1 turn. That emotion leaves nothing behind when it fades. A creature that is not your ally can resist with a Wisdom <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>.
 @loca HW_TARGET_ARCANA_CARD_SPELL_TEMPER_EXTRA <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_JOY">Joy</LSTag>, <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_TRUST">Trust</LSTag>, <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_FEAR">Fear</LSTag>, <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_SURPRISE">Surprise</LSTag>, <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_SADNESS">Sadness</LSTag>, <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_DISGUST">Disgust</LSTag>, <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ANGER">Anger</LSTag>, <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ANTICIPATION">Anticipation</LSTag>.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_NAME 14 - Temperance
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_DESC Awakened as the Aspect of Empathy until combat ends.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_I_NAME 14 - Temperance: Awakened I
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_I_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_I_DESC Resonance: Catharsis deals or restores an extra 1d8.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_II_NAME 14 - Temperance: Awakened II
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC Resonance: Catharsis deals or restores an extra 1d8.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_III_NAME 14 - Temperance: Awakened III
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.<br><br>Aspect of Empathy: When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.<br><br>Aspect of Empathy: When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_NAME Awakening Progress
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_DESC Reactions you have caused this fight, towards your next Awakening tier.
 @loca HW_RESONANT_TWO_CUPS_CATHARSIS_NAME Catharsis
@@ -61,7 +61,7 @@
 @loca HW_RESONANT_SURGE_FREE_NAME Harmony
 @loca HW_RESONANT_SURGE_FREE_DESC Your next Weave Surge this turn costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_NAME Resonance
-@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_DESC Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.
+@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_DESC Catharsis deals or restores an extra 1d8.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_NAME Harmony
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_DESC Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_NAME Aspect of Empathy
@@ -79,49 +79,49 @@
 @loca HW_EMOTION_JOY_NAME Emotion: Joy
 @loca HW_EMOTION_JOY_DESC Surging with Joy. Its joy is contagious: it and its allies within [1] have <LSTag Tooltip="Advantage">Advantage</LSTag> on their next attack.
 @loca HW_MOOD_SERENE_NAME Mood: Serene
-@loca HW_MOOD_SERENE_DESC The fading echo of Joy. Has <LSTag Tooltip="Advantage">Advantage</LSTag> on Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
+@loca HW_MOOD_SERENE_DESC The fading echo of Joy. Has <LSTag Tooltip="Advantage">Advantage</LSTag> on Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>. Poured into it: Joy makes <LSTag Type="Status" Tooltip="EMOTION_ECSTASY">Ecstasy</LSTag> (level 7); Trust makes <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>; Fear makes <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag> (level 6); Surprise makes <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag> (level 9); Sadness makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Disgust makes <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag> (level 9); Anger makes <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag> (level 6); Anticipation makes <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.
 @loca HW_EMOTION_ECSTASY_NAME Emotion: Ecstasy
 @loca HW_EMOTION_ECSTASY_DESC Joy surged again on its own echo. Has an additional action.
 @loca HW_EMOTION_TRUST_NAME Emotion: Trust
 @loca HW_EMOTION_TRUST_DESC Surging with Trust. Shoulder to shoulder: when an ally within [1] is hit by an attack, it can use its reaction to share the blow. The ally is <LSTag Tooltip="Resistant">Resistant</LSTag> to it, and it takes the same damage.
 @loca HW_MOOD_ACCEPTING_NAME Mood: Accepting
-@loca HW_MOOD_ACCEPTING_DESC The fading echo of Trust. <LSTag Tooltip="ArmourClass">Armour Class</LSTag> increased by 1.
+@loca HW_MOOD_ACCEPTING_DESC The fading echo of Trust. <LSTag Tooltip="ArmourClass">Armour Class</LSTag> increased by 1. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>; Trust makes <LSTag Type="Status" Tooltip="EMOTION_ADMIRATION">Admiration</LSTag> (level 7); Fear makes <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>; Surprise makes <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag> (level 6); Sadness makes <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag> (level 9); Disgust makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Anger makes <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag> (level 9); Anticipation makes <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag> (level 6).
 @loca HW_EMOTION_ADMIRATION_NAME Emotion: Admiration
 @loca HW_EMOTION_ADMIRATION_DESC Trust surged again on its own echo. <LSTag Tooltip="Resistant">Resistant</LSTag> to all damage. Cannot be <LSTag Type="Status" Tooltip="CHARMED">Charmed</LSTag> or <LSTag Type="Status" Tooltip="FRIGHTENED">Frightened</LSTag>.
 @loca HW_EMOTION_FEAR_NAME Emotion: Fear
 @loca HW_EMOTION_FEAR_DESC Surging with Fear. Frozen with fear: can't move. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AbilityCheck">Ability Checks</LSTag> and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.
 @loca HW_MOOD_APPREHENSIVE_NAME Mood: Apprehensive
-@loca HW_MOOD_APPREHENSIVE_DESC The fading echo of Fear. Subtracts 1d4 from Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
+@loca HW_MOOD_APPREHENSIVE_DESC The fading echo of Fear. Subtracts 1d4 from Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag> (level 6); Trust makes <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>; Fear makes <LSTag Type="Status" Tooltip="EMOTION_TERROR">Terror</LSTag> (level 7); Surprise makes <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>; Sadness makes <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag> (level 6); Disgust makes <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag> (level 9); Anger makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Anticipation makes <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag> (level 9).
 @loca HW_EMOTION_TERROR_NAME Emotion: Terror
 @loca HW_EMOTION_TERROR_DESC Fear surged again on its own echo. Flees in terror. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AbilityCheck">Ability Checks</LSTag> and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.
 @loca HW_EMOTION_SURPRISE_NAME Emotion: Surprise
 @loca HW_EMOTION_SURPRISE_DESC Surging with Surprise. Caught off guard: can't take reactions, and the next attack against it has <LSTag Tooltip="Advantage">Advantage</LSTag>.
 @loca HW_MOOD_DISTRACTED_NAME Mood: Distracted
-@loca HW_MOOD_DISTRACTED_DESC The fading echo of Surprise. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> to maintain Concentration.
+@loca HW_MOOD_DISTRACTED_DESC The fading echo of Surprise. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> to maintain Concentration. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag> (level 9); Trust makes <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag> (level 6); Fear makes <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>; Surprise makes <LSTag Type="Status" Tooltip="EMOTION_AMAZEMENT">Amazement</LSTag> (level 7); Sadness makes <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>; Disgust makes <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag> (level 6); Anger makes <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag> (level 9); Anticipation makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.
 @loca HW_EMOTION_AMAZEMENT_NAME Emotion: Amazement
 @loca HW_EMOTION_AMAZEMENT_DESC Surprise surged again on its own echo. <LSTag Type="Status" Tooltip="STUNNED">Stunned</LSTag>: can't move or take actions or reactions. Automatically fails Strength and Dexterity <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>, and attacks against it have <LSTag Tooltip="Advantage">Advantage</LSTag>.
 @loca HW_EMOTION_SADNESS_NAME Emotion: Sadness
 @loca HW_EMOTION_SADNESS_DESC Surging with Sadness. Lets go of what it holds: loses Concentration and can't take bonus actions.
 @loca HW_MOOD_PENSIVE_NAME Mood: Pensive
-@loca HW_MOOD_PENSIVE_DESC The fading echo of Sadness. <LSTag Tooltip="MovementSpeed">Movement speed</LSTag> reduced by [1].
+@loca HW_MOOD_PENSIVE_DESC The fading echo of Sadness. <LSTag Tooltip="MovementSpeed">Movement speed</LSTag> reduced by [1]. Poured into it: Joy makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Trust makes <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag> (level 9); Fear makes <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag> (level 6); Surprise makes <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>; Sadness makes <LSTag Type="Status" Tooltip="EMOTION_GRIEF">Grief</LSTag> (level 7); Disgust makes <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>; Anger makes <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag> (level 6); Anticipation makes <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag> (level 9).
 @loca HW_EMOTION_GRIEF_NAME Emotion: Grief
 @loca HW_EMOTION_GRIEF_DESC Sadness surged again on its own echo. Incapacitated: can't move or take actions, bonus actions or reactions.
 @loca HW_EMOTION_DISGUST_NAME Emotion: Disgust
 @loca HW_EMOTION_DISGUST_DESC Surging with Disgust. Can't take actions. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on Constitution <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
 @loca HW_MOOD_BORED_NAME Mood: Bored
-@loca HW_MOOD_BORED_DESC The fading echo of Disgust. Can't take reactions.
+@loca HW_MOOD_BORED_DESC The fading echo of Disgust. Can't take reactions. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag> (level 9); Trust makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Fear makes <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag> (level 9); Surprise makes <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag> (level 6); Sadness makes <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>; Disgust makes <LSTag Type="Status" Tooltip="EMOTION_LOATHING">Loathing</LSTag> (level 7); Anger makes <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>; Anticipation makes <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag> (level 6).
 @loca HW_EMOTION_LOATHING_NAME Emotion: Loathing
 @loca HW_EMOTION_LOATHING_DESC Disgust surged again on its own echo. Can't take actions or bonus actions. Has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> and <LSTag Tooltip="AbilityCheck">Ability Checks</LSTag>.
 @loca HW_EMOTION_ANGER_NAME Emotion: Anger
 @loca HW_EMOTION_ANGER_DESC Surging with Anger. Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has.
 @loca HW_MOOD_ANNOYED_NAME Mood: Annoyed
-@loca HW_MOOD_ANNOYED_DESC The fading echo of Anger. <LSTag Tooltip="ArmourClass">Armour Class</LSTag> reduced by 1.
+@loca HW_MOOD_ANNOYED_DESC The fading echo of Anger. <LSTag Tooltip="ArmourClass">Armour Class</LSTag> reduced by 1. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag> (level 6); Trust makes <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag> (level 9); Fear makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Surprise makes <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag> (level 9); Sadness makes <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag> (level 6); Disgust makes <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>; Anger makes <LSTag Type="Status" Tooltip="EMOTION_RAGE">Rage</LSTag> (level 7); Anticipation makes <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.
 @loca HW_EMOTION_RAGE_NAME Emotion: Rage
 @loca HW_EMOTION_RAGE_DESC Anger surged again on its own echo. Bears a grudge: attacks the last creature that hurt it, or the nearest one if nobody has, with <LSTag Tooltip="Advantage">Advantage</LSTag>. Attacks against it also have Advantage.
 @loca HW_EMOTION_ANTICIPATION_NAME Emotion: Anticipation
 @loca HW_EMOTION_ANTICIPATION_DESC Surging with Anticipation. On guard: when an enemy enters its reach, it can use its reaction to attack first.
 @loca HW_MOOD_INTERESTED_NAME Mood: Interested
-@loca HW_MOOD_INTERESTED_DESC The fading echo of Anticipation. <LSTag Tooltip="MovementSpeed">Movement speed</LSTag> increased by [1].
+@loca HW_MOOD_INTERESTED_DESC The fading echo of Anticipation. <LSTag Tooltip="MovementSpeed">Movement speed</LSTag> increased by [1]. Poured into it: Joy makes <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>; Trust makes <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag> (level 6); Fear makes <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag> (level 9); Surprise makes <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>; Sadness makes <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag> (level 9); Disgust makes <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag> (level 6); Anger makes <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>; Anticipation makes <LSTag Type="Status" Tooltip="EMOTION_VIGILANCE">Vigilance</LSTag> (level 7).
 @loca HW_EMOTION_VIGILANCE_NAME Emotion: Vigilance
 @loca HW_EMOTION_VIGILANCE_DESC Anticipation surged again on its own echo. Has 2 additional reactions and <LSTag Tooltip="Advantage">Advantage</LSTag> on Dexterity <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
 @loca HW_FEELING_AGGRESSIVENESS_NAME Feeling: Aggressiveness
@@ -205,7 +205,13 @@
 @loca HW_CATHARSIS_NAME Catharsis
 @loca HW_CATHARSIS_DESC Opposing emotions, snapped at once. Every mood is spent.
 @loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_NAME Emotional Alchemy
-@loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>, that lasts 2 turns.<br><br>Opposing emotions snap into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.
+@loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent. Only an emotion that fades on its own leaves a mood.<br><br>Neighbouring emotions braid into a feeling, such as <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>, that lasts 2 turns.<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.<br><br>Weave Surges cast for you never braid a hindering feeling into an ally.
+@loca HW_ARCANA_PASSIVE_OPPOSITES_NAME Opposites
+@loca HW_ARCANA_PASSIVE_OPPOSITES_DESC A Weave Surge poured into the mood of its opposite emotion snaps into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>: an enemy takes [1] and an ally regains [2], and the mood is spent.
+@loca HW_ARCANA_PASSIVE_DEEPERFEELINGS_5_NAME Deeper Feelings
+@loca HW_ARCANA_PASSIVE_DEEPERFEELINGS_5_DESC Your moods and feelings grow stronger.
+@loca HW_ARCANA_PASSIVE_DEEPERFEELINGS_9_NAME Deeper Feelings
+@loca HW_ARCANA_PASSIVE_DEEPERFEELINGS_9_DESC Your moods and feelings grow stronger.
 @loca HW_ARCANA_PASSIVE_OVERLOAD_NAME Overload
 @loca HW_ARCANA_PASSIVE_OVERLOAD_DESC You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more. At 100% you become Overloaded, and Emotional Overload pours it out. After a fight, your Overload settles to half.
 @loca HW_ARCANA_PASSIVE_EMPATHICSIGHT_NAME Empathic Sight
@@ -543,7 +549,7 @@ data "HitAnimationType" "MagicalNonDamage"
 data "MemoryCost" "1"
 data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
 data "ContainerSpells" ""
-data "RequirementConditions" "ClassLevelHigherOrEqualThan(3,'Arcana')"
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(2,'Arcana')"
 
 new entry "Target_Arcana_Card_Spell_WeaveSurge"
 type "SpellData"
@@ -608,7 +614,7 @@ data "SpellSchool" "Enchantment"
 data "TargetRadius" "18"
 data "AmountOfTargets" "1"
 data "SpellRoll" "not SavingThrow(Ability.Wisdom, SourceSpellDC())"
-data "SpellSuccess" "DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(HasStatus('MOOD_SERENE')):SetStatusDuration(MOOD_SERENE,2,Add);IF(HasStatus('MOOD_ACCEPTING')):SetStatusDuration(MOOD_ACCEPTING,2,Add);IF(HasStatus('MOOD_APPREHENSIVE')):SetStatusDuration(MOOD_APPREHENSIVE,2,Add);IF(HasStatus('MOOD_DISTRACTED')):SetStatusDuration(MOOD_DISTRACTED,2,Add);IF(HasStatus('MOOD_PENSIVE')):SetStatusDuration(MOOD_PENSIVE,2,Add);IF(HasStatus('MOOD_BORED')):SetStatusDuration(MOOD_BORED,2,Add);IF(HasStatus('MOOD_ANNOYED')):SetStatusDuration(MOOD_ANNOYED,2,Add);IF(HasStatus('MOOD_INTERESTED')):SetStatusDuration(MOOD_INTERESTED,2,Add)"
+data "SpellSuccess" "DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_AWE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d4,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d4,Psychic,Magical)"
 data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D4Cantrip))/2,Psychic,Magical);IF(not HasPassive('PotentCantrip',context.Source)):ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)"
 data "TargetConditions" "Character() and not Self() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)"
 data "Icon" "Spell_Enchantment_ViciousMockery"
@@ -762,7 +768,7 @@ data "SpellType" "Shout"
 data "Level" "5"
 data "SpellSchool" "Enchantment"
 data "Cooldown" "OncePerRest"
-data "SpellProperties" "ApplyStatus(SHARED_HEART,100,-1)"
+data "SpellProperties" "ApplyStatus(SHARED_HEART,100,-1);ApplyStatus(RESONANT_SHARED_JOY,100,1)"
 data "AreaRadius" "18"
 data "TargetConditions" "(Ally() or Self()) and Character() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)"
 data "Icon" "Spell_Abjuration_WardingBond"
@@ -793,8 +799,8 @@ data "StackId" "EMOTION"
 data "TickType" "EndTurn"
 data "AuraRadius" "3"
 data "AuraStatuses" "IF(Ally() or Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_SERENE,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_SERENE,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_SERENE,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_SERENE"
 type "StatusData"
@@ -828,8 +834,8 @@ data "StackId" "EMOTION"
 data "TickType" "StartTurn"
 data "Boosts" "UnlockInterrupt(Interrupt_Arcana_TrustShoulder)"
 data "StatusPropertyFlags" "TickingWithSource"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_ACCEPTING,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_ACCEPTING"
 type "StatusData"
@@ -863,8 +869,8 @@ data "TickType" "EndTurn"
 data "Boosts" "Disadvantage(AllAbilities);Disadvantage(AttackRoll);ActionResourceBlock(Movement)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Frightened;SG_Condition"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_APPREHENSIVE,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_APPREHENSIVE"
 type "StatusData"
@@ -874,7 +880,7 @@ data "Description" "{{HW_MOOD_APPREHENSIVE_DESC}}"
 data "Icon" "Spell_Illusion_PhantasmalKiller"
 data "StackId" "MOOD"
 data "TickType" "EndTurn"
-data "Boosts" "RollBonus(SavingThrow,-1d4,Wisdom)"
+data "Boosts" "RollBonus(SavingThrow,LevelMapValue(Resonant_Die4Neg),Wisdom)"
 
 new entry "EMOTION_SURPRISE"
 type "StatusData"
@@ -887,8 +893,8 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(ReactionActionPoint)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
-data "OnApplyFunctors" "ApplyStatus(RESONANT_SURPRISE_OPENING,100,1);IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "ApplyStatus(RESONANT_SURPRISE_OPENING,100,1);IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_DISTRACTED,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_DISTRACTED"
 type "StatusData"
@@ -911,8 +917,8 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(BonusActionPoint)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
-data "OnApplyFunctors" "BreakConcentration();IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "BreakConcentration();IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_PENSIVE,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_PENSIVE"
 type "StatusData"
@@ -936,8 +942,8 @@ data "TickType" "EndTurn"
 data "Boosts" "ActionResourceBlock(ActionPoint);Disadvantage(SavingThrow,Constitution)"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_BORED,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_BORED,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_BORED,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_BORED"
 type "StatusData"
@@ -972,8 +978,8 @@ data "StackId" "EMOTION"
 data "TickType" "EndTurn"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_ANNOYED,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_ANNOYED"
 type "StatusData"
@@ -1008,8 +1014,8 @@ data "StackId" "EMOTION"
 data "TickType" "StartTurn"
 data "Boosts" "UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)"
 data "StatusPropertyFlags" "TickingWithSource"
-data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7)"
-data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7);RemoveStatus(RESONANT_REPLAY)"
+data "OnApplyFunctors" "IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,5)"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY')):ApplyStatus(MOOD_INTERESTED,100,5);RemoveStatus(RESONANT_REPLAY)"
 
 new entry "MOOD_INTERESTED"
 type "StatusData"
@@ -1038,11 +1044,11 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_FEELING_AGGRESSIVENESS_NAME}}"
 data "Description" "{{HW_FEELING_AGGRESSIVENESS_DESC}}"
-data "DescriptionParams" "DealDamage(1d4, MainMeleeWeaponDamageType)"
+data "DescriptionParams" "DealDamage(LevelMapValue(Resonant_Die4), MainMeleeWeaponDamageType)"
 data "Icon" "Action_Barbarian_Rage"
 data "StackId" "FEELING_AGGRESSIVENESS"
 data "TickType" "EndTurn"
-data "Boosts" "CharacterWeaponDamage(1d4);ActionResource(ReactionActionPoint,1,0)"
+data "Boosts" "CharacterWeaponDamage(LevelMapValue(Resonant_Die4));ActionResource(ReactionActionPoint,1,0)"
 data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ANNOYED);RemoveStatus(MOOD_INTERESTED)"
 
@@ -1106,12 +1112,12 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_FEELING_DELIGHT_NAME}}"
 data "Description" "{{HW_FEELING_DELIGHT_DESC}}"
-data "DescriptionParams" "RegainHitPoints(1d6)"
+data "DescriptionParams" "RegainHitPoints(LevelMapValue(Resonant_Die6))"
 data "Icon" "Spell_Enchantment_Heroism"
 data "StackId" "FEELING_DELIGHT"
 data "TickType" "EndTurn"
 data "StackType" "Additive"
-data "TickFunctors" "RegainHitPoints(1d6)"
+data "TickFunctors" "RegainHitPoints(LevelMapValue(Resonant_Die6))"
 data "OnApplyFunctors" "RemoveStatus(MOOD_SERENE);RemoveStatus(MOOD_DISTRACTED)"
 
 new entry "FEELING_DESPAIR"
@@ -1122,7 +1128,7 @@ data "Description" "{{HW_FEELING_DESPAIR_DESC}}"
 data "Icon" "Spell_Enchantment_Bane"
 data "StackId" "FEELING_DESPAIR"
 data "TickType" "EndTurn"
-data "Boosts" "RollBonus(Attack,-1d4);RollBonus(SavingThrow,-1d4);RollBonus(DeathSavingThrow,-1d4)"
+data "Boosts" "RollBonus(Attack,LevelMapValue(Resonant_Die4Neg));RollBonus(SavingThrow,LevelMapValue(Resonant_Die4Neg));RollBonus(DeathSavingThrow,LevelMapValue(Resonant_Die4Neg))"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
 data "StackType" "Additive"
@@ -1192,7 +1198,7 @@ data "Description" "{{HW_FEELING_HOPE_DESC}}"
 data "Icon" "Spell_Enchantment_Bless"
 data "StackId" "FEELING_HOPE"
 data "TickType" "EndTurn"
-data "Boosts" "RollBonus(Attack,1d4);RollBonus(SavingThrow,1d4);RollBonus(DeathSavingThrow,1d4)"
+data "Boosts" "RollBonus(Attack,LevelMapValue(Resonant_Die4));RollBonus(SavingThrow,LevelMapValue(Resonant_Die4));RollBonus(DeathSavingThrow,LevelMapValue(Resonant_Die4))"
 data "StackType" "Additive"
 data "OnApplyFunctors" "RemoveStatus(MOOD_ACCEPTING);RemoveStatus(MOOD_INTERESTED)"
 
@@ -1257,7 +1263,7 @@ data "Description" "{{HW_FEELING_PESSIMISM_DESC}}"
 data "Icon" "Spell_Necromancy_RayOfInfeeblement"
 data "StackId" "FEELING_PESSIMISM"
 data "TickType" "EndTurn"
-data "Boosts" "RollBonus(SavingThrow,-1d6);RollBonus(SkillCheck,-1d6);RollBonus(RawAbility,-1d6)"
+data "Boosts" "RollBonus(SavingThrow,LevelMapValue(Resonant_Die6Neg));RollBonus(SkillCheck,LevelMapValue(Resonant_Die6Neg));RollBonus(RawAbility,LevelMapValue(Resonant_Die6Neg))"
 data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
 data "StatusGroups" "SG_Condition"
 data "StackType" "Additive"
@@ -1362,7 +1368,7 @@ data "StatusType" "BOOST"
 data "DisplayName" "{{HW_FEELING_REMORSE_TECH_NAME}}"
 data "StackId" "FEELING_REMORSE_TECH"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-data "OnApplyFunctors" "DealDamage(1d6,Psychic,Magical)"
+data "OnApplyFunctors" "DealDamage(LevelMapValue(Resonant_Die6),Psychic,Magical)"
 
 new entry "FEELING_MORBIDNESS_TECH"
 type "StatusData"
@@ -1370,7 +1376,7 @@ data "StatusType" "BOOST"
 data "DisplayName" "{{HW_FEELING_MORBIDNESS_TECH_NAME}}"
 data "StackId" "FEELING_MORBIDNESS_TECH"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-data "OnApplyFunctors" "RegainHitPoints(1d6)"
+data "OnApplyFunctors" "RegainHitPoints(LevelMapValue(Resonant_Die6))"
 
 new entry "RESONANT_REFUND_TECH"
 type "StatusData"
@@ -1698,6 +1704,12 @@ data "RemoveEvents" "OnCombatEnded"
 data "StatusPropertyFlags" "IgnoreResting;ForceOverhead"
 data "StatusGroups" "SG_RemoveOnRespec"
 
+new entry "RESONANT_SHARED_JOY"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EMOTION_JOY"
+data "StackId" "EMOTION"
+
 new entry "RESONANT_SHARED_CATHARSIS"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -1776,8 +1788,29 @@ new entry "Arcana_Passive_EmotionalAlchemy"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC}}"
+data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Opposites"
+type "PassiveData"
+data "DisplayName" "{{HW_ARCANA_PASSIVE_OPPOSITES_NAME}}"
+data "Description" "{{HW_ARCANA_PASSIVE_OPPOSITES_DESC}}"
 data "DescriptionParams" "DealDamage(LevelMapValue(Catharsis_Damage),Psychic);RegainHitPoints(LevelMapValue(Catharsis_Damage))"
 data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_DeeperFeelings_5"
+type "PassiveData"
+data "DisplayName" "{{HW_ARCANA_PASSIVE_DEEPERFEELINGS_5_NAME}}"
+data "Description" "{{HW_ARCANA_PASSIVE_DEEPERFEELINGS_5_DESC}}"
+data "Icon" "Spell_Enchantment_Bless"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_DeeperFeelings_9"
+type "PassiveData"
+data "DisplayName" "{{HW_ARCANA_PASSIVE_DEEPERFEELINGS_9_NAME}}"
+data "Description" "{{HW_ARCANA_PASSIVE_DEEPERFEELINGS_9_DESC}}"
+data "Icon" "Spell_Enchantment_Bless"
 data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_Overload"

@@ -270,7 +270,7 @@
     <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="74e89dac-4330-83f6-cf7b-881854bd4663" />
-        <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 3" />
+        <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 2" />
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Temper" />
       </fields>
     </stat_object>
@@ -288,11 +288,18 @@
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionalContagion" />
       </fields>
     </stat_object>
+    <stat_object color="#FF6A5ACD" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e9fb9260-2979-4c45-b326-59886e342963" />
+        <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 10" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_Compassion" />
+      </fields>
+    </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e7063c7e-67e5-4887-8f3a-8ed09a03340f" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 11" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_Compassion;Shout_Arcana_Card_Spell_SharedHeart" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_SharedHeart" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">

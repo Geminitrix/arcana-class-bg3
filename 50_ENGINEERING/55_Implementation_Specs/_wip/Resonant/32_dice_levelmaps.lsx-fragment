@@ -1,0 +1,96 @@
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d4"/>
+                    <attribute id="Level10" type="LSString" value="1d8"/>
+                    <attribute id="Level11" type="LSString" value="1d8"/>
+                    <attribute id="Level12" type="LSString" value="1d8"/>
+                    <attribute id="Level13" type="LSString" value="1d8"/>
+                    <attribute id="Level14" type="LSString" value="1d8"/>
+                    <attribute id="Level15" type="LSString" value="1d8"/>
+                    <attribute id="Level16" type="LSString" value="1d8"/>
+                    <attribute id="Level17" type="LSString" value="1d8"/>
+                    <attribute id="Level18" type="LSString" value="1d8"/>
+                    <attribute id="Level19" type="LSString" value="1d8"/>
+                    <attribute id="Level2" type="LSString" value="1d4"/>
+                    <attribute id="Level20" type="LSString" value="1d8"/>
+                    <attribute id="Level3" type="LSString" value="1d4"/>
+                    <attribute id="Level4" type="LSString" value="1d4"/>
+                    <attribute id="Level5" type="LSString" value="1d6"/>
+                    <attribute id="Level6" type="LSString" value="1d6"/>
+                    <attribute id="Level7" type="LSString" value="1d6"/>
+                    <attribute id="Level8" type="LSString" value="1d6"/>
+                    <attribute id="Level9" type="LSString" value="1d8"/>
+                    <attribute id="Name" type="FixedString" value="Resonant_Die4"/>
+                    <attribute id="UUID" type="guid" value="e7480976-ff78-4826-9576-e31f2ee9e7e0"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="-1d4"/>
+                    <attribute id="Level10" type="LSString" value="-1d8"/>
+                    <attribute id="Level11" type="LSString" value="-1d8"/>
+                    <attribute id="Level12" type="LSString" value="-1d8"/>
+                    <attribute id="Level13" type="LSString" value="-1d8"/>
+                    <attribute id="Level14" type="LSString" value="-1d8"/>
+                    <attribute id="Level15" type="LSString" value="-1d8"/>
+                    <attribute id="Level16" type="LSString" value="-1d8"/>
+                    <attribute id="Level17" type="LSString" value="-1d8"/>
+                    <attribute id="Level18" type="LSString" value="-1d8"/>
+                    <attribute id="Level19" type="LSString" value="-1d8"/>
+                    <attribute id="Level2" type="LSString" value="-1d4"/>
+                    <attribute id="Level20" type="LSString" value="-1d8"/>
+                    <attribute id="Level3" type="LSString" value="-1d4"/>
+                    <attribute id="Level4" type="LSString" value="-1d4"/>
+                    <attribute id="Level5" type="LSString" value="-1d6"/>
+                    <attribute id="Level6" type="LSString" value="-1d6"/>
+                    <attribute id="Level7" type="LSString" value="-1d6"/>
+                    <attribute id="Level8" type="LSString" value="-1d6"/>
+                    <attribute id="Level9" type="LSString" value="-1d8"/>
+                    <attribute id="Name" type="FixedString" value="Resonant_Die4Neg"/>
+                    <attribute id="UUID" type="guid" value="259ccc06-9888-4067-ae84-429e4cea474e"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d6"/>
+                    <attribute id="Level10" type="LSString" value="1d10"/>
+                    <attribute id="Level11" type="LSString" value="1d10"/>
+                    <attribute id="Level12" type="LSString" value="1d10"/>
+                    <attribute id="Level13" type="LSString" value="1d10"/>
+                    <attribute id="Level14" type="LSString" value="1d10"/>
+                    <attribute id="Level15" type="LSString" value="1d10"/>
+                    <attribute id="Level16" type="LSString" value="1d10"/>
+                    <attribute id="Level17" type="LSString" value="1d10"/>
+                    <attribute id="Level18" type="LSString" value="1d10"/>
+                    <attribute id="Level19" type="LSString" value="1d10"/>
+                    <attribute id="Level2" type="LSString" value="1d6"/>
+                    <attribute id="Level20" type="LSString" value="1d10"/>
+                    <attribute id="Level3" type="LSString" value="1d6"/>
+                    <attribute id="Level4" type="LSString" value="1d6"/>
+                    <attribute id="Level5" type="LSString" value="1d8"/>
+                    <attribute id="Level6" type="LSString" value="1d8"/>
+                    <attribute id="Level7" type="LSString" value="1d8"/>
+                    <attribute id="Level8" type="LSString" value="1d8"/>
+                    <attribute id="Level9" type="LSString" value="1d10"/>
+                    <attribute id="Name" type="FixedString" value="Resonant_Die6"/>
+                    <attribute id="UUID" type="guid" value="c80921ce-0450-4e6f-a496-2f69e637a3de"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="-1d6"/>
+                    <attribute id="Level10" type="LSString" value="-1d10"/>
+                    <attribute id="Level11" type="LSString" value="-1d10"/>
+                    <attribute id="Level12" type="LSString" value="-1d10"/>
+                    <attribute id="Level13" type="LSString" value="-1d10"/>
+                    <attribute id="Level14" type="LSString" value="-1d10"/>
+                    <attribute id="Level15" type="LSString" value="-1d10"/>
+                    <attribute id="Level16" type="LSString" value="-1d10"/>
+                    <attribute id="Level17" type="LSString" value="-1d10"/>
+                    <attribute id="Level18" type="LSString" value="-1d10"/>
+                    <attribute id="Level19" type="LSString" value="-1d10"/>
+                    <attribute id="Level2" type="LSString" value="-1d6"/>
+                    <attribute id="Level20" type="LSString" value="-1d10"/>
+                    <attribute id="Level3" type="LSString" value="-1d6"/>
+                    <attribute id="Level4" type="LSString" value="-1d6"/>
+                    <attribute id="Level5" type="LSString" value="-1d8"/>
+                    <attribute id="Level6" type="LSString" value="-1d8"/>
+                    <attribute id="Level7" type="LSString" value="-1d8"/>
+                    <attribute id="Level8" type="LSString" value="-1d8"/>
+                    <attribute id="Level9" type="LSString" value="-1d10"/>
+                    <attribute id="Name" type="FixedString" value="Resonant_Die6Neg"/>
+                    <attribute id="UUID" type="guid" value="f547421b-e27b-4f6c-b969-e2861132421b"/>
+                </node>
