@@ -45,3 +45,5 @@ player feels.
 - 2026-10-16 — created. Game read with `dump_progression.pl` (matches `05.02/Starchild.md`). Depth audit recorded in
   `REFINE_Starchild.md`. Owner brief: healer first (Soraka), with paths of light — sun (Fire), moon (Cold), star
   (Radiant, healing) — either two paths on a star trunk or three paths. Nothing in the game changed.
+- 2026-10-16 — Owner: one light (Star / Sun / Moon) changes every heal, ranked with the Awakening tiers (SC1, option C);
+  chosen once per long rest, shown as a status until the next long rest (SC2). The term "path" is retired; name open.

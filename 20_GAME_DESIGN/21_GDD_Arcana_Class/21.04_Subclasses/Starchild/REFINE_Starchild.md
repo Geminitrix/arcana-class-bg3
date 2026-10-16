@@ -125,7 +125,24 @@ Gravity, Equinox, Astral Fortitude, Solar Flare, Final Spark, Stellar Grace).
 4. **The paths fit the card perfectly:** The Star (XVII) is followed by The Moon (XVIII) and The Sun (XIX) — the three
    luminaries in tarot order (S2, to be cited to Waite 1910 in S7).
 
-## 4. Open question — how the paths work (asked 2026-10-16)
+## 4. How the lights work (answered 2026-10-16)
 
-Recorded in the session: three options (a fork Sun or Moon on a Star trunk; three lights chosen card by card; one light
-sworn at an early level that changes every heal), compared on the same turn. Answer → `SC1`.
+Three options compared on the same turn (level 7; a Fighter at 40% HP between two goblins; Starcall, then Astral
+Infusion): **A** a fork Sun or Moon on a Star trunk, each with its own cards; **B** three lights chosen card by card;
+**C** one light that changes every heal, ranked with the Awakening tiers. Owner chose **C** (`SC1`) and made the choice
+**once per long rest** (`SC2`).
+
+Notes on SC2 for the design and the build:
+- **Proven patterns in the mod:** a chooser with `Cooldown OncePerRest` (Starbreath, Stellar Grace) and a status that
+  ends on long rest (`StatusPropertyFlags RemoveOnLongRest`, the card-passive rule — `LUNAR_WISP_BLESSING`). The
+  chooser is a utility (`Arcana_Util_`), outside the PC deck; both editions share it (DM-P10, DM-T1).
+- **Risk — the forgotten choice:** with no light her heals are plain. Brake to decide: a visible "no light" reminder, or
+  a default light. Open.
+- **Watch — a dominant light (DM-B5):** a daily choice lets the player pick by the day ahead, which is a real decision
+  only if each light wins some days. Test in `61.02`.
+- **Seed for the axis / ultimate (not decided):** changing light *inside* a fight is the Transformation axis' question
+  ("which form am I in, and when do I switch?"); an ultimate or the Aspect card that shifts or joins lights for a turn
+  would read the state (DM-K7).
+- **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
+
+Next: the name of the choice (the Owner retired "path").
