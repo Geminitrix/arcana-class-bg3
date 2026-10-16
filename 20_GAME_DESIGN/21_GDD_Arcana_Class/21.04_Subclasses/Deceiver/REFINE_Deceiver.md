@@ -1,7 +1,7 @@
 ---
 id: 21.04/Deceiver/REFINE_Deceiver
 owner: Lead Class Designer
-status: SG1–SG10 approved 2026-10-16 (DV18–DV27 in DECISIONS.md); SG11–SG12 and the revised map await the Owner. Kept as the record of why
+status: answered — SG1–SG12 approved 2026-10-16 (DV18–DV30 in DECISIONS.md); kept as the record of why
 ticket: ARC-0019
 created: 2026-10-16
 variant: subclass (full, compact record)
@@ -50,8 +50,8 @@ sources: 21.04/_SUBCLASS_STANDARD.md v2.1, 21.04/_SUBCLASS_REFINING.md, 21.04/De
 | SG8 | Mirrored Self cast from a Double (T2) | could · M | approved, to test → DV25 |
 | SG9 | Keep one utility | could · XS | Owner: keep Faceless and Friends, drop Telepathy → DV26 |
 | SG10 | Dossier files, archive the dated spec, fix `21.08` | must · XS | approved → DV27 |
-| SG11 | Rename the five names taken from LeBlanc (League of Legends): Mirror Image, Sigil of Malice, Distortion, Ethereal Chains, Mimic (DM-I6; `31.01` §4 lists them) | should · S | proposed 2026-10-16, awaiting Owner |
-| SG12 | Drop Nephele from DV20: Ixion is the Kingmaker's myth (*Wheel of Ixion*, `21.04/Kingmaker`); the eidolon of Helen carries the source alone (DM-I6) | should · XS | proposed 2026-10-16, awaiting Owner |
+| SG11 | Rename the five names taken from LeBlanc (League of Legends): Mirror Image, Sigil of Malice, Distortion, Ethereal Chains, Mimic (DM-I6; `31.01` §4 lists them) | should · S | approved → DV29 |
+| SG12 | Drop Nephele from DV20: Ixion is the Kingmaker's myth (*Wheel of Ixion*, `21.04/Kingmaker`); the eidolon of Helen carries the source alone (DM-I6) | should · XS | approved → DV30 |
 
 ## 4. Feasibility notes
 

@@ -9,7 +9,7 @@ state: synced
 > Last verified: **2026-10-07** (after the Veil rework, stages 1–4) · Progression table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` ·
 > Lists "Deceiver Level N" · Osiris `ARCANA_Deceiver_Doubles.txt`, `ARCANA_Deceiver_Doubt.txt`, `ARCANA_Aspect_Empress.txt`
 > (internal ids keep *Empress*), `ARCANA_Status_Sigil.txt`, `ARCANA_Spell_Withdraw.txt`, `ARCANA_Spell_MimicWithdraw.txt`,
-> `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` · Spec `21.04_Subclasses/Deceiver/2026-10-06-deceiver-veil-design.md`
+> `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV30, not built yet — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
 > (D1–D17) · Patches and scripts in `55_Implementation_Specs/_wip/Deceiver/` · Wiki artifact: https://claude.ai/artifact/439SJbZifq1fWxUsvPtnuh
 
 ---

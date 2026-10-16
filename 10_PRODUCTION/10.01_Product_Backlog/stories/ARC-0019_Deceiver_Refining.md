@@ -29,8 +29,8 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
 - [x] Review written: `21.04/Deceiver/REFINE_Deceiver.md` (audit, SG1–SG10)
 - [x] Owner answered every suggestion (2026-10-16): SG1–SG10 approved; SG4 with a wider Shatter; SG9 drops Telepathy
 - [x] D1–D17 migrated and the approved suggestions logged in `21.04/Deceiver/DECISIONS.md` (prefix `DV`)
-- [ ] Level map revised without Telepathy, and SG11–SG12 (names, Nephele), approved
-- [ ] `DESIGN.md` complete and `21.03/Deceiver.md` written from the approved map
+- [x] Level map revised without Telepathy, and SG11–SG12 (names, Nephele), approved → DV28–DV30
+- [x] `DESIGN.md` complete and `21.03/Deceiver.md` written from the approved map
 - [ ] Propagation (00.08) to every department; `check_propagation.pl Deceiver` prints OK
 - [ ] Build ticket opened (`implementation: claude`) with its spec in `55`
 
@@ -46,3 +46,8 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   SG1–SG10 → DV18–DV27 (SG4 with a wider Shatter at Tier III; SG9 keeps Faceless and Friends, drops Telepathy and
   asks for a revised map). D1–D17 of the Veil design migrated as DV1–DV17 (the dated spec is archived when `DESIGN.md` replaces it). Proposed after the Owner's follow-ups: the vanilla Death Burst pattern for DV21, a revised level map without Telepathy, SG11 (rename the five LeBlanc names) and SG12 (drop Nephele — Ixion is the Kingmaker's). Matrix `21.08`
   corrected (Axis, Awakening goal). Nothing in the game changed.
+- 2026-10-16 — Owner approved the map (DV28), the names (DV29: Eidolon, Seed of Doubt / Seed, Veilstep, Binding
+  Falsehood, Twice-Told, Splinter) and SG12 (DV30, Nephele out). Lead Class Designer artifacts written: `DESIGN.md`,
+  `21.03/Deceiver.md`, `21.08` (Deceiver rows); the Veil spec archived in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`;
+  `05.02` points to the new dossier (game unchanged). Pending: propagation to 23.02, 25, 22.05, 26.01, 31.02, 32.01,
+  33.03, 42.04, 61.02.
