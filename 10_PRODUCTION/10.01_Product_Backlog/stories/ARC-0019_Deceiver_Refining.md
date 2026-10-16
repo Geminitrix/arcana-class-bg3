@@ -31,7 +31,7 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
 - [x] D1–D17 migrated and the approved suggestions logged in `21.04/Deceiver/DECISIONS.md` (prefix `DV`)
 - [x] Level map revised without Telepathy, and SG11–SG12 (names, Nephele), approved → DV28–DV30
 - [x] `DESIGN.md` complete and `21.03/Deceiver.md` written from the approved map
-- [ ] Propagation (00.08) to every department; `check_propagation.pl Deceiver` prints OK
+- [x] Propagation (00.08) to every department; `check_propagation.pl Deceiver` prints OK
 - [ ] Build ticket opened (`implementation: claude`) with its spec in `55`
 
 ## Gates
@@ -51,3 +51,11 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   `21.03/Deceiver.md`, `21.08` (Deceiver rows); the Veil spec archived in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`;
   `05.02` points to the new dossier (game unchanged). Pending: propagation to 23.02, 25, 22.05, 26.01, 31.02, 32.01,
   33.03, 42.04, 61.02.
+- 2026-10-16 — Propagation (00.08) done, each artifact in its owner's role; `check_propagation.pl Deceiver` prints OK.
+  Spell Designer: `23.02/Deceiver/` (30 sheets + `_INDEX.md`, gen_spell_sheets.pl). Spell + Balance Designer: `25`
+  — 19 `SPL_Deceiver_*`, 2 `FEAT_Deceiver_*`, 3 `STA_Deceiver_*` (values read from today's game files; DV changes in
+  `pending_build` with ‹placeholders›). Balance Designer: `22.05/Deceiver.md`, `26.01/Deceiver.md` (directions only).
+  Lore Writer: `31.02/Deceiver.md`, `32.01/Deceiver.md` (game texts today + DV29 names), `33.03/MOD_TERMINOLOGY.md`
+  (Deceiver section). Icon Artist: `42.04/Deceiver.md` (17 briefs). QA Lead: `61.02/Deceiver/TC_ARC-0019.md` (Veil build
+  A1–A8, build probes B1–B7, V1–V4). Context Keeper: `05.02` unchanged (game unchanged). Open for the Owner: `31.01` §4/§5
+  still name the LeBlanc abilities and Sigils (base-class change); *Shatter on command* keeps the word DV29 cleared.

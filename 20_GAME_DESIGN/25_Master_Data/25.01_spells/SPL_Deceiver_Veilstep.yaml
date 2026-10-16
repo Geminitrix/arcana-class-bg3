@@ -1,0 +1,19 @@
+id: SPL_Deceiver_Veilstep
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Target_Arcana_Card_Spell_Distortion, Target_Arcana_Card_Spell_Distortion_4, Target_Arcana_Card_Spell_Distortion_5, Target_Arcana_Card_Spell_Distortion_6, Projectile_Arcana_Distortion_Explosion, Shout_Arcana_Created_Withdraw]
+values:
+  range:         { value: 18, unit: metres }
+  burst_radius:  { value: 3, unit: metres }
+  burst_damage:  { value: "1d8 per slot level", unit: damage, type: Force, by_level: { 3: 3d8, 4: 4d8, 5: 5d8, 6: 6d8 }, note: "keys are slot levels" }
+  doubles:       { value: 1, unit: count, note: "left where she stood" }
+  withdraw_cost: { value: "Bonus Action + a slot", note: "Withdraw swaps her with that Double" }
+
+# Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  name_next: { value: Veilstep, note: "DV29; Mimic: Distortion becomes Twice-Told: Veilstep" }

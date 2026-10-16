@@ -1,0 +1,19 @@
+id: SPL_Deceiver_Splinter
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §4.2, §8"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Shout_Deceiver_Double_Shatter]
+values:
+  radius: { value: 3, unit: metres }
+  damage: { value: 1d6, unit: damage, type: Psychic, note: "fixed die (DV17)" }
+  doubt:  { value: 1, unit: count, note: "per enemy hit" }
+
+# Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  name_next:               { value: Splinter, note: "DV29" }
+  tier3_radius_next:       { value: "‹wide›", unit: metres, note: "DV21: Tier III, the projectile's ExplodeRadius (vanilla Death Burst pattern)" }
+  tier3_on_destroyed_next: { value: 1, unit: count, note: "DV21: a Double destroyed by an enemy splinters by itself, once" }

@@ -1,0 +1,12 @@
+id: STA_Deceiver_Doubles
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30"
+kind: status
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §4.2, §7"
+balance_report: "22.05/Deceiver.md"
+game_ids: [DOUBLE_OF_THE_VEIL, DOUBLE_OF_THE_VEIL_TECH, VEIL_LAYER_1, VEIL_LAYER_2, VEIL_LAYER_3, VEIL_LAYER_4, VEIL_LAYER_5, Clone_1]
+values:
+  double_hp:     { value: 1, unit: points }
+  double_ac:     { value: 12, unit: points, note: "Clone_1 Armor 11 + Dexterity 12; fixed (DV4)" }
+  ac_per_double: { value: 1, unit: bonus, note: "VEIL_LAYER_N on her (DV7)" }

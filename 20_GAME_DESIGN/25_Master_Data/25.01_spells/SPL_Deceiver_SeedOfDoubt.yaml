@@ -1,0 +1,16 @@
+id: SPL_Deceiver_SeedOfDoubt
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5, §4.4"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Projectile_Arcana_Card_Spell_SigilofMalice, Projectile_Arcana_Card_Spell_SigilofMalice_2, Projectile_Arcana_Card_Spell_SigilofMalice_3, Projectile_Arcana_Card_Spell_SigilofMalice_4, Projectile_Arcana_Card_Spell_SigilofMalice_5, Projectile_Arcana_Card_Spell_SigilofMalice_6]
+values:
+  range:  { value: 18, unit: metres }
+  damage: { value: "1d6 per slot level", unit: damage, type: Force, by_level: { 1: 1d6, 2: 2d6, 3: 3d6, 4: 4d6, 5: 5d6, 6: 6d6 }, note: "keys are slot levels; never misses; the burst is in STA_Deceiver_Seed" }
+
+# Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  name_next: { value: Seed of Doubt, note: "DV29: display name; its status is Seed" }

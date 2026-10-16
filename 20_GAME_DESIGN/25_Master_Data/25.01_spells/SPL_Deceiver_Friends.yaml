@@ -1,0 +1,16 @@
+id: SPL_Deceiver_Friends
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Target_Arcana_Util_Friends, Target_Arcana_Util_Friends_6, FRIENDS, FRIENDS_EX]
+values:
+  range:    { value: 9, unit: metres }
+  duration: { value: 10, unit: turns, note: "slots 1–5, Concentration; slot 6: until removed, no Concentration, unnoticed (DV14)" }
+
+# Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  level_next: { value: 2, note: "DV28: from level 1 to 2" }

@@ -1,0 +1,12 @@
+id: SPL_Deceiver_TheVeilLifts
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5, §8"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Shout_Arcana_Created_Aspect_VeilLifts, VEIL_LIFTS_TECH]
+values:
+  radius:      { value: 18, unit: metres }
+  seed_damage: { value: 1d4, unit: damage, type: Psychic, by_level: { 1: 1d4, 5: 2d4, 10: 3d4 }, note: "LevelMapValue(D4Cantrip) on each Seeded enemy" }
+  uses:        { value: 1, unit: count, note: "once per combat" }

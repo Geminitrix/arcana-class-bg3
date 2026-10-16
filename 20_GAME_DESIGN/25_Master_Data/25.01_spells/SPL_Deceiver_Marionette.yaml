@@ -1,0 +1,12 @@
+id: SPL_Deceiver_Marionette
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Target_Arcana_Card_Spell_Marionette, Target_Arcana_Card_Spell_Marionette_6]
+values:
+  range:    { value: 18, unit: metres }
+  duration: { value: 10, unit: turns, note: "DOMINATE_PERSON, Concentration" }
+  doubt_for_disadvantage: { value: 2, unit: count }

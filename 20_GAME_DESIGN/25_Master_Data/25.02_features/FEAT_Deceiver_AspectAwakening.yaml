@@ -1,0 +1,19 @@
+id: FEAT_Deceiver_AspectAwakening
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: feature
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §8"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Arcana_Passive_Aspect_Empress_Awakening, ASPECT_AWAKENED_EMPRESS_I, ASPECT_AWAKENED_EMPRESS_II, ASPECT_AWAKENED_EMPRESS_III, Arcana_Passive_Aspect_Empress_Awakened_III, Arcana_Passive_Aspect_Empress_Awakened_III_Damage]
+values:
+  goals:             { value: "4 / 7 / 10", unit: count, by_level: { 3: 4, 7: 7, 12: 10 }, note: "Doubt stacks applied (ARCANA_Aspect_Common.txt)" }
+  two_pillars_range: { value: 6, unit: metres, note: "Tier II: nearest un-Seeded enemy" }
+  tier3_charisma:    { value: 3, unit: bonus, note: "Tier III today: +3 Charisma" }
+  tier3_cha_damage:  { value: "Charisma modifier", unit: damage, note: "Tier III today: to card spells and Arcana cantrips" }
+
+# Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
+# current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
+pending_build:
+  tier3_next: { value: "the lie explodes", note: "DV21: values in SPL_Deceiver_Splinter tier3_*_next; Which One? stays" }
+  retires:    { value: "tier3_charisma, tier3_cha_damage", unit: list, note: "DV21: no ability bonus" }

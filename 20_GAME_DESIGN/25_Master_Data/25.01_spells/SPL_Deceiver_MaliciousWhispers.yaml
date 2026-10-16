@@ -1,0 +1,13 @@
+id: SPL_Deceiver_MaliciousWhispers
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+kind: spell
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §5, §4.4"
+balance_report: "22.05/Deceiver.md"
+game_ids: [Target_Arcana_Card_Spell_MaliciousWhispers, MALICIOUS_WHISPERS, WHISPERED_PARANOIA]
+values:
+  range:          { value: 18, unit: metres }
+  damage:         { value: 1d4, unit: damage, type: Psychic, by_level: { 1: 1d4, 5: 2d4, 10: 3d4 }, note: "LevelMapValue(D4Cantrip); half on a save with Potent Cantrip" }
+  seeded_doubt:   { value: 1, unit: count, note: "on a Seeded target, plus the Seed's own burst (DV15)" }
+  paranoia:       { value: 1, unit: turns, note: "on a Seeded target: no reactions" }

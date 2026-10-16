@@ -91,6 +91,33 @@ English is final in game (`32.01/Kingmaker.md`); the other 15 languages have no 
 | Tyche · Nemesis · Aspect of Anticipation | Awakening tiers I · II · III | — |
 | The Kingmaker | The subclass | Spinner (retired working name) |
 
+## The Deceiver (reviewed 2026-10-16 ARC-0019 — DV18–DV30 terms; rows marked ★ reach the game with the build)
+
+English is final in game for the unmarked rows (`32.01/Deceiver.md`); the other 15 languages have no Deceiver strings
+yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `SigilofMalice`, `SIGIL`, `Distortion`,
+`EtherealChains`, `Mimic`, `Shatter`, `Empress`) — never translate or show them.
+
+| English | Meaning | Never |
+|---|---|---|
+| The Veil | The core rule: every lie an enemy believes plants Doubt; at the third, it is Deluded (DV19) | — |
+| Double · Double of the Veil | A 1-HP illusion of the Deceiver with its own turn | clone, Mirror Image (as a creature) |
+| Doubt · Deluded | The stacks on an enemy · the Confused state at the third stack | — |
+| ★ Eidolon | The card that summons Doubles (the cloud-Helen) | Mirror Image |
+| ★ Seed of Doubt · ★ Seed | The card · the status it lays, which bursts on her next Arcane damage | Sigil of Malice, Sigil, mark |
+| ★ Veilstep | The teleport that leaves a Double behind | Distortion |
+| ★ Binding Falsehood | The binding card (Restrained) | Ethereal Chains |
+| ★ Twice-Told · ★ Twice-Told: <Card> | The bonus-action recast · its per-card copies | Mimic, Mimic: <Card> |
+| ★ Splinter | A Double's burst (3 m, Doubt) | Shatter (vanilla spell name) |
+| ★ Reflected Seed · ★ Reflected Falsehood | The Doubles' half-strength copies of her cards (Two Truths) | Mirror: Sigil of Malice, Mirror: Ethereal Chains |
+| ★ Shatter on command *(working name, DESIGN §5)* | Her bonus action: one Double splinters now (DV24) | — |
+| Withdraw · Unveil · Dismiss | Swap with Veilstep's Double · a Double swaps with her · a Double ends without a burst | — |
+| Malicious Whispers · Paranoia | The cantrip · its no-reactions status on a Seeded target | — |
+| Faceless · Friends | The two utilities (DV26) | Faux Amis (retired), Telepathy (leaves, DV26) |
+| Veiled Prison · Marionette · Grand Deception · Mirrored Spell · Mirrored Self · Ready: Which One? · The Veil Lifts | Her other cards | Hostile Takeover, Mental Prison, Hypnotic Gaze (retired) |
+| Two Truths · Unveil | Passives at 5 and 9 | — |
+| 2 - The High Priestess · Veiled · Two Pillars · Aspect of Doubt | Awakening and tiers I · II · III | Empress, Aspect of Love |
+| The Deceiver | The subclass | — |
+
 > Note (Lore Writer, 2026-10-15): the sections above describe the **pre-rework** mod (Arcane Cards, Arcane Shards).
 > The whole file needs a rework pass — proposed as its own ticket.
 

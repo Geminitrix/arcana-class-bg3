@@ -1,0 +1,14 @@
+id: STA_Deceiver_Doubt
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30"
+kind: status
+subclass: Deceiver
+ticket: ARC-0019
+design: "21.04/Deceiver/DESIGN.md §4.3, §7"
+balance_report: "22.05/Deceiver.md"
+game_ids: [DOUBT_1, DOUBT_2, DOUBT_ADD_TECH, DELUDED]
+values:
+  duration:          { value: 3, unit: turns, note: "refreshed by each new stack (Osiris 18.0 s)" }
+  wis_save_penalty:  { value: -1, unit: penalty, note: "per stack" }
+  attack_penalty:    { value: -1, unit: penalty, note: "per stack, against her and her Doubles" }
+  stacks_to_deluded: { value: 3, unit: count, note: "the third stack; stacks reset" }
+  deluded:           { value: 1, unit: turns, note: "Confused (Osiris 6.0 s)" }
