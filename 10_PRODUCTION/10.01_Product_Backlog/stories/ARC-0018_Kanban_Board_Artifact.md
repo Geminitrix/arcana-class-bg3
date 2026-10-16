@@ -4,7 +4,7 @@ title: Kanban board artifact for the whole backlog
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: in_review
+status: spec_ready
 owner: Tools
 implementation: claude
 priority: should
@@ -39,7 +39,7 @@ created: 2026-10-16
       `82_Automation/_INDEX.md` § Kanban sync.
 - [x] `update_board.pl` also writes the board data; `BACKLOG.md` and `SPRINT_BOARD.md` keep working (In Review added).
 - [x] In-progress column turns amber above 3 cards (warning only).
-- [ ] Owner drags a card and adds a comment on the real board (claude.ai), then asks for a first sync.
+- [x] Owner drags a card and adds a comment on the real board (claude.ai), then asks for a first sync.
 
 ## Gates
 
@@ -54,3 +54,6 @@ created: 2026-10-16
   Tested on a local server (`.claude/launch.json` "kanban"): data, filters, drag rules, DoD refusal, comments, WIP
   amber. Not tested: the real artifact store (the browser pane is not signed in to claude.ai) — Owner check pending.
   The page makes no Claude calls, so it spends no tokens.
+- 2026-10-16 — moved to spec_ready on the board (Owner).
+- 2026-10-16 — Owner comment: sincroniza o kanban
+- 2026-10-16 — first kanban sync: the real artifact store kept the Owner's move and comment; procedure works end to end.

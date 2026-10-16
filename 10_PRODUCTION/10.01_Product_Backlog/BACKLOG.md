@@ -11,7 +11,7 @@
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | backlog | claude |  |
 | [ARC-0013](stories/ARC-0013_Mod_Terminology_Rework.md) | Mod terminology: rewrite the glossary for the rework | chore | Narrative | should | 3/2 | backlog | pending |  |
 | [ARC-0016](stories/ARC-0016_Subclass_Standard_v2_and_Refining.md) | "Subclass standard v2 and refining method" | design | Lead Class Designer | should | 4/3 | in_review | pending |  |
-| [ARC-0018](stories/ARC-0018_Kanban_Board_Artifact.md) | Kanban board artifact for the whole backlog | feature | Tools | should | 4/3 | in_review | claude |  |
+| [ARC-0018](stories/ARC-0018_Kanban_Board_Artifact.md) | Kanban board artifact for the whole backlog | feature | Tools | should | 4/3 | spec_ready | claude |  |
 | [ARC-0012](stories/ARC-0012_Resonant_Priority_Icons.md) | Resonant: own icons for the six that share Calm Emotions | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0015](stories/ARC-0015_Kingmaker_Priority_Icons.md) | Kingmaker: own icons for the entries that share Crown of Madness and Detect Thoughts | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0017](stories/ARC-0017_Resonant_Refining_Build.md) | "Resonant refining build — R49–R68 in the game" | feature | Mod Engineer | should | 5/5 | ready | claude |  |
