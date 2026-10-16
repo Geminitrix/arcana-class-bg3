@@ -49,3 +49,6 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner chose the kit: **The Open Road** as the core (WB3) and the **Beaufort** bands as the ranks of
   Zephyr Strike (WB4). Feasibility note: Leap of Faith is already a `Rush` spell `using "Rush_SpringAttack"` with an
   unarmed attack roll (`Spell_Rush.txt`), the proven pattern for a strike that carries you to the target.
+- 2026-10-16 — Owner asked which rush animation fits. Vanilla rushes listed in `REFINE_Unbound.md` (appendix): vanilla
+  `Rush_MAG_ZephyrFlash` already uses the `Rush_SpringAttack` animation (same as Leap of Faith); `Rush_ForceTunnel`
+  (tadpole power) has its own player animation that dashes through a line. Animations not seen in game by Claude.

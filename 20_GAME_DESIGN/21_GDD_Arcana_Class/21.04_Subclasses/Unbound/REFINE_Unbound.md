@@ -164,3 +164,17 @@ cheapest way to fix I4, I5, M3, K3 and B5 together; B gives the journey its spin
 
 Owner picks a direction → mechanic rules (§4.5) → ultimate → Awakening tiers → level map (§6) → suggestions SG# for
 the cards and passives that stay, change or go → names → balance pass.
+
+## Appendix — rush animations available (vanilla, read 2026-10-16)
+
+| Rush | Where | Animation set | Notes |
+|---|---|---|---|
+| `Rush_SpringAttack` | `Shared/.../Spell_Rush.txt` | starts `8b8bb757…`, ends `7bb52cd4…` | Rush to one target and strike. Used by the mod's Leap of Faith (speed `60000`, radius `18`) and by vanilla **`Rush_MAG_ZephyrFlash`** (`GustavDev/.../Spell_Rush.txt`, the same animation, Thunder damage, `Force(2)`, clears clouds; granted by `MAG_TheThorns_Trident`, `Weapon.txt`) |
+| `Rush_ForceTunnel` | `Shared/.../Spell_Rush.txt`; a tadpole power (`GLO_Tadpole_PostEA.txt`) | its own set, starts `b94b9184…` | Player-usable; dashes along a line and pushes what is in it (`Force(4)`, `AddFallDamageOnLand`). Psionic VFX — effects are separate fields and can be swapped |
+| `Rush_Rush` | `Shared/.../Spell_Rush.txt` | starts `eae21eb0…`, ends `e6a25c4b…` | The generic weapon Rush Attack |
+| `Rush_Primal_Stampede` | `Shared/.../Spell_Rush.txt` | own middle (`b282bbfb…`) | Not checked on a humanoid |
+| `Rush_Charge_Minotaur` | `Shared/.../Spell_Rush.txt` | creature set | Not for a humanoid |
+
+Wind VFX sources to look at in the Toolkit (effects, not animations): `Shout_Dash_StepOfTheWind`,
+`Zone_MAG_WindRider_GustOfWind`, `Zone_MAG_ZephyrBreak`. Not checked: whether a Rush provokes opportunity attacks, and
+how it paths around obstacles — a probe (T2).
