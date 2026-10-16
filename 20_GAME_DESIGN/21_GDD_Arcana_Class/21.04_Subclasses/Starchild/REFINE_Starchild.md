@@ -145,4 +145,4 @@ Notes on SC2 for the design and the build:
   would read the state (DM-K7).
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
-Next: the name of the choice (the Owner retired "path").
+Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. Next: the "no Hymn" reminder status, then the three Hymns (SC4).

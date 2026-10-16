@@ -47,3 +47,5 @@ player feels.
   (Radiant, healing) — either two paths on a star trunk or three paths. Nothing in the game changed.
 - 2026-10-16 — Owner: one light (Star / Sun / Moon) changes every heal, ranked with the Awakening tiers (SC1, option C);
   chosen once per long rest, shown as a status until the next long rest (SC2). The term "path" is retired; name open.
+- 2026-10-16 — Owner: names approved — Hymn, Sing a Hymn, Hymn of the Stars / Sun / Moon (SC3); the three Hymns must be
+  equally viable (SC4). Open: the "no Hymn" reminder status.
