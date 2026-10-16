@@ -84,3 +84,6 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: Awakening counts marks released by the wind, cumulative in the fight (WB22); proposed: the wind sweeps marks every turn while it blows.
 - 2026-10-16 — Owner: while a wind blows it sweeps every mark at the start of your turn, each counting for the Awakening (WB23).
 - 2026-10-16 — Owner: tiers — I free first Rush, II allies' hits mark, III sweeps push and unbalance (WB24).
+- 2026-10-16 — Owner: Aspect card is The Calm — stops the wind, each remaining turn a gust on marked enemies, sweeps,
+  reopens the bag (WB26; WB25 left unused). The vortex ("where the winds meet", vanilla `Projectile_VacuumBulb`
+  pattern, `Force(-6, TargetToEntity)`) is the Owner's candidate for the level-11 capstone.
