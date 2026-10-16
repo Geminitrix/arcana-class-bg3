@@ -55,3 +55,5 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: Zephyr Strike against an unmarked enemy is a Rush with the `Rush_SpringAttack` animation (WB5);
   the push arrives at the Gale rank (WB6); Leap of Faith moves to the `Rush_ForceTunnel` animation (WB7). Probe for the
   build: opportunity attacks and pathing of a Rush (T2).
+- 2026-10-16 — Owner: the Touch of the Wind marks — any hit of yours or any failed save against your effects (WB8);
+  chosen over "only unarmed strikes" and "only forced movement".
