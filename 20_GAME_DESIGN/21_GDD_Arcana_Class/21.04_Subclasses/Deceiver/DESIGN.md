@@ -2,7 +2,7 @@
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
 state: approved design (DV1–DV32, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33)
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
 ---
 
 # The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt

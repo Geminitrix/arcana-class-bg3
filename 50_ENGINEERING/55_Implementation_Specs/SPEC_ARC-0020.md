@@ -107,6 +107,8 @@ empty today (`dump_progression.pl`).
 
 ### Task 0.5 · *Splinter on command* (DV24, DV31, DV32) — `arc0020/30_splinter_command.patch` + goal region
 
+**Prepared 2026-10-16:** `30_splinter_command.patch` (the card + `SPLINTER_COMMAND_TECH`, 4 strings; dry run clean) · `32_goal_splinter_command.pl` (inserts the 18-line region into `ARCANA_Deceiver_Doubles.txt`, before Task 4; checked on a copy of 51) · `lua/` (CardDB row cost 1 + test row; 138 tests pass on a copy). The Lua files are copies of 51 of 2026-10-16: diff them against the Data folder before copying. Ownership is checked in the goal only — the vanilla `SummonOwner(context.Source,context.Target)` (`Target_FlamingSphere_Move`) has an unproven argument order. In-game name: *Splinter on Command* (title case, Larian style).
+
 - **Entry:** `Target_Arcana_Card_Spell_SplinterOnCommand` — a **deck card** (DV32), level 0 like *Malicious
   Whispers* (no slot; Threads on PC from `threads_next`, CardDB entry like the cantrip's). `BonusActionPoint:1`. Target: one of her own Doubles within `range_next` (`HasStatus('DOUBLE_OF_THE_VEIL')` — the status the Doubles'
   spells check — and summoned by the caster; the "summoned by me" condition needs a vanilla anchor found in stage 0,

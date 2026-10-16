@@ -1,0 +1,47 @@
+# ===== ARC-0020 stage 2 — Splinter on Command (DV24, DV31, DV32), Task 0.5 =====
+# A deck card, level 0 (no slot, no upcast variants), Bonus Action, 18 m (25: SPL_Deceiver_SplinterOnCommand).
+# It only marks the Double: ARCANA_Deceiver_Doubles.txt (region "Splinter on Command") reacts to the technical status
+# and makes that Double cast its own Splinter with UseSpell — the path The Veil Lifts already uses.
+# Card marker: the "not HasPassive('ARCANA_IS_CARD', context.Source)" clause, as on every card (Malicious Whispers).
+# Ownership: the target condition only asks for a Double; the goal ignores a Double that isn't hers
+# (SummonOwner(context.Source,context.Target) exists in vanilla — Target_FlamingSphere_Move, Shared Spell_Target.txt —
+# but its argument order is unproven, so it is not used).
+# Apply BEFORE 20_structure.pl (the Level 2 list names this entry). CardDB row: Lua, same stage.
+
+@loca SPLINTER_COMMAND_NAME Splinter on Command
+@loca SPLINTER_COMMAND_DESC Command one of your Doubles to <LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter">Splinter</LSTag> at once.
+@loca SPLINTER_COMMAND_EXTRA The Double bursts where it stands, without spending its own turn.
+@loca SPLINTER_COMMAND_TECH_NAME Splinter on Command Tech
+
+@file Status_BOOST
+@section DECEIVER STATUS
+new entry "SPLINTER_COMMAND_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{SPLINTER_COMMAND_TECH_NAME}}"
+data "StackId" "SPLINTER_COMMAND_TECH"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+@file Spell_Target
+@section Target_DECEIVER SPELLS
+new entry "Target_Arcana_Card_Spell_SplinterOnCommand"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Illusion"
+data "TargetRadius" "18"
+data "SpellProperties" "ApplyStatus(SPLINTER_COMMAND_TECH,100,0)"
+data "TargetConditions" "HasStatus('DOUBLE_OF_THE_VEIL') and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "AmountOfTargets" "1"
+data "Icon" "Spell_Evocation_Shatter"
+data "DisplayName" "{{SPLINTER_COMMAND_NAME}}"
+data "Description" "{{SPLINTER_COMMAND_DESC}}"
+data "ExtraDescription" "{{SPLINTER_COMMAND_EXTRA}}"
+data "CastTextEvent" "Cast"
+data "UseCosts" "BonusActionPoint:1;"
+data "SpellAnimation" "ff78157b-f004-4813-b6d7-83744a7a56e4,,;,,;ebc9253d-d2b2-4657-b8c1-df334c6047b1,,;3aa138db-f6d7-495b-a34f-281b1d71fbc9,,;34da5af5-71b6-4278-9cc0-d5266ca98876,,;,,;32eb3c27-cd2c-49c1-a6c6-b21b2cccf050,,;,,;,,"
+data "VerbalIntent" "Utility"
+data "SpellStyleGroup" "Class"
+data "Sheathing" "Sheathed"
+

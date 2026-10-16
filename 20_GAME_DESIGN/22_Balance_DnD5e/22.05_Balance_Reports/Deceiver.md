@@ -2,7 +2,7 @@
 id: 22.05/Deceiver
 owner: Balance Designer
 source: 21.04/Deceiver/DECISIONS.md (DV1–DV30), DESIGN.md §12, REFINE_Deceiver.md §5, 25 (*_Deceiver_*)
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); directions only, values in the balance pass; 2026-10-16 ARC-0020 — sizes of the build approved (section ARC-0020); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); directions only, values in the balance pass; 2026-10-16 ARC-0020 — sizes of the build approved (section ARC-0020); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
 ---
 
 # 22.05 · Balance — The Deceiver (current verdict)

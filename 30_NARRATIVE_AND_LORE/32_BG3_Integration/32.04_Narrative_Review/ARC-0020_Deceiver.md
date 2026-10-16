@@ -27,3 +27,11 @@ name, panel line, Unveil, Doubt, the Double's passive, the debug Doubt spell, th
 read *Veilwalker* where they said *Deceiver*. Panel line: *The Veilwalker steps through the veil of the Weave,
 scattering Doubles and sowing Doubt until no enemy can tell which of them is real.* — mechanical change of a name the
 Owner chose; "walks" became "steps through" so the line doesn't repeat the name. Verdict: pass.
+
+## Addendum — Splinter on Command (stage 2 texts, 2026-10-16)
+
+| Item | Text | Verdict |
+|---|---|---|
+| Name | *Splinter on Command* — DV31's name in Larian's title case ("on" lowercase) | Lore Writer's call, Owner may change it |
+| Description | *Command one of your Doubles to Splinter at once.* | pending Owner |
+| ExtraDescription | *The Double bursts where it stands, without spending its own turn.* | pending Owner |

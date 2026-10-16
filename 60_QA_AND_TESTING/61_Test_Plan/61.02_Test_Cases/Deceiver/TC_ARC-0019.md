@@ -2,7 +2,7 @@
 id: 61.02/Deceiver/TC_ARC-0019
 owner: QA Lead
 source: 21.04/Deceiver/DECISIONS.md DV1–DV30 · REFINE_Deceiver.md §5 · DESIGN.md §13, §15 · 05.02/Deceiver.md §8
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
 status: part A runnable now on the Veil build; parts B and C planned — run after the ARC-0019 build ships
 ---
 
