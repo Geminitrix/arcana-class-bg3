@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB11); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB12); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
@@ -183,7 +183,7 @@ how it paths around obstacles — a probe (T2).
 
 Myth: the Anemoi (Hesiod, *Theogony*; Homer). In *Odyssey* X Aeolus binds every wind in the bag but leaves **Zephyrus**
 free to carry Odysseus home — the wind of Zephyr Strike. BG3 has no compass: the directions are names, not map
-directions. Proposal (values ‹…›; the bane may apply to Windswept enemies only — to confirm):
+directions. Proposal (values ‹…›; the bane falls on Windswept enemies — WB12):
 
 | Wind | Domain | Allies | Enemies | Myth |
 |---|---|---|---|---|
