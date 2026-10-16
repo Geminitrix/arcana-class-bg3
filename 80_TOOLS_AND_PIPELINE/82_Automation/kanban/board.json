@@ -384,7 +384,7 @@
       },
       {
          "blocked_by" : "[]",
-         "body" : "\n# ARC-0020 · Deceiver refining build\n\n**Goal:** apply the ARC-0019 refining (DV18–DV31) to the game, stage by stage, following `55/SPEC_ARC-0020.md`.\n**Intent:** the game plays the Deceiver as `21.04/Deceiver/DESIGN.md` describes it, in both editions.\n\n## Acceptance criteria\n\n- [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean\n- [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change\n- [ ] Probes B1–B4 recorded, plan B applied where one failed\n- [ ] `61.02/Deceiver/TC_ARC-0019.md` rows pass in game\n- [ ] Stage 5: `25` holds no Deceiver `pending_build` block; `05.02` synced; `check_propagation` OK\n\n## Gates\n\n- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)\n- [ ] Narrative gate (`32.04`)\n- [ ] DoD (`00.03`)\n\n## Log\n\n- 2026-10-16 — created from ARC-0019 at the Owner's go-ahead (\"pode dar sequência\"); spec written. Nothing in the\n  game changed.\n- 2026-10-16 — Stage 0 started: Task 0.4 script `55/_wip/Deceiver/arc0020/20_structure.pl` written, dry run matches DESIGN §9.1; Task 0.1 sizes proposed to the Owner (Splinter Tier III 4 m, Grand Deception 1 Doubt per Double within 3 m, Splinter on command 18 m and 1 Thread, Mirrored Self plan B 9 m) — awaiting approval.\n- 2026-10-16 — Task 0.1 sizes approved by the Owner and written in `25` (arithmetic in `22.05/Deceiver.md`). Task 0.2–0.3 draft `arc0020/10_names.patch` (43 strings + 2 new, dry run clean) — awaiting the Narrative gate.\n",
+         "body" : "\n# ARC-0020 · Deceiver refining build\n\n**Goal:** apply the ARC-0019 refining (DV18–DV31) to the game, stage by stage, following `55/SPEC_ARC-0020.md`.\n**Intent:** the game plays the Deceiver as `21.04/Deceiver/DESIGN.md` describes it, in both editions.\n\n## Acceptance criteria\n\n- [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean\n- [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change\n- [ ] Probes B1–B4 recorded, plan B applied where one failed\n- [ ] `61.02/Deceiver/TC_ARC-0019.md` rows pass in game\n- [ ] Stage 5: `25` holds no Deceiver `pending_build` block; `05.02` synced; `check_propagation` OK\n\n## Gates\n\n- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)\n- [ ] Narrative gate (`32.04`)\n- [ ] DoD (`00.03`)\n\n## Log\n\n- 2026-10-16 — created from ARC-0019 at the Owner's go-ahead (\"pode dar sequência\"); spec written. Nothing in the\n  game changed.\n- 2026-10-16 — Stage 0 started: Task 0.4 script `55/_wip/Deceiver/arc0020/20_structure.pl` written, dry run matches DESIGN §9.1; Task 0.1 sizes proposed to the Owner (Splinter Tier III 4 m, Grand Deception 1 Doubt per Double within 3 m, Splinter on command 18 m and 1 Thread, Mirrored Self plan B 9 m) — awaiting approval.\n- 2026-10-16 — Task 0.1 sizes approved by the Owner and written in `25` (arithmetic in `22.05/Deceiver.md`). Task 0.2–0.3 draft `arc0020/10_names.patch` (43 strings + 2 new, dry run clean) — awaiting the Narrative gate.\n- 2026-10-16 — Narrative gate passed for stage 1 texts (Owner): `32.04/ARC-0020_Deceiver.md`. Stage 0 next: Task 0.5.\n",
          "created" : "2026-10-16",
          "effort" : "4",
          "epic" : "EPIC_Rework_Subclasses",
@@ -401,6 +401,26 @@
          "title" : "Deceiver refining build: the game plays DV18–DV31",
          "type" : "rework",
          "value" : "5"
+      },
+      {
+         "blocked_by" : "[]",
+         "body" : "\n# ARC-0021 · Subclass names in one style\n\n**Goal:** give the Deceiver, the Unbound, the Eternal and the Resonant names in the style of Starchild, Kingmaker and\nLionheart, chosen by the Owner, and record them in each dossier.\n**Intent:** the seven subclass names read as one family — one closed English compound each, an image of its card or\ntheme plus a word for the person — so the class panel looks designed as a whole.\n\n## Acceptance criteria\n\n- [ ] Style written down (`31.01` §5 or `33.03`): what the three current names share, so later names follow it\n- [ ] Owner picks a name for each of the four (suggestions in the session of 2026-10-16)\n- [ ] Each choice logged in its dossier's `DECISIONS.md`; the Deceiver's lands before the ARC-0020 build applies texts\n- [ ] Collisions checked: other subclasses' words (DM-I6), vanilla BG3 names, well-known game names\n- [ ] Player-facing text changed through a build ticket per subclass; internal ids and the folder name stay (ADR-0002)\n- [ ] Mod pages, lore bible, matrix, glossary and wiki follow (propagation, 00.08)\n\n## Gates\n\n- [ ] Narrative gate (`32.04`)\n- [ ] DoD (`00.03`)\n\n## Log\n\n- 2026-10-16 — created at the Owner's request, separate from ARC-0019/ARC-0020. Owner's lead for the Resonant:\n  *Heartsong*. Nothing changed in the game or the design.\n",
+         "created" : "2026-10-16",
+         "effort" : "3",
+         "epic" : "EPIC_Rework_Subclasses",
+         "file" : "ARC-0021_Subclass_Names_Compound.md",
+         "id" : "ARC-0021",
+         "implementation" : "pending",
+         "inputs" : "[31.01_Lore_Bible.md, 21.08_Subclass_Matrix.md, 33.03/MOD_TERMINOLOGY.md, 21.04/<S>/DESIGN.md (all six)]",
+         "outputs" : "[21.04/<S>/DECISIONS.md (one line per renamed subclass), 31.01, 21.08, 33.03, 32.01/<S>.md, 32.04]",
+         "owner" : "Lore Writer",
+         "priority" : "should",
+         "sprint" : "",
+         "status" : "in_progress",
+         "subclass" : "none",
+         "title" : "Subclass names in one style: rename Deceiver, Unbound, Eternal and Resonant",
+         "type" : "design",
+         "value" : "3"
       }
    ]
 }

@@ -16,6 +16,7 @@
 | [ARC-0012](stories/ARC-0012_Resonant_Priority_Icons.md) | Resonant: own icons for the six that share Calm Emotions | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0015](stories/ARC-0015_Kingmaker_Priority_Icons.md) | Kingmaker: own icons for the entries that share Crown of Madness and Detect Thoughts | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0017](stories/ARC-0017_Resonant_Refining_Build.md) | "Resonant refining build — R49–R68 in the game" | feature | Mod Engineer | should | 5/5 | ready | claude |  |
+| [ARC-0021](stories/ARC-0021_Subclass_Names_Compound.md) | "Subclass names in one style: rename Deceiver, Unbound, Eternal and Resonant" | design | Lore Writer | should | 3/3 | in_progress | pending |  |
 | [ARC-0011](stories/ARC-0011_Resonant_Text_Fixes.md) | Resonant: two descriptions behind the mechanic | chore | Narrative | could | 2/1 | backlog | pending |  |
 
 Done tickets: 7.
