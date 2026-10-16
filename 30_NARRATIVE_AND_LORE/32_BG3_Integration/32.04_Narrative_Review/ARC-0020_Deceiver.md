@@ -40,7 +40,7 @@ Owner chose; "walks" became "steps through" so the line doesn't repeat the name.
 
 | Item | Text | Verdict |
 |---|---|---|
-| Aspect of Doubt (Tier III passive) | *A Double destroyed by an enemy splinters by itself, and your Splinters reach [1]. You can use Ready: Which One? until combat ends.* | pending Owner |
-| Awakened III status, last line | *Aspect of Doubt: A Double destroyed by an enemy splinters by itself, your Splinters reach [2], and you can use Ready: Which One?.* (its Two Pillars line now names the Seed) | pending Owner |
-| Grand Deception | *Surround yourself with Doubles until you reach your limit. Every nearby enemy that fails to see through the lie gains Doubt for each of your Doubles already standing beside it.* | pending Owner |
-| Grand Deception, extra | *…Enemies within [1] that fail a Wisdom Saving Throw gain 1 stack of Doubt for each of your Doubles that stood within [2] of them before the cast. A third stack leaves a creature Deluded.* | pending Owner |
+| Aspect of Doubt (Tier III passive) | *A Double destroyed by an enemy splinters by itself, and your Splinters reach [1]. You can use Ready: Which One? until combat ends.* | Owner-approved, 2026-10-16 |
+| Awakened III status, last line | *Aspect of Doubt: A Double destroyed by an enemy splinters by itself, your Splinters reach [2], and you can use Ready: Which One?.* (its Two Pillars line now names the Seed) | Owner-approved, 2026-10-16 |
+| Grand Deception | *Surround yourself with Doubles until you reach your limit. Every nearby enemy that fails to see through the lie gains Doubt for each of your Doubles already standing beside it.* | Owner-approved, 2026-10-16 |
+| Grand Deception, extra | *…Enemies within [1] that fail a Wisdom Saving Throw gain 1 stack of Doubt for each of your Doubles that stood within [2] of them before the cast. A third stack leaves a creature Deluded.* | Owner-approved, 2026-10-16 |
