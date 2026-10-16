@@ -51,3 +51,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R64 (SG12): moods and Surges list their reactions.
 - 2026-10-16 — R65 (SG14): Anger said as a taunt. Brainstorm round closed: R49–R65.
 - 2026-10-16 — R66 (Emotional Overload ranks by slot variant, one zero-cost passive; Owner-tested engine fact) and R67 (growth rhythm 1/5/9). Open: Tier III bonus at 12.
+- 2026-10-16 — R68: Emotional Overload applies vanilla Irresistible Dance (1 turn; 2 at Tier III) instead of Paralysis.
