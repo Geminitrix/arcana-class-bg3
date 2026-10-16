@@ -29,8 +29,8 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 
 - [x] Review written: `21.04/Unbound/REFINE_Unbound.md` (audit, alternative kits, suggestions)
 - [x] Owner chose a kit direction and answered every suggestion
-- [ ] Decisions logged in `21.04/Unbound/DECISIONS.md` (prefix `WB`)
-- [ ] `DESIGN.md` complete and `21.03/Unbound.md` written from the approved map
+- [x] Decisions logged in `21.04/Unbound/DECISIONS.md` (prefix `WB`)
+- [x] `DESIGN.md` complete and `21.03/Unbound.md` written from the approved map
 - [ ] Propagation (00.08) to every department; `check_propagation.pl Unbound` prints OK
 - [ ] Build ticket opened (`implementation: claude`), spec in `55`
 
@@ -90,3 +90,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: capstone is Where the Winds Meet, usable only while no wind blows (WB26).
 - 2026-10-16 — Owner approved SG1–SG16 and the level map (WB27–WB43). Next: names, then numbers, DESIGN.md, 21.03.
 - 2026-10-16 — Owner approved the names (WB44).
+- 2026-10-16 — Lead Class Designer: `DESIGN.md` written from WB0–WB44 and `21.03/Unbound.md` from the map (WB43). Pending: balance pass (every ‹…›, `25`), propagation (00.08), build ticket.
