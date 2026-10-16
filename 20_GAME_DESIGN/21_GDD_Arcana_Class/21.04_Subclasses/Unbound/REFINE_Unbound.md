@@ -272,3 +272,32 @@ Every piece must touch a gear (create / change / spend / read the mark) or carry
 | 10 | Leap of Faith | "I leap through them all" |
 | 11 | Where the Winds Meet (capstone) | "I gather the battlefield" |
 | 12 | Tier III (sweeps push) + Hurricane (two winds), movement rank 4 | "The storm" |
+
+## Balance pass — proposal (2026-10-16, awaiting Owner approval; values go to `25` only after it)
+
+Currency `22.06` (1 point = 1 expected damage on one target). Assumptions (`22.06` §1): T = 4 turns, E = 4 fights;
+A = 4 / 8 / 11 at T1 / T2 / T3; p(hit) 0.65 / 0.65 / 0.70; allies = the Windborn + 3. Winds are costed per turn of wind
+for the whole party; a wind blows ≈ 2.5 turns per fight (opened on turn 2, reopened when it stops).
+
+| Knob | Proposal | Arithmetic | Verdict |
+|---|---|---|---|
+| Zephyr Rush range | Breeze 9 m · Gale+ 12 m | Built-in dash, no opportunity attack ≈ +0.3A per Rush (`22.06` §4); ~60% of Zephyrs find an unmarked target | In band; 12 m is vanilla Zephyr Flash's radius |
+| Gale push | 3 m | 0.1A; +0.2A at an edge | Lean weak |
+| Storm second Rush | 9 m, once per Zephyr | One more unarmed hit at T2–T3 ≈ 1d8+4 × 0.70 ≈ 0.55A, × ~0.6 frequency ≈ +0.35A/turn | ⚠️ watch (V-storm) |
+| Wind cap X by rank | Breeze 2 · Gale 3 · Storm 4 · Hurricane 5 | Uptime ≈ 2.5–3 of 4 turns at any rank (reopen when it stops); the cap matters in long fights | In band |
+| **Boreas** | allies +3 m · Windswept −3 m | 4 × 0.1A + 2.5 × 0.05A ≈ **0.55A**/turn | Balanced with the others |
+| **Notus** | ranged attacks vs allies at Disadvantage · Windswept −1 on saves | 4 × 0.3A × 0.4 (ranged share) + ≈ 0.07A ≈ **0.55A** | Balanced |
+| **Eurus** | allies +1 attack rolls · Windswept −1 attack rolls | 4 × 0.07A + 2.5 enemies × 2A × 0.05 ≈ **0.55A** | +2/−2 would be 1.1A — dominant (B5); +1 keeps the three equal |
+| The bag per day | — | T1: 0.55 × 4 × 2.5 × 4 ≈ 22 gross, −BA ≈ 14 → ≈ 6% of D · T3: ≈ 60 gross ≈ 12% of D | Main subclass feature band (≈ 10%) |
+| Hurricane (two winds) | — | +0.55A/turn at 12 ≈ +60/day ≈ 12% of D | ⚠️ watch — the level-12 peak, with Tier III |
+| **The Calm** | **Action**; 1d8 Thunder per gust (levels 3–6), 2d6 (7–12); no roll | T1: ~3 gusts × 4.5 + reopen ≈ 17 vs once-per-combat ceiling 19 → 0.9 · T2: 3.75 × 7 + 8 ≈ 34 vs 38 → 0.88 · T3: 7 × 7 + 11 ≈ 58 vs 52 → 1.12 | Balanced → strong at 12 (acceptable: needs a wind and marks). Action so the bag (bonus action) reopens the same turn |
+| **Where the Winds Meet** | **Action**; point 18 m; pull 6 m (Windswept 9 m); Off Balance; marked; **+4d8 Thunder, DEX save for half** | Without damage: pull + Off Balance + marks + Fireball set-up + a full bag ≈ 45 vs capstone ceiling 86 → **0.52 (trap)**. With 4d8: 4 targets × 18 × 0.8 × M(4) 2.5 ≈ 36 → ≈ 81 → 0.94 | Needs the damage to be a capstone — a design addition for approval |
+| Awakening goals (marks released) | **3 / 5 / 8** | Level 3: opening on turn 2 with ~3 → Tier I turn 2. Level 7: 3 + 2 (sweep) → turn 3. Level 12 (allies mark): 4 + 4 → turn 3, and the waking sweep already pushes | Every tier in a normal fight (J6) |
+| Tier III push | 3 m + Off Balance | ≈ 4 swept × (0.1 + 0.2)A ≈ 1.2A per turn of wind | ⚠️ watch (peak) |
+| **Weightless** | speed +3 / +4.5 / +6 / +9 m; jump ×1 / ×2 / ×3 / ×4; falling −0% / −50% / −50% / immune (ranks 1/4/8/12) | Today +38 m at 12 is a dead bonus (B6) and the Rush now carries the mobility; +3 m ≈ 0.15A/turn for a melee | Down from today, in band |
+| Flow State | THP 2 × level, +1 bonus action, **3 turns** | Was up to 6 turns (> T) | Down, in band (B6) |
+| Storm Fists | today's dice (1d4 / 1d6 / 1d8 + DEX by slot), **3 turns**, only vs enemies that weren't Windswept | Frequency ~50% halves it; the 3-turn cap trims the tail | Down; watch it stays a pick (V-fists) |
+| Untethered | +2 AC while flying (today's Eye of the Storm) | 0.16A/turn + flight 0.3A | Unchanged |
+| Leap of Faith | 18 m, today's damage | Once per Short Rest at 10 | Unchanged |
+| Gale Deflection, ally | ally within 3 m | Small | — |
+| Preset | STR 8 · DEX 15 · CON 13 · INT 15 · WIS 10 · CHA 10 (27-point buy) | DEX 17 / INT 16 after +2/+1 → AC 16, DC 13 at level 1 | Closes `10.06` #12 |
