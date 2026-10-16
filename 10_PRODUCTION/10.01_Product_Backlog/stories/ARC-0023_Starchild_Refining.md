@@ -53,3 +53,4 @@ player feels.
   light."), reminder only (SC5). Next: how the three Hymns differ.
 - 2026-10-16 — Owner: the Hymns change the shape of the heal — focused / radiant / tidal (SC6). Next: the axis.
 - 2026-10-16 — Owner: axis **Timing** (SC7); `21.08` Axis row updated. Next: the core rule of the darkest hour.
+- 2026-10-16 — Owner: the darkest hour is an exclusive mark consumed by her next heal (SC8). Next: its name.
