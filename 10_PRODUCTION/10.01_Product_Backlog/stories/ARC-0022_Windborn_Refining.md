@@ -74,3 +74,5 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   empty levels 4 and 8 for the Windborn, with the vanilla precedent (Four Elements monk at 4 and 8). The standard is
   unchanged; 21.08 "Level rhythm" to note the exception at propagation.
 - 2026-10-16 — Owner: at Storm, Zephyr chains one more Rush to another unmarked enemy (WB17).
+- 2026-10-16 — Owner: no small-fight exception; the bag reopens the road (WB18). Core mechanic complete; synthesis
+  (rule sentence, gears, worked example) written in `REFINE_Unbound.md`.

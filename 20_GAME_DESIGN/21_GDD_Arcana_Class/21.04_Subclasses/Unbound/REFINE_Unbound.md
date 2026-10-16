@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB17); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB18); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
@@ -196,3 +196,37 @@ Placements weighed: (A) a prevailing wind drawn at combat start, turnable once p
 bag and chooses — **chosen (WB11)**; (C) the three bagged winds wake with the Awakening tiers. Feasibility: the mod's
 Osiris uses `EnteredCombat` / `CombatEnded`; vanilla Osiris uses `Random(N,_Var)`; vanilla aura `AURA_OF_PROTECTION`.
 Bounded accuracy: a flat attack bonus for the whole party is a large lever (standard §8.3) — balance pass.
+
+## Synthesis — the mechanic as decided (WB3–WB18)
+
+**Core rule (one sentence, taught once):** *the wind marks every enemy you touch; Zephyr Strike carries you to the ones
+it hasn't touched yet, and Aeolus' Bag releases what it has gathered.*
+
+**Rules**
+- **Windswept** (WB8, WB9): any hit of yours, or any failed save against your effects, marks the enemy until the end of
+  your next turn. A Windswept enemy can't make opportunity attacks (WB10).
+- **Zephyr Strike** (WB4–WB6, WB16–WB18): against an unmarked enemy it is a Rush (`Rush_SpringAttack` animation);
+  against a marked one, a plain strike; when everyone is marked, no Rush. Ranks: Breeze 1 · Gale 4 (push; Eurus joins
+  the bag) · Storm 8 (one more Rush to another unmarked enemy) · Hurricane 12 (the bag releases two winds).
+- **Aeolus' Bag** (WB11–WB15): bonus action, from level 2; needs one mark; choose a wind (Breeze: Boreas, Notus; Gale:
+  + Eurus); it blows for X turns, X = marks when opened, capped by the rank; the bag stays shut while it blows; opening
+  clears every mark; the boon is for allies, the bane falls on Windswept enemies.
+- **Leap of Faith** (WB7): `Rush_ForceTunnel` animation.
+
+**Gears (standard §4.3)**
+
+| Creates | Changes | Spends | Reads |
+|---|---|---|---|
+| any hit; failed saves vs your cards; Leap of Faith's path; reactions that hit | Gale push and Wind Blast (move marked enemies); Storm's second Rush | Aeolus' Bag (clears all) | Zephyr (Rush or not); Open Path; the Bag (X, the bane's targets); the Awakening (to decide) |
+
+**Worked example (level 4, Gale; four enemies — two goblins on an ally, an orc mid-field, an archer on a roof)**
+
+| Turn | You | State after |
+|---|---|---|
+| 1 | Wind Blast — goblins and orc fail → marked. Zephyr (after the card): Rush to the archer, Gale push off the roof → marked | 4 marked |
+| Allies | The fighter leaves the goblins with no opportunity attack (Open Path) | 4 marked |
+| 2 | Punch goblin 1 (already marked). Bonus action: open the Bag — X = 4, capped by Gale ‹…›; choose Eurus (allies +attack) | 0 marked; Eurus blows |
+| 3 | Punch the orc → marked, suffers Eurus's bane. Zephyr: Rush to goblin 2 (unmarked) → marked | 2 marked |
+
+Checked against the rule sentence: every mark comes from a touch, every Rush goes to an untouched enemy, the Bag releases
+what was gathered. No exception.
