@@ -23,6 +23,10 @@ our $M = 'AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7';
 our $ROOT = abs_path(dirname(__FILE__) . '/../../..');            # repository root
 sub default_out { "$ROOT/50_ENGINEERING/55_Implementation_Specs/_wip/Resonant" }
 our $MASTER = "$ROOT/20_GAME_DESIGN/25_Master_Data";
+# ARC-0017 (R49-R68) is built in stages, one [fechado] each: ARC17_STAGE=N writes the game up to stage N
+# (1 moods and loops, 2 the Overload, 3 the container, 4 the rest). Unset = 0 = the game of ARC-0002.
+our $STAGE = $ENV{ARC17_STAGE} // 0;
+sub at { $STAGE >= $_[0] }
 # One value entry of a 25 file: { value => ..., unit => ..., by_level => { level => value } }.
 # The files use one-line flow maps (schema 25.00/master_data.schema.yaml), so a line parser is enough.
 sub master {
@@ -281,7 +285,7 @@ sub key        { my $k = uc join '_', @_; $k =~ s/[^A-Z0-9_]/_/g; "HW_$k" }   # 
 sub reaction {
     my ($s, $m) = @_;
     my $d = distance($s, $m);
-    my %r = (distance => $d, gate => $GATE{$d}, mood => mood_id($m));
+    my %r = (distance => $d, gate => $GATE{$d}, mood => mood_id($m), with => $m);
     if    ($d == 0) { $r{kind} = 'intensify'; $r{status} = intense_id($s) }
     elsif ($d == 4) { $r{kind} = 'catharsis'; $r{status} = 'CATHARSIS' }
     else            { $r{kind} = 'feeling';   $r{status} = feeling_id($s, $m) }
@@ -289,7 +293,9 @@ sub reaction {
 }
 
 sub cond_of { my $r = shift; my $c = "HasStatus('$r->{mood}')";
-    $r->{gate} ? "$c and HasPassive('$r->{gate}', context.Source)" : $c }
+    $c .= " and HasPassive('$r->{gate}', context.Source)" if $r->{gate};
+    $c .= " and not HasStatus('RESONANT_EXCESS_SPENT')" if $r->{kind} eq 'intensify' && at(1);   # R50: excess once per fight
+    $c }
 
 # SpellSuccess: the "no reaction" case comes FIRST, before any functor spends a mood (risk R1).
 sub refund_functors {   # R16: the slot level per class level, as Arcana_Passive_ArcaneOverflow (mod Passive.txt)
@@ -303,8 +309,10 @@ sub refund_functors {   # R16: the slot level per class level, as Arcana_Passive
               'ApplyStatus(SELF,RESONANT_REFUND_USED,100,1)';
 }
 sub spell_success {
-    my $s = shift;
+    my ($s, $kind) = @_;
     my @r = map { reaction($s, $_) } @WHEEL;
+    # R57 ($kind): a Surge cast by a rule never braids a hindering feeling -- that mood is left alone, the peak lands
+    @r = grep { $_->{kind} ne 'feeling' || feeling_of($s, $_->{with})->{kind} ne 'I' } @r if $kind;
     my @f = ('IF(' . join(' and ', map { 'not (' . cond_of($_) . ')' } @r) . '):ApplyStatus(' . peak_id($s) . ',100,1)');
     # R16's refund is applied by Osiris when a reaction status lands (overload_goal): here it pushed the line past the
     # Toolkit's 4096-character read limit (2026-10-12)
@@ -417,8 +425,11 @@ sub build_statuses {
         # Tier I Resonance: the mood lasts longer once awakened. context.Source in a remove functor is the status's
         # source, the Resonant -- probe P17 (plan B: Osiris re-applies the mood)
         my ($m, $long) = (mood_id($e), $MOOD_TURNS + $TIER1_EXTEND);
-        my $fade = "IF(RemoveCause(StatusRemoveCause.TimeOut) and not $AW_COND):ApplyStatus($m,100,$MOOD_TURNS);"
-                 . "IF(RemoveCause(StatusRemoveCause.TimeOut) and $AW_COND):ApplyStatus($m,100,$long)";
+        # R49: an emotion Temper replayed leaves nothing -- the fade reads the replay marker, then clears it
+        my $replay = at(1) ? " and not HasStatus('RESONANT_REPLAY')" : '';
+        my $fade = "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and not $AW_COND):ApplyStatus($m,100,$MOOD_TURNS);"
+                 . "IF(RemoveCause(StatusRemoveCause.TimeOut)$replay and $AW_COND):ApplyStatus($m,100,$long)"
+                 . (at(1) ? ';RemoveStatus(RESONANT_REPLAY)' : '');
         push @out, status_entry(peak_id($e), "Emotion: $e",
             tag_terms("Surging with $e. $E->{peak}{text}"),
             $E->{icon}, $side, { %{ $E->{peak} }, stack => 'EMOTION', onremove => $fade,
@@ -430,8 +441,10 @@ sub build_statuses {
         my $I = $E->{intense};
         push @out, status_entry(intense_id($e), "Emotion: $I->{name}",
             tag_terms("$e surged again on its own echo. $I->{text}"),
-            $E->{icon}, $side, { %$I, stack => 'EMOTION', onremove => $fade,
-            onapply => join(';', grep { defined } 'RemoveStatus(' . mood_id($e) . ')', $I->{onapply}) });
+            # R49: the intense emotion leaves nothing; R50: it marks the creature for the rest of the fight
+            $E->{icon}, $side, { %$I, stack => 'EMOTION', onremove => (at(1) ? undef : $fade),
+            onapply => join(';', grep { defined } 'RemoveStatus(' . mood_id($e) . ')', $I->{onapply},
+                (at(1) ? 'ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)' : undef)) });
     }
     for my $k (sort { $FEELING{$a}{name} cmp $FEELING{$b}{name} } keys %FEELING) {
         my $F = $FEELING{$k}; my ($x, $y) = split /\+/, $k;
@@ -450,6 +463,12 @@ sub build_statuses {
     push @out, hidden_status('FEELING_MORBIDNESS_TECH', 'Morbidness', 'OnApplyFunctors', 'RegainHitPoints(1d6)');
     push @out, hidden_status('RESONANT_REFUND_TECH', 'Refund', 'OnApplyFunctors', refund_functors());
     push @out, hidden_status('RESONANT_REFUND_USED', 'Refund used', 'TickType', 'StartTurn');
+    if (at(1)) {   # ARC-0017 stage 1
+        # R49: Temper's replay marker (2 turns; the replayed emotion's fade removes it -- probe B1)
+        push @out, hidden_status('RESONANT_REPLAY', 'Replayed emotion', 'StackType', 'Overwrite');
+        # R50: a creature feels an intense emotion once per fight (the ASPECT_PROGRESS_* combat-end pattern)
+        push @out, hidden_status('RESONANT_EXCESS_SPENT', 'Excess felt', 'RemoveEvents', 'OnCombatEnded');
+    }
     # Stage 2: the Overload meter -- a count shown as a frozen duration, like ASPECT_PROGRESS_* (ARCANA_Aspect_Common.txt)
     push @out, ['Status_BOOST', entry('RESONANT_OVERLOAD', 'StatusData', StatusType => 'BOOST',
         DisplayName => loca(key('RESONANT_OVERLOAD', 'NAME'), 'Overload'),
@@ -673,9 +692,9 @@ sub build_interrupts {
 }
 sub build_engine_patch {
     @LOCA = ();
-    my ($compassion, $compassion_status, $compassion_interrupt, $compassion_used) = build_compassion();
+    my ($compassion, $compassion_status, $compassion_interrupt, $compassion_used, $kind_trust) = build_compassion();
     my ($contagion, $contagion_status) = build_contagion();
-    my $spells   = build_spells() . build_overload_spell() . build_heartstring() . build_temper() . $contagion;
+    my $spells   = build_spells() . build_overload_spell() . build_heartstring() . build_temper() . $contagion . $kind_trust;
     my ($aspect_statuses, $aspect_passives, $two_cups) = build_aspect();
     my ($shared_heart, $shared_statuses) = build_shared_heart();
     my @statuses = (build_statuses(), $compassion_status, $contagion_status, @$aspect_statuses, @$shared_statuses, $compassion_used);
@@ -864,8 +883,12 @@ sub build_heartstring {
 # spent), then the moods are removed. It applies a peak, never a reaction (R7).
 sub build_temper {
     my $c = 'Target_Arcana_Card_Spell_Temper';
-    my $success = join ';', (map { "IF(HasStatus('" . mood_id($_) . "')):ApplyStatus(" . peak_id($_) . ',100,1)' } @WHEEL),
+    my $success = join ';', (at(1) ? 'ApplyStatus(RESONANT_REPLAY,100,2)' : ()),   # R49: the replayed emotion leaves nothing
+        (map { "IF(HasStatus('" . mood_id($_) . "')):ApplyStatus(" . peak_id($_) . ',100,1)' } @WHEEL),
         map { my $m = mood_id($_); "IF(HasStatus('$m')):RemoveStatus($m)" } @WHEEL;
+    my $text = at(1)
+        ? "Spend a creature's mood to make it relive the emotion it came from for 1 turn. That emotion leaves nothing behind when it fades. A creature that is not your ally can resist with a Wisdom Saving Throw."
+        : "Pull a creature's mood back to the emotion it came from. It feels that emotion again for 1 turn, and when it fades the mood returns for $MOOD_TURNS turns. A creature that is not your ally can resist with a Wisdom Saving Throw.";
     my $map = join(', ', map { st_tag(mood_id($_), $EMO{$_}{mood}{name}) . ' into ' . st_tag(peak_id($_), $_) } @WHEEL) . '.';
     entry($c, 'SpellData', SpellType => 'Target', Level => 0, SpellSchool => 'Enchantment',
         TargetRadius => master('SPL_Resonant_Temper', 'range')->{value}, AmountOfTargets => 1,
@@ -875,7 +898,7 @@ sub build_temper {
         TargetConditions => "Character() and not Dead() and not Tagged('CONSTRUCT') and (" . any_mood() . ") and $CARD_MARK",
         Icon => 'Spell_Enchantment_CalmEmotions',
         DisplayName => loca(key($c, 'NAME'), 'Temper'),
-        Description => loca(key($c, 'DESC'), tag_terms("Pull a creature's mood back to the emotion it came from. It feels that emotion again for 1 turn, and when it fades the mood returns for $MOOD_TURNS turns. A creature that is not your ally can resist with a Wisdom Saving Throw.")),
+        Description => loca(key($c, 'DESC'), tag_terms($text)),
         ExtraDescription => loca(key($c, 'EXTRA'), $map),
         TooltipAttackSave => 'Wisdom',
         @CAST, PreviewCursor => 'Cast', CastTextEvent => 'Cast',
@@ -887,6 +910,7 @@ sub build_temper {
 # unique while ready) applies a READY status until the combat ends, and the status unlocks the reaction. The
 # reaction is vanilla Hellish Rebuke's: OnCastHit + UseSpell(<target>,<spell>,true,true,true); only the reaction
 # is paid. Nearby + an ally within range as Trust's shoulder (Interrupt_Arcana_TrustShoulder).
+our $KIND_TRUST = 'Target_Arcana_Created_CompassionTrust';   # R57: the Trust Ready: Compassion casts
 sub build_compassion {
     my $lvl = master('SPL_Resonant_Compassion', 'card_level')->{value};
     my $r   = master('SPL_Resonant_Compassion', 'range')->{value};
@@ -917,14 +941,17 @@ sub build_compassion {
         DescriptionParams => "Distance($r)", Icon => $icon,
         InterruptContext => 'OnCastHit', InterruptContextScope => 'Nearby', Container => 'YesNoDecision',
         Conditions => "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and Ally(context.Target,context.Observer) and not Self(context.Target,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not DistanceToEntityGreaterThan($r, context.ObserverPosition, context.Target) and not AnyEntityIsItem() and HasLastAttackTriggered()",
-        Properties => 'UseSpell(OBSERVER_TARGET,' . spell_id('Trust') . ',true,true,true);ApplyStatus(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0)',
+        Properties => 'UseSpell(OBSERVER_TARGET,' . (at(1) ? $KIND_TRUST : spell_id('Trust')) . ',true,true,true);ApplyStatus(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0)',
         Cost => 'ReactionActionPoint:1;ArcanaReactCompassion:1',
         InterruptDefaultValue => 'Ask;Enabled',
         # the PC deck: holding the card IS the charge (CardDB D.reactions); the use mark discards one copy
         EnableCondition => "HasActionResource('ArcanaReactCompassion', 1, 0, false, false, context.Source)",
         EnableContext => 'OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved');
     my $used = hidden_status('COMPASSION_USED_TECH', 'Compassion used', 'StackType', 'Overwrite');
-    ($card, $status, $interrupt, $used);
+    # R57: the Trust a rule casts is kind -- the Surge itself, without the reactions that hinder (Created: never a card)
+    my $kind = at(1) ? entry($KIND_TRUST, 'SpellData', SpellType => 'Target', using => spell_id('Trust'),
+        SpellSuccess => spell_success('Trust', 1)) : '';
+    ($card, $status, $interrupt, $used, $kind);
 }
 
 # Emotional Contagion (§7.3, R33, R34): Concentration (vanilla Target_Guidance: IsConcentration + a timed status);
@@ -1138,8 +1165,8 @@ sub build_shared_heart {
 }
 
 sub shared_heart_goal {
-    my @res = map { qq{DB_ARCANA_Resonant_SharedResult("$_");} }    # R46: feelings only
-        map { 'FEELING_' . uc $FEELING{$_}{name} } sort keys %FEELING;
+    my @res = map { qq{DB_ARCANA_Resonant_SharedResult("$_");} }    # R46: feelings only; R57: only the helpful ones
+        map { 'FEELING_' . uc $FEELING{$_}{name} } grep { !at(1) || $FEELING{$_}{kind} eq 'A' } sort keys %FEELING;
     my $g = join "\n", 'Version 1', 'SubGoalCombiner SGC_AND', 'INITSECTION', 'PROC_ARCANA_Resonant_SharedHeart_Init();', '', 'KBSECTION',
         '// Shared Heart (the Resonant capstone, spec 7.6). GENERATED by gen_emotion_alchemy.pl -- do not edit by hand.',
         '//REGION Tables (DB_ARCANA_Resonant_SurgeRoot lives in ARCANA_Aspect_Temperance)',

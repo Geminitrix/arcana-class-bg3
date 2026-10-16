@@ -42,6 +42,7 @@ like($ss, qr/DealDamage\(LevelMapValue\(Catharsis_Damage\),Psychic,Magical\).*Re
 none('each Surge: 1 base case + intensify + 6 feelings x 2 (Tier II) + 5 Catharsis functors (2 for Tier I); the refund is in Osiris', grep { (() = Alchemy::spell_success($_) =~ /IF\(/g) != 19 } @W);
 
 # ---- the whole patch
+$Alchemy::STAGE = 4;   # ARC-0017: test the whole refined build (R49-R68); the apply sets ARC17_STAGE per stage
 my $p = Alchemy::build_engine_patch();
 my @entries = $p =~ /^new entry "([^"]+)"/mg;
 my %defined = map { $_ => 1 } @entries;
@@ -63,7 +64,7 @@ like($p, qr/^new entry "EMOTION_TERROR"\ntype "StatusData"\ndata "StatusType" "F
 like($p, qr/^new entry "EMOTION_AMAZEMENT"\ntype "StatusData"\ndata "StatusType" "INCAPACITATED"\nusing "STUNNED"\n/m, 'Amazement: INCAPACITATED, using STUNNED');
 like($p, qr/^new entry "FEELING_AWE"\ntype "StatusData"\ndata "StatusType" "INCAPACITATED"\nusing "HYPNOTIC_PATTERN"\n/m, 'Awe: INCAPACITATED, using HYPNOTIC_PATTERN');
 like(block($p, 'EMOTION_TERROR'), qr/data "RemoveConditions" ""/, 'Terror clears the inherited per-turn save');
-like(block($p, 'EMOTION_AMAZEMENT'), qr/data "OnApplyFunctors" "RemoveStatus\(MOOD_DISTRACTED\);BreakConcentration\(\)"/, 'Amazement keeps BreakConcentration');
+like(block($p, 'EMOTION_AMAZEMENT'), qr/data "OnApplyFunctors" "RemoveStatus\(MOOD_DISTRACTED\);BreakConcentration\(\);ApplyStatus\(RESONANT_EXCESS_SPENT,100,-1\)"/, 'Amazement keeps BreakConcentration (and marks its excess, R50)');
 none('statuses with `using` inherit TickType', grep { block($p, $_) =~ /^data "TickType"/m } qw(FEELING_AWE EMOTION_TERROR EMOTION_AMAZEMENT));
 
 # ---- StackIds: peaks and intense share EMOTION, moods share MOOD, each feeling its own
@@ -284,7 +285,7 @@ my $ci = block($p, 'Interrupt_Arcana_Reaction_Compassion');
 like($ci, qr/"InterruptContext" "OnCastHit"\n(?:.*\n)*?data "InterruptContextScope" "Nearby"/, 'Compassion: when a nearby creature is hit');
 like($ci, qr/Ally\(context\.Target,context\.Observer\) and not Self\(context\.Target,context\.Observer\).*not DistanceToEntityGreaterThan\(9, context\.ObserverPosition, context\.Target\)/, 'an ally within 9 m (25)');
 like($ci, qr/"Conditions" "[^"]*Enemy\(context\.Source,context\.Observer\)/, 'only when an ENEMY hits the ally -- your own Surge on it does not trigger it (vanilla Hellish Rebuke)');
-like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Card_Spell_EmotionTrust,true,true,true\);ApplyStatus\(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0\)"/, 'casts Weave Surge: Trust on it; marks the use (the PC deck discards one copy)');
+like($ci, qr/"Properties" "UseSpell\(OBSERVER_TARGET,Target_Arcana_Created_CompassionTrust,true,true,true\);ApplyStatus\(OBSERVER_OBSERVER,COMPASSION_USED_TECH,100,0\)"/, 'casts the kind Trust on it (R57); marks the use (the PC deck discards one copy)');
 like($ci, qr/"Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"/, 'once per round: the reaction and the charge');
 like($ci, qr/"EnableCondition" "HasActionResource\('ArcanaReactCompassion', 1, 0, false, false, context\.Source\)"/, 'only with a charge (Which One)');
 like($ci, qr/"EnableContext" "OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved"/, 'rechecked when charges change (Which One)');
@@ -314,9 +315,9 @@ my $jss = Alchemy::spell_success('Joy');
 like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self() and $AW):DealDamage(1d8,Psychic,Magical)\E/, 'Tier I: Catharsis hurts 1d8 more');
 like($jss, qr/\QIF(HasStatus('MOOD_PENSIVE') and (Ally() or Self()) and $AW):RegainHitPoints(1d8)\E/, 'Tier I: Catharsis heals 1d8 more');
 # 4.4 Tier I: the moods you create last 2 turns longer (25: FEAT_Resonant_AspectAwakening#tier1_mood_extend)
-none('Tier I: every peak and intense emotion leaves its mood 2 turns longer once awakened', map { my $e = $_; my $m = Alchemy::mood_id($e);
-    grep { block($p, $_) !~ /\QIF(RemoveCause(StatusRemoveCause.TimeOut) and not $AW):ApplyStatus($m,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and $AW):ApplyStatus($m,100,7)\E/ }
-    Alchemy::peak_id($e), Alchemy::intense_id($e) } @W);
+none('Tier I: every peak leaves its mood 2 turns longer once awakened (not after a Temper replay, R49)', map { my $e = $_; my $m = Alchemy::mood_id($e);
+    grep { block($p, $_) !~ /\QIF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not $AW):ApplyStatus($m,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and $AW):ApplyStatus($m,100,7)\E/ }
+    Alchemy::peak_id($e) } @W);
 # 4.2 tier statuses and passives
 my $awk = block($p, 'ASPECT_AWAKENED_TEMPERANCE');
 like($awk, qr/"Boosts" "UnlockSpell\(Shout_Arcana_Created_Aspect_TwoCups\)"/, 'Tier I unlocks The Two Cups');
@@ -410,7 +411,7 @@ is(scalar(() = $shc =~ /RemoveStatus\(MOOD_\w+\)/g), 8, 'shared Catharsis: every
 unlike($p, qr/^new entry "RESONANT_SHARED_REFUND_TECH"/m, 'R46: no free-Surge refund any more');
 ok((grep { $_->[1] eq 'RESONANT_SHARED_REFUND_TECH' } Alchemy::removals({ RESONANT_SHARED_REFUND_TECH => 'Status_BOOST' }, {})) ? 1 : 0, 'R46: the free-Surge refund is retired from the game');
 my $hg = Alchemy::shared_heart_goal();
-is(scalar(() = $hg =~ /DB_ARCANA_Resonant_SharedResult\("(?:EMOTION|FEELING)_\w+"\);/g), 24, 'R46: only the 24 feelings are copied');
+is(scalar(() = $hg =~ /DB_ARCANA_Resonant_SharedResult\("(?:EMOTION|FEELING)_\w+"\);/g), scalar(grep { $_->{kind} eq 'A' } values %Alchemy::FEELING), 'R46/R57: only the helpful feelings are copied');
 unlike($hg, qr/DB_ARCANA_Resonant_SharedResult\("EMOTION_/, 'R46: no peak or intense emotion is copied');
 like($hg, qr/StatusApplied\(\(CHARACTER\)_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_SharedResult\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_EmotionalAlchemy", 1\)\r?\nAND\r?\nHasActiveStatus\(_Target, "SHARED_HEART", 1\)/, 'a Resonant\'s Surge result on a linked creature');
 like($hg, qr/ApplyStatus\(_Other, _Status, _Dur, 1, _Target\);/, 'the copy\'s source is the linked target: counted once, never copied again (R19)');
@@ -424,5 +425,34 @@ like($lt{'HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC'} // '', qr/feeling/, 'Sha
 unlike($lt{'HW_SHOUT_ARCANA_CARD_SPELL_SHAREDHEART_DESC'} // '', qr/costs nothing/, 'Shared Heart text no longer promises free Surges');
 unlike($hg, qr/[^\x00-\x7F]/, 'Shared Heart goal: ASCII only');
 like($hg, qr/\r\n/, 'Shared Heart goal: CRLF');
+
+# ==== ARC-0017 stage 1 -- moods and loops (R49, R50, R57)
+# R49: using a mood spends it; only an emotion that fades on its own leaves a mood
+none('R49: an intense emotion leaves nothing when it ends', grep { block($p, Alchemy::intense_id($_)) =~ /^data "OnRemoveFunctors"/m } @W);
+none("R49: a peak's fade skips the mood after a Temper replay, then clears the marker", grep {
+    block($p, Alchemy::peak_id($_)) !~ /^data "OnRemoveFunctors" "IF\(RemoveCause\(StatusRemoveCause\.TimeOut\) and not HasStatus\('RESONANT_REPLAY'\)[^"]*ApplyStatus\(MOOD_[^"]*;RemoveStatus\(RESONANT_REPLAY\)"$/m } @W);
+my $t17 = block($p, 'Target_Arcana_Card_Spell_Temper');
+like($t17, qr/^data "SpellSuccess" "ApplyStatus\(RESONANT_REPLAY,100,2\);/m, 'R49: Temper marks the replay before the emotion');
+like(block($p, 'RESONANT_REPLAY'), qr/DisableOverhead/, 'R49: the replay marker is hidden');
+like($lt{HW_TARGET_ARCANA_CARD_SPELL_TEMPER_DESC} // '', qr/^Spend a creature's mood .*leaves nothing/, "R49: Temper's text says the mood is spent");
+# R50: excess once per fight
+like(block($p, 'RESONANT_EXCESS_SPENT'), qr/^data "RemoveEvents" "OnCombatEnded"$/m, 'R50: the excess marker clears at combat end');
+none('R50: every intense emotion marks its creature', grep { block($p, Alchemy::intense_id($_)) !~ /ApplyStatus\(RESONANT_EXCESS_SPENT,100,-1\)/ } @W);
+none('R50: Intensify only on a creature that has not felt its excess', grep { my $s = $_;
+    Alchemy::spell_success($s) !~ /IF\(HasStatus\('${\Alchemy::mood_id($s)}'\) and HasPassive\('Arcana_Passive_Overwhelm', context\.Source\) and not HasStatus\('RESONANT_EXCESS_SPENT'\)\):ApplyStatus\(${\Alchemy::intense_id($s)},100,1\)/ } @W);
+# R57: automatic effects never braid a hindering feeling on an ally
+my @hind = grep { my $r = Alchemy::reaction('Trust', $_); $r->{kind} eq 'feeling' && Alchemy::feeling_of('Trust', $_)->{kind} eq 'I' } @W;
+is_deeply(\@hind, ['Fear'], 'R57: Trust braids one hindering feeling (on Apprehensive: Submission)');
+like(block($p, 'Interrupt_Arcana_Reaction_Compassion'), qr/UseSpell\(OBSERVER_TARGET,Target_Arcana_Created_CompassionTrust,true,true,true\)/, 'R57: Compassion casts its kind Trust');
+my $ct = block($p, 'Target_Arcana_Created_CompassionTrust');
+like($ct, qr/^using "Target_Arcana_Card_Spell_EmotionTrust"$/m, "R57: the kind Trust inherits the Surge");
+unlike($ct, qr/FEELING_SUBMISSION|'MOOD_APPREHENSIVE'/, 'R57: the kind Trust never braids Submission; on Apprehensive it lands as a peak');
+like($ct, qr/ApplyStatus\(FEELING_LOVE,/, 'R57: the kind Trust still braids Love');
+my $hg17 = Alchemy::shared_heart_goal();
+none('R57: Shared Heart copies only helpful feelings', grep { my $k = $_; $Alchemy::FEELING{$k}{kind} eq 'I' && $hg17 =~ /"FEELING_\U$Alchemy::FEELING{$k}{name}\E"/ } keys %Alchemy::FEELING);
+like($hg17, qr/"FEELING_LOVE"/, 'R57: Shared Heart still copies Love');
+# the stage switch: stage 0 is today's game
+{ local $Alchemy::STAGE = 0; my $p0 = Alchemy::build_engine_patch();
+  unlike($p0, qr/RESONANT_EXCESS_SPENT|RESONANT_REPLAY|CompassionTrust/, 'ARC17_STAGE=0 writes the game of today'); }
 
 done_testing();
