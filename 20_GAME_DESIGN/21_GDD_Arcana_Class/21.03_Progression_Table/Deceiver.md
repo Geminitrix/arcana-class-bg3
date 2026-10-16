@@ -2,7 +2,7 @@
 id: 21.03/Deceiver
 owner: Lead Class Designer
 source: 21.04_Subclasses/Deceiver/DESIGN.md §9 (DV23, DV28)
-reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
+reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
 ---
 
 # 21.03 · Progression — The Veilwalker (internal: Deceiver) (levels 1–12)
@@ -15,7 +15,7 @@ ships. Numbers: `25_Master_Data` (`*_Deceiver_*`, to be written). Cards by in-ga
 | Level | Passives | Cards and features | Why here |
 |---|---|---|---|
 | **1** | The Veil (core rule + Doubles) | Eidolon · Seed of Doubt · Malicious Whispers *(cantrip)* · the Doubles' Splinter and Dismiss | The mechanic plays from level 1: bodies to keep or spend, Doubt on enemies |
-| **2** | — | Splinter on command (Bonus Action, a deck card — DV32) · Faceless *(utility cantrip)* · Friends *(utility)* | The first bonus action: spend a body when she chooses; the Veil out of combat |
+| **2** | — | Splinter on Command (Bonus Action, a deck card — DV32) · Faceless *(utility cantrip)* · Friends *(utility)* | The first bonus action: spend a body when she chooses; the Veil out of combat |
 | **3** | Tier I Veiled · 2 - The High Priestess: Awakening | Binding Falsehood · Veiled Prison · Aspect card The Veil Lifts (Tier I) | Doubt pays off: the first payoff at 2+ Doubt is taught when it is usable |
 | 4 | — (feat) | — | — |
 | **5** | Two Truths | Veilstep (+ Withdraw) · the Doubles' Reflected Seed and Reflected Falsehood | The Doubles cast her spells at vanilla's level-5 spike |

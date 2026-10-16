@@ -2,7 +2,7 @@
 id: 31.02/Deceiver
 owner: Lore Writer
 source: 21.04/Deceiver/DESIGN.md §2, §11 · DECISIONS.md DV1–DV2, DV13, DV18–DV20, DV29–DV30 · 31.01_Lore_Bible.md
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); DV31 checked, no change; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); DV31 checked, no change; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
 ---
 
 # 31.02 · Theme — The Veilwalker (internal: Deceiver) (II · The High Priestess · Aspect of Doubt)

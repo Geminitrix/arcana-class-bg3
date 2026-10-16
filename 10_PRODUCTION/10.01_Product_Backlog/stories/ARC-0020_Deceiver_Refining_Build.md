@@ -44,3 +44,4 @@ created: 2026-10-16
 - 2026-10-16 — Task 0.1 sizes approved by the Owner and written in `25` (arithmetic in `22.05/Deceiver.md`). Task 0.2–0.3 draft `arc0020/10_names.patch` (43 strings + 2 new, dry run clean) — awaiting the Narrative gate.
 - 2026-10-16 — Narrative gate passed for stage 1 texts (Owner): `32.04/ARC-0020_Deceiver.md`. Stage 0 next: Task 0.5.
 - 2026-10-16 — Task 0.5 prepared: `arc0020/30_splinter_command.patch`, `32_goal_splinter_command.pl`, `lua/` (CardDB + test, 138 pass). Next: Tasks 0.6–0.7 (Tier III burst, Grand Deception).
+- 2026-10-16 — Tasks 0.6–0.7 prepared: `arc0020/40_tier3.patch` (stats + 4 texts, dry run clean), `42_goal_tier3_grand.pl` (+98 lines on a copy, idempotent). New probes B5 (Grand Deception snapshot timing), B6 (Splinter Tier III condition). Stage 3 texts pending in `32.04`. Stage 0 left: nothing but Task 0.8 (after B4) — stage 1 can run with `[fechado] ARC-0020`.

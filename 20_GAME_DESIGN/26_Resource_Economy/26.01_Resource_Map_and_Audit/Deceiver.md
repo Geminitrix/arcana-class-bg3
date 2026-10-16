@@ -2,7 +2,7 @@
 id: 26.01/Deceiver
 owner: Balance Designer
 source: 21.04/Deceiver/DECISIONS.md (DV1–DV30), DESIGN.md §4, §5, §10
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
 ---
 
 # 26.01 · Resource audit — The Deceiver
@@ -33,12 +33,12 @@ reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's chan
 
 | Resource | Change |
 |---|---|
-| **Doubles** | New sink at level 2: *Splinter on command* (bonus action, DV24) — spend a body now or keep its AC and its turn. At Tier III a Double destroyed by an enemy also splinters, wider (DV21): every loss becomes a burst |
+| **Doubles** | New sink at level 2: *Splinter on Command* (bonus action, DV24) — spend a body now or keep its AC and its turn. At Tier III a Double destroyed by an enemy also splinters, wider (DV21): every loss becomes a burst |
 | **Doubt** | Grand Deception gives Doubt per Double already near each enemy instead of a flat amount (DV22): the Doubles placed before the ultimate are its fuel |
 | **Tier III** | No ability bonus; the power is the Tier III burst (DV21) |
 | **Utility** | Telepathy leaves (DV26); Faceless and Friends move to level 2 |
 
 | Slot (after the build) | Users | Conflict |
 |---|---|---|
-| Bonus Action | Splinter on command (2+) — a deck card, in hand only some turns on PC (DV32), Withdraw (5+), Twice-Told (6+) | Three options from level 6 — a real choice each turn; watch that Splinter on command is not always the answer (V1) |
+| Bonus Action | Splinter on Command (2+) — a deck card, in hand only some turns on PC (DV32), Withdraw (5+), Twice-Told (6+) | Three options from level 6 — a real choice each turn; watch that Splinter on Command is not always the answer (V1) |
 | Reaction | Ready: Which One? (Tier III) | As today |

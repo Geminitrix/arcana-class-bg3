@@ -46,7 +46,7 @@ scan · 11. `sync_data.sh` · 12. commit + push · 13. tell the Owner to compile
 |---|---|---|---|---|
 | **0** | Sizes decided; patches, scripts and goal drafts prepared | all | No | Owner approves the sizes; every dry run clean |
 | **1** | Names and the one-rule passive | DV19, DV29, DV31 | Yes (stats, loca) | Tooltips read the new names; one passive explains the rule |
-| **2** | The map and *Splinter on command* | DV23, DV24, DV26, DV28, DV31, DV32 | Yes (+ goal) | B1; level-up shows `DESIGN.md` §9.1 |
+| **2** | The map and *Splinter on Command* | DV23, DV24, DV26, DV28, DV31, DV32 | Yes (+ goal) | B1; level-up shows `DESIGN.md` §9.1 |
 | **3** | Grand Deception reads the Veil; Tier III *the lie explodes* | DV21, DV22 | Yes (+ goals) | B2, B3; V2, V3 |
 | **4** | Mirrored Self from a Double | DV25 | Yes (+ goal) | B4; V4 |
 | **5** | Close: `25`, `05.02`, catalogs, docs | — | No (project) | `check_propagation` OK |
@@ -95,7 +95,7 @@ text, the Aspect card's text.
 | Level | Change |
 |---|---|
 | 1 | Remove `Arcana_Passive_Telepathy` and `Arcana_Passive_Doubt` (both L1 rows: class and multiclass); list "Deceiver Level 1" keeps Seed of Doubt, Malicious Whispers, Eidolon |
-| 2 | New list "Deceiver Level 2": Faceless, Friends, *Splinter on command*; `AddSpells` on the L2 node |
+| 2 | New list "Deceiver Level 2": Faceless, Friends, *Splinter on Command*; `AddSpells` on the L2 node |
 | 6 | New list "Deceiver Level 6": Twice-Told (`Target_Arcana_Created_Mimic`), Mirrored Spell |
 | 7 | List "Deceiver Level 7" loses Twice-Told (the cap-4 passive and Tier II stay) |
 | 10 | New list "Deceiver Level 10": Mirrored Self (`Shout_Arcana_Card_Passive_MirroredCharm`) |
@@ -105,7 +105,7 @@ Prepared: `_wip/Deceiver/arc0020/20_structure.pl` (dry run 2026-10-16 matches §
 empty today (`dump_progression.pl`).
 - **Test:** dry run, then `dump_progression.pl` after apply matches `DESIGN.md` §9.1 (4 and 8 empty).
 
-### Task 0.5 · *Splinter on command* (DV24, DV31, DV32) — `arc0020/30_splinter_command.patch` + goal region
+### Task 0.5 · *Splinter on Command* (DV24, DV31, DV32) — `arc0020/30_splinter_command.patch` + goal region
 
 **Prepared 2026-10-16:** `30_splinter_command.patch` (the card + `SPLINTER_COMMAND_TECH`, 4 strings; dry run clean) · `32_goal_splinter_command.pl` (inserts the 18-line region into `ARCANA_Deceiver_Doubles.txt`, before Task 4; checked on a copy of 51) · `lua/` (CardDB row cost 1 + test row; 138 tests pass on a copy). The Lua files are copies of 51 of 2026-10-16: diff them against the Data folder before copying. Ownership is checked in the goal only — the vanilla `SummonOwner(context.Source,context.Target)` (`Target_FlamingSphere_Move`) has an unproven argument order. In-game name: *Splinter on Command* (title case, Larian style).
 
@@ -119,6 +119,8 @@ empty today (`dump_progression.pl`).
 - **Test:** goal draft compiles in the Story Editor (stage 2); CardDB entry + `CardDBTest.lua` row (Thread cost, enters the deck).
 
 ### Task 0.6 · Tier III (DV21) — `arc0020/40_tier3.patch` + goal region
+
+**Prepared 2026-10-16** (changes the plan below, smaller and safer): below Tier III the Splinter keeps its own 3 m damage; at Tier III the shout's damage is switched off by a condition on her `ASPECT_AWAKENED_EMPRESS_III` (`GetSummoner(context.Source)`, the mod's Doubt-boost pattern) and the goal makes every burst with `CreateExplosionAtPosition` of `Projectile_Deceiver_Double_SplinterBurst` (4 m, `using` the mod's proven `Projectile_Arcana_Distortion_Explosion`). The Charisma boost leaves `Arcana_Passive_Aspect_Empress_Awakened_III` (it keeps the Which One? unlock); `…_III_Damage` leaves the status. Files: `40_tier3.patch` (dry run clean, 4 strings), `42_goal_tier3_grand.pl` (with Task 0.7; on a copy of 51: +98 lines, the old 2-Doubt rule out, idempotent).
 
 - `ASPECT_AWAKENED_EMPRESS_III`: drop `Arcana_Passive_Aspect_Empress_Awakened_III` (Charisma) and `…_III_Damage`
   from `Passives` (`Status_BOOST.txt`); both entries to the archive in stage 5. *Which One?* is untouched.
@@ -136,6 +138,8 @@ empty today (`dump_progression.pl`).
 
 ### Task 0.7 · Grand Deception (DV22) — goal region (the Doubles goal's Task 5)
 
+**Prepared 2026-10-16** in `42_goal_tier3_grand.pl`: the Doubles are listed at `UsingSpell` (before the Summon functors), `GRAND_DECEPTION_TECH` adds one Doubt per listed Double within 3.0 m through `PROC_ARCANA_Doubt_Add`, the list clears 1.5 s after `CastedSpell`. Texts and the tooltip in `40_tier3.patch`.
+
 On cast: for each enemy within 9 m that fails the save (the spell applies a technical "failed" status), count her
 Doubles within `doubles_range_next` (`GetDistanceTo`, as `ARCANA_Passive_MirroredSpell.txt` uses it) and add that
 many × `doubt_per_double_next` Doubt; **then** the Summon functor fills the cap. The spell's flat 2 Doubt is removed.
@@ -151,14 +155,14 @@ Drafted only after probe B4 (stage 4).
 Apply Tasks 0.2–0.3. No goals. **In game:** every Deceiver tooltip reads the new names; *The Veil* states the rule;
 the old *Doubt* passive is gone from the sheet.
 
-## Stage 2 — map and Splinter on command (`[fechado] ARC-0020`)
+## Stage 2 — map and Splinter on Command (`[fechado] ARC-0020`)
 
 Apply Tasks 0.4–0.5; Owner compiles.
 
 | Probe | One rule | Expected | Plan B |
 |---|---|---|---|
-| **B1** | A Double told to splinter off its own turn | `UseSpell` on a technical status fires the Splinter now | Make *Splinter on command* a ground-targeted spell that kills the Double and runs the burst PROC (stage 3's path) |
-| V1 | *Splinter on command* use | As `TC_ARC-0019` V1 | — |
+| **B1** | A Double told to splinter off its own turn | `UseSpell` on a technical status fires the Splinter now | Make *Splinter on Command* a ground-targeted spell that kills the Double and runs the burst PROC (stage 3's path) |
+| V1 | *Splinter on Command* use | As `TC_ARC-0019` V1 | — |
 
 ## Stage 3 — Grand Deception and Tier III (`[fechado] ARC-0020`)
 
@@ -168,6 +172,8 @@ Apply Tasks 0.6–0.7; Owner compiles.
 |---|---|---|---|
 | **B2** | Explosion's Doubt is hers | `CreateExplosionAtPosition(…, _Owner)` → the Doubt counts toward her Awakening | Task 0.6 plan B |
 | **B3** | Burst from a dead Double's position | The position read before the purge is valid; the burst lands there | Read the position on the hit (`AttackedBy`), not on `Died` |
+| **B5** | Grand Deception lists the Doubles before it summons | `UsingSpell` fires before the new Doubles register: the count reads only the old ones | List them at `CastSpell` of the previous rule set; or snapshot on the card's technical status |
+| **B6** | The Splinter's Tier III condition | `HasStatus(..., GetSummoner(context.Source))` reads her Tier III in a shout's SpellProperties | Give the Doubles a Tier III shapeshift rule with a damage-free Splinter |
 | V2, V3 | As `TC_ARC-0019` | | |
 
 ## Stage 4 — Mirrored Self from a Double (`[fechado] ARC-0020`)

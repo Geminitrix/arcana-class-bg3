@@ -2,7 +2,7 @@
 id: 32.01/Deceiver
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-16 with dossier_texts.pl; 21.04/Deceiver/DESIGN.md §11; DECISIONS.md DV29
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — the build's texts drafted in `55/_wip/Deceiver/arc0020/10_names.patch`, Narrative gate passed (32.04/ARC-0020_Deceiver.md); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — the build's texts drafted in `55/_wip/Deceiver/arc0020/10_names.patch`, Narrative gate passed (32.04/ARC-0020_Deceiver.md); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
 ---
 
 # 32.01 · Player-facing text — The Veilwalker (internal: Deceiver)
@@ -102,6 +102,6 @@ Internal ids keep their names until the build decides (DV12's rule).
 | `Shout_Deceiver_Double_Shatter` | Shatter | **Splinter** |
 | `Projectile_Deceiver_Double_MirrorSigil` | Mirror: Sigil of Malice | **Reflected Seed** |
 | `Target_Deceiver_Double_MirrorChains` | Mirror: Ethereal Chains | **Reflected Falsehood** |
-| — (new, DV24) | — | **Splinter on command** (DV31) |
+| — (new, DV24) | — | **Splinter on Command** (DV31) |
 | `Arcana_Passive_Doubt` | Doubt | leaves (DV19) — *Doubt* stays as the status name |
 | Telepathy (level 1) | Telepathy | leaves the Deceiver (DV26) |
