@@ -3,6 +3,7 @@ id: ARC-0003
 title: Rename the Resonant's ProgressionDescription Name (last Heartweaver leftover)
 type: chore
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: done
 owner: Lead Class Designer
 implementation: claude

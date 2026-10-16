@@ -4,14 +4,14 @@ title: Kanban board artifact for the whole backlog
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: in_progress
+status: in_review
 owner: Tools
 implementation: claude
 priority: should
 value: 4
 effort: 3
 inputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories, 82_Automation/update_board.pl, 00.03, 31.01 §6, 75.02/src/index.css]
-outputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories, 82_Automation/update_board.pl, 82_Automation/kanban/]
+outputs: [10.01/_TEMPLATE_TICKET.md, 10.01/stories (subclass, statuses), 82_Automation/update_board.pl, 82_Automation/kanban/, 82_Automation/_INDEX.md]
 blocked_by: []
 sprint:
 created: 2026-10-16
@@ -24,20 +24,22 @@ created: 2026-10-16
 
 ## Acceptance criteria
 
-- [ ] Seven columns with a count each: Backlog · Ready · In Progress · In Review · Spec Ready · In QA · Done;
+- [x] Seven columns with a count each: Backlog · Ready · In Progress · In Review · Spec Ready · In QA · Done;
       the template gains `in_review`, and every ticket uses only the template statuses.
-- [ ] Blocked is a tag on the card with its `blocked_by` reason, not a column.
-- [ ] Tickets gain a `subclass:` field (class | unbound | deceiver | starchild | eternal | resonant | kingmaker |
+- [x] Blocked is a tag on the card with its `blocked_by` reason, not a column (`status: blocked` from `/handoff`
+      still works: the card shows in In Progress with the tag).
+- [x] Tickets gain a `subclass:` field (class | unbound | deceiver | starchild | eternal | resonant | kingmaker |
       lionheart | none); every ticket has it filled.
-- [ ] Card face: department colour, id, title, subclass emblem in its `31.01` §6 colour (Lionheart: its emblem's red),
-      type tag. Detail on click: priority, value/effort, implementation, epic, criteria, gates, log, comments.
-- [ ] Search by text; filters by subclass, department, type and status. Fits one desktop screen; columns scroll.
-- [ ] Cards can be dragged to any column; a card moved out of In QA can go back. Done refuses a card whose
-      DoD gate is not checked in its `.md`.
-- [ ] Moves and comments are stored in the artifact and shown as "pending"; on the Owner's request Claude writes them
-      into the ticket `.md` files, runs `update_board.pl`, commits, pushes and republishes.
-- [ ] `update_board.pl` also writes the board data; `BACKLOG.md` and `SPRINT_BOARD.md` keep working.
-- [ ] In-progress column turns amber above 3 cards (warning only).
+- [x] Card face: department colour, id, title, subclass emblem in its `31.01` §6 colour (Lionheart: its emblem's red,
+      `#db4e50`), type tag. Detail on click: priority, value/effort, implementation, epic, criteria, gates, log, comments.
+- [x] Search by text; filters by subclass, department, type and status. Fits one desktop screen; columns scroll.
+- [x] Cards can be dragged to any column; a card moved out of In QA can go back. Done refuses a card whose
+      DoD gate is not checked in its `.md`. (Logic tested locally against a stand-in store.)
+- [x] Moves and comments are stored in the artifact and shown as "pending"; the sync procedure is in
+      `82_Automation/_INDEX.md` § Kanban sync.
+- [x] `update_board.pl` also writes the board data; `BACKLOG.md` and `SPRINT_BOARD.md` keep working (In Review added).
+- [x] In-progress column turns amber above 3 cards (warning only).
+- [ ] Owner drags a card and adds a comment on the real board (claude.ai), then asks for a first sync.
 
 ## Gates
 
@@ -47,3 +49,8 @@ created: 2026-10-16
 
 - 2026-10-16 — created. Owner answered the brainstorming (only the Owner uses it; English UI, Portuguese comments;
   Codex look; desktop only; no burndown, no card age; departments grouped by studio folder).
+- 2026-10-16 — built and published: https://claude.ai/artifact/Fwq9XqzgZNt5KmKRC4k15E. Template gains `subclass:` and
+  `in_review`; 17 tickets got `subclass:`, ARC-0006 `open` → `backlog`, ARC-0014 / ARC-0016 `review` → `in_review`.
+  Tested on a local server (`.claude/launch.json` "kanban"): data, filters, drag rules, DoD refusal, comments, WIP
+  amber. Not tested: the real artifact store (the browser pane is not signed in to claude.ai) — Owner check pending.
+  The page makes no Claude calls, so it spends no tokens.

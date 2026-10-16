@@ -3,6 +3,7 @@ id: ARC-0007
 title: Aspect Awakening counts down, with one standard text
 type: feature
 epic: EPIC_Rework_Subclasses
+subclass: class
 status: done
 owner: Mod Engineer
 implementation: claude

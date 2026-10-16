@@ -3,6 +3,7 @@ id: ARC-0002
 title: Raise the Resonant to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: done
 owner: Lead Class Designer
 implementation: claude

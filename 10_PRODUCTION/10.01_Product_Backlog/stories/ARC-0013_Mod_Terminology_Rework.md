@@ -3,6 +3,7 @@ id: ARC-0013
 title: Mod terminology: rewrite the glossary for the rework
 type: chore
 epic: EPIC_Rework_Subclasses
+subclass: class
 status: backlog
 owner: Narrative
 implementation: pending

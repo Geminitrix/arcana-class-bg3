@@ -3,7 +3,8 @@ id: ARC-0016
 title: "Subclass standard v2 and refining method"
 type: design
 epic: EPIC_Rework_Subclasses
-status: review
+subclass: class
+status: in_review
 owner: Lead Class Designer
 implementation: pending
 priority: should

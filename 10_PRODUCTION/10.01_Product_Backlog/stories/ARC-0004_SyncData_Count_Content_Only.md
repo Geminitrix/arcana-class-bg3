@@ -3,6 +3,7 @@ id: ARC-0004
 title: sync_data counts content changes only
 type: chore
 epic: EPIC_Rework_Subclasses
+subclass: none
 status: done
 owner: Tools
 implementation: claude

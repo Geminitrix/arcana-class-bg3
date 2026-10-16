@@ -3,7 +3,8 @@ id: ARC-0014
 title: "Resonant design review: balance, structure and felt progression (proposals S1–S16)"
 type: design
 epic: EPIC_Rework_Subclasses
-status: review
+subclass: resonant
+status: in_review
 owner: Lead Class Designer
 implementation: pending
 priority: should

@@ -18,6 +18,7 @@ for my $f (sort glob "$B/stories/ARC-*.md") {
     next unless $in;
     $h{$1} = $2 if /^(\w+):\s*(.*?)\s*(?:#.*)?$/;
   }
+  $h{body} = do { local $/; my $b = <$fh> // ''; $b =~ s/\r//g; $b };
   ($h{file} = $f) =~ s{.*/}{};
   push @t, \%h if $h{id};
 }
@@ -39,7 +40,7 @@ open my $fb, '>:encoding(UTF-8)', "$B/BACKLOG.md" or die $!; print $fb $o; close
 
 my $sprint = '';
 if (open my $g, '<:encoding(UTF-8)', "$A/SPRINT_GOAL.md") { my $first = <$g> // ''; $sprint = $1 if $first =~ /sprint:\s*(S\d+)/ }
-my @cols = (['To Do', qw(backlog ready)], ['In Progress', qw(in_progress blocked)], ['Spec Ready', 'spec_ready'],
+my @cols = (['To Do', qw(backlog ready)], ['In Progress', qw(in_progress blocked)], ['In Review', 'in_review'], ['Spec Ready', 'spec_ready'],
             ['In QA', 'in_qa'], ['Done', 'done']);
 my $s = "# Sprint board" . ($sprint ? " — $sprint" : '') . "\n\n*Generated $date by `82_Automation/update_board.pl` — do not edit.*\n\n";
 if (!$sprint) { $s .= "_No active sprint (`SPRINT_GOAL.md` has no `sprint: S##` line)._\n" }
@@ -51,4 +52,11 @@ else {
   }
 }
 open my $fs, '>:encoding(UTF-8)', "$A/SPRINT_BOARD.md" or die $!; print $fs $s; close $fs;
+
+# Board data for the kanban artifact (ARC-0018): every ticket, header fields plus the body.
+use JSON::PP;
+for my $h (@t) { $h->{title} =~ s/^"(.*)"$/$1/ if defined $h->{title} }
+my $K = '80_TOOLS_AND_PIPELINE/82_Automation/kanban';
+open my $fk, '>:encoding(UTF-8)', "$K/board.json" or die $!;
+print $fk JSON::PP->new->canonical->pretty->encode({ generated => $date, sprint => $sprint, tickets => \@t }); close $fk;
 printf "tickets %d (open %d, done %d), sprint %s\n", scalar @t, scalar @order, $done, $sprint || 'none';

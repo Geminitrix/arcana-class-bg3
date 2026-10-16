@@ -3,6 +3,7 @@ id: ARC-0012
 title: Resonant: own icons for the six that share Calm Emotions
 type: feature
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: backlog
 owner: Art
 implementation: pending

@@ -3,6 +3,7 @@ id: ARC-0011
 title: Resonant: two descriptions behind the mechanic
 type: chore
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: backlog
 owner: Narrative
 implementation: pending

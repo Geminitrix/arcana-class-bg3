@@ -1,0 +1,10 @@
+# 2026-10-16 · ARC-0018 kanban board
+
+- Owner asked for a kanban artifact to see what is left, done, waiting for review and blocked (and why).
+  Brainstormed every rule with the Owner; decisions are in the ticket's log.
+- Ticket model: template gains `subclass:` and `in_review`; 17 tickets got `subclass:`; non-standard statuses
+  normalized (ARC-0006 `open` → `backlog`; ARC-0014, ARC-0016 `review` → `in_review`).
+- `update_board.pl` now also writes `82_Automation/kanban/board.json`; SPRINT_BOARD gains an In Review column.
+- Board published: https://claude.ai/artifact/Fwq9XqzgZNt5KmKRC4k15E. Moves and comments wait in the artifact's
+  store until the Owner asks for a sync (procedure in `82_Automation/_INDEX.md`).
+- Open: the Owner tries a drag and a comment on the real board; the first sync closes the ticket.

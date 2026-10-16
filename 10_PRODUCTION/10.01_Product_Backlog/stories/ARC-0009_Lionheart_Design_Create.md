@@ -3,6 +3,7 @@ id: ARC-0009
 title: Create the Lionheart (was the Titan) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
+subclass: lionheart
 status: in_progress
 owner: Lead Class Designer
 implementation: owner

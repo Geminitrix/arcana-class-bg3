@@ -3,7 +3,8 @@ id: ARC-0006
 title: Player guide — the Resonant page matches the raised subclass
 type: docs
 epic: EPIC_Rework_Subclasses
-status: open
+subclass: resonant
+status: backlog
 owner: Community Agent
 implementation: claude
 priority: should

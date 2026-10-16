@@ -3,6 +3,7 @@ id: ARC-0005
 title: Toolkit crashes on the first launch, works on the second
 type: bug
 epic: EPIC_Rework_Subclasses
+subclass: none
 status: done
 owner: Tools
 implementation: claude

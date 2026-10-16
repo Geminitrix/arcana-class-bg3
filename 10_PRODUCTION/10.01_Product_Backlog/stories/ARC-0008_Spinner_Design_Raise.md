@@ -3,6 +3,7 @@ id: ARC-0008
 title: Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
+subclass: kingmaker
 status: in_progress
 owner: Lead Class Designer
 implementation: claude

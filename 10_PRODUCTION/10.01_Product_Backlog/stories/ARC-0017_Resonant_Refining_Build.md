@@ -3,6 +3,7 @@ id: ARC-0017
 title: "Resonant refining build — R49–R68 in the game"
 type: feature
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: ready
 owner: Mod Engineer
 implementation: claude

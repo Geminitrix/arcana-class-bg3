@@ -1,0 +1,277 @@
+<title>Arcana Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: one desktop screen — a slim top bar, then seven columns that each scroll on their own. Dark by choice (the Codex look). */
+:root {
+  --paper: #14111b; --paper-2: #1c1826; --paper-3: #262033;
+  --ink: #ece7f3; --ink-soft: #a79fb6; --rule: #342d42;
+  --gold: #d8ac64; --warn: #e3a948; --bad: #e0605a;
+  --f-display: "Alegreya SC", Georgia, serif;
+  --f-body: "Alegreya", Georgia, serif;
+  --f-data: "Alegreya Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-data); font-size: 14px;
+  display: flex; flex-direction: column; overflow: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 12px; box-sizing: border-box; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-bottom: 12px; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; margin: 0; color: var(--gold); letter-spacing: .03em; }
+.meta { color: var(--ink-soft); font-size: .85rem; }
+.pending-note { color: var(--gold); font-size: .85rem; }
+.tools { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.tools input, .tools select { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; padding: 5px 8px; }
+.tools input { width: 200px; }
+
+.board { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; }
+.col { display: flex; flex-direction: column; min-height: 0; background: var(--paper-2); border-radius: 8px; border: 1px solid transparent; }
+.col.over { border-color: var(--gold); }
+.col.refuse { border-color: var(--bad); }
+.col h2 { font-family: var(--f-display); font-weight: 500; font-size: 1rem; margin: 0; padding: 10px 12px 8px;
+  display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--rule); }
+.col h2 .n { font-family: var(--f-data); font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: .85rem; }
+.col.wip h2 .n { color: var(--warn); font-weight: 700; }
+.list { flex: 1; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 8px; }
+.list::-webkit-scrollbar { width: 4px; } .list::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+.empty { color: var(--ink-soft); font-size: .8rem; text-align: center; padding: 14px 0; opacity: .7; }
+
+.card { position: relative; background: var(--paper-3); border-radius: 6px; padding: 8px 10px 8px 13px; cursor: pointer;
+  display: grid; gap: 5px; border: 1px solid transparent; text-align: left; width: 100%; box-sizing: border-box; }
+.card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px 0 0 6px; background: var(--dept); }
+.card:hover { border-color: var(--rule); }
+.card.dragging { opacity: .4; }
+.card.moved { border-style: dashed; border-color: var(--gold); }
+.top { display: flex; align-items: center; gap: 6px; }
+.id { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: .78rem; letter-spacing: .02em; }
+.emb { margin-left: auto; width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--sub); background: var(--paper); }
+.title { font-family: var(--f-body); font-size: .95rem; line-height: 1.25; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.tags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.tag { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; padding: 1px 6px; border-radius: 4px; background: var(--paper-2); color: var(--ink-soft); }
+.tag.blocked { background: color-mix(in srgb, var(--bad) 22%, transparent); color: #f3aaa6; }
+.tag.pending { background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--gold); }
+.tag.cmt { background: none; padding: 0; }
+
+/* Detail drawer */
+.scrim { position: fixed; inset: 0; background: rgb(0 0 0 / .45); }
+aside { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--paper-2); border-left: 1px solid var(--rule);
+  overflow-y: auto; padding: calc(18px + env(safe-area-inset-top, 0px)) calc(22px + env(safe-area-inset-right, 0px)) 24px 22px; box-sizing: border-box; display: grid; gap: 14px; align-content: start; }
+aside .close { position: absolute; top: calc(10px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); background: none; border: 0; font-size: 1.4rem; color: var(--ink-soft); cursor: pointer; }
+aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-right: 30px; text-wrap: balance; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: .85rem; margin: 0; }
+.facts dt { color: var(--ink-soft); } .facts dd { margin: 0; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+.warnbox { border: 1px solid var(--rule); border-left: 3px solid var(--gold); padding: 8px 10px; border-radius: 4px; font-size: .85rem; display: flex; gap: 10px; align-items: center; }
+.warnbox button, .cform button { background: var(--paper-3); border: 1px solid var(--rule); border-radius: 5px; padding: 4px 10px; cursor: pointer; }
+.md { font-family: var(--f-body); font-size: .95rem; line-height: 1.55; min-width: 0; }
+.md h4 { font-family: var(--f-display); font-size: 1.05rem; color: var(--gold); margin: 16px 0 4px; }
+.md p { margin: 6px 0; } .md ul { margin: 4px 0; padding-left: 20px; } .md li { margin: 2px 0; }
+.md li.chk { list-style: none; margin-left: -20px; }
+.md li.chk::before { content: "☐"; margin-right: 6px; color: var(--ink-soft); }
+.md li.chk.on::before { content: "☑"; color: var(--gold); }
+.md code { font-family: var(--f-data); background: var(--paper-3); padding: 0 4px; border-radius: 3px; font-size: .85em; }
+.md pre { overflow-x: auto; background: var(--paper-3); padding: 8px; border-radius: 4px; font-size: .8rem; }
+.comments { display: grid; gap: 8px; }
+.comments h4 { font-family: var(--f-display); font-size: 1.05rem; color: var(--gold); margin: 6px 0 0; }
+.cmt-item { background: var(--paper-3); border-radius: 5px; padding: 6px 10px; font-family: var(--f-body); }
+.cmt-item small { display: block; color: var(--ink-soft); font-family: var(--f-data); font-size: .75rem; }
+.cform { display: grid; gap: 6px; }
+.cform textarea { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; padding: 6px 8px; min-height: 64px; resize: vertical; font-family: var(--f-body); }
+.cform button { justify-self: end; }
+
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--paper-3);
+  border: 1px solid var(--bad); padding: 8px 14px; border-radius: 6px; max-width: 90%; }
+@media (max-width: 900px) { body { overflow: auto; } .board { grid-template-columns: 1fr; } .list { max-height: 50vh; } }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .12s; } }
+</style>
+
+<header>
+  <h1>Arcana Board</h1>
+  <span class="meta" id="meta">Loading tickets…</span>
+  <span class="pending-note" id="pending"></span>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search id, title or text" aria-label="Search">
+    <select id="f-sub" aria-label="Subclass"></select>
+    <select id="f-dept" aria-label="Department"></select>
+    <select id="f-type" aria-label="Type"></select>
+    <select id="f-status" aria-label="Status"></select>
+  </div>
+</header>
+<main class="board" id="board"></main>
+<div id="drawer" hidden><div class="scrim" id="scrim"></div><aside id="detail" aria-label="Ticket detail"></aside></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const COLS = [["backlog","Backlog"],["ready","Ready"],["in_progress","In Progress"],["in_review","In Review"],["spec_ready","Spec Ready"],["in_qa","In QA"],["done","Done"]];
+const WIP = { in_progress: 3 };
+const SUB = { class:["Arcana (class)","#c579d9"], unbound:["Unbound","#f2c939"], deceiver:["Deceiver","#f83fa5"], starchild:["Starchild","#79baf8"],
+  eternal:["Eternal","#5dbc74"], resonant:["Resonant","#f39a78"], kingmaker:["Kingmaker","#60d7d2"], lionheart:["Lionheart","#db4e50"], none:["No subclass",""] };
+const DEPT = { Production:"#9a93a8", Design:"#c2a66b", Narrative:"#a98bc4", Art:"#c98a9a", Engineering:"#6f9fc0", QA:"#8fb07a", Release:"#c7955c", Tools:"#7f8aa3" };
+const OWNER_DEPT = { "Lead Class Designer":"Design", "Spell Designer":"Design", "Balance Designer":"Design", "Narrative":"Narrative", "Lore Writer":"Narrative",
+  "Art":"Art", "Icon Artist":"Art", "Engineering":"Engineering", "Mod Engineer":"Engineering", "QA":"QA", "Community Agent":"Release", "Tools":"Tools",
+  "Producer":"Production", "Context Keeper":"Production" };
+
+let tickets = [], moves = {}, comments = [], db = null, dbTried = false, open = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dept = t => OWNER_DEPT[t.owner] || "Production";
+const blockers = t => String(t.blocked_by || "").replace(/^\[|\]$/g, "").split(",").map(s => s.trim()).filter(Boolean);
+const isBlocked = t => t.status === "blocked" || blockers(t).length > 0;
+const mdCol = t => t.status === "blocked" ? "in_progress" : (COLS.some(c => c[0] === t.status) ? t.status : "backlog");
+const colOf = t => moves[t.id]?.to || mdCol(t);
+// DoD gate as written in the ticket: true / false / null (no DoD line)
+const dod = t => { const m = /^- \[([ xX])\] DoD/m.exec(t.body || ""); return m ? m[1] !== " " : null; };
+
+function fillSelect(id, label, entries) {
+  $(id).innerHTML = `<option value="">${label}</option>` + entries.map(([v, n]) => `<option value="${esc(v)}">${esc(n)}</option>`).join("");
+}
+function setupFilters() {
+  fillSelect("f-sub", "All subclasses", Object.entries(SUB).map(([k, v]) => [k, v[0]]));
+  fillSelect("f-dept", "All departments", Object.keys(DEPT).map(d => [d, d]));
+  fillSelect("f-type", "All types", [...new Set(tickets.map(t => t.type).filter(Boolean))].sort().map(t => [t, t]));
+  fillSelect("f-status", "All statuses", COLS);
+  ["q", "f-sub", "f-dept", "f-type", "f-status"].forEach(id => $(id).addEventListener("input", render));
+}
+function visible(t) {
+  const q = $("q").value.trim().toLowerCase();
+  if (q && !(`${t.id} ${t.title} ${t.body}`.toLowerCase().includes(q))) return false;
+  if ($("f-sub").value && (t.subclass || "none") !== $("f-sub").value) return false;
+  if ($("f-dept").value && dept(t) !== $("f-dept").value) return false;
+  if ($("f-type").value && t.type !== $("f-type").value) return false;
+  if ($("f-status").value && colOf(t) !== $("f-status").value) return false;
+  return true;
+}
+
+function cardHtml(t) {
+  const s = SUB[t.subclass] || SUB.none, n = comments.filter(c => c.ticket === t.id).length;
+  return `<div role="button" tabindex="0" class="card${moves[t.id] ? " moved" : ""}" draggable="${!!db}" data-id="${t.id}" style="--dept:${DEPT[dept(t)]};--sub:${s[1] || "transparent"}">
+    <span class="top"><span class="id">${esc(t.id)}</span>${s[1] ? `<img class="emb" src="emblems/${t.subclass}.png" alt="${esc(s[0])}" title="${esc(s[0])}">` : ""}</span>
+    <span class="title">${esc(t.title)}</span>
+    <span class="tags"><span class="tag">${esc(t.type || "task")}</span>${isBlocked(t) ? `<span class="tag blocked">Blocked</span>` : ""}${moves[t.id] ? `<span class="tag pending">Pending sync</span>` : ""}${n ? `<span class="tag cmt">💬 ${n}</span>` : ""}</span>
+  </div>`;
+}
+function render() {
+  const shown = tickets.filter(visible);
+  $("board").innerHTML = COLS.map(([k, name]) => {
+    const list = shown.filter(t => colOf(t) === k), all = tickets.filter(t => colOf(t) === k).length;
+    return `<section class="col${WIP[k] && all > WIP[k] ? " wip" : ""}" data-col="${k}" aria-label="${name}">
+      <h2>${name}<span class="n" title="${WIP[k] ? `More than ${WIP[k]} turns amber` : ""}">${list.length === all ? all : `${list.length} / ${all}`}</span></h2>
+      <div class="list">${list.map(cardHtml).join("") || `<div class="empty">Nothing here</div>`}</div></section>`;
+  }).join("");
+  const p = Object.keys(moves).length + comments.length;
+  $("pending").textContent = !db ? (dbTried ? "Read-only: moves and comments are off in this view." : "")
+    : p ? `${p} change${p > 1 ? "s" : ""} waiting to sync` : "";
+  if (open) renderDetail();
+}
+
+function toast(msg) { $("toast").textContent = msg; $("toast").hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => $("toast").hidden = true, 4200); }
+async function moveTo(t, to) {
+  if (colOf(t) === to) return;
+  if (to === "done" && dod(t) !== true) {
+    toast(dod(t) === null ? `${t.id} can't go to Done: the ticket has no DoD gate.` : `${t.id} can't go to Done: its DoD gate is not checked in the ticket.`);
+    return;
+  }
+  const ref = db.doc("moves/" + t.id);
+  try {
+    if (to === mdCol(t)) { delete moves[t.id]; render(); await ref.delete(); }
+    else { moves[t.id] = { to, from: t.status, at: new Date().toISOString() }; render(); await ref.set(moves[t.id]); }
+  } catch (e) { toast("The move was not saved. Try again."); }
+}
+
+// Drag and drop
+let dragId = null;
+document.addEventListener("dragstart", e => { const c = e.target.closest?.(".card"); if (!c) return; dragId = c.dataset.id; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; });
+document.addEventListener("dragend", () => { dragId = null; document.querySelectorAll(".dragging,.over,.refuse").forEach(el => el.classList.remove("dragging", "over", "refuse")); });
+$("board").addEventListener("dragover", e => {
+  const col = e.target.closest(".col"); if (!col || !dragId) return;
+  e.preventDefault();
+  document.querySelectorAll(".over,.refuse").forEach(el => el !== col && el.classList.remove("over", "refuse"));
+  const t = tickets.find(x => x.id === dragId);
+  col.classList.add(col.dataset.col === "done" && dod(t) !== true ? "refuse" : "over");
+});
+$("board").addEventListener("drop", e => {
+  const col = e.target.closest(".col"); if (!col || !dragId) return;
+  e.preventDefault(); moveTo(tickets.find(x => x.id === dragId), col.dataset.col);
+});
+
+// Detail drawer
+function inline(s) { return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/(^|\W)\*([^*]+)\*(?=\W|$)/g, "$1<em>$2</em>"); }
+function mdToHtml(src) {
+  const out = []; let list = false, pre = [];
+  const flushPre = () => { if (pre.length) { out.push(`<pre>${esc(pre.join("\n"))}</pre>`); pre = []; } };
+  const close = () => { if (list) { out.push("</ul>"); list = false; } };
+  for (const line of src.split("\n")) {
+    if (/^\s*\|/.test(line)) { close(); pre.push(line); continue; } else flushPre();
+    let m;
+    if (/^# /.test(line)) continue;                       // the H1 repeats the title
+    if ((m = /^#{2,4} (.*)/.exec(line))) { close(); out.push(`<h4>${inline(m[1])}</h4>`); }
+    else if ((m = /^\s*[-*] \[([ xX])\] (.*)/.exec(line))) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li class="chk${m[1] !== " " ? " on" : ""}">${inline(m[2])}</li>`); }
+    else if ((m = /^\s*(?:[-*]|\d+\.) (.*)/.exec(line))) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li>${inline(m[1])}</li>`); }
+    else if (/^\s+\S/.test(line) && list) out[out.length - 1] = out[out.length - 1].replace(/<\/li>$/, " " + inline(line.trim()) + "</li>");
+    else if (line.trim()) { close(); out.push(`<p>${inline(line)}</p>`); }
+    else close();
+  }
+  flushPre(); close(); return out.join("");
+}
+function renderDetail() {
+  const t = tickets.find(x => x.id === open); if (!t) return;
+  const s = SUB[t.subclass] || SUB.none, mv = moves[t.id], cs = comments.filter(c => c.ticket === t.id);
+  const d = dod(t), colName = id => COLS.find(c => c[0] === id)?.[1] || id;
+  const draft = $("ctext")?.value || "";   // a live update must not wipe a comment being typed
+  $("detail").innerHTML = `<button class="close" id="close" aria-label="Close">×</button>
+    <h3>${esc(t.id)} · ${esc(t.title)}</h3>
+    ${mv ? `<div class="warnbox"><span>Moved to <strong>${colName(mv.to)}</strong> here; the ticket still says <strong>${colName(mdCol(t))}</strong> until the next sync.</span><button id="undo">Undo move</button></div>` : ""}
+    <dl class="facts">
+      <dt>Column</dt><dd>${colName(colOf(t))}</dd>
+      <dt>Department</dt><dd><span class="dot" style="background:${DEPT[dept(t)]}"></span>${esc(dept(t))} <span class="meta">(${esc(t.owner)})</span></dd>
+      <dt>Subclass</dt><dd>${s[1] ? `<span class="dot" style="background:${s[1]}"></span>` : ""}${esc(s[0])}</dd>
+      <dt>Type</dt><dd>${esc(t.type)}</dd>
+      <dt>Priority</dt><dd>${esc(t.priority)} · value ${esc(t.value)} / effort ${esc(t.effort)}</dd>
+      <dt>Implementation</dt><dd>${esc(t.implementation)}</dd>
+      ${isBlocked(t) ? `<dt>Blocked by</dt><dd style="color:#f3aaa6">${esc(blockers(t).join(", ") || "status: blocked")}</dd>` : ""}
+      <dt>DoD gate</dt><dd>${d === true ? "checked" : d === false ? "not checked" : "no DoD line"}</dd>
+      <dt>Epic</dt><dd>${esc(t.epic)}${t.sprint ? ` · sprint ${esc(t.sprint)}` : ""}</dd>
+      <dt>Created</dt><dd>${esc(t.created)} · <span class="meta">${esc(t.file)}</span></dd>
+    </dl>
+    <div class="md">${mdToHtml(t.body || "")}</div>
+    <section class="comments"><h4>Comments waiting to sync</h4>
+      ${cs.map(c => `<div class="cmt-item">${esc(c.text).replace(/\n/g, "<br>")}<small>${new Date(c.at).toLocaleString()}</small></div>`).join("") || `<span class="meta">None. Comments you add go into the ticket's log at the next sync.</span>`}
+      ${db ? `<form class="cform" id="cform"><textarea id="ctext" aria-label="New comment" placeholder="Write a comment"></textarea><button type="submit">Add comment</button></form>` : ""}
+    </section>`;
+  if ($("ctext")) $("ctext").value = draft;
+  $("close").onclick = closeDetail;
+  if (mv) $("undo").onclick = () => moveTo(t, mdCol(t));
+  if (db) $("cform").onsubmit = async e => {
+    e.preventDefault(); const text = $("ctext").value.trim(); if (!text) return;
+    try { await db.collection("comments").add({ ticket: t.id, text, at: new Date().toISOString() }); $("ctext").value = ""; }
+    catch (err) { toast("The comment was not saved. Try again."); }
+  };
+}
+function closeDetail() { open = null; $("drawer").hidden = true; }
+$("board").addEventListener("click", e => { const c = e.target.closest(".card"); if (!c) return; open = c.dataset.id; $("drawer").hidden = false; renderDetail(); });
+$("scrim").onclick = closeDetail;
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && open) closeDetail();
+  if (e.key === "Enter" && e.target.classList?.contains("card")) e.target.click();
+});
+
+// Data: tickets from board.json (written by update_board.pl); moves and comments from the artifact store
+fetch("board.json").then(r => r.json()).then(data => {
+  tickets = data.tickets;
+  $("meta").textContent = `${tickets.length} tickets · generated ${data.generated}`;
+  setupFilters(); render();
+}).catch(() => { $("meta").textContent = "Could not load board.json."; });
+
+(async () => {
+  db = await window.claude?.use?.("db") ?? null;
+  dbTried = true;
+  if (!db) { render(); return; }
+  db.collection("moves").onSnapshot(s => { moves = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); render(); }, () => {});
+  db.collection("comments").orderBy("at").onSnapshot(s => { comments = s.docs.map(d => ({ id: d.id, ...d.data() })); render(); }, () => {});
+  render();
+})();
+</script>

@@ -3,6 +3,7 @@ id: ARC-0015
 title: Kingmaker: own icons for the entries that share Crown of Madness and Detect Thoughts
 type: feature
 epic: EPIC_Rework_Subclasses
+subclass: kingmaker
 status: backlog
 owner: Art
 implementation: pending

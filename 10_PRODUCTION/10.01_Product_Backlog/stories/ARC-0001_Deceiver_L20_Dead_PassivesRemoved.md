@@ -3,6 +3,7 @@ id: ARC-0001
 title: Remove the dead PassivesRemoved at Deceiver level 20
 type: chore
 epic: EPIC_Rework_Subclasses
+subclass: deceiver
 status: done
 owner: Engineering
 implementation: claude

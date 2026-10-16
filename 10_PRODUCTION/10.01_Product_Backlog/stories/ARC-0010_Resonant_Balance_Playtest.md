@@ -3,6 +3,7 @@ id: ARC-0010
 title: Resonant balance playtest: Overload frequency, Harmony, Shared Heart
 type: research
 epic: EPIC_Rework_Subclasses
+subclass: resonant
 status: backlog
 owner: QA
 implementation: pending
