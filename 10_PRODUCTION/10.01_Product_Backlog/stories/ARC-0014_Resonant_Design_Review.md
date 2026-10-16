@@ -25,8 +25,9 @@ suggested change, its reasons, alternatives, impact and verification.
 ## Acceptance criteria
 - [x] Review written: `21.04/Resonant/REFINE_Resonant.md` (S1–S16, playtest metrics V1–V11)
 - [x] v2-format review written: `21.04/Resonant/REFINE_Resonant_2026-10-15.md` (SG1–SG18, V1–V11; brainstorm order in §12)
-- [ ] Owner reviews each suggestion (brainstorm order in §10.1 of the review)
-- [ ] Approved suggestions logged as R49+ in `DECISIONS.md` and propagated (00.08)
+- [x] Owner reviewed each suggestion (2026-10-16): SG1–SG3, SG6–SG17 approved as R49–R65; SG4, SG5 superseded by R51; SG18 by R54–R55; SG13 goes into the DESIGN rewrite
+- [x] Approved suggestions logged as R49–R65 in `DECISIONS.md`
+- [ ] `DESIGN.md` rewritten and the change propagated (00.08)
 - [ ] Playtest metrics merged into ARC-0010
 
 ## Log
@@ -48,3 +49,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R62 (SG16): the dice states grow at 5 and 10.
 - 2026-10-16 — R63 (SG17): Tier I drops the mood extension.
 - 2026-10-16 — R64 (SG12): moods and Surges list their reactions.
+- 2026-10-16 — R65 (SG14): Anger said as a taunt. Brainstorm round closed: R49–R65.
