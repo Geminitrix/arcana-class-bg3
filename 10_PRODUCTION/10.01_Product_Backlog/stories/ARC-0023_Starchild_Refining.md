@@ -51,3 +51,4 @@ player feels.
   equally viable (SC4). Open: the "no Hymn" reminder status.
 - 2026-10-16 — Owner: no-Hymn status is **Unsung** ("Your light flickers, dim and waiting. Sing a Hymn to choose your
   light."), reminder only (SC5). Next: how the three Hymns differ.
+- 2026-10-16 — Owner: the Hymns change the shape of the heal — focused / radiant / tidal (SC6). Next: the axis.
