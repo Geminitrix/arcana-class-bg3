@@ -64,3 +64,5 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   winds of Aeolus (N/S/E/W), each with a party boon and an enemy bane — random at combat start, an ultimate, or
   elsewhere. Feasibility read: the mod's Osiris already uses `EnteredCombat` / `CombatEnded`; vanilla Osiris uses
   `Random(N,_Var)`; vanilla aura pattern `AURA_OF_PROTECTION` (`SharedDev/.../Status_BOOST.txt`).
+- 2026-10-16 — Owner: the ultimate is Aeolus' Bag of the four winds — bonus action, choose a wind, lasts X turns
+  (X = enemies marked when opened), can't reopen until it stops, around level 5, epic (WB11).

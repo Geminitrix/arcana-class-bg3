@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB10); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB11); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
@@ -178,3 +178,21 @@ the cards and passives that stay, change or go → names → balance pass.
 Wind VFX sources to look at in the Toolkit (effects, not animations): `Shout_Dash_StepOfTheWind`,
 `Zone_MAG_WindRider_GustOfWind`, `Zone_MAG_ZephyrBreak`. Not checked: whether a Rush provokes opportunity attacks, and
 how it paths around obstacles — a probe (T2).
+
+## Appendix — the four winds (Owner's idea, 2026-10-16; WB11)
+
+Myth: the Anemoi (Hesiod, *Theogony*; Homer). In *Odyssey* X Aeolus binds every wind in the bag but leaves **Zephyrus**
+free to carry Odysseus home — the wind of Zephyr Strike. BG3 has no compass: the directions are names, not map
+directions. Proposal (values ‹…›; the bane may apply to Windswept enemies only — to confirm):
+
+| Wind | Domain | Allies | Enemies | Myth |
+|---|---|---|---|---|
+| Boreas · North | Movement | +‹…› m movement | −‹…› m movement | Cold, strong; the winged Boreads |
+| Notus · South | Protection | ranged attacks against them have Disadvantage | −‹…› on saving throws | Storm, rain, fog |
+| Eurus · East | Ranged | +‹…› ranged attack rolls | −‹…› ranged attack rolls | The restless, unlucky wind |
+| Zephyrus · West | Melee | +‹…› melee attack rolls | −‹…› melee attack rolls | The gentle wind that carries you home |
+
+Placements weighed: (A) a prevailing wind drawn at combat start, turnable once per combat; (B) the ultimate opens the
+bag and chooses — **chosen (WB11)**; (C) the three bagged winds wake with the Awakening tiers. Feasibility: the mod's
+Osiris uses `EnteredCombat` / `CombatEnded`; vanilla Osiris uses `Random(N,_Var)`; vanilla aura `AURA_OF_PROTECTION`.
+Bounded accuracy: a flat attack bonus for the whole party is a large lever (standard §8.3) — balance pass.
