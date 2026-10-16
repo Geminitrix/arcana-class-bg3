@@ -99,7 +99,7 @@ text, the Aspect card's text.
 | 10 | New list "Deceiver Level 10": Mirrored Self (`Shout_Arcana_Card_Passive_MirroredCharm`) |
 | 12 | List "Deceiver Level 12" loses Mirrored Self and Mirrored Spell; becomes empty → `AddSpells` row removed |
 
-New list UUIDs generated once and written into the script (re-runs byte-identical). Nodes 2, 6, 10 exist and are
+Prepared: `_wip/Deceiver/arc0020/20_structure.pl` (dry run 2026-10-16 matches §9.1). Only one list is new ("Deceiver Level 2", UUID from MD5, re-runs identical); "Deceiver Level 7" is renamed to Level 6 and "Deceiver Level 12" to Level 10, their selectors moved. Apply it **after** `30_splinter_command.patch`, so the new card exists. Nodes 2, 6, 10 exist and are
 empty today (`dump_progression.pl`).
 - **Test:** dry run, then `dump_progression.pl` after apply matches `DESIGN.md` §9.1 (4 and 8 empty).
 
