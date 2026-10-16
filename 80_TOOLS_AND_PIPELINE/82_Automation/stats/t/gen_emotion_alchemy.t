@@ -505,4 +505,18 @@ like($up17, qr/\@set Target_Arcana_Created_EmotionalOverload_2 AmountOfTargets 1
 like($up17, qr/\@set Target_Arcana_Created_EmotionalOverload_5 AreaRadius 9\n/, 'R51/R67: rank III, the area from slot 5 (probe B5)');
 like($lt{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC} // $lt{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC} // '', qr/Overload fills at once/, 'R56/R68: the Tier III text');
 
+# ==== ARC-0017 stage 3 -- the Weave Surge container (R54; the Hemoplague pattern)
+my $ws = block($p, 'Target_Arcana_Card_Spell_WeaveSurge');
+like($ws, qr/^data "ContainerSpells" "\Q${\join(';', map { Alchemy::spell_id($_) } @W)}\E"$/m, 'R54: the container holds the eight emotions, in wheel order');
+like($ws, qr/^data "SpellFlags" "[^"]*IsLinkedSpellContainer/m, 'R54: a linked spell container (Hemoplague)');
+like($ws, qr/^data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:1"$/m, 'R54: the container costs what an emotion costs');
+is($lt{HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_NAME}, 'Weave Surge', 'R54: named Weave Surge');
+none('R54: each emotion points to the container and holds none', grep { my $b = block($p, Alchemy::spell_id($_));
+    $b !~ /^data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"$/m || $b !~ /^data "ContainerSpells" ""$/m } @W);
+none('R54: each emotion is named by its emotion alone', grep { ($lt{ Alchemy::key(Alchemy::spell_id($_), 'NAME') } // '') ne $_ } @W);
+my %unlock = (Joy => 1, Trust => 1, Fear => 1, Anticipation => 2, Surprise => 3, Sadness => 3, Disgust => 5, Anger => 5);
+none('R54/R59: an emotion opens at the level the Resonant learns it (probe B6)', grep { my $b = block($p, Alchemy::spell_id($_)); my $l = $unlock{$_};
+    $l == 1 ? $b =~ /RequirementConditions/ : $b !~ /^data "RequirementConditions" "ClassLevelHigherOrEqualThan\($l,'Arcana'\)"$/m } @W);
+{ local $Alchemy::STAGE = 2; unlike(Alchemy::build_engine_patch(), qr/Target_Arcana_Card_Spell_WeaveSurge/, 'stage 2 has no container yet'); }
+
 done_testing();

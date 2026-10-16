@@ -636,6 +636,10 @@ sub reaction_list {
     join('', map { "$_<br>" } @lines);
 }
 
+our $WEAVE_SURGE = 'Target_Arcana_Card_Spell_WeaveSurge';
+# the level each emotion is learnt at: R59 from stage 4 (Anticipation at 2), the ARC-0002 map before it
+sub unlock_level { my $e = shift; my %u = (Joy => 1, Trust => 1, Fear => 1, Anticipation => (at(4) ? 2 : 3), Surprise => 3, Sadness => 3, Disgust => 5, Anger => 5); $u{$e} }
+
 sub build_spells {
     my $out = '';
     for my $e (@WHEEL) {
@@ -649,7 +653,7 @@ sub build_spells {
             SpellFail => 'ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)',
             TargetConditions => target_conditions($e),
             Icon => $E->{icon},
-            DisplayName => loca(key(spell_id($e), 'NAME'), "Weave Surge: $e"),
+            DisplayName => loca(key(spell_id($e), 'NAME'), at(3) ? $e : "Weave Surge: $e"),   # R54: named by the emotion inside the container
             Description => loca(key(spell_id($e), 'DESC'), $desc),
             DescriptionParams => $E->{mood}{params},
             ExtraDescription => loca(key(spell_id($e), 'EXTRA'), reaction_list($e)),
@@ -662,9 +666,26 @@ sub build_spells {
             UseCosts => 'ActionPoint:1;SpellSlotsGroup:1:1:1',
             VerbalIntent => $dark ? 'Control' : 'Buff', SpellStyleGroup => 'Class',
             SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension' . ($dark ? ';IsHarmful' : ''),
-            HitAnimationType => $dark ? 'None' : 'MagicalNonDamage', MemoryCost => 1);
+            HitAnimationType => $dark ? 'None' : 'MagicalNonDamage', MemoryCost => 1,
+            # R54: a child of the Weave Surge container (Hemoplague's children); R59: it opens at the level it is learnt (probe B6)
+            (at(3) ? (SpellContainerID => $WEAVE_SURGE, ContainerSpells => '',
+                RequirementConditions => (unlock_level($e) > 1 ? "ClassLevelHigherOrEqualThan(" . unlock_level($e) . ",'Arcana')" : undef)) : ()));
     }
+    $out .= weave_surge_container() if at(3);
     $out;
+}
+
+# ARC-0017 stage 3 (R54): one container for the eight emotions -- the Hemoplague pattern (ContainerSpells + IsLinkedSpellContainer)
+sub weave_surge_container {
+    entry($WEAVE_SURGE, 'SpellData', SpellType => 'Target', Level => 1, SpellSchool => 'Enchantment', TargetRadius => 18,
+        ContainerSpells => join(';', map { spell_id($_) } @WHEEL),
+        # no Surge marker: IsWeaveSurge() reads the emotions (the ones cast), never the container (probe B6: Tier II through it)
+        TargetConditions => "Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source)", Icon => $EMO{Joy}{icon},
+        DisplayName => loca(key($WEAVE_SURGE, 'NAME'), 'Weave Surge'),
+        Description => loca(key($WEAVE_SURGE, 'DESC'), "Pour an emotion into a creature's Weave. Choose the emotion."),
+        PreviewCursor => 'Cast', CastTextEvent => 'Cast', UseCosts => 'ActionPoint:1;SpellSlotsGroup:1:1:1',
+        VerbalIntent => 'Control', SpellStyleGroup => 'Class',
+        SpellFlags => 'IsSpell;HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer', MemoryCost => 1);
 }
 
 # ---------------------------------------------------------------- what the game already has (read only)
@@ -1038,7 +1059,7 @@ sub build_compassion {
     my $r   = master('SPL_Resonant_Compassion', 'range')->{value};
     my $id = 'Shout_Arcana_Card_Passive_Compassion';
     my $icon = 'Spell_Abjuration_Sanctuary';
-    my $trust = sp_tag(spell_id('Trust'), 'Weave Surge: Trust');
+    my $trust = sp_tag(spell_id('Trust'), at(3) ? 'Trust' : 'Weave Surge: Trust');   # R54: named by its emotion
     my $card = entry($id, 'SpellData', SpellType => 'Shout', Level => $lvl, SpellSchool => 'Enchantment',
         SpellProperties => 'ApplyStatus(SELF,COMPASSION_READY,100,-1)', TargetConditions => "Self() and $CARD_MARK",
         Icon => $icon,
