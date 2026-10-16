@@ -44,6 +44,9 @@ none('each Surge: 1 base case + intensify + 6 feelings x 2 (Tier II) + 5 Cathars
 # ---- the whole patch
 $Alchemy::STAGE = 4;   # ARC-0017: test the whole refined build (R49-R68); the apply sets ARC17_STAGE per stage
 my $p = Alchemy::build_engine_patch();
+# today's game (ARC17_STAGE=0): the ARC-0002 assertions below that the refining changed run against it, as a regression
+my ($p0, $g0, $ag0); { local $Alchemy::STAGE = 0; $p0 = Alchemy::build_engine_patch(); $g0 = Alchemy::overload_goal(); $ag0 = Alchemy::temperance_goal(); }
+my %lt0 = $p0 =~ /^\@loca (\S+) (.*)$/mg;
 my @entries = $p =~ /^new entry "([^"]+)"/mg;
 my %defined = map { $_ => 1 } @entries;
 my $surge_re = '^Target_Arcana_Card_Spell_Emotion(?:' . join('|', @W) . ')$';
@@ -177,7 +180,7 @@ none('Anger and Rage keep their reaction (opportunity attacks, P4)', grep { $pk-
 none('Surge tooltips no longer repeat the refund (Owner, 2026-10-12: Emotional Alchemy tells it)', grep { ($lt{'HW_' . uc(Alchemy::spell_id($_)) . '_EXTRA'} // '') =~ /Any reaction gives back/ } @W);
 
 # ---- stage 2: Overload
-my $full = block($p, 'RESONANT_OVERLOAD_FULL');
+my $full = block($p0, 'RESONANT_OVERLOAD_FULL');   # stage 0
 like($full, qr/"TickType" "StartTurn"/, 'full: hurts at the start of your turn');
 like($full, qr/ClassLevelHigherOrEqualThan\(11,'Arcana'\)\):DealDamage\(6,Psychic,Magical\)/, 'full at level 11+: 6 Psychic');
 like(block($p, 'Arcana_Passive_Overload'), qr/"DisplayName"/, 'the Overload passive exists');
@@ -185,7 +188,7 @@ like($lt{'HW_ARCANA_PASSIVE_OVERLOAD_DESC'} // '', qr/Emotional Overload/, 'the 
 # stage 7: the DEBUG scaffold is retired (everything arrives by the progression); it is archived in 90_ARCHIVE
 unlike($p, qr/^new entry "(?:Shout_Arcana_Util_DEBUG_Resonant|RESONANT_DEBUG)"/m, 'the DEBUG scaffold is no longer generated');
 none('the DEBUG scaffold is retired from the game', grep { my $n = $_; !grep { $_->[1] eq $n } Alchemy::removals({ $n => 'Spell_Shout' }, {}) } qw(Shout_Arcana_Util_DEBUG_Resonant RESONANT_DEBUG));
-my $eo = block($p, 'Target_Arcana_Created_EmotionalOverload');
+my $eo = block($p0, 'Target_Arcana_Created_EmotionalOverload');   # stage 0
 like($eo, qr/"UseCosts" "BonusActionPoint:1"
 /, 'Emotional Overload: a bonus action, no slot or Thread (R22, R48)');
 like($eo, qr/^data "RequirementConditions" "HasStatus\('RESONANT_OVERLOAD_FULL'\)"$/m, 'only while Overloaded: greyed out until then (P8, vanilla HasStatus(\'SG_Rage\'))');
@@ -194,7 +197,7 @@ unlike($eo, qr/"SpellRoll"/, 'no saving throw');
 is(scalar(() = $eo =~ /IF\(HasStatus\('FEELING_\w+'\)\):DealDamage\(1d6,Psychic,Magical\)/g), 24, '1d6 Psychic per feeling, all 24');
 like($eo, qr/ApplyStatus\(PARALYZED,100,2\)/, 'Paralysed 2 turns (vanilla PARALYZED)');
 like($eo, qr/ApplyStatus\(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0\)/, 'tells Osiris to empty the meter');
-my $g = Alchemy::overload_goal();
+my $g = $g0;   # stage 0
 is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("EMOTION_\w+", 1\)/g), 8, '+1 for each of the 8 peaks');
 is(scalar(() = $g =~ /DB_ARCANA_Resonant_OverloadPoints\("(?:FEELING_\w+|EMOTION_\w+|CATHARSIS)", 2\)/g), 33, '+2 for 24 feelings, 8 intense, Catharsis');
 like($g, qr/DB_ARCANA_Resonant_OverloadMax\(5, 11\).*DB_ARCANA_Resonant_OverloadMax\(20, 20\)/s, 'size by level from 25');
@@ -225,9 +228,9 @@ unlike($full, qr/OnCombatEnded/, 'Overloaded runs its course across combats');
 like($full, qr/"StatusPropertyFlags" "[^"]*ForceOverhead/, 'Overloaded shows on the character (ForceOverhead)');
 none('every visible Resonant passive is Highlighted', grep { block($p, $_) !~ /^data "Properties" "Highlighted"$/m }
     qw(Arcana_Passive_EmotionalAlchemy Arcana_Passive_EmpathicSight Arcana_Passive_ComplexFeelings Arcana_Passive_Overwhelm Arcana_Passive_MixedFeelings Arcana_Passive_Overload));
-like($lt{'HW_RESONANT_OVERLOAD_DESC'} // '', qr/Overloaded.*level 5/s, 'the meter text names Overloaded and when Emotional Overload arrives');
-like($lt{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/Psychic damage equal to your spell slot level/, 'Overloaded says how much it hurts');
-like($lt{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/level 5/, 'Overloaded says Emotional Overload needs level 5');
+like($lt0{'HW_RESONANT_OVERLOAD_DESC'} // '', qr/Overloaded.*level 5/s, 'the meter text names Overloaded and when Emotional Overload arrives');
+like($lt0{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/Psychic damage equal to your spell slot level/, 'Overloaded says how much it hurts');
+like($lt0{'HW_RESONANT_OVERLOAD_FULL_DESC'} // '', qr/level 5/, 'Overloaded says Emotional Overload needs level 5');
 unlike($g, qr/IsInCombat\(_Resonant, 1\)/, 'the meter counts in and out of combat');
 unlike($g, qr/LeftCombat/, 'leaving a combat does not empty the meter');
 like($g, qr/IntegerProduct\(_N, 100, _N100\)\r?\nAND\r?\nIntegerDivide\(_N100, _Max, _Pct\)/, 'the meter shows the percentage of its maximum');
@@ -342,7 +345,7 @@ unlike($tc, qr/ApplyStatus\(CATHARSIS,/, 'Two Cups does not apply CATHARSIS (R38
 is(scalar(() = block($p, 'RESONANT_TWO_CUPS_CATHARSIS') =~ /RemoveStatus\(MOOD_\w+\)/g), 8, 'the Two Cups Catharsis spends every mood');
 unlike($g, qr/RESONANT_TWO_CUPS_CATHARSIS/, 'the Overload ignores The Two Cups (R38)');
 # 4.1 the goal and the Common rows
-my $ag = Alchemy::temperance_goal();
+my $ag = $ag0;   # stage 0
 is(scalar(() = $ag =~ /DB_ARCANA_Resonant_AwakeningStatus\("[A-Z_]+"\);/g), 34, 'Awakening: 24 feelings, 8 intense, Catharsis, Two Cups Catharsis');
 like($ag, qr/StatusApplied\(_Target, _Status, \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nDB_ARCANA_Resonant_AwakeningStatus\(_Status\)\r?\nAND\r?\nHasPassive\(_Resonant, "Arcana_Passive_Aspect_Temperance_Awakening", 1\)\r?\nTHEN\r?\nPROC_ARCANA_Aspect_Step\(_Resonant, "TEMPERANCE"\);/, 'each reaction is one step');
 my $cr4 = Alchemy::common_rows();
@@ -454,5 +457,52 @@ like($hg17, qr/"FEELING_LOVE"/, 'R57: Shared Heart still copies Love');
 # the stage switch: stage 0 is today's game
 { local $Alchemy::STAGE = 0; my $p0 = Alchemy::build_engine_patch();
   unlike($p0, qr/RESONANT_EXCESS_SPENT|RESONANT_REPLAY|CompassionTrust/, 'ARC17_STAGE=0 writes the game of today'); }
+
+# ==== ARC-0017 stage 2 -- the Overload (R51-R53, R56, R66-R68)
+my $full17 = block($p, 'RESONANT_OVERLOAD_FULL');
+unlike($full17, qr/BlockSpellCast|CharacterWeaponDamage/, 'R51: Overloaded neither silences nor adds a weapon rider');
+like($full17, qr/IF\(not ClassLevelHigherOrEqualThan\(5,'Arcana'\)\):DealDamage\(1d4,Psychic,Magical\);IF\(ClassLevelHigherOrEqualThan\(5,'Arcana'\) and not ClassLevelHigherOrEqualThan\(9,'Arcana'\)\):DealDamage\(2d4,Psychic,Magical\);IF\(ClassLevelHigherOrEqualThan\(9,'Arcana'\)\):DealDamage\(3d4,Psychic,Magical\)/,
+    'R51/R67: Psychic each turn 1d4 / 2d4 from 5 / 3d4 from 9 (25 overloaded_tick_next)');
+like($full17, qr/^data "OnApplyFunctors" "IF\(not ClassLevelHigherOrEqualThan\(5,'Arcana'\)\):ApplyStatus\(RESONANT_OVERLOADED_MIND_1,100,-1\);.*ApplyStatus\(RESONANT_OVERLOADED_MIND_9,100,-1\)"$/m, 'R52: the mind penalty by band, applied with the state');
+like($full17, qr/^data "OnRemoveFunctors" "RemoveStatus\(RESONANT_OVERLOADED_MIND_1\);RemoveStatus\(RESONANT_OVERLOADED_MIND_5\);RemoveStatus\(RESONANT_OVERLOADED_MIND_9\)"$/m, 'R52: and removed with it');
+for my $b ([1, -1], [5, -2], [9, -3]) { my ($l, $n) = @$b;
+    like(block($p, "RESONANT_OVERLOADED_MIND_$l"), qr/"Boosts" "RollBonus\(SavingThrow,$n,Intelligence\);RollBonus\(SavingThrow,$n,Wisdom\);RollBonus\(SavingThrow,$n,Charisma\)"/, "R52: band $l, $n to mental saves (flat)") }
+like($lt{HW_RESONANT_OVERLOAD_FULL_DESC} // '', qr/Intelligence, Wisdom and Charisma/, "R51: Overloaded's text names the mental saves");
+unlike($lt{HW_RESONANT_OVERLOAD_FULL_DESC} // '', qr/can't cast spells/, "R51: and no silence");
+my $og17 = Alchemy::overload_goal();
+like($og17, qr/HasActiveStatus\(_Resonant, "RESONANT_OVERLOAD_FULL", 1\)\r?\nAND\r?\nIsEnemy\(_Resonant, _Target, 1\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_RiderUsed\(_Resonant\)/, 'R51: the Surge rider -- Overloaded, an enemy, not yet this turn');
+like($og17, qr/THEN\r?\nDB_ARCANA_Resonant_RiderUsed\(_Resonant\);\r?\nApplyStatus\(_Target, _Tech, 0\.0, 1, _Resonant\);/, 'R51: the rider marks its turn at once (a DB: a multi-target Surge sees it)');
+like($og17, qr/TurnStarted\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nDB_ARCANA_Resonant_RiderUsed\(_Resonant\)\r?\nTHEN\r?\nNOT DB_ARCANA_Resonant_RiderUsed\(_Resonant\);/, 'R51: the rider guard clears at the turn start');
+for my $b ([1, '1d4'], [5, '2d4'], [9, '3d4']) { my ($l, $d) = @$b;
+    like(block($p, "RESONANT_RIDER_TECH_$l"), qr/"OnApplyFunctors" "DealDamage\($d,Psychic,Magical\)"/, "R51: rider band $l deals $d") }
+like($og17, qr/LeftCombat\(\(CHARACTER\)_Resonant, _\)/, 'R53: the end of a fight settles the meter');
+like($og17, qr/IntegerDivide\(_N, 2, _Half\)/, 'R53: to half');
+like($og17, qr/StatusRemoved\(\(CHARACTER\)_Resonant, "RESONANT_OVERLOAD_FULL", _, _\)\r?\nAND\r?\nNOT DB_ARCANA_Resonant_Settling\(_Resonant\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_Reset/, 'R53: settling a full meter does not empty it');
+my $ag17 = Alchemy::temperance_goal();
+like($ag17, qr/_Tier == 3\r?\nAND\r?\nNOT DB_ARCANA_Resonant_OverloadFull\(_Resonant\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_Fill\(_Resonant\);/, 'R56: waking Tier III fills the meter');
+like($og17, qr/PROC_ARCANA_Resonant_Overload_Fill\(\(CHARACTER\)_Resonant\)\r?\nAND\r?\nGetLevel\(_Resonant, _Lvl\)\r?\nAND\r?\nDB_ARCANA_Resonant_OverloadMax\(_Lvl, _Max\)\r?\nTHEN\r?\nPROC_ARCANA_Resonant_Overload_Add\(_Resonant, _Max\);/, 'R56: through the usual path');
+unlike($ag17, qr/PARALYZED|WaveCollect/, 'R68/R67: no Osiris paralysis wave any more (the area is rank III)');
+my $eo17 = block($p, 'Target_Arcana_Created_EmotionalOverload');
+like($eo17, qr/^data "Level" "1"$/m, 'R66: a level-1 slot spell');
+like($eo17, qr/^data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:1"$/m, 'R66: pays a slot (made free by the passive)');
+like($eo17, qr/^data "SpellRoll" "not SavingThrow\(Ability\.Wisdom, SourceSpellDC\(\)\)"$/m, 'R51: a Wisdom save');
+like($eo17, qr/^data "SpellSuccess" "[^"]*ApplyStatus\(IRRESISTIBLE_DANCE,100,1\)/m, 'R68: a failed save dances 1 turn');
+like($eo17, qr/IF\(HasStatus\('ASPECT_AWAKENED_TEMPERANCE_III', context\.Source\)\):ApplyStatus\(IRRESISTIBLE_DANCE,100,2\)/, 'R68: 2 turns at Tier III');
+like($eo17, qr/^data "SpellFail" "[^"]*IF\(HasStatus\('FEELING_LOVE'\)\):DealDamage\(\(1d6\)\/2,Psychic,Magical\)/m, 'R51: a made save takes half (vanilla (XdY)/2)');
+unlike($eo17, qr/^data "SpellFail" "[^"]*IRRESISTIBLE_DANCE/m, 'R51: no dance on a made save');
+like($eo17, qr/^data "SpellSuccess" "[^"]*ApplyStatus\(RESONANT_FATIGUE_TECH,100,0\)/m, 'R51: Mental Fatigue either way (marker, Osiris sets its duration) -- fail');
+like($eo17, qr/^data "SpellFail" "[^"]*ApplyStatus\(RESONANT_FATIGUE_TECH,100,0\)/m, '... and on a made save');
+unlike($eo17, qr/PARALYZED/, 'R68: no paralysis');
+like($eo17, qr/^data "Icon" "Spell_IntellectDevourer_SynapticDischarge"$/m, 'R51: the Synaptic Discharge icon');
+like($og17, qr/StatusApplied\(\(CHARACTER\)_Target, "RESONANT_FATIGUE_TECH", \(CHARACTER\)_Resonant, _\)\r?\nAND\r?\nGetLevel\(_Resonant, _Lvl\)/, 'R51: Osiris applies Mental Fatigue for the level');
+like($og17, qr/ApplyStatus\(_Target, "MAG_PSYCHIC_MENTAL_FATIGUE", _Dur, 1, _Resonant\);\r?\nApplyStatus\(_Target, "MAG_PSYCHIC_MENTAL_FATIGUE_DURATION_TECHNICAL", 6\.0, 1, _Resonant\);/, 'R51: the vanilla status and its duration cap');
+my $free = block($p, 'Arcana_Passive_Overload');   # the free cast rides on the Overload passive: no new progression row
+like($free, qr/"Boosts" "UnlockSpellVariant\(SpellId\('Target_Arcana_Created_EmotionalOverload'\) or SpellId\('Target_Arcana_Created_EmotionalOverload_2'\) or SpellId\('Target_Arcana_Created_EmotionalOverload_3'\) or SpellId\('Target_Arcana_Created_EmotionalOverload_4'\) or SpellId\('Target_Arcana_Created_EmotionalOverload_5'\) or SpellId\('Target_Arcana_Created_EmotionalOverload_6'\),ModifyUseCosts\(Replace,ArcanaSpellSlot,0,-1,ArcanaSpellSlot\),ModifyUseCosts\(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup\)\)"/, 'R66: the free cast (DEBUG_INFINITE_SPELLS pattern)');
+unlike($free, qr/ModifyTooltipDescription/, 'R66: no tooltip change');
+like($free, qr/"Properties" "Highlighted"/, 'R66: the Overload passive stays visible');
+my ($up17) = Alchemy::build_upcast_patch({ map { ("Target_Arcana_Created_EmotionalOverload_$_" => 'Spell_Target') } 2 .. 6 });
+like($up17, qr/\@set Target_Arcana_Created_EmotionalOverload_2 AmountOfTargets 1\n\@set Target_Arcana_Created_EmotionalOverload_3 AmountOfTargets 2\n\@set Target_Arcana_Created_EmotionalOverload_4 AmountOfTargets 2\n/, 'R67: ranks I (slots 1-2) and II (3-4)');
+like($up17, qr/\@set Target_Arcana_Created_EmotionalOverload_5 AreaRadius 9\n/, 'R51/R67: rank III, the area from slot 5 (probe B5)');
+like($lt{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC} // $lt{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC} // '', qr/Overload fills at once/, 'R56/R68: the Tier III text');
 
 done_testing();
