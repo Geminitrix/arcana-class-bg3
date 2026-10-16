@@ -46,3 +46,6 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   `Unboung Level 7`). Depth audit given in session and recorded in `REFINE_Unbound.md`. Owner: the subclass is
   monk-like, close to the Air Nomads, and leans on cards that enable passive states — by design (WB1); axis
   **Position** (WB2). Nothing in the game changed.
+- 2026-10-16 — Owner chose the kit: **The Open Road** as the core (WB3) and the **Beaufort** bands as the ranks of
+  Zephyr Strike (WB4). Feasibility note: Leap of Faith is already a `Rush` spell `using "Rush_SpringAttack"` with an
+  unarmed attack roll (`Spell_Rush.txt`), the proven pattern for a strike that carries you to the target.
