@@ -11,7 +11,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="a24a1d87-237f-4d19-9f5e-f515d6365dcc" />
         <field name="Name" type="NameTableFieldDefinition" value="ETHEREAL_CHAINS_EFFECT" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h50e0e457g54b7g93e9g6394g7b3f1dbc6262" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h50e0e457g54b7g93e9g6394g7b3f1dbc6262" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_Entangled" />
         <field name="FormatColor" type="EnumerationTableFieldDefinition" value="Red" enumeration_type_name="FormatStringColor" version="1" />
         <field name="SoundStart" type="StringTableFieldDefinition" value="Spell_Status_GortashChainsofTyranny_Start" />
@@ -38,5 +38,6 @@
         <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="b0ceab9b-5cdc-4436-ba89-832763900d72" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he3f3b236gaab8g745cg0d02gecea5ed8dce3" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+</stat_objects>
 </stats>

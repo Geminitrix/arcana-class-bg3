@@ -1,7 +1,7 @@
 ---
 id: SPEC_ARC-0020
 ticket: ARC-0020
-status: draft
+status: in_progress
 implementation: claude
 author: Mod Engineer
 updated: 2026-10-16
@@ -151,6 +151,8 @@ Drafted only after probe B4 (stage 4).
 ---
 
 ## Stage 1 — names and the rule (`[fechado] ARC-0020`)
+
+**Applied 2026-10-16** (`10_names.patch --apply`: 52 strings replaced, 2 new, 2 fields set). Checks: `check_cards` OK (115 roots), `stats_add --selftest` 1151/1151, no line over 3900, loca 1563 strings well formed; the old *Doubt* passive leaves with stage 2 (`20_structure.pl`), not here.
 
 Apply Tasks 0.2–0.3. No goals. **In game:** every Deceiver tooltip reads the new names; *The Veil* states the rule;
 the old *Doubt* passive is gone from the sheet.

@@ -2008,7 +2008,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="0d25d952-a388-4066-9b7c-55ced1b06519" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_MimicWithdraw" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="7c0a814a-7eeb-4938-bd23-c0d81ccad215" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha88ea3afg2012g59e5g8455gb13b526c3109" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha88ea3afg2012g59e5g8455gb13b526c3109" version="2" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(SELF,MIMIC_DISTORTION_HELPER);" />
         <field name="FollowUpOriginalSpell" type="StringTableFieldDefinition" value="Target_Arcana_Created_MimicDistortion" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('MIMIC_DISTORTION_HELPER')" />
@@ -2023,8 +2023,8 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and Character() and not Dead()" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('DOUBLE_OF_THE_VEIL',context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Shatter" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h122c76dbgdcf9g6f07gcc55gacfcd3a5e30b" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb6cf1a80gfaf5gffb3g2465g6823f5198bc6" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h122c76dbgdcf9g6f07gcc55gacfcd3a5e30b" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb6cf1a80gfaf5gffb3g2465g6823f5198bc6" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic);Distance(3)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_1,100,3)" />
@@ -3273,7 +3273,7 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_MirrorImage" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2e4d0881gdec7g7e96g5a20g83f932f84d0d" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ed3c123g3399g24acg13edg8555098a6120" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ed3c123g3399g24acg13edg8555098a6120" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(DELUDED,100,1)" />
@@ -3439,5 +3439,6 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+</stat_objects>
 </stats>

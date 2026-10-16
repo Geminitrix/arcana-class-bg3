@@ -536,8 +536,8 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="d2d8be51-59d8-4fcf-b2d2-70c97c5aa93e" />
         <field name="Name" type="NameTableFieldDefinition" value="SIGIL" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5a9834b3g29bfg7f21g71c4ga9b6a3271088" version="4" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h28e6ebc5g3632g32ddgd3d7ge688706a5796" version="11" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5a9834b3g29bfg7f21g71c4ga9b6a3271088" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h28e6ebc5g3632g32ddgd3d7ge688706a5796" version="12" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="StackId" type="StringTableFieldDefinition" value="SIGIL" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(Cause.LevelMapValue(Sigil_MarkDamage),Psychic)" />
@@ -554,7 +554,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="5a750773-c91e-1521-d0e8-bf28e6e234fc" />
         <field name="Name" type="NameTableFieldDefinition" value="WHISPERED_PARANOIA" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9e236ed0ga2e1g42d2g5b94g6ed98b4bbc3c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9fd48693g398dg74f3gf67dg102c1dbd8d83" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9fd48693g398dg74f3gf67dg102c1dbd8d83" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_DissonantWhispers" />
         <field name="StackId" type="StringTableFieldDefinition" value="WHISPERED_PARANOIA" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -567,8 +567,8 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="39080543-a41e-448b-b75f-640b3ae3a394" />
         <field name="Name" type="NameTableFieldDefinition" value="ETHEREAL_CHAINS" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h61aa29d1ga943g2882g51b8gdd450c37b7a8" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h27ab0da9g39aagf457g6a30g6d1955451372" version="10" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h61aa29d1ga943g2882g51b8gdd450c37b7a8" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h27ab0da9g39aagf457g6a30g6d1955451372" version="11" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_Entangled" />
         <field name="StackId" type="StringTableFieldDefinition" value="ETHEREAL_CHAINS" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnSourceDeath" enumeration_type_name="StatusEvent" version="1" />
@@ -632,7 +632,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="b3988a00-0aac-41c7-84e4-235e62827f2f" />
         <field name="Name" type="NameTableFieldDefinition" value="MIMIC_ETHEREAL_CHAINS" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="39080543-a41e-448b-b75f-640b3ae3a394" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hac42a29bg29bagffcfgad6bg0f22776658d4" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hac42a29bg29bagffcfgad6bg0f22776658d4" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Force)" />
         <field name="StackId" type="StringTableFieldDefinition" value="MIMIC_ETHEREAL_CHAINS" />
         <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="DealDamage(1d6,Force,Magical)" />
@@ -710,7 +710,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="57c79955-a2d9-434a-88f6-7ff0acc4b482" />
         <field name="Name" type="NameTableFieldDefinition" value="SIGIL_OF_MALICE_LAST_CASTED" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a283036g31f4ga58bgc5d4g83b36478a82e" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a283036g31f4ga58bgc5d4g83b36478a82e" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_MagicMissile" />
         <field name="StackId" type="StringTableFieldDefinition" value="MIMIC_LAST_CAST" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="1" />
@@ -723,7 +723,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ea503bcd-90d5-485f-841a-592fde2d648d" />
         <field name="Name" type="NameTableFieldDefinition" value="SIGIL_TECH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hdb9aca65g1d8ag0b4fg4907g7797d5506932" version="2" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hdb9aca65g1d8ag0b4fg4907g7797d5506932" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="StackId" type="StringTableFieldDefinition" value="SIGIL_TECH" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Ignore" enumeration_type_name="StatusStackType" version="1" />
@@ -740,6 +740,7 @@
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="d798b3cf-15ab-4911-9884-82799e6fd3ef" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hecdbe323g4d85gc7b2g245eg2702871e2a88" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -758,7 +759,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="04121cc1-83ce-4533-9d1a-363440805734" />
         <field name="Name" type="NameTableFieldDefinition" value="ETHEREAL_CHAINS_LAST_CASTED" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_Entangled" />
         <field name="StackId" type="StringTableFieldDefinition" value="MIMIC_LAST_CAST" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="1" />
@@ -772,7 +773,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="b04ac38d-e6bd-2b8e-ebc7-ce51bc15e3fa" />
         <field name="Name" type="NameTableFieldDefinition" value="DOUBT_2" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h056568baga6e9gbbc2ga70eg996998e7c0b9" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
         <field name="StackId" type="StringTableFieldDefinition" value="DOUBT" />
@@ -787,7 +788,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="1d4514ce-37db-c3a9-7594-c56b4584e174" />
         <field name="Name" type="NameTableFieldDefinition" value="DOUBT_3" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h940b1f8cg040bg0ed2g0bdbgfaa89da27460" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
         <field name="StackId" type="StringTableFieldDefinition" value="DOUBT" />
@@ -814,7 +815,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="373d707d-5894-4960-a0af-7f53fa769e4f" />
         <field name="Name" type="NameTableFieldDefinition" value="DISTORTION_HELPER" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbbe87a54g9882ga869g13a3g51d491fb409e" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbbe87a54g9882ga869g13a3g51d491fb409e" version="2" />
         <field name="StackId" type="StringTableFieldDefinition" value="DISTORTION_HELPER" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
@@ -824,7 +825,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="cf9416ed-c059-4ae8-9e27-33bd4c743242" />
         <field name="Name" type="NameTableFieldDefinition" value="DISTORTION_LAST_CASTED" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3c4edb12g2741g4fd0g7808g1b880efe0603" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3c4edb12g2741g4fd0g7808g1b880efe0603" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_WildMagic_Teleport_Activate" />
         <field name="StackId" type="StringTableFieldDefinition" value="MIMIC_LAST_CAST" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="1" />
@@ -944,7 +945,7 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="f57b4a12-511f-4bf6-a807-63501ec966f6" />
         <field name="Name" type="NameTableFieldDefinition" value="MIMIC_DISTORTION_HELPER" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h74931156g68e6g78c3g675fgcd9196f71a0c" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h74931156g68e6g78c3g675fgcd9196f71a0c" version="2" />
         <field name="StackId" type="StringTableFieldDefinition" value="MIMIC_DISTORTION_HELPER" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
@@ -968,7 +969,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="c2c24fab-cc1d-ef52-8014-7ca03a11b1e7" />
         <field name="Name" type="NameTableFieldDefinition" value="DOUBT_1" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5c5a5e3dgf38bg8611g14c6g65b0f7813f82" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5095a420gb43eg2aeegf951g776e0fd2e822" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
         <field name="StackId" type="StringTableFieldDefinition" value="DOUBT" />
@@ -3551,7 +3552,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="1a56830f-5e4e-e8bb-612b-b7d03420ae21" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_EMPRESS_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcbf532ceged1bg0decg2931g0e280f16ffa0" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h276f6c80g8b5dgf22agcc4fgc1770431d3e4" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h276f6c80g8b5dgf22agcc4fgc1770431d3e4" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_EMPRESS_TIER" />
@@ -4545,5 +4546,6 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+</stat_objects>
 </stats>

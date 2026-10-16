@@ -25,8 +25,8 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="Trajectories" type="StringTableFieldDefinition" value="348013df-7958-4ca9-ac9f-80337e054bee,7bff57fa-fd21-4ab3-9384-83fb14237690" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_MagicMissile" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h629833b0gfc8dg4921g4f7fged5030c535cf" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h629833b0gfc8dg4921g4f7fged5030c535cf" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="6" />
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -135,11 +135,11 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="c2a79933-9cfc-447a-add6-f96d24d4b34f" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Created_Mimic" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="DealDamage(1d6,Force,Magical);ApplyStatus(SIGIL_TECH,100,0);" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfde409a6gdc0eg96deg50a5g4285eae83cb1" version="2" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfde409a6gdc0eg96deg50a5g4285eae83cb1" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Force)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d6,Force)" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsLinkedSpellContainer;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="6" />
         <field name="CombatAIOverrideSpell" type="StatReferenceTableFieldDefinition" value="Projectile_MagicMissile_AI" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:1;" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('SIGIL_OF_MALICE_LAST_CASTED');" />
@@ -284,8 +284,8 @@
         <field name="Angle" type="IntegerTableFieldDefinition" value="120" />
         <field name="Trajectories" type="StringTableFieldDefinition" value="348013df-7958-4ca9-ac9f-80337e054bee,7bff57fa-fd21-4ab3-9384-83fb14237690" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_MagicMissile" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd66f5137g5a56g8f90g2a7eg143cdc0b770e" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="3" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd66f5137g5a56g8f90g2a7eg143cdc0b770e" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="4" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Force)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d4,Force)" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
@@ -564,5 +564,6 @@
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Healing" enumeration_type_name="VerbalIntent" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+</stat_objects>
 </stats>

@@ -2,7 +2,7 @@
 id: 26.01/Deceiver
 owner: Balance Designer
 source: 21.04/Deceiver/DECISIONS.md (DV1–DV30), DESIGN.md §4, §5, §10
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change
 ---
 
 # 26.01 · Resource audit — The Deceiver

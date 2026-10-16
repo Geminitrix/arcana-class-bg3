@@ -51,7 +51,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_DEBUG_AddDoubt" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8d533945g69a0g7ef1gd891g5ce67c06da28" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcd45f700gbe75gf849g7994gaf567019c8ee" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcd45f700gbe75gf849g7994gaf567019c8ee" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_ADD_TECH,100,0);" />
       </fields>
@@ -1676,7 +1676,7 @@
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_DissonantWhispers" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h075eaf74ge607g11a5ga164gc44b5e3b6ea8" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h358611e4gab01gee5dg782ag87ac7ba30c60" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h358611e4gab01gee5dg782ag87ac7ba30c60" version="4" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D4Cantrip),Psychic)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(MALICIOUS_WHISPERS,100,1)" />
@@ -1708,8 +1708,8 @@
         <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="CanStand('8807d230-d0f5-4aa5-b6e4-4b36e9da2ec8') and not Character() and not Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Cleric_InvokeDuplicity" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h805db51fg1ce6g5aa9g3a26g99b6279b2218" version="12" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef" version="4" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h805db51fg1ce6g5aa9g3a26g99b6279b2218" version="13" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1;" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="2f0d97b9-4a1f-4bf3-a3c2-32efb563d601,,;,,;4acb9350-ba51-40c0-8b72-32dc3d50d4a2,,;58711808-db75-47e7-ba95-31e73dcdf9cd,,;57e449b3-b712-4508-afcf-f2e91dc473f6,,;,,;84f3727f-aabc-4e34-bf31-c6cd0160bec9,,;,,;,," />
@@ -1873,8 +1873,8 @@
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_Entangled" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he9ce7070g7529g7835ga365gf087009b761f" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he9ce7070g7529g7835ga365gf087009b761f" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="14" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2;" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,,;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,," />
@@ -1963,11 +1963,11 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="236c68fd-d341-421e-a6e0-46a8badbb83f" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Created_Mimic" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="ApplyStatus(MIMIC_ETHEREAL_CHAINS,100,1);ApplyStatus(ETHEREAL_CHAINS_EFFECT,100,1);" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h83eeda77g48f1g0e23g3be8g736fb97f917f" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h83eeda77g48f1g0e23g3be8g736fb97f917f" version="2" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d6,Force);DealDamage(3d6,Force)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(MIMIC_ETHEREAL_CHAINS,100,1)" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasVerbalComponent;HasSomaticComponent;IsHarmful;IsLinkedSpellContainer;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:1;" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('ETHEREAL_CHAINS_LAST_CASTED');" />
       </fields>
@@ -2096,8 +2096,8 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="GROUND:Summon(8807d230-d0f5-4aa5-b6e4-4b36e9da2ec8,-1,,,,DOUBLE_OF_THE_VEIL_TECH);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_Distortion_Explosion);GROUND:ApplyStatus(SELF,DISTORTION_LAST_CASTED,100,-1)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="CanStand('') and not Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_WildMagic_Teleport_Activate" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2bfb3759ga241g9495g65ddg9e2d6f843aab" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha600849fgd60bg0304g0ae8gd0576ef7fa29" version="9" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2bfb3759ga241g9495g65ddg9e2d6f843aab" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha600849fgd60bg0304g0ae8gd0576ef7fa29" version="10" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d8,Force)" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Wizard_BenignTranspositionTeleport_L1to3" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Wizard_BenignTranspositionTeleport_L1to3" />
@@ -2164,12 +2164,12 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="1c53dfbd-0e3a-414d-91be-7cd9e406d75d" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Created_Mimic" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="GROUND:Summon(8807d230-d0f5-4aa5-b6e4-4b36e9da2ec8,-1,,,,DOUBLE_OF_THE_VEIL_TECH);GROUND:IF(CanStand('')):TeleportSource();GROUND:CreateExplosion(Projectile_Arcana_MimicDistortion_Explosion);" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb619d7e4g5900gda93ge912g6a66824f4016" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb619d7e4g5900gda93ge912g6a66824f4016" version="2" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d8,Force)" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsLinkedSpellContainer;IsHarmful;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:2;" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasStatus('MIMIC_DISTORTION_HELPER') and HasStatus('DISTORTION_LAST_CASTED');" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="4" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2260,8 +2260,8 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_Mimic" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" value="Projectile_Arcana_Created_MimicSigilofMalice;Target_Arcana_Created_MimicEtherealChains;Target_Arcana_Created_MimicDistortion;" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_Blur" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8568072g88bdg20b7gf7efgc89983eaefa7" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf6f23e41g5956g17e3g304aged825fa90bb1" version="7" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8568072g88bdg20b7gf7efgc89983eaefa7" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf6f23e41g5956g17e3g304aged825fa90bb1" version="8" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerTurn" enumeration_type_name="CooldownType" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer;IsHarmful;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
@@ -2285,8 +2285,8 @@
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('DOUBLE_OF_THE_VEIL',context.Source)" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_Entangled" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he00a1f96g87f9g4f9dg87b3ga147297a6d7d" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h19148393g43edg142eg8af8gc41f2c6b60f9" version="3" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he00a1f96g87f9g4f9dg87b3ga147297a6d7d" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h19148393g43edg142eg8af8gc41f2c6b60f9" version="4" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Force);Duration(1)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d4,Force)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
@@ -2360,8 +2360,8 @@
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('DOUBLE_OF_THE_VEIL',context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_BenignTransposition" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h87481af5g1536g4977g6f2dgac264f07f031" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf9ac4424g5ed1g39fdg9ee5g6f1154bf2b90" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h106b8b3bg25ccg066fg28acg0e425f34aa38" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf9ac4424g5ed1g39fdg9ee5g6f1154bf2b90" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h106b8b3bg25ccg066fg28acg0e425f34aa38" version="2" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Wizard_BenignTranspositionTeleport_L1to3" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Wizard_BenignTranspositionTeleport_L1to3" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
@@ -5275,5 +5275,6 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalDamage_Internal" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+</stat_objects>
 </stats>

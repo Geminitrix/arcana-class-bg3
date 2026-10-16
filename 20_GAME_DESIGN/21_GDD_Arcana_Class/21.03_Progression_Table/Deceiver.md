@@ -2,7 +2,7 @@
 id: 21.03/Deceiver
 owner: Lead Class Designer
 source: 21.04_Subclasses/Deceiver/DESIGN.md §9 (DV23, DV28)
-reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change
+reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change
 ---
 
 # 21.03 · Progression — The Veilwalker (internal: Deceiver) (levels 1–12)
