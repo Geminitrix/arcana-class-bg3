@@ -15,6 +15,15 @@ return {
     name = "Pool",
     after = function() if saved then Po.SpellIds = saved; saved = nil end end,
     cases = {
+        ["ARC-0017 R54: the emotions of Weave Surge are not cards of their own"] = function()
+            spellbook({
+                "Target_Arcana_Card_Spell_WeaveSurge_3",
+                "Target_Arcana_Card_Spell_EmotionJoy_3",
+                "Target_Arcana_Card_Spell_EmotionTrust",
+            })
+            T.list(Po.Cards("char"), { "Target_Arcana_Card_Spell_WeaveSurge" }, "one card: the container")
+        end,
+
         ["A carta entra no baralho uma vez, mesmo vindo como variante"] = function()
             spellbook({
                 "Target_Arcana_Card_Spell_A_3",

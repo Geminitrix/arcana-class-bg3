@@ -18,7 +18,7 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_Sanctuary" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h921ba39cg048dg64e5g0837gcbefb121f5f3" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hef51d79bg8c4ag01e5g3770g9b386b8b9e9c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hef51d79bg8c4ag01e5g3770g9b386b8b9e9c" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(COMPASSION_READY,100,-1)" />
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />

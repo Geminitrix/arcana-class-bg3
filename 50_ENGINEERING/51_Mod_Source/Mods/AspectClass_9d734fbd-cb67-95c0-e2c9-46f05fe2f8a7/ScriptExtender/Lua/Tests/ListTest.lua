@@ -21,6 +21,30 @@ end
 return {
     name = "List",
     cases = {
+        -- ARC-0017 R55: Weave Surge holds 3 copies per emotion the Resonant knows (an exception, this card only)
+        ["Weave Surge: 3 copies per emotion known, by level"] = function()
+            local WS = "Target_Arcana_Card_Spell_WeaveSurge"
+            T.eq(L.MaxCopies(WS, 1), 9)
+            T.eq(L.MaxCopies(WS, 2), 12)
+            T.eq(L.MaxCopies(WS, 4), 18)
+            T.eq(L.MaxCopies(WS, 5), 24)
+            T.eq(L.MaxCopies(WS, 12), 24)
+            T.eq(L.MaxCopies(WS, nil), 9)
+            T.eq(L.MaxCopies(POOL[1], 12), 3, "every other card keeps 3")
+        end,
+        ["Weave Surge grows with the level unless the player lowered it"] = function()
+            local WS = "Target_Arcana_Card_Spell_WeaveSurge"
+            local st = S.New()
+            L.Refresh(st, { WS }, 1)
+            T.eq(st.list[WS], 9)
+            L.Refresh(st, { WS }, 5)
+            T.eq(st.list[WS], 24, "untouched: follows the new maximum")
+            local st2 = S.New()
+            L.Refresh(st2, { WS }, 1)
+            st2.list[WS] = 5
+            L.Refresh(st2, { WS }, 5)
+            T.eq(st2.list[WS], 5, "lowered by the player: kept")
+        end,
         ["MaxCopies is 3, or 1 for Unique cards"] = function()
             T.eq(L.MaxCopies(POOL[1]), 3)
             T.eq(L.MaxCopies(UNIQUE), 1)

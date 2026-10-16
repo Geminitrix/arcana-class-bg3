@@ -962,7 +962,6 @@
                     <attribute id="Name" type="LSString" value="Resonant"/>
                     <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_ComplexFeelings"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="AddSpells(e0d34d66-e311-be56-1810-04f9ba0917fd,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f"/>
                     <attribute id="UUID" type="guid" value="37a002f2-35d4-4c3f-4987-bd26ec63e7a4"/>
                 </node>

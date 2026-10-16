@@ -149,7 +149,9 @@ for my $n (sort keys %plan) {
     my @kids = grep { length } split /;/, $cs;
     for my $c (@kids) {
         unless ($blk{$c}) { push @{ $plan{$n}{missing} }, $c; next }
-        if ($plan{$c}) { push @{ $plan{$n}{ownPlan} }, $c; next }   # filho com variante propria: nao mexer
+        # filho que tambem e carta com variantes (as emocoes do Weave Surge, ARC-0017): as variantes dele saem
+        # aqui, dentro das do container, e nao mais sozinhas -- senao o container "_L" lista os filhos base
+        $plan{$c}{inContainer} = $n if $plan{$c};
         push @{ $plan{$n}{children} }, $c;
         $childLevels{$c} = [ $firstSlot{$n} .. $MAXSLOT ];
     }
@@ -297,6 +299,7 @@ sub emit_variant { my ($n, $L, $cost, @extra) = @_;
 }
 for my $n (sort keys %plan) {
     my ($lvl, $uc) = @{$plan{$n}}{qw(level usecosts)};
+    next if $plan{$n}{inContainer};   # emitido pelo container
     push @warn, "  $n: filho '$_' do container nao existe" for @{ $plan{$n}{missing} || [] };
     push @warn, "  $n: filho '$_' tem variantes proprias -- o container nao as liga" for @{ $plan{$n}{ownPlan} || [] };
     my @kids = @{ $plan{$n}{children} || [] };

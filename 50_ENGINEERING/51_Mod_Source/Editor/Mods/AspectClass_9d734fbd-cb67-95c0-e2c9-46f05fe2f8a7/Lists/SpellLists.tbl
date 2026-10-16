@@ -264,14 +264,14 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="05269c79-116f-2b07-6dc1-deeefddc7ae4" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 1" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Target_Arcana_Created_EmotionalOverload" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge;Target_Arcana_Card_Spell_Heartstring;Target_Arcana_Created_EmotionalOverload" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="74e89dac-4330-83f6-cf7b-881854bd4663" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 3" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_Temper" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Temper" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">

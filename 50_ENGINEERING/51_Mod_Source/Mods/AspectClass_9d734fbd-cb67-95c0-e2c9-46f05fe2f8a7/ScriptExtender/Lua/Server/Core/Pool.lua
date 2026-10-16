@@ -100,7 +100,8 @@ function Po.Cards(char)
     for _, id in ipairs(Po.SpellIds(char)) do
         local root = rootOf(id)
         if C.DECK_CATEGORIES[Po.CategoryOf(root)] and not seen[root] and not copies[root]
-            and not D.Get(root).conjuredOnly then
+            and not D.Get(root).conjuredOnly
+            and not D.parentOf[root] then   -- ARC-0017 R54: a container's emotion is played through the container's card
             seen[root] = true
             out[#out + 1] = root
         end

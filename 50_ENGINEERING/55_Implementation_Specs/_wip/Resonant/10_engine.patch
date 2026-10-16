@@ -2,40 +2,42 @@
 # Spec: 20_GAME_DESIGN/21_GDD_Arcana_Class/21.04_Subclasses/Resonant/2026-10-11-resonant-design.md
 
 @loca HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_NAME Ready: Compassion
-@loca HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC Until the end of the fight, when an ally within [1] takes damage, you can use your reaction to cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust</LSTag> on it.
+@loca HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC Until the end of the fight, when an ally within [1] takes damage, you can use your reaction to cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Trust</LSTag> on it.
 @loca HW_COMPASSION_READY_NAME Ready: Compassion
-@loca HW_COMPASSION_READY_DESC When an ally within [1] takes damage, you can use your reaction to cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust</LSTag> on it.
+@loca HW_COMPASSION_READY_DESC When an ally within [1] takes damage, you can use your reaction to cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Trust</LSTag> on it.
 @loca HW_INTERRUPT_ARCANA_REACTION_COMPASSION_NAME Compassion
-@loca HW_INTERRUPT_ARCANA_REACTION_COMPASSION_DESC An ally within [1] took damage. Cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust</LSTag> on it.
+@loca HW_INTERRUPT_ARCANA_REACTION_COMPASSION_DESC An ally within [1] took damage. Cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Trust</LSTag> on it.
 @loca HW_COMPASSION_USED_TECH_NAME Compassion used
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONALCONTAGION_NAME Emotional Contagion
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONALCONTAGION_DESC Let the mood of a creature spill over: every creature within [1] of it catches the same mood, and catches it again each turn. No saving throw.
 @loca HW_RESONANT_CONTAGION_NAME Emotional Contagion
 @loca HW_RESONANT_CONTAGION_DESC Its mood spills over: every creature within [1] catches it, again each turn.
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_NAME Weave Surge: Joy
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_NAME Joy
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_DESC Pluck a bright thread of joy in an ally's Weave. The target's joy is contagious: it and allies near it have <LSTag Tooltip="Advantage">Advantage</LSTag> on their next attack.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> for 5 turns, with Advantage on Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONJOY_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ECSTASY">Ecstasy</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_NAME Weave Surge: Trust
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_NAME Trust
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_DESC Steady an ally with a thread of trust. The target stands shoulder to shoulder with its allies, sharing the blows meant for them.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> for 5 turns, with a +1 bonus to <LSTag Tooltip="ArmourClass">Armour Class</LSTag>.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONTRUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_ADMIRATION">Admiration</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_NAME Weave Surge: Fear
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_NAME Fear
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_DESC Wrap a creature in a cold thread of fear. The target can't move and has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AbilityCheck">Ability Checks</LSTag> and <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> for 5 turns, subtracting 1d4 from its Wisdom <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONFEAR_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_TERROR">Terror</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SUBMISSION">Submission</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_GUILT">Guilt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_NAME Weave Surge: Surprise
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_NAME Surprise
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_DESC Snap a thread of surprise before a creature's eyes. The target is caught off guard: it loses its reaction, and the next attack against it has <LSTag Tooltip="Advantage">Advantage</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> for 5 turns, with <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> to maintain Concentration.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSURPRISE_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_AMAZEMENT">Amazement</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AWE">Awe</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CURIOSITY">Curiosity</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DELIGHT">Delight</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_NAME Weave Surge: Sadness
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_NAME Sadness
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_DESC Weigh a creature down with a grey thread of sorrow. The target lets go of what it holds: it loses Concentration and its bonus action.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> for 5 turns, with its <LSTag Tooltip="MovementSpeed">movement speed</LSTag> reduced by [1].
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONSADNESS_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_GRIEF">Grief</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DISAPPROVAL">Disapproval</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DESPAIR">Despair</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SENTIMENTALITY">Sentimentality</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_NAME Weave Surge: Disgust
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_NAME Disgust
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_DESC Twist a creature's Weave into revulsion. The target can't take actions and has <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on Constitution <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> for 5 turns, unable to take reactions.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONDISGUST_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_LOATHING">Loathing</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_REMORSE">Remorse</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_UNBELIEF">Unbelief</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_MORBIDNESS">Morbidness</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_SHAME">Shame</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_NAME Weave Surge: Anger
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_NAME Anger
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_DESC Set a red thread of fury alight in a creature's mind. The target bears a grudge: it attacks the last creature that hurt it, or the nearest one if nobody has.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> for 5 turns, with its <LSTag Tooltip="ArmourClass">Armour Class</LSTag> reduced by 1.
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANGER_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_RAGE">Rage</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CONTEMPT">Contempt</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PRIDE">Pride</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ENVY">Envy</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_DOMINANCE">Dominance</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OUTRAGE">Outrage</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
-@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_NAME Weave Surge: Anticipation
+@loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_NAME Anticipation
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_DESC Pull a taut thread of anticipation through an ally's Weave. The target stands on guard and strikes the first enemy that comes within reach.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> for 5 turns, with its <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increased by [1].
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_VIGILANCE">Vigilance</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
+@loca HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_NAME Weave Surge
+@loca HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_DESC Pour an emotion into a creature's Weave. Choose the emotion.
 @loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_NAME Emotional Overload
 @loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_DESC Pour everything you feel into a creature's mind. Every feeling it carries is spent. If it fails a Wisdom <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>, each feeling deals [1] and it dances helplessly for 1 turn; if it succeeds, each feeling deals half. Either way it suffers Mental Fatigue. Ends Overloaded.
 @loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_NAME Heartstring
@@ -260,6 +262,8 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension"
 data "HitAnimationType" "MagicalNonDamage"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
 
 new entry "Target_Arcana_Card_Spell_EmotionTrust"
 type "SpellData"
@@ -297,6 +301,8 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension"
 data "HitAnimationType" "MagicalNonDamage"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
 
 new entry "Target_Arcana_Card_Spell_EmotionFear"
 type "SpellData"
@@ -334,6 +340,8 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful"
 data "HitAnimationType" "None"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
 
 new entry "Target_Arcana_Card_Spell_EmotionSurprise"
 type "SpellData"
@@ -371,6 +379,9 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful"
 data "HitAnimationType" "None"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(3,'Arcana')"
 
 new entry "Target_Arcana_Card_Spell_EmotionSadness"
 type "SpellData"
@@ -409,6 +420,9 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful"
 data "HitAnimationType" "None"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(3,'Arcana')"
 
 new entry "Target_Arcana_Card_Spell_EmotionDisgust"
 type "SpellData"
@@ -446,6 +460,9 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful"
 data "HitAnimationType" "None"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(5,'Arcana')"
 
 new entry "Target_Arcana_Card_Spell_EmotionAnger"
 type "SpellData"
@@ -483,6 +500,9 @@ data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful"
 data "HitAnimationType" "None"
 data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(5,'Arcana')"
 
 new entry "Target_Arcana_Card_Spell_EmotionAnticipation"
 type "SpellData"
@@ -520,6 +540,28 @@ data "VerbalIntent" "Buff"
 data "SpellStyleGroup" "Class"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension"
 data "HitAnimationType" "MagicalNonDamage"
+data "MemoryCost" "1"
+data "SpellContainerID" "Target_Arcana_Card_Spell_WeaveSurge"
+data "ContainerSpells" ""
+data "RequirementConditions" "ClassLevelHigherOrEqualThan(3,'Arcana')"
+
+new entry "Target_Arcana_Card_Spell_WeaveSurge"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "1"
+data "SpellSchool" "Enchantment"
+data "TargetRadius" "18"
+data "ContainerSpells" "Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Card_Spell_EmotionAnticipation"
+data "TargetConditions" "Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "Icon" "Spell_Enchantment_Heroism"
+data "DisplayName" "{{HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_NAME}}"
+data "Description" "{{HW_TARGET_ARCANA_CARD_SPELL_WEAVESURGE_DESC}}"
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:1"
+data "VerbalIntent" "Control"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer"
 data "MemoryCost" "1"
 
 new entry "Target_Arcana_Created_EmotionalOverload"

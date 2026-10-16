@@ -1457,6 +1457,82 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_EmotionSurprise;Target_Arcana_Card_Spell_EmotionSadness;Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Card_Spell_EmotionAnticipation" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h122f9102gc0b8ge730gdb09gad2779747d61" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8e687f7cg327fgb0c3g4500g93705a74d8fc" version="1" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;IsLinkedSpellContainer" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="dc4b0ee1-5e56-4cc6-88fe-d0f54fc56f77" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy_2;Target_Arcana_Card_Spell_EmotionTrust_2;Target_Arcana_Card_Spell_EmotionFear_2;Target_Arcana_Card_Spell_EmotionSurprise_2;Target_Arcana_Card_Spell_EmotionSadness_2;Target_Arcana_Card_Spell_EmotionDisgust_2;Target_Arcana_Card_Spell_EmotionAnger_2;Target_Arcana_Card_Spell_EmotionAnticipation_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="34c5a876-f942-4653-bcce-943ab142d8a1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy_3;Target_Arcana_Card_Spell_EmotionTrust_3;Target_Arcana_Card_Spell_EmotionFear_3;Target_Arcana_Card_Spell_EmotionSurprise_3;Target_Arcana_Card_Spell_EmotionSadness_3;Target_Arcana_Card_Spell_EmotionDisgust_3;Target_Arcana_Card_Spell_EmotionAnger_3;Target_Arcana_Card_Spell_EmotionAnticipation_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c9bef5ff-5031-4844-8f85-5b399a92e896" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy_4;Target_Arcana_Card_Spell_EmotionTrust_4;Target_Arcana_Card_Spell_EmotionFear_4;Target_Arcana_Card_Spell_EmotionSurprise_4;Target_Arcana_Card_Spell_EmotionSadness_4;Target_Arcana_Card_Spell_EmotionDisgust_4;Target_Arcana_Card_Spell_EmotionAnger_4;Target_Arcana_Card_Spell_EmotionAnticipation_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fef7392b-4596-4ccc-aded-1b5e87486439" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy_5;Target_Arcana_Card_Spell_EmotionTrust_5;Target_Arcana_Card_Spell_EmotionFear_5;Target_Arcana_Card_Spell_EmotionSurprise_5;Target_Arcana_Card_Spell_EmotionSadness_5;Target_Arcana_Card_Spell_EmotionDisgust_5;Target_Arcana_Card_Spell_EmotionAnger_5;Target_Arcana_Card_Spell_EmotionAnticipation_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ad20245a-ca81-4a20-ace4-1fe9bd150bec" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="735fca78-73a9-7fd0-a018-924352e137c7" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy_6;Target_Arcana_Card_Spell_EmotionTrust_6;Target_Arcana_Card_Spell_EmotionFear_6;Target_Arcana_Card_Spell_EmotionSurprise_6;Target_Arcana_Card_Spell_EmotionSadness_6;Target_Arcana_Card_Spell_EmotionDisgust_6;Target_Arcana_Card_Spell_EmotionAnger_6;Target_Arcana_Card_Spell_EmotionAnticipation_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
@@ -3717,22 +3793,22 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_DISTRACTED')) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ANNOYED')) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source))):ApplyStatus(EMOTION_FEAR,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,4);IF(HasStatus('MOOD_ACCEPTING') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_TERROR,100,1);IF(HasStatus('MOOD_DISTRACTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AWE,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AWE,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DESPAIR,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DESPAIR,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,2);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ANXIETY,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ANXIETY,100,4);IF(HasStatus('MOOD_ANNOYED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_ANNOYED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_ANNOYED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_ANNOYED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_ANNOYED')):ApplyStatus(CATHARSIS,100,0)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_APPREHENSIVE')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_INTERESTED'))):ApplyStatus(EMOTION_ANGER,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OUTRAGE,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OUTRAGE,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ENVY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ENVY,100,4);IF(HasStatus('MOOD_BORED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,2);IF(HasStatus('MOOD_BORED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_RAGE,100,1);IF(HasStatus('MOOD_INTERESTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AGGRESSIVENESS,100,2);IF(HasStatus('MOOD_INTERESTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AGGRESSIVENESS,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_APPREHENSIVE') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_APPREHENSIVE') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_APPREHENSIVE') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_APPREHENSIVE')):ApplyStatus(CATHARSIS,100,0)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h93ff502bg4574gae2fgc2d8g33efc8e11c61" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h08f3c330g8eb4g2559ge791g94b197007040" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="5" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9fef010dg839fgba01g7e54g3c5478e9271c" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h045bd194g26d5g807cgc80fga2a739761ca6" version="3" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="4" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_FEAR,100,1)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANGER,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
@@ -3752,14 +3828,18 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(5,'Arcana')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="ebcf4d2d-cbaa-4fc2-932f-ddd7f198cd21" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_2" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="189c5dc6-186e-4f47-89d6-03cef08dce79" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
@@ -3767,10 +3847,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="e67443cc-40ae-4a5c-a416-a0b0bfc8801f" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0cb1295d-dec8-4925-8239-0c0b8393bd27" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
@@ -3778,10 +3859,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="859671af-922a-46af-88c3-5784c32d77b1" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_4" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="1ba66f4d-851d-4472-a554-651e3ddccf4d" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
@@ -3789,10 +3871,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4df924b1-a6e1-4371-b48b-3a0936af4da9" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a06679dc-9123-43f9-bd43-d81fe9db7c6a" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
@@ -3800,209 +3883,14 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="885784bc-77e5-444a-9ad0-982eb1652ede" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a0c1b10c-a715-41ba-99ea-9f84f765a7b9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE')) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED'))):ApplyStatus(EMOTION_JOY,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ECSTASY,100,1);IF(HasStatus('MOOD_ACCEPTING') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DELIGHT,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DELIGHT,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,2);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,4);IF(HasStatus('MOOD_INTERESTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OPTIMISM,100,2);IF(HasStatus('MOOD_INTERESTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OPTIMISM,100,4);IF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_PENSIVE') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_PENSIVE') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_PENSIVE')):ApplyStatus(CATHARSIS,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h39115ecdg0fcdg6b48g6ba7g8c4b34bd7d34" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0ac2085dg0c9eg1dc1geab9g59ef83e06ef5" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="5" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_JOY,100,1)" />
-        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Ally() and not Dead()" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
-        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d36d4a53-c062-4dba-9bae-26d223531669" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_2" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="e58ce05c-67b1-4e1f-919e-3df7b556b676" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="84673526-c5b3-45ca-bd8a-29c122473764" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_4" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d364e588-7e38-4018-8b46-9f4de54c03c4" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="ab926ea4-a9aa-4dde-b227-f0f867476ba9" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE')) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_APPREHENSIVE')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_TRUST,100,1);IF(HasStatus('MOOD_SERENE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_SERENE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ADMIRATION,100,1);IF(HasStatus('MOOD_APPREHENSIVE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,4);IF(HasStatus('MOOD_BORED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_BORED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_BORED')):ApplyStatus(CATHARSIS,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0a3dddg6627g7f4cg1ec0g0a8b3fa96be8" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb3156ccdg87f0g5ca8gbf2eg4d66af967adb" version="4" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="4" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_TRUST,100,1)" />
-        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Ally() and not Dead()" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
-        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="634db0d3-6a28-4a55-8774-2312cf11fd4a" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_2" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="28037588-3220-452c-adfb-ac63a6d5fd54" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="c93f3fdc-ec36-4bd0-bc29-746560ab7d17" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_4" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="9c141691-7666-486f-a945-fcdea84e7578" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4fd4e8ad-17be-4aed-bb43-f8482da1dc54" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="e5810100-20af-aa8b-3486-072cd87c94fb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_CompassionTrust" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE')) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_TRUST,100,1);IF(HasStatus('MOOD_SERENE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_SERENE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ADMIRATION,100,1);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,4);IF(HasStatus('MOOD_BORED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_BORED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_BORED')):ApplyStatus(CATHARSIS,100,0)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4018,7 +3906,7 @@
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Transmutation_Longstrider" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8bac4abgf6c5ga7f0g8314gd41d51e1564f" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8bac4abgf6c5ga7f0g8314gd41d51e1564f" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hae5b626egd26age05dg4867gce9f3d9f29f6" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc0dfda48gc315g7382gba67g44581519082f" version="4" />
@@ -4043,6 +3931,9 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(3,'Arcana')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4050,6 +3941,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="938e7d5f-6235-44ed-ab02-cd8aa0a07658" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnticipation_2" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="36d504c2-60bc-8a4b-ae23-d923890b175c" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
@@ -4061,6 +3953,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="4250893c-6a51-4f9f-970d-821bb11ce040" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnticipation_3" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="36d504c2-60bc-8a4b-ae23-d923890b175c" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
@@ -4072,6 +3965,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="93a4dcf5-5927-4a1b-bbc5-c7503ff5fd22" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnticipation_4" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="36d504c2-60bc-8a4b-ae23-d923890b175c" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
@@ -4083,6 +3977,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="dc024b16-dbd0-4944-9eaf-ad014801c45c" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnticipation_5" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="36d504c2-60bc-8a4b-ae23-d923890b175c" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
@@ -4094,7 +3989,312 @@
         <field name="UUID" type="IdTableFieldDefinition" value="4752a4b3-6913-4931-ae4e-31882ed6e9cb" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnticipation_6" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="36d504c2-60bc-8a4b-ae23-d923890b175c" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnticipation" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE')) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_ANNOYED')) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_DISGUST,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_UNBELIEF,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_UNBELIEF,100,4);IF(HasStatus('MOOD_PENSIVE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_REMORSE,100,2);IF(HasStatus('MOOD_PENSIVE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_REMORSE,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_LOATHING,100,1);IF(HasStatus('MOOD_ANNOYED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,2);IF(HasStatus('MOOD_ANNOYED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CYNICISM,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CYNICISM,100,4);IF(HasStatus('MOOD_ACCEPTING') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_ACCEPTING') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_ACCEPTING') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_ACCEPTING') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_ACCEPTING')):ApplyStatus(CATHARSIS,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_StinkingCloud" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hedf8f2eegaa05gad6dg11e0g8fd683911dee" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb340903g9895g7abagab32g73757d36a3fa" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="4" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_DISGUST,100,1)" />
+        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(5,'Arcana')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9028c0c0-01e8-41d2-ab43-80381e997e10" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c8249c48-2d16-422d-bd82-69fbb68d8331" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0f785b7e-d599-4741-9def-4618c2915cec" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c550e032-a9f9-4cf6-8d29-6b6678b268fa" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4d751a52-1df0-4981-b467-41db5e035c84" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_DISTRACTED')) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ANNOYED')) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source))):ApplyStatus(EMOTION_FEAR,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,4);IF(HasStatus('MOOD_ACCEPTING') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_TERROR,100,1);IF(HasStatus('MOOD_DISTRACTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AWE,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AWE,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DESPAIR,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DESPAIR,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,2);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ANXIETY,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ANXIETY,100,4);IF(HasStatus('MOOD_ANNOYED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_ANNOYED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_ANNOYED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_ANNOYED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_ANNOYED')):ApplyStatus(CATHARSIS,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalKiller" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h93ff502bg4574gae2fgc2d8g33efc8e11c61" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h08f3c330g8eb4g2559ge791g94b197007040" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h09b761ddg580fg1e01g5089g184468c0d89b" version="5" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_FEAR,100,1)" />
+        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ebcf4d2d-cbaa-4fc2-932f-ddd7f198cd21" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e67443cc-40ae-4a5c-a416-a0b0bfc8801f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="859671af-922a-46af-88c3-5784c32d77b1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4df924b1-a6e1-4371-b48b-3a0936af4da9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="885784bc-77e5-444a-9ad0-982eb1652ede" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionFear_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f7e656f1-7fd2-4d5c-9dfd-eaf6326a6ddb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionFear" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE')) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED'))):ApplyStatus(EMOTION_JOY,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ECSTASY,100,1);IF(HasStatus('MOOD_ACCEPTING') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_GUILT,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DELIGHT,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DELIGHT,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,2);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,4);IF(HasStatus('MOOD_INTERESTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OPTIMISM,100,2);IF(HasStatus('MOOD_INTERESTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OPTIMISM,100,4);IF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_PENSIVE') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_PENSIVE') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_PENSIVE') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_PENSIVE')):ApplyStatus(CATHARSIS,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Heroism" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h39115ecdg0fcdg6b48g6ba7g8c4b34bd7d34" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0ac2085dg0c9eg1dc1geab9g59ef83e06ef5" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h272b4240gd416g8fe6ge01cg67274723369e" version="5" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_JOY,100,1)" />
+        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Ally() and not Dead()" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d36d4a53-c062-4dba-9bae-26d223531669" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e58ce05c-67b1-4e1f-919e-3df7b556b676" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="84673526-c5b3-45ca-bd8a-29c122473764" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d364e588-7e38-4018-8b46-9f4de54c03c4" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ab926ea4-a9aa-4dde-b227-f0f867476ba9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionJoy_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="b83e284c-21a1-4752-a00d-a5504a6be1ae" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionJoy" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
@@ -4113,7 +4313,7 @@
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_RayOfInfeeblement" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a75a416ga986g5255g13ffgf34e03ac8db6" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a75a416ga986g5255g13ffgf34e03ac8db6" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1f4e5c22g0007g4c4fga726g4383f2932cbd" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h20aa88d3gc278gc480g998fg7de3110adeaf" version="4" />
@@ -4138,6 +4338,9 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(3,'Arcana')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4145,6 +4348,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="77f78a3f-9927-4e40-a7be-9d39906bbb50" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSadness_2" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="31b9fb7a-3e65-4b8d-b09b-793921671fe8" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSadness" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
@@ -4156,6 +4360,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="6ce54193-1bfc-4ed7-8dcc-5dc51a6c6746" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSadness_3" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="31b9fb7a-3e65-4b8d-b09b-793921671fe8" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSadness" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
@@ -4167,6 +4372,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="70d7e8ad-4ed7-4763-9299-8d816d90e32e" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSadness_4" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="31b9fb7a-3e65-4b8d-b09b-793921671fe8" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSadness" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
@@ -4178,6 +4384,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="3ab07b14-4fad-4ac0-a620-09ea1e52bdce" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSadness_5" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="31b9fb7a-3e65-4b8d-b09b-793921671fe8" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSadness" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
@@ -4189,6 +4396,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="f87522f4-e0f9-4333-aff8-4f4994c03172" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSadness_6" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="31b9fb7a-3e65-4b8d-b09b-793921671fe8" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSadness" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
@@ -4208,7 +4416,7 @@
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf137ae58g8126gd700g14b1g88a3dc40c0df" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf137ae58g8126gd700g14b1g88a3dc40c0df" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h89b5caf8g4647gf8f8g1327g37736377b9c3" version="3" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6aec769dg5657g2de2gdda8g98468f8b1b3e" version="4" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
@@ -4232,6 +4440,9 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="ClassLevelHigherOrEqualThan(3,'Arcana')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4239,6 +4450,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e70ef5e2-5a10-41df-9fe2-91d9cfda194f" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSurprise_2" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="4760a9e6-e820-4707-87ec-81c5df109cab" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSurprise" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
@@ -4250,6 +4462,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="8adac1f7-bbe3-49bb-a014-78b1c331af93" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSurprise_3" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="4760a9e6-e820-4707-87ec-81c5df109cab" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSurprise" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
@@ -4261,6 +4474,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="0adfd61d-2ad8-4f0e-b421-0eb37d845ae9" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSurprise_4" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="4760a9e6-e820-4707-87ec-81c5df109cab" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSurprise" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
@@ -4272,6 +4486,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="84045f33-a16e-4db2-ba0a-30758e6a3fc4" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSurprise_5" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="4760a9e6-e820-4707-87ec-81c5df109cab" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSurprise" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
@@ -4283,6 +4498,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="51d263ba-9211-4501-958e-ff2781f48048" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionSurprise_6" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="4760a9e6-e820-4707-87ec-81c5df109cab" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionSurprise" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
@@ -4291,22 +4507,22 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_APPREHENSIVE')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_INTERESTED'))):ApplyStatus(EMOTION_ANGER,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_PRIDE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OUTRAGE,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_OUTRAGE,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ENVY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_ENVY,100,4);IF(HasStatus('MOOD_BORED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,2);IF(HasStatus('MOOD_BORED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_RAGE,100,1);IF(HasStatus('MOOD_INTERESTED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AGGRESSIVENESS,100,2);IF(HasStatus('MOOD_INTERESTED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_AGGRESSIVENESS,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_APPREHENSIVE') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_APPREHENSIVE') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_APPREHENSIVE') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_APPREHENSIVE')):ApplyStatus(CATHARSIS,100,0)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE')) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_APPREHENSIVE')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_TRUST,100,1);IF(HasStatus('MOOD_SERENE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_SERENE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ADMIRATION,100,1);IF(HasStatus('MOOD_APPREHENSIVE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SUBMISSION,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,4);IF(HasStatus('MOOD_BORED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_BORED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_BORED')):ApplyStatus(CATHARSIS,100,0)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9fef010dg839fgba01g7e54g3c5478e9271c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h045bd194g26d5g807cgc80fga2a739761ca6" version="3" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdb96154eg392eg6c1ag13c3gfbdeba97c744" version="4" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_ShieldOfFaith" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0a3dddg6627g7f4cg1ec0g0a8b3fa96be8" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb3156ccdg87f0g5ca8gbf2eg4d66af967adb" version="4" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hd7c1316bg723fgb532g61b7g536266a8b04d" version="4" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_ANGER,100,1)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_TRUST,100,1)" />
         <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
@@ -4319,21 +4535,24 @@
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Ally() and not Dead()" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="189c5dc6-186e-4f47-89d6-03cef08dce79" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_2" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="634db0d3-6a28-4a55-8774-2312cf11fd4a" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_2" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
@@ -4341,10 +4560,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="0cb1295d-dec8-4925-8239-0c0b8393bd27" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="28037588-3220-452c-adfb-ac63a6d5fd54" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_3" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
@@ -4352,10 +4572,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="1ba66f4d-851d-4472-a554-651e3ddccf4d" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_4" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c93f3fdc-ec36-4bd0-bc29-746560ab7d17" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_4" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
@@ -4363,10 +4584,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a06679dc-9123-43f9-bd43-d81fe9db7c6a" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="9c141691-7666-486f-a945-fcdea84e7578" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_5" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
@@ -4374,10 +4596,11 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a0c1b10c-a715-41ba-99ea-9f84f765a7b9" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionAnger_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="782d63bb-79cf-f332-a8c7-7178922ae150" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionAnger" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4fd4e8ad-17be-4aed-bb43-f8482da1dc54" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionTrust_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_WeaveSurge_6" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionTrust" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
@@ -4385,96 +4608,10 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="SpellAutoResolveOnAlly(Ability.Wisdom,SourceSpellDC(),true)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_ACCEPTING')) and not (HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE')) and not (HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_ANNOYED')) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_DISGUST,100,1);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,2);IF(HasStatus('MOOD_SERENE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_MORBIDNESS,100,4);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,2);IF(HasStatus('MOOD_APPREHENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SHAME,100,4);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_UNBELIEF,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_UNBELIEF,100,4);IF(HasStatus('MOOD_PENSIVE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_REMORSE,100,2);IF(HasStatus('MOOD_PENSIVE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_REMORSE,100,4);IF(HasStatus('MOOD_BORED') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_LOATHING,100,1);IF(HasStatus('MOOD_ANNOYED') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,2);IF(HasStatus('MOOD_ANNOYED') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CONTEMPT,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CYNICISM,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CYNICISM,100,4);IF(HasStatus('MOOD_ACCEPTING') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_ACCEPTING') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_ACCEPTING') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_ACCEPTING') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_ACCEPTING')):ApplyStatus(CATHARSIS,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_CARD', context.Source) and not HasPassive('ARCANA_IS_SURGE', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Conjuration_StinkingCloud" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hedf8f2eegaa05gad6dg11e0g8fd683911dee" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb340903g9895g7abagab32g73757d36a3fa" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1ac94819g4341g057ag4b32g721ec2711c27" version="4" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EMOTION_DISGUST,100,1)" />
-        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="70aa3de3-6968-4c6e-a9cc-46344d0c08c2" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Control_CrownOfMadness_L1to3" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Confuse" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;0149cfd3-d80f-4ce8-8cf7-234e0864ba46,,;1c58959b-8cb1-491d-89b7-2a7d0a593215,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:1" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
-        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="9028c0c0-01e8-41d2-ab43-80381e997e10" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_2" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="c8249c48-2d16-422d-bd82-69fbb68d8331" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="3" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="0f785b7e-d599-4741-9def-4618c2915cec" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_4" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="4" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="c550e032-a9f9-4cf6-8d29-6b6678b268fa" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="5" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4d751a52-1df0-4981-b467-41db5e035c84" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EmotionDisgust_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="ffd2ca2e-2149-47ab-9098-cc365025c5fd" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionDisgust" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e5810100-20af-aa8b-3486-072cd87c94fb" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_CompassionTrust" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="4c154b52-63b3-60e0-5b13-20f96c38aeeb" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not (HasStatus('MOOD_SERENE')) and not (HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')) and not (HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source)) and not (HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_BORED')) and not (HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source)) and not (HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source))):ApplyStatus(EMOTION_TRUST,100,1);IF(HasStatus('MOOD_SERENE') and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,2);IF(HasStatus('MOOD_SERENE') and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_LOVE,100,4);IF(HasStatus('MOOD_ACCEPTING') and HasPassive('Arcana_Passive_Overwhelm', context.Source) and not HasStatus('RESONANT_EXCESS_SPENT')):ApplyStatus(EMOTION_ADMIRATION,100,1);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,2);IF(HasStatus('MOOD_DISTRACTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_CURIOSITY,100,4);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,2);IF(HasStatus('MOOD_PENSIVE') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_SENTIMENTALITY,100,4);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,2);IF(HasStatus('MOOD_ANNOYED') and HasPassive('Arcana_Passive_MixedFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_DOMINANCE,100,4);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and not HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,2);IF(HasStatus('MOOD_INTERESTED') and HasPassive('Arcana_Passive_ComplexFeelings', context.Source) and HasStatus('RESONANT_TIER2', context.Source)):ApplyStatus(FEELING_HOPE,100,4);IF(HasStatus('MOOD_BORED') and not Ally() and not Self()):DealDamage(LevelMapValue(Catharsis_Damage),Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self())):RegainHitPoints(LevelMapValue(Catharsis_Damage));IF(HasStatus('MOOD_BORED') and not Ally() and not Self() and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):DealDamage(1d8,Psychic,Magical);IF(HasStatus('MOOD_BORED') and (Ally() or Self()) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):RegainHitPoints(1d8);IF(HasStatus('MOOD_BORED')):ApplyStatus(CATHARSIS,100,0)" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">

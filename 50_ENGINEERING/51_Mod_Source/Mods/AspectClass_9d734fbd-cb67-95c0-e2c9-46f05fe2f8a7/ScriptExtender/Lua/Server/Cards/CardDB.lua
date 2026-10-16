@@ -129,6 +129,9 @@ D.cards = {
     -- The ultimate is a Created ability, not a card: conjured while Overloaded (D.statusConjures), no slot, no
     -- Thread (R22) -- otherwise the lock of non-cards would keep it out of combat.
     ["Target_Arcana_Created_EmotionalOverload"] = { aspect = "Resonant", cost = 0 },
+    -- ARC-0017 R54/R55: the eight emotions in one container card, 3 copies per emotion known (an exception to
+    -- the 3 copies per card, this card only): 3 emotions at level 1, 4 at 2, 6 at 3, 8 at 5 (R59).
+    ["Target_Arcana_Card_Spell_WeaveSurge"] = { aspect = "Resonant", copiesByLevel = { [1] = 9, [2] = 12, [3] = 18, [5] = 24 } },
 
     ["Shout_Arcana_Card_Spell_DEBUG_Fated"] = { keywords = { Fated = true } },
     ["Shout_Arcana_Card_Spell_DEBUG_Fleeting"] = { keywords = { Fleeting = true } },
@@ -191,6 +194,12 @@ D.containers = {
         "Target_Arcana_Created_Hemoplague_Mindfire",
         "Target_Arcana_Created_Hemoplague_Seizure",
         "Target_Arcana_Created_Hemoplague_SlimyDoom",
+    },
+    -- ARC-0017 R54: Weave Surge and its emotions (the children keep their own ids: Compassion, IsWeaveSurge, Osiris)
+    ["Target_Arcana_Card_Spell_WeaveSurge"] = {
+        "Target_Arcana_Card_Spell_EmotionJoy", "Target_Arcana_Card_Spell_EmotionTrust", "Target_Arcana_Card_Spell_EmotionFear",
+        "Target_Arcana_Card_Spell_EmotionSurprise", "Target_Arcana_Card_Spell_EmotionSadness", "Target_Arcana_Card_Spell_EmotionDisgust",
+        "Target_Arcana_Card_Spell_EmotionAnger", "Target_Arcana_Card_Spell_EmotionAnticipation",
     },
 }
 

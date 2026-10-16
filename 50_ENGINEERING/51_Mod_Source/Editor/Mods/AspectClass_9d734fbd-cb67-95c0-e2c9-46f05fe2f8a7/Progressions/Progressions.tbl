@@ -1240,7 +1240,6 @@
         <field name="Level" type="ByteTableFieldDefinition" value="5" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="62727cb1-9114-ffbf-7fdb-51e28f73bd0f" />
-        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(e0d34d66-e311-be56-1810-04f9ba0917fd,,,,AlwaysPrepared)" />
         <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_ComplexFeelings" />
       </fields>
     </stat_object>

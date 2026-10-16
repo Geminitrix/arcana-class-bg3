@@ -5,6 +5,12 @@ local D = Req("Server/Cards/CardDB.lua")
 return {
     name = "CardDB",
     cases = {
+        ["ARC-0017 R54: Weave Surge is one card with its eight emotions"] = function()
+            local WS = "Target_Arcana_Card_Spell_WeaveSurge"
+            T.eq(#D.containers[WS], 8)
+            T.eq(D.parentOf["Target_Arcana_Card_Spell_EmotionTrust"], WS)
+            T.eq(D.Get(WS).aspect, "Resonant")
+        end,
         ["CostOf le o Level da magia, nao a tabela"] = function()
             local saved = D.io.spellLevel
             D.io.spellLevel = function(id) return id == "NV2" and 2 or nil end
@@ -88,7 +94,10 @@ return {
                 local cat = U.Category(container)
                 T.ok(cat == "Created" or cat == "Card", container .. " category " .. tostring(cat))
                 for _, id in ipairs(subs) do
-                    T.eq(U.Category(id), "Created", id)
+                    -- ARC-0017 R54: Weave Surge's emotions stay Card_Spell (Osiris and Khonsu read their ids);
+                    -- Po.Cards skips every child, so the container is the only card
+                    local ccat = U.Category(id)
+                    T.ok(ccat == "Created" or (cat == "Card" and ccat == "Card"), id .. " category " .. tostring(ccat))
                     T.eq(D.parentOf[id], container, id .. " points back at its container")
                 end
             end

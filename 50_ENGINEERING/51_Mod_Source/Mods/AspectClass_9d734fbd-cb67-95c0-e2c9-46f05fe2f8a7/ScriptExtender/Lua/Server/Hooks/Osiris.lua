@@ -14,7 +14,7 @@ local function withState(rawChar, fn)
     local char = U.Guid(rawChar)
     if not Po.IsDeckUser(char) then return end
     local st = S.Get(char)
-    L.Refresh(st, Po.Cards(char))
+    L.Refresh(st, Po.Cards(char), Po.LevelOf(char))   -- the level: ARC-0017 R55
     fn(char, st)
     S.Commit(char, st)
 end

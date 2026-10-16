@@ -337,6 +337,12 @@ DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_3", "Target_Arcana_C
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_4", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_5", "Target_Arcana_Card_Spell_VeiledPrison");
 DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_VeiledPrison_6", "Target_Arcana_Card_Spell_VeiledPrison");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge", "Target_Arcana_Card_Spell_WeaveSurge");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge_2", "Target_Arcana_Card_Spell_WeaveSurge");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge_3", "Target_Arcana_Card_Spell_WeaveSurge");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge_4", "Target_Arcana_Card_Spell_WeaveSurge");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge_5", "Target_Arcana_Card_Spell_WeaveSurge");
+DB_ARCANA_CardFamily("Target_Arcana_Card_Spell_WeaveSurge_6", "Target_Arcana_Card_Spell_WeaveSurge");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Aspect_FinalToll", "Target_Arcana_Created_Aspect_FinalToll");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Command_Approach", "Target_Arcana_Created_Command_Approach");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Command_Approach_2", "Target_Arcana_Created_Command_Approach");
