@@ -1323,14 +1323,14 @@
   <content contentuid="heb4e6df0g8356ga7a5gcbacgb6d34d30f9d8" version="1">Shoulder to Shoulder</content>
   <content contentuid="h5ecd49f9gf868g1332gabf7g999ee3be8cd5" version="1">When a nearby ally is hit by an attack, share the blow: the ally is Resistant to it, and you take the same damage.</content>
   <content contentuid="hf1822c5bg0a2eg2107gadc6g0cc7b38071af" version="1">Emotional Overload</content>
-  <content contentuid="h29d84958g931egb4cdg53e8g4d442d76d36d" version="1">Pour everything you have felt this fight into one creature. Every feeling it carries tears at it for [1] Psychic damage and is spent, and it is Paralysed for 2 turns. No saving throw.</content>
+  <content contentuid="h29d84958g931egb4cdg53e8g4d442d76d36d" version="2">Pour everything you feel into a creature's mind. Every feeling it carries is spent. If it fails a Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, each feeling deals [1] and it dances helplessly for 1 turn; if it succeeds, each feeling deals half. Either way it suffers Mental Fatigue. Ends Overloaded.</content>
   <content contentuid="hf787041fg0774g309fgc7e2g78de613fb59e" version="1">Overload</content>
-  <content contentuid="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="2">Everything you made others feel, felt again. It carries over from one fight to the next. The number shows how full it is: at 100% you become Overloaded. From level 5, Emotional Overload releases it.</content>
+  <content contentuid="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="3">Everything you made others feel, felt again. The number shows how full it is: at 100% you become Overloaded. After a fight it settles to half.</content>
   <content contentuid="h2aebe169gad14gcef1g3240gde925d03dad2" version="1">Overloaded</content>
-  <content contentuid="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="3">Overwhelmed by everything you made others feel. You can't cast spells, your weapon attacks deal an additional [1], and you take Psychic damage equal to your spell slot level at the start of each of your turns. It lasts a number of turns equal to your level; from level 5, Emotional Overload ends it at once.</content>
+  <content contentuid="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="4">Your own feelings overwhelm you. You have a penalty to Intelligence, Wisdom and Charisma &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and take Psychic damage at the start of each turn, both growing at levels 5 and 9. Once per turn, a Weave Surge that takes hold of an enemy also deals it the same Psychic damage. Emotional Overload pours it out.</content>
   <content contentuid="ha1fa7b98gb281g59b6g0430gdce752a2326b" version="1">Overload spent</content>
   <content contentuid="h76c1fec2g94ecg895cg1a7bgcd36acd8d85b" version="1">Overload</content>
-  <content contentuid="hcbf080cag064eg2fcbga9dcgd502f0b7ebf0" version="2">You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more; it carries over from one fight to the next. At 100% you become Overloaded: you can't cast spells, your weapon attacks deal extra Psychic damage, and you take Psychic damage each turn, for a number of turns equal to your level. From level 5, Emotional Overload ends it at once.</content>
+  <content contentuid="hcbf080cag064eg2fcbga9dcgd502f0b7ebf0" version="3">You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more. At 100% you become Overloaded, and Emotional Overload pours it out. After a fight, your Overload settles to half.</content>
   <content contentuid="hc2cea70eg0931g575dg4c81g63350f9e23e2" version="1">Read the Room</content>
   <content contentuid="h22852322g51d5gf704gc82eg21854808b6e4" version="1">Feel out what everyone around you wants before they say it. You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Insight and Persuasion checks.</content>
   <content contentuid="h2980fab9g4639g9490g31b0g94ad5709c654" version="1">Read the Room</content>
@@ -1368,7 +1368,7 @@
   <content contentuid="h542ace40gd6d5gc633gb93eg8210d3fbfc81" version="1">14 - Temperance: Awakened II</content>
   <content contentuid="hd3619171g42ffgc21cgb357g94050ebc64b8" version="3">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.</content>
   <content contentuid="h2a677c27gc433ge325ge612gaf0f3b77fe62" version="1">14 - Temperance: Awakened III</content>
-  <content contentuid="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="3">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.&lt;br&gt;&lt;br&gt;Aspect of Empathy: Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
+  <content contentuid="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="4">Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.&lt;br&gt;&lt;br&gt;Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.&lt;br&gt;&lt;br&gt;Aspect of Empathy: When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.</content>
   <content contentuid="h2a5073b9gce8fgdabfg5dc1gd82dd9d499a4" version="1">Awakening Progress</content>
   <content contentuid="h75facae4g00fcg3d29g4a02gcd6225798baf" version="1">Reactions you have caused this fight, towards your next Awakening tier.</content>
   <content contentuid="hbb371a74g7561g5a32g4560gd58a7a803446" version="1">Catharsis</content>
@@ -1378,7 +1378,7 @@
   <content contentuid="h67d48b2dg536ag16f4gddaag99547342ea75" version="1">Harmony</content>
   <content contentuid="h7ead1f0fg03cfga469g7566ga591ef7cbc1f" version="3">Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.</content>
   <content contentuid="h4eaafe19g963fg7afcg97d8g9d86178a4827" version="1">Aspect of Empathy</content>
-  <content contentuid="hae71e866g25bagb7d2g2d7bga2340c175f70" version="2">Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.</content>
+  <content contentuid="hae71e866g25bagb7d2g2d7bga2340c175f70" version="3">When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.</content>
   <content contentuid="hd3d7d9b5g6ec2gdc23gec81g8c980ca1761d" version="1">14 - Temperance: Awakening</content>
   <content contentuid="h6c55bb90g694fg4b96g7affg9ae3db1e2693" version="2">Cause reactions during a fight to awaken the Aspect of Empathy until combat ends. Every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.&lt;br&gt;&lt;br&gt;Level 3: cause 3 reactions to gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_I"&gt;Resonance&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 7: cause 6 reactions to also gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_II"&gt;Harmony&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 12: cause 15 reactions to awaken as the &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_III"&gt;Aspect of Empathy&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;The Awakening status shows how much is left to the next tier.</content>
   <content contentuid="h2d3e33d6g98bbg2448g0570g7015591c2773" version="1">The Two Cups</content>
@@ -1546,4 +1546,11 @@
   <content contentuid="hf098e7acgf400g4524ge3d9g6c8afcd69067" version="1">Watching the Wheel. Can react with Foreseen until combat ends.</content>
   <content contentuid="hea716352g6baeg6d1fg9c9fg3a1906d6da2a" version="1">Replayed emotion</content>
   <content contentuid="h873d2479g260bge26agffdcg0b280c2aa7a3" version="1">Excess felt</content>
+  <content contentuid="h50822948g3815gfdbbg9630g460bcbea16cd" version="1">Overloaded</content>
+  <content contentuid="h3d1922f0g2bd8g439eg474cg890eebc69f4b" version="1">Overloaded</content>
+  <content contentuid="h5533c02eg07d4g2607gdb0bga9184f51b505" version="1">Overloaded</content>
+  <content contentuid="h13bc9a7fg1eafg0afbgd736g3111b8dd1f5f" version="1">Overloaded</content>
+  <content contentuid="h469067f9g461ag9004gf2ffgb64076b11411" version="1">Overloaded</content>
+  <content contentuid="h0a5fce44g5e9eg97bag3d67g4537198e52c6" version="1">Overloaded</content>
+  <content contentuid="h182ce2b4g3fbfg7887g07e9gff2dd2ef3ee9" version="1">Mental Fatigue</content>
 </contentList>

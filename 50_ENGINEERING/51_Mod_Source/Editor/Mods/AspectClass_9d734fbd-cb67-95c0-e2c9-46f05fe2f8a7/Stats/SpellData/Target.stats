@@ -1459,18 +1459,21 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);ApplyStatus(PARALYZED,100,2);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Wisdom, SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);IF(not HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source)):ApplyStatus(IRRESISTIBLE_DANCE,100,1);IF(HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source)):ApplyStatus(IRRESISTIBLE_DANCE,100,2);ApplyStatus(RESONANT_FATIGUE_TECH,100,0);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);ApplyStatus(RESONANT_FATIGUE_TECH,100,0);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_SPELL', context.Source)" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('RESONANT_OVERLOAD_FULL')" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_IntellectDevourer_SynapticDischarge" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf1822c5bg0a2eg2107gadc6g0cc7b38071af" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h29d84958g931egb4cdg53e8g4d442d76d36d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h29d84958g931egb4cdg53e8g4d442d76d36d" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(PARALYZED,100,2)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(IRRESISTIBLE_DANCE,100,1)" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Wisdom" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Control_Gen_L1to3_01_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Control_CrownOfMadness_L1to3" />
@@ -1483,11 +1486,66 @@
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:1" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasSomaticComponent;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="cdcc0f9e-0ede-499a-8c9a-0372fa01903f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload_2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Created_EmotionalOverload" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:2" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="84580d04-9c26-486d-bede-69f6c530ef33" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload_3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Created_EmotionalOverload" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:3" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5634241f-3266-4737-a7aa-699b670e9f4f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload_4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Created_EmotionalOverload" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:4" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="343a07f7-ad29-4f3c-88ce-4c8400401a31" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Created_EmotionalOverload" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:5" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="9" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5b27c8a5-ecda-45f6-b1aa-5e26b61b0269" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_EmotionalOverload_6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="ebfc176a-b481-b749-49a7-25701d772e55" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Created_EmotionalOverload" />
+        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:6" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="9" />
       </fields>
     </stat_object>
     <stat_object color="#FFFF69B4" is_substat="false">

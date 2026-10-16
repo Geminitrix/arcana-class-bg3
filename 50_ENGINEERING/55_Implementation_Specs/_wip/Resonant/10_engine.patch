@@ -37,7 +37,7 @@
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_DESC Pull a taut thread of anticipation through an ally's Weave. The target stands on guard and strikes the first enemy that comes within reach.<br><br>When the surge fades, it leaves the target <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> for 5 turns, with its <LSTag Tooltip="MovementSpeed">movement speed</LSTag> increased by [1].
 @loca HW_TARGET_ARCANA_CARD_SPELL_EMOTIONANTICIPATION_EXTRA Intense (level 7): <LSTag Type="Status" Tooltip="MOOD_INTERESTED">Interested</LSTag> into <LSTag Type="Status" Tooltip="EMOTION_VIGILANCE">Vigilance</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_SERENE">Serene</LSTag> into <LSTag Type="Status" Tooltip="FEELING_OPTIMISM">Optimism</LSTag>.<br>Primary: <LSTag Type="Status" Tooltip="MOOD_ANNOYED">Annoyed</LSTag> into <LSTag Type="Status" Tooltip="FEELING_AGGRESSIVENESS">Aggressiveness</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_ACCEPTING">Accepting</LSTag> into <LSTag Type="Status" Tooltip="FEELING_HOPE">Hope</LSTag>.<br>Secondary (level 5): <LSTag Type="Status" Tooltip="MOOD_BORED">Bored</LSTag> into <LSTag Type="Status" Tooltip="FEELING_CYNICISM">Cynicism</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_APPREHENSIVE">Apprehensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_ANXIETY">Anxiety</LSTag>.<br>Tertiary (level 9): <LSTag Type="Status" Tooltip="MOOD_PENSIVE">Pensive</LSTag> into <LSTag Type="Status" Tooltip="FEELING_PESSIMISM">Pessimism</LSTag>.<br>Catharsis: <LSTag Type="Status" Tooltip="MOOD_DISTRACTED">Distracted</LSTag> into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>.<br>
 @loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_NAME Emotional Overload
-@loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_DESC Pour everything you have felt this fight into one creature. Every feeling it carries tears at it for [1] Psychic damage and is spent, and it is Paralysed for 2 turns. No saving throw.
+@loca HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_DESC Pour everything you feel into a creature's mind. Every feeling it carries is spent. If it fails a Wisdom <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>, each feeling deals [1] and it dances helplessly for 1 turn; if it succeeds, each feeling deals half. Either way it suffers Mental Fatigue. Ends Overloaded.
 @loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_NAME Heartstring
 @loca HW_TARGET_ARCANA_CARD_SPELL_HEARTSTRING_DESC Pluck the string a creature's heart hangs from. It takes [1], and a mood it carries lasts 2 turns longer.
 @loca HW_TARGET_ARCANA_CARD_SPELL_TEMPER_NAME Temper
@@ -50,7 +50,7 @@
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_II_NAME 14 - Temperance: Awakened II
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ASPECT_AWAKENED_TEMPERANCE_III_NAME 14 - Temperance: Awakened III
-@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.<br><br>Aspect of Empathy: Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.
+@loca HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC Resonance: Catharsis deals or restores an extra 1d8, and the moods you create last 2 turns longer.<br><br>Harmony: Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.<br><br>Aspect of Empathy: When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_NAME Awakening Progress
 @loca HW_ASPECT_PROGRESS_TEMPERANCE_DESC Reactions you have caused this fight, towards your next Awakening tier.
 @loca HW_RESONANT_TWO_CUPS_CATHARSIS_NAME Catharsis
@@ -63,7 +63,7 @@
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_NAME Harmony
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_DESC Feelings you braid last 2 turns longer. Once per turn, a Weave Surge costs no action, and the emotion it leaves brings its mood at once.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_NAME Aspect of Empathy
-@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC Emotional Overload also reaches every enemy within [1] of the target that carries a feeling: it loses its feelings and is Paralysed for 1 turn.
+@loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC When it awakens, your Overload fills at once, and creatures dancing from your Emotional Overload dance for 2 turns.
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_AWAKENING_NAME 14 - Temperance: Awakening
 @loca HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_AWAKENING_DESC Cause reactions during a fight to awaken the Aspect of Empathy until combat ends. Every feeling you braid, every emotion you intensify and every Catharsis counts. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 reactions to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_I">Resonance</LSTag>.<br><br>Level 7: cause 6 reactions to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_II">Harmony</LSTag>.<br><br>Level 12: cause 15 reactions to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Temperance_III">Aspect of Empathy</LSTag>.<br><br>The Awakening status shows how much is left to the next tier.
 @loca HW_SHOUT_ARCANA_CREATED_ASPECT_TWOCUPS_NAME The Two Cups
@@ -179,9 +179,16 @@
 @loca HW_RESONANT_REPLAY_NAME Replayed emotion
 @loca HW_RESONANT_EXCESS_SPENT_NAME Excess felt
 @loca HW_RESONANT_OVERLOAD_NAME Overload
-@loca HW_RESONANT_OVERLOAD_DESC Everything you made others feel, felt again. It carries over from one fight to the next. The number shows how full it is: at 100% you become Overloaded. From level 5, Emotional Overload releases it.
+@loca HW_RESONANT_OVERLOAD_DESC Everything you made others feel, felt again. The number shows how full it is: at 100% you become Overloaded. After a fight it settles to half.
 @loca HW_RESONANT_OVERLOAD_FULL_NAME Overloaded
-@loca HW_RESONANT_OVERLOAD_FULL_DESC Overwhelmed by everything you made others feel. You can't cast spells, your weapon attacks deal an additional [1], and you take Psychic damage equal to your spell slot level at the start of each of your turns. It lasts a number of turns equal to your level; from level 5, Emotional Overload ends it at once.
+@loca HW_RESONANT_OVERLOAD_FULL_DESC Your own feelings overwhelm you. You have a penalty to Intelligence, Wisdom and Charisma <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> and take Psychic damage at the start of each turn, both growing at levels 5 and 9. Once per turn, a Weave Surge that takes hold of an enemy also deals it the same Psychic damage. Emotional Overload pours it out.
+@loca HW_RESONANT_OVERLOADED_MIND_1_NAME Overloaded
+@loca HW_RESONANT_OVERLOADED_MIND_5_NAME Overloaded
+@loca HW_RESONANT_OVERLOADED_MIND_9_NAME Overloaded
+@loca HW_RESONANT_RIDER_TECH_1_NAME Overloaded
+@loca HW_RESONANT_RIDER_TECH_5_NAME Overloaded
+@loca HW_RESONANT_RIDER_TECH_9_NAME Overloaded
+@loca HW_RESONANT_FATIGUE_TECH_NAME Mental Fatigue
 @loca HW_RESONANT_OVERLOAD_SPENT_TECH_NAME Overload spent
 @loca HW_RESONANT_JOY_CONTAGION_NAME Contagious Joy
 @loca HW_RESONANT_JOY_CONTAGION_DESC Has <LSTag Tooltip="Advantage">Advantage</LSTag> on the next attack.
@@ -198,7 +205,7 @@
 @loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_NAME Emotional Alchemy
 @loca HW_ARCANA_PASSIVE_EMOTIONALALCHEMY_DESC When your Weave Surge touches a creature that already carries a mood, the threads react instead of surging, and the mood is spent.<br><br>Neighbouring emotions braid into a feeling, such as <LSTag Type="Status" Tooltip="FEELING_LOVE">Love</LSTag>, that lasts 2 turns.<br><br>Opposing emotions snap into <LSTag Type="Status" Tooltip="CATHARSIS">Catharsis</LSTag>: an enemy takes [1] and an ally regains [2].<br><br>When your Weave Surge causes a reaction, you regain the spell slot it used. Once per turn.
 @loca HW_ARCANA_PASSIVE_OVERLOAD_NAME Overload
-@loca HW_ARCANA_PASSIVE_OVERLOAD_DESC You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more; it carries over from one fight to the next. At 100% you become Overloaded: you can't cast spells, your weapon attacks deal extra Psychic damage, and you take Psychic damage each turn, for a number of turns equal to your level. From level 5, Emotional Overload ends it at once.
+@loca HW_ARCANA_PASSIVE_OVERLOAD_DESC You feel what you make others feel. Each emotion that takes hold fills your Overload a little, and each reaction fills it more. At 100% you become Overloaded, and Emotional Overload pours it out. After a fight, your Overload settles to half.
 @loca HW_ARCANA_PASSIVE_EMPATHICSIGHT_NAME Empathic Sight
 @loca HW_ARCANA_PASSIVE_EMPATHICSIGHT_DESC You read the threads of feeling in others. You have <LSTag Tooltip="Advantage">Advantage</LSTag> on Insight checks.
 @loca HW_ARCANA_PASSIVE_COMPLEXFEELINGS_NAME Complex Feelings
@@ -518,18 +525,21 @@ data "MemoryCost" "1"
 new entry "Target_Arcana_Created_EmotionalOverload"
 type "SpellData"
 data "SpellType" "Target"
-data "Level" "0"
+data "Level" "1"
 data "SpellSchool" "Enchantment"
 data "TargetRadius" "18"
 data "AmountOfTargets" "1"
-data "SpellSuccess" "IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);ApplyStatus(PARALYZED,100,2);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)"
+data "SpellRoll" "not SavingThrow(Ability.Wisdom, SourceSpellDC())"
+data "SpellSuccess" "IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage(1d6,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);IF(not HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source)):ApplyStatus(IRRESISTIBLE_DANCE,100,1);IF(HasStatus('ASPECT_AWAKENED_TEMPERANCE_III', context.Source)):ApplyStatus(IRRESISTIBLE_DANCE,100,2);ApplyStatus(RESONANT_FATIGUE_TECH,100,0);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)"
+data "SpellFail" "IF(HasStatus('FEELING_AGGRESSIVENESS')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_AGGRESSIVENESS')):RemoveStatus(FEELING_AGGRESSIVENESS);IF(HasStatus('FEELING_ANXIETY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_ANXIETY')):RemoveStatus(FEELING_ANXIETY);IF(HasStatus('FEELING_AWE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_AWE')):RemoveStatus(FEELING_AWE);IF(HasStatus('FEELING_CONTEMPT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CONTEMPT')):RemoveStatus(FEELING_CONTEMPT);IF(HasStatus('FEELING_CURIOSITY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CURIOSITY')):RemoveStatus(FEELING_CURIOSITY);IF(HasStatus('FEELING_CYNICISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_CYNICISM')):RemoveStatus(FEELING_CYNICISM);IF(HasStatus('FEELING_DELIGHT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DELIGHT')):RemoveStatus(FEELING_DELIGHT);IF(HasStatus('FEELING_DESPAIR')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DESPAIR')):RemoveStatus(FEELING_DESPAIR);IF(HasStatus('FEELING_DISAPPROVAL')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DISAPPROVAL')):RemoveStatus(FEELING_DISAPPROVAL);IF(HasStatus('FEELING_DOMINANCE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_DOMINANCE')):RemoveStatus(FEELING_DOMINANCE);IF(HasStatus('FEELING_ENVY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_ENVY')):RemoveStatus(FEELING_ENVY);IF(HasStatus('FEELING_GUILT')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_GUILT')):RemoveStatus(FEELING_GUILT);IF(HasStatus('FEELING_HOPE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_HOPE')):RemoveStatus(FEELING_HOPE);IF(HasStatus('FEELING_LOVE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_LOVE')):RemoveStatus(FEELING_LOVE);IF(HasStatus('FEELING_MORBIDNESS')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_MORBIDNESS')):RemoveStatus(FEELING_MORBIDNESS);IF(HasStatus('FEELING_OPTIMISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_OPTIMISM')):RemoveStatus(FEELING_OPTIMISM);IF(HasStatus('FEELING_OUTRAGE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_OUTRAGE')):RemoveStatus(FEELING_OUTRAGE);IF(HasStatus('FEELING_PESSIMISM')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_PESSIMISM')):RemoveStatus(FEELING_PESSIMISM);IF(HasStatus('FEELING_PRIDE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_PRIDE')):RemoveStatus(FEELING_PRIDE);IF(HasStatus('FEELING_REMORSE')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_REMORSE')):RemoveStatus(FEELING_REMORSE);IF(HasStatus('FEELING_SENTIMENTALITY')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SENTIMENTALITY')):RemoveStatus(FEELING_SENTIMENTALITY);IF(HasStatus('FEELING_SHAME')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SHAME')):RemoveStatus(FEELING_SHAME);IF(HasStatus('FEELING_SUBMISSION')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_SUBMISSION')):RemoveStatus(FEELING_SUBMISSION);IF(HasStatus('FEELING_UNBELIEF')):DealDamage((1d6)/2,Psychic,Magical);IF(HasStatus('FEELING_UNBELIEF')):RemoveStatus(FEELING_UNBELIEF);ApplyStatus(RESONANT_FATIGUE_TECH,100,0);ApplyStatus(SELF,RESONANT_OVERLOAD_SPENT_TECH,100,0)"
 data "TargetConditions" "Character() and not Dead() and not Ally() and not Self() and not Tagged('CONSTRUCT') and not HasPassive('ARCANA_IS_SPELL', context.Source)"
 data "RequirementConditions" "HasStatus('RESONANT_OVERLOAD_FULL')"
-data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Icon" "Spell_IntellectDevourer_SynapticDischarge"
 data "DisplayName" "{{HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_NAME}}"
 data "Description" "{{HW_TARGET_ARCANA_CREATED_EMOTIONALOVERLOAD_DESC}}"
 data "DescriptionParams" "DealDamage(1d6,Psychic)"
-data "TooltipStatusApply" "ApplyStatus(PARALYZED,100,2)"
+data "TooltipStatusApply" "ApplyStatus(IRRESISTIBLE_DANCE,100,1)"
+data "TooltipAttackSave" "Wisdom"
 data "PrepareSound" "Spell_Prepare_Control_Gen_L1to3_01"
 data "PrepareLoopSound" "Spell_Prepare_Control_Gen_L1to3_01_Loop"
 data "CastSound" "Spell_Cast_Control_CrownOfMadness_L1to3"
@@ -542,11 +552,11 @@ data "TargetEffect" "4b5dc428-d623-4203-a7f0-a86c47bf9aa8"
 data "PreviewCursor" "Cast"
 data "CastTextEvent" "Cast"
 data "CycleConditions" "Enemy() and not Dead()"
-data "UseCosts" "BonusActionPoint:1"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:1"
 data "VerbalIntent" "Control"
 data "SpellStyleGroup" "Class"
 data "SpellFlags" "HasSomaticComponent;IsHarmful"
-data "HitAnimationType" "None"
+data "HitAnimationType" "MagicalNonDamage"
 
 new entry "Target_Arcana_Card_Spell_Heartstring"
 type "SpellData"
@@ -1368,13 +1378,69 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_RESONANT_OVERLOAD_FULL_NAME}}"
 data "Description" "{{HW_RESONANT_OVERLOAD_FULL_DESC}}"
-data "DescriptionParams" "DealDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)"
-data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Icon" "GenericIcon_Intent_Debuff"
 data "StackId" "RESONANT_OVERLOAD_FULL"
 data "TickType" "StartTurn"
-data "Boosts" "BlockSpellCast();CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)"
-data "TickFunctors" "IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):DealDamage(1,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(2,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)"
+data "TickFunctors" "IF(not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(1d4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(2d4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(3d4,Psychic,Magical)"
+data "OnApplyFunctors" "IF(not ClassLevelHigherOrEqualThan(5,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_1,100,-1);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_5,100,-1);IF(ClassLevelHigherOrEqualThan(9,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_9,100,-1)"
+data "OnRemoveFunctors" "RemoveStatus(RESONANT_OVERLOADED_MIND_1);RemoveStatus(RESONANT_OVERLOADED_MIND_5);RemoveStatus(RESONANT_OVERLOADED_MIND_9)"
 data "StatusPropertyFlags" "IgnoreResting;ForceOverhead"
+
+new entry "RESONANT_OVERLOADED_MIND_1"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_OVERLOADED_MIND_1_NAME}}"
+data "StackId" "RESONANT_OVERLOADED_MIND_1"
+data "Boosts" "RollBonus(SavingThrow,-1,Intelligence);RollBonus(SavingThrow,-1,Wisdom);RollBonus(SavingThrow,-1,Charisma)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "RESONANT_OVERLOADED_MIND_5"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_OVERLOADED_MIND_5_NAME}}"
+data "StackId" "RESONANT_OVERLOADED_MIND_5"
+data "Boosts" "RollBonus(SavingThrow,-2,Intelligence);RollBonus(SavingThrow,-2,Wisdom);RollBonus(SavingThrow,-2,Charisma)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "RESONANT_OVERLOADED_MIND_9"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_OVERLOADED_MIND_9_NAME}}"
+data "StackId" "RESONANT_OVERLOADED_MIND_9"
+data "Boosts" "RollBonus(SavingThrow,-3,Intelligence);RollBonus(SavingThrow,-3,Wisdom);RollBonus(SavingThrow,-3,Charisma)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "RESONANT_RIDER_TECH_1"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_RIDER_TECH_1_NAME}}"
+data "StackId" "RESONANT_RIDER_TECH_1"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(1d4,Psychic,Magical)"
+
+new entry "RESONANT_RIDER_TECH_5"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_RIDER_TECH_5_NAME}}"
+data "StackId" "RESONANT_RIDER_TECH_5"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(2d4,Psychic,Magical)"
+
+new entry "RESONANT_RIDER_TECH_9"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_RIDER_TECH_9_NAME}}"
+data "StackId" "RESONANT_RIDER_TECH_9"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(3d4,Psychic,Magical)"
+
+new entry "RESONANT_FATIGUE_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{HW_RESONANT_FATIGUE_TECH_NAME}}"
+data "StackId" "RESONANT_FATIGUE_TECH"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StackType" "Overwrite"
 
 new entry "RESONANT_OVERLOAD_SPENT_TECH"
 type "StatusData"
@@ -1498,7 +1564,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_ASPECT_AWAKENED_TEMPERANCE_I_NAME}}"
 data "Description" "{{HW_ASPECT_AWAKENED_TEMPERANCE_I_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "ASPECT_AWAKENED_TEMPERANCE_TIER"
 data "StackPriority" "1"
@@ -1512,7 +1577,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_ASPECT_AWAKENED_TEMPERANCE_II_NAME}}"
 data "Description" "{{HW_ASPECT_AWAKENED_TEMPERANCE_II_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "ASPECT_AWAKENED_TEMPERANCE_TIER"
 data "StackPriority" "2"
@@ -1526,7 +1590,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{HW_ASPECT_AWAKENED_TEMPERANCE_III_NAME}}"
 data "Description" "{{HW_ASPECT_AWAKENED_TEMPERANCE_III_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "StackId" "ASPECT_AWAKENED_TEMPERANCE_TIER"
 data "StackPriority" "3"
@@ -1680,6 +1743,7 @@ type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_OVERLOAD_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_OVERLOAD_DESC}}"
 data "Icon" "Spell_Enchantment_CalmEmotions"
+data "Boosts" "UnlockSpellVariant(SpellId('Target_Arcana_Created_EmotionalOverload') or SpellId('Target_Arcana_Created_EmotionalOverload_2') or SpellId('Target_Arcana_Created_EmotionalOverload_3') or SpellId('Target_Arcana_Created_EmotionalOverload_4') or SpellId('Target_Arcana_Created_EmotionalOverload_5') or SpellId('Target_Arcana_Created_EmotionalOverload_6'),ModifyUseCosts(Replace,ArcanaSpellSlot,0,-1,ArcanaSpellSlot),ModifyUseCosts(Replace,SpellSlotsGroup,0,-1,SpellSlotsGroup))"
 data "Properties" "Highlighted"
 
 new entry "Arcana_Passive_EmpathicSight"
@@ -1731,7 +1795,6 @@ new entry "Arcana_Passive_Aspect_Temperance_I"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_I_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "Properties" "IsHidden"
 
@@ -1739,7 +1802,6 @@ new entry "Arcana_Passive_Aspect_Temperance_II"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_II_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "Properties" "IsHidden"
 
@@ -1747,7 +1809,6 @@ new entry "Arcana_Passive_Aspect_Temperance_III"
 type "PassiveData"
 data "DisplayName" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_NAME}}"
 data "Description" "{{HW_ARCANA_PASSIVE_ASPECT_TEMPERANCE_III_DESC}}"
-data "DescriptionParams" "Distance(6)"
 data "Icon" "Spell_Enchantment_CalmEmotions"
 data "Properties" "IsHidden"
 

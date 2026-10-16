@@ -191,7 +191,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionJoy;Target_Arcana_Card_Spell_EmotionTrust;Target_Arcana_Card_Spell_EmotionFear;Target_Arcana_Card_Spell_Heartstring;Target_Arcana_Created_EmotionalOverload"/>
                     <attribute id="UUID" type="guid" value="05269c79-116f-2b07-6dc1-deeefddc7ae4"/>
                 </node>
                 <node id="SpellList">
@@ -201,7 +201,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Resonant Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger;Target_Arcana_Created_EmotionalOverload"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EmotionDisgust;Target_Arcana_Card_Spell_EmotionAnger"/>
                     <attribute id="UUID" type="guid" value="e0d34d66-e311-be56-1810-04f9ba0917fd"/>
                 </node>
                 <node id="SpellList">

@@ -370,6 +370,11 @@ DB_ARCANA_CardFamily("Target_Arcana_Created_Command_Halt_5", "Target_Arcana_Crea
 DB_ARCANA_CardFamily("Target_Arcana_Created_Command_Halt_6", "Target_Arcana_Created_Command_Halt");
 DB_ARCANA_CardFamily("Target_Arcana_Created_CompassionTrust", "Target_Arcana_Created_CompassionTrust");
 DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload", "Target_Arcana_Created_EmotionalOverload");
+DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload_2", "Target_Arcana_Created_EmotionalOverload");
+DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload_3", "Target_Arcana_Created_EmotionalOverload");
+DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload_4", "Target_Arcana_Created_EmotionalOverload");
+DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload_5", "Target_Arcana_Created_EmotionalOverload");
+DB_ARCANA_CardFamily("Target_Arcana_Created_EmotionalOverload_6", "Target_Arcana_Created_EmotionalOverload");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Hemoplague_BlindingSickness", "Target_Arcana_Created_Hemoplague_BlindingSickness");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Hemoplague_BlindingSickness_5", "Target_Arcana_Created_Hemoplague_BlindingSickness");
 DB_ARCANA_CardFamily("Target_Arcana_Created_Hemoplague_BlindingSickness_6", "Target_Arcana_Created_Hemoplague_BlindingSickness");

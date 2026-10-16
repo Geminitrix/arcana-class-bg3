@@ -152,58 +152,17 @@ RemoveStatus(_Char, "RESONANT_SURGE_FREE", _Char);
 RemoveStatus(_Char, "RESONANT_TIER2", _Char);
 //END_REGION
 
-//REGION Tier III: Emotional Overload reaches every enemy within 6 m of the target that carries a feeling (first collect, then apply)
-IF
-UsingSpellOnTarget((CHARACTER)_Resonant, (CHARACTER)_Target, _Spell, _, _, _)
-AND
-DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Created_EmotionalOverload")
-AND
-DB_ARCANA_AspectReached(_Resonant, 3)
-AND
-DB_ARCANA_Aspect_InCombat(_Resonant, _Combat)
-THEN
-PROC_ARCANA_Resonant_WaveCollect(_Resonant, _Target, _Combat);
-PROC_ARCANA_Resonant_WaveApply(_Resonant);
-
+//REGION Tier III: the dam breaks -- waking it fills the Overload meter (R56)
 PROC
-PROC_ARCANA_Resonant_WaveCollect((CHARACTER)_Resonant, (CHARACTER)_Target, (GUIDSTRING)_Combat)
+PROC_ARCANA_Aspect_OnTier((CHARACTER)_Resonant, (STRING)_Aspect, (INTEGER)_Tier)
 AND
-DB_ARCANA_Aspect_InCombat(_Cand, _Combat)
+_Aspect == "TEMPERANCE"
 AND
-_Cand != _Target
+_Tier == 3
 AND
-IsEnemy(_Resonant, _Cand, 1)
-AND
-IsDead(_Cand, 0)
-AND
-GetDistanceTo(_Target, _Cand, _Dist)
-AND
-_Dist <= 6.0
-AND
-DB_ARCANA_Resonant_Feeling(_Feeling)
-AND
-HasActiveStatus(_Cand, _Feeling, 1)
+NOT DB_ARCANA_Resonant_OverloadFull(_Resonant)
 THEN
-DB_ARCANA_Resonant_WavePending(_Resonant, _Cand);
-
-PROC
-PROC_ARCANA_Resonant_WaveApply((CHARACTER)_Resonant)
-AND
-DB_ARCANA_Resonant_WavePending(_Resonant, _Cand)
-AND
-DB_ARCANA_Resonant_Feeling(_Feeling)
-AND
-HasActiveStatus(_Cand, _Feeling, 1)
-THEN
-RemoveStatus(_Cand, _Feeling, _Resonant);
-
-PROC
-PROC_ARCANA_Resonant_WaveApply((CHARACTER)_Resonant)
-AND
-DB_ARCANA_Resonant_WavePending(_Resonant, _Cand)
-THEN
-NOT DB_ARCANA_Resonant_WavePending(_Resonant, _Cand);
-ApplyStatus(_Cand, "PARALYZED", 6.0, 1, _Resonant);
+PROC_ARCANA_Resonant_Overload_Fill(_Resonant);
 //END_REGION
 EXITSECTION
 

@@ -389,6 +389,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ed18de5a-dd8d-f8a8-4f30-1c7ce9c44470" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_FATIGUE_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h182ce2b4g3fbfg7887g07e9gff2dd2ef3ee9" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_FATIGUE_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="a4bac5ee-8a87-94f7-eea0-895958fba213" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_JOY_CONTAGION" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbcf24068g1344g8b18g6a46ge2ecc2403fe0" version="1" />
@@ -402,12 +412,72 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8ef2a186-3d7e-20c9-29d4-88df9b90d385" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h50822948g3815gfdbbg9630g460bcbea16cd" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(SavingThrow,-1,Intelligence);RollBonus(SavingThrow,-1,Wisdom);RollBonus(SavingThrow,-1,Charisma)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="abdc4e47-c510-25ad-cbc2-07b441e4b2d9" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_5" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3d1922f0g2bd8g439eg474cg890eebc69f4b" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_5" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(SavingThrow,-2,Intelligence);RollBonus(SavingThrow,-2,Wisdom);RollBonus(SavingThrow,-2,Charisma)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b56046d7-b2e2-d05e-bb3c-5434eeaa38d9" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_9" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5533c02eg07d4g2607gdb0bga9184f51b505" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOADED_MIND_9" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(SavingThrow,-3,Intelligence);RollBonus(SavingThrow,-3,Wisdom);RollBonus(SavingThrow,-3,Charisma)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="90a639d4-d4a8-076e-8f8e-3437deea55a9" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REPLAY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hea716352g6baeg6d1fg9c9fg3a1906d6da2a" version="1" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REPLAY" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0072341e-c162-31e2-1491-d0adfbfd6e86" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_RIDER_TECH_1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h13bc9a7fg1eafg0afbgd736g3111b8dd1f5f" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_RIDER_TECH_1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="DealDamage(1d4,Psychic,Magical)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="38c470a7-f6dc-f83f-a4a0-e05ac0d37cfe" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_RIDER_TECH_5" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h469067f9g461ag9004gf2ffgb64076b11411" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_RIDER_TECH_5" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="DealDamage(2d4,Psychic,Magical)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d0d7bd45-7ea5-be9b-5c3f-811ff173a1a3" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_RIDER_TECH_9" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0a5fce44g5e9eg97bag3d67g4537198e52c6" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_RIDER_TECH_9" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="DealDamage(3d4,Psychic,Magical)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2353,7 +2423,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="86e7b111-13b9-2e51-b369-6cfc4f659071" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf787041fg0774g309fgc7e2g78de613fb59e" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h533f9672g0bc9gff22g5181g3ebb9a17a6b5" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -2366,13 +2436,13 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e3738b97-3373-9149-ea9b-5233963849b2" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2aebe169gad14gcef1g3240gde925d03dad2" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="3" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb27ae609gdff5g20f0g4c90g78e4f5ca440d" version="4" />
+        <field name="Icon" type="StringTableFieldDefinition" value="GenericIcon_Intent_Debuff" />
         <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_OVERLOAD_FULL" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="BlockSpellCast();CharacterWeaponDamage(LevelMapValue(Overload_WeaponPsychic),Psychic)" />
-        <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="IF(not ClassLevelHigherOrEqualThan(3,'Arcana')):DealDamage(1,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(3,'Arcana') and not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(2,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(7,'Arcana')):DealDamage(3,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(7,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana') and not ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(5,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(11,'Arcana')):DealDamage(6,Psychic,Magical)" />
+        <field name="TickFunctors" type="FunctorsTableFieldDefinition" value="IF(not ClassLevelHigherOrEqualThan(5,'Arcana')):DealDamage(1d4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(2d4,Psychic,Magical);IF(ClassLevelHigherOrEqualThan(9,'Arcana')):DealDamage(3d4,Psychic,Magical)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(not ClassLevelHigherOrEqualThan(5,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_1,100,-1);IF(ClassLevelHigherOrEqualThan(5,'Arcana') and not ClassLevelHigherOrEqualThan(9,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_5,100,-1);IF(ClassLevelHigherOrEqualThan(9,'Arcana')):ApplyStatus(RESONANT_OVERLOADED_MIND_9,100,-1)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(RESONANT_OVERLOADED_MIND_1);RemoveStatus(RESONANT_OVERLOADED_MIND_5);RemoveStatus(RESONANT_OVERLOADED_MIND_9)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="IgnoreResting;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>
@@ -3788,7 +3858,6 @@
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb260a20dg01cfg69cage19bgc811c2d1c6af" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hac49295fgc057g5d86gb2abgdaa58ae5e644" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="1" />
@@ -3804,7 +3873,6 @@
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h542ace40gd6d5gc633gb93eg8210d3fbfc81" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3619171g42ffgc21cgb357g94050ebc64b8" version="3" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="2" />
@@ -3819,8 +3887,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="e29269f6-e4c7-249e-a5f1-abb173fc46a0" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a677c27gc433ge325ge612gaf0f3b77fe62" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="3" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h729806c8gf0f9gd83eg4ecag874a3309e5dc" version="4" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_TEMPERANCE_TIER" />
         <field name="StackPriority" type="IntegerTableFieldDefinition" value="3" />
