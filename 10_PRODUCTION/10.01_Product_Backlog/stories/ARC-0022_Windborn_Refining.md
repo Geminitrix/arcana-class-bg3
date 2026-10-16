@@ -87,3 +87,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: Aspect card is The Calm — stops the wind, each remaining turn a gust on marked enemies, sweeps,
   reopens the bag (WB25). The vortex ("where the winds meet", vanilla `Projectile_VacuumBulb`
   pattern, `Force(-6, TargetToEntity)`) is the Owner's candidate for the level-11 capstone.
+- 2026-10-16 — Owner: capstone is Where the Winds Meet, usable only while no wind blows (WB26).
