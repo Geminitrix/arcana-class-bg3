@@ -41,3 +41,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R55: on PC, *Weave Surge* holds 3 copies per emotion known (an exception to the 3-copies rule, this card only).
 - 2026-10-16 — R56 (SG7): waking Tier III fills the meter.
 - 2026-10-16 — R57 (SG8): the kindness rule.
+- 2026-10-16 — R58 (SG9): Shared Heart casts Joy on every linked creature.
