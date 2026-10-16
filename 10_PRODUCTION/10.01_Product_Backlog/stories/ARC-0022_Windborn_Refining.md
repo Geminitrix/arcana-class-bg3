@@ -52,3 +52,6 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner asked which rush animation fits. Vanilla rushes listed in `REFINE_Unbound.md` (appendix): vanilla
   `Rush_MAG_ZephyrFlash` already uses the `Rush_SpringAttack` animation (same as Leap of Faith); `Rush_ForceTunnel`
   (tadpole power) has its own player animation that dashes through a line. Animations not seen in game by Claude.
+- 2026-10-16 — Owner: Zephyr Strike against an unmarked enemy is a Rush with the `Rush_SpringAttack` animation (WB5);
+  the push arrives at the Gale rank (WB6); Leap of Faith moves to the `Rush_ForceTunnel` animation (WB7). Probe for the
+  build: opportunity attacks and pathing of a Rush (T2).
