@@ -293,7 +293,7 @@ like($ci, qr/"Cost" "ReactionActionPoint:1;ArcanaReactCompassion:1"/, 'once per 
 like($ci, qr/"EnableCondition" "HasActionResource\('ArcanaReactCompassion', 1, 0, false, false, context\.Source\)"/, 'only with a charge (Which One)');
 like($ci, qr/"EnableContext" "OnActionResourcesChanged;OnStatusApplied;OnStatusRemoved"/, 'rechecked when charges change (Which One)');
 like(block($p, 'COMPASSION_USED_TECH'), qr/"StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"/, 'the use mark is hidden');
-like($lt{'HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC'} // '', qr/<LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Weave Surge: Trust<\/LSTag>/, 'the card links the Surge as a spell');
+like($lt{'HW_SHOUT_ARCANA_CARD_PASSIVE_COMPASSION_DESC'} // '', qr/<LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EmotionTrust">Trust<\/LSTag>/, 'the card links the Surge as a spell (named by its emotion, R54)');
 
 # ---- stage 3.5: Emotional Contagion (R33: a mood aura)
 my $ec = block($p, 'Target_Arcana_Card_Spell_EmotionalContagion');
