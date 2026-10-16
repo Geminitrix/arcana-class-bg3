@@ -4427,7 +4427,7 @@
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING') or HasStatus('KINGMAKER_FALLING') or HasStatus('KINGMAKER_FALLEN')) and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CalmEmotions" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_HypnoticPattern" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h98cb786bgf1c9g7366g8692ga35cf949660c" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3c506cfaged5ag884bgefafg72d75052d2ef" version="1" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1fa3bf1bg4f8dg2990g86b8g197be1f8030e" version="1" />
@@ -4448,6 +4448,7 @@
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2fa6b127-6f8a-4150-8be6-6f62b7a85911" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4ca6a918-a46b-4269-b11b-d98fb6694677" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4b5dc428-d623-4203-a7f0-a86c47bf9aa8" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4720,10 +4721,10 @@
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_BIND_ALLY_TECH,100,0)" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Ally() or Self()) and not Dead() and not HasStatus('KINGMAKER_RISING') and not HasStatus('KINGMAKER_REIGNING') and not HasStatus('KINGMAKER_FALLING') and not HasStatus('KINGMAKER_FALLEN') and not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and not HasAnyStatus({'KINGMAKER_RISING','KINGMAKER_REIGNING','KINGMAKER_FALLING','KINGMAKER_FALLEN'}) and not HasPassive('ARCANA_IS_CARD', context.Source);" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_Banishment" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3fdacb7bg38e3g8fd5g5118g0e915a77cdfd" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h928b52a9ge2b3g925bg0469gb36733d2532c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h928b52a9ge2b3g925bg0469gb36733d2532c" version="2" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc034792egf984ge84eg0c57g4bcfc7112bb5" version="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasVerbalComponent;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
@@ -4743,6 +4744,7 @@
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="60ec0a2d-1b72-4fb2-9eaf-571638aca25d" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="1c5d1c5b-d8ff-42b5-8586-99aeaf901192" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="b76f528c-3b42-4283-a10d-d0217baf3c7c" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4803,14 +4805,14 @@
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Enchantment" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Charisma, SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((3d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(1d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((1d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and not HasAnyStatus({'KINGMAKER_RISING','KINGMAKER_REIGNING','KINGMAKER_FALLING','KINGMAKER_FALLEN'}) and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CommandGrovel" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2899b071g2c9bg6e8cg52b4gc090c69059b7" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3e6540c0g5d96ga8e8g66fag10a5d31fce9c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3e6540c0g5d96ga8e8g66fag10a5d31fce9c" version="3" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h4740b114gdd91g7ae6g5b28g7b41b3a265af" version="1" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d6,Bludgeoning)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d6,Bludgeoning)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Charisma" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_FALLING,100,-1)" />
         <field name="TooltipOnSave" type="StringTableFieldDefinition" value="961753f4-c345-4bc4-b408-1d5b87a5ab0c" />
@@ -4832,6 +4834,7 @@
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="bd2fc245-5645-452f-a2cd-d158b751bbe4" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="a0aee53a-d702-4901-9bb3-7cf08e214346" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Bludgeoning" enumeration_type_name="Damage Type" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4842,9 +4845,9 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Dethrone" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:2" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(4d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((4d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(4d6,Bludgeoning)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4855,9 +4858,9 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Dethrone" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(5d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((5d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(5d6,Bludgeoning)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((3d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d6,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4868,9 +4871,9 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Dethrone" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(6d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((6d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(6d6,Bludgeoning)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(4d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((4d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(4d6,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4881,9 +4884,9 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Dethrone" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(7d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((7d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(7d6,Bludgeoning)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(5d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((5d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(5d6,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4894,9 +4897,9 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Dethrone" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(8d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((8d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(8d6,Bludgeoning)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(6d6,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((6d6)/2,Bludgeoning,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(6d6,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4908,10 +4911,10 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(Enemy() and HasStatus('KINGMAKER_FALLEN')):DealDamage(3d8,Slashing,Magical);IF(Enemy() and HasStatus('KINGMAKER_FALLING')):DealDamage(2d8,Slashing,Magical);IF(Enemy() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING'))):DealDamage(1d8,Slashing,Magical);ApplyStatus(KINGMAKER_CUT_TECH,100,0);" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and (HasStatus('KINGMAKER_RISING') or HasStatus('KINGMAKER_REIGNING') or HasStatus('KINGMAKER_FALLING') or HasStatus('KINGMAKER_FALLEN')) and not HasPassive('ARCANA_IS_CARD', context.Source);" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Action_Bard_CuttingWords" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_BanishingSmite_Melee" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc06d5981g3cb4ga10cg190dg9235cb383839" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h50445669g1cbbg2708g7451g8b0acee10b89" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1bc4a777gb3eeg0bb4gd028g15320228c305" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1bc4a777gb3eeg0bb4gd028g15320228c305" version="2" />
         <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" value="DealDamage(3d8,Slashing);DealDamage(2d8,Slashing);DealDamage(1d8,Slashing)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d8,Slashing)" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="66388a6f-44dd-4c9f-a9e7-910c50e70755" />
@@ -4929,6 +4932,7 @@
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="7121a488-7c9a-4ba1-a585-f79aaa77e97c" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="e61d2266-f041-4bd5-a488-7b66e76d781c" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Slashing" enumeration_type_name="Damage Type" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -5068,5 +5072,6 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalDamage_Internal" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+  </stat_objects>
 </stats>
