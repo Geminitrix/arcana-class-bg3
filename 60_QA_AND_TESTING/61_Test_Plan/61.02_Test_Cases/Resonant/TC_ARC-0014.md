@@ -21,6 +21,8 @@ the PC (SE) edition where marked. Compile the Story after any apply.
 | B3 | Emotional Overload is free: only the current slot's variant shows (R66) | Levels 1, 5, 9: one variant, castable with no slot while Overloaded | — (Owner-tested pattern) |
 | B4 | PC: `ARCANA_WEAVING` charges no Threads for Emotional Overload | 0 Threads | Exclude it from the Weaving check |
 | B5 | Rank III's area (R51) | Every enemy within 9 m of a point within 18 m | A separate spell for rank III |
+| B6 | The Weave Surge container (R54) | Opens with the emotions the Resonant knows (later ones greyed or hidden); Tier II's free Surge works when cast through it | Grant each emotion in the lists again and keep the container for the hotbar only |
+| B7 | The growing dice read the Resonant's level (R62) | Hope from a level-5 Resonant on a level-1 ally adds 1d6 | One status version per band, chosen in the Surge |
 
 ## Rules (verification rows of the review, §11)
 

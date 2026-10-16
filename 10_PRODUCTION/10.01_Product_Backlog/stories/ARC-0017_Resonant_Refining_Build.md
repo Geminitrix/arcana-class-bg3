@@ -24,7 +24,7 @@ in both editions.
 
 ## Acceptance criteria
 
-- [ ] Stage 0 — generator and Lua tests written first (RED), then green; the patches generated (SPEC_ARC-0017 §Stage 0)
+- [x] Stage 0 — generator and Lua tests written first (RED), then green; the patches generated (SPEC_ARC-0017 §Stage 0)
 - [ ] Stage 1 — moods and loops (R49, R50, R57) applied; probe B1 and rows V1, V2 pass
 - [ ] Stage 2 — the Overload (R51–R53, R56, R66–R68) applied; probes B2–B5 and rows V4–V7, V11, V13 pass
 - [ ] Stage 3 — the *Weave Surge* container and the PC deck copies (R54, R55) applied; row V9 and the Lua tests pass
@@ -35,3 +35,4 @@ in both editions.
 ## Log
 
 - 2026-10-16 — created at the Owner's request after the ARC-0014 refining round; spec `SPEC_ARC-0017.md` written.
+- 2026-10-16 — Stage 0 done: generator behind ARC17_STAGE (340 tests; stage 0 byte-identical), Lua in _wip (138), progression script (74). Rulings in SPEC_ARC-0017 §Stage 0; new probes B6, B7.

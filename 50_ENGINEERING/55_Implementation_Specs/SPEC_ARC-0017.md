@@ -252,3 +252,27 @@ done; `check_propagation` 0 pending.
 - [ ] `TC_ARC-0014` rows V1–V13 pass in game
 - [ ] No line over 3900 characters; no repeated field; entry counts as expected after `sort_stats`
 - [ ] `25` holds no `pending_build` block for the Resonant
+
+---
+
+## Stage 0 — done 2026-10-16 (rulings made while building)
+
+Generator `gen_emotion_alchemy.pl` behind `ARC17_STAGE` (unset = 0 = today's game, byte-identical to the applied
+patches): 340 tests pass (`t/gen_emotion_alchemy.t`; the ARC-0002 assertions the refining changed now run against
+stage 0 or 3 as a regression). Lua (prepared in `_wip/Resonant/ARC-0017/Lua/`, copied into Data at stage 3): 138
+pass with `_wip/Resonant/ARC-0017/run_lua_tests.sh`. Progression: `_wip/Resonant/64_progression_arc0017.pl`, 74 pass
+with `_wip/Resonant/ARC-0017/t_progression.t` on a scratch copy. `dump_progression.pl` reads `BG3_DATA`.
+
+| # | Ruling | Why | Cost if wrong |
+|---|---|---|---|
+| 1 | The generator reads the `*_next` keys of `pending_build` until stage 5 renames them | `25` keeps describing the game until each stage ships | None: stage 5 renames |
+| 2 | The Surge rider's once-per-turn guard is an Osiris DB (`DB_ARCANA_Resonant_RiderUsed`, cleared on `TurnStarted`), not a status | A multi-target Surge raises several `StatusApplied` at once; a DB is set immediately | One more DB |
+| 3 | Emotional Overload's free cast rides on `Arcana_Passive_Overload` (visible), its check names the base spell and variants 2–6 | No new progression row at stage 2; variants have their own ids (probe B3) | Rename to a hidden passive if the Owner prefers |
+| 4 | Mental Fatigue comes from Osiris (`RESONANT_FATIGUE_TECH` marker → `MAG_PSYCHIC_MENTAL_FATIGUE` for the level + its technical status) | The spell can't read the level for a duration; the marker keeps the save first, the fatigue after | — |
+| 5 | The progression moves at stages 2 (Emotional Overload to 1) and 3 (the container in the lists) as well as 4 | Each stage's feature must be granted to be tested | — |
+| 6 | The emotions keep their `Card_Spell` ids as the container's children; `Po.Cards` skips every container child; the CardDB test allows Card children of a Card container | Osiris, Khonsu (`IsWeaveSurge`), Compassion and the upcast variants read those ids | If the engine also lists children in the spellbook, they stay out of the deck anyway |
+| 7 | The dice states grow through level maps (`Resonant_Die4`, `Resonant_Die6` and negative twins) — vanilla `RollBonus(Attack,LevelMapValue(SuperiorityDie))` | One status per state, no extra functors | **Probe B7**: whose level a map reads on another creature; plan B = one status per band |
+| 8 | Shared Heart's Joy is `RESONANT_SHARED_JOY` (`using EMOTION_JOY`) | The Overload counts `EMOTION_JOY` by name; R58 says the capstone's Joy counts for nothing | — |
+| 9 | Rank III is `AreaRadius 9` on variants 5–6 | Vanilla Target spells carry `AreaRadius` | **Probe B5**; plan B Task 2.5 |
+| 10 | The emotions open inside the container by `RequirementConditions ClassLevelHigherOrEqualThan(L,'Arcana')`; the container has no Surge marker | Only the emotions are cast; `IsWeaveSurge()` must not see the container | **Probe B6**: the container shows or greys them by level; Tier II's free Surge through it |
+| 11 | Status texts still print the flat dice ("1d4") of the growing states | The values grow; the words wait for the text pass (ARC-0006) | A tooltip that understates the die at 5+ |

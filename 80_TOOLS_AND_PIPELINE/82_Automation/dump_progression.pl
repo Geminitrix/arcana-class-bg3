@@ -1,7 +1,7 @@
 # Prints every Arcana progression level from the game files: boosts, passives and granted spells,
 # with English names and texts resolved from the loca. Read-only. Used to check Context/*.md.
 use strict; use warnings;
-my $D = 'C:/Program Files (x86)/Steam/steamapps/common/Baldurs Gate 3/Data';
+my $D = $ENV{BG3_DATA} // 'C:/Program Files (x86)/Steam/steamapps/common/Baldurs Gate 3/Data';   # BG3_DATA: a test copy
 my $P = "$D/Public/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7";
 my $M = "$D/Mods/AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7";
 
