@@ -42,3 +42,4 @@ created: 2026-10-16
   game changed.
 - 2026-10-16 — Stage 0 started: Task 0.4 script `55/_wip/Deceiver/arc0020/20_structure.pl` written, dry run matches DESIGN §9.1; Task 0.1 sizes proposed to the Owner (Splinter Tier III 4 m, Grand Deception 1 Doubt per Double within 3 m, Splinter on command 18 m and 1 Thread, Mirrored Self plan B 9 m) — awaiting approval.
 - 2026-10-16 — Task 0.1 sizes approved by the Owner and written in `25` (arithmetic in `22.05/Deceiver.md`). Task 0.2–0.3 draft `arc0020/10_names.patch` (43 strings + 2 new, dry run clean) — awaiting the Narrative gate.
+- 2026-10-16 — Narrative gate passed for stage 1 texts (Owner): `32.04/ARC-0020_Deceiver.md`. Stage 0 next: Task 0.5.
