@@ -232,3 +232,43 @@ it hasn't touched yet, and Aeolus' Bag releases what it has gathered.*
 
 Checked against the rule sentence: every mark comes from a touch, every Rush goes to an untouched enemy, the Bag releases
 what was gathered. No exception.
+
+## Suggestions — the existing cards and passives against WB1–WB26 (proposal)
+
+Every piece must touch a gear (create / change / spend / read the mark) or carry the identity (WB1). Values ‹…›.
+
+| SG | Piece (today) | Proposal | Why (DM) |
+|---|---|---|---|
+| SG1 | Flowing Strikes: Zephyr (L1) | **Rewritten as the core passive**: Windswept + Zephyr's Rush, taught once; cards drop "Afterwards, you can make a Zephyr Strike" from their tooltips | M2, I8 |
+| SG2 | Gale Burst (L1) | **Keep**; drop its "free unarmed strike" (the Zephyr already follows it) | M7 |
+| SG3 | True Strike (L1, vanilla) | **Retire** from the subclass: the unarmed strike is the fallback (K6), the base class has its cantrips; removes the vanilla exception to the Zephyr rule | M7, X1 |
+| SG4 | Wind Blast (L3) | **Keep** — the wide marker (a line of failed saves) and a push | M3 |
+| SG5 | Flow State (L3) | **Keep**, moved to L6; THP + one extra bonus action (Rush and the bag in one turn before Tier I); duration ≤ the reference fight | B6, J8 |
+| SG6 | Ready: Gale Deflection (L3) | **Keep** (Aang's deflection); the returned missile marks; option: it can protect an ally within ‹…› m | K4, P3 |
+| SG7 | Wind Whispers (L5) | **Keep**, absorbs Evasive Flow's Advantage: Disadvantage on attacks against you, Riposte (marks) | X1 |
+| SG8 | Storm Fists (L7) + Thunderclap (L11) | **Merge into Storm Fists**: extra Thunder on unarmed hits **against enemies that weren't Windswept** (the reward for the new) | K7-like reading, X1 |
+| SG9 | Untethered (L9) + Eye of the Storm | **Keep Untethered** (the glider, verticality); Eye of the Storm's AC folds into it | X1, K4 |
+| SG10 | Evasive Flow (L9) | **Retire** — the Rush already carries you; its Advantage goes to Wind Whispers | X1, B5 |
+| SG11 | Momentum (L11) | **Retire** with Thunderclap (L11 is the capstone) | X1 |
+| SG12 | Leap of Faith (ex-Aspect card) | **Keep as a card** at L10, once per Short Rest: the path rush that marks a line — the Fool's leap stays in the kit | S2, J8 |
+| SG13 | Twinkle Toes (L1→20) + Feather Fall (L5→12) | **Merge into one passive** (name ‹…›, not a vanilla name): speed, jump and falling grow **with Zephyr's ranks** (1/4/8/12), announced at each rank; from a generator table | I6, J2, T3 |
+| SG14 | Be the Leaf (L1) | **Keep** with AC = 10 + DEX + INT (WB21) | — |
+| SG15 | Flowing Strikes: Agility, Precision (L1); Flowing Assault (L5); Magic Strikes (L7) | **Keep** — the monk chassis | K4 |
+| SG16 | Empty State (L12) | **Keep**, moved to L10? no — **to L9**, with Untethered (L12 already holds Tier III and Hurricane) | J4, J8 |
+
+### Proposed level map (with headlines)
+
+| Lvl | Arrives | Headline |
+|---|---|---|
+| 1 | Windswept + Zephyr (Breeze), Be the Leaf, Flowing Strikes, the movement passive (rank 1), Gale Burst | "The wind marks what I touch and carries me to the rest" |
+| 2 | Aeolus' Bag (Boreas, Notus) | "I can open the bag" |
+| 3 | Tier I (free first Rush) + The Calm; Wind Blast | "My Aspect wakes; I can stop the wind" |
+| 4 | Gale rank: push, Eurus, longer wind, movement rank 2 | "My Zephyr pushes; a new wind" |
+| 5 | Flowing Assault (Extra Attack); Wind Whispers | "Two strikes; the air warns me" |
+| 6 | Flow State; Ready: Gale Deflection | "I flow; I turn arrows back" |
+| 7 | Tier II (allies mark); Magic Strikes; Storm Fists | "The party carries my wind" |
+| 8 | Storm rank: second Rush, longer wind, movement rank 3 | "The wind doesn't stop" |
+| 9 | Untethered; Empty State | "I fly; blows barely touch me" |
+| 10 | Leap of Faith | "I leap through them all" |
+| 11 | Where the Winds Meet (capstone) | "I gather the battlefield" |
+| 12 | Tier III (sweeps push) + Hurricane (two winds), movement rank 4 | "The storm" |
