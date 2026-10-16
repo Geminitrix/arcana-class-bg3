@@ -76,3 +76,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: at Storm, Zephyr chains one more Rush to another unmarked enemy (WB17).
 - 2026-10-16 — Owner: no small-fight exception; the bag reopens the road (WB18). Core mechanic complete; synthesis
   (rule sentence, gears, worked example) written in `REFINE_Unbound.md`.
+- 2026-10-16 — Owner: role is a balanced mix of mobile striker and party support (WB19); 21.08 Role row updated.
