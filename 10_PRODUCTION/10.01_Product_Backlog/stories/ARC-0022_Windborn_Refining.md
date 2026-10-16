@@ -68,3 +68,5 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   (X = enemies marked when opened), can't reopen until it stops, around level 5, epic (WB11).
 - 2026-10-16 — Owner: opening the bag clears the marks; the wind's bane falls on Windswept enemies (WB12).
 - 2026-10-16 — Owner: the bag needs at least one mark; X is capped by Zephyr's Beaufort rank (WB13).
+- 2026-10-16 — Owner: the bag arrives at level 2 (WB14); the winds join with the ranks — Zephyrus is Zephyr Strike,
+  Boreas and Notus at Breeze, Eurus (attack) at Gale, two winds at once at Hurricane (WB15).

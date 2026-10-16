@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB13); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB15); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
@@ -189,8 +189,8 @@ directions. Proposal (values ‹…›; the bane falls on Windswept enemies — 
 |---|---|---|---|---|
 | Boreas · North | Movement | +‹…› m movement | −‹…› m movement | Cold, strong; the winged Boreads |
 | Notus · South | Protection | ranged attacks against them have Disadvantage | −‹…› on saving throws | Storm, rain, fog |
-| Eurus · East | Ranged | +‹…› ranged attack rolls | −‹…› ranged attack rolls | The restless, unlucky wind |
-| Zephyrus · West | Melee | +‹…› melee attack rolls | −‹…› melee attack rolls | The gentle wind that carries you home |
+| Eurus · East | Attack (melee and ranged) — joins at Gale (WB15) | +‹…› attack rolls | −‹…› attack rolls | The restless, unlucky wind |
+| Zephyrus · West | — not in the bag (WB15): it is Zephyr Strike | — | — | The gentle wind left free to carry Odysseus home |
 
 Placements weighed: (A) a prevailing wind drawn at combat start, turnable once per combat; (B) the ultimate opens the
 bag and chooses — **chosen (WB11)**; (C) the three bagged winds wake with the Awakening tiers. Feasibility: the mod's
