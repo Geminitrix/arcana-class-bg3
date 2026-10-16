@@ -254,7 +254,7 @@ Every piece must touch a gear (create / change / spend / read the mark) or carry
 | SG13 | Twinkle Toes (L1→20) + Feather Fall (L5→12) | **Merge into one passive** (name ‹…›, not a vanilla name): speed, jump and falling grow **with Zephyr's ranks** (1/4/8/12), announced at each rank; from a generator table | I6, J2, T3 |
 | SG14 | Be the Leaf (L1) | **Keep** with AC = 10 + DEX + INT (WB21) | — |
 | SG15 | Flowing Strikes: Agility, Precision (L1); Flowing Assault (L5); Magic Strikes (L7) | **Keep** — the monk chassis | K4 |
-| SG16 | Empty State (L12) | **Keep**, moved to L10? no — **to L9**, with Untethered (L12 already holds Tier III and Hurricane) | J4, J8 |
+| SG16 | Empty State (L12) | **Keep**, moved **to L9** with Untethered (L12 already holds Tier III and Hurricane) | J4, J8 |
 
 ### Proposed level map (with headlines)
 
