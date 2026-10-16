@@ -17,27 +17,13 @@ PROC
 PROC_ARCANA_Resonant_SharedHeart_Init()
 THEN
 DB_ARCANA_Resonant_SharedResult("FEELING_AGGRESSIVENESS");
-DB_ARCANA_Resonant_SharedResult("FEELING_CONTEMPT");
-DB_ARCANA_Resonant_SharedResult("FEELING_CYNICISM");
-DB_ARCANA_Resonant_SharedResult("FEELING_ANXIETY");
-DB_ARCANA_Resonant_SharedResult("FEELING_SHAME");
-DB_ARCANA_Resonant_SharedResult("FEELING_DESPAIR");
-DB_ARCANA_Resonant_SharedResult("FEELING_AWE");
 DB_ARCANA_Resonant_SharedResult("FEELING_PRIDE");
 DB_ARCANA_Resonant_SharedResult("FEELING_OPTIMISM");
 DB_ARCANA_Resonant_SharedResult("FEELING_MORBIDNESS");
-DB_ARCANA_Resonant_SharedResult("FEELING_GUILT");
 DB_ARCANA_Resonant_SharedResult("FEELING_DELIGHT");
 DB_ARCANA_Resonant_SharedResult("FEELING_LOVE");
-DB_ARCANA_Resonant_SharedResult("FEELING_ENVY");
-DB_ARCANA_Resonant_SharedResult("FEELING_PESSIMISM");
-DB_ARCANA_Resonant_SharedResult("FEELING_REMORSE");
-DB_ARCANA_Resonant_SharedResult("FEELING_OUTRAGE");
-DB_ARCANA_Resonant_SharedResult("FEELING_UNBELIEF");
-DB_ARCANA_Resonant_SharedResult("FEELING_DISAPPROVAL");
 DB_ARCANA_Resonant_SharedResult("FEELING_DOMINANCE");
 DB_ARCANA_Resonant_SharedResult("FEELING_HOPE");
-DB_ARCANA_Resonant_SharedResult("FEELING_SUBMISSION");
 DB_ARCANA_Resonant_SharedResult("FEELING_SENTIMENTALITY");
 DB_ARCANA_Resonant_SharedResult("FEELING_CURIOSITY");
 

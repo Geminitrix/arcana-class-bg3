@@ -36,3 +36,4 @@ in both editions.
 
 - 2026-10-16 — created at the Owner's request after the ARC-0014 refining round; spec `SPEC_ARC-0017.md` written.
 - 2026-10-16 — Stage 0 done: generator behind ARC17_STAGE (340 tests; stage 0 byte-identical), Lua in _wip (138), progression script (74). Rulings in SPEC_ARC-0017 §Stage 0; new probes B6, B7.
+- 2026-10-16 — `[fechado]` stage 1 applied (ARC17_STAGE=1): engine patch (+RESONANT_REPLAY, +RESONANT_EXCESS_SPENT, +Target_Arcana_Created_CompassionTrust; Temper text), upcast variants, sort, check_cards OK, selftest 1129/0, ARCANA_Resonant_SharedHeart goal (helpful feelings only). Counts +2 Status_BOOST, +1 Spell_Target on both twins; no line over 3900; no repeated field. Waiting for the Owner: Story compile, probes B1, V1, V2, V10a.

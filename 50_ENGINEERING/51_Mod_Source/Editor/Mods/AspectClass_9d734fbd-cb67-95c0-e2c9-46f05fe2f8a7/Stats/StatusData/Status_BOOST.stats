@@ -379,6 +379,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9def43ef-95a4-1a50-a631-05114e686740" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_EXCESS_SPENT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h873d2479g260bge26agffdcg0b280c2aa7a3" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_EXCESS_SPENT" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="a4bac5ee-8a87-94f7-eea0-895958fba213" />
         <field name="Name" type="NameTableFieldDefinition" value="RESONANT_JOY_CONTAGION" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbcf24068g1344g8b18g6a46ge2ecc2403fe0" version="1" />
@@ -388,6 +398,16 @@
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackRoll)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnAttack" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="90a639d4-d4a8-076e-8f8e-3437deea55a9" />
+        <field name="Name" type="NameTableFieldDefinition" value="RESONANT_REPLAY" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hea716352g6baeg6d1fg9c9fg3a1906d6da2a" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="RESONANT_REPLAY" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2118,7 +2138,7 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Frightened;SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_APPREHENSIVE,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2309,8 +2329,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ActionPoint,1,0)" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_SERENE);ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2326,7 +2345,7 @@
         <field name="AuraRadius" type="IntegerTableFieldDefinition" value="3" />
         <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally() or Self()):ApplyStatus(RESONANT_JOY_CONTAGION,100,1)" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_SERENE,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_SERENE,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2481,8 +2500,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Resistance(All, Resistant);StatusImmunity(SG_Charmed);StatusImmunity(SG_Frightened)" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ACCEPTING);ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2498,7 +2516,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_TrustShoulder)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="TickingWithSource" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ACCEPTING,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2570,7 +2588,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_AnticipationGuard)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="TickingWithSource" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2583,8 +2601,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ReactionActionPoint,2,0);Advantage(SavingThrow,Dexterity)" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_INTERESTED)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_INTERESTED,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_INTERESTED);ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2673,7 +2690,7 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="BreakConcentration();IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2764,7 +2781,7 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(RESONANT_SURPRISE_OPENING,100,1);IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2811,7 +2828,7 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2839,8 +2856,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="Advantage(AttackRoll);Advantage(AttackTarget)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ANNOYED)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_ANNOYED,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_ANNOYED);ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2872,7 +2888,7 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
         <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="IF(HasStatus('RESONANT_SURGE_FREE', context.Source)):ApplyStatus(MOOD_BORED,100,7)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,7)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('RESONANT_REPLAY') and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,7);RemoveStatus(RESONANT_REPLAY)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2887,8 +2903,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ActionPoint);ActionResourceBlock(BonusActionPoint);Disadvantage(AttackRoll);Disadvantage(AllAbilities)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_BORED)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_BORED,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_BORED);ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

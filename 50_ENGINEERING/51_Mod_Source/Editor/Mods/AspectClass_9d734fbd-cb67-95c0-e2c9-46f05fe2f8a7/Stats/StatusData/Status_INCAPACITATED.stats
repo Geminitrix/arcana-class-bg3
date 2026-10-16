@@ -50,8 +50,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(Movement)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="InitiateCombat;BringIntoCombat" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Incapacitated;SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_PENSIVE);BreakConcentration()" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_PENSIVE,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_PENSIVE);BreakConcentration();ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -63,8 +62,7 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf035ed9dg3effg7790gcf56gb773d173fe69" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Enthrall" />
         <field name="StackId" type="StringTableFieldDefinition" value="EMOTION" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_DISTRACTED);BreakConcentration()" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="IF(RemoveCause(StatusRemoveCause.TimeOut) and not HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,5);IF(RemoveCause(StatusRemoveCause.TimeOut) and HasStatus('ASPECT_AWAKENED_TEMPERANCE', context.Source)):ApplyStatus(MOOD_DISTRACTED,100,7)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOOD_DISTRACTED);BreakConcentration();ApplyStatus(RESONANT_EXCESS_SPENT,100,-1)" />
       </fields>
     </stat_object></stat_objects>
 </stats>
