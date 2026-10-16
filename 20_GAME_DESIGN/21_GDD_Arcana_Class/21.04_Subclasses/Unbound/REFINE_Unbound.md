@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB18); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB23); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
@@ -210,7 +210,9 @@ it hasn't touched yet, and Aeolus' Bag releases what it has gathered.*
   the bag) · Storm 8 (one more Rush to another unmarked enemy) · Hurricane 12 (the bag releases two winds).
 - **Aeolus' Bag** (WB11–WB15): bonus action, from level 2; needs one mark; choose a wind (Breeze: Boreas, Notus; Gale:
   + Eurus); it blows for X turns, X = marks when opened, capped by the rank; the bag stays shut while it blows; opening
-  clears every mark; the boon is for allies, the bane falls on Windswept enemies.
+  clears every mark, and while it blows the wind sweeps every mark at the start of your turn (WB23); the boon is for
+  allies, the bane falls on Windswept enemies.
+- **Awakening** (WB22): counts the marks the wind releases (opening and sweeps), cumulative in the fight.
 - **Leap of Faith** (WB7): `Rush_ForceTunnel` animation.
 
 **Gears (standard §4.3)**
