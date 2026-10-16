@@ -1,0 +1,16 @@
+id: FEAT_Unbound_TheOpenRoad
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: feature
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §4.1, §4.2"
+balance_report: "22.05/Unbound.md"
+values:
+  zephyr_bonus_action: { value: 1, unit: count, note: "today: Zephyr Strike after any unarmed attack or Arcane card (Flowing Strikes: Zephyr)" }
+
+pending_build:
+  rush_range_breeze_next: { value: 9, unit: metres, note: "WB5; Rush to an enemy that isn't Windswept (levels 1–3)" }
+  rush_range_next:        { value: 12, unit: metres, note: "from Gale (level 4); vanilla Rush_MAG_ZephyrFlash radius" }
+  gale_push_next:         { value: 3, unit: metres, note: "WB6; Zephyr Strike pushes from level 4" }
+  storm_rush_range_next:  { value: 9, unit: metres, note: "WB17; the second Rush from level 8, once per Zephyr" }
+  windswept_duration_next: { value: "until the end of your next turn", unit: turns, note: "WB9" }

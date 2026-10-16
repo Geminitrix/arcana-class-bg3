@@ -1,0 +1,14 @@
+id: FEAT_Unbound_AspectAwakening
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: feature
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §8"
+balance_report: "22.05/Unbound.md"
+values:
+  goals: { value: "3 / 4 / 5", unit: count, by_level: { 3: 3, 7: 4, 12: 5 }, note: "today: different enemies hit in one round (ARCANA_Aspect_Fool.txt)" }
+  tier3_dexterity: { value: 3, unit: bonus, note: "today: +3 DEX — retired (WB24, no ability bonus)" }
+
+pending_build:
+  goals_next: { value: "3 / 5 / 8", unit: count, by_level: { 3: 3, 7: 5, 12: 8 }, note: "WB22: Windswept marks released, cumulative in the fight" }
+  tier3_push_next: { value: 3, unit: metres, note: "WB24: each sweep pushes every swept enemy and leaves it Off Balance" }

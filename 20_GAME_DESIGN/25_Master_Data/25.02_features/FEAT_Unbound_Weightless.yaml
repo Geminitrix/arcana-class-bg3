@@ -1,0 +1,15 @@
+id: FEAT_Unbound_Weightless
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: feature
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §6"
+balance_report: "22.05/Unbound.md"
+values:
+  speed: { value: "+3 m at 1, +5 m per odd level, +38 m at 12", unit: metres, by_level: { 1: 3, 3: 8, 5: 13, 7: 18, 9: 23, 11: 28, 12: 38 }, note: "today: Twinkle Toes" }
+  jump:  { value: "x2 to x6", by_level: { 5: 2, 7: 3, 9: 4, 11: 5, 12: 6 }, note: "today: Feather Fall (Weightless_*)" }
+
+pending_build:
+  speed_next:   { value: "+3 / +4.5 / +6 / +9", unit: metres, by_level: { 1: 3, 4: 4.5, 8: 6, 12: 9 }, note: "WB39: ranks with Zephyr" }
+  jump_next:    { value: "x1 / x2 / x3 / x4", by_level: { 1: 1, 4: 2, 8: 3, 12: 4 } }
+  falling_next: { value: "full / half / half / immune", by_level: { 1: "full", 4: "half", 8: "half", 12: "immune" } }

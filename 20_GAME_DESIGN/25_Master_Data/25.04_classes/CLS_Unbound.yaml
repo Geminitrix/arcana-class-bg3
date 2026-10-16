@@ -1,0 +1,13 @@
+id: CLS_Unbound
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: class
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §3"
+balance_report: "22.05/Unbound.md"
+values:
+  preset: { value: "STR 10 / DEX 15 / CON 13 / INT 8 / WIS 15 / CHA 10", note: "today" }
+
+pending_build:
+  preset_next: { value: "STR 8 / DEX 15 / CON 13 / INT 15 / WIS 10 / CHA 10", note: "WB21: favours DEX and INT; 27-point buy" }
+  ac_next:     { value: "10 + DEX + INT", note: "Be the Leaf (WB21)" }

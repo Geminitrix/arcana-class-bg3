@@ -91,3 +91,7 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner approved SG1–SG16 and the level map (WB27–WB43). Next: names, then numbers, DESIGN.md, 21.03.
 - 2026-10-16 — Owner approved the names (WB44).
 - 2026-10-16 — Lead Class Designer: `DESIGN.md` written from WB0–WB44 and `21.03/Unbound.md` from the map (WB43). Pending: balance pass (every ‹…›, `25`), propagation (00.08), build ticket.
+- 2026-10-16 — Owner approved the balance pass (WB45–WB48): capstone +4d8 Thunder, Weightless cut to +9 m at 12, The
+  Calm and the capstone as Actions. Spell + Balance Designer: 12 files in `25` (`*_Unbound_*`, `values:` today's game,
+  `pending_build:` the build); `DESIGN.md` placeholders → *(25)*. Pending: propagation (22.05, 26.01, 23.02, 31.02,
+  32.01, 33.03, 42.04, 61.02, 21.08, 05.01, 10.06), build ticket.

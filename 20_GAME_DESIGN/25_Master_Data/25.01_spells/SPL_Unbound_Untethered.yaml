@@ -1,0 +1,12 @@
+id: SPL_Unbound_Untethered
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: spell
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §5"
+balance_report: "22.05/Unbound.md"
+values:
+  flying_ac: { value: 2, unit: bonus, note: "today: Eye of the Storm passive" }
+
+pending_build:
+  flying_ac_next: { value: 2, unit: bonus, note: "WB35: folded into Untethered" }

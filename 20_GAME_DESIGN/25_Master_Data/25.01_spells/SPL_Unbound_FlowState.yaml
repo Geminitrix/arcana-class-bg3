@@ -1,0 +1,15 @@
+id: SPL_Unbound_FlowState
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: spell
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §5"
+balance_report: "22.05/Unbound.md"
+values:
+  temp_hp:  { value: "2 x Arcana level", unit: temp_hp }
+  duration: { value: "2 / 3 / 4 / 5 / 6", unit: turns, note: "today, by slot 2–6" }
+
+pending_build:
+  level_next:    { value: 6, note: "WB31" }
+  duration_next: { value: 3, unit: turns, note: "within the reference fight (B6)" }
+  bonus_actions_next: { value: 1, unit: count }

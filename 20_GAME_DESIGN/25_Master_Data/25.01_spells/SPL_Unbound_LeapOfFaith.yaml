@@ -1,0 +1,12 @@
+id: SPL_Unbound_LeapOfFaith
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: spell
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §5"
+balance_report: "22.05/Unbound.md"
+values:
+  range: { value: 18, unit: metres, note: "today: Aspect card" }
+
+pending_build:
+  level_next: { value: 10, note: "WB38: regular card, once per Short Rest; Rush_ForceTunnel animation (WB7)" }

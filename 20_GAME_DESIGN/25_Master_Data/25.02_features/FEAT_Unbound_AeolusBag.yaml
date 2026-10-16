@@ -1,0 +1,19 @@
+id: FEAT_Unbound_AeolusBag
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: feature
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §4.3, §4.6"
+balance_report: "22.05/Unbound.md"
+values: {}
+
+pending_build:
+  action_next:   { value: "Bonus Action; needs at least 1 Windswept enemy", note: "WB11, WB13" }
+  wind_cap_next: { value: "2 / 3 / 4 / 5", unit: turns, by_level: { 2: 2, 4: 3, 8: 4, 12: 5 }, note: "WB13: X = Windswept enemies when opened, capped by Zephyr's rank" }
+  boreas_ally_next:  { value: 3, unit: metres, note: "allies +3 m movement" }
+  boreas_enemy_next: { value: 3, unit: metres, note: "Windswept enemies -3 m movement" }
+  notus_ally_next:   { value: "Disadvantage on ranged attacks against allies" }
+  notus_enemy_next:  { value: 1, unit: penalty, note: "Windswept enemies -1 on saving throws" }
+  eurus_ally_next:   { value: 1, unit: bonus, note: "allies +1 attack rolls; joins at Gale (level 4)" }
+  eurus_enemy_next:  { value: 1, unit: penalty, note: "Windswept enemies -1 attack rolls" }
+  hurricane_winds_next: { value: 2, unit: count, note: "WB15: two winds at once from level 12" }

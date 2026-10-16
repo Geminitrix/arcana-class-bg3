@@ -1,0 +1,12 @@
+id: SPL_Unbound_TheCalm
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: spell
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §4.4"
+balance_report: "22.05/Unbound.md"
+values: {}
+
+pending_build:
+  action_next: { value: "Action; free, once per combat; only while a wind blows", note: "WB25; action so the bag can reopen the same turn" }
+  gust_damage_next: { value: "1d8 per gust", unit: damage, type: Thunder, by_level: { 3: 1d8, 7: 2d6 }, note: "one gust per remaining turn of wind, on every Windswept enemy, no roll" }

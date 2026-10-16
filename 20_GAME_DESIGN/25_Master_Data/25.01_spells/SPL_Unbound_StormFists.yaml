@@ -1,0 +1,14 @@
+id: SPL_Unbound_StormFists
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+kind: spell
+subclass: Unbound
+ticket: ARC-0022
+design: "21.04/Unbound/DESIGN.md §5"
+balance_report: "22.05/Unbound.md"
+values:
+  damage:   { value: "1d4 / 1d6 / 1d8 + DEX modifier", unit: damage, type: Thunder, note: "today, by slot 4/5/6" }
+  duration: { value: "3 / 4 / 5", unit: turns, note: "today, by slot 4/5/6" }
+
+pending_build:
+  condition_next: { value: "only against enemies that weren't Windswept", note: "WB34 (absorbs Thunderclap)" }
+  duration_next:  { value: 3, unit: turns }
