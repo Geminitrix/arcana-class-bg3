@@ -32,7 +32,7 @@ the PC (SE) edition where marked. Compile the Story after any apply. Values: `25
 |---|---|---|---|
 | B1 | The Tier III burst on death (DV21, vanilla Death Burst pattern) | A Double destroyed by an enemy explodes at its last position with the wider radius; the Doubt is hers | A Splinter cast by Osiris at the Double's position before it is removed |
 | B2 | Only the "destroyed by an enemy" path bursts (DESIGN §4.8) | Dismiss, the cap, combat end, an ally's spell, her death: **no** burst, no Doubt | Tag the cleanup paths before the Double dies |
-| B3 | Splinter on command (DV24, DV31) picks one Double | The chosen Double splinters now; bonus action spent; no slot | Target the Double with the spell |
+| B3 | Splinter on command (DV24, DV31) picks one Double | The chosen Double splinters now; bonus action spent; no slot; on PC it costs Threads and is drawn from the deck (DV32) | Target the Double with the spell |
 | B4 | Grand Deception counts Doubles near each enemy **before** the new ones appear (DV22) | Doubt per enemy = Doubles within ‹x› m of it before the cast | Snapshot the Doubles' positions on cast |
 | B5 | The level map (DV28) | `dump_progression.pl`: the rows of DESIGN §9.1, levels 4 and 8 empty, no Telepathy | — |
 | B6 | One visible passive (DV19) | The Veil states the core rule; no *Doubt* passive in the list | — |
@@ -43,6 +43,7 @@ the PC (SE) edition where marked. Compile the Story after any apply. Values: `25
 | # | Fight | Metric | Right if | Wrong if | Decision |
 |---|---|---|---|---|---|
 | V1 | Level 2, any | Turns where Splinter on command is used | Used in most fights, not every turn | Never used, or used every turn (dominant) | DV24 |
+| V1b | Level 2, PC | Share of turns Splinter on command is in hand when a Double is on the field | Often enough to plan around (DM-P12) | Rarely in hand when it matters | DV32 |
 | V2 | Level 11 | Doubt from Grand Deception with Doubles placed vs none | Placement changes the result clearly | Same result either way | DV22 |
 | V3 | Level 12, Tier III | Turn Tier III wakes; bursts per fight | Wakes in a normal fight; bursts feel like the peak | Wakes after the fight is decided | DV21 |
 | V4 | Level 10 | Mirrored Self's extra target from a Double's position | Works in the engine | Engine can't origin it (plan B: the second target within ‹x› m of a Double) | DV25 |

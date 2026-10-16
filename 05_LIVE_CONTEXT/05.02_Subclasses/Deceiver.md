@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-07)
 state: synced
-reviewed: 2026-10-16 ARC-0019 — DV31 checked, no change (game unchanged)
+reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged)
 ---
 
 # 🪞 The Deceiver — II · The High Priestess · Aspect of Doubt
@@ -10,7 +10,7 @@ reviewed: 2026-10-16 ARC-0019 — DV31 checked, no change (game unchanged)
 > Last verified: **2026-10-07** (after the Veil rework, stages 1–4) · Progression table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` ·
 > Lists "Deceiver Level N" · Osiris `ARCANA_Deceiver_Doubles.txt`, `ARCANA_Deceiver_Doubt.txt`, `ARCANA_Aspect_Empress.txt`
 > (internal ids keep *Empress*), `ARCANA_Status_Sigil.txt`, `ARCANA_Spell_Withdraw.txt`, `ARCANA_Spell_MimicWithdraw.txt`,
-> `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV30, not built yet — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
+> `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV32, not built yet — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
 > (D1–D17) · Patches and scripts in `55_Implementation_Specs/_wip/Deceiver/` · Wiki artifact: https://claude.ai/artifact/439SJbZifq1fWxUsvPtnuh
 
 ---

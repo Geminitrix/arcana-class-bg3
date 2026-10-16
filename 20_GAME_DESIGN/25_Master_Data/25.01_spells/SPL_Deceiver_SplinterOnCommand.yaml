@@ -1,5 +1,5 @@
 id: SPL_Deceiver_SplinterOnCommand
-reviewed: "2026-10-16 ARC-0019 — new (DV24), not built; only pending_build"
+reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -10,6 +10,8 @@ values: {}
 # Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
 # current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
 pending_build:
-  cost_next:    { value: "Bonus Action, no slot", note: "DV24" }
+  cost_next:    { value: "Bonus Action, card level 0 (no slot)", note: "DV24, DV32" }
+  deck_next:    { value: "deck card", note: "DV32: drawn like the others; Threads on PC" }
+  threads_next: { value: "‹1›", unit: Threads, note: "DV32: PC cost (CardDB), balance pass" }
   doubles_next: { value: 1, unit: count, note: "one of her Doubles splinters now (SPL_Deceiver_Splinter)" }
   range_next:   { value: "‹18›", unit: metres, note: "how far the Double may be from her" }

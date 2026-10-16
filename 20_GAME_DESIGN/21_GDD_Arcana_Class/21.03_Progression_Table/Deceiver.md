@@ -15,7 +15,7 @@ ships. Numbers: `25_Master_Data` (`*_Deceiver_*`, to be written). Cards by in-ga
 | Level | Passives | Cards and features | Why here |
 |---|---|---|---|
 | **1** | The Veil (core rule + Doubles) | Eidolon · Seed of Doubt · Malicious Whispers *(cantrip)* · the Doubles' Splinter and Dismiss | The mechanic plays from level 1: bodies to keep or spend, Doubt on enemies |
-| **2** | — | Splinter on command (Bonus Action) · Faceless *(utility cantrip)* · Friends *(utility)* | The first bonus action: spend a body when she chooses; the Veil out of combat |
+| **2** | — | Splinter on command (Bonus Action, a deck card — DV32) · Faceless *(utility cantrip)* · Friends *(utility)* | The first bonus action: spend a body when she chooses; the Veil out of combat |
 | **3** | Tier I Veiled · 2 - The High Priestess: Awakening | Binding Falsehood · Veiled Prison · Aspect card The Veil Lifts (Tier I) | Doubt pays off: the first payoff at 2+ Doubt is taught when it is usable |
 | 4 | — (feat) | — | — |
 | **5** | Two Truths | Veilstep (+ Withdraw) · the Doubles' Reflected Seed and Reflected Falsehood | The Doubles cast her spells at vanilla's level-5 spike |

@@ -40,5 +40,5 @@ reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's chan
 
 | Slot (after the build) | Users | Conflict |
 |---|---|---|
-| Bonus Action | Splinter on command (2+), Withdraw (5+), Twice-Told (6+) | Three options from level 6 — a real choice each turn; watch that Splinter on command is not always the answer (V1) |
+| Bonus Action | Splinter on command (2+) — a deck card, in hand only some turns on PC (DV32), Withdraw (5+), Twice-Told (6+) | Three options from level 6 — a real choice each turn; watch that Splinter on command is not always the answer (V1) |
 | Reaction | Ready: Which One? (Tier III) | As today |

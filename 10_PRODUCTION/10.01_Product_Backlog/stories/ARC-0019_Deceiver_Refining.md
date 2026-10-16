@@ -64,3 +64,4 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   26.01, 32.01, 33.03, 42.04, 61.02. Lore Writer fixed `31.01` §4 and §5 (no LeBlanc names, no Sigils; the Deceiver's
   in-game description kept as the game text, with a draft for the build). DV24/DV28 and REFINE stay as the record.
 - 2026-10-16 — Build ticket ARC-0020 opened with `SPEC_ARC-0020.md` (stages 0–5, probes B1–B4).
+- 2026-10-16 — DV32 (Owner): Splinter on command is a deck card (`Target_Arcana_Card_Spell_SplinterOnCommand`, level 0, Threads on PC); propagated to DESIGN, 21.03, 23.02, 25, 22.05, 26.01, 33.03, 61.02 (V1b), SPEC_ARC-0020 Task 0.5; the rest reviewed, no change.

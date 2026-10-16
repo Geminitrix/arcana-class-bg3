@@ -1,8 +1,8 @@
 ---
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
-state: approved design (DV1–DV31, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV31) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived)
+state: approved design (DV1–DV32, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived)
 ---
 
 # The Deceiver — II · The High Priestess · Aspect of Doubt
@@ -198,7 +198,7 @@ Every chain ends: Doubles are finite, Deluded resets the stacks, Two Pillars is 
 | **Malicious Whispers** *(cantrip)* | 1 | 0 | 18 m, WIS save: Psychic *(25)*, Disadvantage on its next attack; Seeded target: Paranoia + 1 Doubt | — |
 | **Eidolon** | 1 | 1 | Summon 1 Double within 9 m; 2 from slot 3, 3 from slot 5 | — |
 | **Seed of Doubt** | 1 | 1 | 18 m, never misses: Force *(25)* and a Seed (§4.4) | — |
-| **Splinter on command** | 2 | — | Bonus action: one of her Doubles splinters now (DV24, DV31) | — |
+| **Splinter on command** | 2 | 0 | Bonus action: one of her Doubles splinters now. A deck card, drawn like the others (DV24, DV31, DV32) | — |
 | **Faceless** *(utility)* | 2 | 0 | Assume the identity of another person, altering her appearance | — |
 | **Friends** *(utility)* | 2 | 1 | Advantage on Charisma checks; at slot 6 no Concentration and the target never notices (DV14) | Concentration (below slot 6) |
 | **Binding Falsehood** | 3 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn | — |
@@ -325,6 +325,7 @@ Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye a
 
 - **Action economy:** up to 5 Doubles × 1 action, each a small fixed burst, paid by cards and lost to any hit (DV16).
 - **Tier III:** every Double struck bursts, wider — watch the burst count per fight at level 12 (V3).
+- **Splinter on command** is a deck card (DV32): on PC it is in hand only some turns, the brake on "every turn".
 - **Grand Deception:** Doubt per Double near each enemy can Delude a crowd in one cast — the per-enemy count is the knob.
 - **Seed + Doubles + Twice-Told:** one burst per Seed; watch Twice-Told on *Seed of Doubt*.
 

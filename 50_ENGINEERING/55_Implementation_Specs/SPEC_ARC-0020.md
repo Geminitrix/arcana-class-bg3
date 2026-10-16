@@ -46,7 +46,7 @@ scan · 11. `sync_data.sh` · 12. commit + push · 13. tell the Owner to compile
 |---|---|---|---|---|
 | **0** | Sizes decided; patches, scripts and goal drafts prepared | all | No | Owner approves the sizes; every dry run clean |
 | **1** | Names and the one-rule passive | DV19, DV29, DV31 | Yes (stats, loca) | Tooltips read the new names; one passive explains the rule |
-| **2** | The map and *Splinter on command* | DV23, DV24, DV26, DV28, DV31 | Yes (+ goal) | B1; level-up shows `DESIGN.md` §9.1 |
+| **2** | The map and *Splinter on command* | DV23, DV24, DV26, DV28, DV31, DV32 | Yes (+ goal) | B1; level-up shows `DESIGN.md` §9.1 |
 | **3** | Grand Deception reads the Veil; Tier III *the lie explodes* | DV21, DV22 | Yes (+ goals) | B2, B3; V2, V3 |
 | **4** | Mirrored Self from a Double | DV25 | Yes (+ goal) | B4; V4 |
 | **5** | Close: `25`, `05.02`, catalogs, docs | — | No (project) | `check_propagation` OK |
@@ -69,7 +69,7 @@ scan · 11. `sync_data.sh` · 12. commit + push · 13. tell the Owner to compile
 
 Every `‹…›` in `25` `pending_build` gets a value, shown to the Owner as arithmetic in the `22.06` currency before it
 is written: `SPL_Deceiver_Splinter.tier3_radius_next` · `SPL_Deceiver_GrandDeception.doubt_per_double_next` and
-`doubles_range_next` · `SPL_Deceiver_SplinterOnCommand.range_next` · `SPL_Deceiver_MirroredSelf.plan_b_range_next`.
+`doubles_range_next` · `SPL_Deceiver_SplinterOnCommand.range_next` and `threads_next` · `SPL_Deceiver_MirroredSelf.plan_b_range_next`.
 Anchors: vanilla Death Burst radii 2–3 m (`Projectile_DeathBurst_*`, `Spell_Projectile.txt`); Grand Deception's
 area 9 m today.
 
@@ -103,17 +103,16 @@ New list UUIDs generated once and written into the script (re-runs byte-identica
 empty today (`dump_progression.pl`).
 - **Test:** dry run, then `dump_progression.pl` after apply matches `DESIGN.md` §9.1 (4 and 8 empty).
 
-### Task 0.5 · *Splinter on command* (DV24, DV31) — `arc0020/30_splinter_command.patch` + goal region
+### Task 0.5 · *Splinter on command* (DV24, DV31, DV32) — `arc0020/30_splinter_command.patch` + goal region
 
-- **Entry:** `Target_Arcana_Card_Ability_SplinterOnCommand` — a **Card_Ability** (pays Threads on PC, never drawn —
-  the `Card_Ability_Untethered` pattern, `Spell_Shout.txt`; *open to the Owner, see the end*). `BonusActionPoint:1`,
-  no slot. Target: one of her own Doubles within `range_next` (`HasStatus('DOUBLE_OF_THE_VEIL')` — the status the Doubles'
+- **Entry:** `Target_Arcana_Card_Spell_SplinterOnCommand` — a **deck card** (DV32), level 0 like *Malicious
+  Whispers* (no slot; Threads on PC from `threads_next`, CardDB entry like the cantrip's). `BonusActionPoint:1`. Target: one of her own Doubles within `range_next` (`HasStatus('DOUBLE_OF_THE_VEIL')` — the status the Doubles'
   spells check — and summoned by the caster; the "summoned by me" condition needs a vanilla anchor found in stage 0,
   otherwise the goal ignores a Double that isn't hers).
 - **Effect:** applies a technical status to the Double; `ARCANA_Deceiver_Doubles.txt` reacts and makes the Double
   cast its Splinter with `UseSpell(_Double, "Shout_Deceiver_Double_Shatter", _Double, _Double, 1)` — the pattern The
   Veil Lifts already uses (`ARCANA_Aspect_Empress.txt`, its Veil Lifts region). The Double's own turn is not spent.
-- **Test:** goal draft compiles in the Story Editor (stage 2); CardDB entry + `CardDBTest.lua` row (cost, no deck).
+- **Test:** goal draft compiles in the Story Editor (stage 2); CardDB entry + `CardDBTest.lua` row (Thread cost, enters the deck).
 
 ### Task 0.6 · Tier III (DV21) — `arc0020/40_tier3.patch` + goal region
 
@@ -190,8 +189,3 @@ and reason; `05.02/Deceiver.md` (Context Keeper); `DESIGN.md` state line → bui
 - [ ] `TC_ARC-0019` V1–V4 pass in game
 - [ ] No line over 3900 characters; no repeated field; entry counts as expected after `sort_stats`
 - [ ] `25` holds no `pending_build` block for the Deceiver
-
-## Open to the Owner
-
-- **Splinter on command's type** (Task 0.5): *Card_Ability* (recommended: always available, pays Threads on PC,
-  never missing from the hand — DM-P12) or a deck card (drawn like the others, costs a slot or Threads).
