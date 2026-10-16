@@ -91,7 +91,7 @@ English is final in game (`32.01/Kingmaker.md`); the other 15 languages have no 
 | Tyche · Nemesis · Aspect of Anticipation | Awakening tiers I · II · III | — |
 | The Kingmaker | The subclass | Spinner (retired working name) |
 
-## The Deceiver (reviewed 2026-10-16 ARC-0019 — DV18–DV32 terms; rows marked ★ reach the game with the build)
+## The Deceiver (reviewed 2026-10-16 ARC-0019 — DV18–DV32 terms; ARC-0020 checked, no change; rows marked ★ reach the game with the build)
 
 English is final in game for the unmarked rows (`32.01/Deceiver.md`); the other 15 languages have no Deceiver strings
 yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `SigilofMalice`, `SIGIL`, `Distortion`,

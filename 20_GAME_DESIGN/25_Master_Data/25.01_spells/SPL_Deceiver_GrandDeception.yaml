@@ -1,5 +1,5 @@
 id: SPL_Deceiver_GrandDeception
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -14,6 +14,6 @@ values:
 # Approved in ARC-0019 (DV18–DV30), applied by the build. Keys differ from values: so the generator keeps reading the
 # current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
 pending_build:
-  doubt_per_double_next: { value: "‹1›", unit: count, note: "DV22: per Double already within doubles_range_next of the enemy, before the new Doubles appear" }
-  doubles_range_next:    { value: "‹x›", unit: metres }
+  doubt_per_double_next: { value: 1, unit: count, note: "DV22: per Double already within doubles_range_next of the enemy, before the new Doubles appear" }
+  doubles_range_next:    { value: 3, unit: metres, note: "same as the base Splinter radius; Owner, 2026-10-16 (22.05 §ARC-0020)" }
   retires:               { value: doubt_on_fail, unit: list }

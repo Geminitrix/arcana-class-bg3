@@ -1,5 +1,5 @@
 id: SPL_Deceiver_SplinterOnCommand
-reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build"
+reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build; 2026-10-16 ARC-0020 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -12,6 +12,6 @@ values: {}
 pending_build:
   cost_next:    { value: "Bonus Action, card level 0 (no slot)", note: "DV24, DV32" }
   deck_next:    { value: "deck card", note: "DV32: drawn like the others; Threads on PC" }
-  threads_next: { value: "‹1›", unit: Threads, note: "DV32: PC cost (CardDB), balance pass" }
+  threads_next: { value: 1, unit: Threads, note: "DV32: PC cost (CardDB), as a cantrip; Owner, 2026-10-16" }
   doubles_next: { value: 1, unit: count, note: "one of her Doubles splinters now (SPL_Deceiver_Splinter)" }
-  range_next:   { value: "‹18›", unit: metres, note: "how far the Double may be from her" }
+  range_next:   { value: 18, unit: metres, note: "how far the Double may be from her; Owner, 2026-10-16" }

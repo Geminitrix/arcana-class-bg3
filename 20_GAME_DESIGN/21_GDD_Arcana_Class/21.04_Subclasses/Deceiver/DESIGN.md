@@ -2,7 +2,7 @@
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
 state: approved design (DV1–DV32, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived)
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed)
 ---
 
 # The Deceiver — II · The High Priestess · Aspect of Doubt
@@ -133,7 +133,7 @@ and *Malicious Whispers* on a Seeded target. No card carries its own exception.
 
 | Double's spell | From | Effect |
 |---|---|---|
-| **Splinter** | 1 | 3 m burst, Psychic *(25)*, 1 Doubt per enemy hit; the Double is gone. From Tier III the area is ‹wide› (DV21) |
+| **Splinter** | 1 | 3 m burst, Psychic *(25)*, 1 Doubt per enemy hit; the Double is gone. From Tier III the area is a wider radius *(25)* (DV21) |
 | **Reflected Seed** | 5 (*Two Truths*) | Half of her *Seed of Doubt* at her highest slot, and lays her Seed (DV17) |
 | **Reflected Falsehood** | 5 | Half of her *Binding Falsehood*'s damage; WIS save or Restrained 1 turn |
 | **Unveil** | 9 | Swap places with her; once per round across all Doubles |
@@ -208,7 +208,7 @@ Every chain ends: Doubles are finite, Deluded resets the stacks, Two Pillars is 
 | **Mirrored Spell** *(passive card)* | 6 | 3 | Copy a spell cast within 18 m that she doesn't know | — |
 | **Marionette** | 9 | 5 | Dominate; 2+ Doubt: Disadvantage on the save | Concentration · Long Rest · Unique |
 | **Mirrored Self** *(passive card)* | 10 | 2 | Her next single-target spell gains a second target, **cast from one of her Doubles' positions** (DV25, T2) | — |
-| **Grand Deception** — the ultimate | 11 | 5 | Every enemy within 9 m: WIS save; on a failure it gains 1 Doubt per Double already within ‹x› m of it; then Doubles fill her cap (DV22) | Long Rest · Unique |
+| **Grand Deception** — the ultimate | 11 | 5 | Every enemy within 9 m: WIS save; on a failure it gains 1 Doubt per Double already within a short range *(25)* of it; then Doubles fill her cap (DV22) | Long Rest · Unique |
 | **Ready: Which One?** *(reaction)* | Tier III | 3 | Once per round, when an attack would hit her: swap with the nearest Double; the attack misses, the Double is destroyed, the attacker gains Doubt | Once per round |
 | **The Veil Lifts** — Aspect card | Tier I | — | Every Double splinters, every Seed of hers bursts, survivors with Doubt become Deluded | Once per combat |
 
@@ -250,7 +250,7 @@ progress status.
 |---|---|---|---|
 | I | 3 | **Veiled** | Enemies with Doubt have Disadvantage on attacks against her and her Doubles · Aspect card *The Veil Lifts* |
 | II | 7 | **Two Pillars** | Once per turn, when an enemy becomes Deluded in her name, the nearest un-Seeded enemy within 6 m gains her Seed |
-| III | 12 | **Aspect of Doubt** | **The lie explodes:** a Double destroyed by an enemy splinters by itself, and every Splinter's area grows to ‹wide› · *Ready: Which One?* (DV21) |
+| III | 12 | **Aspect of Doubt** | **The lie explodes:** a Double destroyed by an enemy splinters by itself, and every Splinter's area grows to a wider radius *(25)* · *Ready: Which One?* (DV21) |
 
 No tier gives an ability bonus (DV21 replaces the old +3 Charisma and Charisma to damage).
 
@@ -350,7 +350,7 @@ Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye a
 |---|---|
 | Tier III burst on death | Vanilla **Death Burst**: `GLO_CombatNPCs.txt` explodes a dying creature with `CreateExplosionAtPosition(…, "Projectile_DeathBurst_*", 1, _Char)`; the projectile's `ExplodeRadius` sets the area (`Projectile_DeathBurst_Died_IceMephit`). Run from the Doubles goal, only on the "destroyed by an enemy" path, caster = her — **T2** |
 | A Double casting off its turn | `UseSpell(_Double, …)` from Osiris, as The Veil Lifts does |
-| Mirrored Self from a Double's position | Unknown — **T2**, test before the spec; plan B: the second target must be within ‹x› m of a Double |
+| Mirrored Self from a Double's position | Unknown — **T2**, test before the spec; plan B: the second target must be within a short range *(25)* of a Double |
 
 ### 13.3 Master data (25) — to be written in the balance pass
 
@@ -366,7 +366,6 @@ is *Seed of Doubt* in game text. A rename of ids, if chosen, follows ADR-0002 an
 
 ## 14. Open
 
-- The Tier III burst's ‹wide› radius and Grand Deception's ‹x› m and Doubt per Double — balance pass.
 - Whether the build renames internal ids to the new names (DV29) or keeps them (DV12's rule).
 - Telepathy leaves the progression (DV26): its passive goes to the archive in the build.
 

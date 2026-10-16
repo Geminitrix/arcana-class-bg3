@@ -1,5 +1,5 @@
 id: SPL_Deceiver_ReadyWhichOne
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); no change from DV18–DV30; 2026-10-16 ARC-0020 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019

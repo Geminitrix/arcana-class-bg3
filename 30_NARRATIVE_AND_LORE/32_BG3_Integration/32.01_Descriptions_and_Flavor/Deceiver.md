@@ -2,7 +2,7 @@
 id: 32.01/Deceiver
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-16 with dossier_texts.pl; 21.04/Deceiver/DESIGN.md §11; DECISIONS.md DV29
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); names of the build (DV29) at the end; 2026-10-16 ARC-0019 — DV32 checked, no change; 2026-10-16 ARC-0020 — the build's texts drafted in `55/_wip/Deceiver/arc0020/10_names.patch`, awaiting the Narrative gate (32.04)
 ---
 
 # 32.01 · Player-facing text — The Deceiver

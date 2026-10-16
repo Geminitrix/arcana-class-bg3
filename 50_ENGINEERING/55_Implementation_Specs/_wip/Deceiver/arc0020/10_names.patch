@@ -1,0 +1,74 @@
+# ===== ARC-0020 stage 1 — names (DV29, DV31) and the one-rule passive (DV19) =====
+# Text only: every handle below already exists, so stats_add replaces the English text and bumps the version.
+# Two new strings: The Veil's ExtraDescription and the Double's status description (fields that were empty).
+# Key names must be new: DOUBLE_DESC already belongs to Arcana_Passive_DoubleOfTheVeil (20_doubles.patch).
+# DRAFT — Narrative gate (32.04) pending: the Owner approves these texts before stage 1 is applied.
+# Left for stage 3 (40_tier3.patch): ASPECT_AWAKENED_EMPRESS_III and Arcana_Passive_Aspect_Empress_III (they still
+# name the Sigil and Charisma until Tier III changes), Grand Deception. Stage 4: Mirrored Self.
+# Not touched: hidden technical statuses' names only shown to modders (*_LAST_CASTED, *_HELPER, SIGIL_TECH) are
+# renamed too, for the combat log; 5 orphan strings (no entry uses them) stay as they are.
+
+# --- Seed of Doubt (was Sigil of Malice) and the Seed (was Sigil)
+@loca h629833b0gfc8dg4921g4f7fged5030c535cf Seed of Doubt
+@loca hf8d9df66gdf2fgddd2gdc5cg87074e8257d4 Hurl a surge of arcane force at a creature, dealing [1] and planting a <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
+@loca hfde409a6gdc0eg96deg50a5g4285eae83cb1 Twice-Told: Seed of Doubt
+@loca he624619ag7ba5gd55fge4dfgc5905104b8f4 Recast <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at a creature, dealing [1] and planting a <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
+@loca hd66f5137g5a56g8f90g2a7eg143cdc0b770e Reflected Seed
+@loca hf22a0eedgbc8dgc316g2434g51c6f4982dc4 Hurl a reflection of <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at a creature, dealing [1] and planting the Deceiver's <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> in its mind.
+@loca h5a9834b3g29bfg7f21g71c4ga9b6a3271088 Seed
+@loca h28e6ebc5g3632g32ddgd3d7ge688706a5796 A seed of doubt planted by the Deceiver. Their next Arcane spell damage makes it burst for an additional [1] and sow <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag>.
+@loca h2a283036g31f4ga58bgc5d4g83b36478a82e Last Cast: Seed of Doubt
+@loca hdb9aca65g1d8ag0b4fg4907g7797d5506932 Seed Tech
+
+# --- Binding Falsehood (was Ethereal Chains)
+@loca he9ce7070g7529g7835ga365gf087009b761f Binding Falsehood
+@loca h0cc4e041g2995ge3d1g9de4g7febc0fc2946 Bind a creature with a woven lie. At the end of its turn, it becomes <LSTag Type="Status" Tooltip="RESTRAINED">Restrained</LSTag>.
+@loca h61aa29d1ga943g2882g51b8gdd450c37b7a8 Binding Falsehood
+@loca h27ab0da9g39aagf457g6a30g6d1955451372 Bound by a woven lie that deals [1] twice and leaves it <LSTag Type="Status" Tooltip="RESTRAINED">Restrained</LSTag> at the end of its turn.
+@loca h83eeda77g48f1g0e23g3be8g736fb97f917f Twice-Told: Binding Falsehood
+@loca hac42a29bg29bagffcfgad6bg0f22776658d4 Twice-Told: Binding Falsehood
+@loca h98433cefgd6dfg3e06g3791g33bdfcb25951 Recast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains">Binding Falsehood</LSTag> on a creature. At the end of its turn, it becomes <LSTag Type="Status" Tooltip="RESTRAINED">Restrained</LSTag>.
+@loca he00a1f96g87f9g4f9dg87b3ga147297a6d7d Reflected Falsehood
+@loca h19148393g43edg142eg8af8gc41f2c6b60f9 Bind a creature with a reflection of <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains">Binding Falsehood</LSTag>. If it fails the <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>, it takes [1] and becomes <LSTag Type="Status" Tooltip="RESTRAINED">Restrained</LSTag> for [2].
+@loca h50e0e457g54b7g93e9g6394g7b3f1dbc6262 Binding Falsehood Effect
+@loca hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f Last Cast: Binding Falsehood
+
+# --- Veilstep (was Distortion)
+@loca h2bfb3759ga241g9495g65ddg9e2d6f843aab Veilstep
+@loca ha600849fgd60bg0304g0ae8gd0576ef7fa29 Step behind the veil and out again, dealing damage where you arrive and leaving a Double standing where you were. For 2 turns, you can cast <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Withdraw">Withdraw</LSTag> to swap places with it.
+@loca hb619d7e4g5900gda93ge912g6a66824f4016 Twice-Told: Veilstep
+@loca hea3258c7g78a8g47c1g40cbg1263fd6d0156 Recast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion">Veilstep</LSTag>, dealing damage where you arrive and leaving a Double standing where you were. For 2 turns, you can cast <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_MimicWithdraw">Twice-Told: Withdraw</LSTag> to swap places with it.
+@loca h3c4edb12g2741g4fd0g7808g1b880efe0603 Last Cast: Veilstep
+@loca hbbe87a54g9882ga869g13a3g51d491fb409e Veilstep Helper
+@loca h74931156g68e6g78c3g675fgcd9196f71a0c Twice-Told: Veilstep Helper
+
+# --- Twice-Told (was Mimic)
+@loca ha8568072g88bdg20b7gf7efgc89983eaefa7 Twice-Told
+@loca hf6f23e41g5956g17e3g304aged825fa90bb1 Tell the lie twice: recast your last damaging Arcane spell as a bonus action, once per turn.
+@loca ha88ea3afg2012g59e5g8455gb13b526c3109 Twice-Told: Withdraw
+
+# --- Eidolon (was Mirror Image) and Splinter (was Shatter)
+@loca hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef Eidolon
+@loca h805db51fg1ce6g5aa9g3a26g99b6279b2218 Summon a Double of the Veil: an illusion of you with 1 <LSTag Tooltip="HitPoints">hit point</LSTag> that acts on its own turn and can <LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter">Splinter</LSTag>.
+@loca h122c76dbgdcf9g6f07gcc55gacfcd3a5e30b Splinter
+@loca hb6cf1a80gfaf5gffb3g2465g6823f5198bc6 Splinter into shards of illusion, dealing [1] to enemies within [2] and sowing <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> in their minds. The Double is destroyed.
+@loca DOUBLE_STATUS_DESC An illusion of the Deceiver with 1 <LSTag Tooltip="HitPoints">hit point</LSTag>. A single blow dispels it.
+@file Status_BOOST
+@set DOUBLE_OF_THE_VEIL Description {{DOUBLE_STATUS_DESC}}
+
+# --- The Veil: the core rule, taught once (DV19); the Doubt passive leaves the progression (20_structure.pl)
+@loca h8cce4774gc43ag85c1gfbf4g7a2213dd6822 Every lie an enemy believes plants <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> in it. At the third, it becomes <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>.<br><br><LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_MirrorImage">Eidolon</LSTag> and <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion">Veilstep</LSTag> summon Doubles: illusions of you with 1 <LSTag Tooltip="HitPoints">hit point</LSTag> that act on their own turn and can <LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter">Splinter</LSTag>. You gain +1 <LSTag Tooltip="ArmourClass">Armour Class</LSTag> for each one.
+@loca THE_VEIL_EXTRA An enemy believes a lie when it destroys one of your Doubles, when a Splinter hits it, when your Seed bursts in it and when Malicious Whispers finds your Seed. Each stack of Doubt reduces its Wisdom Saving Throws and its Attack Rolls against you and your Doubles by 1.<br><br>You can keep 3 Doubles at once, 4 from level 7 and 5 from level 12. They vanish when combat ends, after a Long Rest or if you die.
+@file Passive
+@set Arcana_Passive_TheVeil ExtraDescription {{THE_VEIL_EXTRA}}
+@loca h044da674g7686g830dg2f87g5b39f2ff46e4 Your Doubles can also cast <LSTag Type="Spell" Tooltip="Projectile_Deceiver_Double_MirrorSigil">Reflected Seed</LSTag> and <LSTag Type="Spell" Tooltip="Target_Deceiver_Double_MirrorChains">Reflected Falsehood</LSTag>. Both deal half the damage of your <LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice">Seed of Doubt</LSTag> at your highest spell slot.
+
+# --- Texts that name the Seed
+@loca h358611e4gab01gee5dg782ag87ac7ba30c60 Invade a creature's mind with malicious whispers, imposing <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on its next <LSTag Tooltip="AttackRoll">Attack Roll</LSTag>. A creature carrying your <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> also suffers <LSTag Type="Status" Tooltip="WHISPERED_PARANOIA">Paranoia</LSTag> and gains <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag>.
+@loca h9fd48693g398dg74f3gf67dg102c1dbd8d83 Whispers have found the seed of doubt in its mind. Can't take <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reactions</LSTag>.
+@loca h4ed3c123g3399g24acg13edg8555098a6120 Lift the veil all at once: every one of your Doubles splinters and every <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> you planted bursts. Surviving enemies with <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> become <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>.
+@loca h4fcbc57eg47fbga22dg3dc5g95429133cbb9 Once per turn, when an enemy becomes <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>, the nearest enemy within [1] of it that carries no <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> gains yours.
+@loca h276f6c80g8b5dgf22agcc4fgc1770431d3e4 Veiled: Enemies with <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against you and your Doubles.<br><br>Two Pillars: Once per turn, when an enemy becomes <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>, the nearest enemy within [1] of it that carries no <LSTag Type="Status" Tooltip="SIGIL">Seed</LSTag> gains yours.
+
+# --- Class description (ClassDescriptions.lsx uses this handle)
+@loca hcf1e5160g3e20g0953g6e16gd8b38b0e15f7 Mystra wove the Deceiver from the veil between what is and what seems, a thread that no one watching can follow. They scatter Doubles that splinter when struck, plant seeds of doubt until enemies can't trust their own eyes, and bind them with woven lies.

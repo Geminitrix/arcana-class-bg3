@@ -1,5 +1,5 @@
 id: SPL_Deceiver_MirroredSelf
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -13,5 +13,5 @@ values:
 # current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
 pending_build:
   origin_next:       { value: "a Double's position", note: "DV25; engine support unknown (T2, V4)" }
-  plan_b_range_next: { value: "‹x›", unit: metres, note: "plan B: the second target must be within this range of a Double" }
+  plan_b_range_next: { value: 9, unit: metres, note: "plan B: the second target must be within this range of a Double (Eidolon's summon range); Owner, 2026-10-16" }
   level_next:        { value: 10, note: "DV28: from level 12 to 10" }

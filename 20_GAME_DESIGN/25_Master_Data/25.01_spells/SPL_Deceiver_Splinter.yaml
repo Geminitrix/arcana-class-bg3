@@ -1,5 +1,5 @@
 id: SPL_Deceiver_Splinter
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then)"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -15,5 +15,5 @@ values:
 # current game values until the build moves them. ‹…› sizes are proposals for the balance pass (ADR-0005).
 pending_build:
   name_next:               { value: Splinter, note: "DV29" }
-  tier3_radius_next:       { value: "‹wide›", unit: metres, note: "DV21: Tier III, the projectile's ExplodeRadius (vanilla Death Burst pattern)" }
+  tier3_radius_next:       { value: 4, unit: metres, note: "DV21: Tier III, the projectile's ExplodeRadius (vanilla Death Burst pattern); Owner, 2026-10-16 (22.05 §ARC-0020)" }
   tier3_on_destroyed_next: { value: 1, unit: count, note: "DV21: a Double destroyed by an enemy splinters by itself, once" }

@@ -2,7 +2,7 @@
 id: 21.03/Deceiver
 owner: Lead Class Designer
 source: 21.04_Subclasses/Deceiver/DESIGN.md §9 (DV23, DV28)
-reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending
+reviewed: 2026-10-16 ARC-0019 — written with the spread map (DV28) and the new names (DV29); build pending; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
 ---
 
 # 21.03 · Progression — The Deceiver (levels 1–12)

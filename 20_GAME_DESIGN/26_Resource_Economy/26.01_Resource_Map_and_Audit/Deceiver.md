@@ -2,7 +2,7 @@
 id: 26.01/Deceiver
 owner: Balance Designer
 source: 21.04/Deceiver/DECISIONS.md (DV1–DV30), DESIGN.md §4, §5, §10
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); the build's changes (DV18–DV30) below, values in 25; 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
 ---
 
 # 26.01 · Resource audit — The Deceiver

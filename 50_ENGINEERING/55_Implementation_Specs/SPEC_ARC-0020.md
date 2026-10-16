@@ -75,6 +75,8 @@ area 9 m today.
 
 ### Task 0.2 · names (DV29, DV31) — `arc0020/10_names.patch`
 
+**Prepared 2026-10-16:** 43 strings replaced + 2 new (The Veil's ExtraDescription, the Double status's Description); dry run clean. Awaiting the Narrative gate (`32.04`). Tier III and Grand Deception texts move to stage 3 with their rules.
+
 `@loca` rows for every English string that shows an old name. The game holds them today: *Sigil* 21 strings,
 *Ethereal Chains* 11, *Mimic* 9, *Distortion* 7, *Shatter* 4, *Mirror Image* 3 (counted 2026-10-16 in
 `Localization/English`). Each row replaced, never added; the handle and its version bumped. Covers DisplayNames,

@@ -2,7 +2,7 @@
 id: 61.02/Deceiver/TC_ARC-0019
 owner: QA Lead
 source: 21.04/Deceiver/DECISIONS.md DV1–DV30 · REFINE_Deceiver.md §5 · DESIGN.md §13, §15 · 05.02/Deceiver.md §8
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08)
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change
 status: part A runnable now on the Veil build; parts B and C planned — run after the ARC-0019 build ships
 ---
 
@@ -33,7 +33,7 @@ the PC (SE) edition where marked. Compile the Story after any apply. Values: `25
 | B1 | The Tier III burst on death (DV21, vanilla Death Burst pattern) | A Double destroyed by an enemy explodes at its last position with the wider radius; the Doubt is hers | A Splinter cast by Osiris at the Double's position before it is removed |
 | B2 | Only the "destroyed by an enemy" path bursts (DESIGN §4.8) | Dismiss, the cap, combat end, an ally's spell, her death: **no** burst, no Doubt | Tag the cleanup paths before the Double dies |
 | B3 | Splinter on command (DV24, DV31) picks one Double | The chosen Double splinters now; bonus action spent; no slot; on PC it costs Threads and is drawn from the deck (DV32) | Target the Double with the spell |
-| B4 | Grand Deception counts Doubles near each enemy **before** the new ones appear (DV22) | Doubt per enemy = Doubles within ‹x› m of it before the cast | Snapshot the Doubles' positions on cast |
+| B4 | Grand Deception counts Doubles near each enemy **before** the new ones appear (DV22) | Doubt per enemy = Doubles within 3 m of it before the cast (`25` `doubles_range_next`) | Snapshot the Doubles' positions on cast |
 | B5 | The level map (DV28) | `dump_progression.pl`: the rows of DESIGN §9.1, levels 4 and 8 empty, no Telepathy | — |
 | B6 | One visible passive (DV19) | The Veil states the core rule; no *Doubt* passive in the list | — |
 | B7 | Names (DV29) | Every name in `32.01/Deceiver.md` "after the build"; no Sigil, Shatter, Mirror Image, Distortion, Ethereal Chains or Mimic in a tooltip | — |
@@ -46,7 +46,7 @@ the PC (SE) edition where marked. Compile the Story after any apply. Values: `25
 | V1b | Level 2, PC | Share of turns Splinter on command is in hand when a Double is on the field | Often enough to plan around (DM-P12) | Rarely in hand when it matters | DV32 |
 | V2 | Level 11 | Doubt from Grand Deception with Doubles placed vs none | Placement changes the result clearly | Same result either way | DV22 |
 | V3 | Level 12, Tier III | Turn Tier III wakes; bursts per fight | Wakes in a normal fight; bursts feel like the peak | Wakes after the fight is decided | DV21 |
-| V4 | Level 10 | Mirrored Self's extra target from a Double's position | Works in the engine | Engine can't origin it (plan B: the second target within ‹x› m of a Double) | DV25 |
+| V4 | Level 10 | Mirrored Self's extra target from a Double's position | Works in the engine | Engine can't origin it (plan B: a Double within 9 m (`25` `plan_b_range_next`)) | DV25 |
 
 **Qualitative questions** after each session (`27.06`): *What did you want to do that you couldn't? When did you feel
 strongest? When did you keep a Double instead of spending it, and why? What would you call its signature?*
