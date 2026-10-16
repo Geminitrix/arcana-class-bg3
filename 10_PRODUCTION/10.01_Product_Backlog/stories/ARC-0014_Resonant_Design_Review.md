@@ -46,3 +46,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R60 (SG11): Catharsis taught at level 3 (passive *Opposites*, working name).
 - 2026-10-16 — R61 (SG15): Heartstring reads feelings.
 - 2026-10-16 — R62 (SG16): the dice states grow at 5 and 10.
+- 2026-10-16 — R63 (SG17): Tier I drops the mood extension.
