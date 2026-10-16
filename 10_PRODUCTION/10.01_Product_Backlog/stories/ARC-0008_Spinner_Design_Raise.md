@@ -199,3 +199,4 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   `32.01` (game text), Narrative gate `32.04` passed, `33.03` terms; `42.04` icon brief; `61.02/Kingmaker/TC_ARC-0008.md`
   (static S1–S5 pass); `05.02/Kingmaker.md` with the Depth audit, `05.00`, README. Four handoffs closed. Found: the subclass
   icon doesn't show (`Spinner.DDS` vs `Name` Kingmaker — stage 7); shared vanilla icons → ARC-0015.
+- 2026-10-16 — The pending probes P1–P48 (+ the progression check) are on the Arcana Test Guides page, Kingmaker tab: `61.02/Kingmaker/GUIDE_ARC-0008.json` (+ `.md`), converted from SPEC_ARC-0008 and TC_ARC-0008.

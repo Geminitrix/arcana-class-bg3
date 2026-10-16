@@ -1,0 +1,7 @@
+{
+  "note": "Pending in-game test guides, one tab per subproject. Add a guide when a build ticket ends; remove it when its tests pass and the ticket closes. The page reads this file and each guide's JSON.",
+  "tabs": [
+    {"name": "Resonant", "guides": ["61.02_Test_Cases/Resonant/GUIDE_ARC-0017.json"]},
+    {"name": "Kingmaker", "guides": ["61.02_Test_Cases/Kingmaker/GUIDE_ARC-0008.json"]}
+  ]
+}
