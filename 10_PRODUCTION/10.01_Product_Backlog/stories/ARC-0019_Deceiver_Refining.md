@@ -1,0 +1,48 @@
+---
+id: ARC-0019
+title: "Deceiver refining: raise the Veil design to the subclass standard v2.1 (SG1–SG10)"
+type: design
+epic: EPIC_Rework_Subclasses
+subclass: deceiver
+status: in_progress
+owner: Lead Class Designer
+implementation: pending
+priority: must
+value: 5
+effort: 4
+inputs: [21.04/_SUBCLASS_STANDARD.md, 21.04/_SUBCLASS_REFINING.md, 21.04/Deceiver/2026-10-06-deceiver-veil-design.md, 05.02/Deceiver.md, 05.01/Arcana_Base_Class.md, 21.08, 10.06/Open_Questions.md]
+outputs: [21.04/Deceiver/REFINE_Deceiver.md, 21.04/Deceiver/DECISIONS.md, 21.04/Deceiver/DESIGN.md, 21.03/Deceiver.md, 21.08]
+blocked_by: []
+sprint:
+created: 2026-10-16
+---
+
+# ARC-0019 · Deceiver refining: raise the Veil design to the subclass standard v2.1
+
+**Goal:** review the Deceiver (Veil design, D1–D17) against the Depth Model of standard v2.1 with the refining
+method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md` + `DECISIONS.md`, ADR-0009).
+**Intent:** a Deceiver whose core rule fits in one sentence, whose ultimate and Tier III read the Veil, and whose
+1–12 journey is spread and felt — before the 4.0 build.
+
+## Acceptance criteria
+
+- [x] Review written: `21.04/Deceiver/REFINE_Deceiver.md` (audit, SG1–SG10)
+- [x] Owner answered every suggestion (2026-10-16): SG1–SG10 approved; SG4 with a wider Shatter; SG9 drops Telepathy
+- [x] D1–D17 migrated and the approved suggestions logged in `21.04/Deceiver/DECISIONS.md` (prefix `DV`)
+- [ ] Level map revised without Telepathy, and SG11–SG12 (names, Nephele), approved
+- [ ] `DESIGN.md` complete and `21.03/Deceiver.md` written from the approved map
+- [ ] Propagation (00.08) to every department; `check_propagation.pl Deceiver` prints OK
+- [ ] Build ticket opened (`implementation: claude`) with its spec in `55`
+
+## Gates
+
+- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
+- [ ] Narrative gate (`32.04`)
+- [ ] DoD (`00.03`)
+
+## Log
+
+- 2026-10-16 — created. Refining review given in session and recorded in `REFINE_Deceiver.md`. Owner approved
+  SG1–SG10 → DV18–DV27 (SG4 with a wider Shatter at Tier III; SG9 keeps Faceless and Friends, drops Telepathy and
+  asks for a revised map). D1–D17 of the Veil design migrated as DV1–DV17 (the dated spec is archived when `DESIGN.md` replaces it). Proposed after the Owner's follow-ups: the vanilla Death Burst pattern for DV21, a revised level map without Telepathy, SG11 (rename the five LeBlanc names) and SG12 (drop Nephele — Ixion is the Kingmaker's). Matrix `21.08`
+  corrected (Axis, Awakening goal). Nothing in the game changed.
