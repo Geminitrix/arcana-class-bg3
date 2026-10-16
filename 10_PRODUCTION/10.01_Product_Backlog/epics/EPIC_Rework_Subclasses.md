@@ -17,3 +17,4 @@ stats found in `10.06_Impediments/Open_Questions.md`.
 | ARC-0013 | All | Mod terminology: rewrite the glossary for the rework | backlog |
 | ARC-0015 | Kingmaker | Own icons for the entries that share Crown of Madness and Detect Thoughts | backlog |
 | ARC-0019 | Deceiver | Refine the Deceiver (Veil design) to the subclass standard v2.1 | in_progress |
+| ARC-0020 | Deceiver | Deceiver refining build (DV18–DV31) | ready |

@@ -32,7 +32,7 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
 - [x] Level map revised without Telepathy, and SG11–SG12 (names, Nephele), approved → DV28–DV30
 - [x] `DESIGN.md` complete and `21.03/Deceiver.md` written from the approved map
 - [x] Propagation (00.08) to every department; `check_propagation.pl Deceiver` prints OK
-- [ ] Build ticket opened (`implementation: claude`) with its spec in `55`
+- [x] Build ticket opened: ARC-0020 (`implementation: claude`), spec `55/SPEC_ARC-0020.md`
 
 ## Gates
 
@@ -63,3 +63,4 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   DESIGN.md, 21.03, 23.02 (`SPL_SplinterOnCommand`, renamed), 25 (`SPL_Deceiver_SplinterOnCommand`, renamed), 22.05,
   26.01, 32.01, 33.03, 42.04, 61.02. Lore Writer fixed `31.01` §4 and §5 (no LeBlanc names, no Sigils; the Deceiver's
   in-game description kept as the game text, with a draft for the build). DV24/DV28 and REFINE stay as the record.
+- 2026-10-16 — Build ticket ARC-0020 opened with `SPEC_ARC-0020.md` (stages 0–5, probes B1–B4).

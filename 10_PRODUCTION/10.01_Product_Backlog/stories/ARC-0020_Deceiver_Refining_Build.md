@@ -1,0 +1,42 @@
+---
+id: ARC-0020
+title: "Deceiver refining build: the game plays DV18–DV31"
+type: rework
+epic: EPIC_Rework_Subclasses
+subclass: deceiver
+status: ready
+owner: Mod Engineer
+implementation: claude
+priority: must
+value: 5
+effort: 4
+inputs: [21.04/Deceiver/DESIGN.md, 21.04/Deceiver/DECISIONS.md, 25 (*_Deceiver_*, pending_build), 61.02/Deceiver/TC_ARC-0019.md]
+outputs: [55/SPEC_ARC-0020.md, 55/_wip/Deceiver/arc0020/, game files (Stats, LSX, Osiris, loca), 05.02/Deceiver.md]
+blocked_by: []
+sprint:
+created: 2026-10-16
+---
+
+# ARC-0020 · Deceiver refining build
+
+**Goal:** apply the ARC-0019 refining (DV18–DV31) to the game, stage by stage, following `55/SPEC_ARC-0020.md`.
+**Intent:** the game plays the Deceiver as `21.04/Deceiver/DESIGN.md` describes it, in both editions.
+
+## Acceptance criteria
+
+- [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean
+- [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change
+- [ ] Probes B1–B4 recorded, plan B applied where one failed
+- [ ] `61.02/Deceiver/TC_ARC-0019.md` rows pass in game
+- [ ] Stage 5: `25` holds no Deceiver `pending_build` block; `05.02` synced; `check_propagation` OK
+
+## Gates
+
+- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
+- [ ] Narrative gate (`32.04`)
+- [ ] DoD (`00.03`)
+
+## Log
+
+- 2026-10-16 — created from ARC-0019 at the Owner's go-ahead ("pode dar sequência"); spec written. Nothing in the
+  game changed.
