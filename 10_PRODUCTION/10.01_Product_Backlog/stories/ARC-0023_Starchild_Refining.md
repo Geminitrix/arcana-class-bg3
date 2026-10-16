@@ -49,3 +49,5 @@ player feels.
   chosen once per long rest, shown as a status until the next long rest (SC2). The term "path" is retired; name open.
 - 2026-10-16 — Owner: names approved — Hymn, Sing a Hymn, Hymn of the Stars / Sun / Moon (SC3); the three Hymns must be
   equally viable (SC4). Open: the "no Hymn" reminder status.
+- 2026-10-16 — Owner: no-Hymn status is **Unsung** ("Your light flickers, dim and waiting. Sing a Hymn to choose your
+  light."), reminder only (SC5). Next: how the three Hymns differ.
