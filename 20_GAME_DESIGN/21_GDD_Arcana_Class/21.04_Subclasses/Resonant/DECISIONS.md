@@ -67,6 +67,7 @@ Sources read: `93_Old_Versions/2026-10-15_Resonant_first_design/2026-10-06-heart
 | R47 | **Feelings stack additively** (`StackType Additive`): a feeling braided again in the same fight adds its turns | author, 2026-10-12 |
 | R48 | **Emotional Overload is a Bonus Action** | author, 2026-10-12 |
 | R49 | **A used mood is spent; only an emotion that fades on its own leaves a mood** (written once in Emotional Alchemy). Intensify: the intense emotion leaves nothing when it ends (was: the mood returns). **Temper** (replaces R36): spend a creature's mood to make it relive the emotion it came from for 1 turn; the replayed emotion leaves nothing when it fades. Closes the Intensify and Temper loops (`REFINE_Resonant_2026-10-15.md` §6.1 L1, L4, L5) | Owner, from SG1 (ARC-0014), 2026-10-15 |
+| R50 | **Excess once per fight:** a creature can feel an intense emotion once per fight. An intense emotion leaves a hidden marker on the creature, removed when combat ends; a Surge at distance 0 on a creature carrying it lands as a plain peak. Closes the mass loop of Tier II (R42) + upcast + Emotional Contagion (`REFINE_Resonant_2026-10-15.md` §6.1 L2, L3) | Owner, from SG2 option A (ARC-0014), 2026-10-15 |
 | — | Bug: Ready: Compassion triggered on the Resonant's own Surge on an ally (the Surge has a damage functor and "hits"). Now only an enemy source triggers it, as vanilla Hellish Rebuke | 2026-10-12 |
 | — | P10: the meter does not show at 0%; the Owner accepts it as is (it persists between combats; across a save still to be seen in game) | author, 2026-10-12 |
 
