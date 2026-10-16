@@ -60,3 +60,7 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - 2026-10-16 — Owner: Windswept lasts until the end of your next turn (WB9). Weighed and set aside: one round, and "the
   full circle" with three variants (speed, stored laps, homecoming) — the laps and homecoming hooks stay as ideas for
   Tier III or the Hurricane rank.
+- 2026-10-16 — Owner: Windswept enemies can't make opportunity attacks (WB10). Owner's idea under discussion: the four
+  winds of Aeolus (N/S/E/W), each with a party boon and an enemy bane — random at combat start, an ultimate, or
+  elsewhere. Feasibility read: the mod's Osiris already uses `EnteredCombat` / `CombatEnded`; vanilla Osiris uses
+  `Random(N,_Var)`; vanilla aura pattern `AURA_OF_PROTECTION` (`SharedDev/.../Status_BOOST.txt`).

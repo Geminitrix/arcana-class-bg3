@@ -1,7 +1,7 @@
 ---
 id: 21.04/Unbound/REFINE_Unbound
 owner: Lead Class Designer (with the Balance Designer)
-status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB9); nothing here is a decision until it is logged in DECISIONS.md
+status: proposal — in progress (steps 1–4 and kit directions; direction A + Beaufort ranks chosen, WB3–WB10); nothing here is a decision until it is logged in DECISIONS.md
 ticket: ARC-0022
 created: 2026-10-16
 variant: subclass (full)
