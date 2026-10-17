@@ -22,6 +22,8 @@ sub spew { my ($f, $s) = @_; open my $h, '>:raw', $f or die "$f: $!"; print $h $
 sub date { my @l = localtime; sprintf '%04d-%02d-%02d', $l[5] + 1900, $l[4] + 1, $l[3] }
 sub guide { JSON::PP->new->decode(slurp("$T/$_[0]")) }
 sub folder { $_[0] =~ m{61\.02_Test_Cases/([^/]+)/} ? $1 : undef }
+# Tabs show the display names (31.01 §6, ARC-0021); folders keep the internal names (ADR-0002).
+my %DISPLAY = (Unbound => 'Windborn', Deceiver => 'Veilwalker', Eternal => 'Palerider', Resonant => 'Heartsong');
 
 # The test part of a QA ticket, from "## Before you start" to just before "## Gates". %$r = results by "<ARC>_<id>".
 sub tests_md {
@@ -89,7 +91,7 @@ elsif ($cmd eq 'sync') {
         $guides{$rel} = 1;
         print "$f: $c{ok} done, $c{fail} failed, $c{left} left\n";
         next if ($status // '') eq 'done';
-        my $tab = ($kind // '') eq 'feature' ? 'Features' : ($kind // '') eq 'bug-retest' ? 'Bug retests' : (folder($rel) // 'Other');
+        my $tab = ($kind // '') eq 'feature' ? 'Features' : ($kind // '') eq 'bug-retest' ? 'Bug retests' : do { my $d = folder($rel) // 'Other'; $DISPLAY{$d} // $d };
         push @order, $tab unless $tabs{$tab};
         push @{ $tabs{$tab} }, $rel;
     }
