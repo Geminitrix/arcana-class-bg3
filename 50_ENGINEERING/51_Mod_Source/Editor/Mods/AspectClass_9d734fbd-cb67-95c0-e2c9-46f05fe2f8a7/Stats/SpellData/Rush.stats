@@ -44,6 +44,10 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Rush" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="6dcd5f62-fadc-4dbc-bdff-025e4f38cb61" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="CooldownType" version="1" />
+        <field name="RechargeValues" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="WeaponType" type="EnumerationListTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="WeaponFlags" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
         <field name="MovementSpeed" type="IntegerTableFieldDefinition" value="60000" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.MeleeUnarmedAttack)" />
@@ -56,8 +60,6 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsMelee;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Bludgeoning" enumeration_type_name="Damage Type" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="DontChange" enumeration_type_name="SpellSheathing" version="1" />
-        <field name="Cooldown" type="EnumerationTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="CooldownType" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
