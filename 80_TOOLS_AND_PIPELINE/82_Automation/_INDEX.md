@@ -22,7 +22,7 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | `verify_context.pl` | Every spell / passive a progression grants must appear in its `05` file; every id in a `05` file must exist. Matches by id or in-game name — features described under another name show up as false positives, so read the list |
 | `update_board.pl` | Tickets → `10.01/BACKLOG.md`, `10.02/SPRINT_BOARD.md` and `kanban/board.json` (the kanban artifact's data) |
 | `kanban/` | The Owner's kanban board artifact (ARC-0018): `index.html`, `board.json`, `emblems/`. Sync below |
-| `playtests.pl` | `new <guide.json> <subclass\|feature\|bug-retest>` writes the next QA-#### playtest ticket in `10.01/playtests`; `sync <dir>` writes Arcana Test Guides results on the test lines (ARC-0024) |
+| `playtests.pl` | `new <guide.json> <subclass\|feature\|bug-retest>` writes the next QA-#### playtest ticket in `10.01/playtests`; `sync [dir]` rebuilds the QA test lists from the guides (by level) with the Arcana Test Guides results, plus `TEST_GUIDES.json` and the `.md` records (ARC-0024) |
 
 ## Kanban sync (ARC-0018)
 
@@ -36,14 +36,17 @@ cards and writes comments on the board; they wait in the artifact's store (`move
 3. Each comment → a log line `- <date> — Owner comment: <text>` (kept in Portuguese).
 3b. Playtests (ARC-0024): `ArtifactData list` of `results` on Arcana Test Guides
    (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E) with `out_dir` = a scratch folder, then
-   `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl sync <out_dir>/results`. Each new fail → an ARC bug ticket
+   `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl sync <out_dir>/results` (rebuilds each QA ticket's test
+   list from its guide, `61_Test_Plan/TEST_GUIDES.json` and the guides' `.md` records). Each new fail → an ARC bug ticket
    (`/novo-ticket`) and a QA bug-retest (`playtests.pl new <its guide> bug-retest`, `blocked_by` the bug).
    Those results stay in the test page; nothing there is deleted.
 4. `update_board.pl`, commit + push (`ARC-0018: kanban sync …` or the ticket's own id).
-5. Republish `kanban/index.html` with `files: ["board.json"]` (same file path keeps the URL).
+5. Republish `kanban/index.html` with `files: ["board.json"]` (same file path keeps the URL), and Arcana Test Guides:
+   `61_Test_Plan/test_guides/index.html` with its `url`, `root` = `60_QA_AND_TESTING/61_Test_Plan`, `files` =
+   `TEST_GUIDES.json` plus every guide it lists.
 6. Delete the synced `moves` / `comments` documents (one `batch`).
 
-Any other change to tickets reaches the board at the next republish (step 5).
+Any other change to tickets or guides reaches both pages at the next sync (`/update-board`, steps 3b–5).
 | `check_readme.pl` | README version and subclass states vs `05.00` (run by `/commit-e-push`) |
 | `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
 | `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |

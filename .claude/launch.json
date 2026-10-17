@@ -12,6 +12,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["-e", "const h=require('http'),f=require('fs'),p=require('path');const r=p.resolve('80_TOOLS_AND_PIPELINE/82_Automation/kanban');const t={'.html':'text/html; charset=utf-8','.json':'application/json','.png':'image/png'};h.createServer((q,s)=>{const u=decodeURIComponent(q.url.split('?')[0]);const x=p.join(r,u==='/'?'index.html':u);if(!x.startsWith(r)||!f.existsSync(x)){s.writeHead(404);return s.end()}s.writeHead(200,{'Content-Type':t[p.extname(x)]||'application/octet-stream'});f.createReadStream(x).pipe(s)}).listen(8766)"],
       "port": 8766
+    },
+    {
+      "name": "testguides",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const h=require('http'),f=require('fs'),p=require('path');const r=p.resolve('60_QA_AND_TESTING/61_Test_Plan');const t={'.html':'text/html; charset=utf-8','.json':'application/json'};h.createServer((q,s)=>{const u=decodeURIComponent(q.url.split('?')[0]);const x=p.join(r,u==='/'?'test_guides/index.html':u);if(!x.startsWith(r)||!f.existsSync(x)){s.writeHead(404);return s.end()}s.writeHead(200,{'Content-Type':t[p.extname(x)]||'application/octet-stream'});f.createReadStream(x).pipe(s)}).listen(8767)"],
+      "port": 8767
     }
   ]
 }

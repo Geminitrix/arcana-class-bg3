@@ -15,7 +15,7 @@ for my $f (@ARGV) {
         $o .= "\n## $s->{name}\n\n**Setup:** $s->{setup}\n";
         for my $t (@{ $s->{tests} }) {
             $n++;
-            $o .= "\n### $t->{id} · $t->{title} ($t->{rule})" . (($t->{kind} // '') eq 'observe' ? ' -- observe' : '') . "\n\n"
+            $o .= "\n### $t->{id} · $t->{title} ($t->{rule})" . (($t->{kind} // '') eq 'observe' ? ' -- observe' : '') . (($t->{edition} // '') eq 'PC' ? ' -- PC' : '') . "\n\n"
                 . "- **Steps:** $t->{steps}\n- **Expected:** $t->{expected}\n- **Fails if:** $t->{fails}\n"
                 . ($t->{planb} ? "- **Plan B:** $t->{planb}\n" : '');
         }

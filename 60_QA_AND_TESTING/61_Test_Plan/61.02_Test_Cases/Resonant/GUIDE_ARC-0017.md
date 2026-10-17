@@ -17,7 +17,7 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 
 ## Level 1
 
-**Setup:** A new Resonant at level 1, one ally, a normal fight against two or three enemies.
+**Setup:** A new Resonant at level 1, one ally, a normal fight against two or three enemies. Tests marked PC: the PC edition with the deck on.
 
 ### B6a · Weave Surge opens with the emotions you know (R54)
 
@@ -74,15 +74,22 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** The tooltip lists what each emotion would make of it, with the level that unlocks it.
 - **Fails if:** No list.
 
-### V4 · Nothing-to-do turns (levels 1-3) (R51) -- observe
+### V9 · Weave Surge in the deck (R55) -- PC
 
-- **Steps:** Over your fights at levels 1 to 3, count turns where the Resonant had nothing useful to do.
-- **Expected:** None.
-- **Fails if:** One or more per fight.
+- **Steps:** Check the deck list (!arcanapool). Play a few fights.
+- **Expected:** One Weave Surge card with 24 copies at level 5 (9 at level 1); no separate emotion cards; it is often in hand.
+- **Fails if:** Eight emotion cards, 3 copies, or rarely in hand.
 
-## Levels 2-3
+### B4 · Emotional Overload costs no Threads (R66) -- PC
 
-**Setup:** The same Resonant at level 2, then 3.
+- **Steps:** While Overloaded in combat, look at Emotional Overload's cost and cast it.
+- **Expected:** 0 Threads.
+- **Fails if:** It costs Threads.
+- **Plan B:** Exclude it from the ARCANA_WEAVING check.
+
+## Level 2
+
+**Setup:** The same Resonant at level 2.
 
 ### L2a · Temper and Anticipation at level 2 (R59)
 
@@ -90,15 +97,25 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Temper is granted, and Anticipation opens inside Weave Surge.
 - **Fails if:** Either arrives at level 3.
 
+## Level 3
+
+**Setup:** The Resonant at level 3, one ally, fights long enough to wake Tier I.
+
+### V4 · Nothing-to-do turns (levels 1-3) (R51) -- observe
+
+- **Steps:** Over your fights at levels 1 to 3, count turns where the Resonant had nothing useful to do.
+- **Expected:** None.
+- **Fails if:** One or more per fight.
+
 ### L3a · Opposites and Tier I at level 3 (R60 R63)
 
 - **Steps:** Level up to 3. Pour Joy into a Pensive enemy. Wake Tier I in a fight and let a peak fade.
 - **Expected:** The Opposites passive shows and Catharsis happens. With Tier I awake, Catharsis gets +1d8 and moods still last 5 turns (not 7).
 - **Fails if:** No Opposites passive, or moods last 7 turns with Tier I.
 
-## Levels 5-6
+## Level 5
 
-**Setup:** The Resonant at level 5, then 6, a fight with several enemies and one ally.
+**Setup:** The Resonant at level 5, a fight with several enemies and one ally.
 
 ### B1 · Temper's replay leaves no mood (R49)
 
@@ -137,6 +154,10 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Record what happens: if it fails that save, does it take 1d4 Psychic ('Psychic Discharge') and lose Mental Fatigue?
 - **Fails if:** Nothing fails here: write down what you saw. The Owner decides.
 
+## Level 6
+
+**Setup:** The Resonant at level 6, one lower-level ally, a normal fight.
+
 ### L6a · Complex Feelings at 6, not 5 (R59)
 
 - **Steps:** At level 5, pour Joy into an Apprehensive enemy. Level up to 6 and repeat.
@@ -172,9 +193,9 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Sometimes held, sometimes released.
 - **Fails if:** Always released at once, or never released.
 
-## Levels 9-10
+## Level 9
 
-**Setup:** The Resonant at level 9, then 10, a fight with a group of enemies close together and two allies.
+**Setup:** The Resonant at level 9, a fight with a group of enemies close together and two allies.
 
 ### B5 · Emotional Overload, rank III (the area) (R51 R67)
 
@@ -195,15 +216,19 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Deeper Feelings shows again. Hope 1d8; Overloaded 3d4 and -3; Catharsis 4d8.
 - **Fails if:** The old values.
 
+## Level 10
+
+**Setup:** The Resonant at level 10, one ally, a normal fight.
+
 ### V10a · Compassion is kind (R57)
 
 - **Steps:** At level 10, ready Compassion. Let an Apprehensive ally take damage from an enemy.
 - **Expected:** Compassion casts Trust as a plain peak: no Submission, no Prone.
 - **Fails if:** The ally is knocked Prone.
 
-## Levels 11-12
+## Level 11
 
-**Setup:** The Resonant at level 11, then 12, a long fight with the whole party.
+**Setup:** The Resonant at level 11, a long fight with the whole party.
 
 ### R58 · Shared Heart acts on cast (R58)
 
@@ -217,34 +242,25 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Love reaches every linked ally; the hindering feeling stays on the one you targeted.
 - **Fails if:** The hindering feeling spreads.
 
+## Level 12
+
+**Setup:** The Resonant at level 12, a long fight with the whole party.
+
 ### V11 · Tier III: the dam breaks (R56 R68)
 
 - **Steps:** At level 12, wake Tier III (15 reactions) with the meter not full. Release Emotional Overload on an enemy that fails.
 - **Expected:** The meter fills at once and you are Overloaded. The enemy dances for 2 turns.
 - **Fails if:** The meter stays as it was, or the dance lasts 1 turn.
 
+## Any level / full run
+
+**Setup:** Across the whole run: a new Resonant levelled from 1 to 12 in your usual fights.
+
 ### V8 · Every level-up has something (R59) -- observe
 
 - **Steps:** Level a Resonant from 1 to 12 and name what changed at each level.
 - **Expected:** Every level except 4 and 8 brings something you can name.
 - **Fails if:** A level you can't name.
-
-## PC edition (Script Extender)
-
-**Setup:** A Resonant at level 5 in the PC edition with the deck on.
-
-### V9 · Weave Surge in the deck (R55)
-
-- **Steps:** Check the deck list (!arcanapool). Play a few fights.
-- **Expected:** One Weave Surge card with 24 copies at level 5 (9 at level 1); no separate emotion cards; it is often in hand.
-- **Fails if:** Eight emotion cards, 3 copies, or rarely in hand.
-
-### B4 · Emotional Overload costs no Threads (R66)
-
-- **Steps:** While Overloaded in combat, look at Emotional Overload's cost and cast it.
-- **Expected:** 0 Threads.
-- **Fails if:** It costs Threads.
-- **Plan B:** Exclude it from the ARCANA_WEAVING check.
 
 ## Not here
 

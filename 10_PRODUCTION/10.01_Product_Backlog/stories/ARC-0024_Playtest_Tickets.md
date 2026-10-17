@@ -54,3 +54,9 @@ created: 2026-10-16
   in `82_Automation/_INDEX.md`. Tested: sync round trip with sample results (pass / fail with note / skip, then back
   to pending) and the board tab, filters, progress and Done rules on a local server. Not done: the build tickets
   ARC-0017 / ARC-0008 were not moved to In QA (other sessions are working on them).
+- 2026-10-16 — Owner: guides go level by level, `/update-board` syncs both pages. Guides GUIDE_ARC-0017 (11 sessions)
+  and GUIDE_ARC-0008 (8 sessions) regrouped by level, ids kept (levels from 21.03 and the 05.01 slot table; P36 at 11
+  for the level-6 slot); PC tests inside their level (`edition: PC`); no-level tests in "Any level / full run".
+  `playtests.pl sync` now rebuilds the QA test lists from the guides, generates `TEST_GUIDES.json` (Done playtests
+  drop out) and the `.md` records. Test Guides page source kept in `61_Test_Plan/test_guides/` (PC tag, safe db call).
+  Rules: `61_Test_Plan/_AGENT.md` § Test guides and playtests; DoD engineering row; `/update-board` republishes both.

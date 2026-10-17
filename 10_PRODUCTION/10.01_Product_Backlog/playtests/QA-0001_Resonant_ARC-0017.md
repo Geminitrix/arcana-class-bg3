@@ -29,7 +29,7 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 
 ## Level 1
 
-**Setup:** A new Resonant at level 1, one ally, a normal fight against two or three enemies.
+**Setup:** A new Resonant at level 1, one ally, a normal fight against two or three enemies. Tests marked PC: the PC edition with the deck on.
 
 - [ ] B6a · Weave Surge opens with the emotions you know (R54)
 - [ ] B3a · Emotional Overload is free (R66)
@@ -40,18 +40,25 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - [ ] R53 · When a fight ends, the meter settles to half (R53)
 - [ ] R61 · Heartstring reads feelings (R61)
 - [ ] R64 · Moods say what they react with (R64)
-- [ ] V4 · Nothing-to-do turns (levels 1-3) (R51)
+- [ ] V9 · Weave Surge in the deck (R55) [PC]
+- [ ] B4 · Emotional Overload costs no Threads (R66) [PC]
 
-## Levels 2-3
+## Level 2
 
-**Setup:** The same Resonant at level 2, then 3.
+**Setup:** The same Resonant at level 2.
 
 - [ ] L2a · Temper and Anticipation at level 2 (R59)
+
+## Level 3
+
+**Setup:** The Resonant at level 3, one ally, fights long enough to wake Tier I.
+
+- [ ] V4 · Nothing-to-do turns (levels 1-3) (R51)
 - [ ] L3a · Opposites and Tier I at level 3 (R60 R63)
 
-## Levels 5-6
+## Level 5
 
-**Setup:** The Resonant at level 5, then 6, a fight with several enemies and one ally.
+**Setup:** The Resonant at level 5, a fight with several enemies and one ally.
 
 - [ ] B1 · Temper's replay leaves no mood (R49)
 - [ ] V2 · No Temper lock (R49)
@@ -59,6 +66,11 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - [ ] R52 · Overloaded grows at 5 (R52 R67)
 - [ ] R62a · Deeper Feelings at 5 (R62)
 - [ ] B2 · Does the dance's save discharge Mental Fatigue? (R68)
+
+## Level 6
+
+**Setup:** The Resonant at level 6, one lower-level ally, a normal fight.
+
 - [ ] L6a · Complex Feelings at 6, not 5 (R59)
 - [ ] B7 · Growing dice read the Resonant's level (R62)
 
@@ -70,30 +82,38 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - [ ] B6b · Tier II's free Surge through the container (R40 R54)
 - [ ] V5 · Ride or release (levels 3 and 7) (R51)
 
-## Levels 9-10
+## Level 9
 
-**Setup:** The Resonant at level 9, then 10, a fight with a group of enemies close together and two allies.
+**Setup:** The Resonant at level 9, a fight with a group of enemies close together and two allies.
 
 - [ ] B5 · Emotional Overload, rank III (the area) (R51 R67)
 - [ ] V3 · Contagion + Tier II: no mass action loop (R50)
 - [ ] R62b · Growth at 9 (R62 R67)
+
+## Level 10
+
+**Setup:** The Resonant at level 10, one ally, a normal fight.
+
 - [ ] V10a · Compassion is kind (R57)
 
-## Levels 11-12
+## Level 11
 
-**Setup:** The Resonant at level 11, then 12, a long fight with the whole party.
+**Setup:** The Resonant at level 11, a long fight with the whole party.
 
 - [ ] R58 · Shared Heart acts on cast (R58)
 - [ ] V10b · Shared Heart shares only helpful feelings (R57)
+
+## Level 12
+
+**Setup:** The Resonant at level 12, a long fight with the whole party.
+
 - [ ] V11 · Tier III: the dam breaks (R56 R68)
+
+## Any level / full run
+
+**Setup:** Across the whole run: a new Resonant levelled from 1 to 12 in your usual fights.
+
 - [ ] V8 · Every level-up has something (R59)
-
-## PC edition (Script Extender)
-
-**Setup:** A Resonant at level 5 in the PC edition with the deck on.
-
-- [ ] V9 · Weave Surge in the deck (R55)
-- [ ] B4 · Emotional Overload costs no Threads (R66)
 
 ## Gates
 

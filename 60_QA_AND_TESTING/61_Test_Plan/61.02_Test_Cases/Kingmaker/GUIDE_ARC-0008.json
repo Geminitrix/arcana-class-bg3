@@ -7,8 +7,9 @@
    ],
    "sessions" : [
       {
-         "id" : "binding",
-         "name" : "Binding",
+         "id" : "L1",
+         "level" : 1,
+         "name" : "Level 1",
          "setup" : "A Kingmaker at level 1, in a party of four, a normal fight.",
          "tests" : [
             {
@@ -34,14 +35,7 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Spoke of the Wheel on a Fallen enemy vs a normal one",
                "title" : "Spoke of the Wheel on a Fallen enemy vs a normal one"
-            }
-         ]
-      },
-      {
-         "id" : "the-wheel-turns",
-         "name" : "The Wheel turns",
-         "setup" : "A Kingmaker at level 1, in a party of four, a normal fight.",
-         "tests" : [
+            },
             {
                "expected" : "Ally → Reigning and King; enemy → Fallen; the change shows before you act, with you as the source (tooltip)",
                "fails" : "It does not happen as expected.",
@@ -73,14 +67,7 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Kill a creature on the Wheel; end combat",
                "title" : "Kill a creature on the Wheel; end combat"
-            }
-         ]
-      },
-      {
-         "id" : "the-crown",
-         "name" : "The crown",
-         "setup" : "A Kingmaker at level 1 (P18 needs the King's Hand, level 5), in a party of four, a normal fight.",
-         "tests" : [
+            },
             {
                "expected" : "When both Reign, the older one is King, the other Regent",
                "fails" : "It does not happen as expected.",
@@ -88,21 +75,14 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Crown two allies on different turns",
                "title" : "Crown two allies on different turns"
-            },
-            {
-               "expected" : "At your turn start the Hand wears King and crits on 19–20; when an ally reigns, the crown moves to it | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P18",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Appoint the King's Hand; start a fight with nobody on the Wheel",
-               "title" : "Appoint the King's Hand; start a fight with nobody on the Wheel"
             }
          ]
       },
       {
-         "id" : "the-crossing",
-         "name" : "The Crossing",
-         "setup" : "A Kingmaker at level 3 (P38 needs Master of Ships, level 9; P43 needs Fortune's Reach, level 12), in a party of four, a normal fight.",
+         "id" : "L3",
+         "level" : 3,
+         "name" : "Level 3",
+         "setup" : "A Kingmaker at level 3, in a party of four, a normal fight.",
          "tests" : [
             {
                "expected" : "At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d4 Force from you (combat log) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`",
@@ -129,29 +109,6 @@
                "title" : "Two Reigning allies next to one enemy entering Fallen; then Turn th..."
             },
             {
-               "expected" : "The enemy crosses | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P38",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Master of Ships 5 m from an enemy entering Fallen, no Reigning ally near",
-               "title" : "Master of Ships 5 m from an enemy entering Fallen, no Reigning ally..."
-            },
-            {
-               "expected" : "It crosses (Fortune's Reach) | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P43",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Level 12: an enemy enters Fallen 20 m from the only Reigning ally",
-               "title" : "Level 12: an enemy enters Fallen 20 m from the only Reigning ally"
-            }
-         ]
-      },
-      {
-         "id" : "awakening",
-         "name" : "Awakening",
-         "setup" : "A Kingmaker at level 3, 7 and 12, in a party of four, a normal fight.",
-         "tests" : [
-            {
                "expected" : "The Awakening counts 2 per Crossing with one enemy, 1 with two; 3 Crossings awaken Tyche (status, card *Rota Fortunae* in the hotbar) | —",
                "fails" : "It does not happen as expected.",
                "id" : "P12",
@@ -176,29 +133,6 @@
                "title" : "Rota Fortunae"
             },
             {
-               "expected" : "The Falling one drops to Fallen and crosses too if an ally Reigns near; nothing loops | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P26",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling enemy within 3 m",
-               "title" : "With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling e..."
-            },
-            {
-               "expected" : "Rising → Reigning → Falling → Falling → Rising, never Fallen; Peripeteia leaves it Falling | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P44",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia an ally from Reigning",
-               "title" : "Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia..."
-            }
-         ]
-      },
-      {
-         "id" : "atropos-cut",
-         "name" : "Atropos' Cut",
-         "setup" : "A Kingmaker at level 3, in a party of four, a normal fight.",
-         "tests" : [
-            {
                "expected" : "3d8 / 2d8 / 1d8 Slashing; the enemy loses its position status and the Wheel ignores it | —",
                "fails" : "It does not happen as expected.",
                "id" : "P15",
@@ -217,10 +151,19 @@
          ]
       },
       {
-         "id" : "the-court",
-         "name" : "The Court",
-         "setup" : "A Kingmaker at level 5, 7 and 9, in a party of four, a normal fight.",
+         "id" : "L5",
+         "level" : 5,
+         "name" : "Level 5",
+         "setup" : "A Kingmaker at level 5 with CHA 15, in a party of four, a normal fight.",
          "tests" : [
+            {
+               "expected" : "At your turn start the Hand wears King and crits on 19–20; when an ally reigns, the crown moves to it | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P18",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Appoint the King's Hand; start a fight with nobody on the Wheel",
+               "title" : "Appoint the King's Hand; start a fight with nobody on the Wheel"
+            },
             {
                "expected" : "Two offices land; the third option can't be cast (`COURT_FULL`); in combat the container can't be cast | `GetAbility` key not `\"Charisma\"` → read the modifier from a boost-free stat",
                "fails" : "It does not happen as expected.",
@@ -262,6 +205,46 @@
                "title" : "A holder dies"
             },
             {
+               "expected" : "Master of Laws and Master of Secrets are shown but can't be cast before level 7 | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P32",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Level 5 character: open Convene the Court",
+               "title" : "Level 5 character: open Convene the Court"
+            },
+            {
+               "expected" : "Within 18 m: Reigning ↔ Fallen, Rising ↔ Falling; an enemy turned Fallen next to a Reigning ally crosses at once; beyond 18 m nothing moves | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P23",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Peripeteia with allies and enemies on the Wheel, some beyond 18 m",
+               "title" : "Peripeteia with allies and enemies on the Wheel, some beyond 18 m"
+            },
+            {
+               "expected" : "It can't (once per combat, variants included) | Variants don't share the cooldown → a `PERIPETEIA_USED` status like `ARCANE_MASTERY_USED`",
+               "fails" : "It does not happen as expected.",
+               "id" : "P24",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Cast Peripeteia again in the same fight, with a higher slot",
+               "title" : "Cast Peripeteia again in the same fight, with a higher slot"
+            }
+         ]
+      },
+      {
+         "id" : "L7",
+         "level" : 7,
+         "name" : "Level 7",
+         "setup" : "A Kingmaker at level 7, in a party of four, a normal fight.",
+         "tests" : [
+            {
+               "expected" : "The Falling one drops to Fallen and crosses too if an ally Reigns near; nothing loops | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P26",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling enemy within 3 m",
+               "title" : "With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling e..."
+            },
+            {
                "expected" : "At the next turn it skips Reigning and lands on Falling (no Hubris) | `AttackedBy` doesn't fire on misses → note it",
                "fails" : "It does not happen as expected.",
                "id" : "P29",
@@ -286,22 +269,6 @@
                "title" : "Master of Secrets; an enemy on the Wheel within 9 m tries to hide o..."
             },
             {
-               "expected" : "Master of Laws and Master of Secrets are shown but can't be cast before level 7 | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P32",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Level 5 character: open Convene the Court",
-               "title" : "Level 5 character: open Convene the Court"
-            },
-            {
-               "expected" : "One spell slot (of your slot level) comes back the first time only; after a Long Rest it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`",
-               "fails" : "It does not happen as expected.",
-               "id" : "P37",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Master of Coin hits a Fallen enemy, then another",
-               "title" : "Master of Coin hits a Fallen enemy, then another"
-            },
-            {
                "expected" : "Coin and Ships are shown but locked; at 9 they open | —",
                "fails" : "It does not happen as expected.",
                "id" : "P39",
@@ -309,44 +276,6 @@
                "steps" : "Level 7 character: open Convene the Court",
                "title" : "Level 7 character: open Convene the Court"
             },
-            {
-               "expected" : "Five appointed, then the rest are locked (`COURT_FULL`) | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P40",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Seven offices with CHA 20 (+5)",
-               "title" : "Seven offices with CHA 20 (+5)"
-            }
-         ]
-      },
-      {
-         "id" : "peripeteia",
-         "name" : "Peripeteia",
-         "setup" : "A Kingmaker at level 5, in a party of four, a normal fight.",
-         "tests" : [
-            {
-               "expected" : "Within 18 m: Reigning ↔ Fallen, Rising ↔ Falling; an enemy turned Fallen next to a Reigning ally crosses at once; beyond 18 m nothing moves | —",
-               "fails" : "It does not happen as expected.",
-               "id" : "P23",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Peripeteia with allies and enemies on the Wheel, some beyond 18 m",
-               "title" : "Peripeteia with allies and enemies on the Wheel, some beyond 18 m"
-            },
-            {
-               "expected" : "It can't (once per combat, variants included) | Variants don't share the cooldown → a `PERIPETEIA_USED` status like `ARCANE_MASTERY_USED`",
-               "fails" : "It does not happen as expected.",
-               "id" : "P24",
-               "rule" : "SPEC_ARC-0008",
-               "steps" : "Cast Peripeteia again in the same fight, with a higher slot",
-               "title" : "Cast Peripeteia again in the same fight, with a higher slot"
-            }
-         ]
-      },
-      {
-         "id" : "hubris-and-usurp",
-         "name" : "Hubris and Usurp",
-         "setup" : "A Kingmaker at level 7, in a party of four, a normal fight.",
-         "tests" : [
             {
                "expected" : "It shows Hubris while Reigning; its Crossing deals two dice and Hubris goes | —",
                "fails" : "It does not happen as expected.",
@@ -374,10 +303,35 @@
          ]
       },
       {
-         "id" : "succession",
-         "name" : "Succession",
-         "setup" : "A Kingmaker at level 9, in a party of four, a normal fight.",
+         "id" : "L9",
+         "level" : 9,
+         "name" : "Level 9",
+         "setup" : "A Kingmaker at level 9 with CHA 20 (for the seven offices), in a party of four, a normal fight.",
          "tests" : [
+            {
+               "expected" : "The enemy crosses | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P38",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Master of Ships 5 m from an enemy entering Fallen, no Reigning ally near",
+               "title" : "Master of Ships 5 m from an enemy entering Fallen, no Reigning ally..."
+            },
+            {
+               "expected" : "One spell slot (of your slot level) comes back the first time only; after a Long Rest it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`",
+               "fails" : "It does not happen as expected.",
+               "id" : "P37",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Master of Coin hits a Fallen enemy, then another",
+               "title" : "Master of Coin hits a Fallen enemy, then another"
+            },
+            {
+               "expected" : "Five appointed, then the rest are locked (`COURT_FULL`) | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P40",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Seven offices with CHA 20 (+5)",
+               "title" : "Seven offices with CHA 20 (+5)"
+            },
             {
                "expected" : "The 5 m one becomes Falling (Succession); the third doesn't | Roster empty (enemies not in `DB_ARCANA_Aspect_InCombat`) → collect candidates from `EnteredCombat` in this goal",
                "fails" : "It does not happen as expected.",
@@ -393,14 +347,7 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Kill a Reigning enemy with an heir in range",
                "title" : "Kill a Reigning enemy with an heir in range"
-            }
-         ]
-      },
-      {
-         "id" : "wheel-of-ixion",
-         "name" : "Wheel of Ixion",
-         "setup" : "A Kingmaker at level 9, in a party of four, a normal fight.",
-         "tests" : [
+            },
             {
                "expected" : "Enemies take 5d6 (half on a CHA save) and enter Falling; the ally takes no damage from the wheel; the line burns for 2 turns and the ally standing in it burns | The Kingmaker's own square catches fire → `FrontOffset 0`",
                "fails" : "It does not happen as expected.",
@@ -408,7 +355,15 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Wheel of Ixion through two enemies and an ally",
                "title" : "Wheel of Ixion through two enemies and an ally"
-            },
+            }
+         ]
+      },
+      {
+         "id" : "L11",
+         "level" : 11,
+         "name" : "Level 11",
+         "setup" : "A Kingmaker at level 11, in a party of four, a normal fight.",
+         "tests" : [
             {
                "expected" : "6d6 | —",
                "fails" : "It does not happen as expected.",
@@ -416,14 +371,7 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Ixion with a level-6 slot",
                "title" : "Ixion with a level-6 slot"
-            }
-         ]
-      },
-      {
-         "id" : "the-wheel-stops",
-         "name" : "The Wheel Stops",
-         "setup" : "A Kingmaker at level 11, in a party of four, a normal fight.",
-         "tests" : [
+            },
             {
                "expected" : "For your next 2 turn starts nothing moves and the enemy crosses each time (not twice in a round); at the third the Wheel turns again and the marks go | —",
                "fails" : "It does not happen as expected.",
@@ -443,10 +391,27 @@
          ]
       },
       {
-         "id" : "ready-foreseen",
-         "name" : "Ready: Foreseen",
+         "id" : "L12",
+         "level" : 12,
+         "name" : "Level 12",
          "setup" : "A Kingmaker at level 12, in a party of four, a normal fight.",
          "tests" : [
+            {
+               "expected" : "It crosses (Fortune's Reach) | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P43",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Level 12: an enemy enters Fallen 20 m from the only Reigning ally",
+               "title" : "Level 12: an enemy enters Fallen 20 m from the only Reigning ally"
+            },
+            {
+               "expected" : "Rising → Reigning → Falling → Falling → Rising, never Fallen; Peripeteia leaves it Falling | —",
+               "fails" : "It does not happen as expected.",
+               "id" : "P44",
+               "rule" : "SPEC_ARC-0008",
+               "steps" : "Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia an ally from Reigning",
+               "title" : "Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia..."
+            },
             {
                "expected" : "It costs a Bonus Action, can't be cast twice in the fight, and *Foreseen* shows as a reaction | —",
                "fails" : "It does not happen as expected.",
@@ -474,9 +439,9 @@
          ]
       },
       {
-         "id" : "two-kingmakers",
-         "name" : "Two Kingmakers",
-         "setup" : "A Kingmaker at level any, in a party of four, a normal fight.",
+         "id" : "ANY",
+         "name" : "Any level / full run",
+         "setup" : "Any level: a party with two Kingmakers; and a new Kingmaker levelled from 1 to 12.",
          "tests" : [
             {
                "expected" : "Each crowns and turns their own Wheel; one creature can't be on both | —",
@@ -485,14 +450,7 @@
                "rule" : "SPEC_ARC-0008",
                "steps" : "Two Kingmakers in the party",
                "title" : "Two Kingmakers in the party"
-            }
-         ]
-      },
-      {
-         "id" : "progression",
-         "name" : "Progression",
-         "setup" : "A new Kingmaker levelled from 1 to 12.",
-         "tests" : [
+            },
             {
                "expected" : "Every level grants exactly what the table lists.",
                "fails" : "Anything missing or extra.",
