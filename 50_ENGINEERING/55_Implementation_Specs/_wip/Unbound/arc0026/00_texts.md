@@ -1,4 +1,4 @@
-# ARC-0026 Task 0.2 — the build's texts (DRAFT, Narrative gate 32.04 pending)
+# ARC-0026 Task 0.2 — the build's texts (approved, Narrative gate 32.04 passed 2026-10-17)
 
 Source: names WB44, rules `21.04/Unbound/DESIGN.md` §4–§8, values `25` (`*_Unbound_*`). Style: `31.03` and the measured
 Larian corpus — British spelling, no em dash, single quotes, `[n]` as a noun phrase, the first mention tagged.

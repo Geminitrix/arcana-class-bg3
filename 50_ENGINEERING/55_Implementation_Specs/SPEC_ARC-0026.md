@@ -43,7 +43,7 @@ keeps the armour rule (`not WearingArmor() and not HasShieldEquipped()`).
 | P# | Question | Anchor | Plan B |
 |---|---|---|---|
 | P1 | A Rush (`Rush_SpringAttack`) carries her to the target without provoking opportunity attacks, and paths around obstacles (TC A1) | Today's Leap of Faith (`Rush_Arcana_Created_Aspect_LeapOfFaith`, mod `Spell_Rush.txt`); vanilla `Rush_MAG_ZephyrFlash` | A teleport next to the target, then the strike |
-| P2 | One Zephyr Strike that is a Rush against an unmarked enemy and a plain strike against a marked one (TC A2) | Today's `ZEPHYR_STRIKE` granting `Target_Arcana_Created_ZephyrStrike` | Two created cards: the Rush (target condition `not HasStatus('<WINDSWEPT>')`) and the plain strike |
+| P2 | Two created cards (Task 0.3): the strike stays `Target_Arcana_Created_ZephyrStrike` (Wind Riposte inherits it; `stats_add` needs the `Rush_` prefix for a Rush) and the new `Rush_Arcana_Created_ZephyrRush` targets only unmarked enemies; both cost the bonus action and come with each unarmed attack or card (TC A2) | Today's `ZEPHYR_STRIKE`; vanilla `Rush_SpringAttack` | One Rush with a melee-or-unmarked target condition (needs a new parent for Wind Riposte) |
 | P3 | The turn-start hook for the sweep while the wind status is on her (TC A3) | The per-round reset of `ARCANA_Aspect_Fool.txt` (ARC-0007) | The wind status ticks on her turn (`TickType StartTurn`, `TickingWithSource`) and Osiris sweeps on that tick |
 | P4 | A pull of every enemy to a point (TC A4) | Vanilla `Projectile_VacuumBulb` / `Projectile_MAG_PullingShout_Explosion` (`Force(-6, TargetToEntity)`, radius 9) | Two explosions (6 m every enemy, 9 m Windswept only) |
 | P5 | Leap of Faith on the `Rush_ForceTunnel` animation with wind VFX (TC A5) | Vanilla `Rush_ForceTunnel` (`Shared/.../Spell_Rush.txt`, `SpellAnimation`) | Keep `Rush_SpringAttack` |
@@ -84,3 +84,13 @@ the capstone (D), the Awakening (E), the kept cards (F). The Owner approves them
 - [ ] Probes P1–P8 answered, plan B recorded where used
 - [ ] `61.02/Unbound/TC_ARC-0022.md` parts B and C pass in game
 - [ ] Narrative and Design gates passed
+
+### Task 0.3 · the core — `10_core.patch` + `lua/CardDB.patch` (done 2026-10-17, dry run clean: 9 strings, 5 new entries, 8 fields)
+
+`ARCANA_WINDSWEPT` (2 ticks on her turn ends, `TickingWithSource`; carries vanilla `MOBILE_NO_AOO` while it lasts),
+`ARCANA_OPEN_PATH` (aura: `MOBILE_NO_AOO_SOURCE` on her allies — P6 plan A), `Arcana_Passive_Windswept_Touch` (marks
+on a hit; vanilla `UND_ServantOfBoooal` pattern), `Arcana_Passive_OpenPath` (the aura at combat start), The Open Road
+(texts, True Strike out of its condition, grants both Zephyr statuses), `Rush_Arcana_Created_ZephyrRush` +
+`ARCANA_ZEPHYR_RUSH`, the strike's Gale push, Gale Burst and Wind Blast marking on a failed save (Gale Burst's free
+strike out). Left for later tasks: the two hidden passives join level 1 in `50_structure.pl` (0.7); the Rush's card
+family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand save spells don't mark (shortcut, P7).
