@@ -24,7 +24,7 @@ created: 2026-10-17
 
 ## Acceptance criteria
 
-- [ ] Stage 0: the sizes of `25` (`‹…›` in `pending_build`) decided with the Owner, round by round; arithmetic in `22.05/Starchild.md`
+- [x] Stage 0: the sizes of `25` (`‹…›` in `pending_build`) decided with the Owner, round by round; arithmetic in `22.05/Starchild.md`
 - [ ] Probes P1–P6 recorded, plan B applied where one failed
 - [ ] Stages 1–5 applied, one `[fechado] ARC-0025` message each; Story compiled with 0 errors after each goal change
 - [ ] `61.02/Starchild/` rows pass in game
@@ -43,3 +43,4 @@ created: 2026-10-17
 - 2026-10-17 — R1 (the heal core) approved with the Sun brake amended (SC33); written in `25` and `22.05`. R2 (the Awakening) proposed.
 - 2026-10-17 — R2 (the Awakening) approved (SC34); written in `25` and `22.05`. R3 (the cards) proposed.
 - 2026-10-17 — R3 (the cards) approved (SC35); written in `25` and `22.05`. R4 (Lantern, Light in the Dark) proposed.
+- 2026-10-17 — R4 approved (SC36); every Starchild size is set in `25`. Next: stage 0 preparation — the probe patch for stage 1.

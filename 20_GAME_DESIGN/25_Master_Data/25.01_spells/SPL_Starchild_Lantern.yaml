@@ -1,5 +1,5 @@
 id: SPL_Starchild_Lantern
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R4 sizes approved (SC36)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -16,7 +16,7 @@ values:
 pending_build:
   name_next:    { value: "Lantern (Wayfinder · Noonlight · Moonshadow)", note: "SC27, SC28, SC32; cantrip, outside the PC deck; replaces the vanilla Light" }
   duration_next: { value: "until a long rest", note: "no effect in combat (probe)" }
-  skill_bonus:  { value: "‹bonus›", unit: bonus, note: "below Weaver Hand: Guide" }
+  skill_bonus:  { value: "+1", unit: bonus, note: "below Weaver Hand: Guide" }
   ally_radius:  { value: "6", unit: metres }
   stars_light:  { value: "medium", note: "Wayfinder: Perception, Investigation" }
   sun_light:    { value: "the largest, bright", note: "Noonlight: Insight, Persuasion" }

@@ -123,7 +123,7 @@ Checks. **Elpis' Jar** at level 7 (slot 4, mod +4), four allies — one Nightfal
 (a healer; SC26). **Halo**: +3 AC on an ally being focused for 3 turns ≈ 0.7A — weak by the `22.06` formula, but a
 level-2 bonus action with no Concentration; watch. **Rekindle**: a revive ≈ 3A (`22.06` §7) plus the Dawn it sets up.
 
-### R4 · the last sizes — proposal 2026-10-17
+### R4 · the last sizes — approved 2026-10-17 (SC36)
 
 | Knob | Proposal | Why |
 |---|---|---|

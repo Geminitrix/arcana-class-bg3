@@ -1,5 +1,5 @@
 id: FEAT_Starchild_LightInTheDark
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R4 sizes approved (SC36)"
 kind: feature
 subclass: Starchild
 ticket: ARC-0023
@@ -13,6 +13,6 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   level:      { value: 10, note: "SC29" }
-  self_bonus: { value: "‹stronger›", unit: healing, note: "the heals she gives while she is in Dusk or Nightfall" }
+  self_bonus: { value: "+ spellcasting modifier", unit: healing, note: "the heals she gives while she is in Dusk or Nightfall; not added to a Dawn (cap SC12)" }
   cap:        { value: "her bonus + the target's mark ≤ Dawn", note: "SC12 brake" }
   retires:    { value: "stellar_anchor" }

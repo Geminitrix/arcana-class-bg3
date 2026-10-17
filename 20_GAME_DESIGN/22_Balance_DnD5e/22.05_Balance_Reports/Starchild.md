@@ -97,3 +97,9 @@ two unmarked = 32 + 24 + 14 + 14 = 84 HP ≈ 40 points ≈ 5A once per combat �
 (21) on ~3 targets + Burning ≈ a slot-3 Fireball, below the slot-6 band on purpose (SC26). **Halo** +3 AC on a focused
 ally for 3 turns ≈ 0.7A — **watch** (weak by the formula; a level-2 bonus action, no Concentration). **Rekindle** ≈ 3A
 (`22.06` §7) plus the Dawn it sets up. Durations ≤ 5 turns; the Moon's "longer" variants stay within T + 1.
+
+## ARC-0025 Stage 0 · R4 — approved 2026-10-17 (SC36)
+
+Lantern +1 to two skills for the group within 6 m, against Weaver Hand: Guide's +1d4 (≈2.5) on one check of one
+target with Concentration. Light in the Dark + spellcasting modifier, never on a Dawn: slot 5, Dusk +12.5 + 5 = 17.5
+< Dawn +22.5 (cap SC12).
