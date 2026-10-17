@@ -56,3 +56,4 @@ player feels.
 - 2026-10-16 — Owner: the darkest hour is an exclusive mark consumed by her next heal (SC8). Next: its name.
 - 2026-10-16 — Owner: the mark is named **Dusk** (SC9). Next: how Dusk begins and ends.
 - 2026-10-16 — Owner: Dusk below half, Nightfall below a quarter, never both; her heal consumes the mark (SC10). Next: Downed allies.
+- 2026-10-16 — Owner: Downed clears the mark (SC11). Next: can the Starchild herself be marked.
