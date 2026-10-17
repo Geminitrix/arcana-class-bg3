@@ -4,3 +4,18 @@
     ["Rush_Arcana_Created_ZephyrRush"] = { aspect = "Unbound", cost = 1 },
 # In D.statusConjures, after ZEPHYR_STRIKE:
     ARCANA_ZEPHYR_RUSH = { id = "Rush_Arcana_Created_ZephyrRush", lasts = 1 },
+
+# ARC-0026 stage 3 — Aeolus' Bag and The Calm (20_bag_awakening.patch). Not deck cards: conjured by statuses, 0 Threads
+# (the base class locks non-cards in combat). The bag stays in hand once she has a mark (lasts 99); its
+# RequirementConditions grey it out while the wind blows or no enemy is marked.
+# In D.cards:
+    ["Shout_Arcana_Created_AeolusBag"] = { aspect = "Unbound", cost = 0 },
+    ["Shout_Arcana_Created_TheCalm"] = { aspect = "Unbound", cost = 0 },
+# In D.statusConjures — add, and replace the ASPECT_AWAKENED_FOOL line (Leap of Faith becomes a deck card at 10):
+    ARCANA_BAG_READY = { id = "Shout_Arcana_Created_AeolusBag", lasts = 99 },
+    ASPECT_AWAKENED_FOOL = { id = "Shout_Arcana_Created_TheCalm", lasts = 99 },
+# In D.containers:
+    ["Shout_Arcana_Created_AeolusBag"] = {
+        "Shout_Arcana_Created_AeolusBag_Boreas", "Shout_Arcana_Created_AeolusBag_Notus", "Shout_Arcana_Created_AeolusBag_Eurus",
+        "Shout_Arcana_Created_AeolusBag_BoreasNotus", "Shout_Arcana_Created_AeolusBag_BoreasEurus", "Shout_Arcana_Created_AeolusBag_NotusEurus",
+    },

@@ -1,0 +1,304 @@
+# ===== ARC-0026 stage 3 — Aeolus' Bag, the winds, The Calm, the Awakening (WB11–WB15, WB22–WB25, WB48) =====
+# Texts: approved (00_texts.md C, D1–D3, E). Values: 25 FEAT_Unbound_AeolusBag, SPL_Unbound_TheCalm,
+# FEAT_Unbound_AspectAwakening. The rules live in 22_goal_fool.txt (Osiris): the stats below are the pieces it moves.
+# Ranks (Gale, Storm, Hurricane) and the bag's level-2 marker passive are created in 30_ranks_cards.patch; the
+# structure script grants them. After --apply: lua/CardDB.patch (stage 3 lines) and the goal copy.
+
+# --- The bag (bonus action, a container: one child per wind; Hurricane offers the pairs instead).
+# Ready = Osiris puts ARCANA_BAG_READY on her while she has a Windswept enemy; Open = while a wind blows.
+@loca WB_BAG_NAME Aeolus' Bag
+@loca WB_BAG_DESC Untie the bag of winds and release one of them over the battle. It blows for 1 turn for each <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> enemy, and every mark is swept away.
+@loca WB_BAG_EXTRA While a wind blows, the bag stays shut, and at the start of your turn the wind sweeps every Windswept mark away. Your allies ride its tailwind; Windswept enemies face its headwind.
+@loca WB_BAG_BOREAS Aeolus' Bag: Boreas
+@loca WB_BAG_BOREAS_DESC Release Boreas, the North Wind. Your allies move faster, and Windswept enemies are slowed.
+@loca WB_BAG_NOTUS Aeolus' Bag: Notus
+@loca WB_BAG_NOTUS_DESC Release Notus, the South Wind. Rain and fog cloak your allies from ranged attacks, and Windswept enemies falter on their Saving Throws.
+@loca WB_BAG_EURUS Aeolus' Bag: Eurus
+@loca WB_BAG_EURUS_DESC Release Eurus, the East Wind. Your allies strike truer, and Windswept enemies' attacks go astray.
+@loca WB_BAG_PAIR_BN Aeolus' Bag: Boreas and Notus
+@loca WB_BAG_PAIR_BE Aeolus' Bag: Boreas and Eurus
+@loca WB_BAG_PAIR_NE Aeolus' Bag: Notus and Eurus
+@loca WB_BAG_PAIR_DESC Release two winds at once. Both blow for the same turns.
+@file Spell_Shout
+@section Shout_UNBOUND SPELLS
+new entry "Shout_Arcana_Created_AeolusBag"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Evocation"
+data "ContainerSpells" "Shout_Arcana_Created_AeolusBag_Boreas;Shout_Arcana_Created_AeolusBag_Notus;Shout_Arcana_Created_AeolusBag_Eurus;Shout_Arcana_Created_AeolusBag_BoreasNotus;Shout_Arcana_Created_AeolusBag_BoreasEurus;Shout_Arcana_Created_AeolusBag_NotusEurus"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "DisplayName" "{{WB_BAG_NAME}}"
+data "Description" "{{WB_BAG_DESC}}"
+data "ExtraDescription" "{{WB_BAG_EXTRA}}"
+data "Requirements" "Combat"
+data "RequirementConditions" "HasStatus('ARCANA_BAG_READY') and not HasStatus('ARCANA_BAG_OPEN') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "UseCosts" "BonusActionPoint:1;"
+data "VerbalIntent" "Buff"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasSomaticComponent;IsLinkedSpellContainer"
+
+new entry "Shout_Arcana_Created_AeolusBag_Boreas"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag"
+data "SpellContainerID" "Shout_Arcana_Created_AeolusBag"
+data "ContainerSpells" ""
+data "DisplayName" "{{WB_BAG_BOREAS}}"
+data "Description" "{{WB_BAG_BOREAS_DESC}}"
+data "RequirementConditions" "HasStatus('ARCANA_BAG_READY') and not HasStatus('ARCANA_BAG_OPEN') and not HasPassive('Arcana_Passive_Zephyr_Hurricane') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "SpellFlags" "IsSpell;HasSomaticComponent"
+
+new entry "Shout_Arcana_Created_AeolusBag_Notus"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag_Boreas"
+data "DisplayName" "{{WB_BAG_NOTUS}}"
+data "Description" "{{WB_BAG_NOTUS_DESC}}"
+
+new entry "Shout_Arcana_Created_AeolusBag_Eurus"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag_Boreas"
+data "DisplayName" "{{WB_BAG_EURUS}}"
+data "Description" "{{WB_BAG_EURUS_DESC}}"
+data "RequirementConditions" "HasStatus('ARCANA_BAG_READY') and not HasStatus('ARCANA_BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Gale') and not HasPassive('Arcana_Passive_Zephyr_Hurricane') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+
+new entry "Shout_Arcana_Created_AeolusBag_BoreasNotus"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag_Boreas"
+data "DisplayName" "{{WB_BAG_PAIR_BN}}"
+data "Description" "{{WB_BAG_PAIR_DESC}}"
+data "RequirementConditions" "HasStatus('ARCANA_BAG_READY') and not HasStatus('ARCANA_BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Hurricane') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+
+new entry "Shout_Arcana_Created_AeolusBag_BoreasEurus"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag_BoreasNotus"
+data "DisplayName" "{{WB_BAG_PAIR_BE}}"
+
+new entry "Shout_Arcana_Created_AeolusBag_NotusEurus"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Created_AeolusBag_BoreasNotus"
+data "DisplayName" "{{WB_BAG_PAIR_NE}}"
+
+# --- The Calm (Aspect card, Tier I; action; only while a wind blows). Its gusts are applied by Osiris (one status per
+# remaining turn count R, 1–5); the spell itself only spends the action.
+@loca WB_CALM_NAME The Calm
+@loca WB_CALM_DESC Still the wind at once. Each turn it had left becomes a gust that strikes every <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> enemy for [1], and the bag can be opened again.
+@loca WB_CALM_EXTRA Can only be used while a wind blows. Every Windswept mark is swept away.
+new entry "Shout_Arcana_Created_TheCalm"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Evocation"
+data "Cooldown" "OncePerCombat"
+data "Icon" "Spell_Abjuration_Sanctuary"
+data "DisplayName" "{{WB_CALM_NAME}}"
+data "Description" "{{WB_CALM_DESC}}"
+data "DescriptionParams" "DealDamage(1d8,Thunder)"
+data "ExtraDescription" "{{WB_CALM_EXTRA}}"
+data "Requirements" "Combat"
+data "RequirementConditions" "HasStatus('ARCANA_BAG_OPEN') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "UseCosts" "ActionPoint:1;"
+data "VerbalIntent" "Damage"
+data "SpellStyleGroup" "Class"
+data "SpellFlags" "IsSpell;HasSomaticComponent"
+
+# --- Statuses the goal moves.
+@loca WB_BAG_OPEN_NAME Aeolus' Bag: Untied
+@loca WB_BAG_OPEN_DESC A wind blows over the battle. The bag can't be opened again until it stops.
+@loca WB_TAIL_BOREAS Tailwind: Boreas
+@loca WB_TAIL_BOREAS_DESC Carried by the North Wind. Movement speed increased by [1].
+@loca WB_HEAD_BOREAS Headwind: Boreas
+@loca WB_HEAD_BOREAS_DESC Chilled by the North Wind. Movement speed reduced by [1].
+@loca WB_TAIL_NOTUS Tailwind: Notus
+@loca WB_TAIL_NOTUS_DESC Cloaked by rain and fog. Ranged attacks against this creature have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag>.
+@loca WB_HEAD_NOTUS Headwind: Notus
+@loca WB_HEAD_NOTUS_DESC Battered by the South Wind. [1] penalty to Saving Throws.
+@loca WB_TAIL_EURUS Tailwind: Eurus
+@loca WB_TAIL_EURUS_DESC Steadied by the East Wind. [1] bonus to Attack Rolls.
+@loca WB_HEAD_EURUS Headwind: Eurus
+@loca WB_HEAD_EURUS_DESC Buffeted by the East Wind. [1] penalty to Attack Rolls.
+@file Status_BOOST
+@section UNBOUND STATUS
+new entry "ARCANA_BAG_READY"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_BAG_NAME}}"
+data "StackId" "ARCANA_BAG_READY"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "ARCANA_BAG_OPEN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_BAG_OPEN_NAME}}"
+data "Description" "{{WB_BAG_OPEN_DESC}}"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "StackId" "ARCANA_BAG_OPEN"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+# One aura per wind on her (whole field); the goal applies and removes them. Boon on allies, bane on Windswept enemies.
+new entry "ARCANA_WIND_BOREAS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_BAG_BOREAS}}"
+data "StackId" "ARCANA_WIND_BOREAS"
+data "AuraRadius" "30"
+data "AuraStatuses" "IF(Ally()):ApplyStatus(ARCANA_TAILWIND_BOREAS);IF(Enemy() and HasStatus('ARCANA_WINDSWEPT')):ApplyStatus(ARCANA_HEADWIND_BOREAS)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "ARCANA_WIND_NOTUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_WIND_BOREAS"
+data "DisplayName" "{{WB_BAG_NOTUS}}"
+data "StackId" "ARCANA_WIND_NOTUS"
+data "AuraStatuses" "IF(Ally()):ApplyStatus(ARCANA_TAILWIND_NOTUS);IF(Enemy() and HasStatus('ARCANA_WINDSWEPT')):ApplyStatus(ARCANA_HEADWIND_NOTUS)"
+
+new entry "ARCANA_WIND_EURUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_WIND_BOREAS"
+data "DisplayName" "{{WB_BAG_EURUS}}"
+data "StackId" "ARCANA_WIND_EURUS"
+data "AuraStatuses" "IF(Ally()):ApplyStatus(ARCANA_TAILWIND_EURUS);IF(Enemy() and HasStatus('ARCANA_WINDSWEPT')):ApplyStatus(ARCANA_HEADWIND_EURUS)"
+
+new entry "ARCANA_TAILWIND_BOREAS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_TAIL_BOREAS}}"
+data "Description" "{{WB_TAIL_BOREAS_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ARCANA_TAILWIND_BOREAS"
+data "Boosts" "ActionResource(Movement,3,0)"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "ARCANA_HEADWIND_BOREAS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_HEAD_BOREAS}}"
+data "Description" "{{WB_HEAD_BOREAS_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "StackId" "ARCANA_HEADWIND_BOREAS"
+data "Boosts" "ActionResource(Movement,-3,0)"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "ARCANA_TAILWIND_NOTUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_TAILWIND_BOREAS"
+data "DisplayName" "{{WB_TAIL_NOTUS}}"
+data "Description" "{{WB_TAIL_NOTUS_DESC}}"
+data "DescriptionParams" ""
+data "StackId" "ARCANA_TAILWIND_NOTUS"
+data "Boosts" "IF(IsRangedAttack()):Disadvantage(AttackTarget)"
+
+new entry "ARCANA_HEADWIND_NOTUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_HEADWIND_BOREAS"
+data "DisplayName" "{{WB_HEAD_NOTUS}}"
+data "Description" "{{WB_HEAD_NOTUS_DESC}}"
+data "DescriptionParams" "1"
+data "StackId" "ARCANA_HEADWIND_NOTUS"
+data "Boosts" "RollBonus(SavingThrow,-1)"
+
+new entry "ARCANA_TAILWIND_EURUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_TAILWIND_BOREAS"
+data "DisplayName" "{{WB_TAIL_EURUS}}"
+data "Description" "{{WB_TAIL_EURUS_DESC}}"
+data "DescriptionParams" "1"
+data "StackId" "ARCANA_TAILWIND_EURUS"
+data "Boosts" "RollBonus(Attack,1)"
+
+new entry "ARCANA_HEADWIND_EURUS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_HEADWIND_BOREAS"
+data "DisplayName" "{{WB_HEAD_EURUS}}"
+data "Description" "{{WB_HEAD_EURUS_DESC}}"
+data "DescriptionParams" "1"
+data "StackId" "ARCANA_HEADWIND_EURUS"
+data "Boosts" "RollBonus(Attack,-1)"
+
+# The Calm's gusts: R = turns the wind had left (1–5). 1d8 per gust to level 6, 2d6 from 7 (WB48).
+new entry "ARCANA_CALM_GUST_1"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_CALM_NAME}}"
+data "StackId" "ARCANA_CALM_GUST"
+data "OnApplyFunctors" "IF(not CharacterLevelGreaterThan(6,context.Source)):DealDamage(1d8,Thunder,Magical);IF(CharacterLevelGreaterThan(6,context.Source)):DealDamage(2d6,Thunder,Magical)"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
+
+new entry "ARCANA_CALM_GUST_2"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_CALM_GUST_1"
+data "OnApplyFunctors" "IF(not CharacterLevelGreaterThan(6,context.Source)):DealDamage(2d8,Thunder,Magical);IF(CharacterLevelGreaterThan(6,context.Source)):DealDamage(4d6,Thunder,Magical)"
+
+new entry "ARCANA_CALM_GUST_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_CALM_GUST_1"
+data "OnApplyFunctors" "IF(not CharacterLevelGreaterThan(6,context.Source)):DealDamage(3d8,Thunder,Magical);IF(CharacterLevelGreaterThan(6,context.Source)):DealDamage(6d6,Thunder,Magical)"
+
+new entry "ARCANA_CALM_GUST_4"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_CALM_GUST_1"
+data "OnApplyFunctors" "IF(not CharacterLevelGreaterThan(6,context.Source)):DealDamage(4d8,Thunder,Magical);IF(CharacterLevelGreaterThan(6,context.Source)):DealDamage(8d6,Thunder,Magical)"
+
+new entry "ARCANA_CALM_GUST_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ARCANA_CALM_GUST_1"
+data "OnApplyFunctors" "IF(not CharacterLevelGreaterThan(6,context.Source)):DealDamage(5d8,Thunder,Magical);IF(CharacterLevelGreaterThan(6,context.Source)):DealDamage(10d6,Thunder,Magical)"
+
+# Tier III Into the Storm: what a sweep does to each swept enemy (pushed from her, Off Balance).
+# shortcut: Force from a status functor pushes away from the status source; probe P9 in stage 1, plan B a Shove-like spell cast by the goal.
+new entry "ARCANA_INTO_THE_STORM"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_WINDSWEPT_NAME}}"
+data "StackId" "ARCANA_INTO_THE_STORM"
+data "OnApplyFunctors" "Force(3);ApplyStatus(OFF_BALANCED,100,1)"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
+
+# --- The Awakening: texts and tiers (E1–E5). The old tier bonuses go (no ability bonus, WB24); the goal does the rest.
+@loca h76abef56g542egceedg9549gf86ef239edc5 Release <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> marks with the wind to awaken the Aspect of Curiosity until combat ends. Every mark the wind sweeps away counts - when you open the bag, at the start of each turn it blows, and with The Calm. Each goal you reach awakens one more tier.<br><br>Level 3: release 3 marks to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_I">The First Step</LSTag> and <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_TheCalm">The Calm</LSTag>.<br><br>Level 7: release 5 marks to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_II">Fellow Travellers</LSTag>.<br><br>Level 12: release 8 marks to awaken <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_Fool_III">Into the Storm</LSTag>.<br><br>The Awakening status shows how much is left to the next tier.
+@loca hb0c9372cg8418g080dg046cg61d05ca39723 The First Step
+@loca h5f2ec141gf782gfaeag0976g4dd84ea7176d Once per turn, a Zephyr Strike that carries you to an enemy doesn't cost a bonus action.
+@loca h8451466fg943fg2766g54bbge5811a2ba1a9 Fellow Travellers
+@loca hd61170aagfbdeg9e94g39f3gab4d01140c21 Your allies' hits also make enemies Windswept.
+@loca hb6f88d63g8e4fg7022gb6fag9bfa869369c6 Into the Storm
+@loca hd927c9e2gb38ega2c3gb9f5g7e9604a31909 Each time the wind sweeps the marks away, every swept enemy is pushed back [1] and becomes <LSTag Type="Status" Tooltip="OFF_BALANCED">Off Balance</LSTag>.
+@loca h5aa211b3g50d8gd054g2146g6b9097806a16 The First Step: Once per turn, a Zephyr Strike that carries you to an enemy doesn't cost a bonus action.<br><br>Only active while not wearing armour or using a shield.
+@loca hc98e7379g11e3gb428g4681g9f94f5551213 The First Step: Once per turn, a Zephyr Strike that carries you to an enemy doesn't cost a bonus action.<br>Fellow Travellers: Your allies' hits also make enemies Windswept.<br><br>Only active while not wearing armour or using a shield.
+@loca h0d5de297g3e6egdc22gc822gf7519e223fc6 The First Step: Once per turn, a Zephyr Strike that carries you to an enemy doesn't cost a bonus action.<br>Fellow Travellers: Your allies' hits also make enemies Windswept.<br>Into the Storm: Each time the wind sweeps the marks away, every swept enemy is pushed back and becomes Off Balance.<br><br>Only active while not wearing armour or using a shield.
+@loca he80cdc45g60adg8d77g50f5g626fd82b42a4 The First Step
+@loca h4b9d78b5g0ee3g2d1eg65e8g48fd9771f335 Your next Zephyr Strike that carries you to an enemy this turn doesn't cost a bonus action.
+@file Passive
+@set Arcana_Passive_Aspect_Fool_I StatsFunctorContext ""
+@set Arcana_Passive_Aspect_Fool_I Conditions ""
+@set Arcana_Passive_Aspect_Fool_I StatsFunctors ""
+@set Arcana_Passive_Aspect_Fool_III DescriptionParams "Distance(3)"
+@set Arcana_Passive_Aspect_Fool_Awakened_I Boosts ""
+@set Arcana_Passive_Aspect_Fool_Awakened_II Boosts ""
+@set Arcana_Passive_Aspect_Fool_Awakened_III Boosts ""
+@file Status_BOOST
+@set FOOL_ZEPHYR_FREE Boosts "UnlockSpellVariant(SpellId('Rush_Arcana_Created_ZephyrRush'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint));"
+# The Aspect card: The Calm replaces Leap of Faith (which becomes a level-10 card in 30_ranks_cards.patch).
+@set ASPECT_AWAKENED_FOOL Boosts "UnlockSpell(Shout_Arcana_Created_TheCalm);"
+@remove WANDERLUST_HIT_TECH
+@file Interrupt
+@remove Interrupt_Arcana_Aspect_FoolsLuck

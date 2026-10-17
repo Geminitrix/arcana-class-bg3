@@ -50,6 +50,7 @@ keeps the armour rule (`not WearingArmor() and not HasShieldEquipped()`).
 | P6 | **The Open Path:** a Windswept enemy makes no opportunity attack. Vanilla `Interrupt_AttackOfOpportunity` (`Shared/.../Interrupt.txt`) blocks it only for a fixed list of statuses; the Mobile feat's pair is one of them: `MOBILE_NO_AOO` on the enemy and `MOBILE_NO_AOO_SOURCE` on the mover (`Status_BOOST.txt`, applied in `Passive.txt`). Test: Windswept also applies `MOBILE_NO_AOO`, and the party carries `MOBILE_NO_AOO_SOURCE` while the Windborn is in combat | Vanilla Mobile feat | Windswept blocks the enemy's reactions altogether (`IsAbleToReact` false — wider: no reaction of any kind; `22.06` §4 prices it the same, 0.1A) |
 | P7 | Marks from a hit by her, by an ally (Tier II) and from a failed save on each card | The hit hook of `ARCANA_Aspect_Fool.txt` (counts different enemies hit today); `ApplyStatus` in each card's `SpellSuccess` | Apply the mark from each card's Stats only, and from a passive on her unarmed attacks |
 | P8 | The bag reads X (standing Windswept enemies) and caps it by rank | Osiris counting of standing enemies (the Fool goal's fallback, ARC-0007) | A status stack per mark, read by the bag's variants |
+| P9 | A status functor `Force(3)` pushes the bearer away from the status source (Tier III `ARCANA_INTO_THE_STORM`, applied by the goal with her as the source) | Vanilla statuses with `Force` in their functors (search in `56` in stage 1) | The goal casts a Shove-like spell from her on each swept enemy |
 
 ---
 
@@ -94,3 +95,25 @@ on a hit; vanilla `UND_ServantOfBoooal` pattern), `Arcana_Passive_OpenPath` (the
 `ARCANA_ZEPHYR_RUSH`, the strike's Gale push, Gale Burst and Wind Blast marking on a failed save (Gale Burst's free
 strike out). Left for later tasks: the two hidden passives join level 1 in `50_structure.pl` (0.7); the Rush's card
 family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand save spells don't mark (shortcut, P7).
+
+### Task 0.4 · the bag, the winds, The Calm, the Awakening — `20_bag_awakening.patch` + `22_goal_fool.txt` + `lua/CardDB.patch` (done 2026-10-17; dry run with 10 clean: 24 new entries, 10 fields, 2 removals, 42 strings)
+
+- **Stats:** the bag as a container (`Shout_Arcana_Created_AeolusBag` + Boreas / Notus / Eurus and the three Hurricane
+  pairs, gated by the rank passives), The Calm (action, once per combat, only with `ARCANA_BAG_OPEN`), `ARCANA_BAG_READY`
+  / `ARCANA_BAG_OPEN`, three wind auras (vanilla `AURA_OF_PROTECTION` pattern, 30 m) with six Tailwind / Headwind
+  statuses, five `ARCANA_CALM_GUST_<R>` (1d8 per gust to level 6, 2d6 from 7 via vanilla `CharacterLevelGreaterThan`),
+  `ARCANA_INTO_THE_STORM` (P9); the Awakening texts, the old tier bonuses emptied, `FOOL_ZEPHYR_FREE` now frees the
+  Rush, the Aspect card is The Calm; `WANDERLUST_HIT_TECH` and Fool's Luck removed.
+- **Goal** (`22_goal_fool.txt`, replaces `ARCANA_Aspect_Fool.txt`): marks mirrored in `DB_ARCANA_Windswept`, the bag
+  (X counted, capped 2/3/4/5 by rank, released, winds for X of her turns — `TurnStarted` sweep, `TurnEnded` countdown),
+  The Calm (gusts = turns left, release, the bag reopens), Tier I free Rush, Tier II allies' hits mark (`AttackedBy`),
+  Tier III push on release, cleanup on `PROC_ARCANA_Aspect_Reset`. Every released mark is one
+  `PROC_ARCANA_Aspect_Step(_, "FOOL")` (the Common's simple counter).
+- **With the goal (stage 3):** `ARCANA_Aspect_Common.txt` — the three `DB_ARCANA_AspectTier("FOOL", …)` goals 3 / 4 / 5 →
+  **3 / 5 / 8**. The family row of the Rush comes from `gen_upcast_variants.pl` (it writes `ARCANA_CardFamilies.txt`).
+- **Needs from Task 0.5:** the passives `Arcana_Passive_AeolusBag` (level 2), `Arcana_Passive_Zephyr_Gale` / `_Storm` /
+  `_Hurricane` (4 / 8 / 12).
+- shortcut: The Calm's tooltip shows 1d8 per gust at every level (the 2d6 band is in the functor only); a second
+  DescriptionParams if V-feedback asks.
+- To check when compiling (stage 3): `_Ally != _Born` on CHARACTER in Osiris; if the compiler refuses it, drop the
+  line (an ally's own hit on an enemy never involves her as attacker).

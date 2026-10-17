@@ -43,3 +43,4 @@ created: 2026-10-17
   already approved in ARC-0022 (WB45–WB48), so stage 0 starts with the preparation. Nothing in the game changed.
 - 2026-10-17 — Stage 0 started: Task 0.1 inventory (106 Stats entries: kept / changed / removed / new / untouched, Osiris, lists) in the spec; Task 0.2 texts drafted in `_wip/Unbound/arc0026/00_texts.md`; Narrative gate opened (`32.04/ARC-0026_Windborn.md`, pending). Nothing in the game changed.
 - 2026-10-17 — Narrative gate passed (Owner, "pode seguir"). Task 0.3 done: `10_core.patch` (dry run clean) + `lua/CardDB.patch`; P2 switched to two created cards (Wind Riposte inherits the strike; `stats_add` needs `Rush_` for a Rush). Nothing in the game changed.
+- 2026-10-17 — Task 0.4 done: `20_bag_awakening.patch` (dry run with 10 clean), `22_goal_fool.txt` (goal rewrite), CardDB stage-3 lines; probe P9 added (Force from a status functor). Nothing in the game changed.
