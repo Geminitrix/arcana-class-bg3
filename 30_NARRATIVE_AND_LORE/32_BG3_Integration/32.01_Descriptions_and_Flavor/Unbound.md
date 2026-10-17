@@ -2,7 +2,7 @@
 id: 32.01/Unbound
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-17 with dossier_texts.pl; 21.04/Unbound/DESIGN.md §11; DECISIONS.md WB0, WB27–WB44
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); names of the build (WB44) at the end; 2026-10-17 ARC-0026 — stage 1 probes applied, no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); names of the build (WB44) at the end; 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
 ---
 
 # 32.01 · Player-facing text — The Windborn (internal: Unbound)
