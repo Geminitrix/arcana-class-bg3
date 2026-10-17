@@ -67,3 +67,4 @@ player feels.
 - 2026-10-16 — Owner: while Unsung the cards are locked and Sing a Hymn works in combat as a bonus action (SC23, amends SC5); heal cards use the containers too (SC24). Card review part 2 proposed (SG7–SG11).
 - 2026-10-16 — Owner: card review part 2 approved (SC25). Part 3 proposed (SG12–SG17).
 - 2026-10-16 — Owner: part 3 approved except Point of Light (SC26): Equinox, Sunburst, Final Spark / Cosmic Omen / Stellar Anchor removed. Point of Light: Owner wants her to become a light source like vanilla Light.
+- 2026-10-16 — Owner: Point of Light is an exploration cantrip — Stars Perception/Investigation, Sun Insight/Persuasion and the biggest light, Moon Sleight of Hand and dim light (SC27).
