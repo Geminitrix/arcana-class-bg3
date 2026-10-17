@@ -40,3 +40,4 @@ created: 2026-10-17
 
 - 2026-10-17 — created from ARC-0023 at the Owner's go-ahead ("pode prosseguir"); spec skeleton written. Stage 0
   round 1 (the heal core) proposed. Nothing in the game changed.
+- 2026-10-17 — R1 (the heal core) approved with the Sun brake amended (SC33); written in `25` and `22.05`. R2 (the Awakening) proposed.

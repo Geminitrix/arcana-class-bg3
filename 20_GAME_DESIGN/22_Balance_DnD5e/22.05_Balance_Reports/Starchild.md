@@ -63,3 +63,20 @@ in danger, and a fallen ally loses the mark.
 | V2 | Level 3–7 | Turn the Awakening tiers wake | Wakes in a fight with real danger | Wakes in easy fights, or never |
 | V3 | Level 7, Sun day | Total Sun healing vs a Stars day on the same fight | Each wins its own fight | One Hymn always wins |
 | V4 | Level 12, Tier III | Eclipse first heal per round | Feels like the peak, not a wipe of the fight | Decides the fight alone |
+
+## ARC-0025 Stage 0 · R1 the heal core — approved 2026-10-17 (SC33)
+
+Vanilla anchors (Shared `Spell_Target.txt`): Healing Word `1d4+SpellCastingAbilityModifier` (+1d4 per level), Cure
+Wounds `1d8+modifier` (+1d8 per level). N = slot level; example slot 3, modifier +4 (level 5). Currency `22.06` §2, §7:
+1 HP healed = 0.6; ×0.8 on a hurt ally, ×0.5 spill on allies who may be healthy, healing over time ×0.7.
+
+| Hymn | Heal | Average | Points |
+|---|---|---|---|
+| Stars — Lodestar Balm | N×1d10 + mod | 20.5 | 20.5×0.6×0.8 = **9.8** |
+| Sun — Noonday Pour | target N×1d6 + mod; 1 ally within 3 m N×1d4; 1 enemy next to the target 1d4 Fire | 14.5 + 7.5 + 2.5 dmg | 6.96 + 2.25 + 1.6 = **10.8** |
+| Moon — Rising Tide | N×1d4 + mod now; N×1d4 at each of 2 turn starts; attacker −3 m | 11.5 + 15 | 5.5 + 5.0 + ~0.3 = **10.8** |
+
+Marks: Dusk +N×1d4 (+7.5), Dawn +N×1d8 (+13.5), the Hymn part doubled. Waiting (B3): at level 5 an ally at 40% of
+~44 HP has ~18 HP, one enemy round on them ~16 (2A) — about an even chance of Downed for +6 HP over Dusk → a gamble.
+Against vanilla: a slot-3 Healing Word heals 11.5 as a bonus action; Outpouring heals 11.5–20.5 and pays HP without
+Afterglow — **watch** at the band check (B1 of the playtest), as the specialist healer it is meant to lead.

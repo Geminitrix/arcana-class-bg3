@@ -57,7 +57,7 @@ parameters: `22.06` §1–§2, §7 (1 HP healed in combat = 0.6; ×0.8 on a hurt
 time ×0.7). Vanilla anchors (Shared `Spell_Target.txt`): Healing Word `1d4+SpellCastingAbilityModifier` (+1d4 per
 level), Cure Wounds `1d8+SpellCastingAbilityModifier` (+1d8 per level), Mass Healing Word `1d4+modifier` each.
 
-### R1 · the heal core — proposal 2026-10-17
+### R1 · the heal core — approved 2026-10-17 (SC33)
 
 N = the slot level; mod = her spellcasting modifier.
 
@@ -80,3 +80,19 @@ default.
 **Finding for the Owner:** with one ally nearby the Sun's total (22) passes the Stars' single heal (20.5); with two it
 is 29.5. The SC6 brake as written ("the Sun total over several allies must not beat the Stars on one ally") would force
 the Sun's heals down to ~1d4 per level and break SC4.
+
+### R2 · the Awakening and the conditions — proposal 2026-10-17
+
+Reference fight `22.06` §1: T = 4 turns. Goals are cumulative (as today).
+
+| Knob | Proposal | Why |
+|---|---|---|
+| Goals (Dusk 1, Nightfall 2) | **3 / 5 / 8** (Tier I / II / III) | In a hard fight she answers about one mark a turn, plus Hesperus on enemy turns; Elpis' Jar (7) answers several at once — Tier I by turn 2, II by turn 3, III by turn 4. Same steps as the Kingmaker's Crossings (3/5/8). Easy fights don't awaken, by design (SC17) |
+| Tier II Dazzled (Stars) | −1d4 to attack rolls, **1 turn** | −2.5 on the d20 ≈ 12.5% fewer hits on one enemy turn (2A) ≈ **3** points |
+| Tier II half movement (Moon) | **2 turns** | weaker per turn than Dazzled; two turns ≈ **3.5** |
+| Tier II Burning (Sun) | vanilla Burning (1d4 Fire a turn), **2 turns** | ≈ 5 damage, less vs fire resistance ≈ **4** |
+| The ally's window | the condition rides the ally's next hit within **2 turns** (as Moonlit / Sunlit did) | |
+| Growth (DM-B6) | at level 12 each condition lasts **+1 turn** | the late game keeps the bonus alive |
+| The Great Star (Aspect card) | **2 turns**; at the start of each of her turns it answers **one** marked ally (the lowest HP) with Lodestar Balm at her highest slot level, no slot spent; counts for the Awakening | answers over time, unlike the jar; level 5 ≈ 2 × 20.5 HP ≈ 20 points; level 12 ≈ 2 × 38 HP ≈ 36 points (≈ 3A) for a once-per-combat 0-Thread card |
+| Undying Hope | once per fight, 1 HP, Nightfall | (rule) |
+| First-heal gate | 1 turn, `TickType StartTurn` | (rule) |

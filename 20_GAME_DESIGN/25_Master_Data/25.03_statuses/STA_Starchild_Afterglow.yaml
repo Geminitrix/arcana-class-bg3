@@ -1,5 +1,5 @@
 id: STA_Starchild_Afterglow
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R1 sizes approved (SC33)"
 kind: status
 subclass: Starchild
 ticket: ARC-0023
@@ -15,7 +15,7 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:     { value: Afterglow, note: "SC32" }
-  duration_next: { value: "‹2›", unit: turns, note: "‹+1› next to a marked ally (SPL_Starchild_Comet)" }
-  regen_next:    { value: "‹…›", unit: healing }
+  duration_next: { value: 2, unit: turns, note: "+1 next to a marked ally (SPL_Starchild_Comet)" }
+  regen_next:    { value: "spellcasting modifier", unit: healing, note: "at the end of each of her turns (WIS modifier today)" }
   free_outpouring: { value: 1, unit: count, note: "her next Outpouring costs no hit points" }
   retires:       { value: "speed", note: "not in the design" }
