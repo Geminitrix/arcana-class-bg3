@@ -2,7 +2,7 @@
 id: 21.03/Unbound
 owner: Lead Class Designer
 source: 21.04_Subclasses/Unbound/DESIGN.md §9 (WB16, WB43)
-reviewed: 2026-10-16 ARC-0022 — written from the approved map (WB43) and names (WB44); build pending; 2026-10-17 ARC-0022 — WB45–WB48 checked, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
+reviewed: 2026-10-16 ARC-0022 — written from the approved map (WB43) and names (WB44); build pending; 2026-10-17 ARC-0022 — WB45–WB48 checked, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change
 ---
 
 # 21.03 · Progression — The Windborn (internal: Unbound) (levels 1–12)

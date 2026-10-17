@@ -162,7 +162,7 @@ Awakening) and the bag can be opened again immediately. **Action** (WB48), so th
 ### 4.5 Where the Winds Meet — capstone (level 11; WB26)
 
 **Action**. Once per Long Rest. **Usable only while no wind blows.** Choose a point within (25) m: every enemy within (25) m of it is
-pulled to the centre (Windswept enemies from (25) m), left Off Balance and **marked**; the collision deals Thunder damage, DEX save for half (WB46). The mirror of The Calm.
+pulled toward the centre from one (25) m area (Windswept enemies pulled (25) m, the others less, WB49), left Off Balance and **marked**; the collision deals Thunder damage, DEX save for half (WB46). The mirror of The Calm.
 
 ### 4.6 The winds (WB15)
 
@@ -406,7 +406,7 @@ segments (ADR-0002, `33.03`); internal name **Unbound** stays.
 4. The bag: X counted and capped; marks cleared; the sweep at the start of the turn while the wind blows; the bag
    shut while it blows.
 5. The Calm: gusts = remaining turns; the bag reopens.
-6. Where the Winds Meet: refused while a wind blows; pull radius larger on Windswept enemies.
+6. Where the Winds Meet: refused while a wind blows; one area, Windswept enemies pulled farther (WB49).
 7. Storm's second Rush only after an unmarked target.
 8. Tier II: an ally's hit marks; Tier III: sweeps push.
 9. Armour or a shield turns everything off.

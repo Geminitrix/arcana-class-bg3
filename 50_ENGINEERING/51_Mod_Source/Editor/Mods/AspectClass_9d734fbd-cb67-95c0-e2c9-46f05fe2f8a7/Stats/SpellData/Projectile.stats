@@ -573,30 +573,17 @@
         <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="GROUND:CreateExplosion(Projectile_Arcana_Util_PROBE_VortexInner)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="FireProjectile(Arcana_Util_PROBE_Vortex_Inner);" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="9" />
         <field name="ExplodeRadius" type="IntegerTableFieldDefinition" value="9" />
         <field name="SpellRoll" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="ApplyStatus(PROBE_ARC0026_MEET_TECH,100,1);Force(-9, TargetToEntity);ApplyStatus(OFF_BALANCED,100,1)" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead() and HasStatus('PROBE_ARC0026_MARK') and not HasStatus('PROBE_ARC0026_MEET_TECH')" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy() and HasStatus('PROBE_ARC0026_MARK')):Force(-9, TargetToEntity);IF(Enemy() and not HasStatus('PROBE_ARC0026_MARK')):Force(-6, TargetToEntity);IF(Enemy()):ApplyStatus(OFF_BALANCED,100,1);" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha57ab0c8gec0dg601eg7be7g0cb5d3c5af09" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h367c20d2gbdb5g52a8g6516gabd75d63595f" version="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="bffb93cf-19db-da0f-3ccd-e66ed4e15306" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_VortexInner" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="f36640ff-545c-49e8-d93a-3351a6a17f88" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
-        <field name="ExplodeRadius" type="IntegerTableFieldDefinition" value="6" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="ApplyStatus(PROBE_ARC0026_MEET_TECH,100,1);Force(-6, TargetToEntity);ApplyStatus(OFF_BALANCED,100,1)" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead() and not HasStatus('PROBE_ARC0026_MEET_TECH')" />
-      </fields>
-    </stat_object>
-</stat_objects>
+  </stat_objects>
 </stats>

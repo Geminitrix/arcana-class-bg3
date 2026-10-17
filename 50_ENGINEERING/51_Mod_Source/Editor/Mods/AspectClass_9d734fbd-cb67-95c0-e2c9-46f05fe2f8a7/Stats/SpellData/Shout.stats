@@ -3481,5 +3481,5 @@
         <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>
-</stat_objects>
+  </stat_objects>
 </stats>

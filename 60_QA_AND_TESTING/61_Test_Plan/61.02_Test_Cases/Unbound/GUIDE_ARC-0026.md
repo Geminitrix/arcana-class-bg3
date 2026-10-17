@@ -44,11 +44,11 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** Both enemies show Probe Windswept; the mark ticks down on your turns (2 of your turns)
 - **Fails if:** No mark, the ally's hit does not mark, or the mark counts down on the enemy's turns
 
-### P8 · The bag's X: marks counted, capped at 2 (SPEC_ARC-0026 P8 (X counted and capped))
+### P8 · The bag's X: exactly the marks counted (SPEC_ARC-0026 P8 (X counted; retest after 06_probe_count.patch))
 
-- **Steps:** Mark 3 enemies. Cast Probe: Count
-- **Expected:** Probe Count appears on you showing 2 turns (3 marks, capped at 2); with 1 mark it shows 1 turn
-- **Fails if:** No status, or the turns don't match the marks
+- **Steps:** Mark 3 enemies (Probe: Mark or hits). Cast Probe: Count. Then mark 1 more and cast it again
+- **Expected:** Probe Count appears on you showing 3 turns; after the second cast it shows 4. The number does not count down while you play (the goal sets it)
+- **Fails if:** No status, no number on it, or the number is not the marks counted
 
 ### P3 · Turn start sweeps the marks; turn end is seen (SPEC_ARC-0026 P3 (the sweep at her turn start; her turn end))
 
@@ -56,7 +56,7 @@ Results go on the interactive test page (pass / fail / notes); this file is the 
 - **Expected:** At your turn end Probe Turn Ended shows on you; at your next turn start every Probe Windswept is gone
 - **Fails if:** The marks stay, or Probe Turn Ended never shows
 
-### P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, two radii))
+### P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, one area, WB49))
 
 - **Steps:** Mark one enemy about 8 m from a point; leave another unmarked 5 m from it and a third unmarked 8 m from it. Throw Probe: Vortex at the point
 - **Expected:** The marked enemy at 8 m and the unmarked one at 5 m are pulled to the point and Off Balance, once each; the unmarked one at 8 m is not

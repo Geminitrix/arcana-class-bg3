@@ -2,7 +2,7 @@
 id: 22.05/Unbound
 owner: Balance Designer
 source: 21.04/Unbound/DECISIONS.md (WB0–WB48), DESIGN.md §12, REFINE_Unbound.md ("Balance pass"), 25 (*_Unbound_*)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); sizes approved by the Owner 2026-10-16 (WB45–WB48); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); sizes approved by the Owner 2026-10-16 (WB45–WB48); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 capstone area noted
 ---
 
 # 22.05 · Balance — The Windborn (internal: Unbound) (current verdict)
@@ -35,7 +35,7 @@ Benchmark (WB19): the Monk for the striker share, a support class for the rest.
 | Boreas · Notus · Eurus | ±3 m · Disadvantage on ranged vs allies / −1 saves · ±1 attack | 0.55A each; +2/−2 for Eurus would be 1.1A and dominant (DM-B5) | ✅ equal by design (V2) |
 | Hurricane (two winds) | — | +0.55A/turn at 12 ≈ 12% of D | ⚠️ watch — the peak (V4) |
 | The Calm | Action; 1d8 per gust (3–6), 2d6 (7–12) | vs once-per-combat ceiling: T1 0.9 · T2 0.88 · T3 1.12 | ✅ → strong at 12 (needs a wind and marks) |
-| Where the Winds Meet | Action; 18 m; pull 6 m (9 m Windswept); 4d8 Thunder, DEX half | Without damage 0.52 of the capstone band (trap); with 4d8 ≈ 81 / 86 → 0.94 | ✅ (WB46) |
+| Where the Winds Meet | Action; 18 m; one 9 m area, pull 9 m Windswept / 6 m the others (WB49, 2026-10-17: unmarked enemies now caught from 9 m, not 6 m: more targets, same damage; recheck the band at stage 5); 4d8 Thunder, DEX half | Without damage 0.52 of the capstone band (trap); with 4d8 ≈ 81 / 86 → 0.94 | ✅ (WB46) |
 | Awakening goals | 3 / 5 / 8 marks released | Tier I turn 2 at level 3; Tier II turn 3 at 7; Tier III turn 3 at 12 (the waking sweep pushes) | ✅ every tier in a normal fight (V5) |
 | Tier III push | 3 m + Off Balance per swept enemy | ≈ 1.2A per turn of wind | ⚠️ watch (V4) |
 | Weightless | +3 / +4.5 / +6 / +9 m; jump ×1–×4; falling full → immune | +3 m ≈ 0.15A/turn for a melee; the Rush carries the mobility | ✅ down from today |

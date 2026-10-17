@@ -88,9 +88,9 @@ the capstone (D), the Awakening (E), the kept cards (F). The Owner approves them
 
 ### Task 0.3 · the core — `10_core.patch` + `lua/CardDB.patch` (done 2026-10-17, dry run clean: 9 strings, 5 new entries, 8 fields)
 
-`ARCANA_WINDSWEPT` (2 ticks on her turn ends, `TickingWithSource`; carries vanilla `MOBILE_NO_AOO` while it lasts),
-`ARCANA_OPEN_PATH` (aura: `MOBILE_NO_AOO_SOURCE` on her allies — P6 plan A), `Arcana_Passive_Windswept_Touch` (marks
-on a hit; vanilla `UND_ServantOfBoooal` pattern), `Arcana_Passive_OpenPath` (the aura at combat start), The Open Road
+`ARCANA_WINDSWEPT` (2 ticks on her turn ends, `TickingWithSource`), the Open Path as an `EnableCondition` on the
+mod copy of `Interrupt_AttackOfOpportunity` (P6 plan B, WB49), `Arcana_Passive_Windswept_Touch` (marks on damage
+dealt, P7, WB49), The Open Road
 (texts, True Strike out of its condition, grants both Zephyr statuses), `Rush_Arcana_Created_ZephyrRush` +
 `ARCANA_ZEPHYR_RUSH`, the strike's Gale push, Gale Burst and Wind Blast marking on a failed save (Gale Burst's free
 strike out). Left for later tasks: the two hidden passives join level 1 in `50_structure.pl` (0.7); the Rush's card
@@ -139,9 +139,8 @@ family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand s
 ### Task 0.6 · the capstone and the name — `40_capstone_names.patch` (done 2026-10-17; dry run of 10–40 clean: 82 strings, 43 new entries, 53 fields, 34 removals)
 
 `Projectile_Arcana_Created_WhereTheWindsMeet` (vanilla `Projectile_VacuumBulb` parent; 18 m; action; `OncePerRest`;
-only without `ARCANA_BAG_OPEN`; DEX save halves the 4d8 Thunder; pull, Off Balance, mark on both outcomes) — its own
-9 m explosion takes Windswept enemies, `Projectile_Arcana_WhereTheWindsMeet_Inner` (6 m, `CreateExplosion` at the
-point) every other enemy; `ARCANA_WINDS_MEET_TECH` stops a double catch (P4). The subclass strings A1–A5 say *The
+only without `ARCANA_BAG_OPEN`; DEX save halves the 4d8 Thunder; pull, Off Balance, mark on both outcomes) — one
+9 m area takes every enemy; a Windswept one is pulled 9 m, any other 6 m (P4 as the Owner rebuilt it, WB49). The subclass strings A1–A5 say *The
 Windborn*. `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` hidden. CardDB: the capstone as a 0-Thread card.
 
 ### Task 0.7 · the level map — `50_structure.pl` (done 2026-10-17)
@@ -191,3 +190,22 @@ exempt). It is calibrated on the game: Probe: Rush and Probe: Leap pass, the bro
 chain before every `stats_add --apply`.** A repeated-field scan of the patches is run with it (it caught a duplicate
 `SpellSchool` the fix had added to the capstone). VFX are the templates' for now (Fireball's fire on the capstone,
 Command's on the Mark): the wind effects are picked with P5.
+
+### Stage 1 results (QA-0004, 2026-10-17) and the P8 fix
+
+**Pass:** P1, P2, P4, P5, P6, P7, P9. **Fail:** P8 (Probe Count showed no turns); P3 waits on P8. The Owner changed the
+game by hand while testing (captured in `51`; `05_probes.patch` is **never reapplied** from now on, or it would undo
+them): P4 one 9 m area, marked enemies pulled 9 m and the others 6 m; P6 a mod copy of vanilla
+`Interrupt_AttackOfOpportunity` with `not HasStatus('PROBE_ARC0026_MARK')` in `EnableCondition` (the Mobile pair
+failed), the mark's `MOBILE_NO_AOO` functors and `PROBE_ARC0026_PATH` removed; P7 `OnDamage` with
+`TotalDamageDoneGreaterThan(0)` (`OnAttack` caught only weapon attacks); the probe Rush costs nothing. All in WB49.
+**P8 root cause (from the code; no osirislog, it was played in game):** Probe Count had `TickType EndTurn` and no
+`FreezeDuration`. The mod's working variable-duration status, `RESONANT_OVERLOAD` (set from Osiris with
+`IntegerProduct` and `IntegerToReal`), is frozen and has no tick type, so the number shown is the one the goal set.
+**Fix:** `06_probe_count.patch` (Probe Count frozen, texts) and the probe goal shows exactly X, no cap (Owner). The
+build keeps WB13's cap by rank (asked and kept, 2026-10-17); the build's bag is not hit by the P8 bug: `22_goal_fool.txt`
+applies `ARCANA_BAG_OPEN` with -1 and counts the turns in a DB (to show turns left on it, use the same frozen pattern).
+**Build carried over (WB49):** `10_core.patch` Open Path = `@set Interrupt_AttackOfOpportunity EnableCondition` on
+`ARCANA_WINDSWEPT` (no aura, no `Arcana_Passive_OpenPath`, row dropped from `50_structure.pl`); Windswept Touch and
+Storm's second Rush on `OnDamage`; `40_capstone_names.patch` one area, no inner explosion, no once-only status.
+Apply: `[fechado] ARC-0026` → `06_probe_count.patch --apply`, the goal copied as CRLF, Story recompiled, P8 then P3.

@@ -1,6 +1,6 @@
 # ===== ARC-0026 stage 2 — the Open Road (WB3, WB5, WB8–WB10, WB18, WB27, WB28) =====
 # Texts: approved (32.04/ARC-0026_Windborn.md, 00_texts.md B1–B8, F1–F2). Values: 25 FEAT_Unbound_TheOpenRoad.
-# Written before the probes: P2 (one Rush Zephyr), P6 (the Open Path pair), P7 (marks) may switch a block to its
+# Written before the probes: P2 (one Rush Zephyr), P6 (the Open Path: plan B, the AoO override), P7 (marks) may switch a block to its
 # plan B (SPEC_ARC-0026 §Probes). Internal ids keep their names (ADR-0002).
 # Ranks (Gale range and push, Storm) are read through Arcana_Passive_Zephyr_Gale, created in 30_ranks_cards.patch;
 # until then HasPassive() is false and Zephyr plays the Breeze rank.
@@ -23,21 +23,14 @@ data "StackId" "ARCANA_WINDSWEPT"
 data "StackType" "Overwrite"
 data "TickType" "EndTurn"
 data "StatusPropertyFlags" "TickingWithSource;ForceOverhead"
-data "OnApplyFunctors" "ApplyStatus(MOBILE_NO_AOO,100,-1)"
-data "OnRemoveFunctors" "RemoveStatus(MOBILE_NO_AOO)"
 data "RemoveEvents" "OnCombatEnded"
 
-# --- The Open Path (WB10), plan A of P6: vanilla Interrupt_AttackOfOpportunity skips an attack when the reactor has
-# MOBILE_NO_AOO (put by Windswept above) and the mover has MOBILE_NO_AOO_SOURCE (this aura, on her and her allies).
-new entry "ARCANA_OPEN_PATH"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" "{{WB_WINDSWEPT_NAME}}"
-data "StackId" "ARCANA_OPEN_PATH"
-data "AuraRadius" "30"
-data "AuraStatuses" "IF(Ally()):ApplyStatus(MOBILE_NO_AOO_SOURCE)"
-data "RemoveEvents" "OnCombatEnded"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+# --- The Open Path (WB10), plan B of P6 (QA-0004): the vanilla Mobile pair failed; the Owner copied vanilla
+# Interrupt_AttackOfOpportunity into the mod (Interrupt.txt, 2026-10-17) and a Windswept reactor is switched off in its
+# EnableCondition, as SG_Blinded already is. Stage 2 points it from the probe mark to Windswept.
+# shortcut: overrides a vanilla interrupt (a mod that edits it too wins or loses by load order); revisit on a conflict report.
+@file Interrupt
+@set Interrupt_AttackOfOpportunity EnableCondition "not HasStatus('SG_Blinded') and not HasStatus('ARCANA_WINDSWEPT');"
 
 # --- Zephyr Strike: the core grant. True Strike leaves (WB29); the rule text is taught here once (WB27).
 @loca h99c87996ge8c7g0090gfd52g5145a4e60f30 The Open Road
@@ -48,23 +41,16 @@ data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndi
 @set Arcana_Passive_FlowingStrikeZephyr ExtraDescription {{WB_OPENROAD_EXTRA}}
 @set Arcana_Passive_FlowingStrikeZephyr Conditions "((IsMeleeAttack() and IsMonkWeaponAttack() and not SpellId('Target_UnarmedStrike_Monk')) or IsCardSpell()) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);"
 
-# --- The mark on a hit (hers; Tier II adds her allies' in 20_bag_awakening.patch) and the Open Path aura at combat
-# start. Hidden: The Open Road explains both. Anchor: vanilla UND_ServantOfBoooal (OnAttack, IsAttack() and not IsMiss()).
+# --- The mark on damage (hers; Tier II adds her allies' in 20_bag_awakening.patch). Hidden: The Open Road explains it.
+# P7 (QA-0004): OnAttack marked only on a weapon attack; the Owner's fix is OnDamage with damage done, so a miss marks nothing.
 @section UNBOUND PASSIVES
 new entry "Arcana_Passive_Windswept_Touch"
 type "PassiveData"
 data "DisplayName" "{{WB_WINDSWEPT_NAME}}"
 data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnAttack"
-data "Conditions" "IsAttack() and not IsMiss() and not IsCriticalMiss() and Enemy() and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "Enemy() and TotalDamageDoneGreaterThan(0) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
 data "StatsFunctors" "ApplyStatus(ARCANA_WINDSWEPT,100,2)"
-
-new entry "Arcana_Passive_OpenPath"
-type "PassiveData"
-data "DisplayName" "{{WB_WINDSWEPT_NAME}}"
-data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnCombatStarted"
-data "StatsFunctors" "ApplyStatus(SELF,ARCANA_OPEN_PATH,100,-1)"
 
 # --- Zephyr Strike, P2 plan A (two created cards): the strike stays (Target_Arcana_Created_ZephyrStrike — Wind Riposte
 # inherits it, CardDB / families / FOOL_ZEPHYR_FREE key on it) and gains the Gale push; the Rush is a new card,

@@ -56,10 +56,11 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h11ea3c49g0382g069fg8bb7g295fc8e1efcc" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h38ccf782gaf99gaf62g0e33g0cee3c118110" version="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="BonusActionPoint:1;" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsMelee;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Bludgeoning" enumeration_type_name="Damage Type" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="DontChange" enumeration_type_name="SpellSheathing" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -72,6 +73,11 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2c0ffd8bgbde0ga90dgdb4bg31be9fa7ee06" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6fbc56a9g0fdage502gdda7gdaf9c644da00" version="1" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="b94b9184-9bd0-4840-be7d-003700173b37,,;,,;5df11e35-f081-44f7-bd6f-7049d0e533cd,,;8dccb0f6-24e3-44b7-a60b-1f217b7db523,,;066f8e0e-b3e1-4b76-a473-d1e23a3b7230,,;,,;7a28f440-1b0b-4a18-96a8-3767959b601a,,;,,;,," />
+        <field name="Requirements" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>
   </stat_objects>

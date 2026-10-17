@@ -1,0 +1,11 @@
+# ===== ARC-0026 stage 1 fix — Probe Count (P8, P3) after QA-0004 =====
+# Apply this one alone: 05_probes.patch is NOT reapplied, the Owner changed P4/P6/P7 by hand in the game (captured in
+# 51, 2026-10-17). P8 failed: Probe Count showed no turns. Probe Count had TickType EndTurn and no FreezeDuration;
+# the mod's working variable-duration status (RESONANT_OVERLOAD, set from Osiris with IntegerToReal) is frozen and
+# never ticks, so the number shown is exactly what the goal set. The goal now sets X turns, no cap (Owner, QA-0004).
+
+@file Status_BOOST
+@set PROBE_ARC0026_COUNT StatusPropertyFlags "FreezeDuration;ForceOverhead"
+
+@loca h14e7b640g17f3g5ccagd158g95590d58cd92 ARC-0026 probes P3/P8: the turns shown are exactly the marks counted. At each of your turn starts every Probe Windswept goes.
+@loca h0eed740agf378gf977gcf91g329f3058a92a ARC-0026 probes P3/P8: count your marked enemies and show the count as turns.

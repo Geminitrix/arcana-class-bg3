@@ -49,11 +49,11 @@
             },
             {
                "id" : "P8",
-               "rule" : "SPEC_ARC-0026 P8 (X counted and capped)",
-               "title" : "The bag's X: marks counted, capped at 2",
-               "steps" : "Mark 3 enemies. Cast Probe: Count",
-               "expected" : "Probe Count appears on you showing 2 turns (3 marks, capped at 2); with 1 mark it shows 1 turn",
-               "fails" : "No status, or the turns don't match the marks"
+               "rule" : "SPEC_ARC-0026 P8 (X counted; retest after 06_probe_count.patch)",
+               "title" : "The bag's X: exactly the marks counted",
+               "steps" : "Mark 3 enemies (Probe: Mark or hits). Cast Probe: Count. Then mark 1 more and cast it again",
+               "expected" : "Probe Count appears on you showing 3 turns; after the second cast it shows 4. The number does not count down while you play (the goal sets it)",
+               "fails" : "No status, no number on it, or the number is not the marks counted"
             },
             {
                "id" : "P3",
@@ -65,7 +65,7 @@
             },
             {
                "id" : "P4",
-               "rule" : "SPEC_ARC-0026 P4 (Where the Winds Meet, two radii)",
+               "rule" : "SPEC_ARC-0026 P4 (Where the Winds Meet, one area, WB49)",
                "title" : "The vortex pulls marked enemies from 9 m, the others from 6 m, once each",
                "steps" : "Mark one enemy about 8 m from a point; leave another unmarked 5 m from it and a third unmarked 8 m from it. Throw Probe: Vortex at the point",
                "expected" : "The marked enemy at 8 m and the unmarked one at 5 m are pulled to the point and Off Balance, once each; the unmarked one at 8 m is not",

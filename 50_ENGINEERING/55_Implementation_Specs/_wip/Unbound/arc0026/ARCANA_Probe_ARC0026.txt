@@ -5,8 +5,8 @@ INITSECTION
 KBSECTION
 // ARC-0026 stage 1 probes (throwaway; stage 2 deletes this goal and runs RemoveSpell / RemovePassive on them).
 // P3: TurnStarted / TurnEnded on a player; P7: AttackedBy from an ally marks in the caster's name, != on CHARACTER;
-// P8: count the marks (DB mirror, IsDead), IntegerMin cap 2, show it as the turns of Probe Count.
-// Anchors: TurnStarted, StatusApplied / StatusRemoved, IsEnemy, IntegerSum, IntegerMin (mod goals); TurnEnded,
+// P8: count the marks (DB mirror, IsDead), X turns exactly (no cap), frozen like RESONANT_OVERLOAD.
+// Anchors: TurnStarted, StatusApplied / StatusRemoved, IsEnemy, IntegerSum, IntegerProduct, IntegerToReal (mod goals); TurnEnded,
 // AttackedBy, AddPassive (vanilla goals).
 
 //REGION Grant the probes
@@ -88,27 +88,19 @@ THEN
 NOT DB_ARCANA_Probe26X(_Src, _N);
 DB_ARCANA_Probe26X(_Src, _M);
 
+// X turns exactly, no cap (Owner, QA-0004); the status is frozen, so the number shown is X (RESONANT_OVERLOAD pattern)
 PROC
 PROC_ARCANA_Probe26_Show((CHARACTER)_Src)
 AND
 DB_ARCANA_Probe26X(_Src, _X)
 AND
-IntegerMin(_X, 2, _T)
+_X > 0
 AND
-_T == 1
+IntegerProduct(_X, 6, _Secs)
+AND
+IntegerToReal(_Secs, _Dur)
 THEN
-ApplyStatus(_Src, "PROBE_ARC0026_COUNT", 6.0, 1, _Src);
-
-PROC
-PROC_ARCANA_Probe26_Show((CHARACTER)_Src)
-AND
-DB_ARCANA_Probe26X(_Src, _X)
-AND
-IntegerMin(_X, 2, _T)
-AND
-_T == 2
-THEN
-ApplyStatus(_Src, "PROBE_ARC0026_COUNT", 12.0, 1, _Src);
+ApplyStatus(_Src, "PROBE_ARC0026_COUNT", _Dur, 1, _Src);
 
 IF
 TurnStarted((CHARACTER)_Src)

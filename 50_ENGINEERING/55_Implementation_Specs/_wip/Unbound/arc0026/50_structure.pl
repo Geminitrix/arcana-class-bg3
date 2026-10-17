@@ -40,7 +40,6 @@ sub tt { "Arcana_Passive_TwinkleToes_$_[0]" } sub wl { "Arcana_Passive_Weightles
 # [level, also the multiclass row?, field, add, remove, stage (default 4)]
 my @ROWS = (
     [1, 1, 'PassivesAdded', wl(1), tt(1)], [1, 1, 'PassivesAdded', 'Arcana_Passive_Windswept_Touch', undef, 2],
-    [1, 1, 'PassivesAdded', 'Arcana_Passive_OpenPath', undef, 2],
     [2, 0, 'PassivesAdded', 'Arcana_Passive_AeolusBag', undef, 3], [2, 0, 'Selectors', sel($L2), undef, 3],
     [3, 0, 'PassivesAdded', undef, tt(3)], [3, 0, 'PassivesRemoved', undef, tt(1)],
     [3, 0, 'Boosts', undef, $GD], [3, 0, 'Boosts', undef, $GR],

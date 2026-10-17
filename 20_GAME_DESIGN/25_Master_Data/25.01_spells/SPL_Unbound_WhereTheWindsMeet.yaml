@@ -10,6 +10,7 @@ values: {}
 pending_build:
   action_next:      { value: "Action; once per Long Rest; only while no wind blows", note: "WB26" }
   range_next:       { value: 18, unit: metres, note: "the point" }
-  pull_radius_next: { value: 6, unit: metres, note: "every enemy within it is pulled to the centre" }
-  pull_radius_windswept_next: { value: 9, unit: metres }
+  area_radius_next: { value: 9, unit: metres, note: "WB49: one area, every enemy within it is pulled" }
+  pull_distance_next: { value: 6, unit: metres, note: "WB49: an enemy that is not Windswept" }
+  pull_distance_windswept_next: { value: 9, unit: metres, note: "WB49" }
   damage_next:      { value: 4d8, unit: damage, type: Thunder, note: "DEX save for half; added in the balance pass (capstone band, 22.05)" }

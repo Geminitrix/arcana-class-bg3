@@ -1585,4 +1585,8 @@
   <content contentuid="h6fbc56a9g0fdage502gdda7gdaf9c644da00" version="1">ARC-0026 probe P5: Leap of Faith on the Force Tunnel animation.</content>
   <content contentuid="h24d00c65g3092g99e3g45b5g6213bac19c1f" version="1">Probe: Storm Push</content>
   <content contentuid="h5c57b695gc4a3g7c7bg9716g133296250e2b" version="1">ARC-0026 probe P9: a status pushes the enemy 3 m away from you and leaves it Off Balance.</content>
+  <content contentuid="hf509ba10g3372gc629g3eddgf1155471e6a6" version="1">Opportunity Attack</content>
+  <content contentuid="h39feedd4gc347gc9a2g498fgfb2185b74af0" version="1">Attack an enemy moving out of your reach.</content>
+  <content contentuid="hf4bd045egac58gfa87g1be9g8da4963fa06b" version="1">Probe: Vortex</content>
+  <content contentuid="h41d85e01gdf11g2b8eg99dbgd972923cce64" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
 </contentList>
