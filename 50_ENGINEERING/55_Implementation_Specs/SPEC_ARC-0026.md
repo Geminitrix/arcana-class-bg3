@@ -175,3 +175,19 @@ backup, `stats_add 05_probes.patch --apply`, `check_cards`, `stats_add --selftes
 
 **Cleanup (first task of stage 2):** `@remove` every `PROBE_ARC0026_*` status / passive and `*_PROBE_*` spell, delete the
 goal, and a one-off `RemoveSpell` / `RemovePassive` on SavegameLoaded (AddSpell persists in the save).
+
+### Stage 1 fix — castable spells (2026-10-17, after QA-0004 P1)
+
+**Symptom:** Probe: Mark showed in the hotbar but clicking it never entered targeting. **Root cause:** of the mod's 77
+standalone Target spells, 76 carry `CastTextEvent` and 74 `SpellAnimation`; the only player-cast spells with neither
+were the four standalone probes. The same gap was in the build: Aeolus' Bag (and its six winds by `using`), The Calm,
+and the capstone (its parent, the grenade `Projectile_VacuumBulb`, has no `CastTextEvent`). Probe: Rush passed in game
+because `Rush_SpringAttack` gives both. **Fix:** each spell copies the cast block of a working one — Target from
+`Target_Arcana_Card_Spell_Command`, Shout from `Shout_Arcana_Card_Spell_FlowState` (fields it already had are kept) —
+and the two projectiles inherit vanilla `Projectile_Fireball` (a cast point projectile) instead of the grenade.
+**Guard:** new `82_Automation/stats/check_castable.pl <patch…>` resolves each new spell's `using` chain (patch, mod,
+vanilla) and fails when `SpellAnimation` or `CastTextEvent` is missing (explosions named `*Inner` / `*_Explosion` are
+exempt). It is calibrated on the game: Probe: Rush and Probe: Leap pass, the broken probes fail. **It joins the apply
+chain before every `stats_add --apply`.** A repeated-field scan of the patches is run with it (it caught a duplicate
+`SpellSchool` the fix had added to the capstone). VFX are the templates' for now (Fireball's fire on the capstone,
+Command's on the Mark): the wind effects are picked with P5.
