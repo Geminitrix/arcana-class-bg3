@@ -1,0 +1,209 @@
+# ===== ARC-0025 stage 1 — probes P1–P6 (throwaway; stage 2 removes every PROBE entry) =====
+# All entries live in the DEBUG sections and carry the PROBE / ARC0025 tag. The spells reach every player character
+# through ARCANA_Probe_ARC0025.txt (AddSpell on SavegameLoaded), so no list or progression changes.
+# Anchors: Shout template = Shout_Arcana_Card_Passive_Compassion (mod; RequirementConditions + HasStatus); container =
+# Target_Arcana_Card_Spell_Hemoplague (mod; children `using` the parent + SpellContainerID); TickType StartTurn =
+# WIND_WHISPERS (mod); pull = Target_ThornWhip `Force(-3, OriginToEntity, Neutral, false, true)` (vanilla Shared);
+# light = LIGHT `GameplayLight(7.5,false,0.1)` (vanilla Shared); combat condition = `Combat()` in Boosts (vanilla);
+# Skill boost = `Skill(Persuasion, 2)` (vanilla); DownedStatus = UNDYING_HOPE / UNDYING_HOPE_DOWNED (mod).
+
+@loca PROBE_SING_A_NAME Probe: Sing A
+@loca PROBE_SING_B_NAME Probe: Sing B
+@loca PROBE_SING_DESC ARC-0025 probe P1: apply Hymn A or B (one replaces the other).
+@loca PROBE_CONTAINER_NAME Probe: Container
+@loca PROBE_CONTAINER_DESC ARC-0025 probe P1: one child per Hymn; the other child must be greyed out.
+@loca PROBE_CHILD_A_NAME Probe: Child A
+@loca PROBE_CHILD_B_NAME Probe: Child B
+@loca PROBE_HYMN_A_NAME Probe Hymn A
+@loca PROBE_HYMN_B_NAME Probe Hymn B
+@loca PROBE_CAST_NAME Probe: child cast
+@loca PROBE_DUSK_NAME Probe Dusk
+@loca PROBE_NIGHTFALL_NAME Probe Nightfall
+@loca PROBE_GATED_NAME Probe: Gated
+@loca PROBE_GATED_DESC ARC-0025 probe P3: castable once until your next turn starts.
+@loca PROBE_GATE_NAME Probe Gate
+@loca PROBE_PULL_NAME Probe: Pull
+@loca PROBE_PULL_DESC ARC-0025 probe P4: pull an ally 9 m toward you.
+@loca PROBE_LANTERN_NAME Probe: Lantern
+@loca PROBE_LANTERN_DESC ARC-0025 probe P5: you become a 12 m light; Perception +1 out of combat only.
+@loca PROBE_LANTERN_STATUS_NAME Probe Lantern
+@loca PROBE_UNDYING_NAME Probe: Undying
+@loca PROBE_UNDYING_DESC ARC-0025 probe P6: the next time the ally would be Downed, they stay at 1 HP in Probe Nightfall.
+@loca PROBE_UNDYING_STATUS_NAME Probe Undying
+
+# ---------- statuses ----------
+@file Status_BOOST
+@section DEBUG STATUS
+
+new entry "PROBE_ARC0025_HYMN_A"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_HYMN_A_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_HYMN"
+
+new entry "PROBE_ARC0025_HYMN_B"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_HYMN_B_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_HYMN"
+
+new entry "PROBE_ARC0025_CAST"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_CAST_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_CAST"
+
+new entry "PROBE_ARC0025_DUSK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_DUSK_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_MARK"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "PROBE_ARC0025_NIGHTFALL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_NIGHTFALL_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_MARK"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "PROBE_ARC0025_GATE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_GATE_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_GATE"
+data "TickType" "StartTurn"
+
+new entry "PROBE_ARC0025_LANTERN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_LANTERN_STATUS_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_LANTERN"
+data "Boosts" "GameplayLight(12,false,0.1);IF(not Combat()):Skill(Perception, 1)"
+
+new entry "PROBE_ARC0025_UNDYING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE_UNDYING_STATUS_NAME}}"
+data "Icon" "Spell_Evocation_DancingLights"
+data "StackId" "PROBE_ARC0025_UNDYING"
+data "StackType" "Ignore"
+data "Boosts" "DownedStatus(PROBE_ARC0025_UNDYING_DOWNED,10)"
+
+@file Status_DOWNED
+@section AWAKEN DOWNED STATUS
+
+new entry "PROBE_ARC0025_UNDYING_DOWNED"
+type "StatusData"
+data "StatusType" "DOWNED"
+using "SURVIVAL_INSTINCT_DOWNED"
+data "DisplayName" "{{PROBE_UNDYING_STATUS_NAME}}"
+data "Description" ""
+data "Icon" "Spell_Evocation_DancingLights"
+data "AnimationStart" "7e811df9-74e7-4515-bd02-7043164dbf33(STAT_Fallen_Peace_01_Start)"
+data "AnimationLoop" "d7b7cf53-fe71-4a23-8011-9675a6e1d902(STAT_Fallen_Peace_01_Loop)"
+data "AnimationEnd" "ade4cf7f-a34a-40c4-b810-096f0c186bc2(STAT_Fallen_Peace_01_End)"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "RemoveStatus(PROBE_ARC0025_UNDYING);RegainHitPoints(1,Guaranteed);ApplyStatus(PROBE_ARC0025_NIGHTFALL,100,-1)"
+data "StatusGroups" "SG_Incapacitated"
+data "ApplyEffect" "5508ea40-3f23-436d-980d-0b8143f6e2f3"
+data "HideOverheadUI" "1"
+
+# ---------- shouts ----------
+@file Spell_Shout
+@section Shout_DEBUG SPELLS
+
+new entry "Shout_Arcana_Util_PROBE_SingA"
+type "SpellData"
+data "SpellType" "Shout"
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_HYMN_A,100,-1)"
+data "TargetConditions" "Self()"
+data "Icon" "Spell_Evocation_DancingLights"
+data "DisplayName" "{{PROBE_SING_A_NAME}}"
+data "Description" "{{PROBE_SING_DESC}}"
+data "SpellAnimation" "355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,,"
+data "SpellFlags" "IsSpell"
+data "HitAnimationType" "None"
+
+new entry "Shout_Arcana_Util_PROBE_SingB"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_SingA"
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_HYMN_B,100,-1)"
+data "DisplayName" "{{PROBE_SING_B_NAME}}"
+
+new entry "Shout_Arcana_Util_PROBE_Container"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_SingA"
+data "ContainerSpells" "Shout_Arcana_Util_PROBE_ChildA;Shout_Arcana_Util_PROBE_ChildB"
+data "SpellProperties" ""
+data "DisplayName" "{{PROBE_CONTAINER_NAME}}"
+data "Description" "{{PROBE_CONTAINER_DESC}}"
+
+new entry "Shout_Arcana_Util_PROBE_ChildA"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_Container"
+data "SpellContainerID" "Shout_Arcana_Util_PROBE_Container"
+data "ContainerSpells" ""
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_CAST,100,1)"
+data "RequirementConditions" "HasStatus('PROBE_ARC0025_HYMN_A',context.Source)"
+data "DisplayName" "{{PROBE_CHILD_A_NAME}}"
+
+new entry "Shout_Arcana_Util_PROBE_ChildB"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_Container"
+data "SpellContainerID" "Shout_Arcana_Util_PROBE_Container"
+data "ContainerSpells" ""
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_CAST,100,1)"
+data "RequirementConditions" "HasStatus('PROBE_ARC0025_HYMN_B',context.Source)"
+data "DisplayName" "{{PROBE_CHILD_B_NAME}}"
+
+new entry "Shout_Arcana_Util_PROBE_Gated"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_SingA"
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_GATE,100,1)"
+data "RequirementConditions" "not HasStatus('PROBE_ARC0025_GATE',context.Source)"
+data "DisplayName" "{{PROBE_GATED_NAME}}"
+data "Description" "{{PROBE_GATED_DESC}}"
+
+new entry "Shout_Arcana_Util_PROBE_Lantern"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Arcana_Util_PROBE_SingA"
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0025_LANTERN,100,-1)"
+data "DisplayName" "{{PROBE_LANTERN_NAME}}"
+data "Description" "{{PROBE_LANTERN_DESC}}"
+
+# ---------- targets (template: the mod's DEBUG target, Target_DEBUG_IncreaseHP underneath) ----------
+@file Spell_Target
+@section Target_DEBUG SPELLS
+
+new entry "Target_Arcana_Util_PROBE_Pull"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Arcana_Util_DEBUG_AddDoubt"
+data "TargetRadius" "18"
+data "TargetConditions" "Ally() and not Self() and not Dead()"
+data "SpellProperties" "Force(-9, OriginToEntity, Neutral, false, true);"
+data "DisplayName" "{{PROBE_PULL_NAME}}"
+data "Description" "{{PROBE_PULL_DESC}}"
+
+new entry "Target_Arcana_Util_PROBE_Undying"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Arcana_Util_DEBUG_AddDoubt"
+data "TargetConditions" "Ally() and not Dead()"
+data "SpellProperties" "ApplyStatus(PROBE_ARC0025_UNDYING,100,-1);"
+data "DisplayName" "{{PROBE_UNDYING_NAME}}"
+data "Description" "{{PROBE_UNDYING_DESC}}"

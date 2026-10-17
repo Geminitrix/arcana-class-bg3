@@ -129,3 +129,17 @@ level-2 bonus action with no Concentration; watch. **Rekindle**: a revive ≈ 3A
 |---|---|---|
 | Lantern skill bonus | **+1** to its two skills, for her and allies within 6 m | below Weaver Hand: Guide (+1d4 ≈ 2.5 on one check of one target, Concentration) — broader, smaller |
 | Light in the Dark (level 10) | the heals she gives are **+ spellcasting modifier** while she is in Dusk / Nightfall; **not added to a Dawn** | cap ≤ Dawn (SC12): at slot 5, Dusk +12.5 + 5 = 17.5 < Dawn +22.5 |
+
+## Stage 1 — probes P1–P6 (`[fechado] ARC-0025`) — prepared 2026-10-17
+
+**Files:** `_wip/Starchild/arc0025/00_probes.patch` (27 strings, 18 entries, all in the DEBUG sections; dry run clean)
+and `_wip/Starchild/arc0025/ARCANA_Probe_ARC0025.txt` (new goal, CRLF, ASCII: grants the 7 probe spells to every
+player on SavegameLoaded; P2's marks on HitpointsChanged). **Test:** `61.02/Starchild/GUIDE_ARC-0025.json`, ticket
+`QA-0003`.
+
+**Apply:** the chain of `SPEC_ARC-0020.md` steps 1–3, 6–7, 9–13 (no generator or sort: no card added) — `sync_data`,
+backup, `stats_add 00_probes.patch --apply`, `check_cards`, `stats_add --selftest`, copy the goal into
+`Story/RawFiles/Goals/`, counts, `sync_data`, commit + push; the Owner compiles the Story and plays `QA-0003`.
+
+**Cleanup (first task of stage 2):** `@remove` every `PROBE_ARC0025_*` status and `*_PROBE_*` spell, delete the goal,
+and a one-off `RemoveSpell` on SavegameLoaded for the 7 spells (AddSpell persists in the save).

@@ -1,0 +1,120 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// ARC-0025 stage 1 probes (throwaway; stage 2 deletes this goal and runs RemoveSpell on the probe spells).
+// P2: a mark on each downward crossing of 50% and 25% of max HP; rising above 25% turns Nightfall into Dusk,
+// above 50% clears it; 0 HP clears it. Anchors: HitpointsChanged / GetHitpoints / DB per character from
+// ARCANA_Aspect_Star.txt; GetMaxHitpoints from ARCANA_Aspect_Death.txt; IntegerProduct / IntegerDivide (mod goals).
+
+//REGION Grant the probe spells
+IF
+SavegameLoaded()
+AND
+DB_Players(_Char)
+THEN
+AddSpell(_Char, "Shout_Arcana_Util_PROBE_SingA", 1, 0);
+AddSpell(_Char, "Shout_Arcana_Util_PROBE_SingB", 1, 0);
+AddSpell(_Char, "Shout_Arcana_Util_PROBE_Container", 1, 0);
+AddSpell(_Char, "Shout_Arcana_Util_PROBE_Gated", 1, 0);
+AddSpell(_Char, "Shout_Arcana_Util_PROBE_Lantern", 1, 0);
+AddSpell(_Char, "Target_Arcana_Util_PROBE_Pull", 1, 0);
+AddSpell(_Char, "Target_Arcana_Util_PROBE_Undying", 1, 0);
+//END_REGION
+
+//REGION P2 marks
+IF
+HitpointsChanged((CHARACTER)_Char, _)
+AND
+DB_Players(_Char)
+AND
+GetHitpoints(_Char, _HP)
+AND
+GetMaxHitpoints(_Char, _Max)
+AND
+_Max > 0
+AND
+IntegerProduct(_HP, 100, _X)
+AND
+IntegerDivide(_X, _Max, _Pct)
+THEN
+PROC_ARCANA_Probe_Mark(_Char, _Pct);
+PROC_ARCANA_Probe_SetPct(_Char, _Pct);
+
+// first reading: treat the old value as full health
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+NOT DB_ARCANA_ProbePct(_Char, _)
+THEN
+DB_ARCANA_ProbePct(_Char, 100);
+
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+DB_ARCANA_ProbePct(_Char, _Old)
+AND
+_Old >= 50
+AND
+_Pct < 50
+AND
+_Pct >= 25
+THEN
+ApplyStatus(_Char, "PROBE_ARC0025_DUSK", -1.0, 1, _Char);
+
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+DB_ARCANA_ProbePct(_Char, _Old)
+AND
+_Old >= 25
+AND
+_Pct < 25
+AND
+_Pct > 0
+THEN
+ApplyStatus(_Char, "PROBE_ARC0025_NIGHTFALL", -1.0, 1, _Char);
+
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+_Pct >= 25
+AND
+_Pct < 50
+AND
+HasActiveStatus(_Char, "PROBE_ARC0025_NIGHTFALL", 1)
+THEN
+ApplyStatus(_Char, "PROBE_ARC0025_DUSK", -1.0, 1, _Char);
+
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+_Pct >= 50
+THEN
+RemoveStatus(_Char, "PROBE_ARC0025_DUSK", _Char);
+RemoveStatus(_Char, "PROBE_ARC0025_NIGHTFALL", _Char);
+
+PROC
+PROC_ARCANA_Probe_Mark((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+_Pct <= 0
+THEN
+RemoveStatus(_Char, "PROBE_ARC0025_DUSK", _Char);
+RemoveStatus(_Char, "PROBE_ARC0025_NIGHTFALL", _Char);
+
+PROC
+PROC_ARCANA_Probe_SetPct((CHARACTER)_Char, (INTEGER)_Pct)
+AND
+DB_ARCANA_ProbePct(_Char, _Old)
+THEN
+NOT DB_ARCANA_ProbePct(_Char, _Old);
+
+PROC
+PROC_ARCANA_Probe_SetPct((CHARACTER)_Char, (INTEGER)_Pct)
+THEN
+DB_ARCANA_ProbePct(_Char, _Pct);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

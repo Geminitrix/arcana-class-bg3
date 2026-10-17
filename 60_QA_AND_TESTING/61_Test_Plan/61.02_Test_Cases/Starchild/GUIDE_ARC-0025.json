@@ -1,0 +1,68 @@
+{
+   "before" : [
+      "Stage 1 of ARC-0025 is applied (a [fechado] ARC-0025 message), the Story is compiled and log.txt shows 0 error(s), 0 warning(s).",
+      "Load a save with the party; the probe spells (\"Probe: …\") are added to every player character on load.",
+      "Any class and level. Probes are throwaway: stage 2 removes them.",
+      "Write down what you see for each probe, even when it fails: every probe has a plan B."
+   ],
+   "sessions" : [
+      {
+         "id" : "PR",
+         "level" : 1,
+         "name" : "Probes",
+         "setup" : "The party out of combat, then a small fight for P2, P3, P5 and P6.",
+         "tests" : [
+            {
+               "expected" : "With Probe Hymn A on, Child A is castable and Child B is greyed out; with Hymn B the opposite. Casting Sing B replaces Hymn A (one icon only)",
+               "fails" : "Both children are castable, or both greyed, or the container does not open, or both Hymn icons show.",
+               "id" : "P1",
+               "rule" : "SPEC_ARC-0025 P1 (containers locked by the Hymn, SC22)",
+               "steps" : "Cast Probe: Sing A, open Probe: Container; cast Probe: Sing B, open it again",
+               "title" : "A container child locked by a status"
+            },
+            {
+               "expected" : "Below 50% HP the character shows Probe Dusk; below 25% Probe Nightfall replaces it; healed to 25-49% it is Probe Dusk again; above 50% the mark is gone; when Downed the mark is gone",
+               "fails" : "No mark, both marks at once, a mark that stays above 50%, or a mark on a Downed character.",
+               "id" : "P2",
+               "rule" : "SPEC_ARC-0025 P2 (Dusk and Nightfall, SC10, SC11)",
+               "steps" : "In a fight, let an ally take damage past 50% and 25%, then heal them up step by step; also let one be Downed",
+               "title" : "Marks on a downward crossing"
+            },
+            {
+               "expected" : "After one cast Probe Gate shows and Probe: Gated is greyed out for the rest of your turn and through the enemies' turns; at the start of your next turn the gate is gone and the spell works again",
+               "fails" : "The gate disappears at the end of your own turn, or never disappears.",
+               "id" : "P3",
+               "rule" : "SPEC_ARC-0025 P3 (the first-heal gate, SC19)",
+               "steps" : "In a fight, cast Probe: Gated on your turn, try again, end the turn, watch it through the round",
+               "title" : "A one-turn gate with TickType StartTurn"
+            },
+            {
+               "expected" : "The ally slides about 9 m toward you and takes no opportunity attack",
+               "fails" : "The ally doesn't move, is pushed away, or is hit by an opportunity attack.",
+               "id" : "P4",
+               "rule" : "SPEC_ARC-0025 P4 (Tether, SC20)",
+               "steps" : "Cast Probe: Pull on an ally standing next to an enemy, 10-15 m from you",
+               "title" : "Pull an ally"
+            },
+            {
+               "expected" : "You give off light about 12 m around you; out of combat the character sheet shows Perception +1; in combat the +1 is gone and the light stays",
+               "fails" : "No light, the +1 stays in combat, or the light goes out in combat.",
+               "id" : "P5",
+               "rule" : "SPEC_ARC-0025 P5 (Lantern, SC27)",
+               "steps" : "Cast Probe: Lantern, check the sheet, then start a fight and check again",
+               "title" : "A light that switches its bonus off in combat"
+            },
+            {
+               "expected" : "When the ally would be Downed they stay up at 1 HP with Probe Nightfall on, and the mark stays",
+               "fails" : "The ally goes Downed, gets more than 1 HP, or ends without Probe Nightfall.",
+               "id" : "P6",
+               "rule" : "SPEC_ARC-0025 P6 (Undying Hope into Nightfall, SC18)",
+               "steps" : "Cast Probe: Undying on an ally, then let an enemy bring them to 0",
+               "title" : "Undying Hope leaves Nightfall"
+            }
+         ]
+      }
+   ],
+   "ticket" : "ARC-0025",
+   "title" : "The Starchild — stage 1 probes"
+}

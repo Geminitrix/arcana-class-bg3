@@ -12,6 +12,12 @@
             "61.02_Test_Cases/Kingmaker/GUIDE_ARC-0008.json"
          ],
          "name" : "Kingmaker"
+      },
+      {
+         "guides" : [
+            "61.02_Test_Cases/Starchild/GUIDE_ARC-0025.json"
+         ],
+         "name" : "Features"
       }
    ]
 }
