@@ -2,7 +2,7 @@
 id: 22.05/Starchild
 owner: Balance Designer
 source: 21.04/Starchild/DECISIONS.md (SC0–SC32), DESIGN.md §12, REFINE_Starchild.md, 25 (*_Starchild_*)
-reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); directions only, values in the balance pass
+reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); directions only, values in the balance pass; 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change
 ---
 
 # 22.05 · Balance — The Starchild (current verdict)

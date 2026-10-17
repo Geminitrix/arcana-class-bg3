@@ -2,7 +2,7 @@
 id: 21.04/Starchild/DESIGN
 owner: Lead Class Designer
 state: approved design (SC0–SC32, 2026-10-16). The game still has the 3.1 kit (`05.02/Starchild.md`) until the build ticket ships
-reviewed: 2026-10-16 ARC-0023 — written from DECISIONS.md (SC0–SC32) and REFINE_Starchild.md; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): the Sun brake (SC33); sizes in 25
+reviewed: 2026-10-16 ARC-0023 — written from DECISIONS.md (SC0–SC32) and REFINE_Starchild.md; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): the Sun brake (SC33); sizes in 25; 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change
 ---
 
 # The Starchild — XVII · The Star · Aspect of Hope

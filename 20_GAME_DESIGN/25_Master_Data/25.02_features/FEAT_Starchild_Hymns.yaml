@@ -1,5 +1,5 @@
 id: FEAT_Starchild_Hymns
-reviewed: "2026-10-16 ARC-0023 — not in the game yet; SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — not in the game yet; SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change"
 kind: feature
 subclass: Starchild
 ticket: ARC-0023

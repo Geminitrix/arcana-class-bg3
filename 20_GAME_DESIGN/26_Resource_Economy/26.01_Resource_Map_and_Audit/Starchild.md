@@ -2,7 +2,7 @@
 id: 26.01/Starchild
 owner: Balance Designer
 source: 21.04/Starchild/DECISIONS.md (SC0–SC32), DESIGN.md §4, §5, §8, §10
-reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); the build's changes (SC0–SC32) below, values in 25; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36)
+reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); the build's changes (SC0–SC32) below, values in 25; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36); 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change
 ---
 
 # 26.01 · Resource audit — The Starchild

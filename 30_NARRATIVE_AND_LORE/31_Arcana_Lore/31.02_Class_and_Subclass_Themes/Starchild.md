@@ -2,7 +2,7 @@
 id: 31.02/Starchild
 owner: Lore Writer
 source: 21.04/Starchild/DESIGN.md §2, §11 · DECISIONS.md SC0, SC3, SC5, SC7, SC9–SC10, SC15–SC16, SC27–SC28, SC32 · REFINE_Starchild.md §9 · 31.01_Lore_Bible.md
-reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change
+reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change; 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change
 ---
 
 # 31.02 · Theme — The Starchild (XVII · The Star · Aspect of Hope)

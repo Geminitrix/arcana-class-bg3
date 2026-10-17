@@ -143,7 +143,7 @@ English is final in game for the unmarked rows (`32.01/Unbound.md`). Internal id
 | Gale Burst · Wind Blast · Wind Whispers · Flow State · Ready: Gale Deflection · Storm Fists · Untethered · Leap of Faith | Her cards | Thunderclap, Evasive Flow (retired) |
 | Be the Leaf · Flowing Strikes · Flowing Assault · Magic Strikes · Empty State | Her passives | Momentum, Eye of the Storm (retired) |
 
-## The Starchild (reviewed 2026-10-16 ARC-0023 — SC0–SC32 terms; 2026-10-17 ARC-0025 — SC33–SC36 sizes, no new term; rows marked ★ reach the game with the build)
+## The Starchild (reviewed 2026-10-16 ARC-0023 — SC0–SC32 terms; 2026-10-17 ARC-0025 — SC33–SC36 sizes, no new term; stage 1 probes, no change; rows marked ★ reach the game with the build)
 
 English is final in game for the unmarked rows (`32.01/Starchild.md`); the other 15 languages carry the 3.1 kit's old
 strings. Internal ids keep the old names (`Starcall`, `AstralInfusion`, `LunarWisp`, `SolarPurge`, `Starbreath`,

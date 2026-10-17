@@ -2,7 +2,7 @@
 id: 42.04/Starchild
 owner: Icon Artist
 source: 21.04/Starchild/DESIGN.md §2.1 (card readings), §2.5 (colour), §4.1 (containers), §5–§8; 31.02/Starchild.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-16)
-reviewed: 2026-10-17 ARC-0023 — created (propagation, 00.08); containers (SC22, SC24), names (SC32); 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change
+reviewed: 2026-10-17 ARC-0023 — created (propagation, 00.08); containers (SC22, SC24), names (SC32); 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change; 2026-10-17 ARC-0025 — stage 1 probes (_wip): no change
 ---
 
 # 42.04 · Icon briefs — The Starchild
