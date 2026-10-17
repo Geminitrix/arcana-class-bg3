@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
 state: synced
-reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note)
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10)
 ---
 
 # 🍃 The Unbound — 0 · The Fool · Aspect of Curiosity
@@ -17,7 +17,8 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 > mod copy of `Interrupt_AttackOfOpportunity`: a Windswept enemy makes no opportunity attack. The Open Road (rewritten
 > `Arcana_Passive_FlowingStrikeZephyr`) grants Zephyr Strike and Zephyr Rush (`Rush_Arcana_Created_ZephyrRush`, only
 > against an enemy that is not Windswept). Gale Burst loses its free strike. Sections 5 to 8 below do not show these yet.
-> Stages 3 to 5 are pending.
+> **From 2026-10-17 the Owner builds it by hand in the Toolkit**, level by level, from `55/TOOLKIT_ARC-0026_L01.md` …
+> `_L12.md` (level 1 retypes the part above as new). Until then the rest of the game below is the old Unbound.
 
 > Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
 > Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.

@@ -177,8 +177,12 @@ Group** = `SpellStyleGroup`, **Memory Cost** = `MemoryCost` (only Rush shows it)
 
 **Status_BOOST:** Owner → DisplayName → Description → DescriptionParams → Icon → FormatColor → StatusEffectOverrideForItems → StatusEffectOverride → MaterialType → Material → MaterialApplyBody → MaterialApplyArmor → MaterialApplyWeapon → MaterialApplyNormalMap → MaterialFadeAmount → MaterialOverlayOffset → MaterialParameters → MeshEffect → StillAnimationType → StillAnimationPriority → HitAnimationType → UseLyingPickingState → SoundVocalStart → SoundVocalLoop → SoundStart → SoundLoop → SoundStop → SoundVocalEnd → StatusSoundState → ImmuneFlag → OnApplyConditions → StackId → StackPriority → StackType → AuraRadius → AuraStatuses → AuraFlags → AuraFX → SurfaceChange → Spells → Items → WeaponOverride → ResetCooldowns → LeaveAction → DieAction → ForceStackOverwrite → Toggle → TickType → Boosts → Passives → RemoveConditions → RemoveEvents → TooltipSave → TooltipDamage → TickFunctors → StatusPropertyFlags → OnApplyFunctors → OnRemoveFunctors → OnApplyRoll → OnApplySuccess → OnApplyFail → OnTickRoll → OnTickSuccess → OnTickFail → OnRemoveRoll → OnRemoveSuccess → OnRemoveFail → LEDEffect → StatusGroups → IsUnique → ApplyEffect → StatusEffect → StatusEffectOnTurn → TargetEffect → BeamEffect → SplatterDirtAmount → SplatterBloodAmount → SplatterSweatAmount → ManagedStatusEffectType → ManagedStatusEffectGroup → EndEffect → TooltipPermanentWarnings → PerformEventName → DynamicAnimationLabel → Sheathing
 
-Other types (Interrupt, other status types): the order is not recorded yet — ask the Owner for it before writing
-such a block, then add it here.
+**Interrupt:** Owner → DisplayName → Description → DescriptionParams → ExtraDescription → ExtraDescriptionParams → LoreDescription → Icon → InterruptContext → InterruptContextScope → Container → Conditions → Properties → Roll → Success → Failure → Cost → Stack → Cooldown → DefaultValue → EnableCondition → EnableContext → TooltipDamageList → TooltipAttackSave → TooltipStatusApply → ShortDescription → ShortDescriptionParams → TooltipOnMiss → TooltipOnSave → TooltipPermanentWarnings → InterruptFlags
+
+The Interrupt order was read from the Toolkit's own definitions, `Data/Editor/Config/Stats/StatObjectDefinitions.sod`
+(ARC-0026, 2026-10-17): the field order there matches the Passive order recorded above, field for field, and the
+`display_name` of each field is its label (`InterruptDefaultValue` shows as **DefaultValue**). Other types (other status
+types): read them from the same file, then add them here.
 
 ### 01–02 · NEW · StatusData / Status_BOOST · Example A, Example B
 

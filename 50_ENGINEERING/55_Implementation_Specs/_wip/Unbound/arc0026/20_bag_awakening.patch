@@ -157,7 +157,7 @@ data "Description" "{{WB_BAG_OPEN_DESC}}"
 data "Icon" "Spell_Evocation_GustOfWind"
 data "StackId" "ARCANA_BAG_OPEN"
 data "RemoveEvents" "OnCombatEnded"
-data "StatusPropertyFlags" "ForceOverhead"
+data "StatusPropertyFlags" "FreezeDuration;ForceOverhead"
 
 # One aura per wind on her (whole field); the goal applies and removes them. Boon on allies, bane on Windswept enemies.
 new entry "ARCANA_WIND_BOREAS"

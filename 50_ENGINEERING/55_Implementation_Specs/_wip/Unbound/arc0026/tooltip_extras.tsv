@@ -1,0 +1,103 @@
+# ARC-0026: TooltipExtras UUID -> the name the Toolkit list shows (Name, or the English text when there is none). From the game, 2026-10-17.
+03151073-f93f-4844-a5b7-b3b1c2db7ea5	Target takes no additional Poison damage. 
+03dbd204-effe-422f-baa3-440565d6e32f	<LSTag Type="Image" Info="SoftWarning"/> The caster can only use this feature once in their adventure. 
+0695feaa-7a95-4216-a292-c0eef5b5c3d0	<LSTag Type="Image" Info="SoftWarning"/> Hellfire ignores <LSTag Tooltip="Resistant">Resistance</LSTag> and <LSTag Tooltip="Immune">Immunity</LSTag> to Fire damage. 
+0749ff7b-83d6-4241-92ac-023b47d6cab5	<LSTag Type="Image" Info="SoftWarning"/> The spores disappear when <LSTag Type="Spell" Tooltip="Shout_SymbioticEntity">Symbiotic Entity</LSTag> ends.
+0de381d4-6bb7-4963-b5c4-51d3f47801ca	Targets still take half damage but do not fall <LSTag Type="Status" Tooltip="PRONE">Prone</LSTag>.
+0e505b6f-b187-4f61-ad4e-c933c1cb257d	<LSTag Type="Image" Info="SoftWarning"/> Redcap must be under the effects of <LSTag Type="Status" Tooltip="BLOODLUST_REDCAP">Bloodlust</LSTag>.
+10e0a678-b41b-49ac-937d-34340d6129dc	<LSTag Type="Image" Info="SoftWarning"/> Tadpoled creatures cannot be targeted.
+11324c04-12f0-4c78-904b-fe50fa5ff314	<LSTag Type="Image" Info="SoftWarning"/> Rage ends early if you don't attack an enemy or take damage each turn.
+1575c661-c7a1-44c7-b07d-d47b57164841	Delayed
+184019c7-770a-4594-a7dd-ec616fe940fd	<LSTag Type="Image" Info="SoftWarning"/> Condition ends early if the creature attacks or casts a spell.
+1f615f9d-fb6d-4a7f-8724-938c92cad4e0	<LSTag Type="Image" Info="SoftWarning"/> Target must be a beast or a humanoid corpse.
+22ced04e-39ec-4faf-b358-708cb8f53ce4	<LSTag Type="Image" Info="SoftWarning"/> No effect on undead.
+23589df5-60a7-4429-962f-287e7e0e5ae0	<LSTag Type="Image" Info="SoftWarning"/> The target can't be wearing armour.
+238ad228-c7b4-4a4d-b4e9-4b164910c657	%%% Others
+23bf0c8d-a594-4f4c-9571-412af59cb434	Target still takes half damage, but does not expel any <LSTag Type="Spell" Tooltip="Projectile_LOW_Raphael_PrimordialHell_Chain">Igniting Sparks</LSTag>.
+256787ec-84d4-4886-babc-b5cfac385c3d	Targets still take half the Fire damage.
+2744e241-1d4d-4277-89ed-c5d358ef30e2	Targets still take 2d8 Bludgeoning damage.
+275d2605-a2ab-40f9-90d7-8d03113dec48	<LSTag Type="Image" Info="SoftWarning"/> Can't be summoned again if killed in combat. 
+2b70cb5c-4f5a-4ab6-a1b9-03fed5a2411c	%%% Caster Restrictions
+2d4dc03f-c6c2-44c0-8ba9-96cda965561f	<LSTag Type="Image" Info="SoftWarning"/> Undead and constructs can't get Chest Trauma.
+2d66af44-0fb7-40fe-ac29-801e1699f4da	<LSTag Type="Image" Info="SoftWarning"/> The creature must have an <LSTag Tooltip="Intelligence">Intelligence</LSTag> of 3 or less.
+2d86213a-d827-4ccb-8897-4519a6c77eea	<LSTag Type="Image" Info="SoftWarning"/> No effect on aberrations.
+30386850-e78e-4b0b-9bf6-6e9860935c55	<LSTag Type="Image" Info="SoftWarning"/> The target's level must be lower than yours.
+34b494d7-8bde-43d5-8e67-4988f2d39487	Legendary Actions restore at the start of each round.
+35d354f2-d8ac-4758-af8c-30fd59fd261f	<LSTag Type="Image" Info="SoftWarning"/> Owlbear must be under the effects of <LSTag Type="Status" Tooltip="FOR_OWLBEAR_ENRAGE">Owlbear's Rage</LSTag>.
+375e5ffb-c67a-434c-a64e-323f7afeb25b	<LSTag Type="Image" Info="SoftWarning"/> Using this spell might turn targets hostile.
+375fe7a4-7a8a-4bbe-812c-0af9584c0740	<LSTag Type="Image" Info="SoftWarning"/> Only affects one target at a time.
+39b185a3-cea6-4f1a-93db-f59a011ab284	Target is <LSTag Type="Status" Tooltip="ABJURE_ENEMY_SLOW">Slowed</LSTag> instead.
+3cd70495-7bfa-4e3f-9a4a-279ca99e4bcd	<LSTag Type="Image" Info="SoftWarning"/> The target must be <LSTag Type="Status" Tooltip="PARALYZED">Paralysed</LSTag>, or the flesh golem must be Berserk.
+421ac6ed-2315-4469-82f1-9a6fc9dd93c9	%%% Something happens when spell/condition ends
+4384a48d-c2d7-4f3e-93ab-8166b45fd900	%%% Ends Early
+4639a885-0f45-4bc9-93c7-1e0c39eb39ec	Does not spend a <LSTag Tooltip="SpellSlot">spell slot</LSTag>.
+47f3670f-a580-416e-96f7-9f0788b65a51	<LSTag Type="Image" Info="SoftWarning"/> Targets affected by Ability Drain regain their ability scores at the end of combat. 
+48ed794b-73ab-4f7c-9412-2665f17048c7	%%% Target Restrictions
+4a044b49-6f4e-428e-b03e-2934f783d275	<LSTag Type="Image" Info="SoftWarning"/> Targets with 50 hit points or more can't be Banished.
+4a995290-9790-4568-b81e-534deb8bd28a	%%% DAMAGE DICE EXTRAS
+4c945400-f67c-4c66-b47e-2f48b3e30bde	<LSTag Type="Image" Info="SoftWarning"/> Ends if the armour is unequipped. 
+4ce52034-bab5-4252-b088-8325bc40adf0	%%% On Miss / On Save
+4dff8cb1-4a1d-4474-bd02-7f703fdfff22	<LSTag Type="Image" Info="SoftWarning"/> Invisibility ends early if you move, attack, cast another spell, take an action, or take damage.
+567eb125-04ef-49db-87f4-37d4dc8e1ca4	<LSTag Type="Image" Info="SoftWarning"/> Bernard must be under the effects of his <LSTag Type="Status" Tooltip="STATIC_DISCHARGE_AURA">Static Discharge Aura</LSTag>.
+59f76098-8d48-46f4-aefe-1030341dd7d6	Targets still take half damage but are able to use <LSTag Type="ActionResource" Tooltip="ReactionActionPoint">reactions</LSTag>.
+5b0c1209-0e18-49a0-bec6-df484d977300	<LSTag Type="Image" Info="SoftWarning"/> Rage ends early if the barbarian hasn't attacked an enemy or taken damage since their last turn.
+6008b2c2-36bf-4bb3-821c-c64c29e64075	<LSTag Type="Image" Info="SoftWarning"/> Ends if caster is <LSTag Type="Status" Tooltip="INCAPACITATED_DND">Incapacitated</LSTag>, <LSTag Type="Status" Tooltip="STUNNED">Stunned</LSTag>, <LSTag Type="Status" Tooltip="POLYMORPHED">Polymorphed</LSTag> or <LSTag Type="Status" Tooltip="KNOCKED_OUT_INHERITABLE">Knocked Out</LSTag>.
+635fb54e-b281-4c23-90f5-fc4abb0cf840	<LSTag Type="Image" Info="SoftWarning"/> No effect on corpses of constructs, plants, or aberrations.
+64a3cd11-d68d-4a73-aed8-d2eecf91082e	<LSTag Type="Image" Info="SoftWarning"/> Each ally can only be targeted once per <LSTag Tooltip="LongRest">Long Rest</LSTag>. 
+662e013d-e5cb-4669-9a4b-771636b24aa2	<LSTag Type="Image" Info="SoftWarning"/> No effect on undead and constructs.
+662f6ca7-fd71-4ed7-b4d5-60b5889a2465	Thorns still explode.
+66388a6f-44dd-4c9f-a9e7-910c50e70755	Additional damage
+676ef361-c11d-4e5a-bcae-3b0332cbebf5	<LSTag Type="Image" Info="SoftWarning"/> In higher difficulty modes, the target might accuse you of enchanting them.
+6cd652e8-b718-4aae-b50f-bf1831b825d3	Target still takes full damage.
+6ee56b25-979f-43bd-b354-84528d625efe	Does not spend <LSTag Type="ActionResource" Tooltip="SuperiorityDie">Superiority Dice</LSTag>.
+73d6bce1-c935-40cc-9d2d-cea28682b0fc	Targets still take 1d6 Bludgeoning damage.
+7906edb0-2e74-49a1-b6d0-a0d12a580868	<LSTag Type="Image" Info="SoftWarning"/> In higher difficulty modes, the target might become hostile when the spell ends.
+796ef93c-bc79-4363-bc16-3185e1fd927e	<LSTag Type="Image" Info="SoftWarning"/> The spell ends if the target damages the spellcaster.
+79bd962b-38da-47d6-abbd-9505eead363b	%%% PERMANENT WARNINGS
+7aa01937-37e1-454e-8bd2-b027f25fa929	Target still takes half the additional damage, so long as the attack hit.
+7c90317e-f915-4395-9315-822b39cfe6c4	Targets still take half damage from the explosion.
+7faa009f-298e-4ea2-a81b-56b68533a425	Targets overcome their Stage Fright early when they succeed an Attack Roll.
+8017bf62-a757-4ba1-b9c0-06ded7450307	<LSTag Type="Image" Info="SoftWarning"/> Caster can't become <LSTag Type="Status" Tooltip="INVISIBLE">Invisible</LSTag> while concentrating on this spell. 
+82254f30-45ab-41dd-af13-8da45a866381	<LSTag Type="Image" Info="SoftWarning"/> When the condition ends, become <LSTag Type="Status" Tooltip="HASTE_LETHARGY">Lethargic</LSTag>.
+84383fc0-b80d-42b6-87f8-0d422e615613	The shard of ice still explodes.
+87c1f521-b9bb-4ff1-8f87-48b4a684cc38	<LSTag Type="Image" Info="SoftWarning"/> The target must be a Medium or Small corpse.
+8892b93b-721f-4b99-b9b4-05ac25aadb33	<LSTag Type="Image" Info="SoftWarning"/> Can only have <LSTag Tooltip="TemporaryHitPoints">temporary hit points</LSTag> from one source.
+8df41bd0-2be4-4354-a607-1675e0d6f125	<LSTag Type="Image" Info="SoftWarning"/> Elves and undead can't be Paralysed by this attack.
+91a03d92-ac55-4669-843b-c92fa360f99b	<LSTag Type="Image" Info="SoftWarning"/> After using this feature, Raphael must consume from a Soul Pillar to do so again. 
+95421007-8576-4f7d-84c3-848f2873ffbb	<LSTag Type="Image" Info="SoftWarning"/> Only one glyph can be active at a time.
+961753f4-c345-4bc4-b408-1d5b87a5ab0c	Target still takes half damage.
+967064bf-5cdf-44c7-a17c-86924aa04ae7	<LSTag Type="Image" Info="SoftWarning"/> Condition ends early if you or an ally hurts the target.
+99c5b776-5534-4d8b-b93d-58370826df72	<LSTag Type="Image" Info="SoftWarning"/> Symbiotic Entity ends early if you use <LSTag Type="Spell" Tooltip="Shout_WildShape">Wild Shape</LSTag>.
+9e039c4e-1354-43e9-95eb-6943d9a5a47d	Target still takes half damage, but are not pulled closer or made Drunk.
+a71e9779-ab72-47d8-b8d7-e0f16e1d0d9b	<LSTag Type="Image" Info="SoftWarning"/> The condition ends upon taking damage.
+a9235e5e-a867-420c-8f51-4566d79a2084	<LSTag Type="Image" Info="SoftWarning"/> When the condition ends, become <LSTag Type="Status" Tooltip="STUNNED">Stunned</LSTag> for 2 turn.
+aa26d10e-8dd6-4466-8aa9-024aa4517185	Target still takes half the initial damage.
+aa8beb3b-9199-4b22-9f73-26e2ae0ab6af	Doesn't provoke Opportunity Attacks.
+ad727a13-c6f0-4b5b-aefd-aac79c6ed46e	Conditional
+adb342d1-f9bf-4093-83a2-e6d63275151d	<LSTag Type="Image" Info="SoftWarning"/> Target must be a beast or a humanoid corpse.
+b323426b-6a27-4745-b73c-cd24c9f6e245	<LSTag Type="Image" Info="SoftWarning"/> The target can try to shake off the effect each time it takes damage.
+ba853710-ba40-4389-b473-04bfdde1a36f	<LSTag Type="Image" Info="SoftWarning"/> Target must be a celestial, an elemental, a fey, or a fiend.
+bf3777a5-6a0c-4737-b0c7-ed878d3df950	<LSTag Type="Image" Info="SoftWarning"/> While transformed, the target won't be able to attack, cast spells, or talk. 
+bfefd859-3cb5-488f-93f5-839bc03f7e59	<LSTag Type="Image" Info="SoftWarning"/> While transformed, you won't be able to attack, cast spells, or talk. 
+c211ed6a-1f57-4488-be1c-6bd44be5a1c6	<LSTag Type="Image" Info="SoftWarning"/> The target can't be pulled if it is Huge in size.
+c4da40d6-cfc7-4148-a5e5-5b7cbc41a991	<LSTag Type="Image" Info="SoftWarning"/> The target can't be Huge in size.
+cdc30f67-9a3b-4b3e-aaab-0f7b99f949c5	<LSTag Type="Image" Info="SoftWarning"/> Creatures aligned with evil deities cannot be targeted.
+cf82d985-c371-4c92-a380-e1cbd1c78e18	Target still takes half damage, but its maximum hit points are not reduced. 
+cfc217d1-ee2a-45a3-b3ff-b0e3a64a61e3	<LSTag Type="Image" Info="SoftWarning"/> The caster must be obscured.
+d3af04e6-5848-4a0a-88fb-4ef375b858f6	<LSTag Type="Image" Info="SoftWarning"/> The creature must have an <LSTag Tooltip="Intelligence">Intelligence</LSTag> of 5 or more.
+d50461d9-85ab-4562-a746-1edb39822991	Target is not <LSTag Type="Status" Tooltip="BLINDED">Blinded</LSTag> but still takes half damage.
+d6bcda06-80ef-4889-98b9-43b886f77bd6	<LSTag Type="Image" Info="SoftWarning"/> Invisibility ends early if you attack, cast another spell, take an action, or take damage.
+d7a75ad8-a456-4296-9880-af239575f3a2	<LSTag Type="Image" Info="SoftWarning"/> If the target resists this effect, it can't be targeted again until it Long Rests. 
+dd6d92b9-c105-4e68-9be4-ad982287c9a0	<LSTag Type="Image" Info="SoftWarning"/> A creature's Intelligence can only be reduced once.
+de43a7b9-4cfe-4cd8-8884-cd1d7b806850	Fiends and undead have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> on their <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.
+df2db86c-d049-4fd9-a902-8752ae9bcaae	<LSTag Type="Image" Info="SoftWarning"/> Can only be used outside of combat.
+e3c4f20f-4f70-4349-82f6-df12eb4e134a	<LSTag Type="Image" Info="SoftWarning"/> Targets must be Medium or Small.
+e6d7cd96-2c90-49ed-ae41-780d21395d15	<LSTag Type="Image" Info="SoftWarning"/> If not activated each turn, the arc dissipates and the spell ends.
+ed302449-b4bb-40c8-891f-aa653e77fb71	<LSTag Type="Image" Info="SoftWarning"/> The target can't be pushed if it is Large or Huge in size.
+f667e95d-4144-4c5f-8cb1-8a5995b33a43	<LSTag Type="Image" Info="SoftWarning"/> You can't cast or concentrate on spells while raging.
+f6bac56a-c82f-4265-87b4-00a7ff7746eb	Targets are still pushed back and take half damage.
+f6e72b80-d8d7-49d3-9f77-4324d9c019fd	<LSTag Type="Image" Info="SoftWarning"/> Elves and undead cannot be Paralysed by this attack.
+f762efbb-f8f1-493e-b248-2de1567b4bd2	Targets still take half damage.
+f8965abf-1fff-468c-bff3-aab86b2c80eb	<LSTag Type="Image" Info="SoftWarning"/> Dismissed after combat until re-summoned.
+fcfa5a44-df81-4c03-8af7-9e9e84d6175a	<LSTag Type="Image" Info="SoftWarning"/> The target must be <LSTag Type="Status" Tooltip="PRONE">Prone</LSTag> or <LSTag Type="Status" Tooltip="RESTRAINED">Restrained</LSTag>.
+fdeda38d-0a35-4c2b-889c-2fad00a5a717	You can't try to charm the creature again until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>.

@@ -2,7 +2,7 @@
 id: 22.05/Unbound
 owner: Balance Designer
 source: 21.04/Unbound/DECISIONS.md (WB0–WB48), DESIGN.md §12, REFINE_Unbound.md ("Balance pass"), 25 (*_Unbound_*)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); sizes approved by the Owner 2026-10-16 (WB45–WB48); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 capstone area noted; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); sizes approved by the Owner 2026-10-16 (WB45–WB48); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 capstone area noted; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10)
 ---
 
 # 22.05 · Balance — The Windborn (internal: Unbound) (current verdict)

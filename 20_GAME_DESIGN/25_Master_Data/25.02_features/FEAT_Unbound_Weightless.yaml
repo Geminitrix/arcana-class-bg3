@@ -1,5 +1,5 @@
 id: FEAT_Unbound_Weightless
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10)"
 kind: feature
 subclass: Unbound
 ticket: ARC-0022

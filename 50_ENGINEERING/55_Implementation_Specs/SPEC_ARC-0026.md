@@ -2,21 +2,514 @@
 id: SPEC_ARC-0026
 ticket: ARC-0026
 status: draft
-implementation: claude
+implementation: owner
 author: Mod Engineer
 updated: 2026-10-17
 ---
 
-# SPEC_ARC-0026 · Windborn refining build — implementation plan
+# SPEC_ARC-0026 · The Windborn — implementation plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: superpowers:executing-plans. **One `[fechado] ARC-0026` message = one
-> stage**; stage 0 writes only project files. Lean execution: no subagents, dry runs read as counts, reports ≤ 10 lines.
+> Technical source for building the Windborn (internal name *Unbound*) level by level. The Owner enters it **by hand in
+> the BG3 Toolkit** from the twelve typing guides **`TOOLKIT_ARC-0026_L01.md` … `_L12.md`** (the typing view of this
+> spec, ADR-0008). **One level at a time**: type it, compile, tell Claude, play its tests, then the next level.
+> Claude writes no game file for this build (2026-10-17) except the PC deck (`CardDB.lua`) and the generated families,
+> after each level is saved.
 
-**Intent:** the game plays the Windborn as `21.04/Unbound/DESIGN.md` describes it (WB0–WB48), in both editions.
+**Intent:** the game plays the Windborn as `21.04/Unbound/DESIGN.md` describes it (WB0–WB50), in both editions.
 
-**Design:** `21.04/Unbound/DESIGN.md` · **Decisions:** `21.04/Unbound/DECISIONS.md` · **Numbers:** `25`
-(`*_Unbound_*.yaml`, blocks `pending_build`) · **Texts:** `32.01/Unbound.md` (names WB44) · **Prepared files:**
-`55/_wip/Unbound/arc0026/` · **Tests:** `61.02/Unbound/TC_ARC-0022.md`.
+**Design:** `21.04/Unbound/DESIGN.md` · **Decisions:** `21.04/Unbound/DECISIONS.md` (WB0–WB50) · **Numbers:** `25`
+(`*_Unbound_*.yaml`, blocks `pending_build`) · **Texts:** `32.01/Unbound.md`, `_wip/Unbound/arc0026/00_texts.md`
+(approved) · **Tests:** `61.02/Unbound/GUIDE_ARC-0026.json` (the Arcana Test Guides page, tab Windborn) ·
+**Balance:** `22.05/Unbound.md`.
+
+## Global constraints
+
+- Everything in Stats / LSX / Osiris; the Script Extender only in the PC deck (`CardDB.lua`, written by Claude after
+  each level). Internal ids keep their names (ADR-0002): `Unbound`, `Fool`, `TwinkleToes`, `Weightless`,
+  `FlowingStrikeZephyr`. Fixed prefixes: `<Type>_Arcana_Card_Spell_*`, `<Type>_Arcana_Created_*`, `Arcana_Passive_*`,
+  `ARCANA_` statuses, Osiris `ARCANA_` / `DB_ARCANA_` / `PROC_ARCANA_`.
+- Every Windborn passive, card and status keeps the armour rule (`not WearingArmor() and not HasShieldEquipped()`).
+  A card carries `not HasPassive('ARCANA_IS_CARD', context.Source)` in `TargetConditions`. Visible statuses carry
+  `ForceOverhead`, visible passives `Highlighted`. Every player-cast spell has a Spell Animation and a `CastTextEvent`
+  (ARC-0026 probe P1; `82_Automation/stats/check_castable.pl`).
+- Numbers come only from `25`; each guide lists them under their block with their origin and its `derived_from`.
+- **Retired, not deleted** (OR-10): an entry that leaves the Windborn stays in the mod with nothing pointing to it; each
+  guide lists them under *RETIRE*.
+- **The guides are generated**, never edited by hand: `_wip/Unbound/arc0026/60_toolkit_guides.pl` reads the build patches
+  (`10_core`, `20_bag_awakening`, `30_ranks_cards`, `40_capstone_names`: the technical source of every entry), the goal
+  `22_goal_fool.txt`, the game as it was before ARC-0026 (commit `09f30e0`) and vanilla, and writes the twelve guides in
+  the template's rules (Toolkit field order from the Toolkit's own `StatObjectDefinitions.sod`, parents resolved,
+  look fields copied from the parent). Change a patch or a `25` file → rerun it, then
+  `61_spec.pl` (this file) and `62_test_guide.pl` (the tests).
+- Upcast variants: the generator keeps fields edited by hand, so the variants whose fields change are typed (Gale
+  Burst `_3`–`_6`, Flow State `_3`–`_6`, Storm Fists `_5`–`_6`); the rest is generated after each level.
+- Level 1 is typed **as new** (Owner, 2026-10-17): a first version of part of it was put in the game by patch on
+  2026-10-17 (the old stage 2); step 00 of the level-1 guide clears it.
+
+## Stages — one per level
+
+| Stage | Level | What arrives (DESIGN §9.1) | Typing guide | Tests |
+|---|---|---|---|---|
+| **1** | 1 | The Open Road (Windswept, Open Path, Zephyr's Rush), Be the Leaf, Flowing Strikes, Weightless 1, Gale Burst | `TOOLKIT_ARC-0026_L01.md` | L1 (11) |
+| **2** | 2 | Aeolus' Bag (Boreas, Notus) | `TOOLKIT_ARC-0026_L02.md` | L2 (6) |
+| **3** | 3 | Tier I The First Step + The Calm; Wind Blast | `TOOLKIT_ARC-0026_L03.md` | L3 (5) |
+| **4** | 4 | Gale: push, Eurus, longer wind, Weightless 2 | `TOOLKIT_ARC-0026_L04.md` | L4 (3) |
+| **5** | 5 | Flowing Assault; Wind Whispers | `TOOLKIT_ARC-0026_L05.md` | L5 (2) |
+| **6** | 6 | Flow State; Ready: Gale Deflection | `TOOLKIT_ARC-0026_L06.md` | L6 (2) |
+| **7** | 7 | Tier II Fellow Travellers; Magic Strikes; Storm Fists | `TOOLKIT_ARC-0026_L07.md` | L7 (3) |
+| **8** | 8 | Storm: second Rush, longer wind, Weightless 3 | `TOOLKIT_ARC-0026_L08.md` | L8 (2) |
+| **9** | 9 | Untethered; Empty State | `TOOLKIT_ARC-0026_L09.md` | L9 (2) |
+| **10** | 10 | Leap of Faith | `TOOLKIT_ARC-0026_L10.md` | L10 (1) |
+| **11** | 11 | Where the Winds Meet | `TOOLKIT_ARC-0026_L11.md` | L11 (3) |
+| **12** | 12 | Tier III Into the Storm + Hurricane (two winds), Weightless 4 | `TOOLKIT_ARC-0026_L12.md` | L12 (4) |
+| 13 | — | Close: `25` (`pending_build` → `values`), `05.02`, catalogs, docs; delete the goal `ARCANA_Probe_ARC0026`; update the FOOL entry of `gen_awakening_progress.pl` (still Wanderlust) | — | ANY (2) |
+
+---
+
+## Stage 1 — level 1: The Open Road (Windswept, Open Path, Zephyr's Rush), Be the Leaf, Flowing Strikes, Weightless 1, Gale Burst
+
+*"The wind marks what I touch and carries me to the rest"* Typing view: **`TOOLKIT_ARC-0026_L01.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_WINDSWEPT` | new | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `ARCANA_ZEPHYR_RUSH` | new | — |
+| 03 | Stats Editor | Stats / Passive | `Arcana_Passive_Weightless_1` | new | — |
+| 04 | Stats Editor | Stats / Passive | `Arcana_Passive_Windswept_Touch` | new | — |
+| 05 | Stats Editor | SpellData / Rush | `Rush_Arcana_Created_ZephyrRush` | new | — |
+| 06 | Stats Editor | Stats / Interrupt | `Interrupt_AttackOfOpportunity` | new | — |
+| 07 | Stats Editor | Stats / Passive | `Arcana_Passive_BetheLeaf` | change | — |
+| 08 | Stats Editor | Stats / Passive | `Arcana_Passive_FlowingStrikeZephyr` | change | — |
+| 09 | Stats Editor | SpellData / Target | `Target_Arcana_Card_Spell_GaleBurst` | change | — |
+| 10 | Stats Editor | SpellData / Target | `Target_Arcana_Card_Spell_GaleBurst_3` | change | — |
+| 11 | Stats Editor | SpellData / Target | `Target_Arcana_Card_Spell_GaleBurst_4` | change | — |
+| 12 | Stats Editor | SpellData / Target | `Target_Arcana_Card_Spell_GaleBurst_5` | change | — |
+| 13 | Stats Editor | SpellData / Target | `Target_Arcana_Card_Spell_GaleBurst_6` | change | — |
+| 14 | Stats Editor | SpellData / Target | `Target_Arcana_Created_ZephyrStrike` | change | — |
+| 15 | UUID Object Editor | Lists / SpellLists | "Unbound Level 1" | change | — |
+| 16 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 1 (multiclass row) | change | — |
+| 17 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 1 | change | — |
+| 18 | UUID Object Editor | CharacterCreationPresets / AbilityDistributionPresets | the Unbound preset | change | — |
+| 19 | — | Generated | Gale Burst `_2` (inherits the base) and `ARCANA_CardFamilies` rows for Zephyr Rush | Claude runs scripts | all above |
+| 20 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `ARCANA_WINDSWEPT`: The mark (WB8, WB9). `TickType EndTurn` with `TickingWithSource`: the 2 turns of `ApplyStatus(…,100,2)` count down on the Windborn's turns only, so a mark lasts until the end of her next turn. Opportunity Attacks are switched off by the Open Path (block of `Interrupt_AttackOfOpportunity`), not by this status.
+- `ARCANA_ZEPHYR_RUSH`: Unlocks Zephyr Rush for the turn, the twin of the existing `ZEPHYR_STRIKE` (The Open Road applies both after an unarmed attack or a card).
+- `Arcana_Passive_Weightless_1`: Weightless rank 1 (WB39, WB47) replaces Twinkle Toes. Ranks 4, 8 and 12 inherit from it.
+- `Arcana_Passive_Windswept_Touch`: Hidden; The Open Road explains it. P7 (QA-0004): `OnAttack` caught only weapon attacks; `OnDamage` with `TotalDamageDoneGreaterThan(0)` marks on any damage she deals, and a miss marks nothing.
+- `Rush_Arcana_Created_ZephyrRush`: Zephyr's Rush (WB5): only to an enemy that isn't Windswept; 9 m at Breeze, 12 m from Gale (the `DistanceToTargetLessThan(9) or HasPassive(Gale)` term). `Rush_SpringAttack` is a weapon action: its Cooldown, RechargeValues, Required Weapon Type and weapon requirement are cleared (the ARC-0026 probe P1). Unlocked for the turn by `ARCANA_ZEPHYR_RUSH`.
+- `Interrupt_AttackOfOpportunity`: The Open Path (WB10, P6 plan B, WB49): a mod copy of the vanilla opportunity attack with the same name, so it replaces it. Every field is vanilla except `EnableCondition`: a Windswept reactor makes no opportunity attack, the way `SG_Blinded` already does. No `Using` (it would point at itself): copy the vanilla entry into the mod the way you did for probe P6 (its texts come along). shortcut: another mod that edits this interrupt wins or loses by load order.
+- `Arcana_Passive_BetheLeaf`: Be the Leaf (WB21): Intelligence instead of Wisdom in the Armour Class.
+- `Arcana_Passive_FlowingStrikeZephyr`: **ExtraDescription: make a new handle.** The old one (`h73613d54g9e1dg231dg03c1gcb8d2ba41166`) is also used by `Arcana_Passive_Aspect_Fool_II.ExtraDescription`, `Arcana_Passive_Aspect_Fool_III.ExtraDescription`, `Arcana_Passive_Aspect_Fool_I.ExtraDescription`: type the new text into a new handle, don't edit the old text.
+- `Arcana_Passive_FlowingStrikeZephyr`: The Open Road (WB3, WB27): the core passive keeps its id (ADR-0002). True Strike leaves its condition (WB29); after an unarmed attack or a card it now grants Zephyr Strike **and** Zephyr Rush for the turn.
+- `Target_Arcana_Card_Spell_GaleBurst`: Gale Burst marks on a failed save (WB8) and loses its free unarmed strike (WB28: its `SpellProperties` go).
+- `Target_Arcana_Created_ZephyrStrike`: The plain strike against a Windswept enemy; from Gale (level 4) it also pushes 3 m. The `IF(HasPassive)` reads the rank, so nothing changes here at level 4.
+
+### Tests — the Owner plays these after level 1 (session L1 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L1.1 | Create a Windborn at level 1 (or respec one). Look at the subclass name, the default abilities and the character sheet | The subclass is The Windborn. The preset is STR 8, DEX 15, CON 13, INT 15, WIS 10, CHA 10. Armour Class = 10 + DEX + INT (Be the Leaf). Level-1 spells: Gale Burst only (no True Strike) |
+| L1.2 | Hit an enemy with an unarmed attack. In the bonus actions, cast Zephyr Rush on an unmarked enemy 6–9 m away, past another enemy | Zephyr Strike and Zephyr Rush both appear after the attack (and after a card). The Rush runs to the target and strikes it with no opportunity attack on the way. It needs no weapon and has no Short Rest cooldown |
+| L1.3 | Hover Zephyr Rush over a Windswept enemy, then over an unmarked one about 11 m away | The Windswept enemy can't be targeted. At level 1 the 11 m enemy is out of range (9 m); Zephyr Strike still works on the marked one |
+| L1.4 | Hit one enemy with an unarmed attack, another with a card that deals damage, and miss a third | Both enemies you damaged show Windswept; the missed one doesn't |
+| L1.5 | Cast Gale Burst on an enemy (try until one fails and one succeeds) | The enemy that fails is pushed, Prone and Windswept; the one that succeeds isn't marked. Gale Burst no longer gives a free unarmed strike, and its tooltip no longer says "Afterwards…" |
+| L1.6 | Mark the enemy next to your melee ally. On the ally's turn, walk away from it. Do the same next to an unmarked enemy | The marked enemy doesn't attack; the unmarked one makes its usual opportunity attack |
+| L1.7 | Mark an enemy on your turn. End the turn; play your next turn and end it | The mark counts down on your turns only and ends at the end of your next turn |
+| L1.8 | Compare your movement with and without armour | Weightless shows in the passives; movement +3 m without armour; no Twinkle Toes |
+| L1.9 | Put on armour (then a shield instead). Hit an enemy with an unarmed attack; look at AC and movement | No mark, no Zephyr Strike or Rush, no Weightless bonus, no Be the Leaf. Take it off and they come back |
+| L1.10 | Read the tooltips of The Open Road, Windswept, Zephyr Strike, Zephyr Rush and Gale Burst | The Open Road explains Windswept, the Open Path and Zephyr; no card says "Afterwards"; no id or raw handle shows |
+| L1.11 | On the PC edition (Script Extender on), make an unarmed attack in combat | Zephyr Strike and Zephyr Rush are conjured to the hand for the turn |
+
+---
+
+## Stage 2 — level 2: Aeolus' Bag (Boreas, Notus)
+
+*"I can open the bag"* Typing view: **`TOOLKIT_ARC-0026_L02.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_BAG_OPEN` | new | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `ARCANA_BAG_READY` | new | — |
+| 03 | Stats Editor | StatusData / Status_BOOST | `ARCANA_HEADWIND_BOREAS` | new | — |
+| 04 | Stats Editor | StatusData / Status_BOOST | `ARCANA_HEADWIND_NOTUS` | new | — |
+| 05 | Stats Editor | StatusData / Status_BOOST | `ARCANA_TAILWIND_BOREAS` | new | — |
+| 06 | Stats Editor | StatusData / Status_BOOST | `ARCANA_TAILWIND_NOTUS` | new | — |
+| 07 | Stats Editor | StatusData / Status_BOOST | `ARCANA_WIND_BOREAS` | new | — |
+| 08 | Stats Editor | StatusData / Status_BOOST | `ARCANA_WIND_NOTUS` | new | — |
+| 09 | Stats Editor | Stats / Passive | `Arcana_Passive_AeolusBag` | new | — |
+| 10 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag` | new | — |
+| 11 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_Boreas` | new | — |
+| 12 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_Notus` | new | — |
+| 13 | UUID Object Editor | Lists / SpellLists | "Unbound Level 2" | new | — |
+| 14 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 2 | change | — |
+| 15 | Stories | Goals | `ARCANA_Aspect_Fool` | **replace the whole text** | 02, 01 |
+| 16 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `ARCANA_BAG_OPEN`: "The bag is open": shows the turns of wind left. `FreezeDuration`: the number never ticks by itself; the goal sets it each time the count changes (the P8 pattern).
+- `ARCANA_BAG_READY`: Technical: Osiris keeps it on her while she has a Windswept enemy; the bag needs it.
+- `ARCANA_WIND_BOREAS`: One aura per wind on her, the whole field (30 m). Osiris applies and removes it. Boon on allies, bane on Windswept enemies.
+- `Arcana_Passive_AeolusBag`: Hidden marker of level 2 (the goal and the bag read it).
+- `Shout_Arcana_Created_AeolusBag`: Aeolus' Bag (WB11–WB14): a container, one child per wind. Osiris puts `ARCANA_BAG_READY` on her while she has a Windswept enemy and `ARCANA_BAG_OPEN` while a wind blows. At level 2 it lists Boreas and Notus; Eurus joins at 4, the pairs at 12.
+- `Shout_Arcana_Created_AeolusBag_Boreas`: A child of the bag. Its own `RequirementConditions` add "not Hurricane" (at 12 the pairs replace the single winds). Notus inherits everything from Boreas; the goal reads which child was cast.
+
+### Tests — the Owner plays these after level 2 (session L2 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L2.1 | Look at Aeolus' Bag before marking anyone, then after marking one enemy | Greyed out with no Windswept enemy; usable (bonus action) once one is marked. It offers Boreas and Notus |
+| L2.2 | Mark 3 enemies. Open the bag with Boreas | Every mark is cleared. "The bag is open" shows 2 turns (3 marks, capped at 2 at Breeze). The bag stays shut while the wind blows |
+| L2.3 | With Boreas blowing, mark an enemy; compare an ally's and that enemy's movement | Allies get a tailwind (+3 m); Windswept enemies a headwind (−3 m); unmarked enemies nothing |
+| L2.4 | Open the bag with Notus; let an enemy shoot an ally; make a Windswept enemy roll a save | The ranged attack has Disadvantage; the Windswept enemy's save shows −1 |
+| L2.5 | With a wind blowing, mark two enemies; end your turn; start the next one | At your turn start every mark is cleared; the turns of "the bag is open" go down by one at each of your turn ends; at 0 the wind stops and the bag can open again |
+| L2.6 | On the PC edition, mark an enemy in combat | Aeolus' Bag appears in the hand (0 Threads) with its winds |
+
+---
+
+## Stage 3 — level 3: Tier I The First Step + The Calm; Wind Blast
+
+*"My Aspect wakes; I can stop the wind"* Typing view: **`TOOLKIT_ARC-0026_L03.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_CALM_GUST_1` | new | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `ARCANA_CALM_GUST_2` | new | — |
+| 03 | Stats Editor | StatusData / Status_BOOST | `ARCANA_CALM_GUST_3` | new | — |
+| 04 | Stats Editor | StatusData / Status_BOOST | `ARCANA_CALM_GUST_4` | new | — |
+| 05 | Stats Editor | StatusData / Status_BOOST | `ARCANA_CALM_GUST_5` | new | — |
+| 06 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_TheCalm` | new | — |
+| 07 | Stats Editor | StatusData / Status_BOOST | `ASPECT_AWAKENED_FOOL` | change | — |
+| 08 | Stats Editor | StatusData / Status_BOOST | `FOOL_ZEPHYR_FREE` | change | — |
+| 09 | Stats Editor | Stats / Passive | `Arcana_Passive_Aspect_Fool_Awakened_I` | change | — |
+| 10 | Stats Editor | Stats / Passive | `Arcana_Passive_Aspect_Fool_I` | change | — |
+| 11 | Stats Editor | SpellData / Zone | `Zone_Arcana_Card_Spell_WindBlast` | change | — |
+| 12 | UUID Object Editor | Lists / SpellLists | "Unbound Level 3" | change | — |
+| 13 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 3 | change | — |
+| 14 | Stories | Goals | `ARCANA_Aspect_Common` | change 3 lines | — |
+| 15 | — | Generated | Wind Blast's variants (they inherit the base `SpellSuccess`) | Claude runs scripts | all above |
+| 16 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `ARCANA_CALM_GUST_1`: One gust status per number of turns left (1–5); the goal applies the one that matches. 1d8 per gust to level 6, 2d6 from 7 (WB48).
+- `Shout_Arcana_Created_TheCalm`: The Calm (WB25), the Aspect card of Tier I: only while a wind blows. The spell only spends the action; Osiris turns the turns left into gusts (`ARCANA_CALM_GUST_1`–`_5`) and reopens the bag.
+- `ASPECT_AWAKENED_FOOL`: The Aspect card is The Calm now (WB25); Leap of Faith becomes a level-10 card.
+- `FOOL_ZEPHYR_FREE`: Tier I: once per turn the Rush to an enemy costs no bonus action — the free variant of Zephyr Rush (the old Leap of Faith discount goes).
+- `Arcana_Passive_Aspect_Fool_Awakened_I`: The old tier bonus goes (WB24: no ability bonus).
+- `Arcana_Passive_Aspect_Fool_I`: Tier I *The First Step* (WB22): the old Wanderlust round count (`WANDERLUST_HIT_TECH`) leaves; Osiris counts the marks released now.
+- `Zone_Arcana_Card_Spell_WindBlast`: Wind Blast marks every creature that fails its save (WB8); its variants inherit this field.
+
+### Tests — the Owner plays these after level 3 (session L3 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L3.1 | Mark 3 enemies and release them (open the bag, or let a sweep take them). Watch the Awakening status | The Awakening status counts "Windswept marks left to release to awaken The First Step" down from 3; at 0 The First Step wakes |
+| L3.2 | With The First Step awake, use Zephyr Rush twice on two turns (after an unarmed attack each time) | The first Rush each turn costs no bonus action; a second Zephyr that turn costs it |
+| L3.3 | Look at The Calm with no wind; open the bag (2+ turns), mark enemies, cast The Calm | Greyed with no wind. Cast: the wind stops at once, each Windswept enemy takes 1d8 Thunder per turn left, every mark is swept, and the bag can open again the same turn |
+| L3.4 | Cast Wind Blast on a group | Each creature that fails is pushed, Off Balance and Windswept; one that succeeds isn't marked; no "Afterwards…" in the text |
+| L3.5 | Look at the level-3 spells and resources | Level 3 adds Wind Blast and The Calm (Aspect card); Flow State, Gale Deflection and its resources come at level 6; no Twinkle Toes |
+
+---
+
+## Stage 4 — level 4: Gale: push, Eurus, longer wind, Weightless 2
+
+*"My Zephyr pushes; a new wind"* Typing view: **`TOOLKIT_ARC-0026_L04.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_HEADWIND_EURUS` | new | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `ARCANA_TAILWIND_EURUS` | new | — |
+| 03 | Stats Editor | StatusData / Status_BOOST | `ARCANA_WIND_EURUS` | new | — |
+| 04 | Stats Editor | Stats / Passive | `Arcana_Passive_Weightless_4` | new | — |
+| 05 | Stats Editor | Stats / Passive | `Arcana_Passive_Zephyr_Gale` | new | — |
+| 06 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_Eurus` | new | — |
+| 07 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag` | change | — |
+| 08 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 4 | change | — |
+| 09 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `Arcana_Passive_Zephyr_Gale`: Rank 2 of Zephyr (level 4): the push and 12 m Rush read this passive; Eurus needs it.
+- `Shout_Arcana_Created_AeolusBag`: Aeolus' Bag (WB11–WB14): a container, one child per wind. Osiris puts `ARCANA_BAG_READY` on her while she has a Windswept enemy and `ARCANA_BAG_OPEN` while a wind blows. At level 2 it lists Boreas and Notus; Eurus joins at 4, the pairs at 12.
+
+### Tests — the Owner plays these after level 4 (session L4 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L4.1 | Zephyr Strike a Windswept enemy; Zephyr Rush an unmarked one about 11 m away | Both push the target 3 m. The Rush now reaches 12 m. The Gale passive shows |
+| L4.2 | Mark 4 enemies; open the bag with Eurus; an ally attacks; a Windswept enemy attacks | The bag offers Eurus. "The bag is open" shows 3 turns. Allies +1 to attack rolls; Windswept enemies −1 |
+| L4.3 | Check movement, jump distance and falling damage | +4.5 m movement, jump ×2, half falling damage (rank 1 gone) |
+
+---
+
+## Stage 5 — level 5: Flowing Assault; Wind Whispers
+
+*"Two strikes; the air warns me"* Typing view: **`TOOLKIT_ARC-0026_L05.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_WindWhispers` | change | — |
+| 02 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 5 | change | — |
+
+### How each rule is built
+
+- `Shout_Arcana_Card_Spell_WindWhispers`: Wind Whispers absorbs Evasive Flow's Advantage (WB33): it applies `EVASIVE_FLOW_OPENING` (kept) too.
+
+### Tests — the Owner plays these after level 5 (session L5 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L5.1 | Cast Wind Whispers, then attack | Wind Whispers' own effect plus the opening Advantage (the status Evasive Flow used to give) |
+| L5.2 | Read Flowing Assault and Wind Whispers; check the passives | Flowing Assault works as before; no Twinkle Toes or Feather Fall at level 5 (Weightless rank 2 stays) |
+
+---
+
+## Stage 6 — level 6: Flow State; Ready: Gale Deflection
+
+*"I flow; I turn arrows back"* Typing view: **`TOOLKIT_ARC-0026_L06.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `GALE_DEFLECTION_READY` | change | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` | change | — |
+| 03 | Stats Editor | Stats / Passive | `Arcana_Passive_GaleDeflection` | change | — |
+| 04 | Stats Editor | Stats / Interrupt | `Interrupt_Arcana_Reaction_GaleDeflection` | change | — |
+| 05 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_FlowState` | change | — |
+| 06 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_FlowState_3` | change | — |
+| 07 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_FlowState_4` | change | — |
+| 08 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_FlowState_5` | change | — |
+| 09 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_FlowState_6` | change | — |
+| 10 | UUID Object Editor | Lists / SpellLists | "Unbound Level 6" | new | — |
+| 11 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 6 | change | — |
+| 12 | — | Generated | Flow State `_2` (inherits the base) | Claude runs scripts | all above |
+
+### How each rule is built
+
+- `INTERRUPT_GALE_DEFLECT_MISSILES_HIT`: Its id showed in the combat log (32.01 review): hidden.
+- `Interrupt_Arcana_Reaction_GaleDeflection`: Ready: Gale Deflection (WB32) also protects an ally within 3 m. Anchor: vanilla `Interrupt_FightingStyle_Protection` (scope `Nearby`, `DistanceToEntityGreaterThan(_, context.ObserverPosition, context.Target)`).
+- `Shout_Arcana_Card_Spell_FlowState`: Flow State (WB31): 3 turns and one extra bonus action at every slot; the per-slot statuses `FLOW_STATE_3`–`_6` go (removed at this level).
+
+### Tests — the Owner plays these after level 6 (session L6 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L6.1 | Cast Flow State at its base slot, then at a higher slot (another fight) | 3 turns at every slot, one extra bonus action each turn |
+| L6.2 | Let a ranged enemy shoot you, then an ally 2 m from you, then one 5 m away | You can react for yourself and for the ally within 3 m; not for the one 5 m away. Its id doesn't show in the combat log |
+
+---
+
+## Stage 7 — level 7: Tier II Fellow Travellers; Magic Strikes; Storm Fists
+
+*"The party carries my wind"* Typing view: **`TOOLKIT_ARC-0026_L07.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `STORM_FISTS` | change | — |
+| 02 | Stats Editor | StatusData / Status_BOOST | `STORM_FISTS_5` | change | — |
+| 03 | Stats Editor | StatusData / Status_BOOST | `STORM_FISTS_6` | change | — |
+| 04 | Stats Editor | Stats / Passive | `Arcana_Passive_Aspect_Fool_Awakened_II` | change | — |
+| 05 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_StormFists_5` | change | — |
+| 06 | Stats Editor | SpellData / Shout | `Shout_Arcana_Card_Spell_StormFists_6` | change | — |
+| 07 | UUID Object Editor | Lists / SpellLists | "Unboung Level 7" | change | — |
+| 08 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 7 | change | — |
+
+### How each rule is built
+
+- `STORM_FISTS`: Storm Fists (WB34) adds its damage only against an enemy that isn't Windswept; it absorbs Thunderclap (removed at level 11 with its list).
+- `Arcana_Passive_Aspect_Fool_Awakened_II`: The old tier bonus goes (WB24).
+- `Shout_Arcana_Card_Spell_StormFists_5`: Storm Fists lasts 3 turns at every slot (WB34).
+
+### Tests — the Owner plays these after level 7 (session L7 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L7.1 | With Tier II awake (goal 5), let an ally hit an unmarked enemy | The enemy becomes Windswept (your mark: it counts for your bag and Awakening and lasts 2 of your turns) |
+| L7.2 | Release marks after Tier I and watch the Awakening status | It counts down to Fellow Travellers from 5 |
+| L7.3 | Cast Storm Fists; punch an unmarked enemy, then a Windswept one | Extra Thunder damage on the unmarked enemy only; 3 turns at every slot |
+
+---
+
+## Stage 8 — level 8: Storm: second Rush, longer wind, Weightless 3
+
+*"The wind doesn't stop"* Typing view: **`TOOLKIT_ARC-0026_L08.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_STORM_RUSH` | new | — |
+| 02 | Stats Editor | Stats / Passive | `Arcana_Passive_Weightless_8` | new | — |
+| 03 | Stats Editor | Stats / Passive | `Arcana_Passive_Zephyr_Storm` | new | — |
+| 04 | Stats Editor | SpellData / Rush | `Rush_Arcana_Created_ZephyrRush_Storm` | new | — |
+| 05 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 8 | change | — |
+| 06 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `ARCANA_STORM_RUSH`: Unlocks the free second Rush until the end of the turn; casting it removes the status.
+- `Arcana_Passive_Zephyr_Storm`: Rank 3 (level 8): after a Rush that deals damage, one more free Rush this turn (`ARCANA_STORM_RUSH`).
+- `Rush_Arcana_Created_ZephyrRush_Storm`: Storm's second Rush: free, 9 m, only to another enemy that isn't Windswept.
+
+### Tests — the Owner plays these after level 8 (session L8 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L8.1 | Zephyr Rush an unmarked enemy and hit it; look at the bonus actions; Rush again to another unmarked enemy within 9 m | A second Rush appears for this turn (free, 9 m, only an unmarked enemy) and goes once used; a missed Rush gives none |
+| L8.2 | Mark 5 enemies and open the bag; check movement and jump | "The bag is open" shows 4 turns; +6 m movement, jump ×3, half falling damage |
+
+---
+
+## Stage 9 — level 9: Untethered; Empty State
+
+*"I fly; blows barely touch me"* Typing view: **`TOOLKIT_ARC-0026_L09.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `FLY_UNTETHERED` | change | — |
+| 02 | UUID Object Editor | Lists / SpellLists | "Unbound Level 9" | change | — |
+| 03 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 9 | change | — |
+| 04 | — | Generated | `ARCANA_CardFamilies` without Evasive Flow | Claude runs scripts | all above |
+
+### How each rule is built
+
+- `FLY_UNTETHERED`: Untethered (WB35) folds Eye of the Storm's +2 Armour Class into the flight; the passive goes (removed at this level).
+
+### Tests — the Owner plays these after level 9 (session L9 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L9.1 | Cast Untethered; compare AC before and after | +2 AC while flying; Eye of the Storm no longer shows anywhere |
+| L9.2 | Look at the level-9 passives and spells | Empty State at level 9 (not 12); Untethered in the spells; no Evasive Flow |
+
+---
+
+## Stage 10 — level 10: Leap of Faith
+
+*"I leap through them all"* Typing view: **`TOOLKIT_ARC-0026_L10.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | SpellData / Rush | `Rush_Arcana_Created_Aspect_LeapOfFaith` | change | — |
+| 02 | UUID Object Editor | Lists / SpellLists | "Unbound Level 10" | new | — |
+| 03 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 10 | change | — |
+| 04 | — | Generated | `ARCANA_CardFamilies` row for Leap of Faith | Claude runs scripts | all above |
+| 05 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `Rush_Arcana_Created_Aspect_LeapOfFaith`: Leap of Faith (WB7, WB38): a level-10 card, once per Short Rest, on the Force Tunnel dash. Its old `SpellProperties` (the Zephyr it granted) go: it is a card, so The Open Road grants Zephyr after it.
+
+### Tests — the Owner plays these after level 10 (session L10 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L10.1 | Cast Leap of Faith through a line of enemies; try it again before a Short Rest | The Force Tunnel dash, striking each enemy in the path and marking them; no slot spent; once per Short Rest. After it (a card) you get Zephyr |
+
+---
+
+## Stage 11 — level 11: Where the Winds Meet
+
+*"I gather the battlefield"* Typing view: **`TOOLKIT_ARC-0026_L11.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | SpellData / Target | `Target_Arcana_Created_WhereTheWindsMeet` | new | — |
+| 02 | UUID Object Editor | Lists / SpellLists | "Unbound Level 11" | change | — |
+| 03 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 11 | change | — |
+| 04 | — | Generated | `ARCANA_CardFamilies` without Thunderclap, with Where the Winds Meet | Claude runs scripts | all above |
+| 05 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `Target_Arcana_Created_WhereTheWindsMeet`: The capstone (WB26, WB46, WB49, WB50): aimed at a point on the ground. One 9 m area for every enemy; a Windswept enemy is pulled 9 m, any other 6 m (the `IF` is read before the mark is applied). Only while no wind blows. Check in game that the pull goes to the point, not to her; plan B: `GROUND:CreateExplosion` of a pulling explosion.
+
+### Tests — the Owner plays these after level 11 (session L11 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L11.1 | Open the bag, try the capstone; when the wind ends, aim it at an empty spot of ground within 18 m | Greyed while a wind blows. Without wind it targets a point on the ground (no enemy under the cursor needed) |
+| L11.2 | With one Windswept enemy and one unmarked enemy each about 8 m from the point, cast it | Both are pulled toward the point (not toward you): the Windswept one reaches it, the other stops about 2 m short. Both take 4d8 Thunder (half on a DEX save), are Off Balance and become Windswept. Once per Long Rest |
+| L11.3 | Look at the level-11 spells and passives | Where the Winds Meet replaces Thunderclap; no Momentum |
+
+---
+
+## Stage 12 — level 12: Tier III Into the Storm + Hurricane (two winds), Weightless 4
+
+*"The storm"* Typing view: **`TOOLKIT_ARC-0026_L12.md`**.
+
+### Item index — enter top to bottom
+
+| # | Area | File | Entry | Action | Needs |
+|---|---|---|---|---|---|
+| 01 | Stats Editor | StatusData / Status_BOOST | `ARCANA_INTO_THE_STORM` | new | — |
+| 02 | Stats Editor | Stats / Passive | `Arcana_Passive_Zephyr_Hurricane` | new | — |
+| 03 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_BoreasEurus` | new | — |
+| 04 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_BoreasNotus` | new | — |
+| 05 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag_NotusEurus` | new | — |
+| 06 | Stats Editor | Stats / Passive | `Arcana_Passive_Weightless_12` | change (rewritten) | — |
+| 07 | Stats Editor | Stats / Passive | `Arcana_Passive_Aspect_Fool_Awakened_III` | change | — |
+| 08 | Stats Editor | Stats / Passive | `Arcana_Passive_Aspect_Fool_III` | change | — |
+| 09 | Stats Editor | SpellData / Shout | `Shout_Arcana_Created_AeolusBag` | change | — |
+| 10 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 12 | change | — |
+| 11 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 13 | change | — |
+| 12 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 15 | change | — |
+| 13 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 17 | change | — |
+| 14 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 19 | change | — |
+| 15 | UUID Object Editor | Progressions / Progressions | table `d75cb44d…` level 20 | change | — |
+| 16 | — | PC edition | `CardDB.lua` | Claude adds the lines | all above |
+
+### How each rule is built
+
+- `ARCANA_INTO_THE_STORM`: Tier III: what a sweep does to each swept enemy. `Force` in a status functor pushes away from the status source (probe P9: pass).
+- `Arcana_Passive_Zephyr_Hurricane`: Rank 4 (level 12): the bag offers the pairs of winds instead of single ones.
+- `Arcana_Passive_Aspect_Fool_Awakened_III`: The old tier bonus goes (WB24), Fool's Luck with it (its interrupt and resource are removed at this level).
+- `Arcana_Passive_Aspect_Fool_III`: Tier III *Into the Storm*: the push in its text.
+- `Shout_Arcana_Created_AeolusBag`: Aeolus' Bag (WB11–WB14): a container, one child per wind. Osiris puts `ARCANA_BAG_READY` on her while she has a Windswept enemy and `ARCANA_BAG_OPEN` while a wind blows. At level 2 it lists Boreas and Notus; Eurus joins at 4, the pairs at 12.
+
+### Tests — the Owner plays these after level 12 (session L12 of `GUIDE_ARC-0026.json`)
+
+| # | Do | Proves it works |
+|---|---|---|
+| L12.1 | Wake Tier III (goal 8); let a sweep release marks | Every swept enemy is pushed 3 m away from you and is Off Balance — the sweep that wakes the tier included |
+| L12.2 | Mark 6 enemies and open the bag | The bag offers the pairs (Boreas + Notus, Boreas + Eurus, Notus + Eurus) instead of single winds; both winds blow; "the bag is open" shows 5 turns |
+| L12.3 | Check movement, jump and a long fall | +9 m movement, jump ×4, no falling damage |
+| L12.4 | Look at the tier passives and resources; level to 13 if you can | No ability bonus from the tiers, no Fool's Luck reaction or resource; levels 13–20 add no Twinkle Toes |
+
+---
+
+## History — the patch build (2026-10-17, superseded)
+
+> Until 2026-10-17 this spec built the Windborn by patches applied by Claude (stages 0–6 below). Stage 0
+> (patches, goal, texts) and stage 1 (probes P1–P9, all pass, QA-0004) are done and feed the stages above; the patch
+> stage 2 is in the game and is cleared by step 00 of level 1; stages 3–6 were never applied. Kept for the record.
+
+> Until 2026-10-17 this spec built the Windborn by patches applied by Claude (stages 0–6 below). Stage 0
+> (patches, goal, texts) and stage 1 (probes P1–P9, all pass, QA-0004) are done and feed the stages above; the patch
+> stage 2 is in the game and is cleared by step 00 of level 1; stages 3–6 were never applied. Kept for the record.
 
 ## Global constraints
 
