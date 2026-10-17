@@ -68,3 +68,4 @@ player feels.
 - 2026-10-16 — Owner: card review part 2 approved (SC25). Part 3 proposed (SG12–SG17).
 - 2026-10-16 — Owner: part 3 approved except Point of Light (SC26): Equinox, Sunburst, Final Spark / Cosmic Omen / Stellar Anchor removed. Point of Light: Owner wants her to become a light source like vanilla Light.
 - 2026-10-16 — Owner: Point of Light is an exploration cantrip — Stars Perception/Investigation, Sun Insight/Persuasion and the biggest light, Moon Sleight of Hand and dim light (SC27).
+- 2026-10-16 — Owner: the Moon adds Deception (SC28). Level map 1–12 proposed (REFINE §8).

@@ -145,7 +145,7 @@ Notes on SC2 for the design and the build:
   would read the state (DM-K7).
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
-Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Unsung: sing in combat as a bonus action (SC23); heal cards are containers too (SC24). Card review part 2 approved (SC25). Part 3 approved except SG12 (SC26); Point of Light: an exploration cantrip, she becomes the light (SC27).
+Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Unsung: sing in combat as a bonus action (SC23); heal cards are containers too (SC24). Card review part 2 approved (SC25). Part 3 approved except SG12 (SC26); Point of Light: an exploration cantrip, she becomes the light (SC27, SC28). Level map proposed (§8).
 
 ## 5. Card review, part 1 — the vanilla cards in a new coat (DM-K2)
 
@@ -229,3 +229,33 @@ Proposals, 2026-10-16. Same rules (containers, SC21 variants, working names).
   card) and Sing a Hymn (utility).
 - **Open for the level map:** where each card lands, the ultimate's level, the level of Nightfall / Infusion rank II, of
   her own Dusk / rank III, and the flight passive (`10.06`).
+
+## 8. Felt progression — proposed level map (2026-10-16)
+
+Rules: levels 4 and 8 stay empty (feats); something at every other level (DM-J8); a card's level never exceeds the
+slot level of its band (1–2 → L1, 3–4 → L2, 5–6 → L3, 7–8 → L4, 9–10 → L5, 11+ → L6); Awakening tiers 3 / 7 / 12.
+
+| Lvl | Arrives | Headline (DM-J1) |
+|---|---|---|
+| 1 | **Sing a Hymn** (Unsung) · the **Dusk** rule · Starcall (Rejuvenation) · Astral Infusion **rank I** | "I choose my light each dawn and catch allies in Dusk" |
+| 2 | **Point of Light** (exploration cantrip) · **Hesperus** (L1 card-passive, reaction answer) | "I am the light, and I answer a fall even on the enemy's turn" |
+| 3 | Awakening (answered marks) **Tier I**: the **Great Star** card + **Undying Hope** · **Sunwash** (L2) | "Hope awakens" |
+| 4 | — (feat) | |
+| 5 | Astral Infusion **rank II**: **Nightfall** and **Dawn** · **Rekindle** (L3) | "The night deepens; my dawn answers it — and calls the dead back" |
+| 6 | **Moon Halo** (L2) · **Guiding Star** (L3) | "I shelter the wounded and let them save themselves" |
+| 7 | **Tier II** (a condition by Hymn on the first heal) · **the ultimate** (the answered wish, L4) | "My wish answers every fall at once" |
+| 8 | — (feat) | |
+| 9 | **Moonpull** (L4) · **Equinox** (L5) | "I pull the fallen out and hold the field" |
+| 10 | Astral Infusion **rank III** — passive **Light in the Dark** (her own Dusk) · **Long Twilight** (L5) | "I step into the dark myself, and shine brighter for it" |
+| 11 | **Sunburst** (L6) | "My fire burns the foe and answers the fallen" |
+| 12 | **Tier III — Eclipse** · **Dawnbringer** (L6) | "Sun, moon and stars as one; the dawn comes early" |
+
+- **Arc (DM-J7):** introduce 1–3 (the Hymn, Dusk, Hope awakens) · develop 5–7 (Nightfall and Dawn, shelter, the wish)
+  · **turn 9–10** (she steps into the dark herself) · conclude 11–12 (Sunburst, Eclipse, Dawnbringer — the dawn).
+- **Signature ranks (DM-J3):** Astral Infusion I (1), II (5), III (10).
+- **Complexity:** 2–4 new concepts per level; level 1 is the densest (the Hymn, Dusk, the Starcall → Infusion loop),
+  level 3 drops from ~6 to 4 (DM-J4).
+- **Kit:** 13 cards (Starcall, Astral Infusion, Hesperus, Sunwash, Rekindle, Moon Halo, Guiding Star, the ultimate,
+  Moonpull, Equinox, Long Twilight, Sunburst, Dawnbringer) + Point of Light and Sing a Hymn (utilities) + the Great
+  Star (Aspect card). Passives: Light in the Dark (10), Undying Hope (Tier I).
+- **Open:** the flight passive (`10.06`) has no level yet.
