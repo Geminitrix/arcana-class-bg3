@@ -80,3 +80,12 @@ Marks: Dusk +N×1d4 (+7.5), Dawn +N×1d8 (+13.5), the Hymn part doubled. Waiting
 ~44 HP has ~18 HP, one enemy round on them ~16 (2A) — about an even chance of Downed for +6 HP over Dusk → a gamble.
 Against vanilla: a slot-3 Healing Word heals 11.5 as a bonus action; Outpouring heals 11.5–20.5 and pays HP without
 Afterglow — **watch** at the band check (B1 of the playtest), as the specialist healer it is meant to lead.
+
+## ARC-0025 Stage 0 · R2 the Awakening — approved 2026-10-17 (SC34)
+
+Goals 3 / 5 / 8 (cumulative): ~1 answer a turn in a hard fight + Hesperus + Elpis' Jar (several at once) → Tier I by
+turn 2, II by 3, III by 4 of a T = 4 fight (`22.06` §1); same steps as the Kingmaker. Conditions on one enemy turn
+(2A): Dazzled −1d4 (≈12.5% fewer hits) 1 turn ≈ 3 · half movement 2 turns ≈ 3.5 · Burning 1d4 × 2 turns ≈ 4 (less vs
+fire resistance) — within a point (SC4). Great Star: 2 answers of Lodestar Balm — level 5 ≈ 2 × 20.5 HP ≈ 20 points,
+level 12 ≈ 2 × 38 HP ≈ 36 points (≈ 3A) for a once-per-combat 0-Thread card. **Watch:** the answers count for the
+Awakening; if Tier III comes before turn 3, answer once only.

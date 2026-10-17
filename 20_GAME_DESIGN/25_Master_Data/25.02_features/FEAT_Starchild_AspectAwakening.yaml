@@ -1,5 +1,5 @@
 id: FEAT_Starchild_AspectAwakening
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R2 sizes approved (SC34)"
 kind: feature
 subclass: Starchild
 ticket: ARC-0023
@@ -13,9 +13,9 @@ values:
 # Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
-  goals_next:     { value: "‹3 / 5 / 8›", unit: count, by_level: { 3: "‹3›", 7: "‹5›", 12: "‹8›" }, note: "answered marks: Dusk 1, Nightfall 2 (SC17); countdown COUNT type" }
+  goals_next:     { value: "3 / 5 / 8", unit: count, by_level: { 3: 3, 7: 5, 12: 8 }, note: "answered marks: Dusk 1, Nightfall 2 (SC17); countdown COUNT type" }
   dusk_counts:    { value: 1, unit: count }
   nightfall_counts: { value: 2, unit: count }
   first_heal_gate: { value: 1, unit: turns, note: "hidden status on her, TickType StartTurn (SC19)" }
-  tier2_condition_turns: { value: "‹1–2›", unit: turns, note: "values in STA_Starchild_TierConditions" }
+  tier2_condition_turns: { value: "1–2", unit: turns, note: "values in STA_Starchild_TierConditions" }
   retires:        { value: "goals, tier3_wisdom", note: "SC16–SC19" }

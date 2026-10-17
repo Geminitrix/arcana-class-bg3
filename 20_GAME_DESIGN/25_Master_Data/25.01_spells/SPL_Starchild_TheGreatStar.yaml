@@ -1,5 +1,5 @@
 id: SPL_Starchild_TheGreatStar
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R2 sizes approved (SC34)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -15,6 +15,6 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:    { value: "The Great Star", note: "SC16, SC32; Stars only, no children" }
-  duration_next: { value: "‹N›", unit: turns, note: "answers the marks over time" }
-  answer_heal:  { value: "‹…›", unit: healing, note: "the Stars' focused heal" }
+  duration_next: { value: 2, unit: turns, note: "at the start of each of her turns it answers one marked ally, the lowest HP; counts for the Awakening" }
+  answer_heal:  { value: "Lodestar Balm at her highest slot level, no slot spent", unit: healing, note: "the Stars' focused heal (1d10 per slot level + spellcasting modifier)" }
   retires:      { value: "duration (Advantage)" }

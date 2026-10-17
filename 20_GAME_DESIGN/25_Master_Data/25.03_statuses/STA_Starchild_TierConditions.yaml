@@ -1,5 +1,5 @@
 id: STA_Starchild_TierConditions
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R2 sizes approved (SC34)"
 kind: status
 subclass: Starchild
 ticket: ARC-0023
@@ -18,6 +18,6 @@ pending_build:
   dazzled:       { value: "-1d4", unit: penalty, note: "Stars: attack rolls only (vanilla Bane without the saves)" }
   moon_slow:     { value: "half movement", unit: penalty, note: "Moon" }
   sun_burning:   { value: "vanilla Burning", note: "Sun: 1d4 Fire per turn" }
-  duration_next: { value: "‹1–2›", unit: turns, note: "growth to level 12 in the balance pass (DM-B6)" }
+  duration_next: { value: "Dazzled 1, half movement 2, Burning 2", unit: turns, note: "+1 turn each from level 12 (DM-B6); rides the ally's next hit within 2 turns" }
   eclipse_next:  { value: "all three", note: "Tier III: from the first heal of the turn" }
   retires:       { value: "moonlit, sunlit, eclipse", note: "no damage riders (SC18)" }

@@ -81,7 +81,7 @@ default.
 is 29.5. The SC6 brake as written ("the Sun total over several allies must not beat the Stars on one ally") would force
 the Sun's heals down to ~1d4 per level and break SC4.
 
-### R2 · the Awakening and the conditions — proposal 2026-10-17
+### R2 · the Awakening and the conditions — approved 2026-10-17 (SC34)
 
 Reference fight `22.06` §1: T = 4 turns. Goals are cumulative (as today).
 
@@ -96,3 +96,29 @@ Reference fight `22.06` §1: T = 4 turns. Goals are cumulative (as today).
 | The Great Star (Aspect card) | **2 turns**; at the start of each of her turns it answers **one** marked ally (the lowest HP) with Lodestar Balm at her highest slot level, no slot spent; counts for the Awakening | answers over time, unlike the jar; level 5 ≈ 2 × 20.5 HP ≈ 20 points; level 12 ≈ 2 × 38 HP ≈ 36 points (≈ 3A) for a once-per-combat 0-Thread card |
 | Undying Hope | once per fight, 1 HP, Nightfall | (rule) |
 | First-heal gate | 1 turn, `TickType StartTurn` | (rule) |
+
+### R3 · the cards — proposal 2026-10-17
+
+N = slot level, mod = spellcasting modifier. "Answer" = the Dusk / Dawn bonus of R1 (+N×1d4 / +N×1d8) unless the
+row says otherwise. Durations kept at or below the reference fight (T = 4, DM-B6).
+
+| Card | Base | Stars | Sun | Moon |
+|---|---|---|---|---|
+| **Comet** (L1) | spell attack **N×1d8** Radiant (was 1d6); −30% speed 1 turn; Afterglow 2 turns (+1 next to a marked ally) | Shooting Star: **+1d8** | Sunspark: **N×1d4** Radiant to enemies within 2 m | Crescent Dart: half movement **2 turns** |
+| **Hesperus** (L1 card-passive) | **2 reaction charges** per play; the reaction heal is **1d6 + mod** (2d6 from 5, 3d6 from 9) and answers the mark (no answer bonus — it is the quick, small answer) | Hesperus: **+1d6** | Last Ray: allies within 3 m **1d4** | Moonrise: the same heal, half now, half at the ally's next turn start |
+| **Cleansing Rain** (L2) | unmarked: **1** condition; marked: the whole list + **N×1d4 + mod** | Starwater: **N×1d8 + mod** | Sunshower: **1** condition off allies within 3 m | Moondew: the removed conditions can't return for **2 turns** |
+| **Rekindle** (L3) | revive at **10%** of max HP (slot 3), 15% / 20% / 24% at slots 4 / 5 / 6 — always below ¼, so in Nightfall | Nova: **+5%** (capped at 24%) | Phoenix Light: allies within 3 m **N×1d4** | New Moon: a tide **N×1d4** for 2 turns |
+| **Halo** (L2, bonus action) | **+3 AC** while in Dusk / Nightfall, **3 turns** | Starshield: **+4** | Corona: an attacker that hits is set Burning (2 turns) | Moon Ring: **5 turns** |
+| **Guiding Light** (L3, action) | mark **3 turns**; an ally in Dusk / Nightfall who hits it regains **1d6 + mod** per hit | Polaris: **2d6 + mod** | Sun Dog: jumps on death (keeps the turns left) | Moonpath: **5 turns**, the enemy −3 m |
+| **Elpis' Jar** (L4, ultimate) | every ally within 18 m: **N×1d4 + mod**, plus the answer bonus on each marked ally | Wishing Star: **+N×1d4** more on marked allies | Midsummer: radius **30 m**, unmarked heal **N×1d6 + mod** | Harvest Moon: every ally healed gets a tide **1d6** for 2 turns |
+| **Tether** (L4, action) | range **18 m**, pull **9 m**; a marked ally ends Stun / Restrained / Paralysed | Starline: **+2 AC** until their turn | Solar Wake: Burning **2 turns** on enemies next to the start | Undertow: half movement **2 turns** |
+| **Stillness** (L5) | as Equinox today (18 m, 6 m zone, 1 turn; Silence, then Restrained 1 turn) + Disadvantage on attacks at marked allies | Fixed Stars: **Disadvantage** on the Restrain save | High Noon: zone **9 m** | Midnight: Silence **+1 turn** |
+| **Long Twilight** (L5) | allies within **6 m**, **3 turns**: Dusk at **⅔** | Blue Hour: Nightfall at **⅓** | Golden Hour: **9 m** | Long Night: **4 turns** |
+| **Flare** (L6, 3 copies) | DEX save, **6d6** Fire (half on a save; was 8d6 + Stun), Burning 2 turns; marked allies in the area are answered with **6d4 + mod** | Supernova: **+3d6** on the centre target | Solar Flare: radius **5 m** | Moonburn: Burning **3 turns** and half movement 1 turn |
+| **Dawnbringer** (L6) | **3 turns**, no Concentration: a heal on Dusk answers as Nightfall | Daystar: Dawn **+N×1d4** | Sunrise: the Sun's spill **6 m** | Moonset: **4 turns** |
+
+Checks. **Elpis' Jar** at level 7 (slot 4, mod +4), four allies — one Nightfall, one Dusk, two unmarked: 32 + 24 + 14 +
+14 = 84 HP ≈ 40 points ≈ 5A once per combat: the strongest single turn of the kit, as an ultimate should be.
+**Flare** 6d6 (21) on ~3 targets with Burning ≈ vanilla Fireball at slot 3 — below the band at slot 6, on purpose
+(a healer; SC26). **Halo**: +3 AC on an ally being focused for 3 turns ≈ 0.7A — weak by the `22.06` formula, but a
+level-2 bonus action with no Concentration; watch. **Rekindle**: a revive ≈ 3A (`22.06` §7) plus the Dawn it sets up.
