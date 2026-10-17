@@ -25,7 +25,7 @@ created: 2026-10-17
 ## Acceptance criteria
 
 - [x] Sizes decided with the Owner (WB45–WB48); arithmetic in `22.05/Unbound.md`; values in `25` (`pending_build`)
-- [ ] Stage 0: patches, structure script and goal drafts in `55/_wip/Unbound/arc0026/`, dry runs clean; texts through the Narrative gate (`32.04`)
+- [x] Stage 0: patches, structure script and goal drafts in `55/_wip/Unbound/arc0026/`, dry runs clean; texts through the Narrative gate (`32.04`)
 - [ ] Probes P1–P8 recorded, plan B applied where one failed
 - [ ] Stages 2–5 applied, one `[fechado] ARC-0026` message each; Story compiled with 0 errors after each goal change
 - [ ] `61.02/Unbound/` rows pass in game; guide `GUIDE_ARC-0026.json` on the Arcana Test Guides page
@@ -46,3 +46,4 @@ created: 2026-10-17
 - 2026-10-17 — Task 0.4 done: `20_bag_awakening.patch` (dry run with 10 clean), `22_goal_fool.txt` (goal rewrite), CardDB stage-3 lines; probe P9 added (Force from a status functor). Nothing in the game changed.
 - 2026-10-17 — Task 0.5 done: `30_ranks_cards.patch` (10+20+30 dry run clean), patch 10 corrected (Gale Burst variants), CardDB stage-4 lines; texts addendum §H for the Owner. Nothing in the game changed.
 - 2026-10-17 — Owner approved the texts addendum §H. Task 0.6 done: `40_capstone_names.patch` (10–40 dry run clean). Nothing in the game changed.
+- 2026-10-17 — Task 0.7 done: `50_structure.pl` (9 lists, 53 row edits per side, `--stage N`; tested on a copy, idempotent). **Stage 0 complete.** Next: stage 1, the probes P1–P9 (`[fechado] ARC-0026`). Nothing in the game changed.

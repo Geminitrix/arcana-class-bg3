@@ -143,3 +143,19 @@ only without `ARCANA_BAG_OPEN`; DEX save halves the 4d8 Thunder; pull, Off Balan
 9 m explosion takes Windswept enemies, `Projectile_Arcana_WhereTheWindsMeet_Inner` (6 m, `CreateExplosion` at the
 point) every other enemy; `ARCANA_WINDS_MEET_TECH` stops a double catch (P4). The subclass strings A1–A5 say *The
 Windborn*. `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` hidden. CardDB: the capstone as a 0-Thread card.
+
+### Task 0.7 · the level map — `50_structure.pl` (done 2026-10-17)
+
+Lists and progression rows of table `d75cb44d…`, both sides (lsx + tbl), model `../Deceiver/arc0020/20_structure.pl`.
+Nine lists: six reused (`Unboung Level 7` renamed, Level 11 now holds the capstone, Level 9 loses Evasive Flow, Level 1
+loses True Strike), three new (Levels 2, 6, 10 — UUIDs MD5 v3 of `arcana/unbound/list/levelN`). 53 row edits per side
+at the end state (Gale Deflection's two resources move from 3 to 6; Twinkle Toes leaves 1–20; Weightless 1 → 4 → 8 → 12;
+ranks at 4, 8, 12; the bag marker at 2; the two hidden core passives at 1). `--stage N` applies stages 2..N
+cumulatively — **stage 2** the core passives at 1, **3** the bag at 2, **4** everything else but the capstone list,
+**5** the Level 11 list. Tested on a copy (`BG3_DATA`): each stage applies, a second run prints `changed:` empty; the
+end-state self-check (no Twinkle Toes, no retired passive, four Weightless ranks, no True Strike) holds from stage 4.
+
+**Stage 0 is complete.** Apply chain per stage (`SPEC_ARC-0020` chain): stage 2 = `10_core.patch` + `lua/CardDB.patch`
+(stage-2 lines) + `50_structure.pl --apply --stage 2`; stage 3 = `20_bag_awakening.patch` + goal + Common rows + CardDB
+stage 3 + `--stage 3`; stage 4 = `30_ranks_cards.patch` + `gen_upcast_variants --apply` + CardDB stage 4 + `--stage 4`;
+stage 5 = `40_capstone_names.patch` + CardDB stage 5 + `--stage 5`. Stage 1 (probes P1–P9) comes first.
