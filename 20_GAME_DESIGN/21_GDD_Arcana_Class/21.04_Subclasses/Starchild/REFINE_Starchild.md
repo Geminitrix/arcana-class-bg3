@@ -285,3 +285,27 @@ extracted here — re-run the corpus check (`bg3_english_writing_style`) before 
 | Aspect card (Stars only, no prefix) | Great Star | **The Great Star** | the eight-pointed star of the card | Astraea |
 | Passive (her own Dusk) | Light in the Dark | **Light in the Dark** | — | Brightest Dark |
 | Kept as approved | — | Sing a Hymn · Hymn of the Stars / Sun / Moon · Unsung · Dusk · Nightfall · Dawn · Undying Hope · Dazzled · Eclipse | SC3, SC5, SC9, SC10, SC16, SC18 | — |
+
+### 9.1 For comparison — option C, a unique name per child (Owner's request, 2026-10-16)
+
+Each child named after what its light does (Stars sharpen, Sun spreads, Moon lingers), from real sky phenomena,
+stars and myth. The container keeps the neutral base name of §9, so the hotbar groups the three. Mod loca: only
+*Solar Flare* and *Sunrise* exist, both on pieces this rework replaces. Avoided vanilla names: Daylight, Sunbeam,
+Moonbeam, Morningstar (weapon).
+
+| Container (§9) | Stars | Sun | Moon |
+|---|---|---|---|
+| Comet | Shooting Star | Sunspark | Crescent Dart |
+| Outpouring | Lodestar Balm | Noonday Pour | Rising Tide |
+| Hesperus | Hesperus | Last Ray | Moonrise |
+| Cleansing Rain | Starwater | Sunshower | Moondew |
+| Rekindle | Nova | Phoenix Light | New Moon |
+| Halo | Starshield | Corona | Moon Ring |
+| Guiding Light | Polaris | Sun Dog | Moonpath |
+| Elpis' Jar | Wishing Star | Midsummer | Harvest Moon |
+| Tether | Starline | Solar Wake | Undertow |
+| Stillness | Fixed Stars | High Noon | Midnight |
+| Long Twilight | Blue Hour | Golden Hour | Long Night |
+| Flare | Supernova | Solar Flare | Moonburn |
+| Dawnbringer | Daystar | Sunrise | Moonset |
+| Lantern | Wayfinder | Noonlight | Moonshadow |

@@ -71,3 +71,4 @@ player feels.
 - 2026-10-16 — Owner: the Moon adds Deception (SC28). Level map 1–12 proposed (REFINE §8).
 - 2026-10-16 — Owner: level map 1–12 approved (SC29); the flight passive is dropped (SC30). Next: the names pass.
 - 2026-10-16 — Owner: child names = Starlit / Sunlit / Moonlit + neutral base (SC31). Base names proposed (REFINE §9).
+- 2026-10-16 — Owner asked for option C (a unique name per child) to compare; written in REFINE §9.1.
