@@ -61,3 +61,4 @@ player feels.
 - 2026-10-16 — Owner: ultimate = the answered wish, a mass heal that answers every mark (SC13); Great Star and Eclipse kept for the progression (SC14); rename every Soraka/Lux name (SC15).
 - 2026-10-16 — Owner: Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun + Moon) (SC16). Next: the Awakening goal.
 - 2026-10-16 — Owner: the Awakening counts answered marks, Dusk 1 / Nightfall 2 (SC17). Next: Tier I and II bonuses.
+- 2026-10-16 — Owner: Tier I = Great Star + Undying Hope (1 HP, Nightfall); Tier II = condition by Hymn — Dazzled / strong slow / Burning, no damage (SC18).
