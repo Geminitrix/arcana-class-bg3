@@ -58,3 +58,4 @@ player feels.
 - 2026-10-16 — Owner: Dusk below half, Nightfall below a quarter, never both; her heal consumes the mark (SC10). Next: Downed allies.
 - 2026-10-16 — Owner: Downed clears the mark (SC11). Next: can the Starchild herself be marked.
 - 2026-10-16 — Owner: only allies are marked early; later her own Dusk empowers the heals she gives (SC12). Next: the ultimate.
+- 2026-10-16 — Owner: ultimate = the answered wish, a mass heal that answers every mark (SC13); Great Star and Eclipse kept for the progression (SC14); rename every Soraka/Lux name (SC15).
