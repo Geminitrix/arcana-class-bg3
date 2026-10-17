@@ -64,3 +64,4 @@ player feels.
 - 2026-10-16 — Owner: Tier I = Great Star + Undying Hope (1 HP, Nightfall); Tier II = condition by Hymn — Dazzled / strong slow / Burning, no damage (SC18).
 - 2026-10-16 — Owner: only the first single-target heal of each turn carries Tier II / Eclipse, gated by a hidden 1-turn status; Eclipse joins all three lights (SC19, amends SC16). Next: card review.
 - 2026-10-16 — Owner: six vanilla twins replaced (SC20); Stars sharpen / Sun spreads / Moon lingers on every card (SC21); each card a container with a child per Hymn, locked by the Hymn (SC22).
+- 2026-10-16 — Owner: while Unsung the cards are locked and Sing a Hymn works in combat as a bonus action (SC23, amends SC5); heal cards use the containers too (SC24). Card review part 2 proposed (SG7–SG11).

@@ -145,7 +145,7 @@ Notes on SC2 for the design and the build:
   would read the state (DM-K7).
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
-Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Next: what the cards do while Unsung.
+Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Unsung: sing in combat as a bonus action (SC23); heal cards are containers too (SC24). Card review part 2 proposed (§6).
 
 ## 5. Card review, part 1 — the vanilla cards in a new coat (DM-K2)
 
@@ -193,3 +193,21 @@ keeps the three Hymns situational (SC4).
 - **Feasibility (T2):** `IF(HasStatus('<HYMN>', context.Source)):` branches in one spell (tooltip lists three lines),
   or one variant per Hymn swapped by the Hymn status (the mod's `UnlockSpellVariant` boost pattern) so the tooltip
   shows only the active Hymn — whether a variant can change the effect and text needs a probe.
+
+## 6. Card review, part 2 — the core and the remaining support cards
+
+Proposals, 2026-10-16. Containers with a child per Hymn (SC22, SC24); Hymn variants follow SC21 (Stars sharpen, Sun
+spreads, Moon lingers). Working names.
+
+| SG | Card today | Proposal | Stars | Sun | Moon | Gear |
+|---|---|---|---|---|---|---|
+| SG7 | Starcall (L1 ranged Radiant attack, slows, gives Rejuvenation) | **Kept as her strike and fallback**: radiant spell attack; on a hit she gains Rejuvenation (regain HP each turn end; her next Astral Infusion is free). On an enemy next to an ally in Dusk / Nightfall, Rejuvenation lasts ‹1› turn longer | ‹more› damage | a small radiant splash on enemies within ‹2› m | the slow becomes half movement for ‹2› turns | Creates (Rejuvenation), reads |
+| SG8 | Astral Infusion (bonus-action heal; free with Rejuvenation, else ‹10%› of her max HP) | **The signature button, in ranks (DM-J3)**: rank I (level 1) heals and consumes Dusk; rank II (‹5–7›) answers Nightfall with Dawn — the level Nightfall arrives (SC10); rank III (‹9–11›) her own Dusk empowers it (SC12). The HP cost stays (the Soraka trade) | focused (SC6) | radiant (SC6) | tidal (SC6) | Spends |
+| SG9 | Lunar Wisp (card-passive: heals give THP) — overlaps the Moon's tide | **Hesperus** (the evening star; card-passive, Unique, the card-passive rule): when an ally within ‹18› m falls into Dusk or Nightfall, use your **reaction** to answer at once with a ‹small› heal that consumes the mark. Answer now and small, or wait and answer big — the axis on enemy turns (DM-P3). Reaction charge refilled by the card (Instinctive Charm / Gale pattern) | the reaction heal is ‹bigger› | it also heals ‹a little› allies within ‹3› m | it comes as a tide | Spends, on others' turns |
+| SG10 | Stellar Grace (L12; healing maximised, Advantage on WIS and Death saves; Concentration) ≈ Beacon of Hope | **Dawnbringer** (Eosphorus): for ‹N› turns, every heal she casts on an ally in **Dusk** answers as if it were **Nightfall** — the dawn comes early. Long-rest cooldown, Unique | Dawn heals ‹bigger› | radius of the Sun's spill ‹larger› | lasts ‹longer› | Changes |
+| SG11 | Wish → the ultimate (SC13) | Hymn variants only | marked allies' heals ‹bigger› | radius ‹larger› | every ally healed keeps a tide | Spends, reads |
+
+- **Rejuvenation** stays the Soraka loop (Starcall → free Infusion); with SG8 rank III, paying HP instead becomes a
+  choice that can push her into her own Dusk.
+- **Part 3, next:** the control and damage cards (Lucent Singularity, Equinox, Solar Flare, Final Spark) and the
+  passives (Cosmic Omen, Stellar Anchor).
