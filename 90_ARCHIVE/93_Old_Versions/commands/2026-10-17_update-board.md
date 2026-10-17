@@ -1,3 +1,4 @@
+<!-- Archived 2026-10-17 (ARC-0018): split by the Owner into /sync-board and /sync-test-guides because one sync took too long. -->
 ---
 description: Sync the Arcana Board and Arcana Test Guides with the tickets — moves, comments, guides and playtest results
 ---

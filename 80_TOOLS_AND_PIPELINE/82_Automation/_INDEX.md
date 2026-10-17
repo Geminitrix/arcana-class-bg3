@@ -28,7 +28,7 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 
 Board: https://claude.ai/artifact/Fwq9XqzgZNt5KmKRC4k15E — the ticket `.md` files are the truth. The Owner drags
 cards and writes comments on the board; they wait in the artifact's store (`moves/<ticket id>` = `{to, from, at}`,
-`comments/<auto>` = `{ticket, text, at}`) until the Owner runs `/update-board` (or asks "sincroniza o kanban"). Then:
+`comments/<auto>` = `{ticket, text, at}`) until the Owner runs `/sync-board` (moves, comments: steps 1–3, 4–6) or `/sync-test-guides` (results, guides: step 3b, 4–5). Then:
 
 1. `ArtifactData list` of `moves` and `comments`.
 2. Each move → the ticket's `status:` becomes `to`, plus a log line `- <date> — moved to <to> on the board (Owner).`
@@ -46,7 +46,7 @@ cards and writes comments on the board; they wait in the artifact's store (`move
    `TEST_GUIDES.json` plus every guide it lists.
 6. Delete the synced `moves` / `comments` documents (one `batch`).
 
-Any other change to tickets or guides reaches both pages at the next sync (`/update-board`, steps 3b–5).
+Any other change to tickets or guides reaches the board at the next `/sync-board` and the test page at the next `/sync-test-guides`.
 | `check_readme.pl` | README version and subclass states vs `05.00` (run by `/commit-e-push`) |
 | `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
 | `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |

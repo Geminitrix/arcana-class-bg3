@@ -28,7 +28,7 @@ The Owner plays a guide **level by level**, so a guide is built that way:
 - **Test ids never change** once published: results on Arcana Test Guides are keyed `<ARC>_<test id>`.
 - Each test: `id`, `title`, `rule`, `steps`, `expected`, `fails`, optional `planb`, `kind: "observe"`, `edition`.
 - Generated, never edited by hand: the `.md` record beside the guide, `TEST_GUIDES.json`, and the test list of the
-  QA ticket — `playtests.pl sync` (run by `/update-board`) rewrites all three from the guides.
+  QA ticket — `playtests.pl sync` (run by `/sync-test-guides`) rewrites all three from the guides.
 
 ## Quality checklist
 

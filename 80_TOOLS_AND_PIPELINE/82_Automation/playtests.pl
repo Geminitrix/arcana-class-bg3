@@ -60,7 +60,7 @@ if ($cmd eq 'new') {
           . "**Goal:** play every test of `$rel`, level by level, and mark it on Arcana Test Guides ($TESTS).\n"
           . "**Intent:** $g->{ticket} is proven in the game, or each failure becomes an ARC bug and a QA bug-retest.\n\n"
           . "Steps, expected results and plan B are on the test page and in the record `" . ($rel =~ s/\.json$/.md/r)
-          . "`. This list is rebuilt from the guide, with the results, at every kanban sync (`/update-board`).\n\n"
+          . "`. This list is rebuilt from the guide, with the results, at every test guides sync (`/sync-test-guides`).\n\n"
           . tests_md($g, {}, \%c)
           . "## Gates\n\n- [ ] DoD (`00.03`) — every test pass or skipped; each fail has an ARC bug and a QA bug-retest\n\n"
           . "## Log\n\n- " . date() . " — created from `$rel` ($c{left} tests).\n";

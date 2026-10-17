@@ -18,7 +18,7 @@ created: 2026-10-17
 **Goal:** play every test of `61.02_Test_Cases/Unbound/GUIDE_ARC-0026.json`, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E).
 **Intent:** ARC-0026 is proven in the game, or each failure becomes an ARC bug and a QA bug-retest.
 
-Steps, expected results and plan B are on the test page and in the record `61.02_Test_Cases/Unbound/GUIDE_ARC-0026.md`. This list is rebuilt from the guide, with the results, at every kanban sync (`/update-board`).
+Steps, expected results and plan B are on the test page and in the record `61.02_Test_Cases/Unbound/GUIDE_ARC-0026.md`. This list is rebuilt from the guide, with the results, at every test guides sync (`/sync-test-guides`).
 
 ## Before you start
 
