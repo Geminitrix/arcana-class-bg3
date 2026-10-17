@@ -1,5 +1,5 @@
 id: SPL_Starchild_ElpisJar
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -15,10 +15,10 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:        { value: "Elpis' Jar (Wishing Star · Midsummer · Harvest Moon)", note: "SC13, SC32" }
-  radius_next:      { value: "‹18›", unit: metres }
-  plain_heal:       { value: "‹…›", unit: healing, note: "an unmarked ally" }
-  dusk_heal:        { value: "‹strong›", unit: healing, note: "every Dusk answered" }
-  dawn_heal:        { value: "‹Dawn›", unit: healing, note: "every Nightfall answered" }
-  stars_marked_bonus: { value: "‹bigger›", unit: healing, note: "Wishing Star" }
-  sun_radius_next:  { value: "‹larger›", unit: metres, note: "Midsummer" }
-  moon_tide_turns:  { value: "‹2›", unit: turns, note: "Harvest Moon: every ally healed" }
+  radius_next:      { value: "18", unit: metres }
+  plain_heal:       { value: "1d4 per slot level + spellcasting modifier", unit: healing, note: "an unmarked ally" }
+  dusk_heal:        { value: "plain + 1d4 per slot level", unit: healing, note: "every Dusk answered" }
+  dawn_heal:        { value: "plain + 1d8 per slot level", unit: healing, note: "every Nightfall answered" }
+  stars_marked_bonus: { value: "+1d4 per slot level on marked allies", unit: healing, note: "Wishing Star" }
+  sun_radius_next:  { value: "30 (unmarked heal 1d6 per slot level + modifier)", unit: metres, note: "Midsummer" }
+  moon_tide_turns:  { value: "2 (1d6 a pulse, every ally healed)", unit: turns, note: "Harvest Moon: every ally healed" }

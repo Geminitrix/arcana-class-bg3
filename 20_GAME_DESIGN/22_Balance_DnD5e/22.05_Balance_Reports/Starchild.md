@@ -89,3 +89,11 @@ turn 2, II by 3, III by 4 of a T = 4 fight (`22.06` §1); same steps as the King
 fire resistance) — within a point (SC4). Great Star: 2 answers of Lodestar Balm — level 5 ≈ 2 × 20.5 HP ≈ 20 points,
 level 12 ≈ 2 × 38 HP ≈ 36 points (≈ 3A) for a once-per-combat 0-Thread card. **Watch:** the answers count for the
 Awakening; if Tier III comes before turn 3, answer once only.
+
+## ARC-0025 Stage 0 · R3 the cards — approved 2026-10-17 (SC35)
+
+Values per card in `25` (`SPL_Starchild_*`). Checks: **Elpis' Jar** level 7 (slot 4, +4), one Nightfall + one Dusk +
+two unmarked = 32 + 24 + 14 + 14 = 84 HP ≈ 40 points ≈ 5A once per combat — the kit's strongest turn. **Flare** 6d6
+(21) on ~3 targets + Burning ≈ a slot-3 Fireball, below the slot-6 band on purpose (SC26). **Halo** +3 AC on a focused
+ally for 3 turns ≈ 0.7A — **watch** (weak by the formula; a level-2 bonus action, no Concentration). **Rekindle** ≈ 3A
+(`22.06` §7) plus the Dawn it sets up. Durations ≤ 5 turns; the Moon's "longer" variants stay within T + 1.

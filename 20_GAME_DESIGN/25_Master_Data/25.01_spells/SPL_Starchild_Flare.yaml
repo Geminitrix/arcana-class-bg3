@@ -1,5 +1,5 @@
 id: SPL_Starchild_Flare
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -18,10 +18,10 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:         { value: "Flare (Supernova · Solar Flare · Moonburn)", note: "SC26, SC32" }
-  damage_next:       { value: "‹…›", unit: damage, type: Fire }
+  damage_next:       { value: "6d6 (DEX save, half on a save); Burning 2 turns", unit: damage, type: Fire }
   retires:           { value: "stun", note: "no Stun (SC26)" }
   answers:           { value: "allies in the area in Dusk or Nightfall", note: "an area answer: never the first heal of the turn" }
-  answer_heal:       { value: "‹…›", unit: healing }
-  stars_centre:      { value: "‹more›", unit: damage, note: "Supernova: the centre target" }
-  sun_radius_next:   { value: "‹larger›", unit: metres, note: "Solar Flare" }
-  moon_burning_next: { value: "‹longer›", unit: turns, note: "Moonburn; the burnt are slowed" }
+  answer_heal:       { value: "6d4 + spellcasting modifier", unit: healing }
+  stars_centre:      { value: "+3d6 on the centre target", unit: damage, note: "Supernova: the centre target" }
+  sun_radius_next:   { value: "5", unit: metres, note: "Solar Flare" }
+  moon_burning_next: { value: "3 turns, and half movement 1 turn", unit: turns, note: "Moonburn; the burnt are slowed" }

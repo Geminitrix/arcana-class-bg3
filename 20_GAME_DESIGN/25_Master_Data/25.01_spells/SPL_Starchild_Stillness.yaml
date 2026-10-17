@@ -1,5 +1,5 @@
 id: SPL_Starchild_Stillness
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -16,6 +16,6 @@ values:
 pending_build:
   name_next:       { value: "Stillness (Fixed Stars · High Noon · Midnight)", note: "SC26, SC32" }
   marked_guard:    { value: "Disadvantage", note: "an enemy inside attacking an ally in Dusk or Nightfall" }
-  stars_save_next: { value: "‹harder›", note: "Fixed Stars: the Restrain save" }
-  sun_zone_next:   { value: "‹larger›", unit: metres, note: "High Noon" }
-  moon_silence:    { value: "‹+1›", unit: turns, note: "Midnight" }
+  stars_save_next: { value: "Disadvantage on the Restrain save", note: "Fixed Stars: the Restrain save" }
+  sun_zone_next:   { value: "9", unit: metres, note: "High Noon" }
+  moon_silence:    { value: "+1", unit: turns, note: "Midnight" }

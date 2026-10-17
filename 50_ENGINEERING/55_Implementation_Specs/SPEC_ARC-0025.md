@@ -97,7 +97,7 @@ Reference fight `22.06` §1: T = 4 turns. Goals are cumulative (as today).
 | Undying Hope | once per fight, 1 HP, Nightfall | (rule) |
 | First-heal gate | 1 turn, `TickType StartTurn` | (rule) |
 
-### R3 · the cards — proposal 2026-10-17
+### R3 · the cards — approved 2026-10-17 (SC35)
 
 N = slot level, mod = spellcasting modifier. "Answer" = the Dusk / Dawn bonus of R1 (+N×1d4 / +N×1d8) unless the
 row says otherwise. Durations kept at or below the reference fight (T = 4, DM-B6).
@@ -122,3 +122,10 @@ Checks. **Elpis' Jar** at level 7 (slot 4, mod +4), four allies — one Nightfal
 **Flare** 6d6 (21) on ~3 targets with Burning ≈ vanilla Fireball at slot 3 — below the band at slot 6, on purpose
 (a healer; SC26). **Halo**: +3 AC on an ally being focused for 3 turns ≈ 0.7A — weak by the `22.06` formula, but a
 level-2 bonus action with no Concentration; watch. **Rekindle**: a revive ≈ 3A (`22.06` §7) plus the Dawn it sets up.
+
+### R4 · the last sizes — proposal 2026-10-17
+
+| Knob | Proposal | Why |
+|---|---|---|
+| Lantern skill bonus | **+1** to its two skills, for her and allies within 6 m | below Weaver Hand: Guide (+1d4 ≈ 2.5 on one check of one target, Concentration) — broader, smaller |
+| Light in the Dark (level 10) | the heals she gives are **+ spellcasting modifier** while she is in Dusk / Nightfall; **not added to a Dawn** | cap ≤ Dawn (SC12): at slot 5, Dusk +12.5 + 5 = 17.5 < Dawn +22.5 |

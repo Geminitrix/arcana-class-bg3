@@ -42,3 +42,4 @@ created: 2026-10-17
   round 1 (the heal core) proposed. Nothing in the game changed.
 - 2026-10-17 — R1 (the heal core) approved with the Sun brake amended (SC33); written in `25` and `22.05`. R2 (the Awakening) proposed.
 - 2026-10-17 — R2 (the Awakening) approved (SC34); written in `25` and `22.05`. R3 (the cards) proposed.
+- 2026-10-17 — R3 (the cards) approved (SC35); written in `25` and `22.05`. R4 (Lantern, Light in the Dark) proposed.

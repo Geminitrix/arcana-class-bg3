@@ -1,5 +1,5 @@
 id: SPL_Starchild_LongTwilight
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -14,10 +14,10 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:        { value: "Long Twilight (Blue Hour · Golden Hour · Long Night)", note: "SC20, SC32" }
-  radius_next:      { value: "‹6›", unit: metres }
-  duration:         { value: "‹N›", unit: turns }
-  dusk_threshold:   { value: "‹⅔›", note: "of the ally's maximum hit points" }
-  stars_nightfall:  { value: "‹⅓›", note: "Blue Hour" }
-  sun_radius_next:  { value: "‹larger›", unit: metres, note: "Golden Hour" }
-  moon_turns:       { value: "‹longer›", unit: turns, note: "Long Night" }
+  radius_next:      { value: "6", unit: metres }
+  duration:         { value: "3", unit: turns }
+  dusk_threshold:   { value: "2/3", note: "of the ally's maximum hit points" }
+  stars_nightfall:  { value: "1/3", note: "Blue Hour" }
+  sun_radius_next:  { value: "9", unit: metres, note: "Golden Hour" }
+  moon_turns:       { value: "4", unit: turns, note: "Long Night" }
   retires:          { value: "max_hp" }

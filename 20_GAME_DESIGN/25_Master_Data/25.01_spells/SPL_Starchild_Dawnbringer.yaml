@@ -1,5 +1,5 @@
 id: SPL_Starchild_Dawnbringer
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -14,8 +14,8 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:       { value: "Dawnbringer (Daystar · Sunrise · Moonset)", note: "SC25, SC32; Concentration open (DESIGN §14)" }
-  duration:        { value: "‹N›", unit: turns, note: "a heal on Dusk answers as Nightfall" }
-  stars_dawn_next: { value: "‹bigger›", unit: healing, note: "Daystar" }
-  sun_spill_next:  { value: "‹wider›", unit: metres, note: "Sunrise" }
-  moon_turns:      { value: "‹longer›", unit: turns, note: "Moonset" }
+  duration:        { value: "3 (no Concentration)", unit: turns, note: "a heal on Dusk answers as Nightfall" }
+  stars_dawn_next: { value: "+1d4 per slot level", unit: healing, note: "Daystar" }
+  sun_spill_next:  { value: "6", unit: metres, note: "Sunrise" }
+  moon_turns:      { value: "4", unit: turns, note: "Moonset" }
   retires:         { value: "radius, effects" }

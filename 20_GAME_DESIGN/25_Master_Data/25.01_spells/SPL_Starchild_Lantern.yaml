@@ -17,7 +17,7 @@ pending_build:
   name_next:    { value: "Lantern (Wayfinder · Noonlight · Moonshadow)", note: "SC27, SC28, SC32; cantrip, outside the PC deck; replaces the vanilla Light" }
   duration_next: { value: "until a long rest", note: "no effect in combat (probe)" }
   skill_bonus:  { value: "‹bonus›", unit: bonus, note: "below Weaver Hand: Guide" }
-  ally_radius:  { value: "‹6›", unit: metres }
+  ally_radius:  { value: "6", unit: metres }
   stars_light:  { value: "medium", note: "Wayfinder: Perception, Investigation" }
   sun_light:    { value: "the largest, bright", note: "Noonlight: Insight, Persuasion" }
   moon_light:   { value: "dim, small", note: "Moonshadow: Deception, Sleight of Hand" }

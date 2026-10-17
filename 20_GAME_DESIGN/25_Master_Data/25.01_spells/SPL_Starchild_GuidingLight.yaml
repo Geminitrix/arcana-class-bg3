@@ -1,5 +1,5 @@
 id: SPL_Starchild_GuidingLight
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -15,9 +15,9 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:       { value: "Guiding Light (Polaris · Sun Dog · Moonpath)", note: "SC20, SC32; an enemy mark, no Concentration" }
-  mark_turns:      { value: "‹N›", unit: turns }
-  heal_on_hit:     { value: "‹X›", unit: healing, note: "allies in Dusk or Nightfall who hit the marked enemy" }
-  stars_heal_next: { value: "‹bigger›", unit: healing, note: "Polaris" }
+  mark_turns:      { value: "3", unit: turns }
+  heal_on_hit:     { value: "1d6 + spellcasting modifier per hit", unit: healing, note: "allies in Dusk or Nightfall who hit the marked enemy" }
+  stars_heal_next: { value: "2d6 + spellcasting modifier", unit: healing, note: "Polaris" }
   sun_jump:        { value: 1, unit: count, note: "Sun Dog: to the nearest enemy when the target dies" }
-  moon_turns:      { value: "‹+2›", unit: turns, note: "Moonpath; the enemy is slowed ‹…›" }
+  moon_turns:      { value: "5 (the enemy -3 m)", unit: turns, note: "Moonpath; the enemy is slowed -3 m" }
   retires:         { value: "aura_radius, weapon_damage", note: "the aura leaves" }

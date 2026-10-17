@@ -1,5 +1,5 @@
 id: SPL_Starchild_CleansingRain
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -15,8 +15,8 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:          { value: "Cleansing Rain (Starwater · Sunshower · Moondew)", note: "SC20, SC32" }
-  conditions_next:    { value: "‹one›", unit: count, note: "on an unmarked ally; a marked ally: the whole list, the mark answered" }
-  marked_heal:        { value: "‹a little›", unit: healing }
-  stars_heal_next:    { value: "‹bigger›", unit: healing }
-  sun_splash_conditions: { value: "‹one›", unit: count, note: "Sunshower: allies within ‹3› m" }
-  moon_lock_turns:    { value: "‹2›", unit: turns, note: "Moondew: the removed conditions can't return" }
+  conditions_next:    { value: "1", unit: count, note: "on an unmarked ally; a marked ally: the whole list, the mark answered" }
+  marked_heal:        { value: "1d4 per slot level + spellcasting modifier", unit: healing }
+  stars_heal_next:    { value: "1d8 per slot level + spellcasting modifier", unit: healing }
+  sun_splash_conditions: { value: "1", unit: count, note: "Sunshower: allies within 3 m" }
+  moon_lock_turns:    { value: "2", unit: turns, note: "Moondew: the removed conditions can't return" }

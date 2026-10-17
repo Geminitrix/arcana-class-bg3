@@ -1,5 +1,5 @@
 id: SPL_Starchild_Comet
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -17,8 +17,8 @@ values:
 pending_build:
   name_next:         { value: "Comet (Shooting Star · Sunspark · Crescent Dart)", note: "SC32; container, a child per Hymn (SC22)" }
   afterglow_on:      { value: "on a hit", note: "today on cast" }
-  afterglow_bonus:   { value: "‹+1›", unit: turns, note: "if the target stands next to an ally in Dusk or Nightfall" }
-  stars_damage_next: { value: "‹more›", unit: damage, note: "Shooting Star" }
-  sun_splash_next:   { value: "‹…›", unit: damage, type: Radiant, note: "Sunspark: enemies within ‹2› m" }
-  sun_splash_radius: { value: "‹2›", unit: metres }
-  moon_slow_next:    { value: "half movement", unit: penalty, note: "Crescent Dart, ‹2› turns" }
+  afterglow_bonus:   { value: "+1 turn", unit: turns, note: "if the target stands next to an ally in Dusk or Nightfall" }
+  stars_damage_next: { value: "+1d8", unit: damage, note: "Shooting Star" }
+  sun_splash_next:   { value: "1d4 per slot level", unit: damage, type: Radiant, note: "Sunspark: enemies within 2 m" }
+  sun_splash_radius: { value: "2", unit: metres }
+  moon_slow_next:    { value: "half movement, 2 turns", unit: penalty, note: "Crescent Dart, 2 turns" }

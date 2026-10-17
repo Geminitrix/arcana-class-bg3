@@ -12,4 +12,4 @@ values: {}   # not in the game
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   turns:  { value: 2, unit: turns, note: "pulses at the start of the ally's turn; never answer a mark or count as the first heal" }
-  pulse:  { value: "‹…›", unit: healing, note: "per card, set with that card" }
+  pulse:  { value: "set per card", unit: healing, note: "Outpouring 1d4 per slot level (Dawn 2d4), Hesperus half the heal, Rekindle 1d4 per slot level, Elpis' Jar 1d6" }

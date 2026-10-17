@@ -14,4 +14,4 @@ pending_build:
   uses:          { value: 1, unit: count, note: "Sing a Hymn once per long rest; a bonus action in combat while Unsung (SC23)" }
   hymn_duration: { value: "until the next long rest" }
   sun_spill_cap: { value: "Sun total over several allies < Stars on one ally", note: "SC6 brake, checked in 22.05" }
-  moon_tide_turns: { value: "‹2›", unit: turns }
+  moon_tide_turns: { value: "2", unit: turns }

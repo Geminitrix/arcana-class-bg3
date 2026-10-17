@@ -1,5 +1,5 @@
 id: SPL_Starchild_Rekindle
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -14,7 +14,7 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:       { value: "Rekindle (Nova · Phoenix Light · New Moon)", note: "SC20, SC32" }
-  revive_hp_next:  { value: "‹low›", note: "the ally rises in Nightfall" }
-  stars_hp_next:   { value: "‹more›", note: "Nova" }
-  sun_burst_heal:  { value: "‹a little›", unit: healing, note: "Phoenix Light: allies within ‹3› m" }
-  moon_tide_turns: { value: "‹2›", unit: turns, note: "New Moon" }
+  revive_hp_next:  { value: "10% / 15% / 20% / 24% at slots 3 / 4 / 5 / 6 (always below a quarter: Nightfall)", note: "the ally rises in Nightfall" }
+  stars_hp_next:   { value: "+5% (cap 24%)", note: "Nova" }
+  sun_burst_heal:  { value: "1d4 per slot level", unit: healing, note: "Phoenix Light: allies within 3 m" }
+  moon_tide_turns: { value: "2 (1d4 per slot level a pulse)", unit: turns, note: "New Moon" }

@@ -1,5 +1,5 @@
 id: SPL_Starchild_Tether
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -14,8 +14,8 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:      { value: "Tether (Starline · Solar Wake · Undertow)", note: "SC20, SC32; probe Force on an ally (vanilla Thorn Whip)" }
-  pull_distance:  { value: "‹X›", unit: metres, note: "no opportunity attacks; a marked ally also ends Stunned, Restrained, Paralysed" }
-  range_next:     { value: "‹…›", unit: metres }
-  stars_ac:       { value: "‹+AC›", unit: bonus, note: "Starline: until the ally's turn" }
-  sun_burning:    { value: "vanilla Burning", note: "Solar Wake: enemies next to the ally's start" }
-  moon_slow:      { value: "half movement", unit: penalty, note: "Undertow: those enemies" }
+  pull_distance:  { value: "9", unit: metres, note: "no opportunity attacks; a marked ally also ends Stunned, Restrained, Paralysed" }
+  range_next:     { value: "18", unit: metres }
+  stars_ac:       { value: "+2 until the ally's next turn", unit: bonus, note: "Starline: until the ally's turn" }
+  sun_burning:    { value: "vanilla Burning, 2 turns", note: "Solar Wake: enemies next to the ally's start" }
+  moon_slow:      { value: "half movement, 2 turns", unit: penalty, note: "Undertow: those enemies" }

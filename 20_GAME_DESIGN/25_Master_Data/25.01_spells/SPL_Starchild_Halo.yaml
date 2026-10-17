@@ -1,5 +1,5 @@
 id: SPL_Starchild_Halo
-reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass; 2026-10-17 ARC-0025 — R3 sizes approved (SC35)"
 kind: spell
 subclass: Starchild
 ticket: ARC-0023
@@ -14,8 +14,8 @@ values:
 # until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
 pending_build:
   name_next:      { value: "Halo (Starshield · Corona · Moon Ring)", note: "SC20, SC32; no Concentration" }
-  ac_next:        { value: "‹+AC›", unit: bonus, note: "only while the ally is in Dusk or Nightfall" }
-  duration_next:  { value: "‹3›", unit: turns }
-  stars_ac_bonus: { value: "‹+1›", unit: bonus, note: "Starshield" }
-  sun_burning:    { value: "vanilla Burning", note: "Corona: on an enemy that hits the ally" }
-  moon_turns:     { value: "‹+2›", unit: turns, note: "Moon Ring" }
+  ac_next:        { value: "+3", unit: bonus, note: "only while the ally is in Dusk or Nightfall" }
+  duration_next:  { value: "3", unit: turns }
+  stars_ac_bonus: { value: "+1 (total +4)", unit: bonus, note: "Starshield" }
+  sun_burning:    { value: "vanilla Burning, 2 turns", note: "Corona: on an enemy that hits the ally" }
+  moon_turns:     { value: "5", unit: turns, note: "Moon Ring" }
