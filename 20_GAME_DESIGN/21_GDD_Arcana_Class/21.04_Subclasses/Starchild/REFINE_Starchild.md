@@ -145,7 +145,7 @@ Notes on SC2 for the design and the build:
   would read the state (DM-K7).
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
-Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Unsung: sing in combat as a bonus action (SC23); heal cards are containers too (SC24). Card review part 2 proposed (§6).
+Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Card review part 1 approved (SC20–SC22). Unsung: sing in combat as a bonus action (SC23); heal cards are containers too (SC24). Card review part 2 approved (SC25). Part 3 proposed (§7).
 
 ## 5. Card review, part 1 — the vanilla cards in a new coat (DM-K2)
 
@@ -211,3 +211,21 @@ spreads, Moon lingers). Working names.
   choice that can push her into her own Dusk.
 - **Part 3, next:** the control and damage cards (Lucent Singularity, Equinox, Solar Flare, Final Spark) and the
   passives (Cosmic Omen, Stellar Anchor).
+
+## 7. Card review, part 3 — control, damage and passives
+
+Proposals, 2026-10-16. Same rules (containers, SC21 variants, working names).
+
+| SG | Today | Proposal | Stars | Sun | Moon |
+|---|---|---|---|---|---|
+| SG12 | Lucent Singularity (Lux; daylight point, dispels magical darkness, Difficult Terrain + Faerie Fire; Concentration) | **Point of Light**: a light for ‹2› turns that still **dispels magical darkness** (real utility in BG3) and Faerie-Fires enemies inside; allies inside in Dusk / Nightfall have **Advantage on saving throws** — sheltered while they wait. Difficult Terrain dropped (the Moon owns slowing) | Faerie Fire also Dazzles | radius ‹larger› | lasts ‹longer› |
+| SG13 | Equinox (Soraka; Silence, then Restrained) | **Kept as her control card** (renamed in the names pass, SC15): enemies inside are Silenced, those still inside at the end are Restrained; **an enemy inside that attacks an ally in Dusk / Nightfall has Disadvantage** — the twilight shields the fallen | the Restrain save is ‹harder› | zone ‹larger› | Silence lasts ‹1› turn longer |
+| SG14 | Solar Flare (L11; 8d6 Fire, Stun, Burning; 3 copies) | **Sunburst**: her one big offensive card stays, but serves the party — fire and Burning on enemies around a point; **allies in the area in Dusk / Nightfall are answered** (heal, mark consumed). No Stun (control lives in Equinox) | ‹more› damage on the centre target | radius ‹larger› | Burning lasts ‹longer› and the burnt are slowed |
+| SG15 | Final Spark (L11; Lux beam, Blind, Faerie Fire; Concentration; recast resets cooldowns on a kill) | **Removed** with its created Recast. The arc should end in light that saves, not a second nuke (DM-I7, J7); fewer buttons (DM-X1). Its slot goes to the level map | — | — | — |
+| SG16 | Cosmic Omen (vanilla Circle of the Stars; long-rest Weal / Woe) | **Removed — replaced by Sing a Hymn at level 1.** Two morning rituals compete, and it is a vanilla twin (DM-K2, K4). **Contradicts the Owner's note of 2026-10-11** (`10.06`: "Cosmic Omen is intended") — the reason to change it is the Hymn, which now owns the morning | — | — | — |
+| SG17 | Stellar Anchor (L3; Advantage on Concentration saves) | **Removed — its level takes a rule passive.** Most new cards need no Concentration, so it protects little; in its place the level where **her own Dusk** begins (SC12) gets its passive (working name *Light in the Dark*) — a rule, not a number (DM-K5) | — | — | — |
+
+- **Card count:** 15 cards + 1 created today → 14 cards (Final Spark and its Recast leave), plus the Great Star (Aspect
+  card) and Sing a Hymn (utility).
+- **Open for the level map:** where each card lands, the ultimate's level, the level of Nightfall / Infusion rank II, of
+  her own Dusk / rank III, and the flight passive (`10.06`).
