@@ -1,0 +1,24 @@
+id: SPL_Starchild_Lantern
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5.1, §13"
+balance_report: "22.05/Starchild.md"
+game_ids: [Target_Arcana_Card_Spell_LucentSingularity]
+values:
+  range:    { value: 18, unit: metres }
+  radius:   { value: 15, unit: metres, note: "Daylight surface; dispels magical darkness; Difficult Terrain and Faerie Fire on enemies" }
+  duration: { value: 2, unit: turns, note: "Concentration (Lucent Singularity today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:    { value: "Lantern (Wayfinder · Noonlight · Moonshadow)", note: "SC27, SC28, SC32; cantrip, outside the PC deck; replaces the vanilla Light" }
+  duration_next: { value: "until a long rest", note: "no effect in combat (probe)" }
+  skill_bonus:  { value: "‹bonus›", unit: bonus, note: "below Weaver Hand: Guide" }
+  ally_radius:  { value: "‹6›", unit: metres }
+  stars_light:  { value: "medium", note: "Wayfinder: Perception, Investigation" }
+  sun_light:    { value: "the largest, bright", note: "Noonlight: Insight, Persuasion" }
+  moon_light:   { value: "dim, small", note: "Moonshadow: Deception, Sleight of Hand" }
+  retires:      { value: "range, radius, duration" }

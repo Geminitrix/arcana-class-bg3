@@ -2,12 +2,17 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
 state: synced
+reviewed: 2026-10-17 ARC-0023 — SC0–SC32 checked; the game is unchanged (3.1 kit), so this file is unchanged but for the note below
 ---
 
 # 🌟 The Starchild — XVII · The Star · Aspect of Hope
 
 > Last verified: **2026-10-02** · Progression table `464a3bfd-859a-43d5-a20d-d6a9270ce6eb` ·
 > Lists "Starchild Level N" · Osiris `ARCANA_Aspect_Star.txt` · Check with `82_Automation/dump_progression.pl`.
+>
+> **Approved rework, not built (ARC-0023, SC0–SC32, 2026-10-16):** the Hymns, Dusk / Nightfall / Dawn, every card a
+> container with a child per Hymn, new names and level map — design in `21.04_Subclasses/Starchild/DESIGN.md`. This
+> file stays the game as it is until the build ships.
 
 ---
 

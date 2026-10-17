@@ -1,0 +1,17 @@
+id: FEAT_Starchild_Hymns
+reviewed: "2026-10-16 ARC-0023 — not in the game yet; SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: feature
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §4.1, §5.1"
+balance_report: "22.05/Starchild.md"
+game_ids: []
+values: {}   # not in the game: the level-1 ritual is the vanilla Cosmic Omen today (05.02 §7), which leaves (SC26)
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  uses:          { value: 1, unit: count, note: "Sing a Hymn once per long rest; a bonus action in combat while Unsung (SC23)" }
+  hymn_duration: { value: "until the next long rest" }
+  sun_spill_cap: { value: "Sun total over several allies < Stars on one ally", note: "SC6 brake, checked in 22.05" }
+  moon_tide_turns: { value: "‹2›", unit: turns }

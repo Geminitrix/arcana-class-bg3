@@ -1,0 +1,21 @@
+id: SPL_Starchild_Tether
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §13"
+balance_report: "22.05/Starchild.md"
+game_ids: [Target_Arcana_Card_Spell_MoonGravity]
+values:
+  range:   { value: "touch" }
+  effects: { value: "removes Stun; ignores Difficult Terrain; can't be magically Paralysed or Restrained", note: "Moon Gravity today" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:      { value: "Tether (Starline · Solar Wake · Undertow)", note: "SC20, SC32; probe Force on an ally (vanilla Thorn Whip)" }
+  pull_distance:  { value: "‹X›", unit: metres, note: "no opportunity attacks; a marked ally also ends Stunned, Restrained, Paralysed" }
+  range_next:     { value: "‹…›", unit: metres }
+  stars_ac:       { value: "‹+AC›", unit: bonus, note: "Starline: until the ally's turn" }
+  sun_burning:    { value: "vanilla Burning", note: "Solar Wake: enemies next to the ally's start" }
+  moon_slow:      { value: "half movement", unit: penalty, note: "Undertow: those enemies" }

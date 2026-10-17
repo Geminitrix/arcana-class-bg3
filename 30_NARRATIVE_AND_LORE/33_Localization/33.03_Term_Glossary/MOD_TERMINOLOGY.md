@@ -122,6 +122,40 @@ yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `Si
 | 2 - The High Priestess · Veiled · Two Pillars · Aspect of Doubt | Awakening and tiers I · II · III | Empress, Aspect of Love |
 | The Deceiver | The subclass | — |
 
+## The Starchild (reviewed 2026-10-16 ARC-0023 — SC0–SC32 terms; rows marked ★ reach the game with the build)
+
+English is final in game for the unmarked rows (`32.01/Starchild.md`); the other 15 languages carry the 3.1 kit's old
+strings. Internal ids keep the old names (`Starcall`, `AstralInfusion`, `LunarWisp`, `SolarPurge`, `Starbreath`,
+`LunarAegis`, `StarRadiance`, `Wish`, `MoonGravity`, `Equinox`, `AstralFortitude`, `SolarFlare`, `StellarGrace`,
+`LucentSingularity`, `WishUponAStar`, `StellarAnchor`, `REJUVENATION`) — never translate or show them. Each card is a
+container with three children (Stars · Sun · Moon): translate the container and every child name.
+
+| English | Meaning | Never |
+|---|---|---|
+| ★ Hymn · ★ Sing a Hymn · ★ Hymn of the Stars / of the Sun / of the Moon | The daily choice of one light, once per long rest · the utility that makes it · the three lights (SC3) | path, Prayer, Oath, Vow, Invoke |
+| ★ Unsung | Her state after a long rest until she sings (SC5) | Dim Light, Silent Sky |
+| ★ Dusk · ★ Nightfall · ★ Dawn | The mark on an ally below half · below a quarter of their hit points · her heal that answers Nightfall (SC9, SC10) | Darkest Hour, Falling Star |
+| ★ answer (a mark) | Her heal consumes the mark and is stronger for it | cure, cleanse (for a mark) |
+| ★ Comet (Shooting Star · Sunspark · Crescent Dart) · ★ Afterglow | The strike · its status | Starcall, Rejuvenation |
+| ★ Outpouring (Lodestar Balm · Noonday Pour · Rising Tide) | The signature heal, ranks I–III | Astral Infusion |
+| ★ Hesperus (Hesperus · Last Ray · Moonrise) | The reaction card-passive | Lunar Wisp |
+| ★ Cleansing Rain (Starwater · Sunshower · Moondew) | The cleanse | Solar Purge |
+| ★ Rekindle (Nova · Phoenix Light · New Moon) | The revive (into Nightfall) | Starbreath |
+| ★ Halo (Starshield · Corona · Moon Ring) | The defence for the wounded | Lunar Aegis |
+| ★ Guiding Light (Polaris · Sun Dog · Moonpath) | The enemy mark | Star Radiance |
+| ★ Elpis' Jar (Wishing Star · Midsummer · Harvest Moon) | The ultimate: answers every mark at once | Wish |
+| ★ Tether (Starline · Solar Wake · Undertow) | The pull of an ally | Moon Gravity |
+| ★ Stillness (Fixed Stars · High Noon · Midnight) | The control card (Silenced, then Restrained) | Equinox |
+| ★ Long Twilight (Blue Hour · Golden Hour · Long Night) | The zone that moves Dusk to two thirds | Astral Fortitude |
+| ★ Flare (Supernova · Solar Flare · Moonburn) | The fire card | Final Spark (leaves) |
+| ★ Dawnbringer (Daystar · Sunrise · Moonset) | The capstone card | Stellar Grace |
+| ★ Lantern (Wayfinder · Noonlight · Moonshadow) | The exploration cantrip | Lucent Singularity, Point of Light (working name) |
+| ★ The Great Star | The Aspect card (Stars only) | Wish Upon a Star |
+| ★ Light in the Dark | Passive at 10: her own Dusk empowers her heals | Stellar Anchor (leaves) |
+| ★ Undying Hope · ★ Dazzled · ★ Tide · ★ Eclipse | Tier I passive · Stars condition (−1d4 attack) · the Moon's heal over time · Tier III | Moonlit, Sunlit, Beacon, Sunrise, Aspect of Hope (as Awakening words, they leave) |
+| 17 - The Star | Awakening | — |
+| The Starchild | The subclass (display name unchanged, ARC-0021) | — |
+
 > Note (Lore Writer, 2026-10-15): the sections above describe the **pre-rework** mod (Arcane Cards, Arcane Shards).
 > The whole file needs a rework pass — proposed as its own ticket.
 

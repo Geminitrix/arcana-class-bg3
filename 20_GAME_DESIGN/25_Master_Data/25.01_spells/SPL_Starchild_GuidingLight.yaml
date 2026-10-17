@@ -1,0 +1,23 @@
+id: SPL_Starchild_GuidingLight
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Card_Spell_StarRadiance, STAR_RADIANCE, STAR_RADIANCE_AURA]
+values:
+  aura_radius:   { value: 9, unit: metres }
+  duration:      { value: 10, unit: turns, note: "Concentration (Star Radiance today)" }
+  weapon_damage: { value: 1d4, unit: damage, type: Radiant, note: "her and allies' weapon attacks" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:       { value: "Guiding Light (Polaris · Sun Dog · Moonpath)", note: "SC20, SC32; an enemy mark, no Concentration" }
+  mark_turns:      { value: "‹N›", unit: turns }
+  heal_on_hit:     { value: "‹X›", unit: healing, note: "allies in Dusk or Nightfall who hit the marked enemy" }
+  stars_heal_next: { value: "‹bigger›", unit: healing, note: "Polaris" }
+  sun_jump:        { value: 1, unit: count, note: "Sun Dog: to the nearest enemy when the target dies" }
+  moon_turns:      { value: "‹+2›", unit: turns, note: "Moonpath; the enemy is slowed ‹…›" }
+  retires:         { value: "aura_radius, weapon_damage", note: "the aura leaves" }

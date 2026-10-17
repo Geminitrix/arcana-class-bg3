@@ -1,0 +1,20 @@
+id: SPL_Starchild_Rekindle
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §4.8"
+balance_report: "22.05/Starchild.md"
+game_ids: [Teleportation_Arcana_Card_Spell_Starbreath]
+values:
+  revive_hp: { value: "a share of maximum hit points", by_level: { 3: "10%", 4: "30%", 5: "60%", 6: "100%" }, note: "keys are slot levels (Starbreath today)" }
+  cooldown:  { value: "long rest", note: "Unique" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:       { value: "Rekindle (Nova · Phoenix Light · New Moon)", note: "SC20, SC32" }
+  revive_hp_next:  { value: "‹low›", note: "the ally rises in Nightfall" }
+  stars_hp_next:   { value: "‹more›", note: "Nova" }
+  sun_burst_heal:  { value: "‹a little›", unit: healing, note: "Phoenix Light: allies within ‹3› m" }
+  moon_tide_turns: { value: "‹2›", unit: turns, note: "New Moon" }

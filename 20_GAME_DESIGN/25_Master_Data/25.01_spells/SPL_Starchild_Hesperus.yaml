@@ -1,0 +1,23 @@
+id: SPL_Starchild_Hesperus
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §4.8"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Card_Passive_LunarWisp, Arcana_Passive_LunarWisp]
+values:
+  temp_hp:  { value: "Arcana level + 2 x Wisdom modifier", unit: temp_hp, note: "on each of her heals (Lunar Wisp today)" }
+  duration: { value: "until a long rest or combat ends", note: "card-passive, Unique, Unravel" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:       { value: "Hesperus (Hesperus · Last Ray · Moonrise)", note: "SC25, SC32" }
+  trigger_range:   { value: "‹18›", unit: metres, note: "an ally falls into Dusk or Nightfall" }
+  reaction_heal:   { value: "‹small›", unit: healing, note: "answers the mark; counts for the Awakening" }
+  reaction_charges: { value: "‹…›", unit: count, note: "refilled by the card" }
+  stars_heal_next: { value: "‹bigger›", unit: healing }
+  sun_splash_heal: { value: "‹a little›", unit: healing, note: "Last Ray: allies within ‹3› m" }
+  moon_tide_turns: { value: "‹2›", unit: turns, note: "Moonrise" }
+  retires:         { value: "temp_hp", note: "the temporary hit points leave" }

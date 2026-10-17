@@ -1,0 +1,21 @@
+id: SPL_Starchild_Dawnbringer
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Card_Spell_StellarGrace]
+values:
+  radius:  { value: 18, unit: metres }
+  effects: { value: "healing on allies maximised; Advantage on Wisdom and death saves", note: "Concentration, long-rest cooldown, Unique (Stellar Grace today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:       { value: "Dawnbringer (Daystar · Sunrise · Moonset)", note: "SC25, SC32; Concentration open (DESIGN §14)" }
+  duration:        { value: "‹N›", unit: turns, note: "a heal on Dusk answers as Nightfall" }
+  stars_dawn_next: { value: "‹bigger›", unit: healing, note: "Daystar" }
+  sun_spill_next:  { value: "‹wider›", unit: metres, note: "Sunrise" }
+  moon_turns:      { value: "‹longer›", unit: turns, note: "Moonset" }
+  retires:         { value: "radius, effects" }

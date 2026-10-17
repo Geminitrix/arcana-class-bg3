@@ -1,0 +1,21 @@
+id: SPL_Starchild_Stillness
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5"
+balance_report: "22.05/Starchild.md"
+game_ids: [Target_Arcana_Card_Spell_Equinox, EQUINOX_AURA]
+values:
+  range:    { value: 18, unit: metres }
+  zone:     { value: 6, unit: metres }
+  duration: { value: 1, unit: turns, note: "Silenced inside; Restrained if still inside when it ends (Equinox today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:       { value: "Stillness (Fixed Stars · High Noon · Midnight)", note: "SC26, SC32" }
+  marked_guard:    { value: "Disadvantage", note: "an enemy inside attacking an ally in Dusk or Nightfall" }
+  stars_save_next: { value: "‹harder›", note: "Fixed Stars: the Restrain save" }
+  sun_zone_next:   { value: "‹larger›", unit: metres, note: "High Noon" }
+  moon_silence:    { value: "‹+1›", unit: turns, note: "Midnight" }

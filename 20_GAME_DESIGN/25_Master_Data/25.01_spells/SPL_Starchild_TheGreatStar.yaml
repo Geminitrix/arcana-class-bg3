@@ -1,0 +1,20 @@
+id: SPL_Starchild_TheGreatStar
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5.2, §8"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Created_Aspect_WishUponAStar, WISH_UPON_A_STAR]
+values:
+  radius:   { value: 18, unit: metres }
+  duration: { value: 2, unit: turns, note: "allies gain Advantage on their next attack roll (Wish Upon a Star today)" }
+  uses:     { value: 1, unit: count, note: "once per combat, 0 Threads" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:    { value: "The Great Star", note: "SC16, SC32; Stars only, no children" }
+  duration_next: { value: "‹N›", unit: turns, note: "answers the marks over time" }
+  answer_heal:  { value: "‹…›", unit: healing, note: "the Stars' focused heal" }
+  retires:      { value: "duration (Advantage)" }

@@ -1,0 +1,21 @@
+id: STA_Starchild_Afterglow
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: status
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §7"
+balance_report: "22.05/Starchild.md"
+game_ids: [REJUVENATION]
+values:
+  duration: { value: 2, unit: turns }
+  speed:    { value: "+30% movement speed", unit: bonus }
+  regen:    { value: "Wisdom modifier", unit: healing, note: "at the end of each turn (Rejuvenation today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:     { value: Afterglow, note: "SC32" }
+  duration_next: { value: "‹2›", unit: turns, note: "‹+1› next to a marked ally (SPL_Starchild_Comet)" }
+  regen_next:    { value: "‹…›", unit: healing }
+  free_outpouring: { value: 1, unit: count, note: "her next Outpouring costs no hit points" }
+  retires:       { value: "speed", note: "not in the design" }

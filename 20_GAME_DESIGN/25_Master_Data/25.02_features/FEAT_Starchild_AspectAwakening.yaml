@@ -1,0 +1,21 @@
+id: FEAT_Starchild_AspectAwakening
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: feature
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §8, §4.3"
+balance_report: "22.05/Starchild.md"
+game_ids: [Arcana_Passive_Aspect_Star_Awakening, Arcana_Passive_Aspect_Star_I, Arcana_Passive_Aspect_Star_II, Arcana_Passive_Aspect_Star_III, ASPECT_AWAKENED_STAR_I, ASPECT_AWAKENED_STAR_II, ASPECT_AWAKENED_STAR_III, ASPECT_PROGRESS_STAR_I, ASPECT_PROGRESS_STAR_II, ASPECT_PROGRESS_STAR_III]
+values:
+  goals:          { value: "5 / 8 / 12 x her level", unit: healing, by_level: { 3: "5 x level", 7: "8 x level", 12: "12 x level" }, note: "effective healing, counted down (ARC-0007, HEAL type)" }
+  tier3_wisdom:   { value: 3, unit: bonus, note: "Tier III today: +3 Wisdom" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  goals_next:     { value: "‹3 / 5 / 8›", unit: count, by_level: { 3: "‹3›", 7: "‹5›", 12: "‹8›" }, note: "answered marks: Dusk 1, Nightfall 2 (SC17); countdown COUNT type" }
+  dusk_counts:    { value: 1, unit: count }
+  nightfall_counts: { value: 2, unit: count }
+  first_heal_gate: { value: 1, unit: turns, note: "hidden status on her, TickType StartTurn (SC19)" }
+  tier2_condition_turns: { value: "‹1–2›", unit: turns, note: "values in STA_Starchild_TierConditions" }
+  retires:        { value: "goals, tier3_wisdom", note: "SC16–SC19" }

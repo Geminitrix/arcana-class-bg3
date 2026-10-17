@@ -1,0 +1,17 @@
+id: FEAT_Starchild_DuskAndNightfall
+reviewed: "2026-10-16 ARC-0023 — not in the game yet; SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: feature
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §4.2, §4.6, §4.8"
+balance_report: "22.05/Starchild.md"
+game_ids: []
+values: {}   # not in the game
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  dusk_threshold:      { value: "‹½›", note: "of maximum hit points; level 1" }
+  nightfall_threshold: { value: "‹¼›", note: "level 5, with Outpouring rank II" }
+  dusk_answer:         { value: "‹stronger›", unit: healing }
+  dawn_answer:         { value: "‹strongest›", unit: healing, note: "the Hymn's effect at its peak" }

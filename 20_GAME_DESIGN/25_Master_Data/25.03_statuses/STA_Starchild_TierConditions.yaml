@@ -1,0 +1,23 @@
+id: STA_Starchild_TierConditions
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: status
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §7, §8"
+balance_report: "22.05/Starchild.md"
+game_ids: [STAR_MOONLIT, STAR_MOONLIT_II, STAR_SUNLIT, STAR_SUNLIT_II, STAR_ECLIPSE, Arcana_Passive_Star_Moonlit, Arcana_Passive_Star_Moonlit_II, Arcana_Passive_Star_Sunlit, Arcana_Passive_Star_Sunlit_II]
+values:
+  moonlit:   { value: "1d4 / 2d4", unit: damage, type: Cold, note: "Tier I / II; the next hit also slows" }
+  sunlit:    { value: "1d4 / 2d4", unit: damage, type: Fire, note: "Tier II / III; the next hit also sets Burning 2 turns" }
+  eclipse:   { value: "Resistant to Cold and Fire", note: "Tier III, 2 turns" }
+  duration:  { value: 2, unit: turns, note: "or until the next hit" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  dazzled:       { value: "-1d4", unit: penalty, note: "Stars: attack rolls only (vanilla Bane without the saves)" }
+  moon_slow:     { value: "half movement", unit: penalty, note: "Moon" }
+  sun_burning:   { value: "vanilla Burning", note: "Sun: 1d4 Fire per turn" }
+  duration_next: { value: "‹1–2›", unit: turns, note: "growth to level 12 in the balance pass (DM-B6)" }
+  eclipse_next:  { value: "all three", note: "Tier III: from the first heal of the turn" }
+  retires:       { value: "moonlit, sunlit, eclipse", note: "no damage riders (SC18)" }

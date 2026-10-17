@@ -1,0 +1,21 @@
+id: SPL_Starchild_Halo
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5"
+balance_report: "22.05/Starchild.md"
+game_ids: [Target_Arcana_Card_Spell_LunarAegis]
+values:
+  range: { value: 18, unit: metres }
+  ac:    { value: 2, unit: bonus, note: "Concentration (Lunar Aegis today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:      { value: "Halo (Starshield · Corona · Moon Ring)", note: "SC20, SC32; no Concentration" }
+  ac_next:        { value: "‹+AC›", unit: bonus, note: "only while the ally is in Dusk or Nightfall" }
+  duration_next:  { value: "‹3›", unit: turns }
+  stars_ac_bonus: { value: "‹+1›", unit: bonus, note: "Starshield" }
+  sun_burning:    { value: "vanilla Burning", note: "Corona: on an enemy that hits the ally" }
+  moon_turns:     { value: "‹+2›", unit: turns, note: "Moon Ring" }

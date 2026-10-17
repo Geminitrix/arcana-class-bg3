@@ -1,0 +1,24 @@
+id: SPL_Starchild_Comet
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §4.1"
+balance_report: "22.05/Starchild.md"
+game_ids: [Projectile_Arcana_Card_Spell_Starcall, STARCALL_SLOW, REJUVENATION]
+values:
+  range:  { value: 18, unit: metres }
+  damage: { value: "1d6 per slot level", unit: damage, type: Radiant, by_level: { 1: 1d6, 2: 2d6, 3: 3d6, 4: 4d6, 5: 5d6, 6: 6d6 }, note: "keys are slot levels; spell attack (Starcall today)" }
+  slow:   { value: "-30% movement speed", unit: penalty, note: "1 turn (STARCALL_SLOW)" }
+  self_status: { value: 2, unit: turns, note: "Rejuvenation on cast; values in STA_Starchild_Afterglow" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:         { value: "Comet (Shooting Star · Sunspark · Crescent Dart)", note: "SC32; container, a child per Hymn (SC22)" }
+  afterglow_on:      { value: "on a hit", note: "today on cast" }
+  afterglow_bonus:   { value: "‹+1›", unit: turns, note: "if the target stands next to an ally in Dusk or Nightfall" }
+  stars_damage_next: { value: "‹more›", unit: damage, note: "Shooting Star" }
+  sun_splash_next:   { value: "‹…›", unit: damage, type: Radiant, note: "Sunspark: enemies within ‹2› m" }
+  sun_splash_radius: { value: "‹2›", unit: metres }
+  moon_slow_next:    { value: "half movement", unit: penalty, note: "Crescent Dart, ‹2› turns" }

@@ -1,0 +1,29 @@
+id: SPL_Starchild_Outpouring
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §9.2, §4.2"
+balance_report: "22.05/Starchild.md"
+game_ids: [Target_Arcana_Card_Spell_AstralInfusion]
+values:
+  range:   { value: 9, unit: metres }
+  healing: { value: "1d10 per slot level", unit: healing, by_level: { 1: 1d10, 2: 2d10, 3: 3d10, 4: 4d10, 5: 5d10, 6: 6d10 }, note: "keys are slot levels (Astral Infusion today)" }
+  hp_cost: { value: "10% of her maximum hit points", unit: points, note: "not paid while she has Rejuvenation" }
+  min_hp:  { value: "11%", note: "can't be cast at or below" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:          { value: "Outpouring (Lodestar Balm · Noonday Pour · Rising Tide)", note: "SC32; signature, ranks I (1) / II (5) / III (10)" }
+  hp_cost_next:       { value: "‹10%›", note: "free with Afterglow" }
+  min_hp_next:        { value: "‹11%›" }
+  dusk_bonus:         { value: "‹stronger›", unit: healing, note: "rank I: answers Dusk" }
+  dawn_bonus:         { value: "‹strongest›", unit: healing, note: "rank II: answers Nightfall with Dawn" }
+  stars_focus:        { value: "‹…›", unit: healing, note: "Lodestar Balm: the largest single heal" }
+  sun_spill_share:    { value: "‹…›", unit: healing, note: "Noonday Pour: to allies nearby; total < the Stars on one ally (SC6); answers no mark" }
+  sun_spill_radius:   { value: "‹…›", unit: metres }
+  sun_burn:           { value: "‹…›", unit: damage, type: Fire, note: "enemies next to the target" }
+  moon_now_share:     { value: "‹…›", unit: healing, note: "Rising Tide: part now" }
+  moon_tide_turns:    { value: "‹2›", unit: turns, note: "the rest at the start of each turn; STA_Starchild_Tide" }
+  moon_chill:         { value: "‹…›", unit: penalty, note: "attackers of the ally are chilled and slowed" }

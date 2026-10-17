@@ -1,0 +1,23 @@
+id: SPL_Starchild_LongTwilight
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §4.8"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Card_Spell_AstralFortitude]
+values:
+  radius: { value: 6, unit: metres }
+  max_hp: { value: "Arcana level", unit: points, note: "allies' maximum hit points (Astral Fortitude today)" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:        { value: "Long Twilight (Blue Hour · Golden Hour · Long Night)", note: "SC20, SC32" }
+  radius_next:      { value: "‹6›", unit: metres }
+  duration:         { value: "‹N›", unit: turns }
+  dusk_threshold:   { value: "‹⅔›", note: "of the ally's maximum hit points" }
+  stars_nightfall:  { value: "‹⅓›", note: "Blue Hour" }
+  sun_radius_next:  { value: "‹larger›", unit: metres, note: "Golden Hour" }
+  moon_turns:       { value: "‹longer›", unit: turns, note: "Long Night" }
+  retires:          { value: "max_hp" }

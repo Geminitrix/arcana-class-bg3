@@ -31,7 +31,7 @@ player feels.
 - [x] Owner chose how the paths work and a kit direction
 - [x] Decisions logged in `21.04/Starchild/DECISIONS.md` (prefix `SC`, SC0–SC32)
 - [x] `DESIGN.md` complete and `21.03/Starchild.md` written from the approved map
-- [ ] Propagation (00.08) to every department; `check_propagation.pl Starchild` prints OK
+- [x] Propagation (00.08) to every department; `check_propagation.pl Starchild` prints OK
 - [ ] Build ticket opened (`implementation: claude`), spec in `55`
 
 ## Gates
@@ -74,3 +74,8 @@ player feels.
 - 2026-10-16 — Owner asked for option C (a unique name per child) to compare; written in REFINE §9.1.
 - 2026-10-16 — Owner: unique child names with neutral container names (SC32, replaces SC31).
 - 2026-10-16 — DESIGN.md and 21.03/Starchild.md written from SC0–SC32; 21.08 Starchild column updated. Design calls left open in DESIGN §14 (Sun spill and Moon tide do not answer marks; action types of Guiding Light / Tether). Propagation pending: 10 artifacts (check_propagation.pl Starchild).
+- 2026-10-17 — Propagation (00.08) done, each artifact in its owner's role; `check_propagation.pl Starchild` prints OK.
+  Written: 23.02 sheets (25, gen_spell_sheets.pl), 25 YAML (15 SPL, 5 FEAT, 4 STA; game values of the 3.1 kit +
+  `pending_build` with ‹…› sizes, no `upcast_die`), 22.05 and 26.01 (directions only), 31.02, 32.01 (game texts via
+  dossier_texts.pl + names after the build), 33.03 Starchild terms, 42.04 briefs, 61.02 TC_ARC-0023; 05.02 note and
+  05.00 state line (game unchanged, 3.1 kit). Nothing in the game changed.

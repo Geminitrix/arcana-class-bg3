@@ -1,0 +1,24 @@
+id: SPL_Starchild_ElpisJar
+reviewed: "2026-10-16 ARC-0023 — values read from the game (3.1 kit, 05.02, numbers re-checked 2026-10-02); SC0–SC32 approved; the block pending_build holds what the build applies, sizes ‹…› for the balance pass"
+kind: spell
+subclass: Starchild
+ticket: ARC-0023
+design: "21.04/Starchild/DESIGN.md §5, §4.3"
+balance_report: "22.05/Starchild.md"
+game_ids: [Shout_Arcana_Card_Spell_Wish]
+values:
+  radius:  { value: 18, unit: metres }
+  healing: { value: "4d4 to 6d4", unit: healing, by_level: { 4: 4d4, 5: 5d4, 6: 6d4 }, note: "keys are slot levels; her and allies (Wish today)" }
+  uses:    { value: 1, unit: count, note: "once per combat, Unique" }
+
+# Approved in ARC-0023 (SC0–SC32), applied by the build. Keys differ from values: so values: keeps the game of today
+# until the build moves them. ‹…› sizes are placeholders for the balance pass (ADR-0005).
+pending_build:
+  name_next:        { value: "Elpis' Jar (Wishing Star · Midsummer · Harvest Moon)", note: "SC13, SC32" }
+  radius_next:      { value: "‹18›", unit: metres }
+  plain_heal:       { value: "‹…›", unit: healing, note: "an unmarked ally" }
+  dusk_heal:        { value: "‹strong›", unit: healing, note: "every Dusk answered" }
+  dawn_heal:        { value: "‹Dawn›", unit: healing, note: "every Nightfall answered" }
+  stars_marked_bonus: { value: "‹bigger›", unit: healing, note: "Wishing Star" }
+  sun_radius_next:  { value: "‹larger›", unit: metres, note: "Midsummer" }
+  moon_tide_turns:  { value: "‹2›", unit: turns, note: "Harvest Moon: every ally healed" }
