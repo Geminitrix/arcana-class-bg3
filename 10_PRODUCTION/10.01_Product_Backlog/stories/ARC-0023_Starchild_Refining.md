@@ -59,3 +59,4 @@ player feels.
 - 2026-10-16 — Owner: Downed clears the mark (SC11). Next: can the Starchild herself be marked.
 - 2026-10-16 — Owner: only allies are marked early; later her own Dusk empowers the heals she gives (SC12). Next: the ultimate.
 - 2026-10-16 — Owner: ultimate = the answered wish, a mass heal that answers every mark (SC13); Great Star and Eclipse kept for the progression (SC14); rename every Soraka/Lux name (SC15).
+- 2026-10-16 — Owner: Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun + Moon) (SC16). Next: the Awakening goal.
