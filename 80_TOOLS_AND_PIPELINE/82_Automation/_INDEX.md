@@ -28,7 +28,7 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 
 Board: https://claude.ai/artifact/Fwq9XqzgZNt5KmKRC4k15E — the ticket `.md` files are the truth. The Owner drags
 cards and writes comments on the board; they wait in the artifact's store (`moves/<ticket id>` = `{to, from, at}`,
-`comments/<auto>` = `{ticket, text, at}`) until the Owner asks "sincroniza o kanban". Then:
+`comments/<auto>` = `{ticket, text, at}`) until the Owner runs `/update-board` (or asks "sincroniza o kanban"). Then:
 
 1. `ArtifactData list` of `moves` and `comments`.
 2. Each move → the ticket's `status:` becomes `to`, plus a log line `- <date> — moved to <to> on the board (Owner).`
