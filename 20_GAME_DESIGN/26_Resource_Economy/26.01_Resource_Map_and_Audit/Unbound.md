@@ -2,7 +2,7 @@
 id: 26.01/Unbound
 owner: Balance Designer
 source: 21.04/Unbound/DECISIONS.md (WB0–WB48), DESIGN.md §4, §5, §8
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); the approved design, values in 25; 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); the approved design, values in 25; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
 ---
 
 # 26.01 · Resource audit — The Windborn (internal: Unbound)

@@ -2,7 +2,7 @@
 id: 61.02/Unbound/TC_ARC-0022
 owner: QA Lead
 source: 21.04/Unbound/DECISIONS.md WB0–WB48 · DESIGN.md §13, §15 · 22.05/Unbound.md (V1–V5)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
 status: planned — part A (probes) runs first in the build ticket; parts B and C after the build
 ---
 

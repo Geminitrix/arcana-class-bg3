@@ -2,7 +2,7 @@
 id: 42.04/Unbound
 owner: Icon Artist
 source: 21.04/Unbound/DESIGN.md §2.1 (card readings), §2.5 (colour), §4–§8; 31.02/Unbound.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-17)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
 ---
 
 # 42.04 · Icon briefs — The Windborn (internal: Unbound)

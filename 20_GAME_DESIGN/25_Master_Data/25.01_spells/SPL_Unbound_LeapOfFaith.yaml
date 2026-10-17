@@ -1,5 +1,5 @@
 id: SPL_Unbound_LeapOfFaith
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation)"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change)"
 kind: spell
 subclass: Unbound
 ticket: ARC-0022

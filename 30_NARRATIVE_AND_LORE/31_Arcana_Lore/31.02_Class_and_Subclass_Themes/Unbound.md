@@ -2,7 +2,7 @@
 id: 31.02/Unbound
 owner: Lore Writer
 source: 21.04/Unbound/DESIGN.md §2, §11 · DECISIONS.md WB0–WB4, WB11, WB15, WB25–WB26, WB44 · 31.01_Lore_Bible.md
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
 ---
 
 # 31.02 · Theme — The Windborn (internal: Unbound) (0 · The Fool · Aspect of Curiosity)

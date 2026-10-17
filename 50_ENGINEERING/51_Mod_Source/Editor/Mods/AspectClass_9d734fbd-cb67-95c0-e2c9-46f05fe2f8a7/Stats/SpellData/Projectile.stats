@@ -569,7 +569,9 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="f36640ff-545c-49e8-d93a-3351a6a17f88" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Vortex" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6f6a5384-a65f-44db-b52e-ddee90070922" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="12a90676-df5a-41f8-ab79-0343df46fcc0" />
+        <field name="SpellPrepareCost" type="IntegerTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="GROUND:CreateExplosion(Projectile_Arcana_Util_PROBE_VortexInner)" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />

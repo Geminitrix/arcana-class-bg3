@@ -2,7 +2,7 @@
 id: 21.04/Unbound/DESIGN
 owner: Lead Class Designer
 state: approved design (WB0–WB44, 2026-10-16); sizes approved (WB45–WB48), values in 25. The game still has the old Unbound build (`05.02/Unbound.md`) until the build ticket ships
-reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probe Rush fixed), no change
+reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change
 ---
 
 # The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
