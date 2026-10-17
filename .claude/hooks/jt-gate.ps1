@@ -2,7 +2,7 @@
 #
 # A write to the GAME copy of the mod (...\Baldurs Gate 3\Data\...\AspectClass_9d734fbd-...) needs:
 #   1. the message starts with [fechado] (game and Toolkit closed); no tag = open; one message only;
-#   2. the message names a ticket (ARC-####) whose header says `implementation: claude` (00.07).
+#   2. the message names a ticket (ARC-####) whose header says `implementation: owner` or `claude` (OR-11: the Owner implements; Claude fixes divergences).
 # Writes into 56_Vanilla_Code_Reference (Larian content, local only) are always denied.
 # The synchronized copy in 50_ENGINEERING/51_Mod_Source is NOT gated (ADR-0003).
 #
@@ -74,7 +74,7 @@ switch ($Mode) {
 
         if (Test-ArcanaCwd $in.cwd) {
             if ($state -eq 'closed') {
-                $msg = 'Jogo/Toolkit: FECHADO ([fechado] nesta mensagem). Escrita nos arquivos do mod no jogo liberada so para tickets citados nesta mensagem com implementation: claude'
+                $msg = 'Jogo/Toolkit: FECHADO ([fechado] nesta mensagem). Escrita nos arquivos do mod no jogo liberada so para corrigir divergencias em tickets citados nesta mensagem com implementation: owner ou claude (OR-11)'
                 $msg += if ($tickets) { " (tickets citados: $tickets)." } else { ' - nenhum ticket ARC-#### citado, entao o mod segue somente leitura.' }
             } else {
                 $msg = 'Jogo/Toolkit: ABERTO ou nao informado (sem [fechado] nesta mensagem). Somente leitura, investigacao e plano. Mudancas em arquivos do mod vao como blocos copy-paste. Arquivos fora do jogo (projeto, memoria) continuam liberados.'
@@ -116,9 +116,9 @@ switch ($Mode) {
             }
             $ids = if ($lines.Count -gt 1 -and $lines[1]) { $lines[1].Split(',') } else { @() }
             $ok = $false
-            foreach ($id in $ids) { if ((Get-Implementation $id) -eq 'claude') { $ok = $true } }
+            foreach ($id in $ids) { if ((Get-Implementation $id) -in @("owner", "claude")) { $ok = $true } }
             if (-not $ok) {
-                Deny 'jt-gate: escrita no mod bloqueada (00.07). Precisa de um ticket ARC-#### citado nesta mensagem com implementation: claude no cabecalho. Sem isso o time entrega a spec (55) e o Owner implementa no Toolkit.'
+                Deny 'jt-gate: escrita no mod bloqueada (OR-11). Precisa de um ticket ARC-#### citado nesta mensagem com implementation: owner ou claude no cabecalho. Sem isso o time entrega a spec (55) e o Owner implementa no Toolkit.'
             }
         }
     }

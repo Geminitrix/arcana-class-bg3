@@ -10,6 +10,7 @@
 | [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | ready | claude |  |
 | [ARC-0022](stories/ARC-0022_Windborn_Refining.md) | "Windborn (Unbound) refining: rework to the subclass standard v2.1" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0023](stories/ARC-0023_Starchild_Refining.md) | "Starchild refining: rework to the subclass standard v2.1, with paths of light" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
+| [ARC-0027](stories/ARC-0027_Organisation_Audit.md) | Organisation audit — one rulebook, real roles, production and tools in order | chore | Producer | must | 5/4 | in_progress | pending |  |
 | [ARC-0025](stories/ARC-0025_Starchild_Refining_Build.md) | "Starchild refining build: the game plays SC0–SC32" | rework | Mod Engineer | must | 5/5 | in_progress | claude |  |
 | [ARC-0026](stories/ARC-0026_Windborn_Refining_Build.md) | "Windborn refining build: the game plays WB0–WB48" | rework | Mod Engineer | must | 5/5 | ready | claude |  |
 | [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA | should | 4/2 | backlog | pending |  |

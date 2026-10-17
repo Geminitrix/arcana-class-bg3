@@ -2,7 +2,7 @@
 id: SPEC_ARC-####
 ticket: ARC-####
 status: draft            # draft | ready | implemented | verified
-implementation: pending  # pending | owner | claude  (00.07)
+implementation: pending  # pending (design only) | owner (the Owner types it; Claude verifies and fixes)  (OR-11)
 author: Mod Engineer
 updated: YYYY-MM-DD
 ---
@@ -33,7 +33,7 @@ progression → class/subclass → localization → icon.
 - **Files:** `Public/AspectClass_…/Stats/Generated/Data/<file>.txt` + its editor twin `Editor/Mods/AspectClass_…/Stats/…/<file>.stats`
   (LSX tables: `Public/…/*.lsx` + `Editor/Mods/…/*.tbl`) — both change together
 - **Inherits (`using`):** — / `<parent entry>`
-- **Vanilla anchor:** `<entry>` in `<vanilla file>` (grounding, spec §32.1)
+- **Vanilla anchor:** `<entry>` in `<vanilla file>` (grounding, OR-13)
 
 | Field | Value | Origin (25 id) |
 |---|---|---|

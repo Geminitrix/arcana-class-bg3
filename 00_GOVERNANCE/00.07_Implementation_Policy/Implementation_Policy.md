@@ -1,23 +1,5 @@
-# 00.07 · Implementation policy
+# 00.07 · Implementation policy — moved
 
-*Accepted with the architecture (ADR-0001, ADR-0007) · 2026-10-11.*
-
-Writing mod code is the most expensive work and the Owner often prefers to do it in the Toolkit. So the
-team **always delivers a spec**, and code is written only on request. Every ticket carries the field
-`implementation`:
-
-| Value | Who writes the mod files | What the team does |
-|---|---|---|
-| `pending` (default) | Nobody | Engineering writes `SPEC_ARC-####.md` in `55`; the ticket stops at **Spec Ready** |
-| `owner` | The Owner, in the Toolkit | Same spec. Afterwards Engineering runs `sync_data`, the validators, compares the result item by item with the spec and opens a bug in `62` for any divergence — it never fixes on its own |
-| `claude` | Mod Engineer / specialists | Only after the Owner asks explicitly ("implementa o ARC-0142"). The field changes to `claude`; the work goes layer by layer, each with the verification command and its result |
-
-## Rules
-
-1. The spec covers everything needed to implement without guessing; it contains **no code**.
-2. Writing to the game copy of the mod needs **both** a message starting with `[fechado]` **and** a ticket
-   with `implementation: claude` (ADR-0007, enforced by `jt-gate`).
-3. The mod lives in Data; after any change there, `sync_data` refreshes `51` before the commit (ADR-0003).
-4. Design, Narrative, Art, QA and Release work normally in all three modes.
-5. Optional shortcut: a script can draft Stats text from `25` for the Owner to paste in the Toolkit
-   (`82_Automation/gen_stats_from_yaml`, planned).
+Superseded on 2026-10-17 by **`00.01/Operating_Rules.md` OR-11** (the Owner implements in the Toolkit; Claude verifies and
+fixes divergences with `[fechado]`) and the work flow in §1 of the same file. The old text is in
+`90_ARCHIVE/93_Old_Versions/2026-10-17_Studio_Constitution_v0.4/` (ADR-0010).

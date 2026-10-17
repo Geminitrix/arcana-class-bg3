@@ -6,7 +6,7 @@ epic: <EPIC_…>
 subclass: none           # class | unbound | deceiver | starchild | eternal | resonant | kingmaker | lionheart | none
 status: backlog          # backlog | ready | in_progress | blocked | in_review | spec_ready | in_qa | done  (blocked shows in In Progress with a tag)
 owner: <role>            # the department that owns the outcome
-implementation: pending  # pending | owner | claude  (00.07)
+implementation: pending  # pending (design only) | owner (the Owner types it; Claude verifies and fixes)  (OR-11)
 priority: should         # must | should | could | wont  (MoSCoW)
 value: 3                 # 1-5
 effort: 3                # 1-5

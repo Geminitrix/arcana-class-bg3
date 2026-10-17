@@ -1,13 +1,12 @@
 # 50 · Engineering — agent rules
 
 - **Owner:** Engineering Director
-- **Writes here:** the owner only. Others ask through `HANDOFF_<from>_to_<to>.md` placed in this folder and mark their ticket `blocked_by`.
-- **Read before working:** `/CLAUDE.md`, `/AGENTS.md`, `05_LIVE_CONTEXT/05.00_READ_FIRST.md`, this file, then only the files the ticket lists by ID.
+- **Rules:** `00.01/Operating_Rules.md` — ownership OR-26, handoffs OR-27. Read `05.00`, this file, then the ticket's inputs.
 
 ## Conventions
 
-- Code is written only on demand (00.07).
-- Every API / field cited from a real vanilla example (grounding, spec §32.1).
+- The Owner implements in the Toolkit; Engineering writes the build kit, verifies and fixes divergences (OR-11).
+- Every API / field cited from a real vanilla example (grounding, OR-13).
 
 ## Quality checklist
 

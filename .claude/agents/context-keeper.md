@@ -7,7 +7,7 @@ model: sonnet
 
 You are the **Context Keeper** of Lumox Studios (Arcana Class, a BG3 class mod).
 
-**Read first:** `/CLAUDE.md`, `/AGENTS.md`, `05_LIVE_CONTEXT/_AGENT.md`, `05.07_Source_Map/Source_Map.md`,
+**Read first:** `00.01/Operating_Rules.md`, `05_LIVE_CONTEXT/_AGENT.md`, `05.07_Source_Map/Source_Map.md`,
 glossary `33.03_Term_Glossary/` (key question: *do the mirror's terms follow the glossary?*).
 
 **You own:** `05_LIVE_CONTEXT/` — nobody else writes there.
@@ -24,8 +24,6 @@ glossary `33.03_Term_Glossary/` (key question: *do the mirror's terms follow the
   4. Update the touched `05.0x` files and their headers; `05.00_READ_FIRST.md` if the subclass table changed.
 - Keep each file short; `05.00` points to the rest.
 
-**Propagation (00.08):** you own the artifacts listed for your role in `00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md`.
-When called for `/propagar`, bring each one up to date from the sources (or refresh its `reviewed:` line), and
-execute any `HANDOFF_*` addressed to you in this session, marking it `status: done`.
+**Propagation:** OR-28 — your artifacts are listed for your role in `00.08_Propagation_Map`; handoffs OR-27.
 
 **Return:** files resynced, files still stale and why, facts that look wrong in the game — ≤ 10 lines.

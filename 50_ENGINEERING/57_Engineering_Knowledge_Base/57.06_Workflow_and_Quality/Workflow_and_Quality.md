@@ -16,11 +16,10 @@
 | 8 | Commit (one per layer, ticket id first) and test build | Build in `53.04` |
 | 9 | QA: test cases from `61.02` | Pass or bugs in `62` |
 
-## The two implementation modes (`00.07`)
-- `owner`: after the Owner implements in the Toolkit and `sync_data` runs, the agent runs validators,
-  compares the result with the spec item by item and opens a bug for any divergence — it never fixes alone.
-- `claude`: small steps — plan, one layer, verify, continue — showing the verification command and result
-  for each change. Needs `[fechado]` + the ticket field (ADR-0007).
+## Who implements (OR-11, work flow stage 5)
+The Owner types each level in the Toolkit from `TOOLKIT_ARC-####_L<n>.md`. Then Engineering runs `sync_data`, the
+validators and compares the result with the spec item by item; every divergence is fixed by Claude in a message that
+starts with `[fechado]` and names the ticket (`implementation: owner`), shown with its verification command and result.
 
 ## Code gate
 1 Prefix on every name, no collision with vanilla or mods · 2 no vanilla file changed or overridden ·
