@@ -32,7 +32,7 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - [x] Decisions logged in `21.04/Unbound/DECISIONS.md` (prefix `WB`)
 - [x] `DESIGN.md` complete and `21.03/Unbound.md` written from the approved map
 - [x] Propagation (00.08) to every department; `check_propagation.pl Unbound` prints OK
-- [ ] Build ticket opened (`implementation: claude`), spec in `55`
+- [x] Build ticket opened (`implementation: claude`), spec in `55` — ARC-0026, `SPEC_ARC-0026.md`
 
 ## Gates
 
@@ -107,3 +107,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   files that were not committed yet — `22.05/Unbound.md`, `26.01/Unbound.md`, `23.02/Unbound/` (18 files) and the
   Windborn edits of `21.08` and `10.06`. Content verified intact at HEAD (no Windborn line removed or changed; every
   WB marker present; 49 decision rows; 12 files in `25`); history not rewritten (shared `main`).
+- 2026-10-17 — Build ticket opened: ARC-0026 (`implementation: claude`), `55/SPEC_ARC-0026.md` (stages 0–6, probes P1–P8; P6 anchored on vanilla `Interrupt_AttackOfOpportunity` / Mobile's `MOBILE_NO_AOO` pair). Design side of ARC-0022 complete; gates pending.

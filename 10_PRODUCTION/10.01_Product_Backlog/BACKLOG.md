@@ -11,6 +11,7 @@
 | [ARC-0022](stories/ARC-0022_Windborn_Refining.md) | "Windborn (Unbound) refining: rework to the subclass standard v2.1" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0023](stories/ARC-0023_Starchild_Refining.md) | "Starchild refining: rework to the subclass standard v2.1, with paths of light" | design | Lead Class Designer | must | 5/4 | in_progress | pending |  |
 | [ARC-0025](stories/ARC-0025_Starchild_Refining_Build.md) | "Starchild refining build: the game plays SC0–SC32" | rework | Mod Engineer | must | 5/5 | in_progress | claude |  |
+| [ARC-0026](stories/ARC-0026_Windborn_Refining_Build.md) | "Windborn refining build: the game plays WB0–WB48" | rework | Mod Engineer | must | 5/5 | ready | claude |  |
 | [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA | should | 4/2 | backlog | pending |  |
 | [ARC-0014](stories/ARC-0014_Resonant_Design_Review.md) | "Resonant design review: balance, structure and felt progression (proposals S1–S16)" | design | Lead Class Designer | should | 4/2 | in_review | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | backlog | claude |  |
