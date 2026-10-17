@@ -199,7 +199,7 @@ for my $pf (@patches) { my $s = slurp($pf) // die "$pf: $!"; my ($file, $sec) = 
             elsif ($l =~ /^\@section (.+?)\s*$/)     { $sec = $1 }
             elsif ($l =~ /^\@remove (\S+)/)          { push @ops, ['remove', $1] }
             elsif ($l =~ /^\@unset (\S+) (\S+)\s*$/) { push @ops, ['unset', $1, $2] }
-            elsif ($l =~ /^\@set (\S+) (\S+) ?(.*)$/) { push @ops, ['set', $1, $2, $3] }
+            elsif ($l =~ /^\@set (\S+) (\S+) ?(.*)$/) { my @s = ($1, $2, $3); $s[2] =~ s/^"(.*)"$/$1/; push @ops, ['set', @s] }   # "x" = x, "" clears
             elsif ($l =~ /^\@loca (\S+) (.+)$/)      { loca_set($1, $2) }
             else { push @rest, $l } }
         next unless @rest;

@@ -3477,7 +3477,7 @@
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h58f2250cg088bg377cg8bbbg9d428c03f1cc" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0eed740agf378gf977gcf91g329f3058a92a" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0eed740agf378gf977gcf91g329f3058a92a" version="2" />
         <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>
     </stat_object>

@@ -5,7 +5,7 @@
 # never ticks, so the number shown is exactly what the goal set. The goal now sets X turns, no cap (Owner, QA-0004).
 
 @file Status_BOOST
-@set PROBE_ARC0026_COUNT StatusPropertyFlags "FreezeDuration;ForceOverhead"
+@set PROBE_ARC0026_COUNT StatusPropertyFlags FreezeDuration;ForceOverhead
 
 @loca h14e7b640g17f3g5ccagd158g95590d58cd92 ARC-0026 probes P3/P8: the turns shown are exactly the marks counted. At each of your turn starts every Probe Windswept goes.
 @loca h0eed740agf378gf977gcf91g329f3058a92a ARC-0026 probes P3/P8: count your marked enemies and show the count as turns.

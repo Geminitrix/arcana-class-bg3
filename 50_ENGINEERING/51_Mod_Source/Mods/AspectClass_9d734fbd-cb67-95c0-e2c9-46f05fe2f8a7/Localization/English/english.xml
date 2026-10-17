@@ -1567,7 +1567,7 @@
   <content contentuid="h195030c4ge9bdg57a0g3a4eg2ec1cb975e1e" version="1">ARC-0026 probe: the mark. Can't make Opportunity Attacks against a character with Probe Open Path.</content>
   <content contentuid="hdc84f244gba62g6e37g8dfbgdd0c2216e774" version="1">Probe Open Path</content>
   <content contentuid="h4691a5a2gbc9dg893cg9ae6gcbe8ff67c2b2" version="1">Probe Count</content>
-  <content contentuid="h14e7b640g17f3g5ccagd158g95590d58cd92" version="1">ARC-0026 probes P3/P8: the turns shown are the marks counted, capped at 2. At your next turn start every Probe Windswept goes.</content>
+  <content contentuid="h14e7b640g17f3g5ccagd158g95590d58cd92" version="2">ARC-0026 probes P3/P8: the turns shown are exactly the marks counted. At each of your turn starts every Probe Windswept goes.</content>
   <content contentuid="hc7ce0aeagcc37g64c3g8d30ge081026e8522" version="1">Probe Turn Ended</content>
   <content contentuid="h5b1a7426g4856g8671g353dg64b0493025de" version="1">Probe Storm</content>
   <content contentuid="h4be11a3agcc70g7678ga7a4g3d257560bfac" version="1">Probe Touch</content>
@@ -1578,7 +1578,7 @@
   <content contentuid="h7311efefg550fg880fgf533gd7b3638ae4e7" version="1">Probe: Open Path</content>
   <content contentuid="heb38359egff67g7bfagd42ag0f9f9ea01e5a" version="1">ARC-0026 probe P6: your allies (and you) get Probe Open Path for the fight; marked enemies should not attack them when they walk away.</content>
   <content contentuid="h58f2250cg088bg377cg8bbbg9d428c03f1cc" version="1">Probe: Count</content>
-  <content contentuid="h0eed740agf378gf977gcf91g329f3058a92a" version="1">ARC-0026 probes P3/P8: count your marked enemies, release the marks and start the count.</content>
+  <content contentuid="h0eed740agf378gf977gcf91g329f3058a92a" version="2">ARC-0026 probes P3/P8: count your marked enemies and show the count as turns.</content>
   <content contentuid="ha57ab0c8gec0dg601eg7be7g0cb5d3c5af09" version="1">Probe: Vortex</content>
   <content contentuid="h367c20d2gbdb5g52a8g6516gabd75d63595f" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
   <content contentuid="h2c0ffd8bgbde0ga90dgdb4bg31be9fa7ee06" version="1">Probe: Leap</content>
