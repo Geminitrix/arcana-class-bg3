@@ -31,7 +31,7 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 - [x] Owner chose a kit direction and answered every suggestion
 - [x] Decisions logged in `21.04/Unbound/DECISIONS.md` (prefix `WB`)
 - [x] `DESIGN.md` complete and `21.03/Unbound.md` written from the approved map
-- [ ] Propagation (00.08) to every department; `check_propagation.pl Unbound` prints OK
+- [x] Propagation (00.08) to every department; `check_propagation.pl Unbound` prints OK
 - [ ] Build ticket opened (`implementation: claude`), spec in `55`
 
 ## Gates
@@ -95,3 +95,11 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   Calm and the capstone as Actions. Spell + Balance Designer: 12 files in `25` (`*_Unbound_*`, `values:` today's game,
   `pending_build:` the build); `DESIGN.md` placeholders → *(25)*. Pending: propagation (22.05, 26.01, 23.02, 31.02,
   32.01, 33.03, 42.04, 61.02, 21.08, 05.01, 10.06), build ticket.
+- 2026-10-17 — Propagation (00.08) done, each artifact in its owner's role; `check_propagation.pl Unbound` prints OK.
+  Balance Designer: `22.05/Unbound.md` (verdicts, V1–V5), `26.01/Unbound.md`. Spell Designer: `23.02/Unbound/` (17
+  sheets + `_INDEX.md`, gen_spell_sheets.pl). Lore Writer: `31.02/Unbound.md`, `32.01/Unbound.md` (game texts today +
+  WB44 names), `33.03` (Windborn section), `31.01` §4 (inspirations row). Icon Artist: `42.04/Unbound.md` (14 briefs).
+  QA Lead: `61.02/Unbound/TC_ARC-0022.md` (probes A1–A5, rules B1–B12, balance C1–C5). Lead Class Designer: `21.08`
+  (signature, Awakening goal, Aspect card, uniqueness, strengths, level-rhythm exception), `21.03` stamped. Producer:
+  `10.06` (Tier III, ultimate and #12 answered for the Windborn). Context Keeper: `05.02` points to the redesign (game
+  unchanged), `05.00` state line. Pending: build ticket and spec in `55`.

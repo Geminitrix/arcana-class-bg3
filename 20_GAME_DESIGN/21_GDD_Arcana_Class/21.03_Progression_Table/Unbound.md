@@ -2,14 +2,14 @@
 id: 21.03/Unbound
 owner: Lead Class Designer
 source: 21.04_Subclasses/Unbound/DESIGN.md §9 (WB16, WB43)
-reviewed: 2026-10-16 ARC-0022 — written from the approved map (WB43) and names (WB44); build pending
+reviewed: 2026-10-16 ARC-0022 — written from the approved map (WB43) and names (WB44); build pending; 2026-10-17 ARC-0022 — WB45–WB48 checked, no change
 ---
 
 # 21.03 · Progression — The Windborn (internal: Unbound) (levels 1–12)
 
 What each level grants **on top of the base class** (`21.03/Arcana.md`). **Approved design (WB0–WB44); the game still
 has the old Unbound build** (`05.02/Unbound.md`) until the build ticket ships. Numbers: `25_Master_Data`
-(`*_Unbound_*`, to be written). Cards by in-game name.
+(`*_Unbound_*`, `pending_build`). Cards by in-game name.
 
 | Level | Passives | Cards and features | Why here |
 |---|---|---|---|

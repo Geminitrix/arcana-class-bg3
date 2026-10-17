@@ -122,6 +122,27 @@ yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `Si
 | 2 - The High Priestess · Veiled · Two Pillars · Aspect of Doubt | Awakening and tiers I · II · III | Empress, Aspect of Love |
 | The Deceiver | The subclass | — |
 
+## The Windborn (reviewed 2026-10-17 ARC-0022 — WB0–WB48 terms; rows marked ★ reach the game with the build)
+
+English is final in game for the unmarked rows (`32.01/Unbound.md`). Internal ids keep the old names (`Unbound`, `Fool`,
+`TwinkleToes`, `Weightless`, `FlowingStrikeZephyr`) — never translate or show them.
+
+| English | Meaning | Never |
+|---|---|---|
+| ★ The Windborn | The subclass (WB0) | The Unbound (old display name) |
+| ★ The Open Road | The core rule: the wind marks every enemy you touch and carries you to the ones it hasn't touched (WB27) | Flowing Strikes: Zephyr |
+| ★ Windswept | The mark on an enemy; it can't make opportunity attacks | marked, swept (as a status name) |
+| Zephyr Strike · ★ Rush | The signature bonus-action strike · its carry to an unmarked enemy | — |
+| ★ Breeze · Gale · Storm · Hurricane | Zephyr's ranks (Beaufort) at 1 / 4 / 8 / 12 | Force 1–12 as numbers |
+| ★ Aeolus' Bag · ★ Boreas · ★ Notus · ★ Eurus | The ultimate · the North, South and East Winds | Bag of Winds, Aeolus's Bag |
+| ★ The Calm | The Aspect card | Dead Calm |
+| ★ Where the Winds Meet | The capstone | Vortex, Tornado |
+| ★ Weightless | The movement passive by rank | Twinkle Toes, Feather Fall (vanilla spell name) |
+| ★ The First Step · ★ Fellow Travellers · ★ Into the Storm | Awakening tiers I · II · III | Wanderlust, Restless Wind, Aspect of Curiosity (as a tier) |
+| 0 - The Fool | The Arcanum and its Awakening passive | — |
+| Gale Burst · Wind Blast · Wind Whispers · Flow State · Ready: Gale Deflection · Storm Fists · Untethered · Leap of Faith | Her cards | Thunderclap, Evasive Flow (retired) |
+| Be the Leaf · Flowing Strikes · Flowing Assault · Magic Strikes · Empty State | Her passives | Momentum, Eye of the Storm (retired) |
+
 ## The Starchild (reviewed 2026-10-16 ARC-0023 — SC0–SC32 terms; rows marked ★ reach the game with the build)
 
 English is final in game for the unmarked rows (`32.01/Starchild.md`); the other 15 languages carry the 3.1 kit's old

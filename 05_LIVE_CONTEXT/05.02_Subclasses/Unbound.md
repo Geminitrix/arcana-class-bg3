@@ -2,9 +2,14 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
 state: synced
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships
 ---
 
 # 🍃 The Unbound — 0 · The Fool · Aspect of Curiosity
+
+> **Approved redesign, not in the game yet (ARC-0022, 2026-10-16):** display name *The Windborn*; the Open Road
+> (Windswept, Zephyr's Rush, Aeolus' Bag), new tiers, The Calm, Where the Winds Meet, Weightless. Design:
+> `21.04_Subclasses/Unbound/DESIGN.md`. Everything below is the game as it is today.
 
 > Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
 > Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.

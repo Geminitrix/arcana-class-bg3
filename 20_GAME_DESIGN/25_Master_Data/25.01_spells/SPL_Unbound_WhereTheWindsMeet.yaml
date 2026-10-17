@@ -1,5 +1,5 @@
 id: SPL_Unbound_WhereTheWindsMeet
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner; not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation)"
 kind: spell
 subclass: Unbound
 ticket: ARC-0022
