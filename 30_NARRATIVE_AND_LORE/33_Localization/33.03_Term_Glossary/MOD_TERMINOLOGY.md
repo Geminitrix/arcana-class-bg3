@@ -122,7 +122,7 @@ yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `Si
 | 2 - The High Priestess · Veiled · Two Pillars · Aspect of Doubt | Awakening and tiers I · II · III | Empress, Aspect of Love |
 | The Deceiver | The subclass | — |
 
-## The Windborn (reviewed 2026-10-17 ARC-0022 — WB0–WB48 terms; rows marked ★ reach the game with the build)
+## The Windborn (reviewed 2026-10-17 ARC-0022 — WB0–WB48 terms; ARC-0026 stage 1 checked, no change; rows marked ★ reach the game with the build)
 
 English is final in game for the unmarked rows (`32.01/Unbound.md`). Internal ids keep the old names (`Unbound`, `Fool`,
 `TwinkleToes`, `Weightless`, `FlowingStrikeZephyr`) — never translate or show them.
