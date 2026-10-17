@@ -2,7 +2,7 @@
 id: 26.01/Starchild
 owner: Balance Designer
 source: 21.04/Starchild/DECISIONS.md (SC0–SC32), DESIGN.md §4, §5, §8, §10
-reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); the build's changes (SC0–SC32) below, values in 25
+reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); the build's changes (SC0–SC32) below, values in 25; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36)
 ---
 
 # 26.01 · Resource audit — The Starchild
@@ -27,10 +27,10 @@ reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); the build's chan
 | Her own hit points | Afterglow regain; heals on herself | Outpouring (‹10%› of max HP unless Afterglow; not at ≤ ‹11%›) | — | From level 10 the cost can push her into Dusk, which empowers her heals (Light in the Dark) | Self-harm loop at 10+: brake = her bonus + the target's mark ≤ Dawn | Watch (`22.05`) |
 | **Afterglow** | Comet on a hit (‹2› turns, ‹+1› next to a marked ally) | Her next Outpouring is free | Each Comet hit | The fuel of the core loop, now tied to a hit and to the marks | — | None |
 | **Dusk / Nightfall** (on allies; on her from 10) | Damage crossing ‹½› / ‹¼› downward; Rekindle; Undying Hope; Long Twilight moves the thresholds | Her heal answers and consumes one; Elpis' Jar, Flare and The Great Star answer several; Downed clears it; rising above the threshold steps it back | Each new downward crossing | A state, not a currency: she spends nothing to create it | Letting allies sink to farm marks — braked by SC11 (Downed clears) | Watch (V1 in `22.05`) |
-| **Awakening progress** | Answered marks: Dusk 1, Nightfall 2 (Hesperus counts) | Tiers at ‹3 / 5 / 8› | Combat end | Wakes only when the party is in danger | — | Values in the balance pass |
+| **Awakening progress** | Answered marks: Dusk 1, Nightfall 2 (Hesperus counts) | Tiers at 3 / 5 / 8 (SC34) | Combat end | Wakes only when the party is in danger | — | None |
 | First heal of the turn | Her first single-ally heal each turn | Tier II condition / Tier III Eclipse | Hidden status, 1 turn (StartTurn) | One empowered heal per round | — | None |
 | Cooldowns | — | Cleansing Rain (short rest); Rekindle, Dawnbringer (long rest); Elpis' Jar, The Great Star (once per combat) | Rest / combat | Capstone budget | — | None |
-| Hesperus reaction | The card (charge refilled by it) | A heal on a new mark, on the enemy's turn | Until long rest or combat ends | Competes with vanilla reactions | — | None |
+| Hesperus reaction | The card (2 charges per play, SC35) | A heal on a new mark, on the enemy's turn | Until long rest or combat ends | Competes with vanilla reactions | — | None |
 | Undying Hope | Tier I | The first ally who would drop to 0 | Once per fight | Puts the ally in Nightfall: feeds Dawn | — | None |
 
 ## Action economy (after the build)

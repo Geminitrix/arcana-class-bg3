@@ -2,7 +2,7 @@
 id: 21.03/Starchild
 owner: Lead Class Designer
 source: 21.04_Subclasses/Starchild/DESIGN.md §9 (SC29, SC32)
-reviewed: 2026-10-16 ARC-0023 — written from the approved map (SC29) and names (SC32); build pending
+reviewed: 2026-10-16 ARC-0023 — written from the approved map (SC29) and names (SC32); build pending; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change
 ---
 
 # 21.03 · Progression — The Starchild (levels 1–12)

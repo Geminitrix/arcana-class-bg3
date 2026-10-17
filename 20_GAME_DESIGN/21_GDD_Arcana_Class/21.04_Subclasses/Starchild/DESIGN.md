@@ -2,7 +2,7 @@
 id: 21.04/Starchild/DESIGN
 owner: Lead Class Designer
 state: approved design (SC0–SC32, 2026-10-16). The game still has the 3.1 kit (`05.02/Starchild.md`) until the build ticket ships
-reviewed: 2026-10-16 ARC-0023 — written from DECISIONS.md (SC0–SC32) and REFINE_Starchild.md
+reviewed: 2026-10-16 ARC-0023 — written from DECISIONS.md (SC0–SC32) and REFINE_Starchild.md; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): the Sun brake (SC33); sizes in 25
 ---
 
 # The Starchild — XVII · The Star · Aspect of Hope
@@ -108,7 +108,7 @@ set. Open: the ability preset still gives INT 10 (`10.06` row 12).
 - **The Stars sharpen, the Sun spreads, the Moon lingers** (SC21). On heals (SC6): **Stars — focused** (the largest
   heal on one ally); **Sun — radiant** (a share ‹…› spills to allies nearby; the light burns enemies next to the
   target); **Moon — tidal** (part now, the rest at the start of the next ‹2› turns; whoever attacks the ally is chilled
-  and slowed). The Sun's total over several allies never beats the Stars on one ally.
+  and slowed). The Sun's heal on its main target stays well below the Stars' (SC33); its total over the party may be higher.
 
 ### 4.2 Dusk, Nightfall and Dawn (Dusk at 1, Nightfall at 5)
 
@@ -303,7 +303,7 @@ description follows the BG3 writing style (British spelling). Vanilla-name check
 - The three Hymns must be equally viable (SC4): situational niches — Stars one ally under focus, Sun spread damage,
   Moon long fights.
 - Price the best case: the first heal on a Nightfall ally under Eclipse = Dawn + three shapes + three conditions (B2).
-- The Sun's spill total < the Stars' single heal. Fire resistance is the Sun's weakness by design.
+- The Sun's heal on its main target stays well below the Stars' (SC33); its party total may be higher. Fire resistance is the Sun's weakness by design.
 - Waiting for Nightfall must stay a gamble: the Dawn bonus below the expected cost of an ally's exposure.
 - Great Star vs Eclipse: each favours different singers — check it evens out.
 - Light in the Dark: her bonus + the target's mark ≤ Dawn.

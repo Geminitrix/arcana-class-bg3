@@ -2,7 +2,7 @@
 id: 61.02/Starchild/TC_ARC-0023
 owner: QA Lead
 source: 21.04/Starchild/DECISIONS.md SC0–SC32 · REFINE_Starchild.md · DESIGN.md §4, §13, §15 · 05.02/Starchild.md · 22.05/Starchild.md
-reviewed: 2026-10-17 ARC-0023 — created (propagation, 00.08)
+reviewed: 2026-10-17 ARC-0023 — created (propagation, 00.08); 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change
 status: planned — part A probes run first in the build ticket (they decide the spec); parts B and C after the ARC-0023 build ships
 ---
 

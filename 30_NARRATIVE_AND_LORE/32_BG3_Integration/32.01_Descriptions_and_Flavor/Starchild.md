@@ -2,7 +2,7 @@
 id: 32.01/Starchild
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-16 with dossier_texts.pl; 21.04/Starchild/DESIGN.md §5, §11; DECISIONS.md SC5, SC9, SC15, SC32; REFINE_Starchild.md §9
-reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); names of the build (SC32) at the end
+reviewed: 2026-10-16 ARC-0023 — created (propagation, 00.08); names of the build (SC32) at the end; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): no change
 ---
 
 # 32.01 · Player-facing text — The Starchild

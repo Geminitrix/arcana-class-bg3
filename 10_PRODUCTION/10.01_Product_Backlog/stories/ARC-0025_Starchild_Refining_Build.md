@@ -44,3 +44,4 @@ created: 2026-10-17
 - 2026-10-17 — R2 (the Awakening) approved (SC34); written in `25` and `22.05`. R3 (the cards) proposed.
 - 2026-10-17 — R3 (the cards) approved (SC35); written in `25` and `22.05`. R4 (Lantern, Light in the Dark) proposed.
 - 2026-10-17 — R4 approved (SC36); every Starchild size is set in `25`. Next: stage 0 preparation — the probe patch for stage 1.
+- 2026-10-17 — SC33–SC36 propagated (00.08): DESIGN and the Hymns sheet carry the amended Sun brake, 26.01 the goals and Hesperus charges; other artifacts checked, no change. check_propagation Starchild OK.

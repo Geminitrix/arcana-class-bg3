@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
 state: synced
-reviewed: 2026-10-17 ARC-0023 — SC0–SC32 checked; the game is unchanged (3.1 kit), so this file is unchanged but for the note below
+reviewed: 2026-10-17 ARC-0023 — SC0–SC32 checked; the game is unchanged (3.1 kit), so this file is unchanged but for the note below; 2026-10-17 ARC-0025 — R1–R4 sizes (SC33–SC36): game unchanged, no change
 ---
 
 # 🌟 The Starchild — XVII · The Star · Aspect of Hope
