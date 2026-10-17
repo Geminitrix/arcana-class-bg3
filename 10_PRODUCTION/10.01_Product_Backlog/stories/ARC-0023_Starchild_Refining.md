@@ -28,9 +28,9 @@ player feels.
 ## Acceptance criteria
 
 - [x] Review started: `21.04/Starchild/REFINE_Starchild.md` (frame, portrait, audit)
-- [ ] Owner chose how the paths work and a kit direction
-- [ ] Decisions logged in `21.04/Starchild/DECISIONS.md` (prefix `SC`)
-- [ ] `DESIGN.md` complete and `21.03/Starchild.md` written from the approved map
+- [x] Owner chose how the paths work and a kit direction
+- [x] Decisions logged in `21.04/Starchild/DECISIONS.md` (prefix `SC`, SC0–SC32)
+- [x] `DESIGN.md` complete and `21.03/Starchild.md` written from the approved map
 - [ ] Propagation (00.08) to every department; `check_propagation.pl Starchild` prints OK
 - [ ] Build ticket opened (`implementation: claude`), spec in `55`
 
@@ -72,3 +72,5 @@ player feels.
 - 2026-10-16 — Owner: level map 1–12 approved (SC29); the flight passive is dropped (SC30). Next: the names pass.
 - 2026-10-16 — Owner: child names = Starlit / Sunlit / Moonlit + neutral base (SC31). Base names proposed (REFINE §9).
 - 2026-10-16 — Owner asked for option C (a unique name per child) to compare; written in REFINE §9.1.
+- 2026-10-16 — Owner: unique child names with neutral container names (SC32, replaces SC31).
+- 2026-10-16 — DESIGN.md and 21.03/Starchild.md written from SC0–SC32; 21.08 Starchild column updated. Design calls left open in DESIGN §14 (Sun spill and Moon tide do not answer marks; action types of Guiding Light / Tether). Propagation pending: 10 artifacts (check_propagation.pl Starchild).
