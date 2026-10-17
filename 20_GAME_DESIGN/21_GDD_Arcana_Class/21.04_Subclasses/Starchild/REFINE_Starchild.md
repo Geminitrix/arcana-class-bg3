@@ -170,3 +170,26 @@ the Fighter at 40% (in Dusk) between two goblins, the Rogue at 60%.
   Eos and Astraeus (Hesiod, *Theogony*) — candidates for Dusk-side and Dawn-side cards.
 - **Feasibility (T2):** a pull on an ally (Thorn Whip's `Force` on a friendly target); an AC boost conditioned on a
   status the target holds; a status that moves the Dusk threshold (the Osiris rule reads it).
+
+### 5.1 The Hymn on every card (Owner's request, 2026-10-16)
+
+The Owner asked that the day's Hymn shows on the cards too, not only on the heals. Proposal: **one rule for every
+card — the Stars sharpen, the Sun spreads, the Moon lingers** — the same way each Hymn shapes a heal (SC6: focused,
+radiant, tidal). Stars: more on the one target. Sun: more targets or area, fire. Moon: longer, over time, slow / cold.
+Learned once, predictable on every card (DM-M2, J4); the value of "more / wider / longer" depends on the fight, which
+keeps the three Hymns situational (SC4).
+
+| SG | Card | Stars — sharpen | Sun — spread | Moon — linger |
+|---|---|---|---|---|
+| SG1 | Sunwash | the small heal is ‹bigger› | also removes ‹one› condition from allies within ‹3› m | the ally can't regain the removed conditions for ‹2› turns |
+| SG2 | Moon Halo | ‹+1› more AC | an enemy that hits the haloed ally is set Burning | lasts ‹2› turns longer |
+| SG3 | Moonpull | the ally gains ‹+AC› until their next turn | enemies next to where the ally stood are set Burning | those enemies are slowed (half movement), so they can't follow |
+| SG4 | Rekindle | revives with ‹more› HP | a burst heals allies within ‹3› m for ‹small› | the revived ally gets a tide (‹2› turns of healing) |
+| SG5 | Long Twilight | Nightfall also begins earlier (‹⅓›) | radius ‹larger› | lasts ‹longer› |
+| SG6 | Guiding Star | the heal on a hit is ‹bigger› | when the enemy dies the star jumps to the nearest enemy | lasts ‹2› turns longer and the enemy is slowed |
+
+- **Alternative weighed:** a bespoke effect per card and Hymn (18 unrelated effects) — richer, but 18 rules to learn
+  and to balance; the shared rule is preferred.
+- **Feasibility (T2):** `IF(HasStatus('<HYMN>', context.Source)):` branches in one spell (tooltip lists three lines),
+  or one variant per Hymn swapped by the Hymn status (the mod's `UnlockSpellVariant` boost pattern) so the tooltip
+  shows only the active Hymn — whether a variant can change the effect and text needs a probe.
