@@ -145,4 +145,4 @@ Notes on SC2 for the design and the build:
   would read the state (DM-K7).
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
-Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). Next: the Starchild herself.
+Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Next: the ultimate.
