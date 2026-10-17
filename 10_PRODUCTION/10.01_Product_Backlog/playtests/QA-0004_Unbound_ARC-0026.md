@@ -36,9 +36,9 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - [x] P2 · Marked enemies can't be rushed (SPEC_ARC-0026 P2 (Rush only to an unmarked enemy)) — pass
 - [x] P6 · A marked enemy makes no opportunity attack (SPEC_ARC-0026 P6 (the Open Path, WB10: the vanilla Mobile pair)) — pass
 - [x] P7 · A hit marks; an ally's hit marks in her name (SPEC_ARC-0026 P7 (marks from hits — hers and an ally's)) — pass
-- [ ] P8 · The bag's X: marks counted, capped at 2 (SPEC_ARC-0026 P8 (X counted and capped)) — FAIL: Não funcionou. Não sei se é por conta das mudanças que fiz ou não. Mas aparece no log que o personagem ganhou o status do Probe: Count, mas não aparece a duração. Outra coisa, não é para estar com cap de 2, a duração é pra ser exatamente a quantidade de marcas nos inimigos.
-- [ ] P3 · Turn start sweeps the marks; turn end is seen (SPEC_ARC-0026 P3 (the sweep at her turn start; her turn end)) — FAIL: Não foi possível fazer esse Probe pois o P8 não funcionou.
-- [x] P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, two radii)) — pass
+- [x] P8 · The bag's X: exactly the marks counted (SPEC_ARC-0026 P8 (X counted; retest after 06_probe_count.patch)) — pass
+- [x] P3 · Turn start sweeps the marks; turn end is seen (SPEC_ARC-0026 P3 (the sweep at her turn start; her turn end)) — pass
+- [x] P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, one area, WB49)) — pass
 - [x] P5 · Leap of Faith with the Force Tunnel animation (SPEC_ARC-0026 P5 (Leap of Faith on the Force Tunnel animation, WB7)) — pass
 - [x] P9 · Into the Storm: the push from a status (SPEC_ARC-0026 P9 (a status pushes away from its source)) — pass
 
