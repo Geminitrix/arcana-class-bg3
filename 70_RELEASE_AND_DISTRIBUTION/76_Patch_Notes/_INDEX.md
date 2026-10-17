@@ -2,7 +2,7 @@
 
 Player notes from the real diff between versions.
 
-**Owner:** Patch Notes Lead (dormant; baseline prepared in Sprint 0)
+**Owner:** Producer (dormant: Patch Notes Lead)
 
 | Item | What it holds |
 |---|---|

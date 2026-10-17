@@ -2,7 +2,7 @@
 
 Items / weapons, if any.
 
-**Owner:** 3D Artist (dormant)
+**Owner:** Icon Artist (dormant: 3D Artist)
 
 
 _Index maintained by the owner; generated in Stage A (2026-10-11)._

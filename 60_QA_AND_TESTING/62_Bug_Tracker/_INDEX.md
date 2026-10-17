@@ -2,7 +2,7 @@
 
 Bugs by state.
 
-**Owner:** Bug Triage (dormant — QA Lead acts)
+**Owner:** QA Lead
 
 | Item | What it holds |
 |---|---|

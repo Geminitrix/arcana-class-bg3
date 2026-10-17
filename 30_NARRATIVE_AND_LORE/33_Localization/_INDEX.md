@@ -2,7 +2,7 @@
 
 Master strings, translations, term glossary.
 
-**Owner:** Localization Agent (dormant — Lore Writer acts)
+**Owner:** Lore Writer (acts as Localization)
 
 | Item | What it holds |
 |---|---|

@@ -2,7 +2,7 @@
 
 Hotbar, spellbook, level-up screens, specs.
 
-**Owner:** UI Artist (dormant)
+**Owner:** Icon Artist (dormant: UI Artist)
 
 | Item | What it holds |
 |---|---|

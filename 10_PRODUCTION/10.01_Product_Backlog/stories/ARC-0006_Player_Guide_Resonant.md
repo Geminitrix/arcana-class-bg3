@@ -5,7 +5,7 @@ type: docs
 epic: EPIC_Rework_Subclasses
 subclass: resonant
 status: backlog
-owner: Community Agent
+owner: Producer
 implementation: claude
 priority: should
 value: 3

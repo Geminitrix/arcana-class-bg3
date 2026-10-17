@@ -2,7 +2,7 @@
 
 Lore bible, themes, BG3 style guide.
 
-**Owner:** Lore Writer (active)
+**Owner:** Lore Writer
 
 | Item | What it holds |
 |---|---|

@@ -2,7 +2,7 @@
 
 Spell list, spell sheets, status design text.
 
-**Owner:** Spell Designer (active)
+**Owner:** Spell Designer
 
 | Item | What it holds |
 |---|---|

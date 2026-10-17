@@ -5,7 +5,7 @@ type: feature            # feature | rework | bug | chore | research | design
 epic: <EPIC_…>
 subclass: none           # class | unbound | deceiver | starchild | eternal | resonant | kingmaker | lionheart | none
 status: backlog          # backlog | ready | in_progress | blocked | in_review | spec_ready | in_qa | done  (blocked shows in In Progress with a tag)
-owner: <role>            # the department that owns the outcome
+owner: <role>            # one of the 9 active roles of 00.05 (OR-26)
 implementation: pending  # pending (design only) | owner (the Owner types it; Claude verifies and fixes)  (OR-11)
 priority: should         # must | should | could | wont  (MoSCoW)
 value: 3                 # 1-5

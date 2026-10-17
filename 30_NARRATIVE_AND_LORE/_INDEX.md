@@ -2,7 +2,7 @@
 
 Every text the player reads: lore, names, descriptions, localization.
 
-**Owner:** Narrative Director
+**Owner:** Lore Writer
 
 | Item | What it holds |
 |---|---|

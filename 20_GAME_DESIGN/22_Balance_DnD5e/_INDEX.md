@@ -2,7 +2,7 @@
 
 Damage sheets, benchmarks, power budget, balance method.
 
-**Owner:** Balance Designer (active)
+**Owner:** Balance Designer
 
 | Item | What it holds |
 |---|---|

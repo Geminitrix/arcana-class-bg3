@@ -5,7 +5,7 @@ type: research
 epic: EPIC_Rework_Subclasses
 subclass: resonant
 status: backlog
-owner: QA
+owner: QA Lead
 implementation: pending
 priority: should
 value: 4

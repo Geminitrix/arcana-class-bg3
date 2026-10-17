@@ -2,7 +2,7 @@
 
 Build scripts, git workflow, validators, build output.
 
-**Owner:** Build Engineer (dormant — Mod Engineer acts)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

@@ -5,7 +5,7 @@ type: chore
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
 status: done
-owner: Engineering
+owner: Mod Engineer
 implementation: claude
 priority: should
 value: 2

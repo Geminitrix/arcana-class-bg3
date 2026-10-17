@@ -2,7 +2,7 @@
 
 Class GDD, spells, master data, progression, D&D 5e balance, resource economy, design knowledge base.
 
-**Owner:** Game Design Director
+**Owner:** Lead Class Designer
 
 | Item | What it holds |
 |---|---|

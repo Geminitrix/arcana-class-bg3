@@ -2,7 +2,7 @@
 
 Copy of the mod. The mod itself LIVES in the game Data folder and never moves (ADR-0003).
 
-**Owner:** Lead Mod Engineer (active, spec mode)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

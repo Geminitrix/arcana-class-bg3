@@ -2,7 +2,7 @@
 
 LOCAL ONLY (gitignored). Larian content — never in git or shared.
 
-**Owner:** Lead Mod Engineer
+**Owner:** Mod Engineer (read-only, local)
 
 | Item | What it holds |
 |---|---|

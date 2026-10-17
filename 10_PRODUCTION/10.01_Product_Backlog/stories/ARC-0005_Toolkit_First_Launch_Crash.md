@@ -5,7 +5,7 @@ type: bug
 epic: EPIC_Rework_Subclasses
 subclass: none
 status: done
-owner: Tools
+owner: Mod Engineer
 implementation: claude
 priority: should
 value: 3

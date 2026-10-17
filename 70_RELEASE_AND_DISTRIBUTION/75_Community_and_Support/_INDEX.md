@@ -2,7 +2,7 @@
 
 FAQ, feedback, social media, player guide.
 
-**Owner:** Community Agent (dormant)
+**Owner:** Producer (dormant: Community)
 
 | Item | What it holds |
 |---|---|

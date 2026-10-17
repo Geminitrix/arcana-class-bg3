@@ -5,7 +5,7 @@ type: feature
 epic: EPIC_Rework_Subclasses
 subclass: none
 status: in_review
-owner: Tools
+owner: Mod Engineer
 implementation: claude
 priority: should
 value: 4

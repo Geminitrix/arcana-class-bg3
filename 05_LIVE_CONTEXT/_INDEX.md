@@ -2,7 +2,7 @@
 
 Mirror of the mod as it is TODAY. Read first by every agent. No history.
 
-**Owner:** Context Keeper (active)
+**Owner:** Context Keeper
 
 | Item | What it holds |
 |---|---|

@@ -1,11 +1,11 @@
 # 21 · GDD — Arcana Class — agent rules
 
-- **Owner:** Lead Class Designer (active)
+- **Owner:** Lead Class Designer
 - **Rules:** `00.01/Operating_Rules.md` — ownership OR-26, handoffs OR-27. Read `05.00`, this file, then the ticket's inputs.
 
 ## Conventions
 
-- Files: `21.01_Vision_and_Pillars.md`, `21.08_Subclass_Matrix.md` at this level.
+- Files: `21.08_Subclass_Matrix.md` at this level; `21.01_Vision_and_Pillars.md` is not written yet (open question for the Owner, `10.06`).
 - Every feature starts with a one-sentence target aesthetic ("it should feel…").
 - Design criteria are evaluation questions, not a template (see `_SUBCLASS_STANDARD.md`); cite them elsewhere as `DM-<id>`.
 - Reviews of existing designs follow `_SUBCLASS_REFINING.md` and are saved as `REFINE_<piece>.md`; they are proposals until the Owner logs a decision.

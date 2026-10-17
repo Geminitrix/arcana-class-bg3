@@ -2,7 +2,7 @@
 
 Short cards from spec Part II, one per topic.
 
-**Owner:** Game Design Director
+**Owner:** Lead Class Designer
 
 | Item | What it holds |
 |---|---|

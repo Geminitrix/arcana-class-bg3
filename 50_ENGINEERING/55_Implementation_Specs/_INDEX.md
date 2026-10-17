@@ -2,7 +2,7 @@
 
 What the Owner (or Claude) needs to implement without guessing. No code.
 
-**Owner:** Lead Mod Engineer (active)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

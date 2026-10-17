@@ -2,7 +2,7 @@
 
 Pipeline scripts (sync_data, update_board, validators, generators).
 
-**Owner:** Pipeline Tech Lead (Mod Engineer acts)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

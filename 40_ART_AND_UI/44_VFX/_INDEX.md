@@ -2,7 +2,7 @@
 
 Concepts, textures, finished effects.
 
-**Owner:** VFX Artist (dormant)
+**Owner:** Icon Artist (dormant: VFX Artist)
 
 | Item | What it holds |
 |---|---|

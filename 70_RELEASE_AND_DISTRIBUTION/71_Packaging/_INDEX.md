@@ -2,7 +2,7 @@
 
 Approved artefacts per version.
 
-**Owner:** Release Engineer (dormant)
+**Owner:** Producer (dormant: Release Engineer)
 
 | Item | What it holds |
 |---|---|

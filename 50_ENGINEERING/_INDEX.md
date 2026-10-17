@@ -2,7 +2,7 @@
 
 Mod source copy, implementation specs, build, vanilla reference, engineering knowledge.
 
-**Owner:** Engineering Director
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

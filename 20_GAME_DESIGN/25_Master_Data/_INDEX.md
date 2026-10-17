@@ -2,7 +2,7 @@
 
 SINGLE SOURCE OF THE NUMBERS (YAML).
 
-**Owner:** Spell Designer + Balance Designer (active)
+**Owner:** Spell Designer + Balance Designer
 
 | Item | What it holds |
 |---|---|

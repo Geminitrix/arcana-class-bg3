@@ -2,7 +2,7 @@
 
 Icon sources, PNG exports, DDS for the game.
 
-**Owner:** Icon Artist (active)
+**Owner:** Icon Artist
 
 | Item | What it holds |
 |---|---|

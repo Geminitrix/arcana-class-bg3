@@ -77,7 +77,8 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 
 - **OR-25** The main session plays every role, following the role's file in `.claude/agents/` and the folder's
   `_AGENT.md`. **No subagents unless the Owner asks** (cost).
-- **OR-26** Each folder has one owner role, named in its `_AGENT.md`; anyone reads anything.
+- **OR-26** Each folder has one owner role and each ticket one `owner:` — always one of the 9 active roles of `00.05`
+  (the table "Folder owners" there is the source; `_AGENT.md` / `_INDEX.md` copy it). Anyone reads anything.
 - **OR-27** A handoff (`HANDOFF_<from>_to_<to>.md` in the destination folder) is executed **in the same session** by
   switching to the destination role, then marked `status: done` (or `deferred` with reason and ticket). Nobody waits.
 - **OR-28** **Propagation:** at the end of every session each artifact downstream of a changed source is updated, or its

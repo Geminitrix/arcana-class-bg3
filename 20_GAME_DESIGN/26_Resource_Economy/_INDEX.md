@@ -2,7 +2,7 @@
 
 Resource and action economy.
 
-**Owner:** Balance Designer (active)
+**Owner:** Balance Designer
 
 | Item | What it holds |
 |---|---|

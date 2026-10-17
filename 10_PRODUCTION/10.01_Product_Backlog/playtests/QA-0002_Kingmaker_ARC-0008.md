@@ -7,7 +7,7 @@ subclass: kingmaker
 build: ARC-0008
 guide: 61.02_Test_Cases/Kingmaker/GUIDE_ARC-0008.json
 status: ready
-owner: QA
+owner: QA Lead
 implementation: owner
 blocked_by: []
 created: 2026-10-16

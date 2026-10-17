@@ -1,11 +1,11 @@
 # 61 · Test Plan — agent rules
 
-- **Owner:** QA Lead (active)
+- **Owner:** QA Lead
 - **Rules:** `00.01/Operating_Rules.md` — ownership OR-26, handoffs OR-27. Read `05.00`, this file, then the ticket's inputs.
 
 ## Conventions
 
-- File: `61.01_QA_Strategy.md`.
+- File: `61.01_QA_Strategy.md` — not written yet; the strategy is the work flow (`00.01` §1 stage 5, OR-1): one test guide per build ticket, level by level.
 - Every test starts with the decision it informs.
 - One assertion per rule.
 

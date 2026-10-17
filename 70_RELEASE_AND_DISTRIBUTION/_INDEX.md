@@ -2,7 +2,7 @@
 
 Packaging, changelog, patch notes, Nexus, mod.io.
 
-**Owner:** Release Director (dormant — Producer acts)
+**Owner:** Producer (acts for the dormant release roles)
 
 | Item | What it holds |
 |---|---|

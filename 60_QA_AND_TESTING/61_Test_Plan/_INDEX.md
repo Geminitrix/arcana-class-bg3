@@ -2,7 +2,7 @@
 
 Strategy, test cases, release checklists.
 
-**Owner:** QA Lead (active)
+**Owner:** QA Lead
 
 | Item | What it holds |
 |---|---|

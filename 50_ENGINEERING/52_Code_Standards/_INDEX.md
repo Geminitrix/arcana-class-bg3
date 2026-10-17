@@ -2,7 +2,7 @@
 
 Conventions, validated snippets, pinned versions, UUID registry.
 
-**Owner:** Lead Mod Engineer (active)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|

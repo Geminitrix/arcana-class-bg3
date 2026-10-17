@@ -2,7 +2,7 @@
 
 The class design document: pillars, identity, progression, subclasses, features.
 
-**Owner:** Lead Class Designer (active)
+**Owner:** Lead Class Designer
 
 | Item | What it holds |
 |---|---|

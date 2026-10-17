@@ -2,7 +2,7 @@
 
 Descriptions, companion reactions, Faerûn consistency, narrative review.
 
-**Owner:** Narrative Integrator (dormant — Lore Writer acts)
+**Owner:** Lore Writer
 
 | Item | What it holds |
 |---|---|

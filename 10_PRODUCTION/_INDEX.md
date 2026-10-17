@@ -2,7 +2,7 @@
 
 Backlog, sprints, ceremonies, roadmap.
 
-**Owner:** Executive Producer / Scrum Master (active)
+**Owner:** Producer
 
 | Item | What it holds |
 |---|---|

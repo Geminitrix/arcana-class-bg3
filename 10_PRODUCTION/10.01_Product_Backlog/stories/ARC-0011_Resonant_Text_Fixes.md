@@ -5,7 +5,7 @@ type: chore
 epic: EPIC_Rework_Subclasses
 subclass: resonant
 status: backlog
-owner: Narrative
+owner: Lore Writer
 implementation: pending
 priority: could
 value: 2

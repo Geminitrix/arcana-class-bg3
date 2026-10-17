@@ -5,7 +5,7 @@ type: feature
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
 status: backlog
-owner: Art
+owner: Icon Artist
 implementation: pending
 priority: should
 value: 3

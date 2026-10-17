@@ -36,14 +36,15 @@ created: 2026-10-17
 - [x] **A · One rulebook** — `00.01/Operating_Rules.md` with the work flow; CLAUDE.md imports it; AGENTS.md, 47 `_AGENT.md`,
       9 agents, `/handoff`, templates, `jt-gate` and the Data CLAUDE.md point to it; constitution v0.4 and 00.07
       archived; ADR-0010; 13 memories that duplicated rules retired.
-- [ ] **C · Real roles** — the 9 active roles are the only owners in `_AGENT.md` and tickets; dormant folders listed once.
+- [x] **C · Real roles** — the 9 active roles are the only owners in `_AGENT.md` and tickets; dormant folders listed once.
 - [ ] **D · Production** — close S00, open S01 with WIP 3; fix statuses (ARC-0025/0026 → `implementation: owner`);
       archive done handoffs; playtests to 61; daily logs back.
 - [ ] **E · Tools** — `check_readme.pl` CRLF; one `/auditoria` command running every check of this audit.
-- [ ] Missing cited files (21.01, 41.01, 61.01): write them or drop the citations (decided in C).
+- [x] Missing cited files: 41.01 and 61.01 citations point to what exists; 21.01 stays an open Owner question.
 
 ## Log
 - 2026-10-17 — Owner: "a empresa está bagunçada, regras espalhadas" → audit; Owner decisions: the Owner implements in the
   Toolkit and Claude verifies and fixes; no subagents; archive the constitution; plan approved, phase A first.
 - 2026-10-17 — Phase A done (see the checklist). `jt-gate` now accepts `implementation: owner` for the fixes of stage 5;
   tested 4/4 with simulated payloads (owner/claude allowed with `[fechado]`, pending and no-tag denied).
+- 2026-10-17 — Lionheart propagated (ARC-0009 log). Phase C done: `00.05` gains the table "Folder owners" (the source) and the list of dormant folders; every `_AGENT.md` and `_INDEX.md` names one of the 9 active roles (was 38 titles); ticket `owner:` normalised to the 9 roles (15 tickets); RACI hierarchy rewritten; OR-26 covers tickets; citations of the unwritten `41.01` and `61.01` point to what exists; `21.01` stays an open Owner question (`10.06`).

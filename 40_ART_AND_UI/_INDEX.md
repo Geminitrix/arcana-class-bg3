@@ -2,7 +2,7 @@
 
 Icons, UI, VFX, textures, DDS pipeline.
 
-**Owner:** Art Director
+**Owner:** Icon Artist
 
 | Item | What it holds |
 |---|---|

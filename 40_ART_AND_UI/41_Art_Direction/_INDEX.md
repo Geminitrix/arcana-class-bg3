@@ -2,7 +2,7 @@
 
 Style guide; third-party references (local only).
 
-**Owner:** Art Lead (Icon Artist acts)
+**Owner:** Icon Artist
 
 | Item | What it holds |
 |---|---|

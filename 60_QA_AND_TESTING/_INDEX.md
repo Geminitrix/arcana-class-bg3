@@ -2,7 +2,7 @@
 
 Test plan, bugs, regression.
 
-**Owner:** QA Director
+**Owner:** QA Lead
 
 | Item | What it holds |
 |---|---|

@@ -2,7 +2,7 @@
 
 External tools, automation scripts, test environment.
 
-**Owner:** Pipeline Tech Lead (dormant — Mod Engineer acts)
+**Owner:** Mod Engineer
 
 | Item | What it holds |
 |---|---|
