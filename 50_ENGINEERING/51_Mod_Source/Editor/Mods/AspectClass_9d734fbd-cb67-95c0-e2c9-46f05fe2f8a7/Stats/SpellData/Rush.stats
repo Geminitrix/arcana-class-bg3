@@ -37,5 +37,38 @@
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Thunder" enumeration_type_name="Damage Type" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="DontChange" enumeration_type_name="SpellSheathing" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a7864a46-580b-ad30-b2eb-3a8e9e3cd69f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Rush" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6dcd5f62-fadc-4dbc-bdff-025e4f38cb61" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
+        <field name="MovementSpeed" type="IntegerTableFieldDefinition" value="60000" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.MeleeUnarmedAttack)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage,Bludgeoning)" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead() and not HasStatus('PROBE_ARC0026_MARK') and not HasPassive('ARCANA_IS_SPELL', context.Source)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h11ea3c49g0382g069fg8bb7g295fc8e1efcc" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h38ccf782gaf99gaf62g0e33g0cee3c118110" version="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsMelee;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="DamageType" type="EnumerationTableFieldDefinition" value="Bludgeoning" enumeration_type_name="Damage Type" version="1" />
+        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="DontChange" enumeration_type_name="SpellSheathing" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3e4a5d36-77d0-50ea-7200-cf3deef6ac72" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Leap" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="f0f5601e-4e4a-ba72-50f7-0620ccceedf7" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="CooldownType" version="1" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2c0ffd8bgbde0ga90dgdb4bg31be9fa7ee06" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6fbc56a9g0fdage502gdda7gdaf9c644da00" version="1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="b94b9184-9bd0-4840-be7d-003700173b37,,;,,;5df11e35-f081-44f7-bd6f-7049d0e533cd,,;8dccb0f6-24e3-44b7-a60b-1f217b7db523,,;066f8e0e-b3e1-4b76-a473-d1e23a3b7230,,;,,;7a28f440-1b0b-4a18-96a8-3767959b601a,,;,,;,," />
+      </fields>
+    </stat_object>
+</stat_objects>
 </stats>

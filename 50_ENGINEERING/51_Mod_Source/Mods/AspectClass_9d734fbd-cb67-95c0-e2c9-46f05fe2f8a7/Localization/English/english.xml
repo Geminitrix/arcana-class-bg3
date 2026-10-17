@@ -1563,4 +1563,26 @@
   <content contentuid="h8bed1054g505dgcedagc365g910b46a8820b" version="1">Your moods and feelings grow stronger.</content>
   <content contentuid="hecdbe323g4d85gc7b2g245eg2702871e2a88" version="1">An illusion of the Veilwalker with 1 &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt;. A single blow dispels it.</content>
   <content contentuid="h475554feg85f0g3262gf95agde7fb3d1ed7e" version="1">An enemy believes a lie when it destroys one of your Doubles, when a Splinter hits it, when your Seed bursts in it and when Malicious Whispers finds your Seed. Each stack of Doubt reduces its Wisdom Saving Throws and its Attack Rolls against you and your Doubles by 1.&lt;br&gt;&lt;br&gt;You can keep 3 Doubles at once, 4 from level 7 and 5 from level 12. They vanish when combat ends, after a Long Rest or if you die.</content>
+  <content contentuid="he7260e80gef97g841ag3f93g5448f61f2299" version="1">Probe Windswept</content>
+  <content contentuid="h195030c4ge9bdg57a0g3a4eg2ec1cb975e1e" version="1">ARC-0026 probe: the mark. Can't make Opportunity Attacks against a character with Probe Open Path.</content>
+  <content contentuid="hdc84f244gba62g6e37g8dfbgdd0c2216e774" version="1">Probe Open Path</content>
+  <content contentuid="h4691a5a2gbc9dg893cg9ae6gcbe8ff67c2b2" version="1">Probe Count</content>
+  <content contentuid="h14e7b640g17f3g5ccagd158g95590d58cd92" version="1">ARC-0026 probes P3/P8: the turns shown are the marks counted, capped at 2. At your next turn start every Probe Windswept goes.</content>
+  <content contentuid="hc7ce0aeagcc37g64c3g8d30ge081026e8522" version="1">Probe Turn Ended</content>
+  <content contentuid="h5b1a7426g4856g8671g353dg64b0493025de" version="1">Probe Storm</content>
+  <content contentuid="h4be11a3agcc70g7678ga7a4g3d257560bfac" version="1">Probe Touch</content>
+  <content contentuid="hb54118acgc277g554ag9e4dg4c76af21707b" version="1">Probe: Mark</content>
+  <content contentuid="hc27bbecdg1b99g1accg80f2ga1ae611b2c90" version="1">ARC-0026 probe: mark an enemy (no roll).</content>
+  <content contentuid="h11ea3c49g0382g069fg8bb7g295fc8e1efcc" version="1">Probe: Rush</content>
+  <content contentuid="h38ccf782gaf99gaf62g0e33g0cee3c118110" version="1">ARC-0026 probes P1/P2: rush up to 9 m to an enemy that isn't marked and strike it. Marked enemies can't be targeted.</content>
+  <content contentuid="h7311efefg550fg880fgf533gd7b3638ae4e7" version="1">Probe: Open Path</content>
+  <content contentuid="heb38359egff67g7bfagd42ag0f9f9ea01e5a" version="1">ARC-0026 probe P6: your allies (and you) get Probe Open Path for the fight; marked enemies should not attack them when they walk away.</content>
+  <content contentuid="h58f2250cg088bg377cg8bbbg9d428c03f1cc" version="1">Probe: Count</content>
+  <content contentuid="h0eed740agf378gf977gcf91g329f3058a92a" version="1">ARC-0026 probes P3/P8: count your marked enemies, release the marks and start the count.</content>
+  <content contentuid="ha57ab0c8gec0dg601eg7be7g0cb5d3c5af09" version="1">Probe: Vortex</content>
+  <content contentuid="h367c20d2gbdb5g52a8g6516gabd75d63595f" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
+  <content contentuid="h2c0ffd8bgbde0ga90dgdb4bg31be9fa7ee06" version="1">Probe: Leap</content>
+  <content contentuid="h6fbc56a9g0fdage502gdda7gdaf9c644da00" version="1">ARC-0026 probe P5: Leap of Faith on the Force Tunnel animation.</content>
+  <content contentuid="h24d00c65g3092g99e3g45b5g6213bac19c1f" version="1">Probe: Storm Push</content>
+  <content contentuid="h5c57b695gc4a3g7c7bg9716g133296250e2b" version="1">ARC-0026 probe P9: a status pushes the enemy 3 m away from you and leaves it Off Balance.</content>
 </contentList>

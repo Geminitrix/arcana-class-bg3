@@ -3440,5 +3440,28 @@
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a4a52417-aff6-b02c-d87e-92bcffbe2ed2" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_OpenPath" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,PROBE_ARC0026_PATH,100,-1)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7311efefg550fg880fgf533gd7b3638ae4e7" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="heb38359egff67g7bfagd42ag0f9f9ea01e5a" version="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c70e1a04-481d-4199-0c65-99136a3ad1c8" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Count" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h58f2250cg088bg377cg8bbbg9d428c03f1cc" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0eed740agf378gf977gcf91g329f3058a92a" version="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+      </fields>
+    </stat_object>
 </stat_objects>
 </stats>

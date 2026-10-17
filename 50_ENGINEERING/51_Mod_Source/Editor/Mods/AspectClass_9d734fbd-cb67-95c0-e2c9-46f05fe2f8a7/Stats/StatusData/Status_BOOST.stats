@@ -4547,5 +4547,76 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3dda0f9b-3e5a-8d7a-b1f7-27130ce96de9" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_MARK" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he7260e80gef97g841ag3f93g5448f61f2299" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h195030c4ge9bdg57a0g3a4eg2ec1cb975e1e" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_MARK" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="TickingWithSource;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(MOBILE_NO_AOO,100,-1)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(MOBILE_NO_AOO)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e5e46df6-8033-cb1d-bce4-985993e9deda" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_PATH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hdc84f244gba62g6e37g8dfbgdd0c2216e774" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_PATH" />
+        <field name="AuraRadius" type="IntegerTableFieldDefinition" value="30" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally()):ApplyStatus(MOBILE_NO_AOO_SOURCE)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1a847e3a-476e-d044-6798-945725c66f2c" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_COUNT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4691a5a2gbc9dg893cg9ae6gcbe8ff67c2b2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h14e7b640g17f3g5ccagd158g95590d58cd92" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_COUNT" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6099c17f-13f6-c3d3-a7e2-cb3313c71f8f" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_ENDED" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc7ce0aeagcc37g64c3g8d30ge081026e8522" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="GenericIcon_Intent_Buff" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_ENDED" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c9c91a82-7c80-b62c-c355-0db9072536a2" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_PUSH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5b1a7426g4856g8671g353dg64b0493025de" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_PUSH" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(3);ApplyStatus(OFF_BALANCED,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="27bb518c-2b83-dcd3-5974-5ebcb9188a8a" />
+        <field name="Name" type="NameTableFieldDefinition" value="PROBE_ARC0026_MEET_TECH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha57ab0c8gec0dg601eg7be7g0cb5d3c5af09" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="PROBE_ARC0026_MEET_TECH" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
 </stat_objects>
 </stats>

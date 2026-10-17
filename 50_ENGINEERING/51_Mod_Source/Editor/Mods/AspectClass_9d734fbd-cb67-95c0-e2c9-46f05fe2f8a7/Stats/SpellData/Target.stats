@@ -5276,5 +5276,35 @@
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7c457ab7-f81a-40bd-bc43-e4e3b4bf7884" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_Mark" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(PROBE_ARC0026_MARK,100,2)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb54118acgc277g554ag9e4dg4c76af21707b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc27bbecdg1b99g1accg80f2ga1ae611b2c90" version="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b5112fe0-9303-2d62-5f00-0f6d48ca38c7" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_StormPush" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(PROBE_ARC0026_PUSH,100,0)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Thunderwave" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h24d00c65g3092g99e3g45b5g6213bac19c1f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5c57b695gc4a3g7c7bg9716g133296250e2b" version="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+      </fields>
+    </stat_object>
 </stat_objects>
 </stats>
