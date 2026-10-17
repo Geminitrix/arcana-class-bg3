@@ -29,7 +29,7 @@ my %LISTS = (   # uuid => [name, spells]
     $L7  => ['Unbound Level 7',  'Shout_Arcana_Card_Spell_StormFists'],
     $L9  => ['Unbound Level 9',  'Shout_Arcana_Card_Ability_Untethered'],
     $L10 => ['Unbound Level 10', 'Rush_Arcana_Created_Aspect_LeapOfFaith'],
-    $L11 => ['Unbound Level 11', 'Projectile_Arcana_Created_WhereTheWindsMeet'],
+    $L11 => ['Unbound Level 11', 'Target_Arcana_Created_WhereTheWindsMeet'],
 );
 my %LSTAGE = ($L2 => 3, $L11 => 5);   # every other list: stage 4 (the cards and removals of 30_ranks_cards.patch)
 delete @LISTS{ grep { ($LSTAGE{$_} // 4) > $STAGE } keys %LISTS }; @NEW = grep { $LISTS{$_} } @NEW;

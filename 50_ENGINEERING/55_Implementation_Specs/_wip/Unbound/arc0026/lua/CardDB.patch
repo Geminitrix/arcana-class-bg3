@@ -30,4 +30,4 @@
 
 # ARC-0026 stage 5 — the capstone (no slot, once per Long Rest). Same check as Leap of Faith in stage 5.
 # In D.cards:
-    ["Projectile_Arcana_Created_WhereTheWindsMeet"] = { aspect = "Unbound", cost = 0 },
+    ["Target_Arcana_Created_WhereTheWindsMeet"] = { aspect = "Unbound", cost = 0 },

@@ -138,7 +138,7 @@ family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand s
 
 ### Task 0.6 · the capstone and the name — `40_capstone_names.patch` (done 2026-10-17; dry run of 10–40 clean: 82 strings, 43 new entries, 53 fields, 34 removals)
 
-`Projectile_Arcana_Created_WhereTheWindsMeet` (vanilla `Projectile_VacuumBulb` parent; 18 m; action; `OncePerRest`;
+`Target_Arcana_Created_WhereTheWindsMeet` (WB50: a Target on vanilla `Target_Shatter`, a point on the ground; 18 m; action; `OncePerRest`;
 only without `ARCANA_BAG_OPEN`; DEX save halves the 4d8 Thunder; pull, Off Balance, mark on both outcomes) — one
 9 m area takes every enemy; a Windswept one is pulled 9 m, any other 6 m (P4 as the Owner rebuilt it, WB49). The subclass strings A1–A5 say *The
 Windborn*. `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` hidden. CardDB: the capstone as a 0-Thread card.
@@ -209,3 +209,6 @@ applies `ARCANA_BAG_OPEN` with -1 and counts the turns in a DB (to show turns le
 `ARCANA_WINDSWEPT` (no aura, no `Arcana_Passive_OpenPath`, row dropped from `50_structure.pl`); Windswept Touch and
 Storm's second Rush on `OnDamage`; `40_capstone_names.patch` one area, no inner explosion, no once-only status.
 Apply: `[fechado] ARC-0026` → `06_probe_count.patch --apply`, the goal copied as CRLF, Story recompiled, P8 then P3.
+**Stage 1 complete (2026-10-17):** after the fix P8 and P3 pass, so all nine probes pass. While testing, the Owner added two
+probes (`Shout_` / `Target_Arcana_Util_PROBE_WhereTheWindsMeet`); the stage 2 cleanup removes them with the other
+`*_PROBE_*` spells. The capstone is now a ground Target (WB50, `40_capstone_names.patch`).

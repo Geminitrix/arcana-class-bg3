@@ -5298,7 +5298,6 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb54118acgc277g554ag9e4dg4c76af21707b" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc27bbecdg1b99g1accg80f2ga1ae611b2c90" version="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
       </fields>
     </stat_object>
@@ -5324,9 +5323,29 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Thunderwave" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h24d00c65g3092g99e3g45b5g6213bac19c1f" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5c57b695gc4a3g7c7bg9716g133296250e2b" version="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
       </fields>
     </stat_object>
-</stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0b63461e-ac95-4721-8d6f-ed818e35e998" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_PROBE_WhereTheWindsMeet" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="9" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy() and HasStatus('PROBE_ARC0026_MARK')):Force(-9, TargetToEntity);IF(Enemy() and not HasStatus('PROBE_ARC0026_MARK')):Force(-6, TargetToEntity);IF(Enemy()):ApplyStatus(OFF_BALANCED,100,1);" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character();" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6814fffeg80e8g7c4ag26a6gb3c6b23b7a70" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8b607274gf804g1262gd3b4g99b6ebf16f9d" version="1" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;3e441d3f-11f9-432d-877c-c0ba4d92c74a,,;8b7ae969-2a04-4720-9685-3bde54c18ffe,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Control" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
+      </fields>
+    </stat_object>
+  </stat_objects>
 </stats>

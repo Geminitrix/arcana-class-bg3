@@ -2,7 +2,7 @@
 id: 21.04/Unbound/DESIGN
 owner: Lead Class Designer
 state: approved design (WB0–WB44, 2026-10-16); sizes approved (WB45–WB48), values in 25. The game still has the old Unbound build (`05.02/Unbound.md`) until the build ticket ships
-reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change
+reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change
 ---
 
 # The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
@@ -377,7 +377,7 @@ hook — confirm in `56`/`57`); tiers by the released count. Combat start and en
 | Zephyr's Rush | `Rush_SpringAttack` (as vanilla `Rush_MAG_ZephyrFlash` and today's Leap of Faith) with a target condition on Windswept |
 | Leap of Faith | `Rush_ForceTunnel` animation, wind VFX |
 | Storm's second Rush | A one-turn created card granted by a status (as `ZEPHYR_STRIKE`) |
-| Where the Winds Meet | `Projectile_VacuumBulb` explosion with `Force(-6, TargetToEntity)` |
+| Where the Winds Meet | `Target_Shatter` (a point on the ground, an area around it; WB50) with the pull `Force(-6, TargetToEntity)` of `Projectile_MAG_PullingShout_Explosion` |
 | The winds | Aura-style statuses (vanilla `AURA_OF_PROTECTION`) or statuses applied to the party; bane on Windswept |
 | The bag's choice | One variant per wind (container) |
 | Weightless | One generator table (`82_Automation/stats/`), four ranks |

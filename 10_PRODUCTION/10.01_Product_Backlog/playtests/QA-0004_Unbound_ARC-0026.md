@@ -55,3 +55,4 @@ Steps, expected results and plan B are on the test page and in the record `61.02
   TotalDamageDoneGreaterThan(0) instead of OnAttack) — and on P8 says the duration is the exact number of marks, no
   cap of 2. ARC-0026 must take these in before reapplying its patch.
 - 2026-10-17 — ARC-0026 took the Owner's edits in (51, WB49). P8 root cause found (Probe Count not frozen) and fixed in `06_probe_count.patch`; P8 expects exactly the marks (3, then 4). Retest P8 then P3 after the `[fechado] ARC-0026` apply and a Story recompile.
+- 2026-10-17 — P8 and P3 pass after the fix, so every probe passes and stage 1 of ARC-0026 is done. No bug was opened (the Owner's call).

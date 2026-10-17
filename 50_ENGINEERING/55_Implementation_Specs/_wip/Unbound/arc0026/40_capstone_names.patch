@@ -1,26 +1,27 @@
 # ===== ARC-0026 stage 5 — Where the Winds Meet, the subclass name (WB0, WB26, WB46) =====
 # Texts: approved (00_texts.md A1–A5, D4–D6). Values: 25 SPL_Unbound_WhereTheWindsMeet. Hurricane (WB15) is in 30.
-# Anchor: vanilla Projectile_VacuumBulb (a thrown point that pulls to its centre) and Projectile_MAG_PullingShout_Explosion
-# (Force(-6, TargetToEntity) on a DEX save). P4 (QA-0004, the Owner's version): one 9 m area for every enemy; a Windswept
-# enemy is pulled 9 m, any other 6 m (IF on the mark), so no inner explosion and no once-only status.
+# Anchor: vanilla Target_Shatter (Target, a point on the ground within 18 m, an area around it, Thunder, a save for half),
+# its animation and effects inherited. The pull is vanilla Projectile_MAG_PullingShout_Explosion (Force(-6, TargetToEntity)).
+# P4 (QA-0004, the Owner's version, WB49): one 9 m area for every enemy; a Windswept enemy is pulled 9 m, any other 6 m.
+# Target, not Projectile or Shout (Owner, 2026-10-17, WB50): aimed at the ground, no enemy needed under the cursor.
+# Check in game (stage 5): the pull goes to the point, not to her; plan B: GROUND:CreateExplosion of a pulling explosion.
 
 @loca WB_WINDSWEPT_NAME Windswept
 @loca WB_MEET_NAME Where the Winds Meet
 @loca WB_MEET_DESC Call the four winds to a single point. Enemies around it are pulled to its centre, take [1] and become <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> and <LSTag Type="Status" Tooltip="OFF_BALANCED">Off Balance</LSTag>.
 @loca WB_MEET_EXTRA Windswept enemies are pulled from farther away. A successful <LSTag Tooltip="SavingThrow">Dexterity Saving Throw</LSTag> halves the damage.<br><br>Can only be used while no wind blows.
-@file Spell_Projectile
+@file Spell_Target
 @section -
-new entry "Projectile_Arcana_Created_WhereTheWindsMeet"
+new entry "Target_Arcana_Created_WhereTheWindsMeet"
 type "SpellData"
-data "SpellType" "Projectile"
-using "Projectile_Fireball"
+data "SpellType" "Target"
+using "Target_Shatter"
 data "MemoryCost" ""
 data "Level" "0"
 data "SpellSchool" "Evocation"
 data "Cooldown" "OncePerRest"
 data "TargetRadius" "18"
 data "AreaRadius" "9"
-data "ExplodeRadius" "9"
 data "SpellRoll" "not SavingThrow(Ability.Dexterity, SourceSpellDC())"
 data "SpellSuccess" "IF(HasStatus('ARCANA_WINDSWEPT')):Force(-9, TargetToEntity);IF(not HasStatus('ARCANA_WINDSWEPT')):Force(-6, TargetToEntity);DealDamage(4d8,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
 data "SpellFail" "IF(HasStatus('ARCANA_WINDSWEPT')):Force(-9, TargetToEntity);IF(not HasStatus('ARCANA_WINDSWEPT')):Force(-6, TargetToEntity);DealDamage((4d8)/2,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
@@ -37,7 +38,8 @@ data "TooltipStatusApply" "ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WI
 data "Requirements" "Combat"
 data "RequirementConditions" "not HasStatus('ARCANA_BAG_OPEN') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
 data "UseCosts" "ActionPoint:1;"
-data "SpellFlags" "IsSpell;HasSomaticComponent;IsHarmful;AddFallDamageOnLand;CanAreaDamageEvade"
+data "SpellFlags" "IsSpell;HasSomaticComponent;IsHarmful"
+data "VerbalIntent" "Control"
 data "DamageType" "Thunder"
 
 @file Status_BOOST

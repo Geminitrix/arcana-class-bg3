@@ -1,5 +1,5 @@
 id: SPL_Unbound_WhereTheWindsMeet
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change"
 kind: spell
 subclass: Unbound
 ticket: ARC-0022
@@ -9,7 +9,7 @@ values: {}
 
 pending_build:
   action_next:      { value: "Action; once per Long Rest; only while no wind blows", note: "WB26" }
-  range_next:       { value: 18, unit: metres, note: "the point" }
+  range_next:       { value: 18, unit: metres, note: "the point, on the ground: a Target spell on vanilla Target_Shatter (WB50)" }
   area_radius_next: { value: 9, unit: metres, note: "WB49: one area, every enemy within it is pulled" }
   pull_distance_next: { value: 6, unit: metres, note: "WB49: an enemy that is not Windswept" }
   pull_distance_windswept_next: { value: 9, unit: metres, note: "WB49" }
