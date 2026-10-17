@@ -259,3 +259,29 @@ slot level of its band (1–2 → L1, 3–4 → L2, 5–6 → L3, 7–8 → L4, 
   Moonpull, Equinox, Long Twilight, Sunburst, Dawnbringer) + Point of Light and Sing a Hymn (utilities) + the Great
   Star (Aspect card). Passives: Light in the Dark (10), Undying Hope (Tier I).
 - **Open:** the flight passive (`10.06`) has no level yet.
+
+## 9. Names pass (SC15, SC31) — proposal 2026-10-16
+
+Base names are neutral (prefix rule SC31). Checked against the mod's English loca (no clash); the vanilla corpus is not
+extracted here — re-run the corpus check (`bg3_english_writing_style`) before the Narrative gate.
+
+| Piece | Working name | Proposed base | Source / why | Alternative |
+|---|---|---|---|---|
+| Strike (Starcall) | Starcall | **Comet** | a light hurled across the sky | Falling Light |
+| Its status (Rejuvenation) | Rejuvenation | **Afterglow** | the glow a comet leaves | Ember |
+| Signature heal (Astral Infusion) | Astral Infusion | **Outpouring** | the Star card's figure pours her jugs; class line "pour it into the wounded" | Libation |
+| Reaction card-passive | Hesperus | **Hesperus** | the evening star that rises at dusk (Hesiod) | Vesper |
+| Cleanse | Sunwash | **Cleansing Rain** | water poured to cleanse | Ablution |
+| Revive | Rekindle | **Rekindle** | already neutral | Second Dawn |
+| Defence | Moon Halo | **Halo** | already neutral once "Moon" goes | Nimbus |
+| Enemy mark | Guiding Star | **Guiding Light** | the card's meaning: the light that guides | Lodestone |
+| Ultimate | Wish | **Elpis' Jar** | Hope left in the jar (Hesiod, *Works and Days*); the jar pours over everyone; pairs with the Windborn's *Aeolus' Bag* | Last Hope |
+| Pull | Moonpull | **Tether** | a thread of the Weave (DM-W2) | Undertow |
+| Control | Equinox | **Stillness** | Silence, then Restrained | Even Hour |
+| Threshold zone | Long Twilight | **Long Twilight** | already neutral | Gloaming |
+| Offence | Sunburst | **Flare** | neutral fire-light | Blaze |
+| Capstone card | Dawnbringer | **Dawnbringer** | Eosphorus, the dawn-bringer | Daybreak |
+| Exploration cantrip | Point of Light | **Lantern** | she becomes the lantern | Glow |
+| Aspect card (Stars only, no prefix) | Great Star | **The Great Star** | the eight-pointed star of the card | Astraea |
+| Passive (her own Dusk) | Light in the Dark | **Light in the Dark** | — | Brightest Dark |
+| Kept as approved | — | Sing a Hymn · Hymn of the Stars / Sun / Moon · Unsung · Dusk · Nightfall · Dawn · Undying Hope · Dazzled · Eclipse | SC3, SC5, SC9, SC10, SC16, SC18 | — |

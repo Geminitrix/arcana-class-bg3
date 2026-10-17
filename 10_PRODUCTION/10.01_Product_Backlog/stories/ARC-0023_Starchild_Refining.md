@@ -70,3 +70,4 @@ player feels.
 - 2026-10-16 — Owner: Point of Light is an exploration cantrip — Stars Perception/Investigation, Sun Insight/Persuasion and the biggest light, Moon Sleight of Hand and dim light (SC27).
 - 2026-10-16 — Owner: the Moon adds Deception (SC28). Level map 1–12 proposed (REFINE §8).
 - 2026-10-16 — Owner: level map 1–12 approved (SC29); the flight passive is dropped (SC30). Next: the names pass.
+- 2026-10-16 — Owner: child names = Starlit / Sunlit / Moonlit + neutral base (SC31). Base names proposed (REFINE §9).
