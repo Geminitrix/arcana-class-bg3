@@ -41,3 +41,4 @@ created: 2026-10-17
 
 - 2026-10-17 — created from ARC-0022 at the Owner's request; spec skeleton written (stages, probes P1–P8). Sizes
   already approved in ARC-0022 (WB45–WB48), so stage 0 starts with the preparation. Nothing in the game changed.
+- 2026-10-17 — Stage 0 started: Task 0.1 inventory (106 Stats entries: kept / changed / removed / new / untouched, Osiris, lists) in the spec; Task 0.2 texts drafted in `_wip/Unbound/arc0026/00_texts.md`; Narrative gate opened (`32.04/ARC-0026_Windborn.md`, pending). Nothing in the game changed.

@@ -55,10 +55,28 @@ keeps the armour rule (`not WearingArmor() and not HasShieldEquipped()`).
 
 ## Stage 0 — preparation (project files only)
 
-Written at the start of stage 0: the patches (`10_core.patch`, `20_bag_awakening.patch`, `30_ranks_cards.patch`,
-`40_capstone_names.patch`), the structure script (`50_structure.pl` — lists and progression, the map of `DESIGN.md`
-§9.1), the goal drafts (`ARCANA_Aspect_Fool.txt` rewritten), the Weightless generator table, and the build's texts for
-`32.04`. Values come from `25` (`pending_build`) only.
+Files in `_wip/Unbound/arc0026/`: `00_texts.md` (Task 0.2), `10_core.patch` (0.3), `20_bag_awakening.patch` +
+`22_goal_fool.txt` (0.4), `30_ranks_cards.patch` + the Weightless generator table (0.5), `40_capstone_names.patch` (0.6),
+`50_structure.pl` (0.7 — lists and progression, the map of `DESIGN.md` §9.1). Values come from `25` (`pending_build`)
+only; texts from `00_texts.md` once the Narrative gate passes.
+
+### Task 0.1 · inventory — what happens to each entry (read from `51`, 2026-10-17: 106 Stats entries)
+
+| Fate | Entries | Where |
+|---|---|---|
+| **Kept, text only** | Gale Burst (+ `_2`–`_6`), Wind Blast (+ `_3`–`_6`), `Projectile_Arcana_Reaction_GaleDeflection`, `Interrupt_Arcana_Reaction_GaleDeflection(_Return)`, `GALE_DEFLECT_MISSILES`, `GALE_DEFLECTION_READY`, `Arcana_Passive_GaleDeflection`, Flowing Strikes: Agility / Precision, Flowing Assault, Magic Strikes | 10, 30 |
+| **Kept, changed** | `Arcana_Passive_FlowingStrikeZephyr` → The Open Road; `ZEPHYR_STRIKE` + `Target_Arcana_Created_ZephyrStrike` (plain strike) — Gale Burst loses its free strike; Be the Leaf (INT); Flow State (+ variants, `FLOW_STATE*`: 3 turns, level 6); Ready: Gale Deflection (level 6, ally); Wind Whispers + `WIND_WHISPERS` (Advantage absorbed); `Interrupt_Arcana_WindWhispers_Riposte`; Storm Fists (+ variants, `STORM_FISTS*`: vs unmarked, 3 turns); Untethered (+ `_6`, `FLY_UNTETHERED`, `Projectile_Arcana_Card_Ability_Fly_Untethered`: AC folded in); `Rush_Arcana_Created_Aspect_LeapOfFaith` → a card at 10, once per Short Rest, `Rush_ForceTunnel` animation; Empty State (level 9); the Awakening: `Arcana_Passive_Aspect_Fool_Awakening`, `_I`–`_III`, `_Awakened_I`–`_III`, `ASPECT_AWAKENED_FOOL(_I–_III)`, `ASPECT_PROGRESS_FOOL_I–III` (goals 3/5/8), `FOOL_ZEPHYR_FREE` (reused by Tier I) | 10, 20, 30 |
+| **Removed** | Evasive Flow (+ `_5`, `_6`), `EVASIVE_FLOW`, `EVASIVE_FLOW_OPENING`; Thunderclap (+ `_6`), `THUNDERCLAP`, `Arcana_Passive_Thunderclap`; `Arcana_Passive_Momentum(_UI)`; `Arcana_Passive_EyeOfTheStorm(_UI)`; `Interrupt_Arcana_Aspect_FoolsLuck`; `Arcana_Passive_TwinkleToes_1`–`_20`; `Arcana_Passive_Weightless_5`–`_12` (regenerated as the four ranks); True Strike leaves the level-1 list | 30, 50 |
+| **New** | Windswept status (+ the Open Path pair of P6); the Rush twin of Zephyr Strike (P2); Storm's second-Rush status and card; Gale / Storm / Hurricane rank passives; Aeolus' Bag (container, Boreas, Notus, Eurus; Hurricane two-wind variants); six Tailwind / Headwind statuses; the bag-open status; The Calm; Where the Winds Meet (+ its explosion); Weightless ranks 1 / 4 / 8 / 12 (generator) | 10, 20, 30, 40 |
+| **Untouched** | `MAG_THUNDER_REVERBERATION` (a vanilla-named entry; only Thunderclap used it — checked in stage 4 that nothing else does), `GALE_DEFLECTION_USED_TECH`, `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` (technical; names hidden in 40) | — |
+| **Osiris** | `ARCANA_Aspect_Fool.txt` rewritten: marks from hits (hers; allies' at Tier II), the count of marks released (opening, sweeps, The Calm), the sweep at her turn start, X for the bag, The Calm's gusts, the capstone's no-wind check | 20 (`22_goal_fool.txt`) |
+| **Lists and progression** | The map of `DESIGN.md` §9.1: new rows at 2, 4, 6, 8, 10; True Strike, Evasive Flow, Thunderclap out; Twinkle Toes rows 13–20 out (the 13–20 module, `21.07`, gives the Windborn nothing until it is designed) | 50 |
+
+### Task 0.2 · the build's texts — `00_texts.md` (DRAFT)
+
+Every name and description of the build, 5 subclass strings (A), the core rule (B), the bag and winds (C), The Calm and
+the capstone (D), the Awakening (E), the kept cards (F). The Owner approves them as the Narrative gate
+(`32.04/ARC-0026_Windborn.md`) before Tasks 0.3–0.6 write them into the patches.
 
 ## Acceptance criteria
 
