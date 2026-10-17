@@ -154,11 +154,17 @@ data "UseCosts" ""
 
 @file Spell_Rush
 @section -
+# Rush_SpringAttack is a weapon action: its cooldown, recharge, weapon type, weapon flag and weapon requirement are
+# overridden here (as Leap of Faith does), or the probe asks for an equipped weapon and recharges on a Short Rest.
 new entry "Rush_Arcana_Util_PROBE_Rush"
 type "SpellData"
 data "SpellType" "Rush"
 using "Rush_SpringAttack"
 data "Level" "0"
+data "Cooldown" ""
+data "RechargeValues" ""
+data "WeaponTypes" ""
+data "RequirementConditions" ""
 data "TargetRadius" "9"
 data "MovementSpeed" "60000"
 data "SpellRoll" "Attack(AttackType.MeleeUnarmedAttack)"
