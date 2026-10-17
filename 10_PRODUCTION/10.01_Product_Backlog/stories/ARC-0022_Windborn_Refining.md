@@ -103,3 +103,7 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   (signature, Awakening goal, Aspect card, uniqueness, strengths, level-rhythm exception), `21.03` stamped. Producer:
   `10.06` (Tier III, ultimate and #12 answered for the Windborn). Context Keeper: `05.02` points to the redesign (game
   unchanged), `05.00` state line. Pending: build ticket and spec in `55`.
+- 2026-10-17 — Audit of the history (Owner's request): commit `2ad35ab` (ARC-0025, Starchild session) swept in ARC-0022
+  files that were not committed yet — `22.05/Unbound.md`, `26.01/Unbound.md`, `23.02/Unbound/` (18 files) and the
+  Windborn edits of `21.08` and `10.06`. Content verified intact at HEAD (no Windborn line removed or changed; every
+  WB marker present; 49 decision rows; 12 files in `25`); history not rewritten (shared `main`).
