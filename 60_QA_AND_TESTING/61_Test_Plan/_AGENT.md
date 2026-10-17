@@ -12,7 +12,7 @@
 
 ## Test guides and playtests (Owner rule, ARC-0024)
 
-Every build (subclass or loose feature) and every bug fix delivers a test guide `61.02_Test_Cases/<S>/GUIDE_<ARC>.json`
+Every build or rework (subclass or loose feature) and every bug fix delivers a test guide `61.02_Test_Cases/<S>/GUIDE_<ARC>.json`
 and its playtest ticket (`perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl new <guide> <subclass|feature|bug-retest>`).
 The Owner plays a guide **level by level**, so a guide is built that way:
 

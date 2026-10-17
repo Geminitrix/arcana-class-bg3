@@ -14,7 +14,8 @@ author: Mod Engineer
 > Toolkit**: where to click, which entry to create or change, and what to type in every field. It is
 > organised by the Toolkit's own layout — **Stories**, **UUID Object Editor**, **Stats Editor** — then
 > file, then entry, then field. The SPEC (`SPEC_ARC-####`) stays the technical source; this file is the
-> typing view of it.
+> typing view of it. Every subclass **build or rework** gets these guides, one per level (`TOOLKIT_ARC-####_L<n>.md`):
+> the Owner types each level and tests it before the next; Claude applies nothing in the game.
 
 ---
 
