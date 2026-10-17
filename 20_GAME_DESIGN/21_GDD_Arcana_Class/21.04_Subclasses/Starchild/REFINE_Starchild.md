@@ -146,3 +146,27 @@ Notes on SC2 for the design and the build:
 - **Cosmic Omen** (vanilla, rolled on long rest) becomes a second morning ritual; K4 already marks it ⚠️.
 
 Names approved (SC3): Hymn · Sing a Hymn · Hymn of the Stars / Sun / Moon. No-Hymn status: Unsung (SC5). Shape of the heal per Hymn: SC6. Axis: Timing (SC7; `HasHPPercentageLessThan` confirmed in vanilla). Darkest hour = exclusive mark (SC8), named Dusk (SC9). Dusk (below half) and Nightfall (below a quarter), mutually exclusive, consumed by her heal (SC10). Downed clears the mark (SC11). The Starchild herself: allies only early, her own Dusk empowers her heals later (SC12). Ultimate: the answered wish (SC13); Great Star and Eclipse kept as candidates (SC14); every Soraka/Lux name to be replaced (SC15). Aspect card = the Great Star (Stars only); Tier III = Eclipse (Sun and Moon) (SC16). Awakening goal: answered marks, Dusk 1 / Nightfall 2 (SC17). Tier I: Great Star + Undying Hope into Nightfall; Tier II: a condition by Hymn (SC18). Only the first single-target heal of the turn carries Tier II / Eclipse; Eclipse joins all three (SC19, amends SC16). Next: the card review.
+
+## 5. Card review, part 1 — the vanilla cards in a new coat (DM-K2)
+
+Proposals, 2026-10-16; nothing here is decided until logged. Each keeps the **support role** the old card had and moves
+the mechanic (Dusk / Nightfall, the Hymns). Names are working names (the names pass, SC15). Shared scenario: level 7,
+the Fighter at 40% (in Dusk) between two goblins, the Rogue at 60%.
+
+| SG | Old card (vanilla twin) | Role kept | Proposal | Gear |
+|---|---|---|---|---|
+| SG1 | Solar Purge (Greater Restoration) | Cleanse | **Sunwash:** remove ‹one› condition from an ally; on an ally in Dusk / Nightfall it **consumes the mark** and removes **every** condition of the current list, plus a small heal | Spends, reads |
+| SG2 | Lunar Aegis (Shield of Faith) | Defence | **Moon Halo:** bonus action, ‹3› turns, **no Concentration**; the ally gains ‹+AC› **only while in Dusk or Nightfall** — the moon shines at night. A tool to dare waiting for Nightfall | Reads |
+| SG3 | Moon Gravity (Freedom of Movement) | Anti-control, mobility | **Moonpull:** pull an ally ‹X› m toward you without opportunity attacks (vanilla `Force(-3, OriginToEntity, …)`, Thorn Whip); on a marked ally it also ends Stun / Restrained / Paralysed. The rescue out of melee | Reads |
+| SG4 | Starbreath (Revivify) | Revive | **Rekindle:** revive a dead ally (long-rest cooldown kept) at ‹low› HP **in Nightfall**, so the next answer is Dawn — a two-step comeback. Spends less HP on the revive itself, more on her answer | Creates |
+| SG5 | Astral Fortitude (Aid) | Party durability | **Long Twilight:** allies within ‹6› m for ‹N› turns: **Dusk begins at ‹⅔›** of max HP instead of ½ — dusk comes earlier, more allies can be caught, the Awakening fills faster | Changes |
+| SG6 | Star Radiance (weapon-damage aura, Concentration) | Party offence | **Guiding Star:** mark an enemy for ‹N› turns; allies **in Dusk or Nightfall** who hit it regain ‹X› HP — the guiding light lets the wounded save themselves. Adds the enemy side (DM-M5); Tier II already gives allies their riders, so the old aura would repeat it | Reads |
+
+- **Gears after part 1:** Creates — damage, Undying Hope, Rekindle · Changes — Long Twilight · Spends — every heal,
+  Sunwash · Reads — Moon Halo, Moonpull, Guiding Star, the ultimate, the Awakening. No empty column (DM-M3).
+- **Concentration:** Moon Halo, Long Twilight and Guiding Star are proposed without it (the old kit leaned on it — §4 of
+  `05.02`); the balance pass may give it back to one of them.
+- **Names material (for SC15):** Hesperus, the evening star that rises at dusk, and Eosphorus, the dawn-bringer, son of
+  Eos and Astraeus (Hesiod, *Theogony*) — candidates for Dusk-side and Dawn-side cards.
+- **Feasibility (T2):** a pull on an ally (Thorn Whip's `Force` on a friendly target); an AC boost conditioned on a
+  status the target holds; a status that moves the Dusk threshold (the Osiris rule reads it).
