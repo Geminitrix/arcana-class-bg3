@@ -9,3 +9,5 @@
   store until the Owner asks for a sync (procedure in `82_Automation/_INDEX.md`).
 - Open: the Owner tries a drag and a comment on the real board; the first sync closes the ticket.
 - First real sync done (Owner moved ARC-0018 and left a comment; both landed in the ticket). ARC-0018 closed.
+- ARC-0024: playtest tickets QA-#### (`10.01/playtests`, generated from the test guides by `playtests.pl`), a
+  Playtests tab on the board, results from Arcana Test Guides at the kanban sync; QA-0001 Resonant, QA-0002 Kingmaker.

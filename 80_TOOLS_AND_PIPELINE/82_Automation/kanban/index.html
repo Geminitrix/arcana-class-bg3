@@ -28,7 +28,11 @@ h1 { font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; margin
 .tools input, .tools select { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; padding: 5px 8px; }
 .tools input { width: 200px; }
 
-.board { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; }
+.tabs { display: flex; gap: 2px; }
+.tabs button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 4px 10px; cursor: pointer; color: var(--ink-soft);
+  font-family: var(--f-display); font-size: 1rem; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--gold); }
+.board { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(var(--ncols, 7), minmax(0, 1fr)); gap: 10px; }
 .col { display: flex; flex-direction: column; min-height: 0; background: var(--paper-2); border-radius: 8px; border: 1px solid transparent; }
 .col.over { border-color: var(--gold); }
 .col.refuse { border-color: var(--bad); }
@@ -55,6 +59,8 @@ h1 { font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; margin
 .tag.blocked { background: color-mix(in srgb, var(--bad) 22%, transparent); color: #f3aaa6; }
 .tag.pending { background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--gold); }
 .tag.cmt { background: none; padding: 0; }
+.tag.prog { background: none; padding: 0; text-transform: none; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.tag.prog .ok { color: #9fd08a; } .tag.prog .ko { color: #f3aaa6; }
 
 /* Detail drawer */
 .scrim { position: fixed; inset: 0; background: rgb(0 0 0 / .45); }
@@ -73,6 +79,7 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
 .md li.chk { list-style: none; margin-left: -20px; }
 .md li.chk::before { content: "☐"; margin-right: 6px; color: var(--ink-soft); }
 .md li.chk.on::before { content: "☑"; color: var(--gold); }
+.md li.chk.fail { color: #f3aaa6; } .md li.chk.fail::before { content: "☒"; color: var(--bad); }
 .md code { font-family: var(--f-data); background: var(--paper-3); padding: 0 4px; border-radius: 3px; font-size: .85em; }
 .md pre { overflow-x: auto; background: var(--paper-3); padding: 8px; border-radius: 4px; font-size: .8rem; }
 .comments { display: grid; gap: 8px; }
@@ -91,6 +98,10 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
 
 <header>
   <h1>Arcana Board</h1>
+  <nav class="tabs" role="tablist" aria-label="Board area">
+    <button id="tab-board" role="tab" aria-selected="true">Board</button>
+    <button id="tab-playtests" role="tab" aria-selected="false">Playtests</button>
+  </nav>
   <span class="meta" id="meta">Loading tickets…</span>
   <span class="pending-note" id="pending"></span>
   <div class="tools">
@@ -107,6 +118,7 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
 
 <script>
 const COLS = [["backlog","Backlog"],["ready","Ready"],["in_progress","In Progress"],["in_review","In Review"],["spec_ready","Spec Ready"],["in_qa","In QA"],["done","Done"]];
+const PCOLS = [["backlog","Backlog"],["ready","Ready"],["in_qa","In QA"],["done","Done"]];   // Playtests tab (ARC-0024)
 const WIP = { in_progress: 3 };
 const SUB = { class:["Arcana (class)","#c579d9"], unbound:["Unbound","#f2c939"], deceiver:["Deceiver","#f83fa5"], starchild:["Starchild","#79baf8"],
   eternal:["Eternal","#5dbc74"], resonant:["Resonant","#f39a78"], kingmaker:["Kingmaker","#60d7d2"], lionheart:["Lionheart","#db4e50"], none:["No subclass",""] };
@@ -115,7 +127,20 @@ const OWNER_DEPT = { "Lead Class Designer":"Design", "Spell Designer":"Design", 
   "Art":"Art", "Icon Artist":"Art", "Engineering":"Engineering", "Mod Engineer":"Engineering", "QA":"QA", "Community Agent":"Release", "Tools":"Tools",
   "Producer":"Production", "Context Keeper":"Production" };
 
-let tickets = [], moves = {}, comments = [], db = null, dbTried = false, open = null;
+let tickets = [], moves = {}, comments = [], db = null, dbTried = false, open = null, tab = "board", generated = "";
+const isPT = t => t.type === "playtest";
+const inTab = t => (tab === "playtests") === isPT(t);
+const cols = () => tab === "playtests" ? PCOLS : COLS;
+const kindOf = t => t.kind || t.type || "task";
+// Playtest progress from the test lines the kanban sync writes: "- [x] ID · title — pass|skipped", "- [ ] … — FAIL: …"
+const prog = t => { const c = { total: 0, ok: 0, fail: 0 };
+  for (const m of (t.body || "").matchAll(/^- \[[ x]\] \S+ · .*$/gm)) { c.total++; if (/ — (pass|skipped)$/.test(m[0])) c.ok++; else if (/ — FAIL/.test(m[0])) c.fail++; }
+  c.left = c.total - c.ok - c.fail; return c; };
+// Why a card may not go to Done, or "" when it may
+const doneBlock = t => {
+  if (isPT(t)) { const p = prog(t); return p.total && !p.left && !p.fail ? "" : `${p.left} test${p.left === 1 ? "" : "s"} left, ${p.fail} failed. Mark them on Arcana Test Guides, then sync.`; }
+  return dod(t) === true ? "" : dod(t) === null ? "the ticket has no DoD gate." : "its DoD gate is not checked in the ticket.";
+};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dept = t => OWNER_DEPT[t.owner] || "Production";
@@ -132,32 +157,46 @@ function fillSelect(id, label, entries) {
 function setupFilters() {
   fillSelect("f-sub", "All subclasses", Object.entries(SUB).map(([k, v]) => [k, v[0]]));
   fillSelect("f-dept", "All departments", Object.keys(DEPT).map(d => [d, d]));
-  fillSelect("f-type", "All types", [...new Set(tickets.map(t => t.type).filter(Boolean))].sort().map(t => [t, t]));
-  fillSelect("f-status", "All statuses", COLS);
+  tabFilters();
   ["q", "f-sub", "f-dept", "f-type", "f-status"].forEach(id => $(id).addEventListener("input", render));
 }
+function tabFilters() {   // type and status options follow the tab
+  fillSelect("f-type", "All types", [...new Set(tickets.filter(inTab).map(kindOf))].sort().map(t => [t, t]));
+  fillSelect("f-status", "All statuses", cols());
+}
+function setTab(name) {
+  tab = name;
+  ["board", "playtests"].forEach(n => $("tab-" + n).setAttribute("aria-selected", String(n === tab)));
+  tabFilters(); render();
+}
+$("tab-board").onclick = () => setTab("board");
+$("tab-playtests").onclick = () => setTab("playtests");
 function visible(t) {
+  if (!inTab(t)) return false;
   const q = $("q").value.trim().toLowerCase();
   if (q && !(`${t.id} ${t.title} ${t.body}`.toLowerCase().includes(q))) return false;
   if ($("f-sub").value && (t.subclass || "none") !== $("f-sub").value) return false;
   if ($("f-dept").value && dept(t) !== $("f-dept").value) return false;
-  if ($("f-type").value && t.type !== $("f-type").value) return false;
+  if ($("f-type").value && kindOf(t) !== $("f-type").value) return false;
   if ($("f-status").value && colOf(t) !== $("f-status").value) return false;
   return true;
 }
 
 function cardHtml(t) {
-  const s = SUB[t.subclass] || SUB.none, n = comments.filter(c => c.ticket === t.id).length;
+  const s = SUB[t.subclass] || SUB.none, n = comments.filter(c => c.ticket === t.id).length, p = isPT(t) && prog(t);
+  const progTag = p ? `<span class="tag prog" title="passed or skipped · failed · left"><span class="ok">✓ ${p.ok}</span> · <span class="ko">✗ ${p.fail}</span> · ${p.left} left</span>` : "";
   return `<div role="button" tabindex="0" class="card${moves[t.id] ? " moved" : ""}" draggable="${!!db}" data-id="${t.id}" style="--dept:${DEPT[dept(t)]};--sub:${s[1] || "transparent"}">
     <span class="top"><span class="id">${esc(t.id)}</span>${s[1] ? `<img class="emb" src="emblems/${t.subclass}.png" alt="${esc(s[0])}" title="${esc(s[0])}">` : ""}</span>
     <span class="title">${esc(t.title)}</span>
-    <span class="tags"><span class="tag">${esc(t.type || "task")}</span>${isBlocked(t) ? `<span class="tag blocked">Blocked</span>` : ""}${moves[t.id] ? `<span class="tag pending">Pending sync</span>` : ""}${n ? `<span class="tag cmt">💬 ${n}</span>` : ""}</span>
+    <span class="tags"><span class="tag">${esc(kindOf(t))}</span>${progTag}${isBlocked(t) ? `<span class="tag blocked">Blocked</span>` : ""}${moves[t.id] ? `<span class="tag pending">Pending sync</span>` : ""}${n ? `<span class="tag cmt">💬 ${n}</span>` : ""}</span>
   </div>`;
 }
 function render() {
-  const shown = tickets.filter(visible);
-  $("board").innerHTML = COLS.map(([k, name]) => {
-    const list = shown.filter(t => colOf(t) === k), all = tickets.filter(t => colOf(t) === k).length;
+  const shown = tickets.filter(visible), mine = tickets.filter(inTab);
+  $("board").style.setProperty("--ncols", cols().length);
+  if (generated) $("meta").textContent = `${mine.length} ${tab === "playtests" ? "playtests" : "tickets"} · generated ${generated}`;
+  $("board").innerHTML = cols().map(([k, name]) => {
+    const list = shown.filter(t => colOf(t) === k), all = mine.filter(t => colOf(t) === k).length;
     return `<section class="col${WIP[k] && all > WIP[k] ? " wip" : ""}" data-col="${k}" aria-label="${name}">
       <h2>${name}<span class="n" title="${WIP[k] ? `More than ${WIP[k]} turns amber` : ""}">${list.length === all ? all : `${list.length} / ${all}`}</span></h2>
       <div class="list">${list.map(cardHtml).join("") || `<div class="empty">Nothing here</div>`}</div></section>`;
@@ -171,10 +210,7 @@ function render() {
 function toast(msg) { $("toast").textContent = msg; $("toast").hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => $("toast").hidden = true, 4200); }
 async function moveTo(t, to) {
   if (colOf(t) === to) return;
-  if (to === "done" && dod(t) !== true) {
-    toast(dod(t) === null ? `${t.id} can't go to Done: the ticket has no DoD gate.` : `${t.id} can't go to Done: its DoD gate is not checked in the ticket.`);
-    return;
-  }
+  if (to === "done" && doneBlock(t)) { toast(`${t.id} can't go to Done: ${doneBlock(t)}`); return; }
   const ref = db.doc("moves/" + t.id);
   try {
     if (to === mdCol(t)) { delete moves[t.id]; render(); await ref.delete(); }
@@ -191,7 +227,7 @@ $("board").addEventListener("dragover", e => {
   e.preventDefault();
   document.querySelectorAll(".over,.refuse").forEach(el => el !== col && el.classList.remove("over", "refuse"));
   const t = tickets.find(x => x.id === dragId);
-  col.classList.add(col.dataset.col === "done" && dod(t) !== true ? "refuse" : "over");
+  col.classList.add(col.dataset.col === "done" && doneBlock(t) ? "refuse" : "over");
 });
 $("board").addEventListener("drop", e => {
   const col = e.target.closest(".col"); if (!col || !dragId) return;
@@ -209,7 +245,7 @@ function mdToHtml(src) {
     let m;
     if (/^# /.test(line)) continue;                       // the H1 repeats the title
     if ((m = /^#{2,4} (.*)/.exec(line))) { close(); out.push(`<h4>${inline(m[1])}</h4>`); }
-    else if ((m = /^\s*[-*] \[([ xX])\] (.*)/.exec(line))) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li class="chk${m[1] !== " " ? " on" : ""}">${inline(m[2])}</li>`); }
+    else if ((m = /^\s*[-*] \[([ xX])\] (.*)/.exec(line))) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li class="chk${m[1] !== " " ? " on" : / — FAIL/.test(m[2]) ? " fail" : ""}">${inline(m[2])}</li>`); }
     else if ((m = /^\s*(?:[-*]|\d+\.) (.*)/.exec(line))) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li>${inline(m[1])}</li>`); }
     else if (/^\s+\S/.test(line) && list) out[out.length - 1] = out[out.length - 1].replace(/<\/li>$/, " " + inline(line.trim()) + "</li>");
     else if (line.trim()) { close(); out.push(`<p>${inline(line)}</p>`); }
@@ -229,12 +265,14 @@ function renderDetail() {
       <dt>Column</dt><dd>${colName(colOf(t))}</dd>
       <dt>Department</dt><dd><span class="dot" style="background:${DEPT[dept(t)]}"></span>${esc(dept(t))} <span class="meta">(${esc(t.owner)})</span></dd>
       <dt>Subclass</dt><dd>${s[1] ? `<span class="dot" style="background:${s[1]}"></span>` : ""}${esc(s[0])}</dd>
-      <dt>Type</dt><dd>${esc(t.type)}</dd>
-      <dt>Priority</dt><dd>${esc(t.priority)} · value ${esc(t.value)} / effort ${esc(t.effort)}</dd>
+      <dt>Type</dt><dd>${esc(t.type)}${t.kind ? ` · ${esc(t.kind)}` : ""}</dd>
+      ${isPT(t) ? `<dt>Build</dt><dd>${esc(t.build)}</dd><dt>Guide</dt><dd><span class="meta">${esc(t.guide)}</span></dd>
+      <dt>Tests</dt><dd>${(p => `${p.ok} passed or skipped · ${p.fail} failed · ${p.left} left of ${p.total}`)(prog(t))}</dd>`
+      : `<dt>Priority</dt><dd>${esc(t.priority)} · value ${esc(t.value)} / effort ${esc(t.effort)}</dd>`}
       <dt>Implementation</dt><dd>${esc(t.implementation)}</dd>
       ${isBlocked(t) ? `<dt>Blocked by</dt><dd style="color:#f3aaa6">${esc(blockers(t).join(", ") || "status: blocked")}</dd>` : ""}
-      <dt>DoD gate</dt><dd>${d === true ? "checked" : d === false ? "not checked" : "no DoD line"}</dd>
-      <dt>Epic</dt><dd>${esc(t.epic)}${t.sprint ? ` · sprint ${esc(t.sprint)}` : ""}</dd>
+      ${isPT(t) ? "" : `<dt>DoD gate</dt><dd>${d === true ? "checked" : d === false ? "not checked" : "no DoD line"}</dd>
+      <dt>Epic</dt><dd>${esc(t.epic)}${t.sprint ? ` · sprint ${esc(t.sprint)}` : ""}</dd>`}
       <dt>Created</dt><dd>${esc(t.created)} · <span class="meta">${esc(t.file)}</span></dd>
     </dl>
     <div class="md">${mdToHtml(t.body || "")}</div>
@@ -261,8 +299,7 @@ document.addEventListener("keydown", e => {
 
 // Data: tickets from board.json (written by update_board.pl); moves and comments from the artifact store
 fetch("board.json").then(r => r.json()).then(data => {
-  tickets = data.tickets;
-  $("meta").textContent = `${tickets.length} tickets · generated ${data.generated}`;
+  tickets = data.tickets; generated = data.generated;
   setupFilters(); render();
 }).catch(() => { $("meta").textContent = "Could not load board.json."; });
 

@@ -15,11 +15,13 @@
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Community Agent | should | 3/2 | backlog | claude |  |
 | [ARC-0013](stories/ARC-0013_Mod_Terminology_Rework.md) | Mod terminology: rewrite the glossary for the rework | chore | Narrative | should | 3/2 | backlog | pending |  |
 | [ARC-0016](stories/ARC-0016_Subclass_Standard_v2_and_Refining.md) | "Subclass standard v2 and refining method" | design | Lead Class Designer | should | 4/3 | in_review | pending |  |
-| [ARC-0024](stories/ARC-0024_Playtest_Tickets.md) | Playtest tickets (QA- | feature | Tools | should | 4/3 | in_progress | claude |  |
+| [ARC-0024](stories/ARC-0024_Playtest_Tickets.md) | Playtest tickets and a Playtests tab on the Arcana Board | feature | Tools | should | 4/3 | in_review | claude |  |
 | [ARC-0012](stories/ARC-0012_Resonant_Priority_Icons.md) | Resonant: own icons for the six that share Calm Emotions | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0015](stories/ARC-0015_Kingmaker_Priority_Icons.md) | Kingmaker: own icons for the entries that share Crown of Madness and Detect Thoughts | feature | Art | should | 3/3 | backlog | pending |  |
 | [ARC-0017](stories/ARC-0017_Resonant_Refining_Build.md) | "Resonant refining build — R49–R68 in the game" | feature | Mod Engineer | should | 5/5 | ready | claude |  |
 | [ARC-0021](stories/ARC-0021_Subclass_Names_Compound.md) | "Subclass names in one style: rename Deceiver, Unbound, Eternal and Resonant" | design | Lore Writer | should | 3/3 | in_progress | pending |  |
 | [ARC-0011](stories/ARC-0011_Resonant_Text_Fixes.md) | Resonant: two descriptions behind the mechanic | chore | Narrative | could | 2/1 | backlog | pending |  |
+| [QA-0001](playtests/QA-0001_Resonant_ARC-0017.md) | Playtest — The Resonant after the refining (R49-R68) | playtest | QA |  | / | ready | owner |  |
+| [QA-0002](playtests/QA-0002_Kingmaker_ARC-0008.md) | Playtest — The Kingmaker (levels 1-12) | playtest | QA |  | / | ready | owner |  |
 
 Done tickets: 7.

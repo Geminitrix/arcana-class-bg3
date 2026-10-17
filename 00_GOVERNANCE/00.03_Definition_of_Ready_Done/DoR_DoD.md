@@ -29,6 +29,6 @@
 | Game Design (20) | Design gate answered (`21.04/_SUBCLASS_STANDARD.md` §15); YAML validates against `25.00_schemas` |
 | Narrative (30) | Narrative gate: approval recorded in `32.04`; terms match `33.03` |
 | Art (40) | Asset origin registered in `00.06`; DDS in the four ClassIcons sizes when it is a class/subclass icon |
-| Engineering (50) | Spec in `55` follows `_TEMPLATE_SPEC.md`; code gate (spec §30.5) passed when code was written; `sync_data` run after any change in Data |
-| QA (60) | Test case states the decision it informs; result and evidence linked |
+| Engineering (50) | Spec in `55` follows `_TEMPLATE_SPEC.md`; code gate (spec §30.5) passed when code was written; `sync_data` run after any change in Data; a build (subclass or feature) also delivers its test guide (`61.02/<S>/GUIDE_<ARC>.json`, listed in `TEST_GUIDES.json`) and its QA-#### playtest ticket (`playtests.pl new`) |
+| QA (60) | Test case states the decision it informs; result and evidence linked. A QA-#### playtest reaches Done only when every test is pass or skipped on Arcana Test Guides (synced into the ticket); each failed test opens an ARC bug ticket and a QA bug-retest ticket blocked by it |
 | Release (70) | `00.06` checklist approved; patch notes come from the version diff |
