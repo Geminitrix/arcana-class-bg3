@@ -4,6 +4,9 @@
 # Ranks (Gale, Storm, Hurricane) and the bag's level-2 marker passive are created in 30_ranks_cards.patch; the
 # structure script grants them. After --apply: lua/CardDB.patch (stage 3 lines) and the goal copy.
 
+# Keys defined in an earlier patch are repeated (same text) so each stage applies on its own.
+@loca WB_WINDSWEPT_NAME Windswept
+
 # --- The bag (bonus action, a container: one child per wind; Hurricane offers the pairs instead).
 # Ready = Osiris puts ARCANA_BAG_READY on her while she has a Windswept enemy; Open = while a wind blows.
 @loca WB_BAG_NAME Aeolus' Bag

@@ -117,3 +117,21 @@ family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand s
   DescriptionParams if V-feedback asks.
 - To check when compiling (stage 3): `_Ally != _Born` on CHARACTER in Osiris; if the compiler refuses it, drop the
   line (an ally's own hit on an enemy never involves her as attacker).
+
+### Task 0.5 · ranks, Weightless, the cards — `30_ranks_cards.patch` + `lua/CardDB.patch` (done 2026-10-17; dry run of 10 + 20 + 30 clean: 72 strings, 40 new entries, 52 fields, 34 removals)
+
+- **Ranks:** `Arcana_Passive_AeolusBag` (hidden, level 2), `Arcana_Passive_Zephyr_Gale` / `_Storm` / `_Hurricane`
+  (visible, 4 / 8 / 12); Storm grants `ARCANA_STORM_RUSH` on a Rush hit, which unlocks the free 9 m
+  `Rush_Arcana_Created_ZephyrRush_Storm` (it removes the status when cast).
+- **Weightless:** four hand-written ranks (`Arcana_Passive_Weightless_1/4/8/12`; `_12` replaced in place); 12 Twinkle
+  Toes and 4 old Weightless entries removed. No generator: four rows.
+- **Cards:** Flow State 3 turns at every slot (variants set one by one; `FLOW_STATE_3`–`_6` removed); Wind Whispers
+  applies `EVASIVE_FLOW_OPENING` (kept and reused, not removed — inventory corrected); Storm Fists only vs unmarked,
+  3 turns, variants set; Untethered +2 AC in `FLY_UNTETHERED` (Eye of the Storm removed); Evasive Flow, Thunderclap,
+  Momentum removed; Leap of Faith once per Short Rest, no slot, Force Tunnel animation (VFX still the inherited
+  ones — P5 picks wind effects); Gale Deflection reaches an ally within 3 m (vanilla Protection interrupt pattern);
+  Be the Leaf with Intelligence. `Interrupt_Arcana_Aspect_FoolsLuck` went in 20, not here.
+- **Patch 10 corrected:** Gale Burst `_3`–`_6` carry the mark too (the generator keeps their own `SpellSuccess`).
+- **Apply order:** each patch repeats the `@loca` keys it borrows; 30 alone needs `Rush_Arcana_Created_ZephyrRush`
+  from 10 (applied in stage 2) — dry run them in order.
+- **Texts:** `00_texts.md` §H — the rank passives' texts and two small wordings, for the Owner to check (gate addendum).

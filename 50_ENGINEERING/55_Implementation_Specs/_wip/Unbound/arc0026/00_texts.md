@@ -90,3 +90,13 @@ Every card below drops "Afterwards, you can make a Zephyr Strike as a bonus acti
 | F10 | Weightless (rank 1–4; was Twinkle Toes / Feather Fall) | DisplayName: Weightless · Description: You move as if the air carried you. Your movement speed increases by [1]. *(ranks 2–4 add:)* Your jumps reach [2] as far and you take only half Falling damage. *(rank 4:)* You are Immune to Falling damage. |
 
 ## G · Removed with their entries (no text): True Strike from the subclass, Evasive Flow, Thunderclap, Momentum, Eye of the Storm, Twinkle Toes, Feather Fall, Wanderlust / Restless Wind / Aspect of Curiosity / Fool's Luck texts.
+
+## H · Addendum (Task 0.5, 2026-10-17) — texts the draft did not have; Owner check pending
+
+| # | Entry | Text |
+|---|---|---|
+| H1 | `Arcana_Passive_Zephyr_Gale` | **Zephyr Strike: Gale** · The wind grows. Your Zephyr Strike pushes the target back [1] and carries you farther, the bag's winds blow longer, and Eurus joins Aeolus' Bag. |
+| H2 | `Arcana_Passive_Zephyr_Storm` | **Zephyr Strike: Storm** · The wind doesn't stop. After a Zephyr Strike carries you to an enemy, the wind can carry you to one more, and the bag's winds blow longer. |
+| H3 | `STORM_FISTS` (status) | The wind flows through your hands. Unarmed attacks deal an additional [1] against enemies that aren't Windswept. |
+| H4 | `Interrupt_Arcana_Reaction_GaleDeflection` | Reduce the damage of a ranged weapon attack against you or an ally within [1] by 1d10 + your Dexterity Modifier + your Arcana level. If the damage is reduced to 0, you can hurl the missile back at your attacker. |
+| H5 | Weightless (F10, wording) | "your jumps reach [2] times as far" (F10 had "reach [2] as far", which reads wrongly with a number) |

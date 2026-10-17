@@ -4,8 +4,8 @@
 # plan B (SPEC_ARC-0026 §Probes). Internal ids keep their names (ADR-0002).
 # Ranks (Gale range and push, Storm) are read through Arcana_Passive_Zephyr_Gale, created in 30_ranks_cards.patch;
 # until then HasPassive() is false and Zephyr plays the Breeze rank.
-# After --apply: gen_upcast_variants --apply regenerates Gale Burst _2–_6 and Wind Blast _3–_6 from the base, so the
-# mark on a failed save reaches every slot (check its dry run: no other field of those variants may change).
+# gen_upcast_variants keeps the fields a variant edits by hand ("175 variants with edited fields preserved"), so
+# Gale Burst _3–_6 (own SpellSuccess) get the mark below too; Wind Blast's variants inherit it from the base.
 
 # --- Windswept: the mark (WB8, WB9). Lasts until the end of her next turn: 2 ticks on HER turn ends (TickingWithSource).
 # shortcut: a mark applied on an enemy's turn (Riposte, Deflection) lasts one turn of hers longer; fine unless V1 says otherwise.
@@ -126,5 +126,9 @@ data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndi
 @file Spell_Target
 @set Target_Arcana_Card_Spell_GaleBurst SpellProperties ""
 @set Target_Arcana_Card_Spell_GaleBurst SpellSuccess "DealDamage(1d10,Thunder);Force(6);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);"
+@set Target_Arcana_Card_Spell_GaleBurst_3 SpellSuccess "DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);"
+@set Target_Arcana_Card_Spell_GaleBurst_4 SpellSuccess "DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);"
+@set Target_Arcana_Card_Spell_GaleBurst_5 SpellSuccess "DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);"
+@set Target_Arcana_Card_Spell_GaleBurst_6 SpellSuccess "DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);"
 @file Spell_Zone
 @set Zone_Arcana_Card_Spell_WindBlast SpellSuccess "Force(5);IF(not Item()):ApplyStatus(OFF_BALANCED,100,1);IF(not Item()):ApplyStatus(ARCANA_WINDSWEPT,100,2);"

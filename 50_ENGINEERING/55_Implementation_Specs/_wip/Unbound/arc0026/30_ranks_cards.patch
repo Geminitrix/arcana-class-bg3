@@ -1,0 +1,223 @@
+# ===== ARC-0026 stage 4 — ranks, Weightless, the cards (WB6, WB7, WB16, WB17, WB29–WB43, WB47) =====
+# Texts: approved (00_texts.md B9, C14, F3–F10); the rank passives' texts (Gale, Storm) are an addendum to the gate
+# (32.04/ARC-0026_Windborn.md). Values: 25 FEAT_Unbound_TheOpenRoad, FEAT_Unbound_Weightless, SPL_Unbound_FlowState,
+# SPL_Unbound_StormFists, SPL_Unbound_Untethered, SPL_Unbound_LeapOfFaith, SPL_Unbound_GaleDeflection, CLS_Unbound.
+# Removals here go with their progression rows in 50_structure.pl (same stage). Variants with hand-edited fields
+# (gen_upcast_variants keeps them) are set one by one.
+
+# Keys defined in an earlier patch are repeated (same text) so each stage applies on its own.
+@loca WB_BAG_NAME Aeolus' Bag
+
+# --- Ranks: hidden marker of the bag (level 2) and the three visible rank passives (4, 8, 12).
+@loca WB_RANK_GALE Zephyr Strike: Gale
+@loca WB_RANK_GALE_DESC The wind grows. Your Zephyr Strike pushes the target back [1] and carries you farther, the bag's winds blow longer, and <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_AeolusBag_Eurus">Eurus</LSTag> joins <LSTag Type="Spell" Tooltip="Shout_Arcana_Created_AeolusBag">Aeolus' Bag</LSTag>.
+@loca WB_RANK_STORM Zephyr Strike: Storm
+@loca WB_RANK_STORM_DESC The wind doesn't stop. After a Zephyr Strike carries you to an enemy, the wind can carry you to one more, and the bag's winds blow longer.
+@loca WB_RANK_HURRICANE Hurricane
+@loca WB_RANK_HURRICANE_DESC When you open Aeolus' Bag, you release two winds at once.
+@loca WB_STORM_RUSH_NAME Storm: The Wind Doesn't Stop
+@loca WB_STORM_RUSH_DESC The wind can carry you to one more enemy that isn't <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> this turn.
+@file Passive
+@section UNBOUND PASSIVES
+new entry "Arcana_Passive_AeolusBag"
+type "PassiveData"
+data "DisplayName" "{{WB_BAG_NAME}}"
+data "Properties" "IsHidden"
+
+new entry "Arcana_Passive_Zephyr_Gale"
+type "PassiveData"
+data "DisplayName" "{{WB_RANK_GALE}}"
+data "Description" "{{WB_RANK_GALE_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "Icon" "Action_Monk_FreeUnarmedStrike"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Zephyr_Storm"
+type "PassiveData"
+data "DisplayName" "{{WB_RANK_STORM}}"
+data "Description" "{{WB_RANK_STORM_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "SpellId('Rush_Arcana_Created_ZephyrRush') and not IsMiss() and not IsCriticalMiss() and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "StatsFunctors" "ApplyStatus(SELF,ARCANA_STORM_RUSH,100,1)"
+
+new entry "Arcana_Passive_Zephyr_Hurricane"
+type "PassiveData"
+data "DisplayName" "{{WB_RANK_HURRICANE}}"
+data "Description" "{{WB_RANK_HURRICANE_DESC}}"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "Properties" "Highlighted"
+
+# Storm's second Rush: free, 9 m, consumed when cast; unlocked for the turn by the Storm passive.
+@file Status_BOOST
+@section UNBOUND STATUS
+new entry "ARCANA_STORM_RUSH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_STORM_RUSH_NAME}}"
+data "Description" "{{WB_STORM_RUSH_DESC}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "ARCANA_STORM_RUSH"
+data "TickType" "EndTurn"
+data "Boosts" "UnlockSpell(Rush_Arcana_Created_ZephyrRush_Storm);"
+data "RemoveConditions" "WearingArmor(context.Source) or HasShieldEquipped(context.Source)"
+data "RemoveEvents" "OnEquip;OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+@file Spell_Rush
+@section -
+new entry "Rush_Arcana_Created_ZephyrRush_Storm"
+type "SpellData"
+data "SpellType" "Rush"
+using "Rush_Arcana_Created_ZephyrRush"
+data "SpellProperties" "RemoveStatus(SELF,ARCANA_STORM_RUSH);IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);"
+data "TargetRadius" "9"
+data "TargetConditions" "Character() and Enemy() and not Dead() and not HasStatus('ARCANA_WINDSWEPT') and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "DisplayName" "{{WB_STORM_RUSH_NAME}}"
+data "Description" "{{WB_STORM_RUSH_DESC}}"
+data "UseCosts" ""
+
+# --- Weightless (WB39, WB47): four ranks replace Twinkle Toes (12 entries) and Feather Fall (Weightless_5–_12).
+# Four entries written by hand: a generator table for four rows would be more code than the rows (T3 is about dozens).
+@loca WB_WEIGHTLESS Weightless
+@loca WB_WEIGHTLESS_1_DESC You move as if the air carried you. Your movement speed increases by [1].
+@loca WB_WEIGHTLESS_2_DESC You move as if the air carried you. Your movement speed increases by [1], your jumps reach [2] times as far, and you take only half Falling damage.
+@loca WB_WEIGHTLESS_4_DESC You move as if the air carried you. Your movement speed increases by [1], your jumps reach [2] times as far, and you are <LSTag Tooltip="Immune">Immune</LSTag> to Falling damage.
+@file Passive
+@section UNBOUND PASSIVES
+new entry "Arcana_Passive_Weightless_1"
+type "PassiveData"
+data "DisplayName" "{{WB_WEIGHTLESS}}"
+data "Description" "{{WB_WEIGHTLESS_1_DESC}}"
+data "DescriptionParams" "Distance(3)"
+data "ExtraDescription" "{{h73613d54g9e1dg231dg03c1gcb8d2ba41166}}"
+data "Icon" "PassiveFeature_UnarmoredMovement"
+data "Properties" "Highlighted"
+data "BoostContext" "OnEquip;OnCreate"
+data "BoostConditions" "not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "Boosts" "ActionResource(Movement,3,0);"
+
+new entry "Arcana_Passive_Weightless_4"
+type "PassiveData"
+using "Arcana_Passive_Weightless_1"
+data "Description" "{{WB_WEIGHTLESS_2_DESC}}"
+data "DescriptionParams" "Distance(4.5);2"
+data "Boosts" "ActionResource(Movement,4.5,0);JumpMaxDistanceMultiplier(2);FallDamageMultiplier(0.5);"
+
+new entry "Arcana_Passive_Weightless_8"
+type "PassiveData"
+using "Arcana_Passive_Weightless_1"
+data "Description" "{{WB_WEIGHTLESS_2_DESC}}"
+data "DescriptionParams" "Distance(6);3"
+data "Boosts" "ActionResource(Movement,6,0);JumpMaxDistanceMultiplier(3);FallDamageMultiplier(0.5);"
+
+new entry "Arcana_Passive_Weightless_12"
+type "PassiveData"
+using "Arcana_Passive_Weightless_1"
+data "Description" "{{WB_WEIGHTLESS_4_DESC}}"
+data "DescriptionParams" "Distance(9);4"
+data "Boosts" "ActionResource(Movement,9,0);JumpMaxDistanceMultiplier(4);FallDamageMultiplier(0);"
+
+@remove Arcana_Passive_TwinkleToes_3
+@remove Arcana_Passive_TwinkleToes_5
+@remove Arcana_Passive_TwinkleToes_7
+@remove Arcana_Passive_TwinkleToes_9
+@remove Arcana_Passive_TwinkleToes_11
+@remove Arcana_Passive_TwinkleToes_12
+@remove Arcana_Passive_TwinkleToes_13
+@remove Arcana_Passive_TwinkleToes_15
+@remove Arcana_Passive_TwinkleToes_17
+@remove Arcana_Passive_TwinkleToes_19
+@remove Arcana_Passive_TwinkleToes_20
+@remove Arcana_Passive_TwinkleToes_1
+@remove Arcana_Passive_Weightless_5
+@remove Arcana_Passive_Weightless_7
+@remove Arcana_Passive_Weightless_9
+@remove Arcana_Passive_Weightless_11
+
+# --- Flow State (WB31): 3 turns and one extra bonus action at every slot; the per-slot statuses go.
+@loca h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5 Enter a temporary state of flow where you gain temporary hit points and an additional bonus action.
+@file Spell_Shout
+@set Shout_Arcana_Card_Spell_FlowState SpellProperties "ApplyStatus(SELF,FLOW_STATE,100,3);"
+@set Shout_Arcana_Card_Spell_FlowState TooltipStatusApply "ApplyStatus(FLOW_STATE,100,3)"
+@set Shout_Arcana_Card_Spell_FlowState_3 SpellProperties "ApplyStatus(SELF,FLOW_STATE,100,3);"
+@set Shout_Arcana_Card_Spell_FlowState_3 TooltipStatusApply "ApplyStatus(FLOW_STATE,100,3)"
+@set Shout_Arcana_Card_Spell_FlowState_4 SpellProperties "ApplyStatus(SELF,FLOW_STATE,100,3);"
+@set Shout_Arcana_Card_Spell_FlowState_4 TooltipStatusApply "ApplyStatus(FLOW_STATE,100,3)"
+@set Shout_Arcana_Card_Spell_FlowState_5 SpellProperties "ApplyStatus(SELF,FLOW_STATE,100,3);"
+@set Shout_Arcana_Card_Spell_FlowState_5 TooltipStatusApply "ApplyStatus(FLOW_STATE,100,3)"
+@set Shout_Arcana_Card_Spell_FlowState_5 Description {{h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5}}
+@set Shout_Arcana_Card_Spell_FlowState_6 SpellProperties "ApplyStatus(SELF,FLOW_STATE,100,3);"
+@set Shout_Arcana_Card_Spell_FlowState_6 TooltipStatusApply "ApplyStatus(FLOW_STATE,100,3)"
+@set Shout_Arcana_Card_Spell_FlowState_6 Description {{h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5}}
+@file Status_BOOST
+@remove FLOW_STATE_6
+@remove FLOW_STATE_5
+@remove FLOW_STATE_4
+@remove FLOW_STATE_3
+
+# --- Wind Whispers (WB33): absorbs Evasive Flow's Advantage — it reuses EVASIVE_FLOW_OPENING (kept).
+@loca h64279279ga897g3b4bgc173gcc1156e709e0 You can sense movement in the air. Attack Rolls against you have Disadvantage, your next unarmed attack has Advantage, and when an enemy's melee attack misses you, you strike back with an unarmed attack.
+@file Spell_Shout
+@set Shout_Arcana_Card_Spell_WindWhispers SpellProperties "ApplyStatus(SELF,WIND_WHISPERS,100,1);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,1);"
+
+# --- Storm Fists (WB34): only against enemies that aren't Windswept; 3 turns at every slot; absorbs Thunderclap.
+@loca h456b6976gfa1cg7d54geb90g1660c0e4606b The wind flows through your hands. Your unarmed attacks deal an additional [1] against enemies that aren't <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag>.
+@loca h4126aefbgab9bg78e3gbbc7g4054d670e393 The wind flows through your hands. Unarmed attacks deal an additional [1] against enemies that aren't Windswept.
+@set Shout_Arcana_Card_Spell_StormFists_5 SpellProperties "ApplyStatus(SELF,STORM_FISTS_5,100,3);"
+@set Shout_Arcana_Card_Spell_StormFists_5 TooltipStatusApply "ApplyStatus(STORM_FISTS_5,100,3)"
+@set Shout_Arcana_Card_Spell_StormFists_6 SpellProperties "ApplyStatus(SELF,STORM_FISTS_6,100,3);"
+@set Shout_Arcana_Card_Spell_StormFists_6 TooltipStatusApply "ApplyStatus(STORM_FISTS_6,100,3)"
+@file Status_BOOST
+@set STORM_FISTS Boosts "IF(IsMeleeUnarmedAttack() and not HasStatus('ARCANA_WINDSWEPT',context.Target)):DamageBonus(1d4+DexterityModifier,Thunder);"
+@set STORM_FISTS_5 Boosts "IF(IsMeleeUnarmedAttack() and not HasStatus('ARCANA_WINDSWEPT',context.Target)):DamageBonus(1d6+DexterityModifier,Thunder);"
+@set STORM_FISTS_6 Boosts "IF(IsMeleeUnarmedAttack() and not HasStatus('ARCANA_WINDSWEPT',context.Target)):DamageBonus(1d8+DexterityModifier,Thunder);"
+
+# --- Untethered (WB35): Eye of the Storm's +2 AC folds into the flight status.
+@loca hc722a395gc58egeaa3g741ag3ed8de7bb01f Freed from earthly ties, gain the ability to Fly. While you fly, the air wraps around you and protects you.
+@set FLY_UNTETHERED Boosts "UnlockSpell(Projectile_Arcana_Card_Ability_Fly_Untethered);AC(2);"
+@set FLY_UNTETHERED Passives ""
+@file Passive
+@remove Arcana_Passive_EyeOfTheStorm
+@remove Arcana_Passive_EyeOfTheStorm_UI
+
+# --- Retired (WB29 True Strike is a list change in 50; WB36 Evasive Flow; WB37 Thunderclap and Momentum).
+@remove Arcana_Passive_Momentum
+@remove Arcana_Passive_Momentum_UI
+@remove Arcana_Passive_Thunderclap
+@file Spell_Shout
+@remove Shout_Arcana_Card_Spell_EvasiveFlow_6
+@remove Shout_Arcana_Card_Spell_EvasiveFlow_5
+@remove Shout_Arcana_Card_Spell_EvasiveFlow
+@remove Shout_Arcana_Card_Spell_Thunderclap_6
+@remove Shout_Arcana_Card_Spell_Thunderclap
+@file Status_BOOST
+@remove EVASIVE_FLOW
+@remove THUNDERCLAP
+
+# --- Leap of Faith (WB7, WB38): a level-10 card, once per Short Rest, on the Force Tunnel animation. No slot: its
+# one limiter is the rest (standard §5.1). The Zephyr after it comes from The Open Road (it is a card: IsCardSpell).
+@loca hf3ca749cg6cdag38d5g9156g1224545d6d20 Dash through the fray, striking every creature in your path with an unarmed attack that also deals [1]. Every enemy you strike becomes <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag>.
+@file Spell_Rush
+@set Rush_Arcana_Created_Aspect_LeapOfFaith Cooldown "OncePerShortRest"
+@set Rush_Arcana_Created_Aspect_LeapOfFaith SpellProperties ""
+@set Rush_Arcana_Created_Aspect_LeapOfFaith SpellAnimation "b94b9184-9bd0-4840-be7d-003700173b37,,;,,;5df11e35-f081-44f7-bd6f-7049d0e533cd,,;8dccb0f6-24e3-44b7-a60b-1f217b7db523,,;066f8e0e-b3e1-4b76-a473-d1e23a3b7230,,;,,;7a28f440-1b0b-4a18-96a8-3767959b601a,,;,,;,,"
+
+# --- Ready: Gale Deflection (WB32): also an ally within 3 m. Anchor: vanilla Interrupt_FightingStyle_Protection
+# (scope Nearby, Ally(context.Target, context.Observer), DistanceToEntityGreaterThan(_, context.ObserverPosition, context.Target)).
+@loca hcfea4405g7556g969dg0f13gdb93207a863d Use your reaction to reduce the damage of a ranged weapon attack against you or an ally within [1] by 1d10 + your Dexterity <LSTag Tooltip="AbilityModifier">Modifier</LSTag> + your Arcana level. If the damage is reduced to 0, you can hurl the missile back at your attacker, who becomes <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag>.
+@loca h402ace5bgf1e8g2fe1gf6e4g220b7505458b Reduce the damage of a ranged weapon attack against you or an ally within [1] by 1d10 + your Dexterity <LSTag Tooltip="AbilityModifier">Modifier</LSTag> + your Arcana level. If the damage is reduced to 0, you can hurl the missile back at your attacker.
+@file Interrupt
+@set Interrupt_Arcana_Reaction_GaleDeflection InterruptContextScope "Nearby"
+@set Interrupt_Arcana_Reaction_GaleDeflection DescriptionParams "Distance(3)"
+@set Interrupt_Arcana_Reaction_GaleDeflection Conditions "IsAbleToReact(context.Observer) and IsRangedWeaponAttack() and (Self(context.Target,context.Observer) or (Ally(context.Target,context.Observer) and not DistanceToEntityGreaterThan(3, context.ObserverPosition, context.Target))) and not HasStatus('SG_Polymorph_BeastShape') and not AnyEntityIsItem()"
+@file Passive
+@set Arcana_Passive_GaleDeflection DescriptionParams "Distance(3)"
+@file Status_BOOST
+@set GALE_DEFLECTION_READY DescriptionParams "Distance(3)"
+
+# --- Be the Leaf (WB21, WB40): Intelligence instead of Wisdom.
+@loca h80210a1ag08f6gf70fgdf96g821b0e1e8847 Your reflexes are as effective as armour. You add your Intelligence <LSTag Tooltip="AbilityModifier">Modifier</LSTag> to your Armour Class.
+@file Passive
+@set Arcana_Passive_BetheLeaf Boosts "ACOverrideFormula(10,true,Dexterity,Intelligence)"

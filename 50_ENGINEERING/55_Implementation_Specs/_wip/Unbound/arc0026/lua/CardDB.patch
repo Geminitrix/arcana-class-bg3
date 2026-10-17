@@ -19,3 +19,11 @@
         "Shout_Arcana_Created_AeolusBag_Boreas", "Shout_Arcana_Created_AeolusBag_Notus", "Shout_Arcana_Created_AeolusBag_Eurus",
         "Shout_Arcana_Created_AeolusBag_BoreasNotus", "Shout_Arcana_Created_AeolusBag_BoreasEurus", "Shout_Arcana_Created_AeolusBag_NotusEurus",
     },
+
+# ARC-0026 stage 4 — Storm's second Rush (conjured for the turn) and Leap of Faith (a level-10 card, no slot, once
+# per Short Rest). Check in stage 4 that Leap of Faith reaches the deck from its list; if not, conjure it at combat start.
+# In D.cards:
+    ["Rush_Arcana_Created_ZephyrRush_Storm"] = { aspect = "Unbound", cost = 0 },
+    ["Rush_Arcana_Created_Aspect_LeapOfFaith"] = { aspect = "Unbound", cost = 0 },
+# In D.statusConjures:
+    ARCANA_STORM_RUSH = { id = "Rush_Arcana_Created_ZephyrRush_Storm", lasts = 1 },
