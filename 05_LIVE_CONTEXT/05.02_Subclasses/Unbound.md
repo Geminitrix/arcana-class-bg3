@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
 state: synced
-reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass), the Owner's probes live in the game until the stage 2 cleanup
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note)
 ---
 
 # 🍃 The Unbound — 0 · The Fool · Aspect of Curiosity
@@ -10,6 +10,14 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 > **Approved redesign, not in the game yet (ARC-0022, 2026-10-16):** display name *The Windborn*; the Open Road
 > (Windswept, Zephyr's Rush, Aeolus' Bag), new tiers, The Calm, Where the Winds Meet, Weightless. Design:
 > `21.04_Subclasses/Unbound/DESIGN.md`. Everything below is the game as it is today.
+>
+> **Build in progress (ARC-0026), stage 2 in the game since 2026-10-17:** the probes are gone (a cleanup goal takes
+> them off on load). *Windswept* (`ARCANA_WINDSWEPT`, until the end of her next turn) comes from her damage
+> (`Arcana_Passive_Windswept_Touch`, level 1) and from failed saves on Gale Burst and Wind Blast. *The Open Path* is the
+> mod copy of `Interrupt_AttackOfOpportunity`: a Windswept enemy makes no opportunity attack. The Open Road (rewritten
+> `Arcana_Passive_FlowingStrikeZephyr`) grants Zephyr Strike and Zephyr Rush (`Rush_Arcana_Created_ZephyrRush`, only
+> against an enemy that is not Windswept). Gale Burst loses its free strike. Sections 5 to 8 below do not show these yet.
+> Stages 3 to 5 are pending.
 
 > Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
 > Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.

@@ -57,6 +57,7 @@ D.cards = {
     -- level 1 and no slot since 2026-09-27: one Thread in combat, free outside
     ["Zone_Arcana_Created_FinalSpark_Recreate"] = { aspect = "Starchild", cost = 1 },
     ["Target_Arcana_Created_ZephyrStrike"] = { aspect = "Unbound", cost = 1 },
+    ["Rush_Arcana_Created_ZephyrRush"] = { aspect = "Unbound", cost = 1 },
     ["Shout_Arcana_Created_Reweave"] = { cost = 0 },
 
     -- A cantrip has no slot cost, so ARCANA_WEAVING has nothing to zero on it and only adds: it is
@@ -142,6 +143,7 @@ D.cards = {
 
 D.statusConjures = {
     ZEPHYR_STRIKE = { id = "Target_Arcana_Created_ZephyrStrike", lasts = 1 },
+    ARCANA_ZEPHYR_RUSH = { id = "Rush_Arcana_Created_ZephyrRush", lasts = 1 },
     -- the Aspect card stays playable for the rest of the fight
     ASPECT_AWAKENED_FOOL = { id = "Rush_Arcana_Created_Aspect_LeapOfFaith", lasts = 99 },
     ASPECT_AWAKENED_EMPRESS = { id = "Shout_Arcana_Created_Aspect_VeilLifts", lasts = 99 },

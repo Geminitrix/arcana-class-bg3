@@ -145,14 +145,14 @@
   <content contentuid="h16c02162gb8e2gf643g16d0g34e947b2cef4" version="6">Your unarmed attacks scale with &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt; instead of &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; if your Dexterity is higher.</content>
   <content contentuid="h29256540g41cbg9af9g02b8g45b6ba6061ec" version="5">Flowing Strikes: Precision</content>
   <content contentuid="h82f0b0cdgfdb3g745eg23dag378da16f37e6" version="4">Your unarmed attacks deal [1], unless their normal damage is higher.</content>
-  <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="6">Flowing Strikes: Zephyr</content>
-  <content contentuid="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="7">After making an unarmed attack or casting an Arcane spell, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.</content>
+  <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="7">The Open Road</content>
+  <content contentuid="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="8">Every enemy you hit, or that fails a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against you, becomes &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;. After an unarmed attack or a card, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a bonus action - against an enemy that isn't Windswept, the wind carries you to it.</content>
   <content contentuid="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3">Zephyr Strike</content>
   <content contentuid="h56efad21g20d8gbfd6g293dg4e2c421af268" version="4">You can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect.</content>
   <content contentuid="h56bc27caga588g2b1agc487ge918b523cedf" version="4">Zephyr Strike</content>
   <content contentuid="h4ad067bag1d03g5cc6g3769g9cbf6fb2a8f2" version="4">Swiftly strike an enemy as a bonus action.</content>
   <content contentuid="h3573cf98gd7cfgeb2bg2460g5420d9e37565" version="3">Wind Blast</content>
-  <content contentuid="h4d2c7825gb331gaf07gcd46g2c58bd100639" version="5">Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.</content>
+  <content contentuid="h4d2c7825gb331gaf07gcd46g2c58bd100639" version="6">Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;.</content>
   <content contentuid="hae58e242ga07bg1a74gc70egc6ee3b198aa3" version="3">Evasive Flow</content>
   <content contentuid="h1f25c9bcg7038g651eg5355g0ec1a353b525" version="4">You can retreat to safety. You can move without provoking &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="hb6c89cf0gd8fdg9fcfg2585g5e66cf2b6a10" version="3">Flowing Assault</content>
@@ -204,7 +204,7 @@
   <content contentuid="h5ee20bbdg123bg422egf3a7g0a16dc836ce4" version="2">Flow State</content>
   <content contentuid="h36b715acgf8cbg4d33g6b9cge5c3b5baa321" version="5">You gained [1] and an additional &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect.</content>
   <content contentuid="h2277287bgc28fg41bbg5c59g3203bee0c5ed" version="2">Gale Burst</content>
-  <content contentuid="hc3b60f05g2de4ge349g47cdgbfd318148ba4" version="5">Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Afterwards, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.</content>
+  <content contentuid="hc3b60f05g2de4ge349g47cdgbfd318148ba4" version="6">Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
   <content contentuid="hcdfd3b7cg0631gd830gcd0bg8bb006deb09c" version="2">Wind Whispers</content>
   <content contentuid="h8a0bdbe9gf412g6a3dg9816g99ca63d43767" version="5">&lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;, and you have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
   <content contentuid="he348b9b5g4bffgf77cgaa79g953924869067" version="2">Wind Whispers</content>
@@ -1593,4 +1593,9 @@
   <content contentuid="h8b607274gf804g1262gd3b4g99b6ebf16f9d" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
   <content contentuid="h0b740b78gd8ebg66ceg2f99g963af47b53c8" version="1">Probe: Where The Winds Meet</content>
   <content contentuid="hd2eb6cbbga606g0c54g74bag8c9254cad0f5" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
+  <content contentuid="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="1">Windswept</content>
+  <content contentuid="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="1">Touched by the wind. Can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Suffers the bane of any wind the Windborn releases.</content>
+  <content contentuid="h2f7d15aege6dcg9d2dge9edgb2e0bca1bdc2" version="1">Windswept lasts until the end of your next turn. Windswept enemies can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Only active while not wearing armour or using a shield.</content>
+  <content contentuid="hccc388f3g3470g7274g913agf1747c6c5cb9" version="1">Ride the wind to an enemy it hasn't touched yet and strike it with an open hand.</content>
+  <content contentuid="h5b99b7dege080g4cd2g319fg253286ef6d50" version="1">Only an enemy that isn't &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Gale: the strike pushes the target back.&lt;br&gt;Storm: after this strike, the wind can carry you to one more.&lt;br&gt;&lt;br&gt;Can only be used while not wearing armour or using a shield.</content>
 </contentList>

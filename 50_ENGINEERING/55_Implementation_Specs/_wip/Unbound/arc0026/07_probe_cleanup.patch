@@ -1,0 +1,26 @@
+# ===== ARC-0026 stage 2, first task — remove every probe (stage 1 is complete, QA-0004 all pass) =====
+# Every PROBE_ARC0026_* status / passive and *_PROBE_* spell in the game (listed from Data, 2026-10-17), the Owner's two
+# Where the Winds Meet probes included. Kept: the mod copy of Interrupt_AttackOfOpportunity (P6 plan B), which
+# 10_core.patch points from PROBE_ARC0026_MARK to ARCANA_WINDSWEPT. The probe goal becomes a cleanup goal
+# (ARCANA_Probe_ARC0026.txt: RemoveSpell / RemovePassive on load, as AddSpell persists in the save).
+# shortcut: the probes' loca strings stay in english.xml (stats_add removes entries, not strings); harmless orphans.
+
+@file Spell_Target
+@remove Target_Arcana_Util_PROBE_Mark
+@remove Target_Arcana_Util_PROBE_StormPush
+@remove Target_Arcana_Util_PROBE_WhereTheWindsMeet
+@file Spell_Shout
+@remove Shout_Arcana_Util_PROBE_OpenPath
+@remove Shout_Arcana_Util_PROBE_Count
+@remove Shout_Arcana_Util_PROBE_WhereTheWindsMeet
+@file Spell_Rush
+@remove Rush_Arcana_Util_PROBE_Rush
+@remove Rush_Arcana_Util_PROBE_Leap
+@file Passive
+@remove PROBE_ARC0026_Touch
+@file Status_BOOST
+@remove PROBE_ARC0026_MARK
+@remove PROBE_ARC0026_COUNT
+@remove PROBE_ARC0026_ENDED
+@remove PROBE_ARC0026_PUSH
+@remove PROBE_ARC0026_MEET_TECH

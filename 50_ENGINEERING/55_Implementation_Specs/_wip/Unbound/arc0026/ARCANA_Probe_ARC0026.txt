@@ -3,127 +3,28 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-// ARC-0026 stage 1 probes (throwaway; stage 2 deletes this goal and runs RemoveSpell / RemovePassive on them).
-// P3: TurnStarted / TurnEnded on a player; P7: AttackedBy from an ally marks in the caster's name, != on CHARACTER;
-// P8: count the marks (DB mirror, IsDead), X turns exactly (no cap), frozen like RESONANT_OVERLOAD.
-// Anchors: TurnStarted, StatusApplied / StatusRemoved, IsEnemy, IntegerSum, IntegerProduct, IntegerToReal (mod goals); TurnEnded,
-// AttackedBy, AddPassive (vanilla goals).
+// ARC-0026 stage 2: the stage 1 probes are gone from the stats (07_probe_cleanup.patch); AddSpell / AddPassive
+// persist in a save, so each load takes them off every player. The stage 1 goal is kept in _wip as
+// ARCANA_Probe_ARC0026_stage1.txt. Stage 6 deletes this goal.
 
-//REGION Grant the probes
+//REGION Remove the probes
 IF
 SavegameLoaded()
 AND
 DB_Players(_Char)
 THEN
-AddSpell(_Char, "Target_Arcana_Util_PROBE_Mark", 1, 0);
-AddSpell(_Char, "Target_Arcana_Util_PROBE_StormPush", 1, 0);
-AddSpell(_Char, "Shout_Arcana_Util_PROBE_OpenPath", 1, 0);
-AddSpell(_Char, "Shout_Arcana_Util_PROBE_Count", 1, 0);
-AddSpell(_Char, "Rush_Arcana_Util_PROBE_Rush", 1, 0);
-AddSpell(_Char, "Rush_Arcana_Util_PROBE_Leap", 1, 0);
-AddSpell(_Char, "Projectile_Arcana_Util_PROBE_Vortex", 1, 0);
-AddPassive(_Char, "PROBE_ARC0026_Touch");
-//END_REGION
-
-//REGION Marks mirrored
-IF
-StatusApplied((CHARACTER)_Foe, "PROBE_ARC0026_MARK", (CHARACTER)_Src, _)
-THEN
-DB_ARCANA_ProbeMark(_Src, _Foe);
-
-IF
-StatusRemoved((CHARACTER)_Foe, "PROBE_ARC0026_MARK", _, _)
-AND
-DB_ARCANA_ProbeMark(_Src, _Foe)
-THEN
-NOT DB_ARCANA_ProbeMark(_Src, _Foe);
-
-// P7: while a player has Probe Open Path, an ally's hit marks the enemy in that player's name
-IF
-AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, _, _, _)
-AND
-DB_Players(_Src)
-AND
-HasActiveStatus(_Src, "PROBE_ARC0026_PATH", 1)
-AND
-_Ally != _Src
-AND
-IsEnemy(_Src, _Foe, 1)
-AND
-IsEnemy(_Src, _Ally, 0)
-THEN
-ApplyStatus(_Foe, "PROBE_ARC0026_MARK", 12.0, 1, _Src);
-//END_REGION
-
-//REGION P8 count, P3 sweep and turn end
-IF
-CastedSpell((CHARACTER)_Src, "Shout_Arcana_Util_PROBE_Count", _, _, _)
-THEN
-PROC_ARCANA_Probe26_Count(_Src);
-PROC_ARCANA_Probe26_Show(_Src);
-
-PROC
-PROC_ARCANA_Probe26_Count((CHARACTER)_Src)
-AND
-DB_ARCANA_Probe26X(_Src, _Old)
-THEN
-NOT DB_ARCANA_Probe26X(_Src, _Old);
-
-PROC
-PROC_ARCANA_Probe26_Count((CHARACTER)_Src)
-THEN
-DB_ARCANA_Probe26X(_Src, 0);
-
-PROC
-PROC_ARCANA_Probe26_Count((CHARACTER)_Src)
-AND
-DB_ARCANA_ProbeMark(_Src, _Foe)
-AND
-IsDead(_Foe, 0)
-AND
-DB_ARCANA_Probe26X(_Src, _N)
-AND
-IntegerSum(_N, 1, _M)
-THEN
-NOT DB_ARCANA_Probe26X(_Src, _N);
-DB_ARCANA_Probe26X(_Src, _M);
-
-// X turns exactly, no cap (Owner, QA-0004); the status is frozen, so the number shown is X (RESONANT_OVERLOAD pattern)
-PROC
-PROC_ARCANA_Probe26_Show((CHARACTER)_Src)
-AND
-DB_ARCANA_Probe26X(_Src, _X)
-AND
-_X > 0
-AND
-IntegerProduct(_X, 6, _Secs)
-AND
-IntegerToReal(_Secs, _Dur)
-THEN
-ApplyStatus(_Src, "PROBE_ARC0026_COUNT", _Dur, 1, _Src);
-
-IF
-TurnStarted((CHARACTER)_Src)
-AND
-HasActiveStatus(_Src, "PROBE_ARC0026_COUNT", 1)
-THEN
-PROC_ARCANA_Probe26_Sweep(_Src);
-
-PROC
-PROC_ARCANA_Probe26_Sweep((CHARACTER)_Src)
-AND
-DB_ARCANA_ProbeMark(_Src, _Foe)
-THEN
-RemoveStatus(_Foe, "PROBE_ARC0026_MARK", _Src);
-
-IF
-TurnEnded((CHARACTER)_Src)
-AND
-DB_Players(_Src)
-AND
-HasActiveStatus(_Src, "PROBE_ARC0026_COUNT", 1)
-THEN
-ApplyStatus(_Src, "PROBE_ARC0026_ENDED", 6.0, 1, _Src);
+RemoveSpell(_Char, "Target_Arcana_Util_PROBE_Mark", 0);
+RemoveSpell(_Char, "Target_Arcana_Util_PROBE_StormPush", 0);
+RemoveSpell(_Char, "Target_Arcana_Util_PROBE_WhereTheWindsMeet", 0);
+RemoveSpell(_Char, "Shout_Arcana_Util_PROBE_OpenPath", 0);
+RemoveSpell(_Char, "Shout_Arcana_Util_PROBE_Count", 0);
+RemoveSpell(_Char, "Shout_Arcana_Util_PROBE_WhereTheWindsMeet", 0);
+RemoveSpell(_Char, "Rush_Arcana_Util_PROBE_Rush", 0);
+RemoveSpell(_Char, "Rush_Arcana_Util_PROBE_Leap", 0);
+RemoveSpell(_Char, "Projectile_Arcana_Util_PROBE_Vortex", 0);
+RemovePassive(_Char, "PROBE_ARC0026_Touch");
+RemoveStatus(_Char, "PROBE_ARC0026_COUNT", _Char);
+RemoveStatus(_Char, "PROBE_ARC0026_ENDED", _Char);
 //END_REGION
 EXITSECTION
 

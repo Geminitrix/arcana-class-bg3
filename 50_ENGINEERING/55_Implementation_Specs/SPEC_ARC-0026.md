@@ -212,3 +212,8 @@ Apply: `[fechado] ARC-0026` → `06_probe_count.patch --apply`, the goal copied 
 **Stage 1 complete (2026-10-17):** after the fix P8 and P3 pass, so all nine probes pass. While testing, the Owner added two
 probes (`Shout_` / `Target_Arcana_Util_PROBE_WhereTheWindsMeet`); the stage 2 cleanup removes them with the other
 `*_PROBE_*` spells. The capstone is now a ground Target (WB50, `40_capstone_names.patch`).
+
+## Stage 2 — applied 2026-10-17
+
+`07_probe_cleanup.patch` (14 removals) → `10_core.patch` → CardDB.lua stage 2 lines → `50_structure.pl --apply --stage 2`.
+The probe goal is now a cleanup goal (delete it at stage 6). Tests: `GUIDE_ARC-0026.json` session S2.
