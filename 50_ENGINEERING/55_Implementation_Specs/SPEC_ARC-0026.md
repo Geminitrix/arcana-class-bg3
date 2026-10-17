@@ -159,3 +159,19 @@ end-state self-check (no Twinkle Toes, no retired passive, four Weightless ranks
 (stage-2 lines) + `50_structure.pl --apply --stage 2`; stage 3 = `20_bag_awakening.patch` + goal + Common rows + CardDB
 stage 3 + `--stage 3`; stage 4 = `30_ranks_cards.patch` + `gen_upcast_variants --apply` + CardDB stage 4 + `--stage 4`;
 stage 5 = `40_capstone_names.patch` + CardDB stage 5 + `--stage 5`. Stage 1 (probes P1–P9) comes first.
+
+## Stage 1 — probes P1–P9 (`[fechado] ARC-0026`) — prepared 2026-10-17
+
+**Files:** `_wip/Unbound/arc0026/05_probes.patch` (22 strings, 15 entries, all in the DEBUG sections; Spell_Rush has none,
+so its two at the end; dry run clean) and `_wip/Unbound/arc0026/ARCANA_Probe_ARC0026.txt` (new goal, ASCII — CRLF when
+copied: grants the 7 probe spells and the Probe Touch passive to every player on SavegameLoaded; the marks' DB mirror,
+the ally-hit mark (`AttackedBy`, `!=`), the count with `IntegerMin` shown as Probe Count's turns, the sweep on
+`TurnStarted`, a marker on `TurnEnded`). **Test:** `61.02/Unbound/GUIDE_ARC-0026.json`, ticket `QA-0004`, on the
+**console edition** (SE off: the PC deck locks Util spells in combat).
+
+**Apply:** the chain of `SPEC_ARC-0020.md` steps 1–3, 6–7, 9–13 (no generator or sort: no card added) — `sync_data`,
+backup, `stats_add 05_probes.patch --apply`, `check_cards`, `stats_add --selftest`, copy the goal into
+`Story/RawFiles/Goals/` (CRLF), counts, `sync_data`, commit + push; the Owner compiles the Story and plays `QA-0004`.
+
+**Cleanup (first task of stage 2):** `@remove` every `PROBE_ARC0026_*` status / passive and `*_PROBE_*` spell, delete the
+goal, and a one-off `RemoveSpell` / `RemovePassive` on SavegameLoaded (AddSpell persists in the save).

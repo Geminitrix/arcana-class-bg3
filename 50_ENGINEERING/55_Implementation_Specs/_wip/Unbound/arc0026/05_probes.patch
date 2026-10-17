@@ -1,0 +1,212 @@
+# ===== ARC-0026 stage 1 — probes P1–P9 (throwaway; stage 2 removes every PROBE entry) =====
+# All entries live in the DEBUG sections (Spell_Rush has none: end of file) and carry PROBE / ARC0026. The spells and
+# the passive reach every player character through ARCANA_Probe_ARC0026.txt (AddSpell / AddPassive on SavegameLoaded),
+# so no list or progression changes. Run on the console edition (SE off): the PC deck locks Util spells in combat.
+# Anchors: Rush = Rush_Arcana_Created_Aspect_LeapOfFaith (mod, using Rush_SpringAttack); mark on a hit = vanilla
+# UND_ServantOfBoooal; the Open Path pair = vanilla MOBILE_NO_AOO / MOBILE_NO_AOO_SOURCE (Interrupt_AttackOfOpportunity);
+# aura = vanilla AURA_OF_PROTECTION; pull = vanilla Projectile_VacuumBulb; Force Tunnel animation = vanilla Rush_ForceTunnel.
+
+@loca PROBE26_MARK_NAME Probe Windswept
+@loca PROBE26_MARK_DESC ARC-0026 probe: the mark. Can't make Opportunity Attacks against a character with Probe Open Path.
+@loca PROBE26_PATH_NAME Probe Open Path
+@loca PROBE26_COUNT_NAME Probe Count
+@loca PROBE26_COUNT_DESC ARC-0026 probes P3/P8: the turns shown are the marks counted, capped at 2. At your next turn start every Probe Windswept goes.
+@loca PROBE26_ENDED_NAME Probe Turn Ended
+@loca PROBE26_PUSH_NAME Probe Storm
+@loca PROBE26_TOUCH_NAME Probe Touch
+@loca PROBE26_MARKSPELL_NAME Probe: Mark
+@loca PROBE26_MARKSPELL_DESC ARC-0026 probe: mark an enemy (no roll).
+@loca PROBE26_RUSH_NAME Probe: Rush
+@loca PROBE26_RUSH_DESC ARC-0026 probes P1/P2: rush up to 9 m to an enemy that isn't marked and strike it. Marked enemies can't be targeted.
+@loca PROBE26_OPENPATH_NAME Probe: Open Path
+@loca PROBE26_OPENPATH_DESC ARC-0026 probe P6: your allies (and you) get Probe Open Path for the fight; marked enemies should not attack them when they walk away.
+@loca PROBE26_COUNTSPELL_NAME Probe: Count
+@loca PROBE26_COUNTSPELL_DESC ARC-0026 probes P3/P8: count your marked enemies, release the marks and start the count.
+@loca PROBE26_VORTEX_NAME Probe: Vortex
+@loca PROBE26_VORTEX_DESC ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.
+@loca PROBE26_LEAP_NAME Probe: Leap
+@loca PROBE26_LEAP_DESC ARC-0026 probe P5: Leap of Faith on the Force Tunnel animation.
+@loca PROBE26_STORM_NAME Probe: Storm Push
+@loca PROBE26_STORM_DESC ARC-0026 probe P9: a status pushes the enemy 3 m away from you and leaves it Off Balance.
+
+# ---------- statuses ----------
+@file Status_BOOST
+@section DEBUG STATUS
+new entry "PROBE_ARC0026_MARK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_MARK_NAME}}"
+data "Description" "{{PROBE26_MARK_DESC}}"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "StackId" "PROBE_ARC0026_MARK"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "StatusPropertyFlags" "TickingWithSource;ForceOverhead"
+data "OnApplyFunctors" "ApplyStatus(MOBILE_NO_AOO,100,-1)"
+data "OnRemoveFunctors" "RemoveStatus(MOBILE_NO_AOO)"
+data "RemoveEvents" "OnCombatEnded"
+
+new entry "PROBE_ARC0026_PATH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_PATH_NAME}}"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "StackId" "PROBE_ARC0026_PATH"
+data "AuraRadius" "30"
+data "AuraStatuses" "IF(Ally()):ApplyStatus(MOBILE_NO_AOO_SOURCE)"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "PROBE_ARC0026_COUNT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_COUNT_NAME}}"
+data "Description" "{{PROBE26_COUNT_DESC}}"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "StackId" "PROBE_ARC0026_COUNT"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "PROBE_ARC0026_ENDED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_ENDED_NAME}}"
+data "Icon" "GenericIcon_Intent_Buff"
+data "StackId" "PROBE_ARC0026_ENDED"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "PROBE_ARC0026_PUSH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_PUSH_NAME}}"
+data "StackId" "PROBE_ARC0026_PUSH"
+data "OnApplyFunctors" "Force(3);ApplyStatus(OFF_BALANCED,100,1)"
+
+new entry "PROBE_ARC0026_MEET_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{PROBE26_VORTEX_NAME}}"
+data "StackId" "PROBE_ARC0026_MEET_TECH"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+# ---------- passive (P7: a hit marks; added by the probe goal) ----------
+@file Passive
+@section DEBUG PASSIVES
+new entry "PROBE_ARC0026_Touch"
+type "PassiveData"
+data "DisplayName" "{{PROBE26_TOUCH_NAME}}"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "IsAttack() and not IsMiss() and not IsCriticalMiss() and Enemy()"
+data "StatsFunctors" "ApplyStatus(PROBE_ARC0026_MARK,100,2)"
+
+# ---------- spells ----------
+@file Spell_Target
+@section Target_DEBUG SPELLS
+new entry "Target_Arcana_Util_PROBE_Mark"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellProperties" "ApplyStatus(PROBE_ARC0026_MARK,100,2)"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and Enemy() and not Dead()"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "DisplayName" "{{PROBE26_MARKSPELL_NAME}}"
+data "Description" "{{PROBE26_MARKSPELL_DESC}}"
+data "UseCosts" ""
+data "SpellFlags" "IsHarmful"
+
+new entry "Target_Arcana_Util_PROBE_StormPush"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellProperties" "ApplyStatus(PROBE_ARC0026_PUSH,100,0)"
+data "TargetRadius" "9"
+data "TargetConditions" "Character() and Enemy() and not Dead()"
+data "Icon" "Spell_Evocation_Thunderwave"
+data "DisplayName" "{{PROBE26_STORM_NAME}}"
+data "Description" "{{PROBE26_STORM_DESC}}"
+data "UseCosts" ""
+data "SpellFlags" "IsHarmful"
+
+@file Spell_Shout
+@section Shout_DEBUG SPELLS
+new entry "Shout_Arcana_Util_PROBE_OpenPath"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellProperties" "ApplyStatus(SELF,PROBE_ARC0026_PATH,100,-1)"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "DisplayName" "{{PROBE26_OPENPATH_NAME}}"
+data "Description" "{{PROBE26_OPENPATH_DESC}}"
+data "UseCosts" ""
+
+new entry "Shout_Arcana_Util_PROBE_Count"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "DisplayName" "{{PROBE26_COUNTSPELL_NAME}}"
+data "Description" "{{PROBE26_COUNTSPELL_DESC}}"
+data "UseCosts" ""
+
+@file Spell_Rush
+@section -
+new entry "Rush_Arcana_Util_PROBE_Rush"
+type "SpellData"
+data "SpellType" "Rush"
+using "Rush_SpringAttack"
+data "Level" "0"
+data "TargetRadius" "9"
+data "MovementSpeed" "60000"
+data "SpellRoll" "Attack(AttackType.MeleeUnarmedAttack)"
+data "SpellSuccess" "DealDamage(UnarmedDamage,Bludgeoning)"
+data "TargetConditions" "Character() and Enemy() and not Dead() and not HasStatus('PROBE_ARC0026_MARK')"
+data "Icon" "Action_Monk_StepOfTheWind_Dash"
+data "DisplayName" "{{PROBE26_RUSH_NAME}}"
+data "Description" "{{PROBE26_RUSH_DESC}}"
+data "UseCosts" "BonusActionPoint:1;"
+data "SpellFlags" "IsMelee;IsHarmful"
+data "DamageType" "Bludgeoning"
+data "Sheathing" "DontChange"
+
+new entry "Rush_Arcana_Util_PROBE_Leap"
+type "SpellData"
+data "SpellType" "Rush"
+using "Rush_Arcana_Created_Aspect_LeapOfFaith"
+data "Cooldown" ""
+data "SpellProperties" ""
+data "DisplayName" "{{PROBE26_LEAP_NAME}}"
+data "Description" "{{PROBE26_LEAP_DESC}}"
+data "SpellAnimation" "b94b9184-9bd0-4840-be7d-003700173b37,,;,,;5df11e35-f081-44f7-bd6f-7049d0e533cd,,;8dccb0f6-24e3-44b7-a60b-1f217b7db523,,;066f8e0e-b3e1-4b76-a473-d1e23a3b7230,,;,,;7a28f440-1b0b-4a18-96a8-3767959b601a,,;,,;,,"
+
+@file Spell_Projectile
+@section Projectile_DEBUG SPELLS
+new entry "Projectile_Arcana_Util_PROBE_Vortex"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_VacuumBulb"
+data "Level" "0"
+data "SpellProperties" "GROUND:CreateExplosion(Projectile_Arcana_Util_PROBE_VortexInner)"
+data "TargetRadius" "18"
+data "AreaRadius" "9"
+data "ExplodeRadius" "9"
+data "SpellRoll" ""
+data "SpellSuccess" "ApplyStatus(PROBE_ARC0026_MEET_TECH,100,1);Force(-9, TargetToEntity);ApplyStatus(OFF_BALANCED,100,1)"
+data "TargetConditions" "Enemy() and not Dead() and HasStatus('PROBE_ARC0026_MARK') and not HasStatus('PROBE_ARC0026_MEET_TECH')"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "DisplayName" "{{PROBE26_VORTEX_NAME}}"
+data "Description" "{{PROBE26_VORTEX_DESC}}"
+data "UseCosts" ""
+
+new entry "Projectile_Arcana_Util_PROBE_VortexInner"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_Util_PROBE_Vortex"
+data "SpellProperties" ""
+data "AreaRadius" "6"
+data "ExplodeRadius" "6"
+data "SpellSuccess" "ApplyStatus(PROBE_ARC0026_MEET_TECH,100,1);Force(-6, TargetToEntity);ApplyStatus(OFF_BALANCED,100,1)"
+data "TargetConditions" "Enemy() and not Dead() and not HasStatus('PROBE_ARC0026_MEET_TECH')"

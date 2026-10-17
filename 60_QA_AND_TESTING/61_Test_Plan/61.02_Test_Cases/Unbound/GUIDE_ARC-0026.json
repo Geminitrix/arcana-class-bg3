@@ -1,0 +1,93 @@
+{
+   "ticket" : "ARC-0026",
+   "title" : "The Windborn — stage 1 probes",
+   "before" : [
+      "Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 message), the Story is compiled and log.txt shows 0 error(s), 0 warning(s).",
+      "Console edition: Script Extender off (the PC deck locks the probe spells in combat).",
+      "Load a save with the party; the probe spells (\"Probe: ...\") and the passive Probe Touch are added to every player character on load.",
+      "Any class and level. Probes are throwaway: stage 2 removes them.",
+      "Write down what you see for each probe, even when it fails: every probe has a plan B."
+   ],
+   "sessions" : [
+      {
+         "id" : "PR",
+         "level" : 1,
+         "name" : "Probes",
+         "setup" : "A fight with at least four enemies, spread out, and one ally in melee with an enemy. One character runs the probes.",
+         "tests" : [
+            {
+               "id" : "P1",
+               "rule" : "SPEC_ARC-0026 P1 (the Rush carries her, WB5)",
+               "title" : "A Rush: no opportunity attack, paths around obstacles",
+               "steps" : "Stand next to an enemy. Cast Probe: Rush on another enemy 6-9 m away, behind a table or a corner if you can",
+               "expected" : "The character runs to the target and strikes it; the enemy she leaves makes no opportunity attack; she goes around the obstacle",
+               "fails" : "An opportunity attack on the way, or the Rush stops at the obstacle or refuses the target behind it"
+            },
+            {
+               "id" : "P2",
+               "rule" : "SPEC_ARC-0026 P2 (Rush only to an unmarked enemy)",
+               "title" : "Marked enemies can't be rushed",
+               "steps" : "Cast Probe: Mark on one enemy. Open Probe: Rush and hover the marked enemy, then an unmarked one",
+               "expected" : "The marked enemy can't be targeted (greyed or refused); the unmarked one can",
+               "fails" : "The marked enemy can be targeted"
+            },
+            {
+               "id" : "P6",
+               "rule" : "SPEC_ARC-0026 P6 (the Open Path, WB10: the vanilla Mobile pair)",
+               "title" : "A marked enemy makes no opportunity attack",
+               "steps" : "Cast Probe: Open Path. Mark the enemy next to your melee ally with Probe: Mark. On the ally's turn, walk away from it. Then do the same next to an unmarked enemy",
+               "expected" : "Marked: no opportunity attack. Unmarked: the usual opportunity attack",
+               "fails" : "The marked enemy still attacks (plan B: a mark that blocks every reaction)"
+            },
+            {
+               "id" : "P7",
+               "rule" : "SPEC_ARC-0026 P7 (marks from hits — hers and an ally's)",
+               "title" : "A hit marks; an ally's hit marks in her name",
+               "steps" : "Hit an unmarked enemy with any attack (Probe Touch marks it). With Probe Open Path on you, let an ally hit another enemy",
+               "expected" : "Both enemies show Probe Windswept; the mark ticks down on your turns (2 of your turns)",
+               "fails" : "No mark, the ally's hit does not mark, or the mark counts down on the enemy's turns"
+            },
+            {
+               "id" : "P8",
+               "rule" : "SPEC_ARC-0026 P8 (X counted and capped)",
+               "title" : "The bag's X: marks counted, capped at 2",
+               "steps" : "Mark 3 enemies. Cast Probe: Count",
+               "expected" : "Probe Count appears on you showing 2 turns (3 marks, capped at 2); with 1 mark it shows 1 turn",
+               "fails" : "No status, or the turns don't match the marks"
+            },
+            {
+               "id" : "P3",
+               "rule" : "SPEC_ARC-0026 P3 (the sweep at her turn start; her turn end)",
+               "title" : "Turn start sweeps the marks; turn end is seen",
+               "steps" : "After P8, end your turn, then start your next turn",
+               "expected" : "At your turn end Probe Turn Ended shows on you; at your next turn start every Probe Windswept is gone",
+               "fails" : "The marks stay, or Probe Turn Ended never shows"
+            },
+            {
+               "id" : "P4",
+               "rule" : "SPEC_ARC-0026 P4 (Where the Winds Meet, two radii)",
+               "title" : "The vortex pulls marked enemies from 9 m, the others from 6 m, once each",
+               "steps" : "Mark one enemy about 8 m from a point; leave another unmarked 5 m from it and a third unmarked 8 m from it. Throw Probe: Vortex at the point",
+               "expected" : "The marked enemy at 8 m and the unmarked one at 5 m are pulled to the point and Off Balance, once each; the unmarked one at 8 m is not",
+               "fails" : "An enemy pulled twice, the marked one not pulled, or the unmarked one at 8 m pulled (plan B: one 9 m pull for every enemy)"
+            },
+            {
+               "id" : "P5",
+               "rule" : "SPEC_ARC-0026 P5 (Leap of Faith on the Force Tunnel animation, WB7)",
+               "title" : "Leap of Faith with the Force Tunnel animation",
+               "steps" : "Cast Probe: Leap through a line of two enemies",
+               "expected" : "A dash-through animation (the Force Tunnel tadpole power), striking each enemy in the path",
+               "fails" : "No animation, a broken pose, or it stops at the first enemy (plan B: keep the Spring Attack animation)"
+            },
+            {
+               "id" : "P9",
+               "rule" : "SPEC_ARC-0026 P9 (a status pushes away from its source)",
+               "title" : "Into the Storm: the push from a status",
+               "steps" : "Cast Probe: Storm Push on an enemy 3-6 m away",
+               "expected" : "The enemy is pushed about 3 m away from you and is Off Balance",
+               "fails" : "No push, or pushed toward you or sideways (plan B: the goal casts a shove-like spell)"
+            }
+         ]
+      }
+   ]
+}

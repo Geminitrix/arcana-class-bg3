@@ -47,3 +47,4 @@ created: 2026-10-17
 - 2026-10-17 — Task 0.5 done: `30_ranks_cards.patch` (10+20+30 dry run clean), patch 10 corrected (Gale Burst variants), CardDB stage-4 lines; texts addendum §H for the Owner. Nothing in the game changed.
 - 2026-10-17 — Owner approved the texts addendum §H. Task 0.6 done: `40_capstone_names.patch` (10–40 dry run clean). Nothing in the game changed.
 - 2026-10-17 — Task 0.7 done: `50_structure.pl` (9 lists, 53 row edits per side, `--stage N`; tested on a copy, idempotent). **Stage 0 complete.** Next: stage 1, the probes P1–P9 (`[fechado] ARC-0026`). Nothing in the game changed.
+- 2026-10-17 — Stage 1 prepared: `05_probes.patch` (15 DEBUG entries, dry run clean), `ARCANA_Probe_ARC0026.txt`, guide `GUIDE_ARC-0026.json` (9 probes) and playtest `QA-0004`. Waiting for `[fechado] ARC-0026`. Nothing in the game changed.

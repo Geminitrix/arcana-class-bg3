@@ -18,6 +18,12 @@
             "61.02_Test_Cases/Starchild/GUIDE_ARC-0025.json"
          ],
          "name" : "Features"
+      },
+      {
+         "guides" : [
+            "61.02_Test_Cases/Unbound/GUIDE_ARC-0026.json"
+         ],
+         "name" : "Windborn"
       }
    ]
 }

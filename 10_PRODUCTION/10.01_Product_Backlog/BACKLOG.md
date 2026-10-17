@@ -25,5 +25,7 @@
 | [ARC-0011](stories/ARC-0011_Resonant_Text_Fixes.md) | Resonant: two descriptions behind the mechanic | chore | Narrative | could | 2/1 | backlog | pending |  |
 | [QA-0001](playtests/QA-0001_Resonant_ARC-0017.md) | Playtest — The Resonant after the refining (R49-R68) | playtest | QA |  | / | ready | owner |  |
 | [QA-0002](playtests/QA-0002_Kingmaker_ARC-0008.md) | Playtest — The Kingmaker (levels 1-12) | playtest | QA |  | / | ready | owner |  |
+| [QA-0003](playtests/QA-0003_Starchild_ARC-0025.md) | Playtest — The Starchild — stage 1 probes | playtest | QA |  | / | ready | owner |  |
+| [QA-0004](playtests/QA-0004_Unbound_ARC-0026.md) | Playtest — The Windborn — stage 1 probes | playtest | QA |  | / | ready | owner |  |
 
 Done tickets: 7.
