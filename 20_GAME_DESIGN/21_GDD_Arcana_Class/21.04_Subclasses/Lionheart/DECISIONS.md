@@ -1,6 +1,12 @@
+---
+id: 21.04/Lionheart/DECISIONS
+owner: Lead Class Designer
+role: source of the Lionheart dossier (00.08) — every decision is logged here the moment it is taken
+---
+
 # The Lionheart (was the Titan) — design decisions (ARC-0009)
 
-Working note for the design of **VIII · Strength**. Decisions LH1 on, from the design conversation of
+Working note for the design of **VIII · Strength**. Moved here on 2026-10-17 from `55/_wip/Lionheart/decisions.md` (OR-21). Decisions LH1 on, from the design conversation of
 2026-10-14 (process: `21.04_Subclasses/_SUBCLASS_STANDARD.md` §1.2). No numbers here (ADR-0005).
 
 ## Directions considered
@@ -125,8 +131,8 @@ Villain choice in Osiris (`GetMaxHitpoints`, `GetLevel`, enumerating combatants 
 ### Next topics (in order)
 
 1. Rules settled (open questions 1–4, 6–7); T2 results are in the findings table below. Strangle's damage type confirmed (LH71).
-2. Names and texts (open question 5, 8) → `55/_wip/Lionheart/texts.md`.
-3. Design spec written: `21.04/Lionheart/2026-10-15-lionheart-design.md` (author review pending); the §3 audit goes to `05.02_Subclasses/Lionheart.md`.
+2. Names and texts (open question 5, 8) → `32.01/Lionheart.md`.
+3. Design spec written: `21.04/Lionheart/DESIGN.md` (author review pending); the §3 audit goes to `05.02_Subclasses/Lionheart.md`.
 4. Balance pass: numbers to `25.01` / `25.02`, report in `22.05` (every draft value above).
 5. `21.08` role/axis column; handoffs (Context Keeper, Lore Writer, Localization); `SPEC_ARC-0009`, `TOOLKIT_ARC-0009`.
 

@@ -25,7 +25,7 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 | Eternal | XIII · Death | Existing — rework |
 | Resonant | XIV · Temperance | Implemented — raised (ARC-0002) |
 | Kingmaker | X · Wheel of Fortune | Implemented — built 1–12 (ARC-0008), probes pending |
-| Lionheart | — | New — in design |
+| Lionheart | VIII · Strength | New — designed (ARC-0009), build pending |
 
 ## Repository map
 

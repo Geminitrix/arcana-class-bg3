@@ -180,6 +180,18 @@ container with three children (Stars · Sun · Moon): translate the container an
 > Note (Lore Writer, 2026-10-15): the sections above describe the **pre-rework** mod (Arcane Cards, Arcane Shards).
 > The whole file needs a rework pass — proposed as its own ticket.
 
+## The Lionheart (reviewed 2026-10-17 ARC-0027 — propagation of ARC-0009, LH1–LH76; designed, no strings in the game yet)
+
+| English | Meaning | Never |
+|---|---|---|
+| Villain | The enemy with the highest maximum HP, the Lionheart's target | Nemesis (the Kingmaker's Tier II) |
+| Courage | The resource gained by standing before the Villain (vanilla has the Paladin's *Aura of Courage*: ids keep the `LIONHEART_` prefix, DESIGN §12.5) | — |
+| Lion · Maiden | The two forms; card sides are *Lion's X* / *Maiden's X* | — |
+| Claw / Grip, Pounce / Shelter, Rend / Throw, Roar / Seal, Fang / Palm, Strangle the Lion, Lion's Judgement, Infinity | The cards | — |
+| Stand Before the Beast, Drawing Steel, The Garland I / II, Second Edge, The Ordeal, Turn the Blow | Passives and the reaction | — |
+| The Nemean Lion (*Wear the Hide*) · The Hydra (*Many Heads*) · Aspect of Courage (*The Twelfth Labour*) | Awakening tiers I · II · III | — |
+| The Lionheart | The subclass | Titan (internal name only) |
+
 ## Known unresolved terminology issue
 
 **`Crippling Pinch`** (the [[Base Class#Arcane Familiar — L1 (pick 1 of 7)|Crab familiar]]'s attack) points at the LSTag of the vanilla Crab familiar's attack, which in vanilla is actually called **`Maiming Pinch`** (`Beliscão Mutilante` in PT-BR). This mismatch propagates to all 14 non-English languages until fixed — check `GLOSSARY.md` for current status before assuming it's resolved.

@@ -1,3 +1,10 @@
+---
+id: 32.01/Lionheart
+owner: Lore Writer
+source: 21.04/Lionheart/DECISIONS.md LH74 · DESIGN.md §11
+reviewed: 2026-10-17 ARC-0027 — moved from 55/_wip/Lionheart/texts.md (OR-21); nothing in the game yet (the Titan placeholder shows the Resonant's level-1 kit)
+---
+
 # The Lionheart — voice and identity texts (ARC-0009)
 
 Approved by the author on 2026-10-14 (decision LH74). English, Larian voice (`31.03`), formulas of `31.01` §5.

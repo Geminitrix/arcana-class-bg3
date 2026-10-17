@@ -13,7 +13,7 @@
 | **Awakened I/II/III** | Visible status listing active tier bonuses (`ASPECT_AWAKENED_<X>_I/II/III`) |
 | **Aspect card** | The Created card unlocked at Tier I (Leap of Faith, The Veil Lifts, Wish Upon a Star, The Final Toll) |
 | **Mystra / the Weave** | Goddess of magic / the fabric of magic; the class's patron and theme |
-| **Titan** | Subclass in development (red), based on the tarot's **Strength** (VIII); has a ClassDescription, progression table and icons, and is selectable at level 1 |
+| **Lionheart** | Subclass (VIII · **Strength**, **Aspect of Courage**; crimson), was the *Titan*: designed (ARC-0009), not built. The game's progression and ClassDescription keep the internal name `Titan` (LH1) |
 | **Kingmaker** | Subclass (X · **Wheel of Fortune**, **Aspect of Anticipation**; teal), was the *Spinner* (renamed in ARC-0008); creatures ride the Wheel's four positions. Built 1–12; internal progression name and ids keep `Kingmaker` |
 | **Secondary ability** | The subclass's own stat beside Intelligence: Unbound DEX, Deceiver CHA, Starchild WIS, Eternal CON |
 
@@ -86,3 +86,8 @@
 | **Hubris** | Kingmaker | An enemy that reigned; its next Crossing deals one extra die (`KINGMAKER_HUBRIS`) |
 | **The Court / Convene the Court** | Kingmaker | Offices named out of combat until the Long Rest (`Target_Arcana_Util_ConveneTheCourt`, `COURT_*`): King's Hand, Lord Commander, Master of Healing, Master of Laws, Master of Secrets, Master of Coin, Master of Ships |
 | **Tyche · Nemesis · Aspect of Anticipation** | Kingmaker | Awakening tiers I · II · III (goal: Crossings) |
+| **Villain** | Lionheart | The enemy with the highest maximum HP; the Lionheart's target until it dies or leaves (`LIONHEART_VILLAIN`) |
+| **Courage** | Lionheart | Gained by standing in the Villain's reach or being attacked by it; spent by card prices (`LIONHEART_COURAGE_1…7`) |
+| **Lion · Maiden** | Lionheart | The two forms: steel (damage, reduction) and open hands (control, the Villain's penalty against others) |
+| **Lion's X / Maiden's X** | Lionheart | The two sides of each card container (Claw / Grip, Pounce / Shelter, Rend / Throw, Roar / Seal, Fang / Palm) |
+| **The Nemean Lion · The Hydra · Aspect of Courage** | Lionheart | Awakening tiers I · II · III (goal: Courage spent) |

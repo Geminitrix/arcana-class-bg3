@@ -1,3 +1,10 @@
+---
+id: 21.04/Lionheart/DESIGN
+owner: Lead Class Designer
+state: design written (work flow stage 3) — Owner review pending; balance pass pending (every *(25)* value); not built
+reviewed: 2026-10-17 ARC-0027 — propagation (00.08): renamed from 2026-10-15-lionheart-design.md; decisions and texts moved out of 55/_wip
+---
+
 # The Lionheart — VIII · Strength · Aspect of Courage
 
 > Design document for the Arcana's subclass **The Lionheart** (internal name *Titan*). It describes everything
@@ -5,8 +12,8 @@
 > Aspect Awakening, the progression, the edge cases and the technical pattern that builds it.
 >
 > Designed 2026-10-11 → 2026-10-15 through the process in `21.04_Subclasses/_SUBCLASS_STANDARD.md` (ticket
-> ARC-0009; decisions LH1–LH76 in `55_Implementation_Specs/_wip/Lionheart/decisions.md`, texts in
-> `_wip/Lionheart/texts.md`). Every gameplay effect lives in Stats, Osiris and Khonsu, so the subclass runs in
+> ARC-0009; decisions LH1–LH76 in `DECISIONS.md`, texts in
+> `32.01/Lionheart.md`). Every gameplay effect lives in Stats, Osiris and Khonsu, so the subclass runs in
 > **both editions** (PC with the deck, console without Script Extender).
 >
 > **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this spec says *(25)*; values
@@ -445,7 +452,7 @@ two from Tier II.
 ## 11. Text
 
 English, Larian voice (`31.03`), following the formulas of `31.01` §5. Narrative gate: `32.04`. Texts approved
-in `_wip/Lionheart/texts.md` (LH74).
+in `32.01/Lionheart.md` (LH74).
 
 - **Class description:** *"Mystra wove the Lionheart from the moment fear is faced instead of fled, a thread looped
   back on itself that never comes to an end. They mark the greatest beast on the field and stand before it,

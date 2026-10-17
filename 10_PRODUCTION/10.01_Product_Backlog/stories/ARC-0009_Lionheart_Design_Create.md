@@ -11,7 +11,7 @@ priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 05.02/Lionheart.md, 21.08_Subclass_Matrix.md, 10.06_Impediments/Open_Questions.md]
-outputs: [55/_wip/Lionheart/decisions.md, 21.04/Lionheart/YYYY-MM-DD-lionheart-design.md, 55/_wip/Lionheart/texts.md, 25.01/SPL_Lionheart_*, 25.02/FEAT_Lionheart_*, 22.05/YYYY-MM-DD_ARC-0009_Lionheart_Balance.md, 55/SPEC_ARC-0009.md, 55/TOOLKIT_ARC-0009.md]
+outputs: [21.04/Lionheart/DECISIONS.md, 21.04/Lionheart/DESIGN.md, 32.01/Lionheart.md, 21.03/Lionheart.md, 23.02/Lionheart/, 22.05/Lionheart.md, 26.01/Lionheart.md, 31.02/Lionheart.md, 42.04/Lionheart.md, 61.02/Lionheart/TC_ARC-0009.md, 05.02/Lionheart.md; pending: 25.01/SPL_Lionheart_*, 25.02/FEAT_Lionheart_* (balance pass), 55/SPEC_ARC-0009.md, TOOLKIT_ARC-0009_L<n>.md]
 blocked_by: []
 sprint:
 created: 2026-10-14
@@ -73,3 +73,4 @@ ProgressionDescription still reads *Titan*. They are synced to `51` and wait for
 - 2026-10-15 — brainstorm continued in the cloud session up to LH61 (chassis, Awakening, ultimate, capstone
   *Lion's Judgement*, full 1–12 progression, form dice and defences). Hand-off to the Claude Desktop session:
   open questions, T2 checks and next topics at the end of `55/_wip/Lionheart/decisions.md`.
+- 2026-10-17 — Propagated (00.08) by ARC-0027 in each role: decisions and texts moved out of `55/_wip` (`21.04/Lionheart/DECISIONS.md`, `32.01/Lionheart.md`), design renamed `DESIGN.md`; `21.03`, `21.08` column, 15 sheets in `23.02/Lionheart/`, `22.05` (no balance pass yet) and `26.01`, `31.01` rows (Titan → Lionheart), `31.02`, `33.03` terms, `42.04`, `61.02/Lionheart/TC_ARC-0009.md`, `05.02` with the Depth audit, `05.00`, README. Still due (work flow stage 3): the Owner's design review, then the balance pass (`25`, `22.05`).
