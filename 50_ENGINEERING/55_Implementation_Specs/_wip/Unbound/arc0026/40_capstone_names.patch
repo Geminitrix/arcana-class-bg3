@@ -1,0 +1,78 @@
+# ===== ARC-0026 stage 5 — Where the Winds Meet, the subclass name (WB0, WB26, WB46) =====
+# Texts: approved (00_texts.md A1–A5, D4–D6). Values: 25 SPL_Unbound_WhereTheWindsMeet. Hurricane (WB15) is in 30.
+# Anchor: vanilla Projectile_VacuumBulb (a thrown point that pulls to its centre) and Projectile_MAG_PullingShout_Explosion
+# (Force(-6, TargetToEntity) on a DEX save). Two radii (P4 plan A): the projectile's own explosion takes Windswept
+# enemies within 9 m; the inner one (CreateExplosion at the point) takes every other enemy within 6 m. A tech status
+# keeps an enemy from being caught twice — P4 checks the order; plan B: one 9 m explosion for every enemy.
+
+@loca WB_WINDSWEPT_NAME Windswept
+@loca WB_MEET_NAME Where the Winds Meet
+@loca WB_MEET_DESC Call the four winds to a single point. Enemies around it are pulled to its centre, take [1] and become <LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT">Windswept</LSTag> and <LSTag Type="Status" Tooltip="OFF_BALANCED">Off Balance</LSTag>.
+@loca WB_MEET_EXTRA Windswept enemies are pulled from farther away. A successful <LSTag Tooltip="SavingThrow">Dexterity Saving Throw</LSTag> halves the damage.<br><br>Can only be used while no wind blows.
+@file Spell_Projectile
+@section -
+new entry "Projectile_Arcana_Created_WhereTheWindsMeet"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_VacuumBulb"
+data "Level" "0"
+data "SpellSchool" "Evocation"
+data "Cooldown" "OncePerRest"
+data "SpellProperties" "GROUND:CreateExplosion(Projectile_Arcana_WhereTheWindsMeet_Inner)"
+data "TargetRadius" "18"
+data "AreaRadius" "9"
+data "ExplodeRadius" "9"
+data "SpellRoll" "not SavingThrow(Ability.Dexterity, SourceSpellDC())"
+data "SpellSuccess" "ApplyStatus(ARCANA_WINDS_MEET_TECH,100,1);Force(-9, TargetToEntity);DealDamage(4d8,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
+data "SpellFail" "ApplyStatus(ARCANA_WINDS_MEET_TECH,100,1);Force(-9, TargetToEntity);DealDamage((4d8)/2,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
+data "TargetConditions" "Enemy() and not Dead() and HasStatus('ARCANA_WINDSWEPT') and not HasStatus('ARCANA_WINDS_MEET_TECH') and not HasPassive('ARCANA_IS_CARD', context.Source)"
+data "CycleConditions" "Enemy() and not Dead()"
+data "Icon" "Spell_Evocation_GustOfWind"
+data "DisplayName" "{{WB_MEET_NAME}}"
+data "Description" "{{WB_MEET_DESC}}"
+data "DescriptionParams" "DealDamage(4d8,Thunder)"
+data "ExtraDescription" "{{WB_MEET_EXTRA}}"
+data "TooltipDamageList" "DealDamage(4d8,Thunder)"
+data "TooltipAttackSave" "Dexterity"
+data "TooltipStatusApply" "ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
+data "Requirements" "Combat"
+data "RequirementConditions" "not HasStatus('ARCANA_BAG_OPEN') and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)"
+data "UseCosts" "ActionPoint:1;"
+data "SpellFlags" "IsSpell;HasSomaticComponent;IsHarmful;AddFallDamageOnLand;CanAreaDamageEvade"
+data "DamageType" "Thunder"
+
+new entry "Projectile_Arcana_WhereTheWindsMeet_Inner"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Arcana_Created_WhereTheWindsMeet"
+data "Cooldown" ""
+data "SpellProperties" ""
+data "AreaRadius" "6"
+data "ExplodeRadius" "6"
+data "SpellSuccess" "ApplyStatus(ARCANA_WINDS_MEET_TECH,100,1);Force(-6, TargetToEntity);DealDamage(4d8,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
+data "SpellFail" "ApplyStatus(ARCANA_WINDS_MEET_TECH,100,1);Force(-6, TargetToEntity);DealDamage((4d8)/2,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2)"
+data "TargetConditions" "Enemy() and not Dead() and not HasStatus('ARCANA_WINDS_MEET_TECH')"
+data "Requirements" ""
+data "RequirementConditions" ""
+data "UseCosts" ""
+
+@file Status_BOOST
+@section UNBOUND STATUS
+new entry "ARCANA_WINDS_MEET_TECH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{WB_MEET_NAME}}"
+data "StackId" "ARCANA_WINDS_MEET_TECH"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+# INTERRUPT_GALE_DEFLECT_MISSILES_HIT showed its id in the combat log (32.01 review note).
+@set INTERRUPT_GALE_DEFLECT_MISSILES_HIT StatusPropertyFlags "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+# --- The subclass (A1–A5): The Windborn. Internal name Unbound stays (ADR-0002).
+@loca h8bcf3e57gbc72gd8bbg1503g0762e93077a9 The Windborn
+@loca hf4767ceag7e98g7466g81cdg572e1744f0aa The Windborn
+@loca h869a34deg0c99gfa1bg8672g22a4fb8339b4 The Windborn
+@loca h9a3184f7g73a8g6169g04a6g6dc398547d7f The Windborn follows the Weave into the unknown, touching every foe once and riding the wind to the next.
+@loca hf756bce1g79bag5985ga624gb4cc6e843978 Mystra wove the Windborn from the first step of every journey, a thread that answers only to curiosity and the open road. They wear no armour and strike with open hands and moving air, carried from one foe to the next until the winds they gather break loose.
+@loca he3d63e7ege30bg4ab2gb047ga84261db272b Windborn's Robe
+@loca hd9d08b83g0a51g6c77g9187g4e63243b7a82 Arcane Spells: The Windborn

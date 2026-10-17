@@ -91,7 +91,7 @@ Every card below drops "Afterwards, you can make a Zephyr Strike as a bonus acti
 
 ## G · Removed with their entries (no text): True Strike from the subclass, Evasive Flow, Thunderclap, Momentum, Eye of the Storm, Twinkle Toes, Feather Fall, Wanderlust / Restless Wind / Aspect of Curiosity / Fool's Luck texts.
 
-## H · Addendum (Task 0.5, 2026-10-17) — texts the draft did not have; Owner check pending
+## H · Addendum (Task 0.5, 2026-10-17) — texts the draft did not have; Owner-approved 2026-10-17
 
 | # | Entry | Text |
 |---|---|---|

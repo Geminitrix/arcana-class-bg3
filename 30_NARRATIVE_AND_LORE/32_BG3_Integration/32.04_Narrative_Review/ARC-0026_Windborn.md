@@ -18,6 +18,7 @@ Result: **pass** — Owner, 2026-10-17 ("pode seguir", after the draft was sent)
 | The Calm, Where the Winds Meet (D1–D6) | | Owner-approved |
 | The Awakening (E1–E5) | The First Step, Fellow Travellers, Into the Storm | Owner-approved |
 | Kept cards and passives (F1–F10) | "Afterwards…" dropped; Be the Leaf with INT; Weightless | Owner-approved |
+| Addendum §H (H1–H5) | rank passives Gale and Storm, Storm Fists status, Gale Deflection with an ally, Weightless wording | Owner-approved 2026-10-17 |
 
 Style checks on the draft: British spelling, no em dash, single quotes only, `[n]` as noun phrases, first mention
 tagged. Vanilla name collisions (ARC-0021): to check against the corpus before the gate closes.

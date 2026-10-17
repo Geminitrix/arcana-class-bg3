@@ -135,3 +135,11 @@ family line (`DB_ARCANA_CardFamily`) goes in the goal draft (0.4); Weaver Hand s
 - **Apply order:** each patch repeats the `@loca` keys it borrows; 30 alone needs `Rush_Arcana_Created_ZephyrRush`
   from 10 (applied in stage 2) — dry run them in order.
 - **Texts:** `00_texts.md` §H — the rank passives' texts and two small wordings, for the Owner to check (gate addendum).
+
+### Task 0.6 · the capstone and the name — `40_capstone_names.patch` (done 2026-10-17; dry run of 10–40 clean: 82 strings, 43 new entries, 53 fields, 34 removals)
+
+`Projectile_Arcana_Created_WhereTheWindsMeet` (vanilla `Projectile_VacuumBulb` parent; 18 m; action; `OncePerRest`;
+only without `ARCANA_BAG_OPEN`; DEX save halves the 4d8 Thunder; pull, Off Balance, mark on both outcomes) — its own
+9 m explosion takes Windswept enemies, `Projectile_Arcana_WhereTheWindsMeet_Inner` (6 m, `CreateExplosion` at the
+point) every other enemy; `ARCANA_WINDS_MEET_TECH` stops a double catch (P4). The subclass strings A1–A5 say *The
+Windborn*. `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` hidden. CardDB: the capstone as a 0-Thread card.

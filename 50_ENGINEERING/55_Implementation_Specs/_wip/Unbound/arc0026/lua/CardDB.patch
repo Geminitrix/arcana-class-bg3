@@ -27,3 +27,7 @@
     ["Rush_Arcana_Created_Aspect_LeapOfFaith"] = { aspect = "Unbound", cost = 0 },
 # In D.statusConjures:
     ARCANA_STORM_RUSH = { id = "Rush_Arcana_Created_ZephyrRush_Storm", lasts = 1 },
+
+# ARC-0026 stage 5 — the capstone (no slot, once per Long Rest). Same check as Leap of Faith in stage 5.
+# In D.cards:
+    ["Projectile_Arcana_Created_WhereTheWindsMeet"] = { aspect = "Unbound", cost = 0 },

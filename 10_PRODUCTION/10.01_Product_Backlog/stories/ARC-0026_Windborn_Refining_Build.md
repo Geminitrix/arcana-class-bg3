@@ -45,3 +45,4 @@ created: 2026-10-17
 - 2026-10-17 — Narrative gate passed (Owner, "pode seguir"). Task 0.3 done: `10_core.patch` (dry run clean) + `lua/CardDB.patch`; P2 switched to two created cards (Wind Riposte inherits the strike; `stats_add` needs `Rush_` for a Rush). Nothing in the game changed.
 - 2026-10-17 — Task 0.4 done: `20_bag_awakening.patch` (dry run with 10 clean), `22_goal_fool.txt` (goal rewrite), CardDB stage-3 lines; probe P9 added (Force from a status functor). Nothing in the game changed.
 - 2026-10-17 — Task 0.5 done: `30_ranks_cards.patch` (10+20+30 dry run clean), patch 10 corrected (Gale Burst variants), CardDB stage-4 lines; texts addendum §H for the Owner. Nothing in the game changed.
+- 2026-10-17 — Owner approved the texts addendum §H. Task 0.6 done: `40_capstone_names.patch` (10–40 dry run clean). Nothing in the game changed.
