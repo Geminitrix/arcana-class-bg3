@@ -6,6 +6,8 @@ reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0
 status: planned — part A (probes) runs first in the build ticket; parts B and C after the build
 ---
 
+> **Superseded by `GUIDE_ARC-0026.json (QA-0005)`** (OR-4, 2026-10-17): the in-game tests live in the guide; this file is kept as the design-stage record.
+
 # TC_ARC-0022 · The Windborn — the Open Road build
 
 **Decision it informs:** close the Windborn build, or send a failing rule back to the Lead Class Designer.

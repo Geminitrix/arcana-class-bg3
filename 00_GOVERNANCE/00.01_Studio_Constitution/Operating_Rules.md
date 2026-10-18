@@ -34,6 +34,10 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
   (the spec is right but it doesn't play well → a new decision in `DECISIONS.md`, back to stage 3 for that part).
 - **OR-2** Work that doesn't touch the game (a document, a tool, a page) skips stages 4–5.
 - **OR-3** No stage is skipped silently: if the Owner wants to jump ahead, log it in the ticket.
+- **OR-4** Test documents: `TC_ARC-<design>.md` is the draft (stage 3); **`GUIDE_ARC-<build>.json`** is the playtest
+  document, level by level, written before the build (stage 4); its **`QA-####`** ticket is its card on the board's
+  Playtests tab (`in_qa` during stage 5, `done` when every test passes or is skipped). Format and ids:
+  `61_Test_Plan/GUIDE_FORMAT.md`, checked by `playtests.pl check`. A test with a result is never renumbered.
 
 ## 2. The game and the write gate
 

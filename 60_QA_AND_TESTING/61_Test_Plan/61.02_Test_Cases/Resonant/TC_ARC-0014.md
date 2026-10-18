@@ -6,6 +6,8 @@ reviewed: 2026-10-16 ARC-0014 — created (propagation, 00.08); planned, runs af
 status: planned — nothing to run until the R49–R68 build ships
 ---
 
+> **Superseded by `GUIDE_ARC-0017.json (QA-0001)`** (OR-4, 2026-10-17): the in-game tests live in the guide; this file is kept as the design-stage record.
+
 # TC_ARC-0014 · The Resonant after the refining (R49–R68)
 
 **Decision it informs:** close the ARC-0014 build, or send a failing rule back to the Lead Class Designer.

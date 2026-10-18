@@ -18,9 +18,9 @@
 | [ARC-0017](stories/ARC-0017_Resonant_Refining_Build.md) | "Resonant refining build — R49–R68 in the game" | feature | Mod Engineer | should | 5/5 | in_qa | owner | S01 |
 | [ARC-0021](stories/ARC-0021_Subclass_Names_Compound.md) | "Subclass names in one style: rename Deceiver, Unbound, Eternal and Resonant" | design | Lore Writer | should | 3/3 | ready | pending |  |
 | [ARC-0011](stories/ARC-0011_Resonant_Text_Fixes.md) | Resonant: two descriptions behind the mechanic | chore | Lore Writer | could | 2/1 | backlog | pending |  |
-| [QA-0001](playtests/QA-0001_Resonant_ARC-0017.md) | Playtest — The Resonant after the refining (R49-R68) | playtest | QA Lead |  | / | ready | owner |  |
-| [QA-0002](playtests/QA-0002_Kingmaker_ARC-0008.md) | Playtest — The Kingmaker (levels 1-12) | playtest | QA Lead |  | / | ready | owner |  |
-| [QA-0003](playtests/QA-0003_Starchild_ARC-0025.md) | Playtest — The Starchild — stage 1 probes | playtest | QA Lead |  | / | ready | owner |  |
-| [QA-0004](playtests/QA-0004_Unbound_ARC-0026.md) | Playtest — The Windborn — stage 1 probes | playtest | QA Lead |  | / | ready | owner |  |
+| [QA-0001](playtests/QA-0001_Resonant_ARC-0017.md) | Playtest — The Heartsong — refining R49–R68 (levels 1–12) | playtest | QA Lead |  | / | in_qa | owner |  |
+| [QA-0002](playtests/QA-0002_Kingmaker_ARC-0008.md) | Playtest — The Kingmaker — new subclass (levels 1–12) | playtest | QA Lead |  | / | in_qa | owner |  |
+| [QA-0003](playtests/QA-0003_Starchild_ARC-0025.md) | Playtest — The Starchild — stage 1 probes | playtest | QA Lead |  | / | backlog | owner |  |
+| [QA-0005](playtests/QA-0005_Unbound_ARC-0026.md) | Playtest — The Windborn — rework WB0–WB50 (levels 1–12) | playtest | QA Lead |  | / | in_qa | owner |  |
 
-Done tickets: 13.
+Done tickets: 14.

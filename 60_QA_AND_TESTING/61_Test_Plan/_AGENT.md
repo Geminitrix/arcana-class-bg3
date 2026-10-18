@@ -5,6 +5,7 @@
 
 ## Conventions
 
+- Test documents and their format: `GUIDE_FORMAT.md` (OR-4) — checked by `playtests.pl check`.
 - File: `61.01_QA_Strategy.md` — not written yet; the strategy is the work flow (`00.01` §1 stage 5, OR-1): one test guide per build ticket, level by level.
 - Every test starts with the decision it informs.
 - One assertion per rule.

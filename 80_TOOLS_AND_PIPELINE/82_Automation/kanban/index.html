@@ -108,6 +108,7 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
     <input id="q" type="search" placeholder="Search id, title or text" aria-label="Search">
     <select id="f-sub" aria-label="Subclass"></select>
     <select id="f-dept" aria-label="Department"></select>
+    <select id="f-sprint" aria-label="Sprint"></select>
     <select id="f-type" aria-label="Type"></select>
     <select id="f-status" aria-label="Status"></select>
   </div>
@@ -119,15 +120,16 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
 <script>
 const COLS = [["backlog","Backlog"],["ready","Ready"],["in_progress","In Progress"],["in_review","In Review"],["spec_ready","Spec Ready"],["in_qa","In QA"],["done","Done"]];
 const PCOLS = [["backlog","Backlog"],["ready","Ready"],["in_qa","In QA"],["done","Done"]];   // Playtests tab (ARC-0024)
-const WIP = { in_progress: 3 };
+const WIP_COLS = ["in_progress", "in_qa"], WIP_LIMIT = 3;   // OR-36: the two together; In Review is the Owner's queue
 const SUB = { class:["Arcana (class)","#c579d9"], unbound:["Windborn","#f2c939"], deceiver:["Veilwalker","#f83fa5"], starchild:["Starchild","#79baf8"],
   eternal:["Palerider","#5dbc74"], resonant:["Heartsong","#f39a78"], kingmaker:["Kingmaker","#60d7d2"], lionheart:["Lionheart","#db4e50"], none:["No subclass",""] };
-const DEPT = { Production:"#9a93a8", Design:"#c2a66b", Narrative:"#a98bc4", Art:"#c98a9a", Engineering:"#6f9fc0", QA:"#8fb07a", Release:"#c7955c", Tools:"#7f8aa3" };
-const OWNER_DEPT = { "Lead Class Designer":"Design", "Spell Designer":"Design", "Balance Designer":"Design", "Narrative":"Narrative", "Lore Writer":"Narrative",
-  "Art":"Art", "Icon Artist":"Art", "Engineering":"Engineering", "Mod Engineer":"Engineering", "QA":"QA", "Community Agent":"Release", "Tools":"Tools",
-  "Producer":"Production", "Context Keeper":"Production" };
+const DEPT = { Production:"#9a93a8", Design:"#c2a66b", Narrative:"#a98bc4", Art:"#c98a9a", Engineering:"#6f9fc0", QA:"#8fb07a" };
+// The 9 active roles (00.05, OR-26) and their department
+const OWNER_DEPT = { "Producer":"Production", "Context Keeper":"Production", "Lead Class Designer":"Design", "Spell Designer":"Design",
+  "Balance Designer":"Design", "Spell Designer + Balance Designer":"Design", "Lore Writer":"Narrative", "Icon Artist":"Art",
+  "Mod Engineer":"Engineering", "QA Lead":"QA" };
 
-let tickets = [], moves = {}, comments = [], db = null, dbTried = false, open = null, tab = "board", generated = "";
+let tickets = [], moves = {}, comments = [], db = null, dbTried = false, open = null, tab = "board", generated = "", sprint = "";
 const isPT = t => t.type === "playtest";
 const inTab = t => (tab === "playtests") === isPT(t);
 const cols = () => tab === "playtests" ? PCOLS : COLS;
@@ -158,7 +160,8 @@ function setupFilters() {
   fillSelect("f-sub", "All subclasses", Object.entries(SUB).map(([k, v]) => [k, v[0]]));
   fillSelect("f-dept", "All departments", Object.keys(DEPT).map(d => [d, d]));
   tabFilters();
-  ["q", "f-sub", "f-dept", "f-type", "f-status"].forEach(id => $(id).addEventListener("input", render));
+  fillSelect("f-sprint", "All sprints", sprint ? [[sprint, `Sprint ${sprint} (current)`]] : []);
+  ["q", "f-sub", "f-dept", "f-sprint", "f-type", "f-status"].forEach(id => $(id).addEventListener("input", render));
 }
 function tabFilters() {   // type and status options follow the tab
   fillSelect("f-type", "All types", [...new Set(tickets.filter(inTab).map(kindOf))].sort().map(t => [t, t]));
@@ -177,6 +180,7 @@ function visible(t) {
   if (q && !(`${t.id} ${t.title} ${t.body}`.toLowerCase().includes(q))) return false;
   if ($("f-sub").value && (t.subclass || "none") !== $("f-sub").value) return false;
   if ($("f-dept").value && dept(t) !== $("f-dept").value) return false;
+  if ($("f-sprint").value && t.sprint !== $("f-sprint").value && !isPT(t)) return false;
   if ($("f-type").value && kindOf(t) !== $("f-type").value) return false;
   if ($("f-status").value && colOf(t) !== $("f-status").value) return false;
   return true;
@@ -195,10 +199,11 @@ function render() {
   const shown = tickets.filter(visible), mine = tickets.filter(inTab);
   $("board").style.setProperty("--ncols", cols().length);
   if (generated) $("meta").textContent = `${mine.length} ${tab === "playtests" ? "playtests" : "tickets"} · generated ${generated}`;
+  const wip = tab === "board" ? mine.filter(t => WIP_COLS.includes(colOf(t))).length : 0;
   $("board").innerHTML = cols().map(([k, name]) => {
-    const list = shown.filter(t => colOf(t) === k), all = mine.filter(t => colOf(t) === k).length;
-    return `<section class="col${WIP[k] && all > WIP[k] ? " wip" : ""}" data-col="${k}" aria-label="${name}">
-      <h2>${name}<span class="n" title="${WIP[k] ? `More than ${WIP[k]} turns amber` : ""}">${list.length === all ? all : `${list.length} / ${all}`}</span></h2>
+    const list = shown.filter(t => colOf(t) === k), all = mine.filter(t => colOf(t) === k).length, w = tab === "board" && WIP_COLS.includes(k);
+    return `<section class="col${w && wip > WIP_LIMIT ? " wip" : ""}" data-col="${k}" aria-label="${name}">
+      <h2>${name}<span class="n" title="${w ? `In Progress + In QA: ${wip} of ${WIP_LIMIT} (OR-36)` : ""}">${list.length === all ? all : `${list.length} / ${all}`}</span></h2>
       <div class="list">${list.map(cardHtml).join("") || `<div class="empty">Nothing here</div>`}</div></section>`;
   }).join("");
   const p = Object.keys(moves).length + comments.length;
@@ -299,7 +304,7 @@ document.addEventListener("keydown", e => {
 
 // Data: tickets from board.json (written by update_board.pl); moves and comments from the artifact store
 fetch("board.json").then(r => r.json()).then(data => {
-  tickets = data.tickets; generated = data.generated;
+  tickets = data.tickets; generated = data.generated; sprint = data.sprint || "";
   setupFilters(); render();
 }).catch(() => { $("meta").textContent = "Could not load board.json."; });
 

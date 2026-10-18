@@ -10,6 +10,9 @@ Sync Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E). Pro
    list from its guide (level by level) with the results, `61_Test_Plan/TEST_GUIDES.json` (Done playtests drop out)
    and the guides' `.md` records. A new failed test → ask the Owner whether it gets an ARC bug + QA bug-retest
    (`/novo-ticket`, `playtests.pl new <guide> bug-retest`) or stays with its build ticket.
+   An **ORPHAN** result (its test id no longer exists) is copied to the new id with `migrated_from` (ArtifactData)
+   before anything else — never lose a result (`61_Test_Plan/GUIDE_FORMAT.md`).
+2b. `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl check` — guides and QA tickets follow the format (OR-4).
 3. `perl 80_TOOLS_AND_PIPELINE/82_Automation/update_board.pl` (the Playtests tab shows the progress).
 4. If anything changed: commit + push only the touched files (never `git add -A`), message
    `ARC-0018: test guides sync — <what changed>`.

@@ -3,86 +3,86 @@
       "Compile the Story in the Toolkit once: the Overload, Temperance and Shared Heart goals changed during the build.",
       "Use a NEW Resonant. A character from an older save already learned the eight emotions as separate spells.",
       "Console edition unless a test says PC. Read results in the combat log and on the status tooltips.",
-      "Some texts of growing dice still say 1d4 (text pass ARC-0006): judge the dice by the combat log, not the tooltip."
+      "Some texts of growing dice still say 1d4 (text pass ARC-0006): judge the dice by the combat log, not the tooltip.",
+      "Not tested here: Releases per day (V7) and feelings at release on a boss (V6) are balance metrics: they run in ARC-0010."
    ],
-   "nothere" : "Releases per day (V7) and feelings at release on a boss (V6) are balance metrics: they run in ARC-0010.",
    "sessions" : [
       {
          "id" : "L1",
          "level" : 1,
-         "name" : "Level 1",
+         "name" : "Level 1 — Weave Surge, Heartstring, Emotional Overload",
          "setup" : "A new Resonant at level 1, one ally, a normal fight against two or three enemies. Tests marked PC: the PC edition with the deck on.",
          "tests" : [
             {
                "expected" : "One button. Joy, Trust and Fear can be cast; the other five are greyed out or missing.",
                "fails" : "Eight separate buttons, all eight castable, or the container opens empty.",
-               "id" : "B6a",
+               "id" : "L1.1",
                "planb" : "Grant each emotion in the level lists again and keep the container for the hotbar only.",
-               "rule" : "R54",
+               "rule" : "B6a · R54",
                "steps" : "Open the Weave Surge button on the hotbar.",
                "title" : "Weave Surge opens with the emotions you know"
             },
             {
                "expected" : "Castable as a Bonus Action while Overloaded, with no spell slot spent. Only one version of it shows.",
                "fails" : "It asks for a slot, cannot be cast while Overloaded, or several level versions show.",
-               "id" : "B3a",
-               "rule" : "R66",
+               "id" : "L1.2",
+               "rule" : "B3a · R66",
                "steps" : "Cast Surges until the Overload meter reaches 100%. Open Emotional Overload.",
                "title" : "Emotional Overload is free"
             },
             {
                "expected" : "You can still cast spells. 1d4 Psychic at the start of your turn. -1 to Intelligence, Wisdom and Charisma saves.",
                "fails" : "You are silenced, take no damage, or the save penalty is missing.",
-               "id" : "R51a",
-               "rule" : "R51",
+               "id" : "L1.3",
+               "rule" : "R51a · R51",
                "steps" : "With the meter full, check the Overloaded status, then cast spells and wait for your next turn.",
                "title" : "Overloaded is a trade, not a silence"
             },
             {
                "expected" : "The first deals an extra 1d4 Psychic; the second deals none. The next turn it works again.",
                "fails" : "No extra damage, or extra damage on both Surges.",
-               "id" : "R51b",
-               "rule" : "R51",
+               "id" : "L1.4",
+               "rule" : "R51b · R51",
                "steps" : "While Overloaded, land a Surge on an enemy (it fails its save), then land a second Surge the same turn.",
                "title" : "The Surge rider, once per turn"
             },
             {
                "expected" : "Failed save: Psychic damage per feeling, the enemy dances for 1 turn, Mental Fatigue shows. Made save: half damage, no dance, Mental Fatigue shows. Either way the feelings are gone, Overloaded ends and the meter empties.",
                "fails" : "Paralysis, no Mental Fatigue, or the meter stays full.",
-               "id" : "R51c",
-               "rule" : "R51 R68",
+               "id" : "L1.5",
+               "rule" : "R51c · R51 R68",
                "steps" : "Braid a feeling on an enemy, then release Emotional Overload on it. Repeat on an enemy that makes the save.",
                "title" : "Emotional Overload, rank I"
             },
             {
                "expected" : "No dance. The feelings' damage and Mental Fatigue still land.",
                "fails" : "It dances.",
-               "id" : "V13",
-               "rule" : "R68",
+               "id" : "L1.6",
+               "rule" : "V13 · R68",
                "steps" : "Release Emotional Overload on an enemy immune to Charmed that fails the save.",
                "title" : "Charm-immune creatures don't dance"
             },
             {
                "expected" : "After the first: about half the %. After the second: Overloaded is gone and the meter shows about 50%.",
                "fails" : "The meter keeps its value, empties, or Overloaded keeps going after the fight.",
-               "id" : "R53",
-               "rule" : "R53",
+               "id" : "L1.7",
+               "rule" : "R53 · R53",
                "steps" : "End one fight with the meter partly full (note the %). End another fight while Overloaded.",
                "title" : "When a fight ends, the meter settles to half"
             },
             {
                "expected" : "The cantrip damage plus 1d4 Psychic per feeling (combat log). The target's mood does not get longer.",
                "fails" : "No extra damage per feeling.",
-               "id" : "R61",
-               "rule" : "R61",
+               "id" : "L1.8",
+               "rule" : "R61 · R61",
                "steps" : "Cast Heartstring on an enemy carrying one or two feelings.",
                "title" : "Heartstring reads feelings"
             },
             {
                "expected" : "The tooltip lists what each emotion would make of it, with the level that unlocks it.",
                "fails" : "No list.",
-               "id" : "R64",
-               "rule" : "R64",
+               "id" : "L1.9",
+               "rule" : "R64 · R64",
                "steps" : "Hover a mood on any creature (for example Serene).",
                "title" : "Moods say what they react with"
             },
@@ -90,8 +90,8 @@
                "edition" : "PC",
                "expected" : "One Weave Surge card with 24 copies at level 5 (9 at level 1); no separate emotion cards; it is often in hand.",
                "fails" : "Eight emotion cards, 3 copies, or rarely in hand.",
-               "id" : "V9",
-               "rule" : "R55",
+               "id" : "L1.10",
+               "rule" : "V9 · R55",
                "steps" : "Check the deck list (!arcanapool). Play a few fights.",
                "title" : "Weave Surge in the deck"
             },
@@ -99,9 +99,9 @@
                "edition" : "PC",
                "expected" : "0 Threads.",
                "fails" : "It costs Threads.",
-               "id" : "B4",
+               "id" : "L1.11",
                "planb" : "Exclude it from the ARCANA_WEAVING check.",
-               "rule" : "R66",
+               "rule" : "B4 · R66",
                "steps" : "While Overloaded in combat, look at Emotional Overload's cost and cast it.",
                "title" : "Emotional Overload costs no Threads"
             }
@@ -110,14 +110,14 @@
       {
          "id" : "L2",
          "level" : 2,
-         "name" : "Level 2",
+         "name" : "Level 2 — Temper",
          "setup" : "The same Resonant at level 2.",
          "tests" : [
             {
                "expected" : "Temper is granted, and Anticipation opens inside Weave Surge.",
                "fails" : "Either arrives at level 3.",
-               "id" : "L2a",
-               "rule" : "R59",
+               "id" : "L2.1",
+               "rule" : "L2a · R59",
                "steps" : "Level up to 2.",
                "title" : "Temper and Anticipation at level 2"
             }
@@ -126,23 +126,23 @@
       {
          "id" : "L3",
          "level" : 3,
-         "name" : "Level 3",
+         "name" : "Level 3 — Opposites, Tier I Resonance",
          "setup" : "The Resonant at level 3, one ally, fights long enough to wake Tier I.",
          "tests" : [
             {
                "expected" : "None.",
                "fails" : "One or more per fight.",
-               "id" : "V4",
+               "id" : "L3.1",
                "kind" : "observe",
-               "rule" : "R51",
+               "rule" : "V4 · R51",
                "steps" : "Over your fights at levels 1 to 3, count turns where the Resonant had nothing useful to do.",
                "title" : "Nothing-to-do turns (levels 1-3)"
             },
             {
                "expected" : "The Opposites passive shows and Catharsis happens. With Tier I awake, Catharsis gets +1d8 and moods still last 5 turns (not 7).",
                "fails" : "No Opposites passive, or moods last 7 turns with Tier I.",
-               "id" : "L3a",
-               "rule" : "R60 R63",
+               "id" : "L3.2",
+               "rule" : "L3a · R60 R63",
                "steps" : "Level up to 3. Pour Joy into a Pensive enemy. Wake Tier I in a fight and let a peak fade.",
                "title" : "Opposites and Tier I at level 3"
             }
@@ -151,56 +151,56 @@
       {
          "id" : "L5",
          "level" : 5,
-         "name" : "Level 5",
+         "name" : "Level 5 — Deeper Feelings",
          "setup" : "The Resonant at level 5, a fight with several enemies and one ally.",
          "tests" : [
             {
                "expected" : "After the Temper replay: no Bored. After the normal Disgust: Bored appears.",
                "fails" : "Bored comes back after the replay, or a normal Disgust stops leaving Bored.",
-               "id" : "B1",
+               "id" : "L5.1",
                "planb" : "The replay marker clears at the start of the Resonant's next turn instead.",
-               "rule" : "R49",
+               "rule" : "B1 · R49",
                "steps" : "Land Disgust on an enemy and let it fade into Bored. Cast Temper on it (it fails the save). Wait until the replayed Disgust ends. Later, land a normal Disgust again and let it fade.",
                "title" : "Temper's replay leaves no mood"
             },
             {
                "expected" : "Not possible: it has no mood until a new Disgust lands.",
                "fails" : "Temper locks it again with no new Surge.",
-               "id" : "V2",
-               "rule" : "R49",
+               "id" : "L5.2",
+               "rule" : "V2 · R49",
                "steps" : "Right after B1, try to Temper the same enemy again on your next turn.",
                "title" : "No Temper lock"
             },
             {
                "expected" : "It takes two enemies.",
                "fails" : "Still one target.",
-               "id" : "R51d",
-               "rule" : "R51 R66",
+               "id" : "L5.3",
+               "rule" : "R51d · R51 R66",
                "steps" : "At level 5, fill the meter and release Emotional Overload.",
                "title" : "Emotional Overload, rank II"
             },
             {
                "expected" : "2d4 Psychic per turn and -2 to Intelligence, Wisdom and Charisma saves; the rider deals 2d4.",
                "fails" : "Still 1d4 or -1.",
-               "id" : "R52",
-               "rule" : "R52 R67",
+               "id" : "L5.4",
+               "rule" : "R52 · R52 R67",
                "steps" : "At level 5, get Overloaded.",
                "title" : "Overloaded grows at 5"
             },
             {
                "expected" : "The Deeper Feelings passive shows. Apprehensive subtracts 1d6 (combat log).",
                "fails" : "No passive, or still 1d4.",
-               "id" : "R62a",
-               "rule" : "R62",
+               "id" : "L5.5",
+               "rule" : "R62a · R62",
                "steps" : "Level up to 5. Land Fear on an enemy and let it fade into Apprehensive; have it make a Wisdom save.",
                "title" : "Deeper Feelings at 5"
             },
             {
                "expected" : "Record what happens: if it fails that save, does it take 1d4 Psychic ('Psychic Discharge') and lose Mental Fatigue?",
                "fails" : "Nothing fails here: write down what you saw. The Owner decides.",
-               "id" : "B2",
+               "id" : "L5.6",
                "kind" : "observe",
-               "rule" : "R68",
+               "rule" : "B2 · R68",
                "steps" : "At level 5+, release Emotional Overload on an enemy that fails: it dances and has Mental Fatigue (5+ turns). At its turn start it rolls a Wisdom save to stop dancing.",
                "title" : "Does the dance's save discharge Mental Fatigue?"
             }
@@ -209,23 +209,23 @@
       {
          "id" : "L6",
          "level" : 6,
-         "name" : "Level 6",
+         "name" : "Level 6 — Complex Feelings",
          "setup" : "The Resonant at level 6, one lower-level ally, a normal fight.",
          "tests" : [
             {
                "expected" : "Level 5: a plain Joy peak. Level 6: Guilt.",
                "fails" : "Guilt at level 5.",
-               "id" : "L6a",
-               "rule" : "R59",
+               "id" : "L6.1",
+               "rule" : "L6a · R59",
                "steps" : "At level 5, pour Joy into an Apprehensive enemy. Level up to 6 and repeat.",
                "title" : "Complex Feelings at 6, not 5"
             },
             {
                "expected" : "Hope adds 1d6.",
                "fails" : "It adds 1d4 (the map reads the ally's level).",
-               "id" : "B7",
+               "id" : "L6.2",
                "planb" : "One status version per level band, chosen in the Surge.",
-               "rule" : "R62",
+               "rule" : "B7 · R62",
                "steps" : "At level 6, braid Hope on a lower-level ally and watch its next attack roll.",
                "title" : "Growing dice read the Resonant's level"
             }
@@ -234,31 +234,31 @@
       {
          "id" : "L7",
          "level" : 7,
-         "name" : "Level 7",
+         "name" : "Level 7 — Overwhelm, Tier II Harmony",
          "setup" : "The Resonant at level 7 with Tier II reachable (6 reactions), one ally, a fight long enough to wake it.",
          "tests" : [
             {
                "expected" : "The second Ecstasy / Amazement on the same creature lands as a plain peak. When Ecstasy ends it leaves no mood.",
                "fails" : "The same creature gets Ecstasy or Amazement twice in one fight.",
-               "id" : "V1",
-               "rule" : "R49 R50",
+               "id" : "L7.1",
+               "rule" : "V1 · R49 R50",
                "steps" : "Joy on an ally, let it fade into Serene, Joy again: Ecstasy. Give it Serene again (a new Joy that fades) and pour Joy a third time. Do the same with Surprise on an enemy (Amazement).",
                "title" : "Excess once per fight"
             },
             {
                "expected" : "The first costs no action and its mood shows at once; the second costs your action and can react with it.",
                "fails" : "The first Surge through the container costs an action.",
-               "id" : "B6b",
-               "rule" : "R40 R54",
+               "id" : "L7.2",
+               "rule" : "B6b · R40 R54",
                "steps" : "Wake Tier II. On your turn, cast an emotion through the Weave Surge container, then another one.",
                "title" : "Tier II's free Surge through the container"
             },
             {
                "expected" : "Sometimes held, sometimes released.",
                "fails" : "Always released at once, or never released.",
-               "id" : "V5",
+               "id" : "L7.3",
                "kind" : "observe",
-               "rule" : "R51",
+               "rule" : "V5 · R51",
                "steps" : "Over a few fights, note whether you held Overloaded for a turn or two or released it at once.",
                "title" : "Ride or release (levels 3 and 7)"
             }
@@ -267,31 +267,31 @@
       {
          "id" : "L9",
          "level" : 9,
-         "name" : "Level 9",
+         "name" : "Level 9 — Deeper Feelings, Emotional Contagion, Mixed Feelings",
          "setup" : "The Resonant at level 9, a fight with a group of enemies close together and two allies.",
          "tests" : [
             {
                "expected" : "Every enemy within 9 m of the point rolls the save and takes its effect.",
                "fails" : "Only one or two targets.",
-               "id" : "B5",
+               "id" : "L9.1",
                "planb" : "A separate area spell for rank III, granted at level 9.",
-               "rule" : "R51 R67",
+               "rule" : "B5 · R51 R67",
                "steps" : "At level 9, release Emotional Overload on an enemy in a group.",
                "title" : "Emotional Overload, rank III (the area)"
             },
             {
                "expected" : "Each ally gets at most one extra action (Ecstasy) per fight.",
                "fails" : "An ally gets Ecstasy on two turns.",
-               "id" : "V3",
-               "rule" : "R50",
+               "id" : "L9.2",
+               "rule" : "V3 · R50",
                "steps" : "Emotional Contagion on a Serene ally, wake Tier II, then pour Joy into the Serene allies each turn.",
                "title" : "Contagion + Tier II: no mass action loop"
             },
             {
                "expected" : "Deeper Feelings shows again. Hope 1d8; Overloaded 3d4 and -3; Catharsis 4d8.",
                "fails" : "The old values.",
-               "id" : "R62b",
-               "rule" : "R62 R67",
+               "id" : "L9.3",
+               "rule" : "R62b · R62 R67",
                "steps" : "Level up to 9. Check Hope on an ally, Overloaded and Catharsis.",
                "title" : "Growth at 9"
             }
@@ -300,14 +300,14 @@
       {
          "id" : "L10",
          "level" : 10,
-         "name" : "Level 10",
+         "name" : "Level 10 — Ready: Compassion",
          "setup" : "The Resonant at level 10, one ally, a normal fight.",
          "tests" : [
             {
                "expected" : "Compassion casts Trust as a plain peak: no Submission, no Prone.",
                "fails" : "The ally is knocked Prone.",
-               "id" : "V10a",
-               "rule" : "R57",
+               "id" : "L10.1",
+               "rule" : "V10a · R57",
                "steps" : "At level 10, ready Compassion. Let an Apprehensive ally take damage from an enemy.",
                "title" : "Compassion is kind"
             }
@@ -316,22 +316,22 @@
       {
          "id" : "L11",
          "level" : 11,
-         "name" : "Level 11",
+         "name" : "Level 11 — Shared Heart",
          "setup" : "The Resonant at level 11, a long fight with the whole party.",
          "tests" : [
             {
                "expected" : "Every linked creature feels Joy now and is Serene when it fades. The meter does not rise from it.",
                "fails" : "Nothing on cast, or the Overload fills from the Joy.",
-               "id" : "R58",
-               "rule" : "R58",
+               "id" : "L11.1",
+               "rule" : "R58 · R58",
                "steps" : "Cast Shared Heart with the party within 18 m.",
                "title" : "Shared Heart acts on cast"
             },
             {
                "expected" : "Love reaches every linked ally; the hindering feeling stays on the one you targeted.",
                "fails" : "The hindering feeling spreads.",
-               "id" : "V10b",
-               "rule" : "R57",
+               "id" : "L11.2",
+               "rule" : "V10b · R57",
                "steps" : "With the link up, braid Love on one ally, then braid a hindering feeling on another ally by hand.",
                "title" : "Shared Heart shares only helpful feelings"
             }
@@ -340,14 +340,14 @@
       {
          "id" : "L12",
          "level" : 12,
-         "name" : "Level 12",
+         "name" : "Level 12 — Tier III Aspect of Empathy",
          "setup" : "The Resonant at level 12, a long fight with the whole party.",
          "tests" : [
             {
                "expected" : "The meter fills at once and you are Overloaded. The enemy dances for 2 turns.",
                "fails" : "The meter stays as it was, or the dance lasts 1 turn.",
-               "id" : "V11",
-               "rule" : "R56 R68",
+               "id" : "L12.1",
+               "rule" : "V11 · R56 R68",
                "steps" : "At level 12, wake Tier III (15 reactions) with the meter not full. Release Emotional Overload on an enemy that fails.",
                "title" : "Tier III: the dam breaks"
             }
@@ -355,15 +355,15 @@
       },
       {
          "id" : "ANY",
-         "name" : "Any level / full run",
+         "name" : "Any level — full run",
          "setup" : "Across the whole run: a new Resonant levelled from 1 to 12 in your usual fights.",
          "tests" : [
             {
                "expected" : "Every level except 4 and 8 brings something you can name.",
                "fails" : "A level you can't name.",
-               "id" : "V8",
+               "id" : "A.1",
                "kind" : "observe",
-               "rule" : "R59",
+               "rule" : "V8 · R59",
                "steps" : "Level a Resonant from 1 to 12 and name what changed at each level.",
                "title" : "Every level-up has something"
             }
@@ -371,5 +371,5 @@
       }
    ],
    "ticket" : "ARC-0017",
-   "title" : "The Resonant after the refining (R49-R68)"
+   "title" : "The Heartsong — refining R49–R68 (levels 1–12)"
 }

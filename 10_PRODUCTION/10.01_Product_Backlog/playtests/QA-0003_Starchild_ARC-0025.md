@@ -2,11 +2,11 @@
 id: QA-0003
 title: Playtest — The Starchild — stage 1 probes
 type: playtest
-kind: feature
+kind: subclass
 subclass: starchild
 build: ARC-0025
-guide: 61.02_Test_Cases/Starchild/GUIDE_ARC-0025.json
-status: ready
+guide: 61.02_Test_Cases/Starchild/GUIDE_ARC-0025_probes.json
+status: backlog
 owner: QA Lead
 implementation: owner
 blocked_by: []
@@ -15,10 +15,10 @@ created: 2026-10-17
 
 # QA-0003 · Playtest — The Starchild — stage 1 probes
 
-**Goal:** play every test of `61.02_Test_Cases/Starchild/GUIDE_ARC-0025.json`, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E).
+**Goal:** play every test of `61.02_Test_Cases/Starchild/GUIDE_ARC-0025_probes.json`, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E).
 **Intent:** ARC-0025 is proven in the game, or each failure becomes an ARC bug and a QA bug-retest.
 
-Steps, expected results and plan B are on the test page and in the record `61.02_Test_Cases/Starchild/GUIDE_ARC-0025.md`. This list is rebuilt from the guide, with the results, at every test guides sync (`/sync-test-guides`).
+Steps, expected results and plan B are on the test page and in the record `61.02_Test_Cases/Starchild/GUIDE_ARC-0025_probes.md`. This list is rebuilt from the guide, with the results, at every test guides sync (`/sync-test-guides`).
 
 ## Before you start
 
@@ -44,4 +44,5 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 
 ## Log
 
-- 2026-10-17 — created from `61.02_Test_Cases/Starchild/GUIDE_ARC-0025.json` (6 tests).
+- 2026-10-17 — created from `61.02_Test_Cases/Starchild/GUIDE_ARC-0025_probes.json` (6 tests).
+- 2026-10-17 — ARC-0027: back to backlog — these probes were prepared but never applied; ARC-0025 is now typed by the Owner (OR-11), so its build kit (stage 4) writes a level-by-level guide and this ticket is replaced or re-pointed then. Guide renamed `GUIDE_ARC-0025_probes.json`.

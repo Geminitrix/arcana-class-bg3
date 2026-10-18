@@ -56,7 +56,7 @@ open my $fs, '>:encoding(UTF-8)', "$A/SPRINT_BOARD.md" or die $!; print $fs $s; 
 
 # Board data for the kanban artifact (ARC-0018): every ticket, header fields plus the body.
 use JSON::PP;
-for my $h (@t) { $h->{title} =~ s/^"(.*)"$/$1/ if defined $h->{title} }
+for my $h (@t) { $h->{title} =~ s/^"(.*)"$/$1/ if defined $h->{title}; $h->{subclass} = lc($h->{subclass} || 'none') }   # board keys are lowercase
 my $K = '80_TOOLS_AND_PIPELINE/82_Automation/kanban';
 open my $fk, '>:encoding(UTF-8)', "$K/board.json" or die $!;
 print $fk JSON::PP->new->canonical->pretty->encode({ generated => $date, sprint => $sprint, tickets => \@t }); close $fk;

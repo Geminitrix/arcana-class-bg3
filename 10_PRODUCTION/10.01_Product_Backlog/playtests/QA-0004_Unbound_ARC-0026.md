@@ -1,21 +1,21 @@
 ---
 id: QA-0004
-title: Playtest — The Windborn — stage 1 probes
+title: Playtest — The Windborn — stage 1 probes P1–P9 (closed)
 type: playtest
 kind: subclass
-subclass: Unbound
+subclass: unbound
 build: ARC-0026
-guide: 61.02_Test_Cases/Unbound/GUIDE_ARC-0026.json
-status: ready
+guide: 61.02_Test_Cases/Unbound/GUIDE_ARC-0026_probes.json
+status: done
 owner: QA Lead
 implementation: owner
 blocked_by: []
 created: 2026-10-17
 ---
 
-# QA-0004 · Playtest — The Windborn — stage 1 probes
+# QA-0004 · Playtest — The Windborn — stage 1 probes P1–P9 (closed)
 
-**Goal:** play every test of `61.02_Test_Cases/Unbound/GUIDE_ARC-0026.json`, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E).
+**Goal:** play every test of `61.02_Test_Cases/Unbound/GUIDE_ARC-0026_probes.json`, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E).
 **Intent:** ARC-0026 is proven in the game, or each failure becomes an ARC bug and a QA bug-retest.
 
 Steps, expected results and plan B are on the test page and in the record `61.02_Test_Cases/Unbound/GUIDE_ARC-0026.md`. This list is rebuilt from the guide, with the results, at every test guides sync (`/sync-test-guides`).
@@ -28,7 +28,7 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - Any class and level. Probes are throwaway: stage 2 removes them.
 - Write down what you see for each probe, even when it fails: every probe has a plan B.
 
-## Probes
+## Probes — stage 1
 
 **Setup:** A fight with at least four enemies, spread out, and one ally in melee with an enemy. One character runs the probes.
 
@@ -36,15 +36,15 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - [x] P2 · Marked enemies can't be rushed (SPEC_ARC-0026 P2 (Rush only to an unmarked enemy)) — pass
 - [x] P6 · A marked enemy makes no opportunity attack (SPEC_ARC-0026 P6 (the Open Path, WB10: the vanilla Mobile pair)) — pass
 - [x] P7 · A hit marks; an ally's hit marks in her name (SPEC_ARC-0026 P7 (marks from hits — hers and an ally's)) — pass
-- [x] P8 · The bag's X: exactly the marks counted (SPEC_ARC-0026 P8 (X counted; retest after 06_probe_count.patch)) — pass
+- [x] P8 · The bag's X: marks counted, capped at 2 (SPEC_ARC-0026 P8 (X counted and capped)) — pass
 - [x] P3 · Turn start sweeps the marks; turn end is seen (SPEC_ARC-0026 P3 (the sweep at her turn start; her turn end)) — pass
-- [x] P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, one area, WB49)) — pass
+- [x] P4 · The vortex pulls marked enemies from 9 m, the others from 6 m, once each (SPEC_ARC-0026 P4 (Where the Winds Meet, two radii)) — pass
 - [x] P5 · Leap of Faith with the Force Tunnel animation (SPEC_ARC-0026 P5 (Leap of Faith on the Force Tunnel animation, WB7)) — pass
 - [x] P9 · Into the Storm: the push from a status (SPEC_ARC-0026 P9 (a status pushes away from its source)) — pass
 
 ## Gates
 
-- [ ] DoD (`00.03`) — every test pass or skipped; each fail has an ARC bug and a QA bug-retest
+- [x] DoD (`00.03`) — every test pass or skipped; each fail has an ARC bug and a QA bug-retest
 
 ## Log
 
@@ -57,3 +57,4 @@ Steps, expected results and plan B are on the test page and in the record `61.02
 - 2026-10-17 — ARC-0026 took the Owner's edits in (51, WB49). P8 root cause found (Probe Count not frozen) and fixed in `06_probe_count.patch`; P8 expects exactly the marks (3, then 4). Retest P8 then P3 after the `[fechado] ARC-0026` apply and a Story recompile.
 - 2026-10-17 — P8 and P3 pass after the fix, so every probe passes and stage 1 of ARC-0026 is done. No bug was opened (the Owner's call).
 - 2026-10-17 — The build tests moved to `GUIDE_ARC-0026.json` level by level: sessions L1–L12 plus ANY, 46 tests, played after the Owner types each level from `TOOLKIT_ARC-0026_L<nn>.md`. This playtest keeps the probes (P1–P9, all pass).
+- 2026-10-17 — moved to done on the board (Owner): the 9 probes pass. ARC-0027: this ticket keeps the frozen probe guide `GUIDE_ARC-0026_probes.json`; the level-by-level tests of ARC-0026 are QA-0005.

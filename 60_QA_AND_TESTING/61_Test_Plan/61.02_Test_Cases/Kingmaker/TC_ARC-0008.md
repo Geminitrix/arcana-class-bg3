@@ -5,6 +5,8 @@ source: SPEC_ARC-0008.md (probes P1–P48, stages 1–6) · 21.04/Kingmaker/DESI
 reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
 ---
 
+> **Superseded by `GUIDE_ARC-0008.json (QA-0002)`** (OR-4, 2026-10-17): the in-game tests live in the guide; this file is kept as the design-stage record.
+
 # TC_ARC-0008 · The Kingmaker — acceptance and regression suite
 
 - **Decision it informs:** keep the Kingmaker as built (levels 1–12), or send a failing rule back to the Lead Class
