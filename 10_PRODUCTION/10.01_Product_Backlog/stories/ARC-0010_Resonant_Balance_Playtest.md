@@ -10,7 +10,7 @@ implementation: pending
 priority: should
 value: 4
 effort: 2
-inputs: [22.05/Resonant.md, 26.01/Resonant.md, 61.02/Resonant/TC_ARC-0002.md]
+inputs: [22.05/Resonant.md, 26.01/Resonant.md, 61.02/Resonant/QA_ARC-0002.md]
 outputs: []
 blocked_by: []
 sprint:
@@ -27,7 +27,7 @@ created: 2026-10-15
 - [ ] Surges per turn and enemies controlled after Tier II recorded
 - [ ] Shared Heart: feelings braided per reaction recorded
 - [ ] Results in `63_Balance_Testing`, verdicts updated in `22.05/Resonant.md`
-- [ ] After the ARC-0014 build: the verification rows V1–V13 of `61.02/Resonant/TC_ARC-0014.md` (releases per day, ride vs release, feelings at release, loops closed)
+- [ ] After the ARC-0014 build: the verification rows V1–V13 of `61.02/Resonant/QA_ARC-0017.md` (releases per day, ride vs release, feelings at release, loops closed)
 
 ## Log
 

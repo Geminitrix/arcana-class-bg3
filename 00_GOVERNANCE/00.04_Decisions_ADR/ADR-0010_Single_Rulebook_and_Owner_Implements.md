@@ -21,5 +21,8 @@ constitution named 38 roles and Portuguese paths that never existed.
 4. **No subagents** unless the Owner asks.
 5. The v0.4 constitution and the 00.07 policy are archived (`93/2026-10-17_Studio_Constitution_v0.4/`).
 
+**Amended 2026-10-17 (Owner):** the build kit is **one** `TOOLKIT_ARC-####.md` and **one** `QA_ARC-####.md` per ARC;
+"level by level" means the sections of the QA_ARC, not separate files (OR-4).
+
 ## Consequences
 A rule changes in one place. The next phases of the audit fix the roles (C), production (D) and the tools (E).

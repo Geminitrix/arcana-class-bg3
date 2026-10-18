@@ -164,7 +164,7 @@ their content in their own stages.
 ## Stage 2 — the Crossing (level 3)
 
 Written 2026-10-14 at the Owner's request, before stage 1's probes were played: if a probe of P1–P8 fails, its fix goes
-into the stage-2 goal before the Owner types it. Typing view: **`TOOLKIT_ARC-0008_stage2.md`**.
+into the stage-2 goal before the Owner types it. Typing view: **`TOOLKIT_ARC-0008.md` (level 3)**.
 
 ### Item index — enter top to bottom
 

@@ -5,30 +5,28 @@
 
 ## Conventions
 
-- Test documents and their format: `GUIDE_FORMAT.md` (OR-4) — checked by `playtests.pl check`.
-- File: `61.01_QA_Strategy.md` — not written yet; the strategy is the work flow (`00.01` §1 stage 5, OR-1): one test guide per build ticket, level by level.
+- The one playtest file per ARC and its format: `QA_ARC_FORMAT.md` (OR-4) — checked by `playtests.pl check`.
+- File: `61.01_QA_Strategy.md` — not written yet; the strategy is the work flow (`00.01` §1 stage 5, OR-1): one `QA_ARC` per build ticket, tests level by level.
 - Every test starts with the decision it informs.
 - One assertion per rule.
 
-## Test guides and playtests (Owner rule, ARC-0024)
+## QA_ARC — one playtest file per ARC (Owner, ARC-0024, ARC-0027)
 
-Every build or rework (subclass or loose feature) and every bug fix delivers a test guide `61.02_Test_Cases/<S>/GUIDE_<ARC>.json`
-and its playtest ticket (`perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl new <guide> <subclass|feature|bug-retest>`).
-The Owner plays a guide **level by level**, so a guide is built that way:
+Every build or rework (subclass or loose feature) and every bug fix has **one** `61.02_Test_Cases/<S>/QA_ARC-####.md`
+(`perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl new <ARC-####> <Subclass> "<title>"`). Format: `QA_ARC_FORMAT.md`.
+The Owner plays it **level by level**, so it is built that way:
 
-- **One session per level that unlocks something**, in ascending order: `{"id": "L5", "name": "Level 5", "level": 5,
-  "setup": "<the character at level 5, party, fight>", "tests": [...]}`. A level with nothing new is left out; never
-  group levels into ranges.
+- **One section per level that unlocks something**, in ascending order: `## Level 5 — <what level 5 adds>` with its
+  `**Setup:**` (the character at level 5, party, fight). A level with nothing new is left out; never group levels into ranges.
 - A test goes to the level where **the last piece it needs** unlocks (levels from `21.03_Progression_Table/<S>.md`;
   slot levels from `05.01_Class`).
-- **PC-edition tests** stay inside their level, marked `"edition": "PC"`; the setup says how to run them.
-- Tests with no level (two of the subclass in a party, a full 1→12 run, observations over many levels) go in one last
-  session `{"id": "ANY", "name": "Any level / full run"}`.
-- Loose features and bug retests follow the same rule when they depend on level; otherwise only the ANY session.
-- **Test ids never change** once published: results on Arcana Test Guides are keyed `<ARC>_<test id>`.
-- Each test: `id`, `title`, `rule`, `steps`, `expected`, `fails`, optional `planb`, `kind: "observe"`, `edition`.
-- Generated, never edited by hand: the `.md` record beside the guide, `TEST_GUIDES.json`, and the test list of the
-  QA ticket — `playtests.pl sync` (run by `/sync-test-guides`) rewrites all three from the guides.
+- **PC-edition tests** stay inside their level, with `- **Edition:** PC`; the setup says how to run them.
+- Tests with no level (two of the subclass in a party, a full 1→12 run, observations over many levels) go in the last
+  section `## Any level — full run` (ids `A.<n>`).
+- Probes and design-stage drafts stay inside the same file (a `## Probes — …` section, an `## Appendix — …`).
+- **Test ids never change** once a result exists: results on Arcana Test Guides are keyed `<ARC>_<test id>`.
+- Generated, never edited by hand: the Result lines, `TEST_GUIDES.json` and `test_guides/data/` — `playtests.pl sync`
+  (run by `/sync-test-guides`) writes them.
 
 ## Quality checklist
 

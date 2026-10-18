@@ -135,7 +135,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   Upcast variants generated (Coronation, Dethrone _2…_6), sort_stats learns the KINGMAKER group, check_cards OK,
   validate 0 errors (4 old vanilla-handle warnings). Next: Owner plays probes P1–P8.
 - 2026-10-14 — Stage 2 written (Owner asked to go on before the stage-1 probes): `SPEC_ARC-0008` stage 2 (Crossing, Atropos'
-  Cut, Awakening 10 - Wheel of Fortune with Tier I Tyche, Rota Fortunae; probes P9–P16) and `TOOLKIT_ARC-0008_stage2.md`
+  Cut, Awakening 10 - Wheel of Fortune with Tier I Tyche, Rota Fortunae; probes P9–P16) and `TOOLKIT_ARC-0008.md` (level 3)
   (the whole Wheel goal replaced, 6 rows in ARCANA_Aspect_Common, LevelMap Kingmaker_Crossing, 13 entries). Found:
   upcast variants carried only the cost, so Dethrone _2…_6 dealt 3d6 — Owner chose to let the generator write the damage:
   `gen_upcast_variants.pl` reads `game_ids` + `upcast_die` from 25.01 (Dethrone 1d6, Atropos' Cut 1d8), tested on a copy
@@ -197,7 +197,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-15 — Propagated (00.08, ADR-0009), each department in its role: decisions moved to `21.04/Kingmaker/DECISIONS.md`,
   design renamed `DESIGN.md` and brought up to SP112–SP114, proposals archived (`93/2026-10-15_Kingmaker_raise_proposals`);
   `21.03`, `21.08`, 23 sheets in `23.02/Kingmaker/`, 17 `25` YAMLs stamped, `22.05` and `26.01` verdicts; `31.01`, `31.02`,
-  `32.01` (game text), Narrative gate `32.04` passed, `33.03` terms; `42.04` icon brief; `61.02/Kingmaker/TC_ARC-0008.md`
+  `32.01` (game text), Narrative gate `32.04` passed, `33.03` terms; `42.04` icon brief; `61.02/Kingmaker/QA_ARC-0008.md`
   (static S1–S5 pass); `05.02/Kingmaker.md` with the Depth audit, `05.00`, README. Four handoffs closed. Found: the subclass
   icon doesn't show (`Spinner.DDS` vs `Name` Kingmaker — stage 7); shared vanilla icons → ARC-0015.
 - 2026-10-16 — The pending probes P1–P48 (+ the progression check) are on the Arcana Test Guides page, Kingmaker tab: `61.02/Kingmaker/GUIDE_ARC-0008.json` (+ `.md`), converted from SPEC_ARC-0008 and TC_ARC-0008.

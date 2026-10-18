@@ -10,7 +10,7 @@ implementation: owner
 priority: must
 value: 5
 effort: 4
-inputs: [21.04/Deceiver/DESIGN.md, 21.04/Deceiver/DECISIONS.md, 25 (*_Deceiver_*, pending_build), 61.02/Deceiver/TC_ARC-0019.md]
+inputs: [21.04/Deceiver/DESIGN.md, 21.04/Deceiver/DECISIONS.md, 25 (*_Deceiver_*, pending_build), 61.02/Deceiver/QA_ARC-0020.md]
 outputs: [55/SPEC_ARC-0020.md, 55/_wip/Deceiver/arc0020/, game files (Stats, LSX, Osiris, loca), 05.02/Deceiver.md]
 blocked_by: []
 sprint:
@@ -28,7 +28,7 @@ created: 2026-10-16
 - [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean
 - [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change
 - [ ] Probes B1–B4 recorded, plan B applied where one failed
-- [ ] `61.02/Deceiver/TC_ARC-0019.md` rows pass in game
+- [ ] `61.02/Deceiver/QA_ARC-0020.md` rows pass in game
 - [ ] Stage 5: `25` holds no Deceiver `pending_build` block; `05.02` synced; `check_propagation` OK
 
 ## Gates

@@ -17,7 +17,7 @@
 | 9 | QA: test cases from `61.02` | Pass or bugs in `62` |
 
 ## Who implements (OR-11, work flow stage 5)
-The Owner types each level in the Toolkit from `TOOLKIT_ARC-####_L<n>.md`. Then Engineering runs `sync_data`, the
+The Owner types each level in the Toolkit from its part of the one `TOOLKIT_ARC-####.md` (OR-4). Then Engineering runs `sync_data`, the
 validators and compares the result with the spec item by item; every divergence is fixed by Claude in a message that
 starts with `[fechado]` and names the ticket (`implementation: owner`), shown with its verification command and result.
 

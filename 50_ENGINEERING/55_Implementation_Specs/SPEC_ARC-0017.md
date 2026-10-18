@@ -18,7 +18,7 @@ refining (R49–R68), in both editions.
 **Design:** `21.04/Resonant/DESIGN.md` (R1–R68) · **Decisions:** `21.04/Resonant/DECISIONS.md` · **Numbers:** `25`
 (`*_Resonant_*.yaml`, blocks `pending_build`) · **Generator:** `82_Automation/stats/gen_emotion_alchemy.pl` + `t/gen_emotion_alchemy.t`
 (`perl t/gen_emotion_alchemy.t`) · **Lua tests:** `lua 50_ENGINEERING/53_Build_and_Versioning/53.03_Validators/run_tests.lua "<Data>/Mods/<mod>/ScriptExtender/Lua"`
-· **Test case:** `61.02/Resonant/TC_ARC-0014.md` (probes B1–B5, rows V1–V13).
+· **Test case:** `61.02/Resonant/QA_ARC-0017.md` (probes B1–B5, rows V1–V13).
 
 ## Global constraints
 
@@ -224,7 +224,7 @@ Apply Tasks 0.5–0.9 (statuses, Overload goal, Temperance goal, Emotional Overl
 | **B3** | Free variants | Levels 1, 5, 9: one variant, castable with no slot while Overloaded | The check by root id |
 | **B4** | PC: no Threads for Emotional Overload | 0 Threads | Exclude it from the `ARCANA_WEAVING` check |
 | **B5** | Rank III's area | Every enemy within 9 m of a point within 18 m | Task 2.5: a separate `Zone`/`Target` spell for slots 5–6 granted at 9 |
-| V4–V7, V11, V13 | as `TC_ARC-0014` | | |
+| V4–V7, V11, V13 | as `QA_ARC-0017` | | |
 
 **Task 2.5 (only if B5 fails):** a rank-III spell with `AreaRadius` 9 granted at level 9 and the variants 5–6 of the
 single-target spell removed — written after B5.
@@ -249,7 +249,7 @@ done; `check_propagation` 0 pending.
 
 - [ ] Stage 0 green (generator and Lua) before any `[fechado]`
 - [ ] Probes B1–B5 recorded, plan B applied where one failed
-- [ ] `TC_ARC-0014` rows V1–V13 pass in game
+- [ ] `QA_ARC-0017` rows V1–V13 pass in game
 - [ ] No line over 3900 characters; no repeated field; entry counts as expected after `sort_stats`
 - [ ] `25` holds no `pending_build` block for the Resonant
 

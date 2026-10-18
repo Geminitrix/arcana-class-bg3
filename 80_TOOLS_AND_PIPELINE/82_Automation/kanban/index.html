@@ -119,7 +119,7 @@ aside h3 { font-family: var(--f-display); font-size: 1.3rem; margin: 0; padding-
 
 <script>
 const COLS = [["backlog","Backlog"],["ready","Ready"],["in_progress","In Progress"],["in_review","In Review"],["spec_ready","Spec Ready"],["in_qa","In QA"],["done","Done"]];
-const PCOLS = [["backlog","Backlog"],["ready","Ready"],["in_qa","In QA"],["done","Done"]];   // Playtests tab (ARC-0024)
+const PCOLS = [["draft","Draft"],["ready","Ready"],["in_qa","In QA"],["done","Done"]];   // Playtests tab: one QA_ARC per ARC (OR-4)
 const WIP_COLS = ["in_progress", "in_qa"], WIP_LIMIT = 3;   // OR-36: the two together; In Review is the Owner's queue
 const SUB = { class:["Arcana (class)","#c579d9"], unbound:["Windborn","#f2c939"], deceiver:["Veilwalker","#f83fa5"], starchild:["Starchild","#79baf8"],
   eternal:["Palerider","#5dbc74"], resonant:["Heartsong","#f39a78"], kingmaker:["Kingmaker","#60d7d2"], lionheart:["Lionheart","#db4e50"], none:["No subclass",""] };
@@ -136,7 +136,9 @@ const cols = () => tab === "playtests" ? PCOLS : COLS;
 const kindOf = t => t.kind || t.type || "task";
 // Playtest progress from the test lines the kanban sync writes: "- [x] ID · title — pass|skipped", "- [ ] … — FAIL: …"
 const prog = t => { const c = { total: 0, ok: 0, fail: 0 };
-  for (const m of (t.body || "").matchAll(/^- \[[ x]\] \S+ · .*$/gm)) { c.total++; if (/ — (pass|skipped)$/.test(m[0])) c.ok++; else if (/ — FAIL/.test(m[0])) c.fail++; }
+  // QA_ARC: one "- **Result:** pass | skipped | FAIL — … | note — … | —" line per test, before the appendix
+  const body = (t.body || "").split(/^## (?:Appendix|Gates|Log)\b/m)[0];
+  for (const m of body.matchAll(/^- \*\*Result:\*\*\s*(\S*)/gm)) { c.total++; if (/^(pass|skipped)$/.test(m[1])) c.ok++; else if (m[1] === "FAIL") c.fail++; }
   c.left = c.total - c.ok - c.fail; return c; };
 // Why a card may not go to Done, or "" when it may
 const doneBlock = t => {
@@ -148,7 +150,8 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const dept = t => OWNER_DEPT[t.owner] || "Production";
 const blockers = t => String(t.blocked_by || "").replace(/^\[|\]$/g, "").split(",").map(s => s.trim()).filter(Boolean);
 const isBlocked = t => t.status === "blocked" || blockers(t).length > 0;
-const mdCol = t => t.status === "blocked" ? "in_progress" : (COLS.some(c => c[0] === t.status) ? t.status : "backlog");
+const mdCol = t => isPT(t) ? (PCOLS.some(c => c[0] === t.status) ? t.status : "draft")
+  : t.status === "blocked" ? "in_progress" : (COLS.some(c => c[0] === t.status) ? t.status : "backlog");
 const colOf = t => moves[t.id]?.to || mdCol(t);
 // DoD gate as written in the ticket: true / false / null (no DoD line)
 const dod = t => { const m = /^- \[([ xX])\] DoD/m.exec(t.body || ""); return m ? m[1] !== " " : null; };
@@ -261,7 +264,7 @@ function mdToHtml(src) {
 function renderDetail() {
   const t = tickets.find(x => x.id === open); if (!t) return;
   const s = SUB[t.subclass] || SUB.none, mv = moves[t.id], cs = comments.filter(c => c.ticket === t.id);
-  const d = dod(t), colName = id => COLS.find(c => c[0] === id)?.[1] || id;
+  const d = dod(t), colName = id => [...COLS, ...PCOLS].find(c => c[0] === id)?.[1] || id;
   const draft = $("ctext")?.value || "";   // a live update must not wipe a comment being typed
   $("detail").innerHTML = `<button class="close" id="close" aria-label="Close">×</button>
     <h3>${esc(t.id)} · ${esc(t.title)}</h3>

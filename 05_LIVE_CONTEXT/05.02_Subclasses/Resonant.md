@@ -10,7 +10,7 @@ reviewed: 2026-10-16 ARC-0014 — no change in the game; R49–R68 are an approv
 **Built and tested in the game files (levels 1–12, ARC-0002 closed 2026-10-12); not in the published 3.1.0.28.**
 > **Refining build ARC-0017, stages 1–4 in the game since 2026-10-16** (R49–R68: one *Weave Surge* card with a child per
 > emotion, Temper at 2, Opposites, Deeper Feelings at 5 and 9, Emotional Overload at 1, Ready: Compassion at 10); its 33
-> tests wait for the Owner (QA-0001). The progression below is the game today; the rules sections still describe
+> tests wait for the Owner (`QA_ARC-0017`). The progression below is the game today; the rules sections still describe
 > R1–R48 where R49–R68 changed them — the design is `21.04/Resonant/DESIGN.md`.
 Control and support through emotions; casts with INT, secondary WIS. Design: `21.04/Resonant/DESIGN.md`;
 decisions R1–R48: `21.04/Resonant/DECISIONS.md`. Tag `THERESONANT` (`c3a59afe-c03e-4fe0-9c7c-dc45ee46e21e`).

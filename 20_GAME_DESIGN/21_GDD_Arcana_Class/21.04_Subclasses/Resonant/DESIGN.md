@@ -620,6 +620,6 @@ and the English strings. Change the table, never the patches; then `gen_upcast_v
 
 ## 15. To test in game
 
-**R1–R48** passed in game (ARC-0002; `61.02_Test_Cases/Resonant/TC_ARC-0002.md`). **R49–R68** are tested after their
+**R1–R48** passed in game (ARC-0002; `61.02_Test_Cases/Resonant/QA_ARC-0002.md`). **R49–R68** are tested after their
 build: the verification rows V1–V11 of `REFINE_Resonant_2026-10-15.md` §11 and the probes of §14, in
 `61.02_Test_Cases/Resonant/` and the balance playtest ARC-0010.

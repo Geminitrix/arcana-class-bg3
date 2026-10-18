@@ -22,7 +22,8 @@ _Index maintained by the owner; generated in Stage A (2026-10-11)._
 | `verify_context.pl` | Every spell / passive a progression grants must appear in its `05` file; every id in a `05` file must exist. Matches by id or in-game name — features described under another name show up as false positives, so read the list |
 | `update_board.pl` | Tickets → `10.01/BACKLOG.md`, `10.02/SPRINT_BOARD.md` and `kanban/board.json` (the kanban artifact's data) |
 | `kanban/` | The Owner's kanban board artifact (ARC-0018): `index.html`, `board.json`, `emblems/`. Sync below |
-| `playtests.pl` | `new <guide.json> <subclass\|feature\|bug-retest>` writes the next QA-#### playtest ticket in `10.01/playtests`; `sync [dir]` rebuilds the QA test lists from the guides (by level) with the Arcana Test Guides results, plus `TEST_GUIDES.json` and the `.md` records (ARC-0024) |
+| `playtests.pl` | The QA_ARC files (OR-4): `new <ARC> <Subclass> "<title>"` writes a draft; `sync [results dir]` writes the Arcana Test Guides results into each test's Result line, exports the playable files to `61_Test_Plan/test_guides/data/` and `TEST_GUIDES.json`, reports ORPHAN results; `check` validates the format |
+| `merge_toolkit_parts.pl` | Merges Toolkit guide parts written separately into the one `TOOLKIT_ARC-####.md` per ARC (OR-4), nothing dropped |
 
 ## Kanban sync (ARC-0018)
 
@@ -34,11 +35,11 @@ cards and writes comments on the board; they wait in the artifact's store (`move
 2. Each move → the ticket's `status:` becomes `to`, plus a log line `- <date> — moved to <to> on the board (Owner).`
    If the ticket's status is no longer `from`, the move still wins; say so to the Owner.
 3. Each comment → a log line `- <date> — Owner comment: <text>` (kept in Portuguese).
-3b. Playtests (ARC-0024): `ArtifactData list` of `results` on Arcana Test Guides
+3b. Playtests (ARC-0024, one QA_ARC per ARC since ARC-0027): `ArtifactData list` of `results` on Arcana Test Guides
    (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E) with `out_dir` = a scratch folder, then
-   `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl sync <out_dir>/results` (rebuilds each QA ticket's test
-   list from its guide, `61_Test_Plan/TEST_GUIDES.json` and the guides' `.md` records). Each new fail → an ARC bug ticket
-   (`/novo-ticket`) and a QA bug-retest (`playtests.pl new <its guide> bug-retest`, `blocked_by` the bug).
+   `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl sync <out_dir>/results` (writes the results into the QA_ARC
+   files, the page data and `61_Test_Plan/TEST_GUIDES.json`). Each new fail → logged in the build ticket as a bug (OR-11)
+   or design feedback (OR-1), as the Owner decides; `/sync-test-guides` has the steps.
    Those results stay in the test page; nothing there is deleted.
 4. `update_board.pl`, commit + push (`ARC-0018: kanban sync …` or the ticket's own id).
 5. Republish `kanban/index.html` with `files: ["board.json"]` (same file path keeps the URL), and Arcana Test Guides:

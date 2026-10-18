@@ -10,8 +10,8 @@ implementation: owner
 priority: must
 value: 5
 effort: 5
-inputs: [21.04/Unbound/DESIGN.md, 21.04/Unbound/DECISIONS.md, 25 (*_Unbound_*, pending_build), 22.05/Unbound.md, 32.01/Unbound.md, 61.02/Unbound/TC_ARC-0022.md]
-outputs: [55/SPEC_ARC-0026.md, 55/_wip/Unbound/arc0026/, game files (Stats, LSX, Osiris, loca), 05.02/Unbound.md, 61.02/Unbound/GUIDE_ARC-0026.json]
+inputs: [21.04/Unbound/DESIGN.md, 21.04/Unbound/DECISIONS.md, 25 (*_Unbound_*, pending_build), 22.05/Unbound.md, 32.01/Unbound.md, 61.02/Unbound/QA_ARC-0026.md]
+outputs: [55/SPEC_ARC-0026.md, 55/_wip/Unbound/arc0026/, game files (Stats, LSX, Osiris, loca), 05.02/Unbound.md, 61.02/Unbound/QA_ARC-0026.md]
 blocked_by: []
 sprint: S01
 created: 2026-10-17
@@ -29,7 +29,7 @@ created: 2026-10-17
 - [x] Stage 0: patches, structure script and goal drafts in `55/_wip/Unbound/arc0026/`, dry runs clean; texts through the Narrative gate (`32.04`)
 - [ ] Probes P1–P8 recorded, plan B applied where one failed
 - [ ] Stages 2–5 applied, one `[fechado] ARC-0026` message each; Story compiled with 0 errors after each goal change
-- [ ] `61.02/Unbound/` rows pass in game; guide `GUIDE_ARC-0026.json` on the Arcana Test Guides page
+- [ ] `61.02/Unbound/` rows pass in game; guide `QA_ARC-0026.md` on the Arcana Test Guides page
 - [ ] Stage 6: `25` holds no Windborn `pending_build` block; `05.02` synced; `check_propagation` OK
 
 ## Gates

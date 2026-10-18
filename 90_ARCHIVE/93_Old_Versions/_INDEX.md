@@ -14,3 +14,4 @@ Replaced GDDs, specs, baselines and applied patches.
 | `2026-10-15_SUBCLASS_STANDARD_v1/` | 2026-10-15 | `_SUBCLASS_STANDARD.md` v1, replaced by v2 (ARC-0016); ids and §1.2/§2.3/§3/§15 kept |
 | `2026-10-16_ARC-0019_deceiver_veil_design/` | 2026-10-16 | The Deceiver Veil design (2026-10-06, D1–D17), replaced by the dossier `21.04/Deceiver/DESIGN.md` + `DECISIONS.md` (DV1–DV30) |
 | `2026-10-17_Studio_Constitution_v0.4/` | 2026-10-17 | The v0.4 master spec (Portuguese, 38 roles, paths never used) and the 00.07 implementation policy, replaced by `00.01/Operating_Rules.md` (ADR-0010) |
+| `2026-10-17_TOOLKIT_per_level_and_test_files/` | 2026-10-17 | 14 per-level / per-stage Toolkit guides and 23 test files (GUIDE_ARC, TC_ARC, QA-####), merged into one TOOLKIT_ARC and one QA_ARC per ARC (Owner, OR-4) — map in its README |

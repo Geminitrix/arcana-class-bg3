@@ -57,7 +57,7 @@ Against `21.04/_SUBCLASS_STANDARD.md` §3.
 
 | Question | State | Evidence / what is still due |
 |---|---|---|
-| I1 fun | ⚠️ | Not played yet — probes P1–P48 and the balance playtest (`61.02/Kingmaker/TC_ARC-0008.md`) |
+| I1 fun | ⚠️ | Not played yet — probes P1–P48 and the balance playtest (`61.02/Kingmaker/QA_ARC-0008.md`) |
 | I2–I6 | ✅ | "One rises as another falls"; the kingmaker archetype; Anticipation (the next position is known); axis Balance (free); names from the card, myth, history and the Small Council |
 | S1–S6 | ✅ | Card read literally; Fortuna, Nemesis, Atropos, Ixion; phase in a cycle; the Small Council, DIO / Faceless Void / Bard |
 | W1 | ✅ | SP95's class-description sentence (in game) |

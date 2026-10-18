@@ -21,7 +21,7 @@ Against `21.04/_SUBCLASS_STANDARD.md` §3.
 
 | Question | State | Evidence / what is still due |
 |---|---|---|
-| I1 fun | ⚠️ | Not played — tests in `61.02/Lionheart/TC_ARC-0009.md` after the build |
+| I1 fun | ⚠️ | Not played — tests in `61.02/Lionheart/QA_ARC-0009.md` after the build |
 | I2–I6 | ✅ | Stand before the beast; the champion archetype; Courage as approach (Rachman); axis Courage (free); names from the card and Heracles' Labours |
 | S1–S6 | ✅ | Card read literally; Heracles; Rachman; Garen, Jarvan IV, Seiya / Naruto; aikido |
 | W1–W2 | ✅ | Class sentence (LH74); Seal, Garland, Infinity, The Twelfth Labour carry the Weave |

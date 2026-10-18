@@ -4,7 +4,7 @@
 #   perl 80_TOOLS_AND_PIPELINE/82_Automation/update_board.pl      (from the repository root)
 #
 # Tickets: 10_PRODUCTION/10.01_Product_Backlog/stories/ARC-*.md with a YAML header (_TEMPLATE_TICKET.md).
-# Playtests: 10.01_Product_Backlog/playtests/QA-*.md (written by playtests.pl, ARC-0024).
+# Playtests: 60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/*/QA_ARC-*.md (one per ARC, written by playtests.pl, OR-4).
 # Current sprint: first line "sprint: S##" of 10_PRODUCTION/10.02_Active_Sprint/SPRINT_GOAL.md.
 use strict; use warnings; use utf8;
 binmode STDOUT, ':utf8';
@@ -12,7 +12,7 @@ binmode STDOUT, ':utf8';
 my $B = '10_PRODUCTION/10.01_Product_Backlog';
 my $A = '10_PRODUCTION/10.02_Active_Sprint';
 my @t;
-for my $f (sort(glob("$B/stories/ARC-*.md")), sort(glob("$B/playtests/QA-*.md"))) {
+for my $f (sort(glob("$B/stories/ARC-*.md")), sort(glob("60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/*/QA_ARC-*.md"))) {
   open my $fh, '<:encoding(UTF-8)', $f or next; my %h; my $in = 0;
   while (<$fh>) { s/[\r\n]+$//;
     if (/^---\s*$/) { last if $in; $in = 1; next }
@@ -20,7 +20,7 @@ for my $f (sort(glob("$B/stories/ARC-*.md")), sort(glob("$B/playtests/QA-*.md"))
     $h{$1} = $2 if /^(\w+):\s*(.*?)\s*(?:#.*)?$/;
   }
   $h{body} = do { local $/; my $b = <$fh> // ''; $b =~ s/\r//g; $b };
-  ($h{file} = $f) =~ s{^\Q$B\E/}{};   # stories/… or playtests/…
+  ($h{file} = $f) =~ s{^\Q$B\E/}{};   # stories/… (QA_ARC files keep their repository path)
   push @t, \%h if $h{id};
 }
 my %pr = (must => 0, should => 1, could => 2, wont => 3);

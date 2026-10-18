@@ -25,19 +25,20 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 |---|---|---|---|---|---|
 | 1 | **Intake** | `backlog` → `ready` | Producer | Ticket `ARC-####` (`/novo-ticket`): goal, intent, inputs | Definition of Ready (`00.03`); picked for the sprint |
 | 2 | **Ideation** | `in_progress` | Lead Class Designer with the Owner | Brainstorm (OR-51); every answer logged at once in `21.04/<S>/DECISIONS.md` | The Owner says the ideas are complete |
-| 3 | **Design doc** | `in_progress` → `in_review` | Lead Class Designer · Balance · Lore | `DESIGN.md` (the whole design, present tense, no history) · numbers in `25` · texts in `32.01` | **Design gate** (`_SUBCLASS_STANDARD` §15) + **Narrative gate** (`32.04`) + the Owner approves the design |
-| 4 | **Build kit** | `spec_ready` | Mod Engineer · QA | `SPEC_ARC-####` (what; one stage per level) · `TOOLKIT_ARC-####_L<n>.md` (how to type it, `_TEMPLATE_TOOLKIT_GUIDE`) · `GUIDE_ARC-####.json` (the tests, written **before** the build) | The Owner starts typing |
-| 5 | **Build & test**, one level at a time | `in_qa` | Owner types · Claude verifies · Owner plays | Level N typed → Claude: `sync_data`, validators, compare with the spec item by item, **fix every divergence** (OR-11) → Owner plays level N's tests → level N+1 | Every test passes |
+| 3 | **Design doc** | `in_progress` → `in_review` | Lead Class Designer · Balance · Lore | `DESIGN.md` (the whole design, present tense, no history) · numbers in `25` · texts in `32.01` · the draft `QA_ARC-####.md` (what must be proven) | **Design gate** (`_SUBCLASS_STANDARD` §15) + **Narrative gate** (`32.04`) + the Owner approves the design |
+| 4 | **Build kit** | `spec_ready` | Mod Engineer · QA | `SPEC_ARC-####` (what; one stage per level) · **one** `TOOLKIT_ARC-####.md` (how to type it, a part per level, `_TEMPLATE_TOOLKIT_GUIDE`) · **one** `QA_ARC-####.md` completed (the tests level by level, written **before** the build) | The Owner starts typing |
+| 5 | **Build & test**, one level at a time | `in_qa` | Owner types · Claude verifies · Owner plays | Level N typed (its part of `TOOLKIT_ARC`) → Claude: `sync_data`, validators, compare with the spec item by item, **fix every divergence** (OR-11) → Owner plays level N's tests (its section of `QA_ARC`) → level N+1 | Every test passes |
 | 6 | **Close** | `done` | Producer + every role | `/propagar`, `05` updated, a patch-notes line (`76.04`), `/fechar-ticket` | DoD (`00.03`), `check_propagation` OK |
 
 - **OR-1** A failed test is either a **bug** (the build differs from the spec → fix it, stage 5) or **design feedback**
   (the spec is right but it doesn't play well → a new decision in `DECISIONS.md`, back to stage 3 for that part).
 - **OR-2** Work that doesn't touch the game (a document, a tool, a page) skips stages 4–5.
 - **OR-3** No stage is skipped silently: if the Owner wants to jump ahead, log it in the ticket.
-- **OR-4** Test documents: `TC_ARC-<design>.md` is the draft (stage 3); **`GUIDE_ARC-<build>.json`** is the playtest
-  document, level by level, written before the build (stage 4); its **`QA-####`** ticket is its card on the board's
-  Playtests tab (`in_qa` during stage 5, `done` when every test passes or is skipped). Format and ids:
-  `61_Test_Plan/GUIDE_FORMAT.md`, checked by `playtests.pl check`. A test with a result is never renumbered.
+- **OR-4** **One file per ARC for each job** (Owner, 2026-10-17): `55/TOOLKIT_ARC-####.md` is the only implementation
+  file the Owner reads in the Toolkit (a part per level); `61.02/<S>/QA_ARC-####.md` is the only playtest file — the tests
+  separated by level, their results, probes and drafts included — and it is also its card on the board's Playtests tab
+  (`draft` → `ready` → `in_qa` → `done`). The Arcana Test Guides page shows it (an export, never edited). Format and ids:
+  `61_Test_Plan/QA_ARC_FORMAT.md`, checked by `playtests.pl check`. A test with a result is never renumbered.
 
 ## 2. The game and the write gate
 
@@ -116,7 +117,7 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 ## 8. Names and ids
 
 - **OR-56** Cite files by their Johnny.Decimal id (`22.04`, `ARC-0142`). Folders `ID_Name_In_Snake_Case`; tickets
-  `ARC-####`, playtests `QA-####`; design ids `SPL_`, `FEAT_`, `STA_`, `ICO_`; shipped mod ids keep their prefixes (OR-10).
+  `ARC-####`, its Toolkit and playtest files `TOOLKIT_ARC-####` / `QA_ARC-####`; design ids `SPL_`, `FEAT_`, `STA_`, `ICO_`; shipped mod ids keep their prefixes (OR-10).
 - **OR-57** No spaces or accents in any file that ships with the mod.
 
 ## 9. Only the Owner

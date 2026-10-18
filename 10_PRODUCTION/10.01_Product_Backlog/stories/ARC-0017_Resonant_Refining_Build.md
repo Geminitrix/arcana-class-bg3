@@ -10,7 +10,7 @@ implementation: owner
 priority: should
 value: 5
 effort: 5
-inputs: [21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md (R49–R68), 25 (*_Resonant_* pending_build), 55_Implementation_Specs/SPEC_ARC-0017.md, 61.02/Resonant/TC_ARC-0014.md]
+inputs: [21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md (R49–R68), 25 (*_Resonant_* pending_build), 55_Implementation_Specs/SPEC_ARC-0017.md, 61.02/Resonant/QA_ARC-0017.md]
 outputs: [gen_emotion_alchemy.pl + tests, the Resonant's Stats/LSX/Osiris/Khonsu in Data, CardDB.lua + tests, 25 values moved from pending_build, 32.01 texts, 05.02/Resonant.md]
 blocked_by: []
 sprint: S01

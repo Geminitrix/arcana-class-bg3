@@ -1,0 +1,495 @@
+{
+   "before" : [
+      "Type the level from its Toolkit guide (TOOLKIT_ARC-0026_L01.md … _L12.md), compile the Story (log.txt: 0 error(s), 0 warning(s)) and tell Claude; then play that level's session here.",
+      "Console edition (Script Extender off) unless a test says PC edition.",
+      "A Windborn (Unbound subclass) character with no armour and no shield, unless a test says otherwise.",
+      "The stage 1 probes (P1–P9) all passed on 2026-10-17; they are recorded in QA-0004."
+   ],
+   "sessions" : [
+      {
+         "id" : "L1",
+         "level" : 1,
+         "name" : "Level 1 — The Open Road",
+         "setup" : "A level-1 Windborn, no armour and no shield, in a fight with at least three enemies spread out and one ally in melee with an enemy.",
+         "tests" : [
+            {
+               "expected" : "The subclass is The Windborn. The preset is STR 8, DEX 15, CON 13, INT 15, WIS 10, CHA 10. Armour Class = 10 + DEX + INT (Be the Leaf). Level-1 spells: Gale Burst only (no True Strike)",
+               "fails" : "The old name Unbound anywhere, another preset, Wisdom in the AC, or True Strike in the list",
+               "id" : "L1.1",
+               "kind" : "observe",
+               "rule" : "WB43 · TC B12 (names)",
+               "steps" : "Create a Windborn at level 1 (or respec one). Look at the subclass name, the default abilities and the character sheet",
+               "title" : "The class reads The Windborn; the preset and the AC are right"
+            },
+            {
+               "expected" : "Zephyr Strike and Zephyr Rush both appear after the attack (and after a card). The Rush runs to the target and strikes it with no opportunity attack on the way. It needs no weapon and has no Short Rest cooldown",
+               "fails" : "No Zephyr after the attack, an opportunity attack on the way, a weapon requirement, or a cooldown",
+               "id" : "L1.2",
+               "rule" : "WB5, WB18",
+               "steps" : "Hit an enemy with an unarmed attack. In the bonus actions, cast Zephyr Rush on an unmarked enemy 6–9 m away, past another enemy",
+               "title" : "After an unarmed attack, Zephyr Rush carries you to an unmarked enemy"
+            },
+            {
+               "expected" : "The Windswept enemy can't be targeted. At level 1 the 11 m enemy is out of range (9 m); Zephyr Strike still works on the marked one",
+               "fails" : "The Rush can target a Windswept enemy, or reaches beyond 9 m",
+               "id" : "L1.3",
+               "rule" : "WB5 (range, target)",
+               "steps" : "Hover Zephyr Rush over a Windswept enemy, then over an unmarked one about 11 m away",
+               "title" : "The Rush only reaches an unmarked enemy within 9 m"
+            },
+            {
+               "expected" : "Both enemies you damaged show Windswept; the missed one doesn't",
+               "fails" : "No mark on damage, or a mark on a miss",
+               "id" : "L1.4",
+               "rule" : "WB8, WB49 (P7)",
+               "steps" : "Hit one enemy with an unarmed attack, another with a card that deals damage, and miss a third",
+               "title" : "Damage marks Windswept; a miss doesn't"
+            },
+            {
+               "expected" : "The enemy that fails is pushed, Prone and Windswept; the one that succeeds isn't marked. Gale Burst no longer gives a free unarmed strike, and its tooltip no longer says \"Afterwards…\"",
+               "fails" : "A success marks, a failure doesn't, or the free strike is still there",
+               "id" : "L1.5",
+               "rule" : "WB8, WB28",
+               "steps" : "Cast Gale Burst on an enemy (try until one fails and one succeeds)",
+               "title" : "Gale Burst: a failed save marks; no free strike any more"
+            },
+            {
+               "expected" : "The marked enemy doesn't attack; the unmarked one makes its usual opportunity attack",
+               "fails" : "The marked enemy attacks, or the unmarked one doesn't",
+               "id" : "L1.6",
+               "rule" : "WB10, WB49 (P6)",
+               "steps" : "Mark the enemy next to your melee ally. On the ally's turn, walk away from it. Do the same next to an unmarked enemy",
+               "title" : "A Windswept enemy makes no opportunity attack"
+            },
+            {
+               "expected" : "The mark counts down on your turns only and ends at the end of your next turn",
+               "fails" : "It ends on the enemy's turn, after only one of your turns, or lasts longer",
+               "id" : "L1.7",
+               "rule" : "WB9 · TC B3",
+               "steps" : "Mark an enemy on your turn. End the turn; play your next turn and end it",
+               "title" : "Windswept lasts until the end of your next turn"
+            },
+            {
+               "expected" : "Weightless shows in the passives; movement +3 m without armour; no Twinkle Toes",
+               "fails" : "No bonus, the wrong bonus, or Twinkle Toes still there",
+               "id" : "L1.8",
+               "rule" : "WB39, WB47",
+               "steps" : "Compare your movement with and without armour",
+               "title" : "Weightless: +3 m"
+            },
+            {
+               "expected" : "No mark, no Zephyr Strike or Rush, no Weightless bonus, no Be the Leaf. Take it off and they come back",
+               "fails" : "Any of them works in armour or with a shield",
+               "id" : "L1.9",
+               "rule" : "WB3 · TC B10",
+               "steps" : "Put on armour (then a shield instead). Hit an enemy with an unarmed attack; look at AC and movement",
+               "title" : "Armour or a shield turns everything off"
+            },
+            {
+               "expected" : "The Open Road explains Windswept, the Open Path and Zephyr; no card says \"Afterwards\"; no id or raw handle shows",
+               "fails" : "An old text, a raw handle or an id",
+               "id" : "L1.10",
+               "kind" : "observe",
+               "rule" : "WB27",
+               "steps" : "Read the tooltips of The Open Road, Windswept, Zephyr Strike, Zephyr Rush and Gale Burst",
+               "title" : "The Open Road and the cards read right"
+            },
+            {
+               "edition" : "PC",
+               "expected" : "Zephyr Strike and Zephyr Rush are conjured to the hand for the turn",
+               "fails" : "Only Zephyr Strike, or neither",
+               "id" : "L1.11",
+               "rule" : "WB5 (PC edition)",
+               "steps" : "On the PC edition (Script Extender on), make an unarmed attack in combat",
+               "title" : "PC edition: the deck conjures Zephyr Rush"
+            }
+         ]
+      },
+      {
+         "id" : "L2",
+         "level" : 2,
+         "name" : "Level 2 — Aeolus' Bag",
+         "setup" : "Level 2, a fight with at least four enemies; mark several before opening the bag.",
+         "tests" : [
+            {
+               "expected" : "Greyed out with no Windswept enemy; usable (bonus action) once one is marked. It offers Boreas and Notus",
+               "fails" : "Usable with no mark, or still greyed with a mark",
+               "id" : "L2.1",
+               "rule" : "WB11, WB13",
+               "steps" : "Look at Aeolus' Bag before marking anyone, then after marking one enemy",
+               "title" : "The bag needs a Windswept enemy"
+            },
+            {
+               "expected" : "Every mark is cleared. \"The bag is open\" shows 2 turns (3 marks, capped at 2 at Breeze). The bag stays shut while the wind blows",
+               "fails" : "The marks stay, the number isn't the capped count, or the bag can open again",
+               "id" : "L2.2",
+               "rule" : "WB13, WB14 · TC B4",
+               "steps" : "Mark 3 enemies. Open the bag with Boreas",
+               "title" : "Opening: X = marks, capped at 2; every mark is cleared"
+            },
+            {
+               "expected" : "Allies get a tailwind (+3 m); Windswept enemies a headwind (−3 m); unmarked enemies nothing",
+               "fails" : "Wrong amounts, or unmarked enemies affected",
+               "id" : "L2.3",
+               "rule" : "WB12 (Boreas)",
+               "steps" : "With Boreas blowing, mark an enemy; compare an ally's and that enemy's movement",
+               "title" : "Boreas: allies +3 m, Windswept enemies −3 m"
+            },
+            {
+               "expected" : "The ranged attack has Disadvantage; the Windswept enemy's save shows −1",
+               "fails" : "No Disadvantage, or no penalty",
+               "id" : "L2.4",
+               "rule" : "WB12 (Notus)",
+               "steps" : "Open the bag with Notus; let an enemy shoot an ally; make a Windswept enemy roll a save",
+               "title" : "Notus: ranged attacks against allies at Disadvantage; Windswept enemies −1 to saves"
+            },
+            {
+               "expected" : "At your turn start every mark is cleared; the turns of \"the bag is open\" go down by one at each of your turn ends; at 0 the wind stops and the bag can open again",
+               "fails" : "The marks stay, the count is wrong, or the wind never stops",
+               "id" : "L2.5",
+               "rule" : "WB14 (the sweep) · TC B5",
+               "steps" : "With a wind blowing, mark two enemies; end your turn; start the next one",
+               "title" : "While the wind blows, your turn starts with a sweep"
+            },
+            {
+               "edition" : "PC",
+               "expected" : "Aeolus' Bag appears in the hand (0 Threads) with its winds",
+               "fails" : "No bag in the hand",
+               "id" : "L2.6",
+               "rule" : "WB11 (PC edition)",
+               "steps" : "On the PC edition, mark an enemy in combat",
+               "title" : "PC edition: the bag is conjured once you have a mark"
+            }
+         ]
+      },
+      {
+         "id" : "L3",
+         "level" : 3,
+         "name" : "Level 3 — The First Step, The Calm, Wind Blast",
+         "setup" : "Level 3, a fight with at least four enemies.",
+         "tests" : [
+            {
+               "expected" : "The Awakening status counts \"Windswept marks left to release to awaken The First Step\" down from 3; at 0 The First Step wakes",
+               "fails" : "Another count, the old Wanderlust text, or no tier",
+               "id" : "L3.1",
+               "rule" : "WB22, WB23 · TC C5",
+               "steps" : "Mark 3 enemies and release them (open the bag, or let a sweep take them). Watch the Awakening status",
+               "title" : "Tier I wakes after 3 marks are released"
+            },
+            {
+               "expected" : "The first Rush each turn costs no bonus action; a second Zephyr that turn costs it",
+               "fails" : "Every Rush is free, or none",
+               "id" : "L3.2",
+               "rule" : "WB22 (The First Step)",
+               "steps" : "With The First Step awake, use Zephyr Rush twice on two turns (after an unarmed attack each time)",
+               "title" : "The First Step: the first Rush each turn is free"
+            },
+            {
+               "expected" : "Greyed with no wind. Cast: the wind stops at once, each Windswept enemy takes 1d8 Thunder per turn left, every mark is swept, and the bag can open again the same turn",
+               "fails" : "Usable without wind, wrong damage, or the bag stays shut",
+               "id" : "L3.3",
+               "rule" : "WB25, WB48 · TC B6",
+               "steps" : "Look at The Calm with no wind; open the bag (2+ turns), mark enemies, cast The Calm",
+               "title" : "The Calm: only while a wind blows; the turns left become gusts"
+            },
+            {
+               "expected" : "Each creature that fails is pushed, Off Balance and Windswept; one that succeeds isn't marked; no \"Afterwards…\" in the text",
+               "fails" : "A success marks, a failure doesn't",
+               "id" : "L3.4",
+               "rule" : "WB8 (Wind Blast)",
+               "steps" : "Cast Wind Blast on a group",
+               "title" : "Wind Blast marks those who fail"
+            },
+            {
+               "expected" : "Level 3 adds Wind Blast and The Calm (Aspect card); Flow State, Gale Deflection and its resources come at level 6; no Twinkle Toes",
+               "fails" : "Flow State or Gale Deflection still at 3",
+               "id" : "L3.5",
+               "kind" : "observe",
+               "rule" : "WB43 (level map)",
+               "steps" : "Look at the level-3 spells and resources",
+               "title" : "Flow State and Gale Deflection are no longer at level 3"
+            }
+         ]
+      },
+      {
+         "id" : "L4",
+         "level" : 4,
+         "name" : "Level 4 — Gale",
+         "setup" : "Level 4, a fight with at least four enemies.",
+         "tests" : [
+            {
+               "expected" : "Both push the target 3 m. The Rush now reaches 12 m. The Gale passive shows",
+               "fails" : "No push, the wrong distance, or still 9 m",
+               "id" : "L4.1",
+               "rule" : "WB16, WB17 (Gale)",
+               "steps" : "Zephyr Strike a Windswept enemy; Zephyr Rush an unmarked one about 11 m away",
+               "title" : "Zephyr pushes 3 m; the Rush reaches 12 m"
+            },
+            {
+               "expected" : "The bag offers Eurus. \"The bag is open\" shows 3 turns. Allies +1 to attack rolls; Windswept enemies −1",
+               "fails" : "No Eurus, the wrong cap, or wrong bonuses",
+               "id" : "L4.2",
+               "rule" : "WB12 (Eurus), WB13",
+               "steps" : "Mark 4 enemies; open the bag with Eurus; an ally attacks; a Windswept enemy attacks",
+               "title" : "Eurus joins the bag; the cap is 3"
+            },
+            {
+               "expected" : "+4.5 m movement, jump ×2, half falling damage (rank 1 gone)",
+               "fails" : "Rank 1 still there, or wrong values",
+               "id" : "L4.3",
+               "rule" : "WB47 (Weightless 2)",
+               "steps" : "Check movement, jump distance and falling damage",
+               "title" : "Weightless rank 2"
+            }
+         ]
+      },
+      {
+         "id" : "L5",
+         "level" : 5,
+         "name" : "Level 5 — Flowing Assault, Wind Whispers",
+         "setup" : "Level 5, any fight.",
+         "tests" : [
+            {
+               "expected" : "Wind Whispers' own effect plus the opening Advantage (the status Evasive Flow used to give)",
+               "fails" : "No Advantage",
+               "id" : "L5.1",
+               "rule" : "WB33 (Wind Whispers)",
+               "steps" : "Cast Wind Whispers, then attack",
+               "title" : "Wind Whispers also gives the Advantage Evasive Flow gave"
+            },
+            {
+               "expected" : "Flowing Assault works as before; no Twinkle Toes or Feather Fall at level 5 (Weightless rank 2 stays)",
+               "fails" : "Twinkle Toes or the old Weightless 5 present",
+               "id" : "L5.2",
+               "kind" : "observe",
+               "rule" : "WB43",
+               "steps" : "Read Flowing Assault and Wind Whispers; check the passives",
+               "title" : "Flowing Assault and the level-5 texts"
+            }
+         ]
+      },
+      {
+         "id" : "L6",
+         "level" : 6,
+         "name" : "Level 6 — Flow State, Ready: Gale Deflection",
+         "setup" : "Level 6, a fight with a ranged enemy and an ally within 3 m of you.",
+         "tests" : [
+            {
+               "expected" : "3 turns at every slot, one extra bonus action each turn",
+               "fails" : "Duration grows with the slot, or no extra bonus action",
+               "id" : "L6.1",
+               "rule" : "WB31 (Flow State)",
+               "steps" : "Cast Flow State at its base slot, then at a higher slot (another fight)",
+               "title" : "Flow State: 3 turns and one extra bonus action, at every slot"
+            },
+            {
+               "expected" : "You can react for yourself and for the ally within 3 m; not for the one 5 m away. Its id doesn't show in the combat log",
+               "fails" : "No reaction for the near ally, a reaction for the far one, or an id in the log",
+               "id" : "L6.2",
+               "rule" : "WB32 (Gale Deflection)",
+               "steps" : "Let a ranged enemy shoot you, then an ally 2 m from you, then one 5 m away",
+               "title" : "Gale Deflection also protects an ally within 3 m"
+            }
+         ]
+      },
+      {
+         "id" : "L7",
+         "level" : 7,
+         "name" : "Level 7 — Fellow Travellers, Storm Fists",
+         "setup" : "Level 7, a fight with allies attacking enemies.",
+         "tests" : [
+            {
+               "expected" : "The enemy becomes Windswept (your mark: it counts for your bag and Awakening and lasts 2 of your turns)",
+               "fails" : "No mark, or the mark doesn't count for you",
+               "id" : "L7.1",
+               "rule" : "WB22 (Tier II) · TC B9",
+               "steps" : "With Tier II awake (goal 5), let an ally hit an unmarked enemy",
+               "title" : "Fellow Travellers: an ally's hit marks the enemy in your name"
+            },
+            {
+               "expected" : "It counts down to Fellow Travellers from 5",
+               "fails" : "Another number",
+               "id" : "L7.2",
+               "rule" : "WB23 (goals 3/5/8)",
+               "steps" : "Release marks after Tier I and watch the Awakening status",
+               "title" : "Tier II needs 5 released marks"
+            },
+            {
+               "expected" : "Extra Thunder damage on the unmarked enemy only; 3 turns at every slot",
+               "fails" : "Extra damage on the Windswept enemy, or a different duration",
+               "id" : "L7.3",
+               "rule" : "WB34 (Storm Fists)",
+               "steps" : "Cast Storm Fists; punch an unmarked enemy, then a Windswept one",
+               "title" : "Storm Fists: extra damage only against enemies that aren't Windswept; 3 turns"
+            }
+         ]
+      },
+      {
+         "id" : "L8",
+         "level" : 8,
+         "name" : "Level 8 — Storm",
+         "setup" : "Level 8, a fight with at least five enemies.",
+         "tests" : [
+            {
+               "expected" : "A second Rush appears for this turn (free, 9 m, only an unmarked enemy) and goes once used; a missed Rush gives none",
+               "fails" : "No second Rush, it costs an action, it stays, or a miss grants it",
+               "id" : "L8.1",
+               "rule" : "WB16 (Storm) · TC C3",
+               "steps" : "Zephyr Rush an unmarked enemy and hit it; look at the bonus actions; Rush again to another unmarked enemy within 9 m",
+               "title" : "Storm: after a Rush that deals damage, one more free Rush"
+            },
+            {
+               "expected" : "\"The bag is open\" shows 4 turns; +6 m movement, jump ×3, half falling damage",
+               "fails" : "Another cap or wrong values",
+               "id" : "L8.2",
+               "rule" : "WB13 (cap 4), WB47",
+               "steps" : "Mark 5 enemies and open the bag; check movement and jump",
+               "title" : "The cap is 4; Weightless rank 3"
+            }
+         ]
+      },
+      {
+         "id" : "L9",
+         "level" : 9,
+         "name" : "Level 9 — Untethered, Empty State",
+         "setup" : "Level 9, any fight.",
+         "tests" : [
+            {
+               "expected" : "+2 AC while flying; Eye of the Storm no longer shows anywhere",
+               "fails" : "No AC, or Eye of the Storm still there",
+               "id" : "L9.1",
+               "rule" : "WB35 (Untethered)",
+               "steps" : "Cast Untethered; compare AC before and after",
+               "title" : "Untethered: flying gives +2 AC"
+            },
+            {
+               "expected" : "Empty State at level 9 (not 12); Untethered in the spells; no Evasive Flow",
+               "fails" : "Empty State missing or Evasive Flow still in the list",
+               "id" : "L9.2",
+               "kind" : "observe",
+               "rule" : "WB43, WB36",
+               "steps" : "Look at the level-9 passives and spells",
+               "title" : "Empty State arrives at 9; Evasive Flow is gone"
+            }
+         ]
+      },
+      {
+         "id" : "L10",
+         "level" : 10,
+         "name" : "Level 10 — Leap of Faith",
+         "setup" : "Level 10, enemies standing in a line.",
+         "tests" : [
+            {
+               "expected" : "The Force Tunnel dash, striking each enemy in the path and marking them; no slot spent; once per Short Rest. After it (a card) you get Zephyr",
+               "fails" : "No dash animation, a slot spent, usable again before a rest, or no Zephyr after it",
+               "id" : "L10.1",
+               "rule" : "WB7, WB38 (P5)",
+               "steps" : "Cast Leap of Faith through a line of enemies; try it again before a Short Rest",
+               "title" : "Leap of Faith: a card, once per Short Rest, on the Force Tunnel dash"
+            }
+         ]
+      },
+      {
+         "id" : "L11",
+         "level" : 11,
+         "name" : "Level 11 — Where the Winds Meet",
+         "setup" : "Level 11, a fight with several enemies, some Windswept.",
+         "tests" : [
+            {
+               "expected" : "Greyed while a wind blows. Without wind it targets a point on the ground (no enemy under the cursor needed)",
+               "fails" : "Usable with a wind, or it needs a creature as the target",
+               "id" : "L11.1",
+               "rule" : "WB26, WB50",
+               "steps" : "Open the bag, try the capstone; when the wind ends, aim it at an empty spot of ground within 18 m",
+               "title" : "Aimed at the ground; refused while a wind blows"
+            },
+            {
+               "expected" : "Both are pulled toward the point (not toward you): the Windswept one reaches it, the other stops about 2 m short. Both take 4d8 Thunder (half on a DEX save), are Off Balance and become Windswept. Once per Long Rest",
+               "fails" : "The pull goes toward you (plan B: a pulling explosion at the point), wrong distances, or no mark",
+               "id" : "L11.2",
+               "planb" : "GROUND:CreateExplosion of a pulling explosion at the point",
+               "rule" : "WB46, WB49 · TC B7",
+               "steps" : "With one Windswept enemy and one unmarked enemy each about 8 m from the point, cast it",
+               "title" : "The pull: 9 m area, Windswept pulled 9 m, others 6 m — to the point"
+            },
+            {
+               "expected" : "Where the Winds Meet replaces Thunderclap; no Momentum",
+               "fails" : "Thunderclap or Momentum still there",
+               "id" : "L11.3",
+               "kind" : "observe",
+               "rule" : "WB37, WB34",
+               "steps" : "Look at the level-11 spells and passives",
+               "title" : "Thunderclap and Momentum are gone"
+            }
+         ]
+      },
+      {
+         "id" : "L12",
+         "level" : 12,
+         "name" : "Level 12 — Into the Storm, Hurricane",
+         "setup" : "Level 12, a fight with at least five enemies.",
+         "tests" : [
+            {
+               "expected" : "Every swept enemy is pushed 3 m away from you and is Off Balance — the sweep that wakes the tier included",
+               "fails" : "No push, the wrong direction, or the waking sweep doesn't push",
+               "id" : "L12.1",
+               "rule" : "WB22 (Tier III, P9) · TC B9",
+               "steps" : "Wake Tier III (goal 8); let a sweep release marks",
+               "title" : "Into the Storm: each sweep pushes the swept enemies 3 m"
+            },
+            {
+               "expected" : "The bag offers the pairs (Boreas + Notus, Boreas + Eurus, Notus + Eurus) instead of single winds; both winds blow; \"the bag is open\" shows 5 turns",
+               "fails" : "Single winds still offered, only one wind blows, or another cap",
+               "id" : "L12.2",
+               "rule" : "WB15 (Hurricane), WB13",
+               "steps" : "Mark 6 enemies and open the bag",
+               "title" : "Hurricane: the bag offers two winds at once; the cap is 5"
+            },
+            {
+               "expected" : "+9 m movement, jump ×4, no falling damage",
+               "fails" : "Wrong values",
+               "id" : "L12.3",
+               "rule" : "WB47 (Weightless 4)",
+               "steps" : "Check movement, jump and a long fall",
+               "title" : "Weightless rank 4"
+            },
+            {
+               "expected" : "No ability bonus from the tiers, no Fool's Luck reaction or resource; levels 13–20 add no Twinkle Toes",
+               "fails" : "An old tier bonus or Fool's Luck still there",
+               "id" : "L12.4",
+               "kind" : "observe",
+               "rule" : "WB24, WB43",
+               "steps" : "Look at the tier passives and resources; level to 13 if you can",
+               "title" : "No old tier bonuses; no Fool's Luck; nothing after 12"
+            }
+         ]
+      },
+      {
+         "id" : "ANY",
+         "name" : "Any level — full run",
+         "setup" : "A full fight at levels 3, 8 and 12 (TC part C), after all levels are typed.",
+         "tests" : [
+            {
+               "expected" : "A Rush most turns; the bag by turn 2–3; every wind chosen in some fights (none above about 60%)",
+               "fails" : "A turn every time without a choice, no bag, or one wind always",
+               "id" : "A.1",
+               "kind" : "observe",
+               "rule" : "C1 · TC C1, C2",
+               "steps" : "Play a few fights at levels 3, 5–8 and 12 and note the turns",
+               "title" : "How the fights play"
+            },
+            {
+               "expected" : "Damage within about ±15% of the Monk; each tier wakes on turn 2–3",
+               "fails" : "More than 15% over, or a tier after turn 4",
+               "id" : "A.2",
+               "kind" : "observe",
+               "rule" : "C2 · TC C4, C5",
+               "steps" : "At level 12 compare your damage per turn with a Monk's; note the turn each tier wakes at 3, 7 and 12",
+               "title" : "Power and tiers against the Monk"
+            }
+         ]
+      }
+   ],
+   "ticket" : "ARC-0026",
+   "title" : "The Windborn — rework WB0–WB50 (levels 1–12)"
+}

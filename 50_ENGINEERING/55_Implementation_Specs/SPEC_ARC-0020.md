@@ -17,7 +17,7 @@ refining (DV18–DV31), in both editions.
 
 **Design:** `21.04/Deceiver/DESIGN.md` · **Decisions:** `21.04/Deceiver/DECISIONS.md` · **Numbers:** `25`
 (`*_Deceiver_*.yaml`, blocks `pending_build`) · **Prepared files:** `55/_wip/Deceiver/arc0020/` (new; the Veil
-build's patches and scripts in `55/_wip/Deceiver/` are the models) · **Test case:** `61.02/Deceiver/TC_ARC-0019.md`.
+build's patches and scripts in `55/_wip/Deceiver/` are the models) · **Test case:** `61.02/Deceiver/QA_ARC-0020.md`.
 
 ## Global constraints
 
@@ -176,7 +176,7 @@ Apply Tasks 0.6–0.7; Owner compiles.
 | **B3** | Burst from a dead Double's position | The position read before the purge is valid; the burst lands there | Read the position on the hit (`AttackedBy`), not on `Died` |
 | **B5** | Grand Deception lists the Doubles before it summons | `UsingSpell` fires before the new Doubles register: the count reads only the old ones | List them at `CastSpell` of the previous rule set; or snapshot on the card's technical status |
 | **B6** | The Splinter's Tier III condition | `HasStatus(..., GetSummoner(context.Source))` reads her Tier III in a shout's SpellProperties | Give the Doubles a Tier III shapeshift rule with a damage-free Splinter |
-| V2, V3 | As `TC_ARC-0019` | | |
+| V2, V3 | As `QA_ARC-0020` | | |
 
 ## Stage 4 — Mirrored Self from a Double (`[fechado] ARC-0020`)
 
@@ -191,13 +191,13 @@ also cast by her nearest Double at the enemy nearest to that Double (not the fir
 
 Move every applied `*_next` into `values:` and delete `pending_build` (`25`); `validate.pl`; `gen_catalog.pl`;
 archive the retired entries (Telepathy and Doubt passives from the Deceiver, the Tier III Charisma passives) with date
-and reason; `05.02/Deceiver.md` (Context Keeper); `DESIGN.md` state line → built; `TC_ARC-0019` results; ticket done;
+and reason; `05.02/Deceiver.md` (Context Keeper); `DESIGN.md` state line → built; `QA_ARC-0020` results; ticket done;
 `check_propagation` OK.
 
 ## Acceptance criteria
 
 - [ ] Stage 0 dry runs clean and the sizes approved before any `[fechado]`
 - [ ] Probes B1–B4 recorded, plan B applied where one failed
-- [ ] `TC_ARC-0019` V1–V4 pass in game
+- [ ] `QA_ARC-0020` V1–V4 pass in game
 - [ ] No line over 3900 characters; no repeated field; entry counts as expected after `sort_stats`
 - [ ] `25` holds no `pending_build` block for the Deceiver
