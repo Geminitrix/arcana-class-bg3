@@ -2,7 +2,7 @@
 id: 26.01/Unbound
 owner: Balance Designer
 source: 21.04/Unbound/DECISIONS.md (WB0–WB48), DESIGN.md §4, §5, §8
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); the approved design, values in 25; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10)
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); the approved design, values in 25; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change
 ---
 
 # 26.01 · Resource audit — The Windborn (internal: Unbound)

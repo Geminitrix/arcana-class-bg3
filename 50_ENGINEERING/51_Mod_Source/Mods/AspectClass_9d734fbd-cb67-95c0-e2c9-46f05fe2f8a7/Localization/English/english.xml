@@ -138,7 +138,7 @@
   <content contentuid="h34b65968g7b65g1e09g641egcc03c51bd254" version="6">&lt;LSTag Type="Status" Tooltip="DOMINATE_PERSON"&gt;Manipulate&lt;/LSTag&gt; a creature's reality, forcing it to fight alongside you. Each time it takes damage, it must succeed a Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or break free.</content>
   <content contentuid="h2a5ce6aagbeb9g21d3gabf9ge12dae34d4f4" version="4">Be the Leaf</content>
   <content contentuid="h80210a1ag08f6gf70fgdf96g821b0e1e8847" version="4">Your reflexes are as effective as armour. You add your Wisdom &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to your &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
-  <content contentuid="h4a4b43fbg28a3gc56eg69dagc0943f2f97ae" version="4">This effect does not stack with Mage Armour. Only active while not wearing armour or using a shield.</content>
+  <content contentuid="h4a4b43fbg28a3gc56eg69dagc0943f2f97ae" version="5">This effect does not stack with Mage Armour.</content>
   <content contentuid="h1ba838c3g370dg9b9bg6d16g0eb49acae2dc" version="4">Twinkle Toes</content>
   <content contentuid="h0614b7e4g7058g77e7g56f6gcce080d6b012" version="5">You move lightly and swiftly. Your &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; is increased by [1].</content>
   <content contentuid="h8afe9a3egd0f3gd5eeg8830gbd89287c750a" version="6">Flowing Strikes: Agility</content>
@@ -147,9 +147,9 @@
   <content contentuid="h82f0b0cdgfdb3g745eg23dag378da16f37e6" version="4">Your unarmed attacks deal [1], unless their normal damage is higher.</content>
   <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="8">Zephyr</content>
   <content contentuid="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="8">Every enemy you hit, or that fails a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against you, becomes &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;. After an unarmed attack or a card, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a bonus action - against an enemy that isn't Windswept, the wind carries you to it.</content>
-  <content contentuid="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3">Zephyr Strike</content>
-  <content contentuid="h56efad21g20d8gbfd6g293dg4e2c421af268" version="4">You can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect.</content>
-  <content contentuid="h56bc27caga588g2b1agc487ge918b523cedf" version="4">Zephyr Strike</content>
+  <content contentuid="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="4">Zephyr Rush</content>
+  <content contentuid="h56efad21g20d8gbfd6g293dg4e2c421af268" version="5">You can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.</content>
+  <content contentuid="h56bc27caga588g2b1agc487ge918b523cedf" version="5">Zephyr Rush</content>
   <content contentuid="h4ad067bag1d03g5cc6g3769g9cbf6fb2a8f2" version="4">Swiftly strike an enemy as a bonus action.</content>
   <content contentuid="h3573cf98gd7cfgeb2bg2460g5420d9e37565" version="3">Wind Blast</content>
   <content contentuid="h4d2c7825gb331gaf07gcd46g2c58bd100639" version="6">Bend the air to unleash a strong gust of wind that clears clouds and pushes creatures back [1], leaving them &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;.</content>
@@ -1593,13 +1593,40 @@
   <content contentuid="h8b607274gf804g1262gd3b4g99b6ebf16f9d" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
   <content contentuid="h0b740b78gd8ebg66ceg2f99g963af47b53c8" version="1">Probe: Where The Winds Meet</content>
   <content contentuid="hd2eb6cbbga606g0c54g74bag8c9254cad0f5" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
-  <content contentuid="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="2">The Open Road</content>
-  <content contentuid="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="1">Touched by the wind. Can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Suffers the bane of any wind the Windborn releases.</content>
+  <content contentuid="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="2">Windswept</content>
+  <content contentuid="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="2">Touched by the wind. Can't make &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Suffers the bane of any wind the Windborn releases.</content>
   <content contentuid="h2f7d15aege6dcg9d2dge9edgb2e0bca1bdc2" version="1">Windswept lasts until the end of your next turn. Windswept enemies can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Only active while not wearing armour or using a shield.</content>
   <content contentuid="hccc388f3g3470g7274g913agf1747c6c5cb9" version="1">Ride the wind to an enemy it hasn't touched yet and strike it with an open hand.</content>
-  <content contentuid="h5b99b7dege080g4cd2g319fg253286ef6d50" version="1">Only an enemy that isn't &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Gale: the strike pushes the target back.&lt;br&gt;Storm: after this strike, the wind can carry you to one more.&lt;br&gt;&lt;br&gt;Can only be used while not wearing armour or using a shield.</content>
+  <content contentuid="h5b99b7dege080g4cd2g319fg253286ef6d50" version="3">Can only be used against an enemy that isn't &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If you have Gale, the strike pushes the target back.&lt;br&gt;&lt;br&gt;If you have Storm, after this strike, the wind can carry you to one more enemy with Zephyr Rush.</content>
   <content contentuid="h276b8062g9bffg1959g2c8fgd25c187de972" version="2">After an unarmed attack, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Rush_Arcana_Created_ZephyrRush"&gt;Zephyr Rush&lt;/LSTag&gt; as a bonus action.</content>
   <content contentuid="heafd92edgd95eg5f7fg3a7bg3fee70e91ee5" version="2">Zephyr Rush can only be used against an enemy that isn't Windswept.</content>
-  <content contentuid="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="2">Every enemy you hit, becomes &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.</content>
-  <content contentuid="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="1">Windswept lasts until the end of your next turn. Windswept enemies can't make Opportunity Attacks.</content>
+  <content contentuid="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="3">Every enemy you hit, becomes &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.</content>
+  <content contentuid="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="2">Windswept lasts until the end of your next turn, and the marked enemies can't make &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
+  <content contentuid="hb51386f4g187dg1df6gef27g32d856114dc2" version="1">Zephyr</content>
+  <content contentuid="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="1">After making an attack while unarmed, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; or a &lt;LSTag Type="Spell" Tooltip="Rush_Arcana_Created_ZephyrRush"&gt;Zephyr Rush&lt;/LSTag&gt; as a bonus action.</content>
+  <content contentuid="he99937b0g4af1g8c0bgb991g5f714c408369" version="1">Twinkle Toes</content>
+  <content contentuid="hb25b5c44g85cbg3ac1gab99g64e792a6ee75" version="1">You move as if the air carried you. Your movement speed increases by [1].</content>
+  <content contentuid="h9c0cfebfgf977g47bdg43d2ga0d6fe592aee" version="1">Aeolus' Bag: Untied</content>
+  <content contentuid="h32cccb8agd52agfc6cgd014g2770cfcc2e46" version="1">A wind blows over the battle. The bag can't be opened again until it stops.</content>
+  <content contentuid="h6a1252a6gb986ga3afg6140g56ea7eb1b4e0" version="1">Aeolus' Bag</content>
+  <content contentuid="h30e69393g245dgada8g5e08g6f15864dafc6" version="1">Headwind: Boreas</content>
+  <content contentuid="h6726a3c9gbf25ga5b4g377bg683582d9f7ba" version="1">Chilled by the North Wind. Movement speed reduced by [1].</content>
+  <content contentuid="h28da055fg4211g5445ge5cdg632f2db1ab11" version="1">Headwind: Notus</content>
+  <content contentuid="h73ef945fged23g67cfga0b4gd3087792538e" version="1">Battered by the South Wind. [1] penalty to Saving Throws.</content>
+  <content contentuid="h894ca09bg570dg72c3g5d23geaa259d7579e" version="1">Tailwind: Boreas</content>
+  <content contentuid="hf6f94f9dg22aeg4162gd12ag326700aa7e67" version="1">Carried by the North Wind. Movement speed increased by [1].</content>
+  <content contentuid="h164b1557g3111g4108g6bdfg2bc966660ba1" version="1">Tailwind: Notus</content>
+  <content contentuid="ha15c6aa9g4ca0g8ac5g9d80g52771ea278a1" version="1">Cloaked by rain and fog. Ranged attacks against this creature have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
+  <content contentuid="hcc525ee6g6fb0g623cg0304gf3b86ff8ee62" version="1">Aeolus' Bag: Boreas</content>
+  <content contentuid="h887666fbg4873ge552g0b1ega7a1bbd46a92" version="1">Aeolus' Bag: Notus</content>
+  <content contentuid="h93e47bb1g53dbg690eg309ag6e1bf8eb0779" version="1">Aeolus' Bag</content>
+  <content contentuid="hba1bec4cg4d8dgb7a2g9075g1812e8ce849e" version="1">Aeolus' Bag</content>
+  <content contentuid="h659a7139g367dg3a92g911cgcd3db39dacb8" version="1">Untie the bag of winds and release one of them over the battle. It blows for 1 turn for each &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemy, and every mark is swept away.</content>
+  <content contentuid="h9bce9a43gffd4g861ege79dg475a6629a007" version="1">While a wind blows, the bag stays shut, and at the start of your turn the wind sweeps every Windswept mark away. Your allies ride its tailwind, and enemies face its headwind.</content>
+  <content contentuid="h447a8cb5g4034g4662g8b42gac17c96a756c" version="1">Aeolus' Bag: Boreas</content>
+  <content contentuid="h310413beg0cfeg3085gfc72g9ef1b1faa5f8" version="1">Release Boreas, the North Wind. Your allies move faster, and enemies are slowed.</content>
+  <content contentuid="hc338d030g7f05g53f2gd5f2ga1159750c24e" version="1">While a wind blows, the bag stays shut, and at the start of your turn the wind sweeps every Windswept mark away. Your allies ride its tailwind, and enemies face its headwind.</content>
+  <content contentuid="h6cc1a8a6g7306geee6g65c4g87038a2a8421" version="1">Aeolus' Bag: Notus</content>
+  <content contentuid="hf6c257b5g8038g359ega269g227ce4b91be7" version="1">Release Notus, the South Wind. Rain and fog cloak your allies from ranged attacks, and enemies falter on their Saving Throws.</content>
+  <content contentuid="hb15f6e5fg4394g638fg6c85ga7e254ea6d82" version="1">While a wind blows, the bag stays shut, and at the start of your turn the wind sweeps every Windswept mark away. Your allies ride its tailwind, and enemies face its headwind.</content>
 </contentList>

@@ -1271,6 +1271,149 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0b18b596-fad8-7b33-df4f-1315bfd447f3" />
+        <field name="Name" type="NameTableFieldDefinition" value="WINDSWEPT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="2" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="WINDSWEPT" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Ignore" enumeration_type_name="StatusStackType" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="TickingWithSource;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="33de6a58-399a-4777-8606-47854bb09d17" />
+        <field name="Name" type="NameTableFieldDefinition" value="ZEPHYR_STRIKE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h56efad21g20d8gbfd6g293dg4e2c421af268" version="5" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ZEPHYR_STRIKE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_Arcana_Created_ZephyrStrike);" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_UnarmedDamage" />
+        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="WearingArmor(context.Source) or HasShieldEquipped(context.Source)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnEquip" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="43c30e7c-e646-c424-9a5b-84b4c3a86641" />
+        <field name="Name" type="NameTableFieldDefinition" value="ZEPHYR_RUSH" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="4" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h56efad21g20d8gbfd6g293dg4e2c421af268" version="5" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ZEPHYR_RUSH" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Rush_Arcana_Created_ZephyrRush);" />
+        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="WearingArmor(context.Source) or HasShieldEquipped(context.Source)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnEquip" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="bc27cd99-2fc3-4d93-a26f-630f80710b17" />
+        <field name="Name" type="NameTableFieldDefinition" value="BAG_OPEN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9c0cfebfgf977g47bdg43d2ga0d6fe592aee" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h32cccb8agd52agfc6cgd014g2770cfcc2e46" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="BAG_OPEN" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead;FreezeDuration" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="16f2e2b4-aef1-4473-9f2f-60b6a52e1aa5" />
+        <field name="Name" type="NameTableFieldDefinition" value="BAG_OPEN_READY" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6a1252a6gb986ga3afg6140g56ea7eb1b4e0" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="BAG_OPEN_READY" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="27dbc012-c7ef-4d41-b96d-f95860a8af1b" />
+        <field name="Name" type="NameTableFieldDefinition" value="HEADWIND_BOREAS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h30e69393g245dgada8g5e08g6f15864dafc6" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6726a3c9gbf25ga5b4g377bg683582d9f7ba" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="HEADWIND_BOREAS" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,-3,0);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="25842e7f-44d2-46b4-96fa-5b372bc8e0ac" />
+        <field name="Name" type="NameTableFieldDefinition" value="HEADWIND_NOTUS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h28da055fg4211g5445ge5cdg632f2db1ab11" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h73ef945fged23g67cfga0b4gd3087792538e" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="HEADWIND_NOTUS" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="RollBonus(SavingThrow,-1);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4fa958e8-7ba6-43a3-bd13-065c06cebff7" />
+        <field name="Name" type="NameTableFieldDefinition" value="TAILWIND_BOREAS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h894ca09bg570dg72c3g5d23geaa259d7579e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf6f94f9dg22aeg4162gd12ag326700aa7e67" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="TAILWIND_BOREAS" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,3,0);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a4d3436b-0853-4819-97e7-119dbc505198" />
+        <field name="Name" type="NameTableFieldDefinition" value="TAILWIND_NOTUS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h164b1557g3111g4108g6bdfg2bc966660ba1" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha15c6aa9g4ca0g8ac5g9d80g52771ea278a1" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
+        <field name="StackId" type="StringTableFieldDefinition" value="TAILWIND_NOTUS" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(IsRangedAttack()):Disadvantage(AttackTarget);" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5d84eb4f-ea1e-4076-9e54-ca71077d603a" />
+        <field name="Name" type="NameTableFieldDefinition" value="WIND_BOREAS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcc525ee6g6fb0g623cg0304gf3b86ff8ee62" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="WIND_BOREAS" />
+        <field name="AuraRadius" type="IntegerTableFieldDefinition" value="99" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally()):ApplyStatus(ARCANA_TAILWIND_BOREAS);IF(Enemy()):ApplyStatus(HEADWIND_BOREAS)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f75a2b1f-995e-44a8-9747-07739197e91b" />
+        <field name="Name" type="NameTableFieldDefinition" value="WIND_NOTUS" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h887666fbg4873ge552g0b1ega7a1bbd46a92" version="1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="WIND_NOTUS" />
+        <field name="AuraRadius" type="IntegerTableFieldDefinition" value="99" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally()):ApplyStatus(ARCANA_TAILWIND_NOTUS);IF(Enemy()):ApplyStatus(HEADWIND_NOTUS)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="75815956-c466-4ac6-822f-f0da47ae0613" />
         <field name="Name" type="NameTableFieldDefinition" value="GALE_DEFLECTION_READY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h897a14fdg9fe4g57c0gf872g62928fc7b142" version="1" />
@@ -1486,20 +1629,6 @@
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
         <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="407af258-4652-4e47-8b54-bab89678947d" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="33de6a58-399a-4777-8606-47854bb09d17" />
-        <field name="Name" type="NameTableFieldDefinition" value="ZEPHYR_STRIKE" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h56efad21g20d8gbfd6g293dg4e2c421af268" version="4" />
-        <field name="StackId" type="StringTableFieldDefinition" value="MARTIAL_ARTS_BONUS_UNARMED_STRIKE" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_Arcana_Created_ZephyrStrike);" />
-        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_UnarmedDamage" />
-        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="WearingArmor(context.Source) or HasShieldEquipped(context.Source)" />
-        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnEquip" enumeration_type_name="StatusEvent" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -4544,35 +4673,6 @@
         <field name="StackId" type="StringTableFieldDefinition" value="MOONSTONE_HELPER" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="0b18b596-fad8-7b33-df4f-1315bfd447f3" />
-        <field name="Name" type="NameTableFieldDefinition" value="ARCANA_WINDSWEPT" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="1" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
-        <field name="StackId" type="StringTableFieldDefinition" value="ARCANA_WINDSWEPT" />
-        <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="EndTurn" enumeration_type_name="TickType" version="1" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="TickingWithSource;ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
-        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="43c30e7c-e646-c424-9a5b-84b4c3a86641" />
-        <field name="Name" type="NameTableFieldDefinition" value="ARCANA_ZEPHYR_RUSH" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h56efad21g20d8gbfd6g293dg4e2c421af268" version="4" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Dash" />
-        <field name="StackId" type="StringTableFieldDefinition" value="ARCANA_ZEPHYR_RUSH" />
-        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Rush_Arcana_Created_ZephyrRush);" />
-        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="WearingArmor(context.Source) or HasShieldEquipped(context.Source)" />
-        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnEquip" enumeration_type_name="StatusEvent" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
     </stat_object>

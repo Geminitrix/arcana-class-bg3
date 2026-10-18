@@ -316,7 +316,7 @@
         <field name="SurfaceGrowStep" type="IntegerTableFieldDefinition" value="5" />
         <field name="SurfaceGrowInterval" type="IntegerTableFieldDefinition" value="10" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Strength,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="Force(5);IF(not Item()):ApplyStatus(OFF_BALANCED,100,1);IF(not Item()):ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="Force(5);IF(not Item()):ApplyStatus(OFF_BALANCED,100,1);IF(not Item()):ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0);" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and not Ally() and not HasPassive('SculptSpells', context.Source) and not Tagged('INVISIBLE_HELPER') and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />

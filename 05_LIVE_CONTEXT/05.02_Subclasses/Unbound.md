@@ -11,14 +11,10 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 > (Windswept, Zephyr's Rush, Aeolus' Bag), new tiers, The Calm, Where the Winds Meet, Weightless. Design:
 > `21.04_Subclasses/Unbound/DESIGN.md`. Everything below is the game as it is today.
 >
-> **Build in progress (ARC-0026), stage 2 in the game since 2026-10-17:** the probes are gone (a cleanup goal takes
-> them off on load). *Windswept* (`ARCANA_WINDSWEPT`, until the end of her next turn) comes from her damage
-> (`Arcana_Passive_Windswept_Touch`, level 1) and from failed saves on Gale Burst and Wind Blast. *The Open Path* is the
-> mod copy of `Interrupt_AttackOfOpportunity`: a Windswept enemy makes no opportunity attack. The Open Road (rewritten
-> `Arcana_Passive_FlowingStrikeZephyr`) grants Zephyr Strike and Zephyr Rush (`Rush_Arcana_Created_ZephyrRush`, only
-> against an enemy that is not Windswept). Gale Burst loses its free strike. Sections 5 to 8 below do not show these yet.
-> **From 2026-10-17 the Owner builds it by hand in the Toolkit**, level by level, from its part of `55/TOOLKIT_ARC-0026.md` (one file, a part per level) …
-> (level 1 retypes the part above as new). Until then the rest of the game below is the old Unbound.
+> **Build in progress (ARC-0026), 2026-10-18:** the Owner deletes the old Unbound and types the Windborn **from zero** from
+> `55/TOOLKIT_ARC-0026.md` (feature by feature; WB51). In the game today: part of it typed by the Owner (`WINDSWEPT`,
+> `Arcana_Passive_TheOpenRoad`, `Arcana_Passive_Zephyr`, Zephyr Rush, the first bag entries), not yet checked against the file.
+> Until the rebuild is typed, the sections below describe the old Unbound.
 
 > Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
 > Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.

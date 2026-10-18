@@ -338,25 +338,11 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a5ce6aagbeb9g21d3gabf9ge12dae34d4f4" version="4" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h80210a1ag08f6gf70fgdf96g821b0e1e8847" version="4" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ACOverrideFormula(10,true,Dexterity,Wisdom)" />
-        <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ACOverrideFormula(10,true,Dexterity,Intelligence);" />
+        <field name="BoostConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
         <field name="BoostContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_UnarmoredDefense" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h4a4b43fbg28a3gc56eg69dagc0943f2f97ae" version="4" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="6638dcf1-e6a7-4ecb-b502-2c92d6751a58" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Zephyr" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="8" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h276b8062g9bffg1959g2c8fgd25c187de972" version="2" />
-        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_BonusUnarmedStrike" />
-        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnAttack;OnCast;OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="((IsMeleeAttack() and IsMonkWeaponAttack() and not SpellId('Target_UnarmedStrike_Monk')) or IsCardSpell()) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
-        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,ZEPHYR_STRIKE,100,1);ApplyStatus(SELF,ARCANA_ZEPHYR_RUSH,100,1)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="heafd92edgd95eg5f7fg3a7bg3fee70e91ee5" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h4a4b43fbg28a3gc56eg69dagc0943f2f97ae" version="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -367,10 +353,32 @@
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnDamage" enumeration_type_name="StatsFunctorContext" version="1" />
         <field name="Conditions" type="StringTableFieldDefinition" value="Enemy() and TotalDamageDoneGreaterThan(0) and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
-        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ARCANA_WINDSWEPT,100,2)" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="2" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="1" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(WINDSWEPT,100,2)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="3" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_BonusUnarmedStrike" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ed581bbd-0c86-42ce-9fdc-e4cd3481a458" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Zephyr" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb51386f4g187dg1df6gef27g32d856114dc2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(MartialArts), Bludgeoning)" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_BonusUnarmedStrike" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnAttack;OnCast" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsMeleeAttack() and not IsWeaponAttack() and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source)) and not SpellId('Target_Arcana_Created_ZephyrStrike') and not SpellId('Rush_Arcana_Created_ZephyrRush');" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,ZEPHYR_STRIKE,100,1);ApplyStatus(SELF,ZEPHYR_RUSH,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1cef7144-a949-4a14-b3a2-c25af7a6b4c9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_AeolusBag" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h93e47bb1g53dbg690eg309ag6e1bf8eb0779" version="1" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -398,70 +406,64 @@
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="MonkWeaponDamageDiceOverride(LevelMapValue(Precision_UnarmedDamage));" />
         <field name="BoostContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
+        <field name="BoostConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc7733150gf4e1g9a9cg011fg286a6f075168" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
+        <field name="UUID" type="IdTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_1" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1ba838c3g370dg9b9bg6d16g0eb49acae2dc" version="4" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0614b7e4g7058g77e7g56f6gcce080d6b012" version="5" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he99937b0g4af1g8c0bgb991g5f714c408369" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb25b5c44g85cbg3ac1gab99g64e792a6ee75" version="1" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_UnarmoredMovement" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="BoostContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
+        <field name="BoostConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,3,0);" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1dffa85age0e0g509ag1771gad2f3f881cac" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="f2a36737-cc9d-47d3-ab34-bbcb353d8aec" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0899fb82-53e6-40da-bd75-b4bc5d380b2e" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_3" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(8)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,8,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="8fdfe47c-21aa-4a8c-801f-fea4294e25cb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_FlowingAssault" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb6c89cf0gd8fdg9fcfg2585g5e66cf2b6a10" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h40cb878eg7c78g34a3gb7b8gab06afc7c5c5" version="3" />
-        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_ExtraAttack" />
-        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnCast;OnStatusRemoved;OnStatusApplied;OnEquip" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_Q')) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
-        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued('EXTRA_ATTACK_Q') and not HasAnyExtraAttack()):ApplyStatus(EXTRA_ATTACK, 100, 1)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hf07d5c65gd688gc817ge591ga88a0fc7763d" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="757acf21-7083-458c-b25f-d19cdf86a569" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(13)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,13,0);" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6fe0f67c-7453-443c-8b3c-4086891313bb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Weightless_5" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1a1d6433gb602g695fg3d4bg2e4e18cd7b55" version="6" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h65ef85c9gd36cg180ag5806g096ce970af16" version="4" />
-        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_SlowFall" />
-        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="BoostContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="FallDamageMultiplier(0.5);JumpMaxDistanceMultiplier(2);" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h71738a68g50b6gdf5fg56a4g10daa08a15ce" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="2" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ab2daea6-4d0c-441a-9547-2fe2625c3ff1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_7" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2bd46b78-63d9-494a-bf65-8498b08ad923" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_9" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7a0aa8fa-f49f-4c57-bf29-de0d162b5c96" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_11" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0ac9ef8c-6773-4ae4-97c7-dc92abb32c1e" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_12" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="06121dc9-b87c-464d-96e8-8f2d70f7d536" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -476,25 +478,6 @@
         <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnarmedMagicalProperty()" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hf25f1c1agf997g691bga7dfg3f7cef9bd90b" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="72e644b3-36d1-441c-ae68-0dd142b42f56" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_7" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(18)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,18,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="ab2daea6-4d0c-441a-9547-2fe2625c3ff1" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Weightless_7" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6fe0f67c-7453-443c-8b3c-4086891313bb" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h988e84a1g143fgec9eg481cg4f82a3c6aa7a" version="4" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="FallDamageMultiplier(0.4);JumpMaxDistanceMultiplier(3);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="3" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -519,25 +502,6 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="278ba206-d448-4c67-8578-5a1025ffb5fe" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_9" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(23)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,23,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="2bd46b78-63d9-494a-bf65-8498b08ad923" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Weightless_9" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6fe0f67c-7453-443c-8b3c-4086891313bb" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he4ddc23cg3ec3g839agc72fgf56ff590b05c" version="4" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="FallDamageMultiplier(0.3);JumpMaxDistanceMultiplier(4);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="4" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="c96eb22d-ade9-4856-a5f4-8d1641583b14" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Momentum_UI" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7f74fbf1g7419g8dbbgdebeg54f1be600ad5" version="1" />
@@ -558,25 +522,6 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d59ddc06-5691-4946-bb5b-6138087bef29" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_11" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(28)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,28,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="7a0aa8fa-f49f-4c57-bf29-de0d162b5c96" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Weightless_11" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6fe0f67c-7453-443c-8b3c-4086891313bb" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hdc2013a0gccbag12ffg0f92g78ae668e75d5" version="4" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="FallDamageMultiplier(0.2);JumpMaxDistanceMultiplier(5);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="5" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6124ec79-c606-495a-94a3-2f70255b8017" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_EmptyState" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8a752a2dg2e98gcdfdgb6b2g180b20a39076" version="5" />
@@ -586,70 +531,6 @@
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MistyEscape" />
         <field name="BoostContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
         <field name="BoostConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="aeb95d06-4735-40eb-82e9-e29de7097ff0" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_12" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(38)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,38,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="0ac9ef8c-6773-4ae4-97c7-dc92abb32c1e" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Weightless_12" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6fe0f67c-7453-443c-8b3c-4086891313bb" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4f6fcb05g4085gfdcfg2308g712317547400" version="3" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="IgnoreFallDamage();JumpMaxDistanceMultiplier(6);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="6" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4161ec2b-edae-45ea-997f-97d839ff99db" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_13" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(43)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,43,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="64dd26f5-57d6-44f2-8182-a175e4f5fbc5" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_15" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(48)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,48,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="4104b974-c3f7-4194-9bad-117051642952" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_17" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(53)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,53,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="8d171c99-7dc6-4eb3-a3b3-9ae9afb5977c" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_19" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(58)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,58,0);" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="f284bd4e-8e80-4403-b332-1f2d2bdb04c7" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TwinkleToes_20" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="a4579631-62ee-496f-a79f-ad1787f17c48" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(68)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(Movement,68,0);" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

@@ -2831,13 +2831,13 @@
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Strength, SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(1d10,Thunder);Force(6);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(1d10,Thunder);Force(6);ApplyStatus(PRONE,100,1);ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((1d10)/2,Thunder);" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Thunderwave" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2277287bgc28fg41bbg5c59g3203bee0c5ed" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc3b60f05g2de4ge349g47cdgbfd318148ba4" version="6" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(GaleBurst_Damage),Thunder)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d10,Thunder)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Strength" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(PRONE,100,1)" />
         <field name="TooltipOnSave" type="StringTableFieldDefinition" value="961753f4-c345-4bc4-b408-1d5b87a5ab0c" />
@@ -2846,15 +2846,15 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="32456253-9787-49c8-9775-4cd93d602f05,,;,,;761e67fa-d2da-42a7-a2bc-3ec24633309f,,;2aa08b98-0999-40a6-9ae8-a27e35a6a5f8,,;5c9e3bb0-8963-4cc3-aa24-c0ba1c49494b,,;,,;c79f1495-5c5c-4e22-bed4-38beb3779b23,,;,,;,," />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsHarmful;DisableBlood;AddFallDamageOnLand;IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;AddFallDamageOnLand;HasSomaticComponent;IsHarmful;DisableBlood" enumeration_type_name="SpellFlagList" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="09001287-db22-4054-9165-4926ecb9b9b4" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="6cba6b96-0fc2-4536-b8d5-7e6c804aa6b7" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="224776ab-51cb-45f1-ae1e-f20c0c63d40c" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="a71ed096-740f-4c8c-80a2-6f09c67a2507" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Thunder" enumeration_type_name="Damage Type" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h06f18064gdcd5g4464gbee0gab72e005995d" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not HasPassive('ARCANA_IS_CARD', context.Source)" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Damage" enumeration_type_name="VerbalIntent" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2873,8 +2873,9 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="dd7846b8-d523-4488-9ecd-1e3ed2ec1386" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d10)/2,Thunder);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2884,8 +2885,9 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="dd7846b8-d523-4488-9ecd-1e3ed2ec1386" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder);Force(7);ApplyStatus(PRONE,100,1);ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d10)/2,Thunder);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d10,Thunder)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2895,8 +2897,9 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="dd7846b8-d523-4488-9ecd-1e3ed2ec1386" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((3d10)/2,Thunder);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2906,8 +2909,9 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="dd7846b8-d523-4488-9ecd-1e3ed2ec1386" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(ARCANA_WINDSWEPT,100,2);" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder);Force(8);ApplyStatus(PRONE,100,1);ApplyStatus(WINDSWEPT,100,2);" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((3d10)/2,Thunder);" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(3d10,Thunder)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

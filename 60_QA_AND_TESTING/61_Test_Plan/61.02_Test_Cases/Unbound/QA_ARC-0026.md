@@ -541,7 +541,7 @@ Header of the original file:
 id: 61.02/Unbound/TC_ARC-0022
 owner: QA Lead
 source: 21.04/Unbound/DECISIONS.md WB0–WB48 · DESIGN.md §13, §15 · 22.05/Unbound.md (V1–V5)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — the build tests are in GUIDE_ARC-0026.json level by level; this file stays the design test list; retired entries kept (OR-10)
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — the build tests are in GUIDE_ARC-0026.json level by level; this file stays the design test list; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change
 status: planned — part A (probes) runs first in the build ticket; parts B and C after the build
 ```
 
