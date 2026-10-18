@@ -8,8 +8,7 @@ Backlog, sprints, ceremonies, roadmap.
 |---|---|
 | `10.01_Product_Backlog` | BACKLOG.md (generated), epics/, stories/ (ARC-####.md), _TEMPLATE_TICKET.md |
 | `10.01_Product_Backlog/epics` | Epics: core 1-12, subclass reworks, new subclasses |
-| `10.01_Product_Backlog/stories` | Tickets ARC-#### with a YAML header |
-| `10.01_Product_Backlog/playtests` | Playtest tickets QA-#### (subclass, feature, bug-retest), generated from the test guides by `82_Automation/playtests.pl` (ARC-0024) |
+| `10.01_Product_Backlog/stories` | Tickets `ARC-####` with a YAML header. The playtest of a build is its one `QA_ARC-####.md` in `61.02_Test_Cases/<S>/` (OR-4); the QA-#### tickets were retired on 2026-10-17 (ARC-0027) |
 | `10.02_Active_Sprint` | SPRINT_GOAL.md, SPRINT_BOARD.md (generated), daily_logs/, handoffs/ |
 | `10.02_Active_Sprint/daily_logs` | One file per work session: done, blocked, next |
 | `10.02_Active_Sprint/handoffs` | Cross-department tickets |

@@ -11,7 +11,7 @@ priority: must
 value: 5
 effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 05.02/Lionheart.md, 21.08_Subclass_Matrix.md, 10.06_Impediments/Open_Questions.md]
-outputs: [21.04/Lionheart/DECISIONS.md, 21.04/Lionheart/DESIGN.md, 32.01/Lionheart.md, 21.03/Lionheart.md, 23.02/Lionheart/, 22.05/Lionheart.md, 26.01/Lionheart.md, 31.02/Lionheart.md, 42.04/Lionheart.md, 61.02/Lionheart/QA_ARC-0009.md, 05.02/Lionheart.md; pending: 25.01/SPL_Lionheart_*, 25.02/FEAT_Lionheart_* (balance pass), 55/SPEC_ARC-0009.md, TOOLKIT_ARC-0009_L<n>.md]
+outputs: [21.04/Lionheart/DECISIONS.md, 21.04/Lionheart/DESIGN.md, 32.01/Lionheart.md, 21.03/Lionheart.md, 23.02/Lionheart/, 22.05/Lionheart.md, 26.01/Lionheart.md, 31.02/Lionheart.md, 42.04/Lionheart.md, 61.02/Lionheart/QA_ARC-0009.md, 05.02/Lionheart.md; pending: 25.01/SPL_Lionheart_*, 25.02/FEAT_Lionheart_* (balance pass), 55/SPEC_ARC-0009.md, TOOLKIT_ARC-0009.md, QA_ARC-0009.md completed]
 blocked_by: []
 sprint: S01
 created: 2026-10-14

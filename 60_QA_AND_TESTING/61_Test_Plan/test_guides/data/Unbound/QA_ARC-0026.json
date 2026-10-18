@@ -1,6 +1,6 @@
 {
    "before" : [
-      "Type the level from its Toolkit guide (TOOLKIT_ARC-0026_L01.md … _L12.md), compile the Story (log.txt: 0 error(s), 0 warning(s)) and tell Claude; then play that level's session here.",
+      "Type the level from its part of TOOLKIT_ARC-0026.md (one file, a part per level), compile the Story (log.txt: 0 error(s), 0 warning(s)) and tell Claude; then play that level's session here.",
       "Console edition (Script Extender off) unless a test says PC edition.",
       "A Windborn (Unbound subclass) character with no armour and no shield, unless a test says otherwise.",
       "The stage 1 probes (P1–P9) all passed on 2026-10-17; they are recorded in QA-0004."

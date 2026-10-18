@@ -17,8 +17,8 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 > mod copy of `Interrupt_AttackOfOpportunity`: a Windswept enemy makes no opportunity attack. The Open Road (rewritten
 > `Arcana_Passive_FlowingStrikeZephyr`) grants Zephyr Strike and Zephyr Rush (`Rush_Arcana_Created_ZephyrRush`, only
 > against an enemy that is not Windswept). Gale Burst loses its free strike. Sections 5 to 8 below do not show these yet.
-> **From 2026-10-17 the Owner builds it by hand in the Toolkit**, level by level, from `55/TOOLKIT_ARC-0026_L01.md` …
-> `_L12.md` (level 1 retypes the part above as new). Until then the rest of the game below is the old Unbound.
+> **From 2026-10-17 the Owner builds it by hand in the Toolkit**, level by level, from its part of `55/TOOLKIT_ARC-0026.md` (one file, a part per level) …
+> (level 1 retypes the part above as new). Until then the rest of the game below is the old Unbound.
 
 > Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
 > Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.
