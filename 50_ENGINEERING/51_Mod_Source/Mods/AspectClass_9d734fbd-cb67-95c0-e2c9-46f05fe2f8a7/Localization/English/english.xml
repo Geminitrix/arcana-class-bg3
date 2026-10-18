@@ -145,7 +145,7 @@
   <content contentuid="h16c02162gb8e2gf643g16d0g34e947b2cef4" version="6">Your unarmed attacks scale with &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt; instead of &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; if your Dexterity is higher.</content>
   <content contentuid="h29256540g41cbg9af9g02b8g45b6ba6061ec" version="5">Flowing Strikes: Precision</content>
   <content contentuid="h82f0b0cdgfdb3g745eg23dag378da16f37e6" version="4">Your unarmed attacks deal [1], unless their normal damage is higher.</content>
-  <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="7">The Open Road</content>
+  <content contentuid="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="8">Zephyr</content>
   <content contentuid="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="8">Every enemy you hit, or that fails a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against you, becomes &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;. After an unarmed attack or a card, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a bonus action - against an enemy that isn't Windswept, the wind carries you to it.</content>
   <content contentuid="h939a9ea3gfbabg50bbgaa8fga3efd4c6de88" version="3">Zephyr Strike</content>
   <content contentuid="h56efad21g20d8gbfd6g293dg4e2c421af268" version="4">You can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; this turn.&lt;br&gt;&lt;br&gt;Equipping armour or a shield ends this effect.</content>
@@ -1593,9 +1593,13 @@
   <content contentuid="h8b607274gf804g1262gd3b4g99b6ebf16f9d" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
   <content contentuid="h0b740b78gd8ebg66ceg2f99g963af47b53c8" version="1">Probe: Where The Winds Meet</content>
   <content contentuid="hd2eb6cbbga606g0c54g74bag8c9254cad0f5" version="1">ARC-0026 probe P4: marked enemies within 9 m and every other enemy within 6 m are pulled to the point, once each.</content>
-  <content contentuid="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="1">Windswept</content>
+  <content contentuid="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="2">The Open Road</content>
   <content contentuid="hf9cd17fegc710g12cbg5181gb6e7c97bf309" version="1">Touched by the wind. Can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Suffers the bane of any wind the Windborn releases.</content>
   <content contentuid="h2f7d15aege6dcg9d2dge9edgb2e0bca1bdc2" version="1">Windswept lasts until the end of your next turn. Windswept enemies can't make Opportunity Attacks.&lt;br&gt;&lt;br&gt;Only active while not wearing armour or using a shield.</content>
   <content contentuid="hccc388f3g3470g7274g913agf1747c6c5cb9" version="1">Ride the wind to an enemy it hasn't touched yet and strike it with an open hand.</content>
   <content contentuid="h5b99b7dege080g4cd2g319fg253286ef6d50" version="1">Only an enemy that isn't &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Gale: the strike pushes the target back.&lt;br&gt;Storm: after this strike, the wind can carry you to one more.&lt;br&gt;&lt;br&gt;Can only be used while not wearing armour or using a shield.</content>
+  <content contentuid="h276b8062g9bffg1959g2c8fgd25c187de972" version="2">After an unarmed attack, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Rush_Arcana_Created_ZephyrRush"&gt;Zephyr Rush&lt;/LSTag&gt; as a bonus action.</content>
+  <content contentuid="heafd92edgd95eg5f7fg3a7bg3fee70e91ee5" version="2">Zephyr Rush can only be used against an enemy that isn't Windswept.</content>
+  <content contentuid="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="2">Every enemy you hit, becomes &lt;LSTag Type="Status" Tooltip="ARCANA_WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.</content>
+  <content contentuid="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="1">Windswept lasts until the end of your next turn. Windswept enemies can't make Opportunity Attacks.</content>
 </contentList>

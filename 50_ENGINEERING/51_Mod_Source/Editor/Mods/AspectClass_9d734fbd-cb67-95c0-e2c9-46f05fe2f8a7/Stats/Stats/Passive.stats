@@ -348,16 +348,29 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="6638dcf1-e6a7-4ecb-b502-2c92d6751a58" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_FlowingStrikeZephyr" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="7" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1e5b5d84gf8fag7d7bgc878g960616bd7ae2" version="8" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Zephyr" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h99c87996ge8c7g0090gfd52g5145a4e60f30" version="8" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h276b8062g9bffg1959g2c8fgd25c187de972" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_BonusUnarmedStrike" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnAttack;OnCast;OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
         <field name="Conditions" type="StringTableFieldDefinition" value="((IsMeleeAttack() and IsMonkWeaponAttack() and not SpellId('Target_UnarmedStrike_Monk')) or IsCardSpell()) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
         <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,ZEPHYR_STRIKE,100,1);ApplyStatus(SELF,ARCANA_ZEPHYR_RUSH,100,1)" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h2f7d15aege6dcg9d2dge9edgb2e0bca1bdc2" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="heafd92edgd95eg5f7fg3a7bg3fee70e91ee5" version="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7ce638e2-8281-c815-b5ec-da38c84bd5b9" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheOpenRoad" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="2" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnDamage" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="Enemy() and TotalDamageDoneGreaterThan(0) and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source));" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ARCANA_WINDSWEPT,100,2)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_MartialArts_BonusUnarmedStrike" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1382,17 +1395,6 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="a98a5708-9692-4307-96c0-8cb22f735704" />
         <field name="Name" type="NameTableFieldDefinition" value="ARCANA PASSIVES" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="7ce638e2-8281-c815-b5ec-da38c84bd5b9" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Windswept_Touch" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0b5befbfged9ag347bg6f0ag79644d9b1d4f" version="1" />
-        <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnDamage" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="Enemy() and TotalDamageDoneGreaterThan(0) and not WearingArmor(context.Source) and not HasShieldEquipped(context.Source)" />
-        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ARCANA_WINDSWEPT,100,2)" />
       </fields>
     </stat_object>
   </stat_objects>
