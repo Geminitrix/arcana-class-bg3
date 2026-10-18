@@ -48,6 +48,7 @@ cards and writes comments on the board; they wait in the artifact's store (`move
 
 Any other change to tickets or guides reaches the board at the next `/sync-board` and the test page at the next `/sync-test-guides`.
 | `check_readme.pl` | README version and subclass states vs `05.00` (run by `/commit-e-push`) |
+| `audit.pl` | Organisation checks: dead citations, owners, ticket fields and WIP, open handoffs, daily logs (run by `/auditoria`, ARC-0027) |
 | `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
 | `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |
 | `compare_versions.pl` | Two versions → markdown diff: Stats entries (field `old ⇒ new`), English texts, other files (feeds `76.02`) |

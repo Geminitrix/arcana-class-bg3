@@ -1,6 +1,6 @@
 ---
 source: 51 (Progressions, Lists, Stats, Story goals; dump_progression.pl 2026-10-15) · 21.04/Resonant/DESIGN.md · HANDOFF ARC-0002 §9–§11
-synced_at: 2026-10-15 (ARC-0002 propagation)
+synced_at: 2026-10-17 (progression after ARC-0017 stages 1–4, ARC-0027)
 state: synced
 reviewed: 2026-10-16 ARC-0014 — no change in the game; R49–R68 are an approved design, build pending (21.04/Resonant/DESIGN.md); 2026-10-16 ARC-0021 — display name checked, no change
 ---
@@ -8,6 +8,10 @@ reviewed: 2026-10-16 ARC-0014 — no change in the game; R49–R68 are an approv
 # 🌈 The Resonant — XIV · Temperance · Aspect of Empathy
 
 **Built and tested in the game files (levels 1–12, ARC-0002 closed 2026-10-12); not in the published 3.1.0.28.**
+> **Refining build ARC-0017, stages 1–4 in the game since 2026-10-16** (R49–R68: one *Weave Surge* card with a child per
+> emotion, Temper at 2, Opposites, Deeper Feelings at 5 and 9, Emotional Overload at 1, Ready: Compassion at 10); its 33
+> tests wait for the Owner (QA-0001). The progression below is the game today; the rules sections still describe
+> R1–R48 where R49–R68 changed them — the design is `21.04/Resonant/DESIGN.md`.
 Control and support through emotions; casts with INT, secondary WIS. Design: `21.04/Resonant/DESIGN.md`;
 decisions R1–R48: `21.04/Resonant/DECISIONS.md`. Tag `THERESONANT` (`c3a59afe-c03e-4fe0-9c7c-dc45ee46e21e`).
 
@@ -19,12 +23,15 @@ colour coral.
 ## Progression in the game
 | Level | Granted |
 |---|---|
-| 1 | Weave Surge: Joy · Weave Surge: Trust · Weave Surge: Fear · Heartstring (cantrip) · passives Emotional Alchemy, Empathic Sight, Overload |
-| 3 | Weave Surge: Anticipation · Weave Surge: Surprise · Weave Surge: Sadness · Temper · Tier I Resonance · *14 - Temperance: Awakening* |
-| 5 | Weave Surge: Disgust · Weave Surge: Anger · Emotional Overload · Complex Feelings |
+| 1 | Weave Surge (container, a child per emotion) · Heartstring (cantrip) · Emotional Overload · passives Emotional Alchemy, Empathic Sight, Overload |
+| 2 | Temper |
+| 3 | Opposites · Tier I Resonance · *14 - Temperance: Awakening* |
+| 5 | Deeper Feelings |
+| 6 | Complex Feelings |
 | 7 | Overwhelm · Tier II Harmony |
-| 9 | Emotional Contagion · Mixed Feelings |
-| 11 | Ready: Compassion · Shared Heart |
+| 9 | Deeper Feelings · Emotional Contagion · Mixed Feelings |
+| 10 | Ready: Compassion |
+| 11 | Shared Heart |
 | 12 | Tier III Aspect of Empathy |
 
 ## How it works in the game

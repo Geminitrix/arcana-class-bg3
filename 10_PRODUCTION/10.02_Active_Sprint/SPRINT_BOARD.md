@@ -5,9 +5,8 @@
 ## To Do (0)
 
 
-## In Progress (1)
+## In Progress (0)
 
-- **ARC-0027** Organisation audit — one rulebook, real roles, production and tools in order
 
 ## In Review (2)
 
@@ -17,11 +16,13 @@
 ## Spec Ready (0)
 
 
-## In QA (2)
+## In QA (3)
 
 - **ARC-0008** Raise the Kingmaker (was the Spinner) to the subclass standard (design)
+- **ARC-0017** "Resonant refining build — R49–R68 in the game"
 - **ARC-0026** "Windborn refining build: the game plays WB0–WB48"
 
-## Done (0)
+## Done (1)
 
+- **ARC-0027** Organisation audit — one rulebook, real roles, production and tools in order
 

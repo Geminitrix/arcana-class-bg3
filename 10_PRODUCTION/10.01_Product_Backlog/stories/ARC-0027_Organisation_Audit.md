@@ -3,14 +3,14 @@ id: ARC-0027
 title: Organisation audit — one rulebook, real roles, production and tools in order
 type: chore
 epic: EPIC_Rework_Subclasses
-status: in_progress
+status: done
 owner: Producer
 implementation: pending
 priority: must
 value: 5
 effort: 4
 inputs: [CLAUDE.md, AGENTS.md, every _AGENT.md, .claude/agents, .claude/commands, 00_GOVERNANCE, 10_PRODUCTION, memory]
-outputs: [00.01/Operating_Rules.md, 00.04/ADR-0010, 93/2026-10-17_Studio_Constitution_v0.4]
+outputs: [00.01/Operating_Rules.md, 00.04/ADR-0010, 93/2026-10-17_Studio_Constitution_v0.4, 00.05 Folder owners, 91_Closed_Sprints/S00, 10.04/retrospectives/RETRO_S00.md, 10.02/SPRINT_GOAL.md S01, 82_Automation/audit.pl, .claude/commands/auditoria.md]
 blocked_by: []
 sprint: S01
 created: 2026-10-17
@@ -39,7 +39,7 @@ created: 2026-10-17
 - [x] **C · Real roles** — the 9 active roles are the only owners in `_AGENT.md` and tickets; dormant folders listed once.
 - [x] **D · Production** — close S00, open S01 with WIP 3; fix statuses (ARC-0025/0026 → `implementation: owner`);
       archive done handoffs; playtests to 61; daily logs back.
-- [ ] **E · Tools** — `check_readme.pl` CRLF; one `/auditoria` command running every check of this audit.
+- [x] **E · Tools** — `check_readme.pl` CRLF; one `/auditoria` command running every check of this audit.
 - [x] Missing cited files: 41.01 and 61.01 citations point to what exists; 21.01 stays an open Owner question.
 
 ## Log
@@ -50,3 +50,5 @@ created: 2026-10-17
 - 2026-10-17 — Lionheart propagated (ARC-0009 log). Phase C done: `00.05` gains the table "Folder owners" (the source) and the list of dormant folders; every `_AGENT.md` and `_INDEX.md` names one of the 9 active roles (was 38 titles); ticket `owner:` normalised to the 9 roles (15 tickets); RACI hierarchy rewritten; OR-26 covers tickets; citations of the unwritten `41.01` and `61.01` point to what exists; `21.01` stays an open Owner question (`10.06`).
 - 2026-10-17 — ARC-0027 (Producer, phase D): phase D: statuses set to the real stage; WIP = ARC-0008, ARC-0026, ARC-0027; the Owner's queue (in_review) = ARC-0009, ARC-0024.
 - 2026-10-17 — Phase D done: S00 closed and archived (`91_Closed_Sprints/S00/`: goal, board, 11 daily logs + a catch-up for 10-16/17, the two old plans, 8 done handoffs); review and retro in `10.04/retrospectives/RETRO_S00.md`; S01 opened (WIP: ARC-0008, ARC-0026, ARC-0027; the Owner's queue: ARC-0009, ARC-0024); 14 tickets set to their real stage (5 design tickets closed, their gates moved to the build tickets; the three waiting builds are `implementation: owner`); OR-27 and OR-36 refined; 05.00 and README subclass states refreshed. Playtests stay in `10.01/playtests` (the board's tooling reads them there, ARC-0024).
+- 2026-10-17 — Phase E done: `check_readme.pl` CRLF-safe and reads keys like "Unbound (Windborn)" (tested: match and a planted mismatch); `audit.pl` + `/auditoria` run every check of this audit (tested: clean, and three planted faults found). `sync_data` committed the Owner's Toolkit work under ARC-0026 (validate 0 errors). Closed: every phase done; the only open propagation item is the Lionheart's `25`, which waits for its balance pass (ARC-0009, stage 3).
+- 2026-10-17 — Correction found by the final verify_context run: ARC-0017 (Resonant refining) is built — stages 1–4 in the game since 10-16 — so it is in QA (33 tests, QA-0001), not ready; sprint S01 updated (WIP: ARC-0008, ARC-0017, ARC-0026). `05.02/Resonant.md` progression and `05.02/Lionheart.md` placeholder list brought to the game; verify_context: Kingmaker, Lionheart, Resonant, Starchild clean.

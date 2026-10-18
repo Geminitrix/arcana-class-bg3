@@ -8,7 +8,7 @@
 use strict; use warnings; use utf8;
 binmode STDOUT, ':utf8';
 
-sub slurp { my $f = shift; open my $h, '<:encoding(UTF-8)', $f or die "$f: $!"; local $/; <$h> }
+sub slurp { my $f = shift; open my $h, '<:encoding(UTF-8)', $f or die "$f: $!"; local $/; (<$h> // '') =~ s/\r//gr }   # CRLF-safe
 my $readme = slurp('README.md');
 my $ctx    = slurp('05_LIVE_CONTEXT/05.00_READ_FIRST.md');
 my $bad = 0;
@@ -18,8 +18,8 @@ my ($vc) = $ctx    =~ /Published version \*\*([\d.]+)\*\*/i;
 if (($vr // '') ne ($vc // '')) { print "version: README " . ($vr // '?') . " vs 05.00 " . ($vc // '?') . "\n"; $bad++ }
 
 my (%r, %c);
-while ($readme =~ /^\| (\w+) \| [^|]+ \| ([^|]+?) \|$/mg) { $r{$1} = $2 }
-while ($ctx    =~ /^\| (\w+) \| [^|]+ \| ([^|]+?) \|$/mg) { $c{$1} = $2 }
+while ($readme =~ /^\| (\w+)[^|]* \| [^|]+ \| ([^|]+?) \|$/mg) { $r{$1} = $2 }   # "Unbound (Windborn)" keys as Unbound
+while ($ctx    =~ /^\| (\w+)[^|]* \| [^|]+ \| ([^|]+?) \|$/mg) { $c{$1} = $2 }
 for my $s (sort keys %c) {
   next if $s eq 'Subclass';
   if (!exists $r{$s}) { print "subclass $s: in 05.00, missing in README\n"; $bad++; next }

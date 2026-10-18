@@ -23,7 +23,7 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 | Deceiver (Veilwalker) | II · The High Priestess | Existing — refining designed, build ready (ARC-0020) |
 | Starchild | XVII · The Star | Existing — rework designed, build ready (ARC-0025) |
 | Eternal | XIII · Death | Existing — rework |
-| Resonant (Heartsong) | XIV · Temperance | Implemented — built (ARC-0002); refining build ready (ARC-0017) |
+| Resonant (Heartsong) | XIV · Temperance | Implemented — refining built, tests pending (ARC-0017) |
 | Kingmaker | X · Wheel of Fortune | Implemented — built 1–12 (ARC-0008), probes pending |
 | Lionheart | VIII · Strength | New — designed (ARC-0009), build pending |
 

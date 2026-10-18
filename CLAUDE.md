@@ -28,5 +28,5 @@ Aspect** in combat. Casts with **Woven Spell Slots**; the PC edition (Script Ext
 | Tests | `61.02_Test_Cases/<S>/`, `61_Test_Plan/TEST_GUIDES.json` |
 | Tickets, sprint, board | `10.01_Product_Backlog`, `10.02_Active_Sprint` |
 | Decisions | `00.04_Decisions_ADR` |
-| Roles, slash commands, hook | `.claude/` — registry in `00.05_Agent_Registry`; commands: `/novo-ticket` `/iniciar-sprint` `/handoff` `/propagar` `/fechar-ticket` `/retro` `/sync-contexto` `/patch-notes` `/commit-e-push` `/sync-board` `/sync-test-guides` |
+| Roles, slash commands, hook | `.claude/` — registry in `00.05_Agent_Registry`; commands: `/novo-ticket` `/iniciar-sprint` `/handoff` `/propagar` `/fechar-ticket` `/retro` `/sync-contexto` `/patch-notes` `/commit-e-push` `/sync-board` `/sync-test-guides` `/auditoria` |
 | Migration record (complete) | `00.04_Decisions_ADR/MIGRATION_PLAN.md`, `MIGRATION_MANIFEST.md` |

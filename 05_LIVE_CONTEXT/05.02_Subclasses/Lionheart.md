@@ -14,7 +14,7 @@ INT, secondary STR. Design: `21.04/Lionheart/DESIGN.md`; progression as designed
 ## In the game today
 The slot is the progression **Titan** (`7643bf5a-62fa-44c4-ab73-572e655554d2`, internal name kept, LH1), levels 1–12.
 It grants only a placeholder copy of the **Resonant level-1 kit** (WIS/CHA saves, light armour, Emotional Alchemy,
-Empathic Sight, Weave Surge: Joy / Trust / Fear). Not in the published version 3.1.0.28.
+Empathic Sight, Weave Surge: Joy / Trust / Fear, Heartstring, Emotional Overload). Not in the published version 3.1.0.28.
 
 ## Depth audit (2026-10-15, design; updated 2026-10-17)
 Against `21.04/_SUBCLASS_STANDARD.md` §3.

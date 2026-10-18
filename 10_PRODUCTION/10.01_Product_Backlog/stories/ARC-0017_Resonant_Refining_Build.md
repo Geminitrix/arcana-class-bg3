@@ -4,7 +4,7 @@ title: "Resonant refining build — R49–R68 in the game"
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: resonant
-status: ready
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: should
@@ -13,7 +13,7 @@ effort: 5
 inputs: [21.04/Resonant/DESIGN.md, 21.04/Resonant/DECISIONS.md (R49–R68), 25 (*_Resonant_* pending_build), 55_Implementation_Specs/SPEC_ARC-0017.md, 61.02/Resonant/TC_ARC-0014.md]
 outputs: [gen_emotion_alchemy.pl + tests, the Resonant's Stats/LSX/Osiris/Khonsu in Data, CardDB.lua + tests, 25 values moved from pending_build, 32.01 texts, 05.02/Resonant.md]
 blocked_by: []
-sprint:
+sprint: S01
 created: 2026-10-16
 ---
 
@@ -44,3 +44,4 @@ in both editions.
 - 2026-10-16 — Test guide written (Owner rule, from this ticket on): interactive page https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E (results in its db, collection `results`) + record `61.02_Test_Cases/Resonant/GUIDE_ARC-0017.md` generated from `GUIDE_ARC-0017.json` (33 tests by level; V6/V7 stay in ARC-0010).
 - 2026-10-16 — The test page became one page for every pending test, a tab per subproject (Owner): `61_Test_Plan/TEST_GUIDES.json` lists the guides; results keyed `<ARC>_<test>`; `gen_test_guide_md.pl` writes each record.
 - 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — next build in line; the Owner types it (OR-11): SPEC per level and TOOLKIT_ARC-0017_L<n> guides before typing.
+- 2026-10-17 — ARC-0027 correction: the phase-D line above was wrong — stages 1–4 are already in the game (applied 2026-10-16, before the rulebook). This ticket is in stage 5: the Owner plays the 33 tests (QA-0001); divergences are fixed under OR-11; whatever stage of the SPEC is still unapplied is typed by the Owner. Sprint S01.
