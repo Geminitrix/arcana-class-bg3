@@ -4,7 +4,7 @@ title: Create the Lionheart (was the Titan) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: lionheart
-status: in_progress
+status: in_review
 owner: Lead Class Designer
 implementation: owner
 priority: must
@@ -13,7 +13,7 @@ effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 05.02/Lionheart.md, 21.08_Subclass_Matrix.md, 10.06_Impediments/Open_Questions.md]
 outputs: [21.04/Lionheart/DECISIONS.md, 21.04/Lionheart/DESIGN.md, 32.01/Lionheart.md, 21.03/Lionheart.md, 23.02/Lionheart/, 22.05/Lionheart.md, 26.01/Lionheart.md, 31.02/Lionheart.md, 42.04/Lionheart.md, 61.02/Lionheart/TC_ARC-0009.md, 05.02/Lionheart.md; pending: 25.01/SPL_Lionheart_*, 25.02/FEAT_Lionheart_* (balance pass), 55/SPEC_ARC-0009.md, TOOLKIT_ARC-0009_L<n>.md]
 blocked_by: []
-sprint:
+sprint: S01
 created: 2026-10-14
 ---
 
@@ -74,3 +74,4 @@ ProgressionDescription still reads *Titan*. They are synced to `51` and wait for
   *Lion's Judgement*, full 1–12 progression, form dice and defences). Hand-off to the Claude Desktop session:
   open questions, T2 checks and next topics at the end of `55/_wip/Lionheart/decisions.md`.
 - 2026-10-17 — Propagated (00.08) by ARC-0027 in each role: decisions and texts moved out of `55/_wip` (`21.04/Lionheart/DECISIONS.md`, `32.01/Lionheart.md`), design renamed `DESIGN.md`; `21.03`, `21.08` column, 15 sheets in `23.02/Lionheart/`, `22.05` (no balance pass yet) and `26.01`, `31.01` rows (Titan → Lionheart), `31.02`, `33.03` terms, `42.04`, `61.02/Lionheart/TC_ARC-0009.md`, `05.02` with the Depth audit, `05.00`, README. Still due (work flow stage 3): the Owner's design review, then the balance pass (`25`, `22.05`).
+- 2026-10-17 — ARC-0027 (Producer, phase D): stage 3 — design written and propagated; waiting for the Owner's design review, then the balance pass.

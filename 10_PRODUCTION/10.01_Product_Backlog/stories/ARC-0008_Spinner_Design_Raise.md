@@ -4,7 +4,7 @@ title: Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_progress
+status: in_qa
 owner: Lead Class Designer
 implementation: claude
 priority: must
@@ -13,7 +13,7 @@ effort: 4
 inputs: [21.04/_SUBCLASS_STANDARD.md, 93/2026-10-15_Kingmaker_raise_proposals/2026-10-13-spinner-three-proposals.md, 05.02/Spinner.md, 21.08_Subclass_Matrix.md]
 outputs: [21.04/Kingmaker/DECISIONS.md, 21.04/Kingmaker/DESIGN.md, 55/SPEC_ARC-0008.md, 55/TOOLKIT_ARC-0008.md, 55/TOOLKIT_ARC-0008_stage2.md, 32.01/Kingmaker_texts_with_params.md, 25.01/SPL_Kingmaker_*, 25.02/FEAT_Kingmaker_*, 22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md, 55/_TEMPLATE_TOOLKIT_GUIDE.md, 90/93/2026-10-13_ARC-0008_spinner_audit, 90/93/2026-10-13_ARC-0008_spinner_design]
 blocked_by: []
-sprint:
+sprint: S01
 created: 2026-10-13
 ---
 
@@ -201,3 +201,4 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
   (static S1–S5 pass); `05.02/Kingmaker.md` with the Depth audit, `05.00`, README. Four handoffs closed. Found: the subclass
   icon doesn't show (`Spinner.DDS` vs `Name` Kingmaker — stage 7); shared vanilla icons → ARC-0015.
 - 2026-10-16 — The pending probes P1–P48 (+ the progression check) are on the Arcana Test Guides page, Kingmaker tab: `61.02/Kingmaker/GUIDE_ARC-0008.json` (+ `.md`), converted from SPEC_ARC-0008 and TC_ARC-0008.
+- 2026-10-17 — ARC-0027 (Producer, phase D): stage 5 — built 1–12, the Owner plays probes P1–P48 (QA-0002); sprint S01.

@@ -4,7 +4,7 @@ title: "Starchild refining: rework to the subclass standard v2.1, with paths of 
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: starchild
-status: in_progress
+status: done
 owner: Lead Class Designer
 implementation: pending
 priority: must
@@ -32,13 +32,13 @@ player feels.
 - [x] Decisions logged in `21.04/Starchild/DECISIONS.md` (prefix `SC`, SC0–SC32)
 - [x] `DESIGN.md` complete and `21.03/Starchild.md` written from the approved map
 - [x] Propagation (00.08) to every department; `check_propagation.pl Starchild` prints OK
-- [ ] Build ticket opened (`implementation: claude`), spec in `55`
+- [x] Build ticket opened (`implementation: claude`), spec in `55`
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
-- [ ] DoD (`00.03`)
+- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — moved to ARC-0025 (ARC-0027)
+- [ ] Narrative gate (`32.04`) — moved to ARC-0025 (ARC-0027)
+- [ ] DoD (`00.03`) — moved to ARC-0025 (ARC-0027)
 
 ## Log
 
@@ -79,3 +79,4 @@ player feels.
   `pending_build` with ‹…› sizes, no `upcast_die`), 22.05 and 26.01 (directions only), 31.02, 32.01 (game texts via
   dossier_texts.pl + names after the build), 33.03 Starchild terms, 42.04 briefs, 61.02 TC_ARC-0023; 05.02 note and
   05.00 state line (game unchanged, 3.1 kit). Nothing in the game changed.
+- 2026-10-17 — ARC-0027 (Producer, phase D): closed — the design is delivered (DESIGN.md, SC0–SC36) and the build ticket is ARC-0025; its Design and Narrative gates move there (OR-1).

@@ -81,6 +81,7 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
   (the table "Folder owners" there is the source; `_AGENT.md` / `_INDEX.md` copy it). Anyone reads anything.
 - **OR-27** A handoff (`HANDOFF_<from>_to_<to>.md` in the destination folder) is executed **in the same session** by
   switching to the destination role, then marked `status: done` (or `deferred` with reason and ticket). Nobody waits.
+  Done handoffs move to `91_Closed_Sprints/<sprint>/handoffs/` when the sprint closes.
 - **OR-28** **Propagation:** at the end of every session each artifact downstream of a changed source is updated, or its
   `reviewed:` line refreshed (`/propagar`, map `00.08`, ADR-0009). `check_propagation.pl` must print OK before a ticket
   closes; a Stop hook reminds you.
@@ -88,8 +89,9 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 ## 5. Production
 
 - **OR-35** Every piece of work has a ticket; every commit message starts with its id (`ARC-0142: …`).
-- **OR-36** One sprint at a time (`10.02/SPRINT_GOAL.md`). **WIP limit 3**: at most three tickets in `in_progress`,
-  `in_review` or `in_qa` at once; finish before starting.
+- **OR-36** One sprint at a time (`10.02/SPRINT_GOAL.md`). **WIP limit 3**: at most three tickets in `in_progress` or
+  `in_qa` at once; finish before starting. `in_review` is the Owner's queue (work waiting for an approval) and doesn't
+  count, but keep it short. A sprint lasts one week; at its end `/retro` archives it in `91_Closed_Sprints/`.
 - **OR-37** A session that changes anything ends with a daily-log entry (`10.02/daily_logs/`) and `/sync-board`.
 - **OR-38** The README is checked whenever a subclass state, the version or the structure changes (`check_readme.pl`).
 

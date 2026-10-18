@@ -4,7 +4,7 @@ title: "Subclass standard v2 and refining method"
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: class
-status: in_review
+status: done
 owner: Lead Class Designer
 implementation: pending
 priority: should
@@ -47,13 +47,13 @@ progression and stay inside the budget.
 - [x] `_SUBCLASS_REFINING.md` written and approved
 - [x] Self-review of both: no dead paths, ids compatible, no copied numbers, no subclass named in the standard
 - [x] Indexes, agents and citing files updated or handed off; pillars question in `10.06`
-- [ ] `/propagar` run, `check_propagation.pl` OK, daily log, board updated
+- [x] `/propagar` run, `check_propagation.pl` OK, daily log, board updated
 
 ## Gates
 
-- [ ] Design gate — n/a (method document, no feature)
-- [ ] Narrative gate — n/a
-- [ ] DoD (`00.03`)
+- [x] Design gate — n/a (method document, no feature)
+- [x] Narrative gate — n/a
+- [x] DoD (`00.03`)
 
 ## Log
 
@@ -85,3 +85,4 @@ progression and stay inside the budget.
   ticket) — status `review` until they are propagated. Daily log written.
 - 2026-10-15 — Owner decision D9 (during the Resonant refining): progression spread over every level. Standard → v2.1 (M4 and J1 lose "odd", new J8, §6.1 and §6.3 rewritten, Appendix A.4); `_SUBCLASS_REFINING.md` step 8 and §6 check the spread; `21.08` level rhythm notes it. Existing subclasses move in their own refining.
 - 2026-10-16 — D9 refined by the Owner: levels 4 and 8 carry no subclass content (checked: all six subclasses are empty there in the game). Standard §6.3, J8, A.4, `_SUBCLASS_REFINING.md` §6 and `21.08` updated.
+- 2026-10-17 — ARC-0027 (Producer, phase D): closed — standard v2 and the refining method approved and in use; check_propagation OK.

@@ -1,23 +1,27 @@
-# Sprint board — S00
+# Sprint board — S01
 
 *Generated 2026-10-17 by `82_Automation/update_board.pl` — do not edit.*
 
 ## To Do (0)
 
 
-## In Progress (0)
+## In Progress (1)
 
+- **ARC-0027** Organisation audit — one rulebook, real roles, production and tools in order
 
-## In Review (0)
+## In Review (2)
 
+- **ARC-0009** Create the Lionheart (was the Titan) to the subclass standard (design)
+- **ARC-0024** Playtest tickets and a Playtests tab on the Arcana Board
 
 ## Spec Ready (0)
 
 
-## In QA (0)
+## In QA (2)
 
+- **ARC-0008** Raise the Kingmaker (was the Spinner) to the subclass standard (design)
+- **ARC-0026** "Windborn refining build: the game plays WB0–WB48"
 
-## Done (1)
+## Done (0)
 
-- **ARC-0001** Remove the dead PassivesRemoved at Deceiver level 20
 

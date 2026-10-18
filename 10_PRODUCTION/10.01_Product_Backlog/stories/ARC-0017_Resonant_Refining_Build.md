@@ -6,7 +6,7 @@ epic: EPIC_Rework_Subclasses
 subclass: resonant
 status: ready
 owner: Mod Engineer
-implementation: claude
+implementation: owner
 priority: should
 value: 5
 effort: 5
@@ -43,3 +43,4 @@ in both editions.
 - 2026-10-16 — `[fechado]` stage 4 applied (ARC17_STAGE=4): engine patch (+RESONANT_SHARED_JOY, +Opposites, +Deeper Feelings 5/9; growing dice, Heartstring, Tier I, texts), level maps (Catharsis 1/5/9, +Resonant_Die4/Die4Neg/Die6/Die6Neg), progression (dump_progression matches DESIGN §10), check_cards OK, selftest 1151/0. Next: stage 5 (close), then the Owner's test round B1-B7, V1-V13.
 - 2026-10-16 — Test guide written (Owner rule, from this ticket on): interactive page https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E (results in its db, collection `results`) + record `61.02_Test_Cases/Resonant/GUIDE_ARC-0017.md` generated from `GUIDE_ARC-0017.json` (33 tests by level; V6/V7 stay in ARC-0010).
 - 2026-10-16 — The test page became one page for every pending test, a tab per subproject (Owner): `61_Test_Plan/TEST_GUIDES.json` lists the guides; results keyed `<ARC>_<test>`; `gen_test_guide_md.pl` writes each record.
+- 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — next build in line; the Owner types it (OR-11): SPEC per level and TOOLKIT_ARC-0017_L<n> guides before typing.

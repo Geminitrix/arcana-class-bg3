@@ -4,7 +4,7 @@ title: "Windborn (Unbound) refining: rework to the subclass standard v2.1"
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: unbound
-status: in_progress
+status: done
 owner: Lead Class Designer
 implementation: pending
 priority: must
@@ -36,9 +36,9 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
-- [ ] DoD (`00.03`)
+- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — moved to ARC-0026 (ARC-0027)
+- [ ] Narrative gate (`32.04`) — moved to ARC-0026 (ARC-0027)
+- [ ] DoD (`00.03`) — moved to ARC-0026 (ARC-0027)
 
 ## Log
 
@@ -108,3 +108,4 @@ reads its state and a 1–12 journey the player feels — before the 4.0 build.
   Windborn edits of `21.08` and `10.06`. Content verified intact at HEAD (no Windborn line removed or changed; every
   WB marker present; 49 decision rows; 12 files in `25`); history not rewritten (shared `main`).
 - 2026-10-17 — Build ticket opened: ARC-0026 (`implementation: claude`), `55/SPEC_ARC-0026.md` (stages 0–6, probes P1–P8; P6 anchored on vanilla `Interrupt_AttackOfOpportunity` / Mobile's `MOBILE_NO_AOO` pair). Design side of ARC-0022 complete; gates pending.
+- 2026-10-17 — ARC-0027 (Producer, phase D): closed — the design is delivered (DESIGN.md, WB0–WB50); its Design and Narrative gates move to the build ticket ARC-0026 (OR-1).

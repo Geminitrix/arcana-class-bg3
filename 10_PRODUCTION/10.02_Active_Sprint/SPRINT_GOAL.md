@@ -1,12 +1,12 @@
-sprint: S00
+sprint: S01
 
-# Sprint 0 — validate the pipeline end to end
+# Sprint 1 — the Windborn typed and tested, the Kingmaker played, the studio in order
 
-**Goal:** run one small Deceiver ticket through the whole flow — ticket → spec → Owner implements in the
-Toolkit → `sync_data` → validators → QA → live context → close — and register the published baseline.
+**Goal:** the Owner types and tests the Windborn level by level (ARC-0026) and plays the Kingmaker's probes (ARC-0008)
+while ARC-0027 closes the organisation audit.
 
-- Dates: 2026-10-11 → 2026-10-18
-- Tickets: ARC-0001 (pilot)
-- Owner tasks: implement ARC-0001 in the Toolkit; provide standard saves for `83.02` (levels 1 / 5 / 8 / 12)
-  when convenient.
-- Done already: baseline 3.1.0.28 registered (`76.01`), first diff 3.1.0.28 → 3.1.0.44 (`76.02`).
+- Dates: 2026-10-18 → 2026-10-24
+- In progress (WIP 3, OR-36): ARC-0026 (in QA — the Owner types L01–L12), ARC-0008 (in QA — probes P1–P48), ARC-0027.
+- The Owner's queue (in review): ARC-0009 (Lionheart design review), ARC-0024 (playtest tickets check).
+- Next in line (ready): ARC-0025 Starchild build, ARC-0020 Deceiver build, ARC-0017 Resonant build, ARC-0021 names.
+- Scope proposed by the Producer; the Owner can swap any ticket (`/iniciar-sprint`).

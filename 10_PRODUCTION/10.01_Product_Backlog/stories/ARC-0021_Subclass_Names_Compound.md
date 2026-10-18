@@ -4,7 +4,7 @@ title: "Subclass names in one style: rename Deceiver, Unbound, Eternal and Reson
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: in_progress
+status: ready
 owner: Lore Writer
 implementation: pending
 priority: should
@@ -43,3 +43,4 @@ theme plus a word for the person — so the class panel looks designed as a whol
 - 2026-10-16 — created at the Owner's request, separate from ARC-0019/ARC-0020. Owner's lead for the Resonant:
   *Heartsong*. Nothing changed in the game or the design.
 - 2026-10-16 — Owner chose: Deceiver → **Veilwalker** (DV33), Unbound → **Windborn**, Eternal → **Palerider**, Resonant → **Heartsong** (R69). Unbound and Eternal have no dossier yet: their names live here, in `31.01` §3 and `33.03` until their refining opens `DECISIONS.md`. Written: style rule (`31.01` §5), `33.03`, `21.08` header, Deceiver and Resonant dossier titles and text sections, `32.04/ARC-0020_Deceiver.md` addendum; the Veilwalker strings joined `ARC-0020` `10_names.patch` (54 strings, dry run clean). Pending: game text of Windborn, Palerider, Heartsong (their build tickets; Heartsong can ride ARC-0017), translations (ARC-0013), mod pages.
+- 2026-10-17 — ARC-0027 (Producer, phase D): the names are chosen; what is left happens inside each subclass build (Unbound, Eternal) — not work in progress.

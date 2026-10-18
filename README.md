@@ -19,11 +19,11 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 
 | Subclass | Arcanum | Status |
 |---|---|---|
-| Unbound | 0 · The Fool | Existing — rework |
-| Deceiver | II · The High Priestess | Existing — rework |
-| Starchild | XVII · The Star | Existing — rework |
+| Unbound (Windborn) | 0 · The Fool | Existing — rework in build (ARC-0026) |
+| Deceiver (Veilwalker) | II · The High Priestess | Existing — refining designed, build ready (ARC-0020) |
+| Starchild | XVII · The Star | Existing — rework designed, build ready (ARC-0025) |
 | Eternal | XIII · Death | Existing — rework |
-| Resonant | XIV · Temperance | Implemented — raised (ARC-0002) |
+| Resonant (Heartsong) | XIV · Temperance | Implemented — built (ARC-0002); refining build ready (ARC-0017) |
 | Kingmaker | X · Wheel of Fortune | Implemented — built 1–12 (ARC-0008), probes pending |
 | Lionheart | VIII · Strength | New — designed (ARC-0009), build pending |
 

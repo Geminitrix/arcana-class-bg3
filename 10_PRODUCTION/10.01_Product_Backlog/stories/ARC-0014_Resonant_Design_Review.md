@@ -4,7 +4,7 @@ title: "Resonant design review: balance, structure and felt progression (proposa
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: resonant
-status: in_review
+status: done
 owner: Lead Class Designer
 implementation: pending
 priority: should
@@ -55,3 +55,4 @@ suggested change, its reasons, alternatives, impact and verification.
 - 2026-10-16 — R68: Emotional Overload applies vanilla Irresistible Dance (1 turn; 2 at Tier III) instead of Paralysis.
 - 2026-10-16 — Propagation (00.08) of R49–R68, each role in session: `DESIGN.md` rewritten (present tense, SG13 fixes); `21.03/Resonant.md` (spread map); `21.08` (Resonant rows); `23.02/Resonant/` (24 sheets updated, 4 reviewed, new `SPL_WeaveSurge`, `FEAT_Opposites`, index); `25` (13 files: `pending_build` blocks — the generator still reads today's values; validate OK, 247 tests pass); `22.05/Resonant.md` and `26.01/Resonant.md` (directions, resources); `31.02` (theme); `32.01` (draft texts for the build); `33.03` (terms); `42.04` (icon briefs); `61.02/Resonant/TC_ARC-0014.md` (probes B1–B5, rows V1–V13) and ARC-0010; `05.02` reviewed (game unchanged). Next: the build spec and an implementation ticket.
 - 2026-10-16 — Build ticket ARC-0017 opened (`implementation: claude`) with `SPEC_ARC-0017.md` (stages 0–5).
+- 2026-10-17 — ARC-0027 (Producer, phase D): closed — every criterion met; the build continues in ARC-0017.

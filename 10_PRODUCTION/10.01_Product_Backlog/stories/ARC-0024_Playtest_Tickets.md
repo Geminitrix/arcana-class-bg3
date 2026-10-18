@@ -13,7 +13,7 @@ effort: 3
 inputs: [61_Test_Plan/TEST_GUIDES.json, 61.02_Test_Cases/*/GUIDE_*.json, 82_Automation/update_board.pl, 82_Automation/kanban/, 00.03]
 outputs: [10.01/playtests/QA-0001, QA-0002, 82_Automation/playtests.pl, 82_Automation/update_board.pl, 82_Automation/kanban/index.html, 82_Automation/_INDEX.md, 00.03, 10/_INDEX.md, 61/_INDEX.md]
 blocked_by: []
-sprint:
+sprint: S01
 created: 2026-10-16
 ---
 
@@ -60,3 +60,4 @@ created: 2026-10-16
   `playtests.pl sync` now rebuilds the QA test lists from the guides, generates `TEST_GUIDES.json` (Done playtests
   drop out) and the `.md` records. Test Guides page source kept in `61_Test_Plan/test_guides/` (PC tag, safe db call).
   Rules: `61_Test_Plan/_AGENT.md` § Test guides and playtests; DoD engineering row; `/update-board` republishes both.
+- 2026-10-17 — ARC-0027 (Producer, phase D): waiting for the Owner: open the Playtests tab, mark a test and ask for a sync.

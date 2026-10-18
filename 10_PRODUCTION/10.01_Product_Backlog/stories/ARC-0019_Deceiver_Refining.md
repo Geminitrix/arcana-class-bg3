@@ -4,7 +4,7 @@ title: "Deceiver refining: raise the Veil design to the subclass standard v2.1 (
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
-status: in_progress
+status: done
 owner: Lead Class Designer
 implementation: pending
 priority: must
@@ -36,9 +36,9 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
-- [ ] DoD (`00.03`)
+- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — moved to ARC-0020 (ARC-0027)
+- [ ] Narrative gate (`32.04`) — moved to ARC-0020 (ARC-0027)
+- [ ] DoD (`00.03`) — moved to ARC-0020 (ARC-0027)
 
 ## Log
 
@@ -65,3 +65,4 @@ method, log the Owner's answers as decisions and rewrite the dossier (`DESIGN.md
   in-game description kept as the game text, with a draft for the build). DV24/DV28 and REFINE stay as the record.
 - 2026-10-16 — Build ticket ARC-0020 opened with `SPEC_ARC-0020.md` (stages 0–5, probes B1–B4).
 - 2026-10-16 — DV32 (Owner): Splinter on command is a deck card (`Target_Arcana_Card_Spell_SplinterOnCommand`, level 0, Threads on PC); propagated to DESIGN, 21.03, 23.02, 25, 22.05, 26.01, 33.03, 61.02 (V1b), SPEC_ARC-0020 Task 0.5; the rest reviewed, no change.
+- 2026-10-17 — ARC-0027 (Producer, phase D): closed — the design is delivered (DESIGN.md, DV1–DV33); its Design and Narrative gates move to the build ticket ARC-0020, where later decisions go too (OR-1).

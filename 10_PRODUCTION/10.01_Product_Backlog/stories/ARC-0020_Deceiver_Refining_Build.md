@@ -6,7 +6,7 @@ epic: EPIC_Rework_Subclasses
 subclass: deceiver
 status: ready
 owner: Mod Engineer
-implementation: claude
+implementation: owner
 priority: must
 value: 5
 effort: 4
@@ -24,6 +24,7 @@ created: 2026-10-16
 
 ## Acceptance criteria
 
+- [ ] Design gate (`_SUBCLASS_STANDARD` §15) and Narrative gate (`32.04`) recorded — carried from the design ticket
 - [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean
 - [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change
 - [ ] Probes B1–B4 recorded, plan B applied where one failed
@@ -46,3 +47,4 @@ created: 2026-10-16
 - 2026-10-16 — Task 0.5 prepared: `arc0020/30_splinter_command.patch`, `32_goal_splinter_command.pl`, `lua/` (CardDB + test, 138 pass). Next: Tasks 0.6–0.7 (Tier III burst, Grand Deception).
 - 2026-10-16 — Tasks 0.6–0.7 prepared: `arc0020/40_tier3.patch` (stats + 4 texts, dry run clean), `42_goal_tier3_grand.pl` (+98 lines on a copy, idempotent). New probes B5 (Grand Deception snapshot timing), B6 (Splinter Tier III condition). Stage 3 texts pending in `32.04`. Stage 0 left: nothing but Task 0.8 (after B4) — stage 1 can run with `[fechado] ARC-0020`.
 - 2026-10-16 — Stage 1 applied in the game (`[fechado] ARC-0020`): names and the one-rule text (`10_names.patch`). Pre-apply snapshot `3c87edf`; check_cards OK, selftest 1151/1151, no long lines; `sync_data`, `gen_catalog`, `05.02` updated. Stage 3 texts approved by the Owner. Next: stage 2 (`[fechado] ARC-0020`).
+- 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — stage 1 (names) applied before the rulebook; the rest is typed by the Owner (OR-11). Carries the Design and Narrative gates from ARC-0019.

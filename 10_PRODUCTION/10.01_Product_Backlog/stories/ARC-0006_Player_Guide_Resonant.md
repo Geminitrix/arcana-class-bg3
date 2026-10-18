@@ -10,7 +10,7 @@ implementation: claude
 priority: should
 value: 3
 effort: 2
-inputs: [21.04_Subclasses/Resonant/DESIGN.md, 05_LIVE_CONTEXT/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md]
+inputs: [21.04_Subclasses/Resonant/DESIGN.md, 90_ARCHIVE/91_Closed_Sprints/S00/handoffs/HANDOFF_LeadClassDesigner_to_ContextKeeper_ARC-0002.md]
 outputs: [75.02_Player_Guide_Codex/src/data/resonant.json]
 blocked_by: [the rework of every subclass (EPIC_Rework_Subclasses)]
 sprint:
