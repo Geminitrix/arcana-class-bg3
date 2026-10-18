@@ -23,6 +23,9 @@ constitution named 38 roles and Portuguese paths that never existed.
 
 **Amended 2026-10-17 (Owner):** the build kit is **one** `TOOLKIT_ARC-####.md` and **one** `QA_ARC-####.md` per ARC;
 "level by level" means the sections of the QA_ARC, not separate files (OR-4).
+**Amended 2026-10-18 (Owner):** the TOOLKIT_ARC (and the SPEC) follow the best implementation order, feature by feature,
+each feature complete in one place — never level by level, which scatters a growing feature (OR-5). Every id follows
+the mod's patterns (OR-59).
 
 ## Consequences
 A rule changes in one place. The next phases of the audit fix the roles (C), production (D) and the tools (E).

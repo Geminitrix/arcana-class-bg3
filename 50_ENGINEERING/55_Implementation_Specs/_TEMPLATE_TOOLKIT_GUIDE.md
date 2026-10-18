@@ -14,10 +14,11 @@ author: Mod Engineer
 > Toolkit**: where to click, which entry to create or change, and what to type in every field. It is
 > organised by the Toolkit's own layout — **Stories**, **UUID Object Editor**, **Stats Editor** — then
 > file, then entry, then field. The SPEC (`SPEC_ARC-####`) stays the technical source; this file is the
-> typing view of it. Every subclass **build or rework** gets **one** `TOOLKIT_ARC-####.md` (OR-4, Owner 2026-10-17) with
-> a part per level (`# Level N — …`): the Owner types a level, plays that level's section of `QA_ARC-####`, then the
-> next; Claude applies nothing in the game except the fixes of OR-11. Parts generated separately are merged with
-> `82_Automation/merge_toolkit_parts.pl`.
+> typing view of it. Every subclass **build or rework** gets **one** `TOOLKIT_ARC-####.md` (OR-4) written in **the best
+> order to implement, feature by feature — never level by level** (OR-5): each feature is complete in one place, with
+> every level form of it, so nothing is revisited. Level by level belongs to the tests (`QA_ARC-####`). Claude applies
+> nothing in the game except the fixes of OR-11. Parts generated separately are merged with
+> `82_Automation/merge_toolkit_parts.pl`, then put in this order.
 
 ---
 
@@ -32,6 +33,11 @@ Keep this section in every guide; it is how the Owner reads the rest.
    before another one points to it: a list before the progression that uses its UUID; a status before the
    spell that applies it, when the Toolkit validates the reference). The sections below are grouped by
    Toolkit area; the checklist number appears in each entry's title.
+   **Feature-complete, never level by level (OR-5).** An entry carries every level form of its feature: a passive
+   that grows at 3 and 7 is written once with all its steps (its `LevelMapValue`, its `_3` / `_7` variants or the
+   status steps it applies), a card with all its upcasts, a status family with all its members. Nothing is split
+   across levels and nothing is revisited. What each level grants is written **once**, at the end: the lists and the
+   progression rows (UUID Object Editor). The QA_ARC is where the work is read level by level.
 3. **Stats Editor blocks.** One column per entry, **at most 3 entries per block** (same file only), one row per
    field. **Rows follow the Toolkit's field order** (§3, *Toolkit field order*) and use its labels (Spell
    Animation, Intent, Spell Style Group). Every row is a real field to fill, confirm or clear. After writing the
@@ -68,8 +74,10 @@ Keep this section in every guide; it is how the Owner reads the rest.
    any family a generator builds are listed in a *Generated* table with the command that applies them.
    Only the base entry is typed.
 10. **Osiris.** Each goal is one copy-paste block, with its name and parent goal.
-11. **Exact names.** Every name and value is copied from the SPEC and checked against `55.00_Type_Catalog.md`
-    and the glossary (prefixes, ADR-0002). If a field's syntax is uncertain, the SPEC must name a vanilla
+11. **Exact names (OR-59).** Every id follows the mod's patterns — `<Type>_Arcana_Card_Spell_X`, `_Card_Ability_`,
+    `_Card_Passive_`, `_Created_`, `_Util_`, `Interrupt_Arcana_Reaction_X`, `Arcana_Passive_X`; statuses in UPPER_SNAKE_CASE
+    with **no `ARCANA_` prefix** (`WINDSWEPT`; technical ones end `_TECH`). Every name and value is copied from the SPEC
+    and checked against `55.00_Type_Catalog.md` and the glossary (`33.03`). If a field's syntax is uncertain, the SPEC must name a vanilla
     example (`56`) for it; this file never introduces a field the SPEC didn't ground.
 12. **Nothing the Owner can't type or find.** Never write a GUID or an animation string the Toolkit shows as a
     picker or a copied value:

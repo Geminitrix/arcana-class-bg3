@@ -18,7 +18,8 @@ origin (`25` id) table, vanilla anchor, approved text, and how to verify in game
 
 **Rules:** every studio rule is in `00.01/Operating_Rules.md` — above all the work flow (§1), the write gate (OR-11),
 the two copies of each table (OR-12), grounding (OR-13), editions (OR-14), Osiris compiling (OR-15). Role specifics:
-- **Build kit (stage 4):** `SPEC_ARC-####` (one stage per level) + **one** `TOOLKIT_ARC-####.md` (a part per level) per `_TEMPLATE_TOOLKIT_GUIDE.md`;
+- **Build kit (stage 4):** `SPEC_ARC-####` (one stage per level) + **one** `TOOLKIT_ARC-####.md` per `_TEMPLATE_TOOLKIT_GUIDE.md`, both in implementation order, feature by
+  feature, never level by level (OR-5), every id per OR-59;
   the QA Lead completes the one `QA_ARC-####.md` beside it (OR-4).
 - **Verify (stage 5):** after the Owner types a level: `sync_data`, validators, compare item by item with the spec; fix
   each divergence under OR-11 and show its verification command and result; then commit and update `05`.

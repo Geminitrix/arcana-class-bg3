@@ -12,8 +12,8 @@ checked by: perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl check
 
 | File | Where | What the Owner does with it |
 |---|---|---|
-| `TOOLKIT_ARC-####.md` | `55_Implementation_Specs/` | Reads it in the Toolkit: a part per level, typed in order (`_TEMPLATE_TOOLKIT_GUIDE.md`) |
-| **`QA_ARC-####.md`** | `61.02_Test_Cases/<Subclass>/` | Plays it: the tests **separated by level**, with each result — and it is the card on the board's Playtests tab |
+| `TOOLKIT_ARC-####.md` | `55_Implementation_Specs/` | Types it in the Toolkit top to bottom: **implementation order, feature by feature** — never level by level (OR-5) |
+| **`QA_ARC-####.md`** | `61.02_Test_Cases/<Subclass>/` | Plays it **level by level**: tests a level, then levels the character up — with each result; it is also the card on the board's Playtests tab |
 
 `####` is the build ticket. Nothing else holds tests: probes, design-stage drafts and closed results live **inside** the
 QA_ARC. The JSON the Arcana Test Guides page loads (`test_guides/data/…`) is an export written by `playtests.pl sync`.
@@ -24,7 +24,7 @@ QA_ARC. The JSON the Arcana Test Guides page loads (`test_guides/data/…`) is a
 |---|---|---|
 | `draft` | Stage 3 (design doc) and 4 (build kit) | What must be proven; may be free text or an appendix until the build kit structures it |
 | `ready` | Build kit done (stage 4) | Every test, level by level, **before** the build |
-| `in_qa` | Stage 5 — the Owner types level N, Claude verifies, the Owner plays level N | Results come back at `/sync-test-guides` |
+| `in_qa` | Stage 5 — the Owner types the TOOLKIT_ARC in its order, Claude verifies, the Owner plays level 1, levels up, plays level 2… | Results come back at `/sync-test-guides` |
 | `done` | Every test pass or skipped; each fail fixed or decided (OR-1) | The record |
 
 ## The file
@@ -82,7 +82,7 @@ created: 2026-10-17
 - Test ids: `L<level>.<n>`, `A.<n>` in "Any level", `P<n>` in a probes section. **A test with a result is never renumbered**: the
   result's key on the page is `<ARC>_<test id>`. If a test must move, copy its result to the new id with `migrated_from`
   (ArtifactData) — `playtests.pl sync` reports any other result that matches no test as ORPHAN.
-- Each field on one line; English; one assertion per test (OR-53). The Result lines are written by `/sync-test-guides`.
+- Each field on one line; English; one assertion per test (OR-53). Every game id a test names follows OR-59. The Result lines are written by `/sync-test-guides`.
 - New file: `perl 80_TOOLS_AND_PIPELINE/82_Automation/playtests.pl new <ARC-####> <Subclass> "<title>"`.
 
 ## The pages

@@ -543,6 +543,26 @@
          "value" : "5"
       },
       {
+         "blocked_by" : "[]",
+         "body" : "\n# ARC-0028 · Bring the existing SPEC, TOOLKIT_ARC and QA_ARC files to OR-5 (order) and OR-59 (names)\n\n**Goal:** reorder the existing build kits feature by feature and fix every id that breaks the mod's patterns.\n**Intent:** the Owner types each feature once, in a logical order, with names the code side reads correctly.\n\nOwner, 2026-10-18: *\"Level by level\"* is for the tests only. The Toolkit file goes in the best order to implement —\nlevel by level scatters a feature that grows (a passive split across levels, revisited at level 3). And many names in\nthe SPEC / TOOLKIT / QA files don't follow the project's patterns. **Not to be fixed in the session that wrote the\nrules** — this ticket holds the work.\n\n## Found (2026-10-18, not exhaustive)\n\n- `TOOLKIT_ARC-0026.md` and `SPEC_ARC-0026.md` are organised level by level (12 parts); `TOOLKIT_ARC-0008.md` by stage.\n- Statuses with an `ARCANA_` prefix in the Windborn kit (already partly in the game, unpublished): `ARCANA_WINDSWEPT`,\n  `ARCANA_BAG_OPEN`, `ARCANA_BAG_READY`, `ARCANA_CALM_GUST_1…5`, `ARCANA_WIND_BOREAS/NOTUS/EURUS`,\n  `ARCANA_TAILWIND_*`, `ARCANA_HEADWIND_*`, `ARCANA_ZEPHYR_RUSH`, `ARCANA_STORM_RUSH`, `ARCANA_INTO_THE_STORM`.\n- Interrupts outside the taxonomy: `Interrupt_Arcana_Aspect_Foreseen` (Kingmaker, in the game) and\n  `Interrupt_Arcana_Aspect_FoolsLuck` (Windborn) — the pattern is `Interrupt_Arcana_Reaction_X`.\n- To check: `Projectile_Deceiver_Double_SplinterBurst`, `Shout_Deceiver_Double_Shatter` against the clone pattern;\n  every id in SPEC_ARC-0017/0020/0025 and in the QA_ARC files; existing shipped statuses such as `ARCANA_WEAVING` and the\n  `ARCANA_IS_CARD` marker stay (published, OR-10).\n\n## Acceptance criteria\n- [ ] `TOOLKIT_ARC-0026` and `TOOLKIT_ARC-0008` (and their SPECs) in implementation order, feature by feature; each\n      feature complete in one entry; the level grants written once (lists, progressions) — nothing lost\n- [ ] Every id in SPEC / TOOLKIT / QA files follows OR-59; each rename of an entry already in the game listed with its\n      before → after, done in the Toolkit by the Owner or under OR-11, never on a published entry\n- [ ] QA_ARC test ids unchanged where a result exists (results keyed `<ARC>_<test id>`)\n- [ ] `playtests.pl check`, `validate.pl`, `check_cards.pl` pass\n\n## Log\n\n- 2026-10-18 — created by the Producer (ARC-0027 follow-up) after the Owner's rules OR-5 and OR-59.\n",
+         "created" : "2026-10-18",
+         "effort" : "4",
+         "epic" : "EPIC_Rework_Subclasses",
+         "file" : "stories/ARC-0028_Build_Kit_Order_and_Names.md",
+         "id" : "ARC-0028",
+         "implementation" : "pending",
+         "inputs" : "[00.01/Operating_Rules.md OR-5 OR-59, 55/SPEC_ARC-0008.md, 55/SPEC_ARC-0017.md, 55/SPEC_ARC-0020.md, 55/SPEC_ARC-0025.md, 55/SPEC_ARC-0026.md, 55/TOOLKIT_ARC-0008.md, 55/TOOLKIT_ARC-0026.md, 61.02/*/QA_ARC-*.md]",
+         "outputs" : "[]",
+         "owner" : "Mod Engineer",
+         "priority" : "should",
+         "sprint" : "",
+         "status" : "backlog",
+         "subclass" : "none",
+         "title" : "Bring the existing SPEC, TOOLKIT_ARC and QA_ARC files to OR-5 (order) and OR-59 (names)",
+         "type" : "chore",
+         "value" : "4"
+      },
+      {
          "body" : "\n# QA_ARC-0001 · The Deceiver — level-20 cleanup (static checks)\n\n**Goal:** play every test, level by level, and mark it on Arcana Test Guides (https://claude.ai/artifact/3us5sESX9EbPDksY6H7W1E);\nresults come back here at `/sync-test-guides`. **Intent:** ARC-0001 is proven in the game, or each failure becomes a fix (bug) or\na decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-17 from TC_ARC-0001.\n\n> Closed record: static checks, PASS 5/5 (2026-10-11); details in the appendix.\n\n## Appendix — TC_ARC-0001 (design-stage draft, verbatim)\n\n### TC_ARC-0001 · Deceiver level 20 has no dead PassivesRemoved\n\n- **Decision it informs:** close ARC-0001 or send it back to the Owner.\n- **Hypothesis:** after the Toolkit edit, only the Deceiver level-20 row differs, and it has no\n  `PassivesRemoved`.\n- **Scenario:** static — no game session needed (level 20 is beyond the 1–12 core).\n- **Steps and expected results (one assertion each):**\n  1. `bash 80_TOOLS_AND_PIPELINE/82_Automation/sync_data.sh` → 51 refreshed.\n  2. `perl 80_TOOLS_AND_PIPELINE/82_Automation/validate.pl` → `OK: 0 errors`.\n  3. Same output, check 3 → no line `Deceiver level 20`.\n  4. `git diff --stat 50_ENGINEERING/51_Mod_Source` → only the Deceiver progression file(s) changed.\n  5. `grep -c 'new entry \"Arcana_Passive_UnlockFriends\"'` in `Passive.txt` → `1`.\n- **Result (2026-10-11): PASS 5/5** — 0 validator errors; no \"Deceiver level 20\" in the expansion list; diff = 1 line removed in `Progressions.lsx` and 1 in `Progressions.tbl`; `Arcana_Passive_UnlockFriends` still defined; both files parse as XML.\n\n## Gates\n\n- [x] DoD (`00.03`) — every test pass or skipped; each fail fixed or decided (OR-1)\n\n## Log\n\n- 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources TC_ARC-0001 merged; nothing removed.\n",
          "build" : "ARC-0001",
          "created" : "2026-10-17",

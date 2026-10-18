@@ -26,8 +26,8 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 | 1 | **Intake** | `backlog` → `ready` | Producer | Ticket `ARC-####` (`/novo-ticket`): goal, intent, inputs | Definition of Ready (`00.03`); picked for the sprint |
 | 2 | **Ideation** | `in_progress` | Lead Class Designer with the Owner | Brainstorm (OR-51); every answer logged at once in `21.04/<S>/DECISIONS.md` | The Owner says the ideas are complete |
 | 3 | **Design doc** | `in_progress` → `in_review` | Lead Class Designer · Balance · Lore | `DESIGN.md` (the whole design, present tense, no history) · numbers in `25` · texts in `32.01` · the draft `QA_ARC-####.md` (what must be proven) | **Design gate** (`_SUBCLASS_STANDARD` §15) + **Narrative gate** (`32.04`) + the Owner approves the design |
-| 4 | **Build kit** | `spec_ready` | Mod Engineer · QA | `SPEC_ARC-####` (what; one stage per level) · **one** `TOOLKIT_ARC-####.md` (how to type it, a part per level, `_TEMPLATE_TOOLKIT_GUIDE`) · **one** `QA_ARC-####.md` completed (the tests level by level, written **before** the build) | The Owner starts typing |
-| 5 | **Build & test**, one level at a time | `in_qa` | Owner types · Claude verifies · Owner plays | Level N typed (its part of `TOOLKIT_ARC`) → Claude: `sync_data`, validators, compare with the spec item by item, **fix every divergence** (OR-11) → Owner plays level N's tests (its section of `QA_ARC`) → level N+1 | Every test passes |
+| 4 | **Build kit** | `spec_ready` | Mod Engineer · QA | `SPEC_ARC-####` (what) and **one** `TOOLKIT_ARC-####.md` (how to type it, `_TEMPLATE_TOOLKIT_GUIDE`), both **in implementation order, feature by feature** (OR-5) · **one** `QA_ARC-####.md` completed (the tests **level by level**, written **before** the build) · every id named by OR-59 | The Owner starts typing |
+| 5 | **Build & test** | `in_qa` | Owner types · Claude verifies · Owner plays | The Owner types the `TOOLKIT_ARC` in its order (a part per sitting) → after each part Claude: `sync_data`, validators, compare with the spec item by item, **fix every divergence** (OR-11) → the Owner plays the `QA_ARC` **level by level**, levelling the character up as each level's tests pass | Every test passes |
 | 6 | **Close** | `done` | Producer + every role | `/propagar`, `05` updated, a patch-notes line (`76.04`), `/fechar-ticket` | DoD (`00.03`), `check_propagation` OK |
 
 - **OR-1** A failed test is either a **bug** (the build differs from the spec → fix it, stage 5) or **design feedback**
@@ -35,10 +35,18 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 - **OR-2** Work that doesn't touch the game (a document, a tool, a page) skips stages 4–5.
 - **OR-3** No stage is skipped silently: if the Owner wants to jump ahead, log it in the ticket.
 - **OR-4** **One file per ARC for each job** (Owner, 2026-10-17): `55/TOOLKIT_ARC-####.md` is the only implementation
-  file the Owner reads in the Toolkit (a part per level); `61.02/<S>/QA_ARC-####.md` is the only playtest file — the tests
+  file the Owner reads in the Toolkit (ordered by OR-5); `61.02/<S>/QA_ARC-####.md` is the only playtest file — the tests
   separated by level, their results, probes and drafts included — and it is also its card on the board's Playtests tab
   (`draft` → `ready` → `in_qa` → `done`). The Arcana Test Guides page shows it (an export, never edited). Format and ids:
   `61_Test_Plan/QA_ARC_FORMAT.md`, checked by `playtests.pl check`. A test with a result is never renumbered.
+- **OR-5** **Level by level is for testing, never for implementing** (Owner, 2026-10-18). The `QA_ARC` is a map of tests
+  level by level, so the Owner tests a level and then levels the character up. The `SPEC_ARC` and the `TOOLKIT_ARC` follow
+  **the best order to implement**: dependencies first (status → passive → spell → interrupt → list → progression →
+  class → loca → Osiris), then **feature by feature, each feature complete in one place** — every level form of it (a
+  passive that grows at 3 and 7, a card and its upcasts, a status family and its steps) is written in the same entry or
+  block, never split across levels and never "revisited" later. What each level grants appears once, at the end, in the
+  lists and progressions part. Complete, but above all correct and practical: someone typing it top to bottom never
+  goes back to an entry they already finished.
 
 ## 2. The game and the write gate
 
@@ -119,6 +127,27 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
 - **OR-56** Cite files by their Johnny.Decimal id (`22.04`, `ARC-0142`). Folders `ID_Name_In_Snake_Case`; tickets
   `ARC-####`, its Toolkit and playtest files `TOOLKIT_ARC-####` / `QA_ARC-####`; design ids `SPL_`, `FEAT_`, `STA_`, `ICO_`; shipped mod ids keep their prefixes (OR-10).
 - **OR-57** No spaces or accents in any file that ships with the mod.
+- **OR-59** **Every id written in a SPEC, TOOLKIT_ARC or QA_ARC follows the mod's patterns** (taxonomy of 2026-09-19,
+  ADR-0002; the code side reads them by prefix, so a wrong prefix breaks the deck export):
+
+  | Kind | Pattern | Example |
+  |---|---|---|
+  | Deck spell (combat via Threads, out of combat via `ArcanaSpellSlot`) | `<Type>_Arcana_Card_Spell_X` | `Target_Arcana_Card_Spell_Distortion` |
+  | Flex spell (in the deck and usable out of combat) | `<Type>_Arcana_Card_Ability_X` | `Shout_Arcana_Card_Ability_Untethered` |
+  | Reaction / passive card (enables a combat-only passive or reaction) | `<Type>_Arcana_Card_Passive_X` | `Shout_Arcana_Card_Passive_Compassion` |
+  | Created card (never in the deck, keyword `Created`; Aspect cards too) | `<Type>_Arcana_Created_X` | `Shout_Arcana_Created_RotaFortunae` |
+  | Utility / lore / roleplay (not in the deck, no combat use) | `<Type>_Arcana_Util_X` | `Shout_Arcana_Util_Faceless` |
+  | Reaction (the interrupt) and its helpers | `Interrupt_Arcana_Reaction_X` / `<Type>_Arcana_Reaction_X` | `Interrupt_Arcana_Reaction_TurnTheBlow` |
+  | Equipment spell | `<Type>_Arcana_Equip_X` | `Projectile_Arcana_Equip_Moonstone` |
+  | Helper / sub-projectile (not castable) | `<Type>_Arcana_X` | `Projectile_Arcana_Distortion_Explosion` |
+  | Passive (`Arcana_Passive_Equip_X` for items) | `Arcana_Passive_X` | `Arcana_Passive_TheRota` |
+  | **Status** | **UPPER_SNAKE_CASE, no `ARCANA_` prefix**; hidden technical ones end `_TECH` / `_HELPER`; a subclass word only to avoid a vanilla collision | `WINDSWEPT`, `KINGMAKER_RISING`, `KINGMAKER_STEP_TECH` |
+  | Osiris goal files, `DB_` / `PROC_` / `QRY_`, item stats | `ARCANA_` | `ARCANA_Kingmaker_Wheel`, `DB_ARCANA_Courage`, `ARCANA_CC_EQP_Robe_Deceiver` |
+  | Design documents only (never in the game) | `SPL_`, `FEAT_`, `STA_`, `CLS_`, `ICO_` | `SPL_Kingmaker_Coronation` |
+
+  `X` is PascalCase English. In `.stats` the spell `Name` omits the type prefix (`Arcana_Card_Spell_X`). Before writing an
+  id, check the glossary (`33.03`) and the vanilla extraction for a clash. A published entry is never renamed (OR-10); an
+  unpublished one with a wrong name is renamed before release.
 
 ## 9. Only the Owner
 

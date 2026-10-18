@@ -21,3 +21,4 @@ stats found in `10.06_Impediments/Open_Questions.md`.
 | ARC-0021 | All | Subclass names in one style (Deceiver, Unbound, Eternal, Resonant) | in_progress |
 | ARC-0022 | Unbound | Windborn (Unbound) refining to the subclass standard v2.1 | in_progress |
 | ARC-0026 | Unbound | Windborn refining build (WB0–WB48) | ready |
+| ARC-0028 | All | Build kits to OR-5 (order) and OR-59 (names) | backlog |

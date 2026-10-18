@@ -24,7 +24,9 @@ Intent (one sentence, from the ticket): …
 | 07 | Icon | — | `ICO_…` | GUI / atlas | — | ☐ |
 
 Types and subtypes come from `55.00_Type_Catalog.md`. Order: status → passive → spell → list →
-progression → class/subclass → localization → icon.
+progression → class/subclass → localization → icon. **Feature by feature, never level by level (OR-5):** each
+item carries every level form of its feature (growth, upcasts, status steps); what each level grants appears once,
+in the list and progression items. Every id follows OR-59 (statuses UPPER_SNAKE_CASE without `ARCANA_`).
 
 ---
 

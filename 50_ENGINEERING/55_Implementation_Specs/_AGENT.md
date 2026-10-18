@@ -6,7 +6,8 @@
 ## Conventions
 
 - Files: `55.00_Type_Catalog.md` (types checked in the Toolkit), `_TEMPLATE_SPEC.md`, `SPEC_ARC-####.md`.
-- Spec = numbered items in dependency order: status → passive → spell → list → progression → loca → icon.
+- Spec = numbered items in dependency order: status → passive → spell → list → progression → loca → icon;
+  feature by feature, each feature complete in one item, never level by level (OR-5). Ids follow OR-59.
 - Each item: identification, field → value → origin (25 id) table, dependencies, approved text, how to verify in game.
 
 ## Quality checklist
