@@ -5,8 +5,9 @@
 ## To Do (0)
 
 
-## In Progress (0)
+## In Progress (1)
 
+- **ARC-0030** "Osiris goals: one standard for comments and regions, and preventive fixes"
 
 ## In Review (2)
 
