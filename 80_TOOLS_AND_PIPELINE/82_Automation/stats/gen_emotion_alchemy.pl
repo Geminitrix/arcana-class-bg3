@@ -1296,7 +1296,10 @@ sub temperance_goal {
         '//REGION Tier II: Harmony -- once per turn a Weave Surge costs no action (R40; the Fool\'s Zephyr Strike pattern)',
         'PROC', 'PROC_ARCANA_Aspect_OnTier((CHARACTER)_Resonant, (STRING)_Aspect, (INTEGER)_Tier)', 'AND', '_Aspect == "TEMPERANCE"', 'AND', '_Tier == 2',
         'THEN', 'ApplyStatus(_Resonant, "RESONANT_SURGE_FREE", 6.0, 1, _Resonant);', 'ApplyStatus(_Resonant, "RESONANT_TIER2", -1.0, 1, _Resonant);', '',
-        'IF', 'TurnStarted((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_AspectReached(_Resonant, 2)', 'THEN', 'ApplyStatus(_Resonant, "RESONANT_SURGE_FREE", 6.0, 1, _Resonant);', '',
+        # DB_ARCANA_AspectReached keeps no Aspect: without the passive, any subclass at Tier II got Harmony (ARC-0026)
+        '// DB_ARCANA_AspectReached keeps no Aspect: the passive keeps Harmony to the Resonant',
+        'IF', 'TurnStarted((CHARACTER)_Resonant)', 'AND', 'DB_ARCANA_AspectReached(_Resonant, 2)',
+        'AND', 'HasPassive(_Resonant, "Arcana_Passive_Aspect_Temperance_II", 1)', 'THEN', 'ApplyStatus(_Resonant, "RESONANT_SURGE_FREE", 6.0, 1, _Resonant);', '',
         'IF', 'CastedSpell((CHARACTER)_Resonant, _Spell, _, _, _)', 'AND', 'DB_ARCANA_CardFamily(_Spell, _Root)', 'AND', 'DB_ARCANA_Resonant_SurgeRoot(_Root, _)',
         'AND', 'HasActiveStatus(_Resonant, "RESONANT_SURGE_FREE", 1)', 'THEN', 'RemoveStatus(_Resonant, "RESONANT_SURGE_FREE", _Resonant);', '',
         'PROC', 'PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)', 'THEN', 'RemoveStatus(_Char, "RESONANT_SURGE_FREE", _Char);', 'RemoveStatus(_Char, "RESONANT_TIER2", _Char);', '//END_REGION', '',
