@@ -60,7 +60,7 @@ never deleted, timers relaunched without a cancel, missing casts, rules that can
       lost its ticket id; tests 340/340); `gen_awakening_progress.pl`'s countdown
       block is in the new Common verbatim; `ARCANA_CardFamilies` was built from `gen_upcast_variants.pl`'s template
 - [x] Apply: `check_osiris.pl` on `51` prints OK and `--compare 51 goals/` prints "same code" for all 20
-- [ ] The Story compiles with `0 error(s), 0 warning(s)` in `log.txt`
+- [x] The Story compiles with `0 error(s), 0 warning(s)` in `log.txt`
 - [ ] Play: `61.02/Class/QA_ARC-0030.md` (11 tests)
 
 ## Gates
@@ -85,3 +85,6 @@ never deleted, timers relaunched without a cancel, missing casts, rules that can
   run: it also rewrites every upcast variant in the Stats, a build step of its own (RISKS C3); its template was checked
   by building `ARCANA_CardFamilies` with it. Next: the Owner compiles in the Story Editor (remove
   `ARCANA_Spell_MirrorWithdraw` there if it is still listed), Claude reads `log.txt`, then QA_ARC-0030.
+- 2026-10-20 — Owner compiled the Story (13:58): `log.txt` 0 error(s), 0 warning(s); the compiled story has the new names
+  (`QRY_ARCANA_Kingmaker_FightOver`, `DB_ARCANA_Hemorrhage_Total`, `PROC_ARCANA_Doubles_Init`) and no MirrorWithdraw.
+  Waiting: QA_ARC-0030.
