@@ -94,3 +94,4 @@ Tier II got `RESONANT_SURGE_FREE` (seen on a level-7 Windborn). It gains
   near her at Tier III is pushed at each of its turn starts. Fixed by Claude: the Tier II rule of
   `ARCANA_Aspect_Temperance` (backup in `94_Safety_Backups/ARC-0029_2026-10-20/`). `sync_data` run (it also brought the
   Owner's ARC-0026 typing and the removal of the probe goal). Next: the Owner compiles the Story and plays the tests above.
+- 2026-10-20 — Owner compiled the Story (12:42, after the Temperance fix of 12:39): `log.txt` 0 error(s), 0 warning(s). Waiting: the play tests.
