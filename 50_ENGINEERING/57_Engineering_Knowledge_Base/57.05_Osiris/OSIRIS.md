@@ -23,9 +23,9 @@ This is the highest-leverage decision. Osiris is the **last** resort, not the fi
 | **Osiris** (`Story\RawFiles\Goals\*.txt`) | Global story VM | Persistent state, timers, reacting to world events, orchestrating across entities | Anything the engine already does; it is coarse, global and can't read Stats fields |
 
 **Reach for Osiris only when the effect needs memory across events or across entities.**
-In this mod that's exactly four things: counting necrotic hits (Darkness Rise), banking damage
-(Hemorrhage), copying a spell from another caster (Mirrored Spell), and post-processing a summoned
-clone (Mirror Image). Everything else is Stats.
+In this mod that is the Aspect Awakening, the subclass engines that keep state across events (the
+Kingmaker's Wheel, the Deceiver's Doubles and Doubt, the Windborn's bag, the Resonant's Overload) and a few
+spell helpers — §13.8 lists the goals. Everything else is Stats.
 
 **Osiris cannot:** read a Stats field, read a Boost, know a spell's level or cost, evaluate a Khonsu
 function, or see anything the Stats layer computes. ✅ There is **no `ClassLevel` query** — verified,
@@ -63,8 +63,9 @@ ENDEXITSECTION
 
 ### One file per feature
 
-`IND_<Kind>_<Feature>.txt` — `IND_Passive_DarknessRise`, `IND_Status_Hemorrhage`, `IND_Spell_MirrorImage`.
-Keep a feature's rules together; the story VM doesn't care about file boundaries, but you will.
+`ARCANA_<Area>_<Feature>.txt` — `ARCANA_Aspect_Common`, `ARCANA_Status_Hemorrhage`, `ARCANA_Deceiver_Doubles`.
+Keep a feature's rules together; the story VM doesn't care about file boundaries, but you will. The layout
+inside the file is the house standard of §13.
 
 ---
 
@@ -225,11 +226,9 @@ stages with `18.0` and its description says *"within 3 turns"*, and Mirrored Spe
 which is the value the Toolkit's status editor uses for a permanent status. It does **not** mean
 "6 turns".
 
-✅ This mod passes `-6.0` in two places — `ApplyStatus(_Target, "SIGIL", -6.0, …)` in
-`IND_Status_Sigil.txt` and the `*_LAST_CASTED` markers in `IND_Spell_Mimic_Last_Casted.txt`. Both are
-therefore **permanent, by design**. Sigil is meant to stay on the target until a Deceiver Arcane spell
-clears it; the `*_LAST_CASTED` markers are overwritten via their shared `StackId` (`MIMIC_LAST_CAST`)
-rather than expiring.
+✅ This mod passes `-6.0` for the Sigil — `ApplyStatus(_Target, "SIGIL", -6.0, …)` in
+`ARCANA_Status_Sigil.txt` and `ARCANA_Aspect_Empress.txt` — so the mark is **permanent, by design**: it stays
+on the target until it detonates.
 
 Still: don't write `-6.0` when you mean a turn count. Use `-1` for permanent, and `36.0` for 6 turns.
 
@@ -250,22 +249,15 @@ Existence checks: `TimerExists`, `ObjectTimerExists`.
 Also `TurnBasedTimerLaunch` and `ObjectQuestTimerLaunch` (both take a localised text key, for
 player-visible countdowns).
 
-**Always cancel before relaunching.** Re-launching a live timer's behaviour is unspecified; the mod's
-Mirrored Spell explicitly does `ObjectTimerCancel(...)` then `ObjectTimerLaunch(...)`. ✅
+**Always cancel before relaunching**, with the cancel of the same family: `ObjectTimerLaunch` ↔
+`ObjectTimerCancel`, `RealtimeObjectTimerLaunch` ↔ `RealtimeObjectTimerCancel`, `TimerLaunch` ↔ `TimerCancel`.
+Re-launching a live timer's behaviour is unspecified. ✅ Both per-entity families fire the same
+`ObjectTimerFinished` event (vanilla: ~200 `RealtimeObjectTimerLaunch` timers answered by `ObjectTimerFinished`).
+⚠️ Vanilla cancels a realtime timer with `ObjectTimerCancel` five times and with `RealtimeObjectTimerCancel`
+six times; whether the first works is not proven, so this mod always uses the matching cancel.
 
-Timer names are plain strings and share a namespace per entity — **prefix them** so you can't collide
-with vanilla or another mod. ✅ Every timer in this mod is `IND_`-prefixed as of 2026-08-18:
-
-`IND_MirroredSpell_Timer` · `IND_FacelessCopy_Timer` · `IND_FacelessCopyEX_Timer` ·
-`IND_FacelessCopyEX_Timer2` · `IND_Withdraw_Timer` · `IND_MimicWithdraw_Timer` ·
-`IND_MirrorWithdraw_Timer` · `IND_MirrorImage_Summon` · `IND_MirrorImage_Delay`
-
-To check the invariant still holds:
-
-```bash
-cd ".../Story/RawFiles/Goals" && grep -hoE 'Timer(Launch|Cancel|Finished|Exists)\([^,]*, *"[^"]+"' *.txt \
-  | grep -oE '"[^"]+"' | grep -v '"IND_'     # must print nothing
-```
+Timer names are plain strings and share a namespace per entity — **prefix them** `ARCANA_` so you can't
+collide with vanilla or another mod. `check_osiris.pl` checks the prefix and the cancel (§13.5).
 
 ---
 
@@ -399,15 +391,16 @@ query Random([in](INTEGER)_Modulo, [out](INTEGER)_Random)
 
 There is no infix arithmetic. `a + b` must be written `IntegerSum(_A, _B, _Sum)` as a condition — which
 means **all maths happens in the condition half of a rule**, before `THEN`. This forces the awkward
-shape you see in `IND_Status_Hemorrhage.txt`, where subtraction and summation are conditions.
+shape you see in `ARCANA_Status_Hemorrhage.txt`, where subtraction and summation are conditions.
 
 ---
 
 ## 10. Pattern cookbook
 
-### Guarded state machine (Darkness Rise)
+### Guarded state machine (Darkness Rise, an earlier version of the mod)
 
-Escalate through stages with mutually exclusive guards, and refresh once at the top.
+Escalate through stages with mutually exclusive guards, and refresh once at the top. The Doubt goal's
+`PROC_ARCANA_Doubt_Go` is the current example (the old value is a parameter, so the guards cannot cascade).
 
 ```
 IF
@@ -415,10 +408,10 @@ AttackedBy(_, _, _Attacker, "Necrotic", _, _, _)
 AND
 HasPassive(_Attacker, "DarknessRise", 1)
 THEN
-PROC_IND_DarknessRise_Escalate(_Attacker);
+PROC_ARCANA_DarknessRise_Escalate(_Attacker);
 
 PROC
-PROC_IND_DarknessRise_Escalate((GUIDSTRING)_Attacker)
+PROC_ARCANA_DarknessRise_Escalate((GUIDSTRING)_Attacker)
 AND
 HasActiveStatus(_Attacker, "DARKNESS_RISE_TECH_1", 0)
 AND
@@ -476,7 +469,8 @@ gate the Deceiver's Mimic container are exactly this. ✅
 | **Stale saves** | Old builds' DB rows survive a recompile | Reproduce on a fresh save before concluding a fix failed |
 | **`HitpointsChanged` fires constantly** | It's a global event on every entity | Gate it *first* on a cheap `HasActiveStatus(...)` check, as Hemorrhage does. Never put expensive queries before the guard |
 | **`AttackedBy` also fires for DoT and environment** | `_DamageCause` distinguishes them | Filter on `_DamageCause` if the effect should only count direct hits ❓ (the mod currently doesn't) |
-| **Timer name collisions** | Timer names are a flat per-entity namespace | Always prefix `IND_` |
+| **Timer name collisions** | Timer names are a flat per-entity namespace | Always prefix `ARCANA_` (§13.4) |
+| **`CombatEnded(_)` is every fight on the map** | Another fight ending (NPCs elsewhere) would clear state mid-fight | Scope it: clear only when the owner is not still fighting (`CombatGetGuidFor`, §13.6) |
 | **Type mismatch skips the rule silently** | The rule simply never fires | Read `log.txt` — the compiler does report it |
 | **Multiplayer** ❓ | Osiris runs server-side; `context`-free code is usually fine, but per-user assumptions aren't | If a rule assumes one player, revisit it before release |
 | **No debugger, no Script Extender** | You cannot log at runtime | Debug by making state **visible in game**: apply a temporary status with `ForceOverhead` and read it off the character |
@@ -491,11 +485,130 @@ before shipping. This is slow but it is the only console-safe method available.
 
 ## 12. Checklist before compiling
 
-1. Skeleton present and exact (`Version 1` … `ENDEXITSECTION`).
-2. Every new DB declared in `INITSECTION` with the declare-then-`NOT` idiom.
-3. Every DB insert has a matching delete on all exit paths.
+1. `perl 80_TOOLS_AND_PIPELINE/82_Automation/check_osiris.pl --dir <folder>` prints OK (§13: skeleton,
+   regions, comments, names, timers, header).
+2. A tidy-up: `check_osiris.pl --compare <old> <new>` lists every code line that changed — only the intended ones.
+3. Every DB insert has a matching delete on all exit paths, including death and the end of the owner's fight.
 4. Every variable that crosses a type boundary is cast at its binding site.
-5. Every timer is prefixed `IND_` and cancelled before relaunch.
-6. Every function used was grepped out of `story_header.div`, not recalled from memory.
-7. Compile, then **read `Story\log.txt`** — confirm `0 error(s)` and read the warnings.
-8. Test on a **fresh save**.
+5. Every function used was grepped out of `story_header.div`, not recalled from memory.
+6. Compile, then **read `Story\log.txt`** — confirm `0 error(s)` and read the warnings.
+7. Test on a **fresh save**.
+
+---
+
+## 13. House standard for the mod's goals
+
+Every goal follows this layout. `80_TOOLS_AND_PIPELINE/82_Automation/check_osiris.pl` checks the items marked
+**(E)** (an error fails the check) and **(W)** (a warning to read); the rest is for review.
+
+### 13.1 The file
+
+- Name `ARCANA_<Area>_<Feature>.txt` (E). Area: `Aspect`, `Spell`, `Status`, `Passive`, or the subclass system
+  (`Deceiver`, `Kingmaker`, `Resonant`, `CardFamilies`, `PreCombatBuffs`).
+- ASCII only, CRLF line endings only, no tabs (E) — the Story Editor's own format.
+- The skeleton of §2, exactly (E).
+
+### 13.2 Layout, top to bottom
+
+```
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_X((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);       type pins only:
+NOT DB_ARCANA_X((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);   a fact, then its NOT
+PROC_ARCANA_<Goal>_Init();                                                   when the goal has tables
+
+KBSECTION
+// <Name>: one line on what the goal does.
+// Why it is Osiris, how it fits with the other goals, the engine facts it relies on.
+//
+// DBs:
+//   DB_ARCANA_X(A, B)   what a row means; who deletes it.
+// Reads: DB_ARCANA_Y (ARCANA_Other.txt). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION Tables
+...
+//END_REGION
+
+//REGION <what the next block does>
+...
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+```
+
+- **INITSECTION** holds only type pins (a fact and its `NOT` on the next line) and `Init` calls (E). A table is
+  never written there: INITSECTION runs once per save, so a save made before a change keeps the old rows. A
+  table lives in `PROC_ARCANA_<Goal>_Init`, whose first definitions delete every row and whose last one writes
+  them, called from INITSECTION (new game) and from `SavegameLoaded` (existing save).
+- **The header** is the first thing in KBSECTION: a `//` block, then a blank line (E). It names every DB the
+  goal writes (E) and says who deletes each row; it names the DBs, PROCs and hooks it shares with other goals.
+- **Regions:** every rule sits inside one (E). `//REGION <Title>` and a bare `//END_REGION` (E), never nested
+  (E), one blank line between two regions (E), no comment between regions (E). The last `//END_REGION` is
+  followed by `EXITSECTION`. Order: `Tables` first when there is one, then the blocks in the order the feature
+  runs, `Cleanup` last.
+- **Never reorder existing rules.** Rules that answer the same event or the same PROC run in file order and
+  read each other's writes (the Doubt goal's `Raise`, the Kingmaker's `Usurp`, every clear-then-fill `Init`);
+  goals answer one event in alphabetical order. Moving a rule is a behaviour change, not tidying. A new rule
+  goes at the place in its region where its order is right.
+
+### 13.3 Comments
+
+- English and ASCII (E: two Portuguese function words in a line fail it). `// ` then the text.
+- Say what a block does and **why**, the contract with other goals, and the engine fact it relies on with
+  its proof ("the osirislog of 2026-09-29 showed…" is evidence and may keep its date).
+- **No history** (E): no ticket ids, build tasks or stages, fix rounds, "rewritten on". The ticket and the git
+  log hold that. Ids that point at the current design are fine: decision ids (`R26`, `SP112`, `D17`), Master
+  Data ids (`FEAT_Unbound_AeolusBag`), spec sections.
+- Region titles: what the block does, in the game's words (Tier II: Two Pillars; The Calm), at most ~110
+  characters.
+- Comments go above the rule they explain; a line inside a rule (between actions) only when it explains that
+  action.
+
+### 13.4 Names (OR-59)
+
+- Every DB the goal writes, every PROC and QRY it defines, every timer and every `TeleportToPosition` event
+  starts with `ARCANA_` — `DB_ARCANA_`, `PROC_ARCANA_`, `QRY_ARCANA_`, `"ARCANA_…"` (E). Vanilla DBs are only
+  read (`DB_Players`) or used as the no-op body (`DB_NOOP`).
+- Shared hooks are defined in many goals on purpose: `PROC_ARCANA_Aspect_Reset`, `PROC_ARCANA_Aspect_OnAwakened`,
+  `PROC_ARCANA_Aspect_OnTier`.
+
+### 13.5 Timers
+
+- A launch follows the cancel of the same timer and family in the same rule — inline, or inside a PROC of the
+  goal that the rule calls first (E). A cancel of the other family is an error (E). See §7.
+
+### 13.6 State
+
+- Every DB row has a delete path for every way out: the status ends, the creature dies, the owner's fight ends,
+  a Long Rest. The header says which.
+- `CombatEnded(_Combat)` is any fight on the map. Clear only the rows of owners who are not still fighting
+  elsewhere: a QRY that succeeds when `CombatGetGuidFor(_Owner, _Other)` gives an `_Other != _Combat`, used
+  negated (the Kingmaker's `QRY_ARCANA_Kingmaker_FightOver`, the Grudge's `QRY_ARCANA_Resonant_Grudge_FightOver`).
+- A DB that two goals touch is pinned in its owner's INITSECTION (W).
+
+### 13.7 Generated goals
+
+Change the generator, then regenerate; never edit the output by hand. The generators emit this standard.
+
+| Goal | Generator (82_Automation/stats) |
+|---|---|
+| `ARCANA_CardFamilies` | `gen_upcast_variants.pl --apply` (game and Toolkit closed) |
+| `ARCANA_Resonant_Overload`, `ARCANA_Aspect_Temperance`, `ARCANA_Resonant_SharedHeart` | `ARC17_STAGE=4 perl gen_emotion_alchemy.pl` (into `55/_wip/Resonant`) |
+| the countdown block of `ARCANA_Aspect_Common` | `gen_awakening_progress.pl` (into `55/_wip/ARC-0007`) |
+
+### 13.8 The goals
+
+| Goal | What it holds |
+|---|---|
+| `ARCANA_Aspect_Common` | the Awakening: roster of the fight, tiers, countdown, the reset hook |
+| `ARCANA_Aspect_Fool` · `_Empress` · `_Star` · `_Death` · `_Temperance` | each Aspect's goal and tier effects (Windborn, Deceiver, Starchild, Eternal, Resonant) |
+| `ARCANA_Kingmaker_Wheel` | the Kingmaker's Wheel, the Crossing and the Court |
+| `ARCANA_Deceiver_Doubles` · `ARCANA_Deceiver_Doubt` | the Deceiver's Doubles and the Doubt counter |
+| `ARCANA_Spell_Withdraw` · `ARCANA_Spell_MimicWithdraw` | Withdraw and Mimic: Withdraw (swap with the Double) |
+| `ARCANA_Status_Sigil` | the Sigil's owner and the Doubt of a detonation |
+| `ARCANA_Resonant_Overload` · `_Grudge` · `_SharedHeart` | the Resonant's Overload meter, Anger's grudge, Shared Heart |
+| `ARCANA_Status_Hemorrhage` | the Eternal's Hemorrhage bank |
+| `ARCANA_Passive_MirroredSpell` · `ARCANA_Spell_FacelessCopy` | Mirrored Spell, Faceless: Copy |
+| `ARCANA_PreCombatBuffs` · `ARCANA_CardFamilies` | buffs that cannot enter a fight; the card-variant table |

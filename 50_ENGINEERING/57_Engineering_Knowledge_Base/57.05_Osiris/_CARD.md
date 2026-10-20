@@ -16,6 +16,8 @@ pattern cookbook from this mod. The Larian wiki describes DOS2 — its concepts 
   everything an event triggers happens in one frame · clean unused DBs in `EXITSECTION`.
 - Compile in the Story Editor (Toolkit open) and **always read `Story/log.txt`** — warnings catch real
   defects (`57.06/Environment_and_Workflows.md` §2).
+- **House standard** for every goal: `OSIRIS.md` §13 (header, regions, English comments without history, `ARCANA_`
+  names, timers cancelled before launch, tables in an Init PROC), checked by `82_Automation/check_osiris.pl`.
 
 ## Building the Osiris specialist agent (spec §32.3) — status
 1. Locate `story.div.osi` of Gustav, GustavDev, Honour. 2. Extract the goals with LSLib → `56.01` (local,

@@ -5,17 +5,17 @@
 ## To Do (0)
 
 
-## In Progress (1)
+## In Progress (0)
 
-- **ARC-0030** "Osiris goals: one standard for comments and regions, and preventive fixes"
 
 ## In Review (2)
 
 - **ARC-0009** Create the Lionheart (was the Titan) to the subclass standard (design)
 - **ARC-0024** Playtest tickets and a Playtests tab on the Arcana Board
 
-## Spec Ready (0)
+## Spec Ready (1)
 
+- **ARC-0030** "Osiris goals: one standard for comments and regions, and preventive fixes"
 
 ## In QA (4)
 

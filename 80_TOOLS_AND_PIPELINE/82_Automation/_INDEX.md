@@ -49,6 +49,7 @@ cards and writes comments on the board; they wait in the artifact's store (`move
 
 Any other change to tickets or guides reaches the board at the next `/sync-board` and the test page at the next `/sync-test-guides`.
 | `check_readme.pl` | README version and subclass states vs `05.00` (run by `/commit-e-push`) |
+| `check_osiris.pl` | The Osiris goals against the house standard (`57.05/OSIRIS.md` §13): `--dir` any folder of goals; `--compare OLD NEW` lists every code line that changed, comments ignored (ARC-0030) |
 | `audit.pl` | Organisation checks: dead citations, owners, ticket fields and WIP, open handoffs, daily logs (run by `/auditoria`, ARC-0027) |
 | `validate.pl` | 51: duplicate UUIDs in data tables (error), handles missing from mod loca (warning), expansion inventory 13–20 (info), schemas (when they exist) |
 | `extract_pak.sh` | `.pak` → extracted tree, `.lsf` → `.lsx`, `.loca` → `.xml`, sha256 (Divine) |

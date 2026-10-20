@@ -1,0 +1,104 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_MirroredSpellHolder((CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_MirroredSpellHolder((CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+DB_ARCANA_MirroredSpell((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
+NOT DB_ARCANA_MirroredSpell((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
+
+KBSECTION
+// Mirrored Spell (Deceiver passive): while the toggle MIRRORED_SPELL_ON is on, a spell another character casts
+// within 18 m is lent to the holder for 3 turns, once; casting it, the timer or a newer copy takes it back.
+// Osiris because Stats cannot learn a spell somebody else just cast.
+//
+// DBs:
+//   DB_ARCANA_MirroredSpellHolder(Holder)   the toggle is on. Deleted when MIRRORED_SPELL_ON goes.
+//   DB_ARCANA_MirroredSpell(Holder, Spell)  the spell on loan. Deleted when it is cast, returned or replaced.
+
+//REGION Shared conditions
+QRY
+QRY_ARCANA_MirroredSpell_CanCopy((CHARACTER)_Caster, (STRING)_Spell, (CHARACTER)_Holder)
+AND
+SpellHasSpellFlag(_Spell, "IsSpell", 1)
+AND
+_Caster != _Holder
+AND
+HasSpell(_Holder, _Spell, 0)
+AND
+GetDistanceTo(_Caster, _Holder, _Dist)
+AND
+_Dist <= 18.0
+THEN
+DB_NOOP(1);
+//END_REGION
+
+//REGION Give back the spell on loan, if any
+PROC
+PROC_ARCANA_MirroredSpell_Return((CHARACTER)_Holder)
+AND
+DB_ARCANA_MirroredSpell(_Holder, _OldSpell)
+THEN
+NOT DB_ARCANA_MirroredSpell(_Holder, _OldSpell);
+RemoveSpell(_Holder, _OldSpell, 0);
+//END_REGION
+
+//REGION End it all: give back, remove the helper, cancel the timer
+PROC
+PROC_ARCANA_MirroredSpell_Clear((CHARACTER)_Holder)
+THEN
+PROC_ARCANA_MirroredSpell_Return(_Holder);
+ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
+RemoveStatus(_Holder, "MIRRORED_SPELL_HELPER", _Holder);
+//END_REGION
+
+//REGION Registered while the toggle is on
+IF
+StatusApplied(_Holder, "MIRRORED_SPELL_ON", _, _)
+THEN
+DB_ARCANA_MirroredSpellHolder((CHARACTER)_Holder);
+
+IF
+StatusRemoved(_Holder, "MIRRORED_SPELL_ON", _, _)
+THEN
+NOT DB_ARCANA_MirroredSpellHolder((CHARACTER)_Holder);
+PROC_ARCANA_MirroredSpell_Clear((CHARACTER)_Holder);
+//END_REGION
+
+//REGION Copy or replace, in one rule
+IF
+CastedSpell((CHARACTER)_Caster, _Spell, _, _, _)
+AND
+DB_ARCANA_MirroredSpellHolder((CHARACTER)_Holder)
+AND
+QRY_ARCANA_MirroredSpell_CanCopy(_Caster, _Spell, _Holder)
+THEN
+PROC_ARCANA_MirroredSpell_Return(_Holder);
+AddSpell(_Holder, _Spell, 1, 0);
+DB_ARCANA_MirroredSpell(_Holder, _Spell);
+ApplyStatus(_Holder, "MIRRORED_SPELL_HELPER", -1.0, 1, _Holder);
+ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
+ObjectTimerLaunch(_Holder, "ARCANA_MirroredSpell_Timer", 18000, 1);
+//END_REGION
+
+//REGION The holder cast the copied spell
+IF
+CastedSpell((CHARACTER)_Holder, _Spell, _, _, _)
+AND
+DB_ARCANA_MirroredSpell(_Holder, _Spell)
+THEN
+NOT DB_ARCANA_MirroredSpell(_Holder, _Spell);
+RemoveSpell(_Holder, _Spell, 0);
+ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
+RemoveStatus(_Holder, "MIRRORED_SPELL_HELPER", _Holder);
+//END_REGION
+
+//REGION The timer ran out: give back the spell on loan
+IF
+ObjectTimerFinished((CHARACTER)_Holder, "ARCANA_MirroredSpell_Timer")
+THEN
+PROC_ARCANA_MirroredSpell_Return(_Holder);
+RemoveStatus(_Holder, "MIRRORED_SPELL_HELPER", _Holder);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

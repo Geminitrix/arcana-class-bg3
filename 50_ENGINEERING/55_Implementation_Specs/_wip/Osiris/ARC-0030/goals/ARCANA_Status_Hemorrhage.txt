@@ -1,0 +1,102 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Hemorrhage (Eternal): while HEMORRHAGE lasts, every hit point the target loses, from any source, is banked;
+// when the status ends the bank bursts as necrotic damage from the Eternal who applied it. Stats cannot sum
+// damage across events, so the bank lives here.
+//
+// DBs:
+//   DB_ARCANA_Hemorrhage_Total(Eternal, Target, Total)   the bank. Seeded at 0 when HEMORRHAGE lands, deleted
+//                                                        when it ends (the burst).
+//   DB_ARCANA_Hemorrhage_LastHP(Target, HP)              the target's HP at the last change, to measure each
+//                                                        loss. Deleted with the bank.
+
+//REGION Procedures
+PROC
+PROC_ARCANA_Hemorrhage_ClearTotal((GUIDSTRING)_TheEternal, (GUIDSTRING)_Defender)
+AND
+DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _OldTotal)
+THEN
+NOT DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _OldTotal);
+
+PROC
+PROC_ARCANA_Hemorrhage_ClearHP((GUIDSTRING)_Defender)
+AND
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP)
+THEN
+NOT DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP);
+
+PROC
+PROC_ARCANA_Hemorrhage_Burst((GUIDSTRING)_TheEternal, (GUIDSTRING)_Defender, (INTEGER)_TotalDamage)
+AND
+_TotalDamage > 0
+THEN
+ApplyDamage(_Defender, _TotalDamage, "Necrotic", _TheEternal);
+//END_REGION
+
+//REGION The status lands: a fresh bank (a reapplication starts again from 0)
+IF
+StatusApplied(_Defender, "HEMORRHAGE", _TheEternal, _)
+AND
+GetHitpoints(_Defender, _HP)
+THEN
+PROC_ARCANA_Hemorrhage_ClearTotal(_TheEternal, _Defender);
+PROC_ARCANA_Hemorrhage_ClearHP(_Defender);
+DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, 0);
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _HP);
+//END_REGION
+
+//REGION Every hit point lost is banked, whatever its source
+IF
+HitpointsChanged(_Defender, _)
+AND
+HasActiveStatus(_Defender, "HEMORRHAGE", 1)
+AND
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP)
+AND
+GetHitpoints(_Defender, _NewHP)
+AND
+_NewHP < _OldHP
+AND
+DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _CurrentTotal)
+AND
+IntegerSubtract(_OldHP, _NewHP, _Lost)
+AND
+IntegerSum(_CurrentTotal, _Lost, _NewTotal)
+THEN
+NOT DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _CurrentTotal);
+DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _NewTotal);
+NOT DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP);
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _NewHP);
+
+// HP went up (a heal): only the reference moves, nothing is banked.
+IF
+HitpointsChanged(_Defender, _)
+AND
+HasActiveStatus(_Defender, "HEMORRHAGE", 1)
+AND
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP)
+AND
+GetHitpoints(_Defender, _NewHP)
+AND
+_NewHP > _OldHP
+THEN
+NOT DB_ARCANA_Hemorrhage_LastHP(_Defender, _OldHP);
+DB_ARCANA_Hemorrhage_LastHP(_Defender, _NewHP);
+//END_REGION
+
+//REGION The status ends: the bank bursts
+IF
+StatusRemoved(_Defender, "HEMORRHAGE", _, _)
+AND
+DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _TotalDamage)
+THEN
+NOT DB_ARCANA_Hemorrhage_Total(_TheEternal, _Defender, _TotalDamage);
+PROC_ARCANA_Hemorrhage_ClearHP(_Defender);
+PROC_ARCANA_Hemorrhage_Burst(_TheEternal, _Defender, _TotalDamage);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

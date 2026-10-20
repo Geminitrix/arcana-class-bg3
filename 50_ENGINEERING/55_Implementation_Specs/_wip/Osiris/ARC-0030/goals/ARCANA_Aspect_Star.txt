@@ -1,0 +1,294 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Aspect of the Star (the Starchild). Goal, Beacon: the passive Arcana_Passive_Aspect_Star_I applies
+// BEACON_HEAL_TECH to whoever the Starchild heals. This goal follows every combatant's HP; a rise with the
+// technical status on becomes effective healing (overhealing does not raise HP, so it does not count). Each tier
+// has its own goal: 5x / 8x / 12x the level (the table in ARCANA_Aspect_Common.txt, in healing x 100 / level).
+//
+// DBs:
+//   DB_ARCANA_StarHP(Char, HP)         each combatant's HP at the last change. Deleted by the reset.
+//   DB_ARCANA_StarPending(Char, Gain)  a rise that came before its BEACON_HEAL_TECH. Deleted when the status
+//                                      credits it, by a newer rise or a loss, and by the reset.
+//   DB_ARCANA_StarHealed(Star, Sum)    the Starchild's effective healing this fight. Deleted by the reset.
+//   DB_ARCANA_HopeGiver(Ally, Star)    an ally holding Undying Hope from that Starchild. Deleted when the first
+//                                      one falls (every hope is spent) and by the reset.
+// Reads: DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt), DB_ARCANA_CardFamily.
+// Hooks: PROC_ARCANA_Aspect_OnTier, PROC_ARCANA_Aspect_Reset.
+
+//REGION Reference HP
+IF
+EnteredCombat((CHARACTER)_Char, _)
+AND
+GetHitpoints(_Char, _HP)
+THEN
+PROC_ARCANA_Star_SetHP(_Char, _HP);
+
+PROC
+PROC_ARCANA_Star_SetHP((CHARACTER)_Char, (INTEGER)_HP)
+AND
+DB_ARCANA_StarHP(_Char, _Old)
+THEN
+NOT DB_ARCANA_StarHP(_Char, _Old);
+
+PROC
+PROC_ARCANA_Star_SetHP((CHARACTER)_Char, (INTEGER)_HP)
+THEN
+DB_ARCANA_StarHP(_Char, _HP);
+//END_REGION
+
+//REGION Effective healing (both orders of the event and the status)
+// The osirislog of 2026-09-29 showed the real order: HP rises BEFORE the passive applies BEACON_HEAL_TECH. So a
+// rise without the status waits as pending, and the status, when it lands, credits the pending gain. A newer rise
+// replaces the pending gain and a loss clears it, so a potion drunk earlier is not credited.
+// Items fire HitpointsChanged too: only combatants count.
+IF
+HitpointsChanged((CHARACTER)_Char, _)
+AND
+DB_ARCANA_Aspect_InCombat(_Char, _)
+AND
+DB_ARCANA_StarHP(_Char, _Old)
+AND
+GetHitpoints(_Char, _New)
+THEN
+PROC_ARCANA_Star_Pend(_Char, _Old, _New);
+PROC_ARCANA_Star_Credit(_Char, _Old, _New);
+PROC_ARCANA_Star_SetHP(_Char, _New);
+
+IF
+HitpointsChanged((CHARACTER)_Char, _)
+AND
+DB_ARCANA_Aspect_InCombat(_Char, _)
+AND
+NOT DB_ARCANA_StarHP(_Char, _)
+AND
+GetHitpoints(_Char, _HP)
+THEN
+PROC_ARCANA_Star_SetHP(_Char, _HP);
+
+// a rise without the technical status: keep the gain (the status is still on its way)
+PROC
+PROC_ARCANA_Star_Pend((CHARACTER)_Char, (INTEGER)_Old, (INTEGER)_New)
+AND
+_New > _Old
+AND
+HasActiveStatus(_Char, "BEACON_HEAL_TECH", 0)
+AND
+IntegerSubtract(_New, _Old, _Gain)
+THEN
+PROC_ARCANA_Star_ClearPending(_Char);
+DB_ARCANA_StarPending(_Char, _Gain);
+
+// a loss: the pending gain was not the Starchild's
+PROC
+PROC_ARCANA_Star_Pend((CHARACTER)_Char, (INTEGER)_Old, (INTEGER)_New)
+AND
+_New < _Old
+THEN
+PROC_ARCANA_Star_ClearPending(_Char);
+
+PROC
+PROC_ARCANA_Star_ClearPending((CHARACTER)_Char)
+AND
+DB_ARCANA_StarPending(_Char, _Gain)
+THEN
+NOT DB_ARCANA_StarPending(_Char, _Gain);
+
+IF
+StatusApplied((CHARACTER)_Char, "BEACON_HEAL_TECH", _, _)
+AND
+DB_ARCANA_StarPending(_Char, _Gain)
+THEN
+NOT DB_ARCANA_StarPending(_Char, _Gain);
+RemoveStatus(_Char, "BEACON_HEAL_TECH", _Char);
+PROC_ARCANA_Star_AddHealed(_Char, _Gain);
+
+PROC
+PROC_ARCANA_Star_Credit((CHARACTER)_Char, (INTEGER)_Old, (INTEGER)_New)
+AND
+_New > _Old
+AND
+HasActiveStatus(_Char, "BEACON_HEAL_TECH", 1)
+AND
+IntegerSubtract(_New, _Old, _Gain)
+THEN
+RemoveStatus(_Char, "BEACON_HEAL_TECH", _Char);
+PROC_ARCANA_Star_AddHealed(_Char, _Gain);
+
+PROC
+PROC_ARCANA_Star_AddHealed((CHARACTER)_Char, (INTEGER)_Gain)
+AND
+DB_ARCANA_Aspect_InCombat(_Char, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Star, _Combat)
+AND
+HasPassive(_Star, "Arcana_Passive_Aspect_Star_I", 1)
+THEN
+PROC_ARCANA_Star_Bank(_Star, _Gain);
+
+PROC
+PROC_ARCANA_Star_Bank((CHARACTER)_Star, (INTEGER)_Gain)
+AND
+NOT DB_ARCANA_StarHealed(_Star, _)
+THEN
+DB_ARCANA_StarHealed(_Star, 0);
+
+PROC
+PROC_ARCANA_Star_Bank((CHARACTER)_Star, (INTEGER)_Gain)
+AND
+DB_ARCANA_StarHealed(_Star, _Old)
+AND
+IntegerSum(_Old, _Gain, _Sum)
+THEN
+NOT DB_ARCANA_StarHealed(_Star, _Old);
+DB_ARCANA_StarHealed(_Star, _Sum);
+PROC_ARCANA_Star_Measure(_Star, _Sum);
+
+// value = healing x 100 / level (500 = 5x the level)
+PROC
+PROC_ARCANA_Star_Measure((CHARACTER)_Star, (INTEGER)_Sum)
+AND
+GetLevel(_Star, _Level)
+AND
+IntegerProduct(_Sum, 100, _Sum100)
+AND
+IntegerDivide(_Sum100, _Level, _Value)
+THEN
+PROC_ARCANA_Aspect_Progress(_Star, "STAR", _Value);
+//END_REGION
+
+//REGION A card on an ally: Moonlit, Sunlit and Eclipse by tier (healing does the same through the awakened status)
+IF
+UsingSpellOnTarget((CHARACTER)_Star, (CHARACTER)_Ally, _Spell, _, _, _)
+AND
+HasActiveStatus(_Star, "ASPECT_AWAKENED_STAR", 1)
+AND
+DB_ARCANA_CardFamily(_Spell, _)
+AND
+_Ally != _Star
+AND
+IsAlly(_Star, _Ally, 1)
+THEN
+PROC_ARCANA_Star_Bless(_Star, _Ally);
+
+// Tier I: Moonlit 1d4. Tier II: Moonlit 2d4 and Sunlit 1d4. Tier III: Sunlit 2d4 and Eclipse. 2 turns each.
+// It counts the tier AWAKENED in this fight, not the one the level unlocks.
+PROC
+PROC_ARCANA_Star_Bless((CHARACTER)_Star, (CHARACTER)_Ally)
+AND
+NOT DB_ARCANA_AspectReached(_Star, 2)
+THEN
+ApplyStatus(_Ally, "STAR_MOONLIT", 12.0, 1, _Star);
+
+PROC
+PROC_ARCANA_Star_Bless((CHARACTER)_Star, (CHARACTER)_Ally)
+AND
+DB_ARCANA_AspectReached(_Star, 2)
+THEN
+ApplyStatus(_Ally, "STAR_MOONLIT_II", 12.0, 1, _Star);
+
+PROC
+PROC_ARCANA_Star_Bless((CHARACTER)_Star, (CHARACTER)_Ally)
+AND
+DB_ARCANA_AspectReached(_Star, 2)
+AND
+NOT DB_ARCANA_AspectReached(_Star, 3)
+THEN
+ApplyStatus(_Ally, "STAR_SUNLIT", 12.0, 1, _Star);
+
+PROC
+PROC_ARCANA_Star_Bless((CHARACTER)_Star, (CHARACTER)_Ally)
+AND
+DB_ARCANA_AspectReached(_Star, 3)
+THEN
+ApplyStatus(_Ally, "STAR_SUNLIT_II", 12.0, 1, _Star);
+ApplyStatus(_Ally, "STAR_ECLIPSE", 12.0, 1, _Star);
+//END_REGION
+
+//REGION Tier III: Undying Hope on the allies in the fight (the Starchild included)
+PROC
+PROC_ARCANA_Aspect_OnTier((CHARACTER)_Star, (STRING)_Aspect, (INTEGER)_Tier)
+AND
+_Aspect == "STAR"
+AND
+_Tier == 3
+AND
+DB_ARCANA_Aspect_InCombat(_Star, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Ally, _Combat)
+AND
+IsAlly(_Star, _Ally, 1)
+AND
+IsDead(_Ally, 0)
+THEN
+PROC_ARCANA_Star_GiveHope(_Star, _Ally);
+
+PROC
+PROC_ARCANA_Aspect_OnTier((CHARACTER)_Star, (STRING)_Aspect, (INTEGER)_Tier)
+AND
+_Aspect == "STAR"
+AND
+_Tier == 3
+THEN
+PROC_ARCANA_Star_GiveHope(_Star, _Star);
+
+PROC
+PROC_ARCANA_Star_GiveHope((CHARACTER)_Star, (CHARACTER)_Ally)
+THEN
+DB_ARCANA_HopeGiver(_Ally, _Star);
+ApplyStatus(_Ally, "UNDYING_HOPE", -1.0, 1, _Star);
+
+// the first one to fall spends everyone's hope (no extra temporary HP: the Starchild's healing already gives the Lunar Wisp)
+IF
+StatusApplied((CHARACTER)_Saved, "UNDYING_HOPE_DOWNED", _, _)
+AND
+DB_ARCANA_HopeGiver(_Saved, _)
+AND
+DB_ARCANA_Aspect_InCombat(_Saved, _Combat)
+THEN
+PROC_ARCANA_Star_HopeSpent(_Combat);
+
+PROC
+PROC_ARCANA_Star_HopeSpent((GUIDSTRING)_Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Other, _Combat)
+AND
+DB_ARCANA_HopeGiver(_Other, _Star)
+THEN
+NOT DB_ARCANA_HopeGiver(_Other, _Star);
+RemoveStatus(_Other, "UNDYING_HOPE", _Star);
+//END_REGION
+
+//REGION Cleanup
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+THEN
+PROC_ARCANA_Star_ClearPending(_Char);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_StarHealed(_Char, _N)
+THEN
+NOT DB_ARCANA_StarHealed(_Char, _N);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_StarHP(_Char, _HP)
+THEN
+NOT DB_ARCANA_StarHP(_Char, _HP);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_HopeGiver(_Char, _Star)
+THEN
+NOT DB_ARCANA_HopeGiver(_Char, _Star);
+RemoveStatus(_Char, "UNDYING_HOPE", _Char);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
