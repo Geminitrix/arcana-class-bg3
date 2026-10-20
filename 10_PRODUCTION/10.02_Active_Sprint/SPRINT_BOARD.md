@@ -1,9 +1,10 @@
 # Sprint board — S01
 
-*Generated 2026-10-18 by `82_Automation/update_board.pl` — do not edit.*
+*Generated 2026-10-20 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (0)
+## To Do (1)
 
+- **ARC-0029** "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak"
 
 ## In Progress (0)
 
