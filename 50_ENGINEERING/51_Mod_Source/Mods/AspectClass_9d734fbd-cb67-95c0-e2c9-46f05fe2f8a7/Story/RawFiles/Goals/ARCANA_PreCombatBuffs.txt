@@ -4,13 +4,16 @@ INITSECTION
 PROC_ARCANA_PreCombatBuffs_Init();
 
 KBSECTION
-// Buffs que podem ser lancados fora de combate mas nao podem entrar nele (2026-09-30): quem entra em
-// combate perde estes status. Lancados ja em combate, ficam. Nao ha RemoveEvents de inicio de combate
-// (o enum StatusEvent so tem OnCombatEnded), por isso o Osiris -- que tambem roda no console.
-// As cartas de buff do Unbound viraram "so em combate" (Requirements Combat); sobrou o voo do Untethered.
+// Pre-combat buffs: buffs that may be cast out of combat but must not be carried into one. A character that
+// enters combat loses them; cast during combat, they stay. Stats cannot do it: the StatusEvent enum has
+// OnCombatEnded but no start-of-combat event, so Osiris does it (and Osiris runs on the console too).
+// The Unbound buff cards became combat-only (Requirements Combat); only the Untethered flight is left.
+//
+// DBs:
+//   DB_ARCANA_PreCombatBuff(Status)   the table: statuses removed on entering combat. Rebuilt by the Init.
 
-//REGION Tabela
-// Limpa antes de preencher: um save antigo guarda as linhas que sairam da tabela.
+//REGION Tables
+// Cleared before it is filled: an old save keeps the rows that have left the table.
 PROC
 PROC_ARCANA_PreCombatBuffs_Init()
 AND
@@ -23,14 +26,14 @@ PROC_ARCANA_PreCombatBuffs_Init()
 THEN
 DB_ARCANA_PreCombatBuff("FLY_UNTETHERED");
 
-// INITSECTION nao roda de novo em save existente
+// INITSECTION does not run again in an existing save.
 IF
 SavegameLoaded()
 THEN
 PROC_ARCANA_PreCombatBuffs_Init();
 //END_REGION
 
-//REGION Entrou em combate: perde os buffs preparados antes
+//REGION Entering combat removes the buffs cast before it
 IF
 EnteredCombat((CHARACTER)_Char, _)
 AND

@@ -1,15 +1,24 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-// Task 5: type-pinning for the DB this goal owns (declare, then delete the dummy row).
 DB_ARCANA_SigilDoubtOwner((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_SigilDoubtOwner((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 
 KBSECTION
-// A marca fica em nome de quem a aplicou: a SIGIL so detona com dano de quem a aplicou ou de uma
-// invocacao dele (HasStatus('SIGIL', context.Target, context.Source) nas RemoveConditions).
-// O clone marca em nome do Deceiver dono dele, para que os dois possam detonar as marcas um do outro:
-// o Deceiver pela origem da marca, o clone pelo GetSummoner.
+// Sigil (Deceiver): lays the mark in the Deceiver's name and turns a detonation into one stack of Doubt.
+// The mark only detonates on damage from whoever applied it or a summon of theirs (HasStatus('SIGIL',
+// context.Target, context.Source) in its RemoveConditions). A Double marks in its owner's name, so the two can
+// detonate each other's marks: the Deceiver as the mark's source, the Double through GetSummoner.
+//
+// DBs:
+//   DB_ARCANA_SigilDoubtOwner(Foe, Owner)   the Deceiver whose mark the foe carries (the latest one applied).
+//                                           Deleted by the detonation, the foe's death, or either of them leaving
+//                                           combat (PROC_ARCANA_Aspect_Reset). A row that outlives a mark removed
+//                                           without a detonation is harmless: only a new mark, which replaces it,
+//                                           can detonate.
+// Reads: DB_ARCANA_MirrorImageOf (ARCANA_Deceiver_Doubles.txt). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION The mark is laid in the Deceiver's name
 IF
 StatusApplied(_Target, "SIGIL_TECH", _Caster, _)
 AND
@@ -27,19 +36,14 @@ AND
 HasActiveStatus(_Target, "SIGIL", 0)
 THEN
 ApplyStatus(_Target, "SIGIL", -6.0, 1, _Caster);
+//END_REGION
 
-//REGION Task 5: a detonation adds Doubt (The Veil)
+//REGION A detonation adds Doubt (The Veil)
 // SIGIL.OnRemoveFunctors applies SIGIL_DETONATED_TECH when the mark is triggered, but a status applied from an
-// OnRemoveFunctors has no guaranteed source, so the owner of each mark is remembered here when the mark lands (the two
+// OnRemoveFunctors has no guaranteed source, so the owner of each mark is remembered here when the mark lands (the
 // rules above always put it in the Deceiver's name, also when a Double lays it). On the detonation the foe gets ONE
 // DOUBT_ADD_TECH in her name: the Doubt goal (ARCANA_Deceiver_Doubt.txt) raises the stack and credits her.
-// Own DB on purpose: ARCANA_Aspect_Empress.txt keeps DB_ARCANA_SigilOwner for the same event and deletes its row
-// there; two goals reacting to one event in an unknown order must not share a row.
-//
-// DB_ARCANA_SigilDoubtOwner(Foe, Owner)  the Deceiver whose mark the foe carries (the latest one applied). A row can
-//                                        outlive a mark removed without a detonation; it is harmless (only a new
-//                                        mark, which replaces it, can detonate) and goes on the foe's death or when
-//                                        either of them leaves combat.
+// Own DB on purpose: two goals that answer one event in an unknown order must not share a row.
 IF
 StatusApplied((CHARACTER)_Foe, "SIGIL", (CHARACTER)_Owner, _)
 THEN
@@ -72,7 +76,9 @@ AND
 IsDead(_Foe, 0)
 THEN
 ApplyStatus(_Foe, "DOUBT_ADD_TECH", 0.0, 1, _Owner);
+//END_REGION
 
+//REGION Cleanup
 IF
 Died((CHARACTER)_Foe)
 AND

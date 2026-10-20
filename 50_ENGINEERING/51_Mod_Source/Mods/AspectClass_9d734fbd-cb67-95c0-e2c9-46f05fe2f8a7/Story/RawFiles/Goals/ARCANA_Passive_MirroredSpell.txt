@@ -5,8 +5,17 @@ DB_ARCANA_MirroredSpellHolder((CHARACTER)NULL_00000000-0000-0000-0000-0000000000
 NOT DB_ARCANA_MirroredSpellHolder((CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
 DB_ARCANA_MirroredSpell((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
 NOT DB_ARCANA_MirroredSpell((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
+
 KBSECTION
-//REGION Condicoes compartilhadas
+// Mirrored Spell (Deceiver passive): while the toggle MIRRORED_SPELL_ON is on, a spell another character casts
+// within 18 m is lent to the holder for 3 turns, once; casting it, the timer or a newer copy takes it back.
+// Osiris because Stats cannot learn a spell somebody else just cast.
+//
+// DBs:
+//   DB_ARCANA_MirroredSpellHolder(Holder)   the toggle is on. Deleted when MIRRORED_SPELL_ON goes.
+//   DB_ARCANA_MirroredSpell(Holder, Spell)  the spell on loan. Deleted when it is cast, returned or replaced.
+
+//REGION Shared conditions
 QRY
 QRY_ARCANA_MirroredSpell_CanCopy((CHARACTER)_Caster, (STRING)_Spell, (CHARACTER)_Holder)
 AND
@@ -23,7 +32,7 @@ THEN
 DB_NOOP(1);
 //END_REGION
 
-//REGION Devolve o pendente, se houver
+//REGION Give back the spell on loan, if any
 PROC
 PROC_ARCANA_MirroredSpell_Return((CHARACTER)_Holder)
 AND
@@ -33,7 +42,7 @@ NOT DB_ARCANA_MirroredSpell(_Holder, _OldSpell);
 RemoveSpell(_Holder, _OldSpell, 0);
 //END_REGION
 
-//REGION Encerra tudo: devolve, tira status e cancela timer
+//REGION End it all: give back, remove the helper, cancel the timer
 PROC
 PROC_ARCANA_MirroredSpell_Clear((CHARACTER)_Holder)
 THEN
@@ -42,7 +51,7 @@ ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
 RemoveStatus(_Holder, "MIRRORED_SPELL_HELPER", _Holder);
 //END_REGION
 
-//REGION Registra enquanto o toggle estiver ligado
+//REGION Registered while the toggle is on
 IF
 StatusApplied(_Holder, "MIRRORED_SPELL_ON", _, _)
 THEN
@@ -55,7 +64,7 @@ NOT DB_ARCANA_MirroredSpellHolder((CHARACTER)_Holder);
 PROC_ARCANA_MirroredSpell_Clear((CHARACTER)_Holder);
 //END_REGION
 
-//REGION Copia ou troca - uma regra so
+//REGION Copy or replace, in one rule
 IF
 CastedSpell((CHARACTER)_Caster, _Spell, _, _, _)
 AND
@@ -71,7 +80,7 @@ ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
 ObjectTimerLaunch(_Holder, "ARCANA_MirroredSpell_Timer", 18000, 1);
 //END_REGION
 
-//REGION Usou o feitico copiado
+//REGION The holder cast the copied spell
 IF
 CastedSpell((CHARACTER)_Holder, _Spell, _, _, _)
 AND
@@ -83,7 +92,7 @@ ObjectTimerCancel(_Holder, "ARCANA_MirroredSpell_Timer");
 RemoveStatus(_Holder, "MIRRORED_SPELL_HELPER", _Holder);
 //END_REGION
 
-//REGION Timer acabou - devolve o pendente
+//REGION The timer ran out: give back the spell on loan
 IF
 ObjectTimerFinished((CHARACTER)_Holder, "ARCANA_MirroredSpell_Timer")
 THEN

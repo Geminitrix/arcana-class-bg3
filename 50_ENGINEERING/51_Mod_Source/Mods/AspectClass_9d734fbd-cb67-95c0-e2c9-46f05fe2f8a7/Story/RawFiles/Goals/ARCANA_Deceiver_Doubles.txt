@@ -1,7 +1,6 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-// Type-pinning for every DB this goal owns (declare, then delete the dummy row).
 DB_ARCANA_MirrorImageOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_MirrorImageOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 DB_ARCANA_Double((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0);
@@ -20,12 +19,62 @@ DB_ARCANA_DoubleNoBlame((CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_DoubleNoBlame((CHARACTER)00000000-0000-0000-0000-000000000000);
 DB_ARCANA_DoubleGone((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_DoubleGone((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
-// Task 4: DB_ARCANA_DoubleHome is written by ARCANA_Spell_Withdraw.txt and ARCANA_Spell_MimicWithdraw.txt.
 DB_ARCANA_DoubleHome((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
 NOT DB_ARCANA_DoubleHome((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
-// The Double's spells live in its shapeshift rule (Rulebook): Transform's RemovePrevSpells hides anything AddSpell gives.
-// One rule per tier (deceiver/75_double_rules.pl). Row: her level range, Unveil (0 any, 1 has it, 2 lacks it: multiclass), rule.
-// Mirror spells deal half her Sigil at her highest slot (D17): slot 3 at 5-6, 4 at 7-8, 5 at 9-10, 6 at 11+.
+DB_ARCANA_DoubleRuleTier(0, 0, 0, (SHAPESHIFTRULE)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_DoubleRuleTier(0, 0, 0, (SHAPESHIFTRULE)NULL_00000000-0000-0000-0000-000000000000);
+PROC_ARCANA_Doubles_Init();
+
+KBSECTION
+// Doubles (Deceiver, The Veil).
+//
+// A Double is a summon of the mod's template 8807d230 (ARCANA_CHAR_CreateClone_1, stats Clone_1: 1 HP, AC 12,
+// no bonus action, no reaction, passive Arcana_Passive_DoubleOfTheVeil). Every source summons it with the
+// status DOUBLE_OF_THE_VEIL_TECH, cause = the Deceiver (Mirror Image, Distortion, Grand Deception). This goal:
+//   1. registers it (cap, AC layers) the moment the status lands,
+//   2. 300 ms later Transforms it into her look with the appearance-only rule DoubleOfTheVeil (Shapeshift/Rulebook.lsx),
+//   3. 200 ms later copies her equipment (the look), sets its kit and the Invoke Duplicity shimmer,
+//   4. on its death by an enemy gives that enemy Doubt (DOUBT_ADD_TECH, see ARCANA_Deceiver_Doubt.txt),
+//   5. clears every Double when she leaves combat, after a Long Rest, and when she dies.
+//
+// DBs (table, rebuilt by PROC_ARCANA_Doubles_Init on a new game and on every load):
+//   DB_ARCANA_DoubleRuleTier(Min, Max, Unveil, Rule)  the shapeshift rule per level range (Unveil: 0 any, 1 has it,
+//                                           2 lacks it: multiclass). Rows from 55/_wip/Deceiver/75_double_rules.pl.
+// DBs (state):
+//   DB_ARCANA_MirrorImageOf(Double, Owner)  every Double ever registered and not yet purged. Shared contract:
+//                                           ARCANA_Status_Sigil.txt and ARCANA_Deceiver_Doubt.txt read it to credit
+//                                           her. Kept ~1 s after the Double dies (see Purge) so a Shatter's Doubt,
+//                                           which lands as its caster dies, still finds the owner.
+//   DB_ARCANA_Double(Double, Owner, Order)  live Doubles; Order grows per owner (lowest = oldest).
+//   DB_ARCANA_DoubleSeq(Owner, Last)        last Order handed out to that owner. Deleted by the cleanup.
+//   DB_ARCANA_DoubleCount(Owner, N)         live Doubles (row absent = 0). Drives VEIL_LAYER_N and the cap.
+//   DB_ARCANA_DoubleSetup(Double, Owner)    between the summon and the end of the setup timers.
+//   DB_ARCANA_DoubleRule(Double, Rule)      transient: the shapeshift rule picked for the Transform.
+//   DB_ARCANA_DoubleOldest(Owner, Double)   transient: the Double the cap retires.
+//   DB_ARCANA_DoubleKiller(Double, Killer)  last character that damaged / killed it. Deleted by the purge.
+//   DB_ARCANA_DoubleNoBlame(Double)         it went without an enemy's doing (cap, cleanup, Dismiss, Shatter).
+//   DB_ARCANA_DoubleGone(Double, Owner)     gone, waiting for the purge timer. Also read as an EVENT by the two
+//                                           Withdraw goals (a Double that goes ends its Withdraw window).
+//   DB_ARCANA_DoubleHome(Double, X, Y, Z)   where a Double must stand once it has formed. Written by the Withdraw
+//                                           goals right after a Distortion summon (the summon lands at the
+//                                           Distortion's destination; this moves it to her origin). Read and deleted
+//                                           by PROC_ARCANA_Doubles_GoHome, called from the kit step.
+// Entry points for other goals: PROC_ARCANA_Doubles_Retire. Calls PROC_ARCANA_Doubt_Add (ARCANA_Deceiver_Doubt.txt).
+
+//REGION Tables
+// The Double's spells live in its shapeshift rule (Rulebook): Transform's RemovePrevSpells hides anything AddSpell
+// gives. One rule per tier. Mirror spells deal half her Sigil at her highest slot (D17): slot 3 at 5-6, 4 at 7-8,
+// 5 at 9-10, 6 at 11+. Cleared before it is filled: an old save keeps the rows that have left the table.
+PROC
+PROC_ARCANA_Doubles_Init()
+AND
+DB_ARCANA_DoubleRuleTier(_Min, _Max, _Need, _Rule)
+THEN
+NOT DB_ARCANA_DoubleRuleTier(_Min, _Max, _Need, _Rule);
+
+PROC
+PROC_ARCANA_Doubles_Init()
+THEN
 DB_ARCANA_DoubleRuleTier(5, 6, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot3_d27e2641-3a75-82be-7741-ec16ebc2561f);
 DB_ARCANA_DoubleRuleTier(7, 8, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot4_cfbaa6cd-62ba-7b67-9700-114cd3b86b75);
 DB_ARCANA_DoubleRuleTier(9, 10, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot5_d6306a71-9b8a-4dd0-f97a-3f6df38c9b8c);
@@ -33,36 +82,12 @@ DB_ARCANA_DoubleRuleTier(11, 20, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot6_8014e4
 DB_ARCANA_DoubleRuleTier(9, 10, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot5_NoUnveil_615d1e0d-b8f5-7ef4-e5ee-3b66eb467645);
 DB_ARCANA_DoubleRuleTier(11, 20, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot6_NoUnveil_c0c93c59-f1a4-7866-6887-0f782fa29689);
 
-KBSECTION
-// The Veil (Deceiver): Doubles. Replaces ARCANA_Spell_MirrorImage.txt (the old full clone).
-//
-// A Double is a summon of the mod's template 8807d230 (ARCANA_CHAR_CreateClone_1, stats Clone_1: 1 HP, AC 12,
-// no bonus action, no reaction, passive Arcana_Passive_DoubleOfTheVeil). Every source summons it with the
-// status DOUBLE_OF_THE_VEIL_TECH, cause = the Deceiver (Mirror Image; Distortion, Task 4; Grand Deception, Task 5). This goal:
-//   1. registers it (cap, AC layers) the moment the status lands,
-//   2. 300 ms later Transforms it into her look with the appearance-only rule DoubleOfTheVeil (Shapeshift/Rulebook.lsx),
-//   3. 200 ms later copies her equipment (the look), sets its kit and the Invoke Duplicity shimmer,
-//   4. on its death by an enemy gives that enemy Doubt (DOUBT_ADD_TECH, see ARCANA_Deceiver_Doubt.txt),
-//   5. clears every Double when she leaves combat, after a Long Rest, and when she dies.
-//
-// DBs:
-//   DB_ARCANA_MirrorImageOf(Double, Owner)  every Double ever registered and not yet purged. Shared contract:
-//                                           ARCANA_Status_Sigil.txt and ARCANA_Deceiver_Doubt.txt read it to credit
-//                                           her. Kept ~1 s after the Double dies (see Purge) so a Shatter's Doubt,
-//                                           which lands as its caster dies, still finds the owner.
-//   DB_ARCANA_Double(Double, Owner, Order)  live Doubles; Order grows per owner (lowest = oldest).
-//   DB_ARCANA_DoubleSeq(Owner, Last)        last Order handed out to that owner.
-//   DB_ARCANA_DoubleCount(Owner, N)         live Doubles (row absent = 0). Drives VEIL_LAYER_N and the cap.
-//   DB_ARCANA_DoubleSetup(Double, Owner)    between the summon and the end of the setup timers.
-//   DB_ARCANA_DoubleOldest(Owner, Double)   transient: the Double the cap retires.
-//   DB_ARCANA_DoubleKiller(Double, Killer)  last character that damaged / killed it.
-//   DB_ARCANA_DoubleNoBlame(Double)         it went without an enemy's doing (cap, cleanup, Dismiss, Shatter).
-//   DB_ARCANA_DoubleGone(Double, Owner)     gone, waiting for the purge timer. Also read as an EVENT by the two
-//                                           Withdraw goals (a Double that goes ends its Withdraw window).
-//   DB_ARCANA_DoubleHome(Double, X, Y, Z)   Task 4: where a Double must stand once it has formed. Written by the
-//                                           Withdraw goals right after a Distortion summon (the summon lands at the
-//                                           Distortion's destination; this moves it to her origin). Read and deleted
-//                                           by PROC_ARCANA_Doubles_GoHome, called from the kit step.
+// INITSECTION does not run again in an existing save.
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Doubles_Init();
+//END_REGION
 
 //REGION Summon and registration
 IF
@@ -74,6 +99,7 @@ DB_ARCANA_MirrorImageOf(_Double, _Owner);
 DB_ARCANA_DoubleSetup(_Double, _Owner);
 PROC_ARCANA_Doubles_Register(_Double, _Owner);
 PROC_ARCANA_Doubles_Enforce(_Owner);
+RealtimeObjectTimerCancel(_Double, "ARCANA_Double_Form");
 RealtimeObjectTimerLaunch(_Double, "ARCANA_Double_Form", 300);
 
 // Order = last + 1 (the first definition seeds the row, the second reads and replaces it).
@@ -244,7 +270,7 @@ NOT DB_ARCANA_DoubleOldest(_Owner, _Double);
 PROC_ARCANA_Doubles_Retire(_Double, _Owner);
 //END_REGION
 
-//REGION Form and kit (the delays are the old clone's, empirical: Docs/OSIRIS.md section 10)
+//REGION Form and kit (the delays are the old clone's, empirical: 57.05/OSIRIS.md section 10)
 IF
 ObjectTimerFinished((CHARACTER)_Double, "ARCANA_Double_Form")
 AND
@@ -257,6 +283,7 @@ THEN
 // CommonPlayerActions spellset) and gives back only Shout_Dash and Shout_Disengage (SpellsAdd, spec 3.1).
 PROC_ARCANA_Doubles_PickRule(_Double, _Owner);
 PROC_ARCANA_Doubles_Transform(_Double, _Owner);
+RealtimeObjectTimerCancel(_Double, "ARCANA_Double_Kit");
 RealtimeObjectTimerLaunch(_Double, "ARCANA_Double_Kit", 200);
 
 IF
@@ -268,19 +295,20 @@ IsDead(_Double, 0)
 THEN
 NOT DB_ARCANA_DoubleSetup(_Double, _Owner);
 // Her outfit: Transform's ApplyVisual is the body only; the old clone and vanilla Invoke Duplicity both copy
-// the equipment for the look. The rule's DisableEquipmentSlots keeps the gear inert (to be checked: V3).
+// the equipment for the look. The rule's DisableEquipmentSlots keeps the gear inert (not yet verified in game).
 CopyCharacterEquipment(_Double, _Owner);
-// Safety net for risk R1: whatever the Transform did, it starts at 1 HP (vanilla 2-argument form).
+// Safety net: whatever the Transform did, it starts at 1 HP (vanilla 2-argument form).
 SetHitpoints(_Double, 1);
 PROC_ARCANA_Doubles_Kit(_Double, _Owner);
 ApplyStatus(_Double, "DOUBLE_OF_THE_VEIL", -1.0, 1, _Owner);
-// Task 4: a Distortion Double is moved to her origin here, while the technical status still hides it.
+// A Distortion Double is moved to her origin here, while the technical status still hides it.
 PROC_ARCANA_Doubles_GoHome(_Double);
 RemoveStatus(_Double, "DOUBLE_OF_THE_VEIL_TECH", _Owner);
 
-// Runs after the Transform. Only removals here: the spells come from the rule (PROC_ARCANA_Doubles_PickRule). No weapon attacks (spec D5): the five attack spells are removed by hand because no vanilla
-// rule lists them in SpellsAdd (EPI_WYLL: RemovePrevSpells, a playable form, no attack spell in its list), so the
-// engine most likely grants them outside the spellbook the rule wipes (inference, check in V3).
+// Runs after the Transform. Only removals here: the spells come from the rule (PROC_ARCANA_Doubles_PickRule). No
+// weapon attacks (spec D5): the five attack spells are removed by hand because no vanilla rule lists them in
+// SpellsAdd (EPI_WYLL: RemovePrevSpells, a playable form, no attack spell in its list), so the engine most likely
+// grants them outside the spellbook the rule wipes (inference, not yet verified in game).
 PROC
 PROC_ARCANA_Doubles_Kit((CHARACTER)_Double, (CHARACTER)_Owner)
 THEN
@@ -344,7 +372,7 @@ NOT DB_ARCANA_DoubleRule(_Double, _Rule);
 Transform(_Double, _Owner, _Rule);
 //END_REGION
 
-//REGION Who destroyed it (risk R4)
+//REGION Who destroyed it
 // A Double has 1 HP, so the hit that damages it is the one that destroys it. AttackedBy is recorded and
 // KilledBy (when the engine raises it) overwrites it. Both are read only by the purge, after every event of
 // the death has fired. The DB check comes right after the event: AttackedBy fires for every hit in the game.
@@ -380,7 +408,7 @@ PROC_ARCANA_Doubles_SetKiller((CHARACTER)_Double, (CHARACTER)_Killer)
 THEN
 DB_ARCANA_DoubleKiller(_Double, _Killer);
 
-// Shatter's Double vanishes after its burst: that death is nobody's doing (its Doubt comes from the spell itself, Task 3).
+// Shatter's Double vanishes after its burst: that death is nobody's doing (its Doubt comes from the spell itself).
 IF
 CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
 AND
@@ -389,19 +417,20 @@ THEN
 DB_ARCANA_DoubleNoBlame(_Double);
 //END_REGION
 
-//REGION Task 3, fix round 1: Shatter's Double vanishes after its burst
-// Shout_Deceiver_Double_Shatter (30_double_spells.patch) does the burst and nothing else: a CAST: functor is its own
-// context and cannot be ordered against the area hits, so the spell does not kill its caster. The death is made
-// deterministic here. 800 ms: longer than the 300 ms / 200 ms setup delays above (those cover a Transform), so the
-// shout's damage and Doubt hits have resolved, and short enough that the Double is gone before the next click. The
-// retire is the SAME no-blame path the cap and the cleanups use: no enemy gains Doubt for it, and the count,
-// VEIL_LAYER_N and the registry update as usual (the purge keeps the registry row ~1 s after the retire, so a
-// Doubt that lands late still finds her). The CastSpell rule above has already marked it blameless.
+//REGION Shatter's Double vanishes after its burst
+// Shout_Deceiver_Double_Shatter does the burst and nothing else: a CAST: functor is its own context and cannot be
+// ordered against the area hits, so the spell does not kill its caster. The death is made deterministic here.
+// 800 ms: longer than the 300 ms / 200 ms setup delays above (those cover a Transform), so the shout's damage and
+// Doubt hits have resolved, and short enough that the Double is gone before the next click. The retire is the SAME
+// no-blame path the cap and the cleanups use: no enemy gains Doubt for it, and the count, VEIL_LAYER_N and the
+// registry update as usual (the purge keeps the registry row ~1 s after the retire, so a Doubt that lands late still
+// finds her). The CastSpell rule above has already marked it blameless.
 IF
 CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
 AND
 DB_ARCANA_MirrorImageOf(_Double, _)
 THEN
+RealtimeObjectTimerCancel(_Double, "ARCANA_Double_Shatter");
 RealtimeObjectTimerLaunch(_Double, "ARCANA_Double_Shatter", 800);
 
 IF
@@ -414,7 +443,7 @@ THEN
 PROC_ARCANA_Doubles_Retire(_Double, _Owner);
 //END_REGION
 
-//REGION Task 4: a Double that is summoned somewhere else goes Home (Distortion's Double)
+//REGION A Double summoned somewhere else goes Home (Distortion's Double)
 // Distortion's Summon is a GROUND functor (the vanilla shape): the Double is created where she LANDS. The Withdraw
 // goals write DB_ARCANA_DoubleHome(Double, X, Y, Z) with the spot she LEFT, the moment the technical status lands
 // (before this goal's 300 ms / 200 ms timers), and the kit step above moves the Double there. Nothing else in the
@@ -437,10 +466,10 @@ THEN
 NOT DB_ARCANA_DoubleHome(_Double, _X, _Y, _Z);
 //END_REGION
 
-//REGION Task 5: Grand Deception's two stacks of Doubt
-// Shout_Arcana_Card_Spell_GrandDeception (50_kit.patch) summons its Doubles through the usual Summon functor (each one
-// registers above, like a Mirror Image Double; the spell only summons the ones she is missing) and, on each enemy that
-// fails its Wisdom save, applies GRAND_DECEPTION_TECH once. That is turned here into TWO raises of Doubt in her name.
+//REGION Grand Deception's two stacks of Doubt
+// Shout_Arcana_Card_Spell_GrandDeception summons its Doubles through the usual Summon functor (each one registers
+// above, like a Mirror Image Double; the spell only summons the ones she is missing) and, on each enemy that fails
+// its Wisdom save, applies GRAND_DECEPTION_TECH once. That is turned here into TWO raises of Doubt in her name.
 // Two DOUBT_ADD_TECH in one functor list (or two ApplyStatus in one rule) is not proven to fire StatusApplied twice
 // (same status, same instant, StackType Overwrite), so the raise is called directly: PROC_ARCANA_Doubt_Add is the
 // Doubt goal's own entry point (ARCANA_Deceiver_Doubt.txt), the same one its DOUBT_ADD_TECH rule calls. Each call runs
@@ -461,7 +490,7 @@ DB_ARCANA_MirrorImageOf(_Double, _Owner)
 THEN
 PROC_ARCANA_Doubles_Gone(_Double, _Owner);
 
-// Dismiss unsummons it (the old clone goal did not trust Died for that).
+// Dismiss unsummons it (Died is not trusted for that).
 IF
 CastSpell((CHARACTER)_Double, "Shout_Deceiver_Clone_Dismiss", _, _, _)
 AND
@@ -520,7 +549,7 @@ DB_ARCANA_DoubleGone(_Double, _Owner)
 THEN
 PROC_ARCANA_Doubles_Purge(_Double, _Owner);
 
-// "It believed the lie": the enemy that destroyed it gains 1 Doubt, credited to her (Task 1 contract).
+// "It believed the lie": the enemy that destroyed it gains 1 Doubt, credited to her.
 PROC
 PROC_ARCANA_Doubles_Purge((CHARACTER)_Double, (CHARACTER)_Owner)
 AND

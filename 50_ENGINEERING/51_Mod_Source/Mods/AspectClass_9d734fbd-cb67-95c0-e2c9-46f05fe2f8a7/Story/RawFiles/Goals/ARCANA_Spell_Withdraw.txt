@@ -1,34 +1,36 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-// Type-pinning for every DB this goal owns (declare, then delete the dummy row).
 DB_ARCANA_Withdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
 NOT DB_ARCANA_Withdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
 DB_ARCANA_Withdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_Withdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+
 KBSECTION
-// The Veil (Deceiver), Task 4: Distortion leaves a Double where she stood; Withdraw swaps places with THAT Double.
-// Replaces the old Withdraw goal (stored position + marker item + AppearAtPosition). The mod's own marker item
-// (template c3c514b2) is no longer summoned: the Double is the marker.
+// Withdraw (Deceiver, The Veil): Distortion leaves a Double where she stood; Withdraw swaps places with THAT
+// Double. The Double is the marker: no marker item is summoned.
 //
 // Flow:
-//   1. UsingSpell(Distortion family): remember where she stands (the origin) and open a 6 s "awaiting" window (UsingSpell fires at cast start; the Summon functor runs after the cast animation, which for a teleporting Target spell can take 1-3 s. The bind consumes the window, so a long one is harmless).
-//   2. Distortion's SpellProperties summon a Double with the technical status DOUBLE_OF_THE_VEIL_TECH, cause = her
-//      (Task 4 patch). ARCANA_Deceiver_Doubles.txt registers it like any Double (cap, AC layers) and its kit step moves it to
-//      the origin (DB_ARCANA_DoubleHome). This goal sees the same StatusApplied and BINDS that Double to her:
-//      DB_ARCANA_Withdraw_Link, the Withdraw spell, DISTORTION_HELPER (it locks Distortion AND unlocks Withdraw, whose
-//      RequirementConditions test it) and the 2-turn window timer.
+//   1. UsingSpell (Distortion family): remember where she stands (the origin) and open a 6 s "awaiting" window.
+//      UsingSpell fires at cast start; the Summon functor runs after the cast animation, which for a teleporting
+//      Target spell can take 1-3 s. The bind consumes the window, so a long one is harmless.
+//   2. Distortion's SpellProperties summon a Double with the technical status DOUBLE_OF_THE_VEIL_TECH, cause = her.
+//      ARCANA_Deceiver_Doubles.txt registers it like any Double (cap, AC layers) and its kit step moves it to the
+//      origin (DB_ARCANA_DoubleHome). This goal sees the same StatusApplied and BINDS that Double to her:
+//      DB_ARCANA_Withdraw_Link, the Withdraw spell, DISTORTION_HELPER (it locks Distortion AND unlocks Withdraw,
+//      whose RequirementConditions test it) and the 2-turn window timer.
 //   3. Withdraw (CastSpell): both positions are read first, then each moves to the other's spot (TeleportToPosition).
 //   4. The window ends when she swaps, when the timer runs out, or when THAT Double is gone (destroyed, dismissed,
-//      shattered, retired by the cap, end of combat, Long Rest, her death): Withdraw is lost, DISTORTION_HELPER is removed
-//      so Distortion is available again.
+//      shattered, retired by the cap, end of combat, Long Rest, her death): Withdraw is lost and DISTORTION_HELPER
+//      is removed, so Distortion is available again.
 //
 // DBs:
 //   DB_ARCANA_Withdraw_Awaiting(Caster, X, Y, Z)  she just cast Distortion from (X, Y, Z); the next Double she
 //                                                 summons is the one. Dropped by the first Double or after 6 s.
-//   DB_ARCANA_Withdraw_Link(Caster, Double)       the Double Withdraw swaps with. One row per Deceiver.
-// Read from ARCANA_Deceiver_Doubles.txt: DB_ARCANA_Double (is it still a live Double) and DB_ARCANA_DoubleGone (the
-// event "a Double went"). Written for it: DB_ARCANA_DoubleHome.
+//   DB_ARCANA_Withdraw_Link(Caster, Double)       the Double Withdraw swaps with. One row per Deceiver; dropped
+//                                                 when the window ends.
+// Reads from ARCANA_Deceiver_Doubles.txt: DB_ARCANA_Double (is it still a live Double) and DB_ARCANA_DoubleGone
+// (the event "a Double went"). Writes for it: DB_ARCANA_DoubleHome. Reads DB_ARCANA_CardFamily (upcast variants).
 
 //REGION Shared cleanup
 // Closes the window. Never touches DISTORTION_HELPER (the swap and the timer have their own reasons).

@@ -4,7 +4,7 @@ title: Playtest — The Arcana — Osiris goals: standard and preventive fixes (
 type: playtest
 subclass: class
 build: ARC-0030
-status: draft
+status: ready
 owner: QA Lead
 created: 2026-10-20
 ---
@@ -115,3 +115,4 @@ come back here at `/sync-test-guides`. **Intent:** the tidied goals play exactly
 ## Log
 
 - 2026-10-20 — created with the audit (`55/_wip/Osiris/ARC-0030/RISKS.md`); `draft` until the goals are in the game.
+- 2026-10-20 — `ready`: the goals are in the game; play after the Story compiles.

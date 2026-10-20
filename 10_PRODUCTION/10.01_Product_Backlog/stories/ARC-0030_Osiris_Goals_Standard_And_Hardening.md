@@ -4,7 +4,7 @@ title: "Osiris goals: one standard for comments and regions, and preventive fixe
 type: chore
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: spec_ready
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: should
@@ -59,7 +59,7 @@ never deleted, timers relaunched without a cancel, missing casts, rules that can
       `goals/` byte for byte (its Stats patches and level maps unchanged; only the comment line of `43_common_rows.txt`
       lost its ticket id; tests 340/340); `gen_awakening_progress.pl`'s countdown
       block is in the new Common verbatim; `ARCANA_CardFamilies` was built from `gen_upcast_variants.pl`'s template
-- [ ] Apply: `check_osiris.pl` on `51` prints OK and `--compare 51 goals/` prints "same code" for all 20
+- [x] Apply: `check_osiris.pl` on `51` prints OK and `--compare 51 goals/` prints "same code" for all 20
 - [ ] The Story compiles with `0 error(s), 0 warning(s)` in `log.txt`
 - [ ] Play: `61.02/Class/QA_ARC-0030.md` (11 tests)
 
@@ -78,3 +78,10 @@ never deleted, timers relaunched without a cancel, missing casts, rules that can
   1/46 on the Fool's old goals (C8, left); the CardFamilies table in the game is older than the Stats (C3). The game was
   open the whole time: nothing written there (OR-11). Next: the Owner reviews `goals/` and sends `[fechado] ARC-0030`.
   `gen_upcast_variants.pl --apply` was not run (it writes the game): its output is checked at the apply.
+- 2026-10-20 — Owner: `[fechado] ARC-0030`. The game goals were unchanged since the audit; backup of the 21 in
+  `94_Safety_Backups/ARC-0030_2026-10-20/`; the 20 of `goals/` copied into the game (byte for byte, CRLF) and
+  `ARCANA_Spell_MirrorWithdraw.txt` taken out (archived in `93`). `sync_data`: only those 21 goal files changed;
+  `check_osiris.pl` on `51` OK; `--compare 51 goals/` same code in all 20. `gen_upcast_variants.pl --apply` still not
+  run: it also rewrites every upcast variant in the Stats, a build step of its own (RISKS C3); its template was checked
+  by building `ARCANA_CardFamilies` with it. Next: the Owner compiles in the Story Editor (remove
+  `ARCANA_Spell_MirrorWithdraw` there if it is still listed), Claude reads `log.txt`, then QA_ARC-0030.

@@ -3,11 +3,17 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-// Death (Eternal). Objetivo Sorrow: todo dano que o Eternal recebe em combate vai para um registro que a
-// cura nao desfaz. Desde 2026-10-02 cada tier tem a sua meta: 30% / 50% / 70% do HP maximo (tabela no Common,
-// em milesimos). O mesmo registro e o dano do The Final Toll.
+// Aspect of Death (the Eternal). Goal, Sorrow: every point of damage the Eternal takes in combat goes into a
+// ledger that healing does not undo. Each tier has its own goal: 30% / 50% / 70% of maximum HP (the table in
+// ARCANA_Aspect_Common.txt, in thousandths). The same ledger is The Final Toll's damage.
+//
+// DBs:
+//   DB_ARCANA_SorrowLedger(Eternal, Damage)   the damage taken this fight. Deleted by the reset when she leaves
+//                                             combat.
+// Reads: DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt), DB_ARCANA_CardFamily.
+// Hooks: PROC_ARCANA_Aspect_OnAwakened, PROC_ARCANA_Aspect_OnTier, PROC_ARCANA_Aspect_Reset.
 
-//REGION Registro e objetivo
+//REGION Ledger and goal
 IF
 AttackedBy((CHARACTER)_Eternal, _, _, _, _Amount, _, _)
 AND
@@ -19,8 +25,8 @@ IsInCombat(_Eternal, 1)
 THEN
 PROC_ARCANA_Death_Suffer(_Eternal, _Amount);
 
-// Blood Offering: o AttackedBy nao dispara no autodano (teste de 2026-10-02), entao o cast credita o mesmo
-// MaxHP/10 que o SpellProperties da carta tira
+// Blood Offering: AttackedBy does not fire for self-damage (tested 2026-10-02), so the cast credits the same
+// MaxHP/10 that the card's SpellProperties takes.
 IF
 CastedSpell((CHARACTER)_Eternal, _Spell, _, _, _)
 AND
@@ -56,7 +62,7 @@ NOT DB_ARCANA_SorrowLedger(_Eternal, _Old);
 DB_ARCANA_SorrowLedger(_Eternal, _Sum);
 PROC_ARCANA_Death_Measure(_Eternal, _Sum);
 
-// perda em milesimos do HP maximo (300 = 30%)
+// the loss in thousandths of maximum HP (300 = 30%)
 PROC
 PROC_ARCANA_Death_Measure((CHARACTER)_Eternal, (INTEGER)_Sum)
 AND
@@ -69,7 +75,7 @@ THEN
 PROC_ARCANA_Aspect_Progress(_Eternal, "DEATH", _PerMille);
 //END_REGION
 
-//REGION Tier I (Sorrow) e Tier II (Mourning)
+//REGION Tier I (Sorrow) and Tier II (Mourning)
 PROC
 PROC_ARCANA_Aspect_OnAwakened((CHARACTER)_Eternal, (STRING)_Aspect)
 AND
@@ -89,7 +95,7 @@ ApplyStatus(_Eternal, "ETERNAL_DREAD_AURA", -1.0, 1, _Eternal);
 //END_REGION
 
 //REGION Tier III: Harvest
-// DB_ARCANA_AspectReached nao guarda o Aspecto: sem a passiva, qualquer subclasse no Tier III ganhava o Harvest
+// DB_ARCANA_AspectReached keeps no Aspect: without the passive, any subclass at Tier III would gain Harvest.
 IF
 Died(_Dead)
 AND
@@ -111,7 +117,7 @@ ApplyStatus(_Eternal, "HARVEST_ACTION", 6.0, 1, _Eternal);
 ApplyStatus(_Eternal, "HARVEST_SPENT", 6.0, 1, _Eternal);
 //END_REGION
 
-//REGION The Final Toll: dano = registro, teto metade do HP maximo
+//REGION The Final Toll: damage = the ledger, capped at half the maximum HP
 IF
 StatusApplied((CHARACTER)_Foe, "FINAL_TOLL_TECH", (CHARACTER)_Eternal, _)
 AND
@@ -128,7 +134,7 @@ THEN
 ApplyDamage(_Foe, _Damage, "Necrotic", _Eternal);
 //END_REGION
 
-//REGION Limpeza
+//REGION Cleanup
 PROC
 PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
 AND

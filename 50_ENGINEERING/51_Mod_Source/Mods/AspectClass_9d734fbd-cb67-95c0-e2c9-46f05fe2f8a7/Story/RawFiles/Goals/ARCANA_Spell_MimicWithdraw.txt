@@ -1,22 +1,26 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-// Type-pinning for every DB this goal owns (declare, then delete the dummy row).
 DB_ARCANA_MimicWithdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
 NOT DB_ARCANA_MimicWithdraw_Awaiting((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
 DB_ARCANA_MimicWithdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 NOT DB_ARCANA_MimicWithdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+
 KBSECTION
-// The Veil (Deceiver), Task 4: Mimic: Distortion also leaves a Double where she stood; Mimic: Withdraw swaps places with
-// THAT Double. Same design as ARCANA_Spell_Withdraw.txt (read its header), with the Mimic ids: family
-// Target_Arcana_Created_MimicDistortion, spell Shout_Arcana_Created_MimicWithdraw, helper MIMIC_DISTORTION_HELPER, own DBs
-// and timers. The Distortion and Mimic windows are independent; both Doubles count toward the cap.
+// Mimic: Withdraw (Deceiver, The Veil): Mimic: Distortion also leaves a Double where she stood; Mimic: Withdraw
+// swaps places with THAT Double. Same design as ARCANA_Spell_Withdraw.txt (read its header), with the Mimic ids:
+// family Target_Arcana_Created_MimicDistortion, spell Shout_Arcana_Created_MimicWithdraw, helper
+// MIMIC_DISTORTION_HELPER, own DBs and timers. The Distortion and Mimic windows are independent; both Doubles
+// count toward the cap.
 //
 // DBs:
-//   DB_ARCANA_MimicWithdraw_Awaiting(Caster, X, Y, Z)  she just cast Mimic: Distortion from (X, Y, Z); the next Double
-//                                                      she summons is the one. Dropped by the first Double or after 6 s.
-//   DB_ARCANA_MimicWithdraw_Link(Caster, Double)       the Double Mimic: Withdraw swaps with. One row per Deceiver.
-// Read from ARCANA_Deceiver_Doubles.txt: DB_ARCANA_Double and DB_ARCANA_DoubleGone. Written for it: DB_ARCANA_DoubleHome.
+//   DB_ARCANA_MimicWithdraw_Awaiting(Caster, X, Y, Z)  she just cast Mimic: Distortion from (X, Y, Z); the next
+//                                                      Double she summons is the one. Dropped by the first Double
+//                                                      or after 6 s.
+//   DB_ARCANA_MimicWithdraw_Link(Caster, Double)       the Double Mimic: Withdraw swaps with. One row per Deceiver;
+//                                                      dropped when the window ends.
+// Reads from ARCANA_Deceiver_Doubles.txt: DB_ARCANA_Double and DB_ARCANA_DoubleGone. Writes for it:
+// DB_ARCANA_DoubleHome. Reads DB_ARCANA_CardFamily (upcast variants).
 
 //REGION Shared cleanup
 // Closes the window. Never touches MIMIC_DISTORTION_HELPER (the swap and the timer have their own reasons).

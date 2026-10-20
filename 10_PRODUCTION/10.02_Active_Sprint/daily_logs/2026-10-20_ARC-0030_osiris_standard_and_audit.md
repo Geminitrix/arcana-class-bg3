@@ -15,3 +15,7 @@ the game).
 
 **Waiting on the Owner:** review `goals/` and send `[fechado] ARC-0030` (the apply is in `55/_wip/Osiris/ARC-0030/README.md`),
 compile, play QA_ARC-0030.
+
+**Applied (`[fechado] ARC-0030`):** backup in `94_Safety_Backups/ARC-0030_2026-10-20/`; the 20 goals copied into the
+game, `ARCANA_Spell_MirrorWithdraw` taken out; `sync_data` changed only those files; `check_osiris.pl` OK on `51`, same
+code as `goals/`. Waiting: the Owner compiles the Story, then plays QA_ARC-0030 (now `ready`).

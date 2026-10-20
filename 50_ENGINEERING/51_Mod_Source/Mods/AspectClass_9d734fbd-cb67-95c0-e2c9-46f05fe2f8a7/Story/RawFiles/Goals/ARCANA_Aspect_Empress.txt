@@ -3,12 +3,25 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-// 2 - The High Priestess (the Deceiver; internal ids keep "Empress", spec D12). Rewritten 2026-10-07 (The Veil, stage 4).
-//   Goal: every stack of Doubt she applies is one step (DB_ARCANA_DoubtStep rows, written by ARCANA_Deceiver_Doubt.txt);
-//   4 / 7 / 10 in ARCANA_Aspect_Common.txt.
-//   Tier I (Veiled) lives in the DOUBT statuses. Tier II (Two Pillars): once per turn, when an enemy becomes Deluded in
-//   her name, the nearest unmarked enemy within 6 m gains her Sigil. Tier III: Ready: Which One? (the swap is here).
-//   Aspect card: The Veil Lifts (every Double shatters; survivors with Doubt become Deluded).
+// Aspect of The High Priestess (the Deceiver; internal ids keep "Empress", spec D12).
+//   Goal: every stack of Doubt she applies is one step (DB_ARCANA_DoubtStep rows, written by
+//   ARCANA_Deceiver_Doubt.txt); 4 / 7 / 10 in ARCANA_Aspect_Common.txt.
+//   Tier I (Veiled) lives in the DOUBT statuses. Tier II (Two Pillars): once per turn, when an enemy becomes
+//   Deluded in her name, the nearest unmarked enemy within 6 m gains her Sigil. Tier III: Ready: Which One? (the
+//   swap is here). Aspect card: The Veil Lifts (every Double shatters; survivors with Doubt become Deluded).
+//
+// DBs:
+//   DB_ARCANA_EmpressChained(Deceiver)            Two Pillars already chained this turn. Deleted at her turn start
+//                                                 and by the reset.
+//   DB_ARCANA_EmpressBest(Deceiver, Foe, Dist)    transient: the nearest candidate for the Sigil.
+//   DB_ARCANA_WhichOneBest(Owner, Double, Dist)   transient: the nearest Double for Which One?. Also cleared by the
+//                                                 reset.
+//   DB_ARCANA_VeilLiftsBy(Foe, Owner)             an enemy The Veil Lifts touched, waiting 900 ms for its Doubt.
+//                                                 Deleted by the timer and by the reset.
+// Reads: DB_ARCANA_DoubtStep (consumes it), DB_ARCANA_DoubtCount (ARCANA_Deceiver_Doubt.txt); DB_ARCANA_Double,
+// DB_ARCANA_DoubleGone (ARCANA_Deceiver_Doubles.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached
+// (ARCANA_Aspect_Common.txt); DB_ARCANA_CardFamily. Calls PROC_ARCANA_Doubt_Raise, PROC_ARCANA_Doubles_Retire.
+// Hooks: PROC_ARCANA_Aspect_Reset.
 
 //REGION Goal: Doubt applied
 IF
@@ -180,6 +193,7 @@ IF
 StatusApplied((CHARACTER)_Foe, "VEIL_LIFTS_TECH", (CHARACTER)_Owner, _)
 THEN
 DB_ARCANA_VeilLiftsBy(_Foe, _Owner);
+RealtimeObjectTimerCancel(_Foe, "ARCANA_VeilLifts");
 RealtimeObjectTimerLaunch(_Foe, "ARCANA_VeilLifts", 900);
 
 IF

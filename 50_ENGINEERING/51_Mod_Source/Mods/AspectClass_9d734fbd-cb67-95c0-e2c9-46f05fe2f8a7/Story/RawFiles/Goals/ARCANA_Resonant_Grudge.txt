@@ -3,7 +3,36 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-//REGION Resonant - remember who last hurt each creature during the fight (R26)
+// Grudge (Resonant): a creature in Anger or Rage holds a grudge against the last one who hurt it in this fight
+// (RESONANT_GRUDGE, source = that attacker); with nobody to blame it takes RESONANT_ANGER_FALLBACK from the
+// Resonant instead, never both (R26). Osiris because Stats cannot remember an attacker across events.
+//
+// DBs:
+//   DB_ARCANA_Resonant_LastAttacker(Defender, AttackerOwner)   the last one who hurt the creature (one row per
+//                                                              creature). Deleted when it dies, or when a fight
+//                                                              ends and it is not still fighting elsewhere.
+
+//REGION Shared conditions
+// A fight that ends clears only the creatures that are not still in another fight: CombatEnded fires for every
+// fight on the map, and one ending elsewhere must not wipe the grudges of this one.
+QRY
+QRY_ARCANA_Resonant_Grudge_InOtherFight((GUIDSTRING)_Defender, (GUIDSTRING)_Combat)
+AND
+CombatGetGuidFor(_Defender, _Other)
+AND
+_Other != _Combat
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_ARCANA_Resonant_Grudge_FightOver((GUIDSTRING)_Defender, (GUIDSTRING)_Combat)
+AND
+NOT QRY_ARCANA_Resonant_Grudge_InOtherFight(_Defender, _Combat)
+THEN
+DB_NOOP(1);
+//END_REGION
+
+//REGION Remember who last hurt each creature during the fight (R26)
 IF
 AttackedBy(_Defender, _AttackerOwner, _, _, _, _, _)
 AND
@@ -18,14 +47,23 @@ DB_ARCANA_Resonant_LastAttacker(_Defender, _AttackerOwner);
 PROC_ARCANA_Resonant_Grudge_Refresh(_Defender);
 
 IF
-CombatEnded(_)
+CombatEnded(_Combat)
+AND
+DB_ARCANA_Resonant_LastAttacker(_Defender, _Attacker)
+AND
+QRY_ARCANA_Resonant_Grudge_FightOver(_Defender, _Combat)
+THEN
+NOT DB_ARCANA_Resonant_LastAttacker(_Defender, _Attacker);
+
+IF
+Died(_Defender)
 AND
 DB_ARCANA_Resonant_LastAttacker(_Defender, _Attacker)
 THEN
 NOT DB_ARCANA_Resonant_LastAttacker(_Defender, _Attacker);
 //END_REGION
 
-//REGION Resonant - Anger and Rage: the grudge on the last attacker, or the fallback, never both (R26)
+//REGION Anger and Rage: the grudge on the last attacker, or the fallback, never both (R26)
 PROC
 PROC_ARCANA_Resonant_Grudge_Start((GUIDSTRING)_Defender, (GUIDSTRING)_Resonant)
 AND
