@@ -8,7 +8,7 @@
         <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="DefaultValues" type="StringTableFieldDefinition" value="Acrobatics;AnimalHandling;Nature;Perception;Survival;Stealth;SleightOfHand;Athletics" />
-        <field name="Comment" type="CommentTableFieldDefinition" value="The Unbound" />
+        <field name="Comment" type="CommentTableFieldDefinition" value="The Windborn" />
       </fields>
     </stat_object>
     <stat_object color="#FFFF69B4" is_substat="false">

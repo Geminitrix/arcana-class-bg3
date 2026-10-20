@@ -239,7 +239,7 @@
                     <attribute id="IsMulticlass" type="bool" value="true"/>
                     <attribute id="Level" type="uint8" value="1"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_1;Arcana_Passive_BetheLeaf;Arcana_Passive_FlowingStrikesAgility;Arcana_Passive_FlowingStrikesPrecision;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1;Arcana_Passive_Windswept_Touch"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -250,7 +250,7 @@
                     <attribute id="IsMulticlass" type="bool" value="false"/>
                     <attribute id="Level" type="uint8" value="1"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_1;Arcana_Passive_BetheLeaf;Arcana_Passive_FlowingStrikesAgility;Arcana_Passive_FlowingStrikesPrecision;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1;Arcana_Passive_Windswept_Touch"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(46830276-a1ea-46dd-909e-ad4bf0059235,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -259,7 +259,9 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="2"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_AeolusBag"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(272973cb-2504-439a-a1d8-ab4f7d815db3,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="8cf47f3b-3c5a-4736-ad7b-a6342fe06f1e"/>
                 </node>
@@ -267,8 +269,7 @@
                     <attribute id="Boosts" type="LSString" value="ActionResource(ArcanaGaleDeflectReturn,1,0);ActionResource(ArcanaReactGaleDeflection,3,0)"/>
                     <attribute id="Level" type="uint8" value="3"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_3;Arcana_Passive_Aspect_Fool_I;Arcana_Passive_Aspect_Fool_Awakening"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_1"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Fool_I;Arcana_Passive_Aspect_Fool_Awakening"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(706b4719-9a6d-42c0-8e08-8b273eb3e0e4,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -277,6 +278,8 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="4"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Zephyr_Gale;Arcana_Passive_TwinkleToes_4"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_1"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="c16cd90e-8c94-4cde-8b8c-fca87eae54df"/>
@@ -284,8 +287,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="5"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_5;Arcana_Passive_Weightless_5;Arcana_Passive_FlowingAssault;"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_3"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ExtraAttack"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(438610de-b4a4-4a60-87e0-7f6c4034b140,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -295,14 +297,14 @@
                     <attribute id="Level" type="uint8" value="6"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(a841e643-352c-4b0c-92c5-3e9bf2ddfbb8,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="494b7973-b45e-478c-a695-be4e0cb66e05"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_7;Arcana_Passive_Weightless_7;Arcana_Passive_MagicStrikes;Arcana_Passive_Aspect_Fool_II"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_5;Arcana_Passive_Weightless_5"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_MagicStrikes;Arcana_Passive_Aspect_Fool_II"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(87872209-4d00-4a57-8e24-02fbb18c75bc,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -311,6 +313,8 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="8"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Zephyr_Storm;Arcana_Passive_TwinkleToes_8"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_4"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="bacab022-3911-456f-9847-025d9e6ab7b5"/>
@@ -318,8 +322,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="9"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_9;Arcana_Passive_Weightless_9;Arcana_Passive_EyeOfTheStorm_UI"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_7;Arcana_Passive_Weightless_7"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_EmptyState"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(fc46dcfe-4126-4b55-92ab-87e8fb43e8f9,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -329,14 +332,13 @@
                     <attribute id="Level" type="uint8" value="10"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(87fc92d3-1b5e-4a2e-adf3-816b8cbb511f,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="e94f9a80-20e2-44cc-ab3c-bebfa5b61ab9"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="11"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_11;Arcana_Passive_Weightless_11;Arcana_Passive_Momentum_UI"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_9;Arcana_Passive_Weightless_9"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(f0892650-f4dd-41c1-bbe3-76cd7e361985,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -345,8 +347,8 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_12;Arcana_Passive_Weightless_12;Arcana_Passive_EmptyState;Arcana_Passive_Aspect_Fool_III"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_11;Arcana_Passive_Weightless_11"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_12;Arcana_Passive_Aspect_Fool_III;Arcana_Passive_Zephyr_Hurricane"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_8"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="207f9358-88f8-4c28-a7e5-4cbc5b528cc3"/>
@@ -354,8 +356,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_13"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_12"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="e6cfeae8-e674-4047-a700-b16aadb04a2e"/>
@@ -370,8 +370,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_15"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_13"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="c63a38be-8cd1-43ba-9df2-cd790e25354b"/>
@@ -386,8 +384,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_17"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_15"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="f654f991-a4b7-452b-96b1-57029a496eb6"/>
@@ -402,8 +398,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_19"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_17"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="916ca4c5-e2fe-49a4-a2b2-b16addc0025e"/>
@@ -411,8 +405,6 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="20"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TwinkleToes_20"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="Arcana_Passive_TwinkleToes_19"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="UUID" type="guid" value="d33bb4ba-8201-4993-a418-8c697850a2a1"/>

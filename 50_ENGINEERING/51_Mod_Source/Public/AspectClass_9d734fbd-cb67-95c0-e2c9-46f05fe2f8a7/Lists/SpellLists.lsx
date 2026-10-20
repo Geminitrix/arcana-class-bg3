@@ -121,32 +121,47 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_GaleBurst;Target_TrueStrike"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_GaleBurst"/>
                     <attribute id="UUID" type="guid" value="43261c49-335c-4231-ae5d-6a828cff974c"/>
                 </node>
                 <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Unbound Level 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_AeolusBag"/>
+                    <attribute id="UUID" type="guid" value="272973cb-2504-439a-a1d8-ab4f7d815db3"/>
+                </node>
+                <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 3"/>
-                    <attribute id="Spells" type="LSString" value="Zone_Arcana_Card_Spell_WindBlast;Shout_Arcana_Card_Spell_FlowState;Shout_Arcana_Card_Passive_GaleDeflection"/>
+                    <attribute id="Spells" type="LSString" value="Zone_Arcana_Card_Spell_WindBlast"/>
                     <attribute id="UUID" type="guid" value="706b4719-9a6d-42c0-8e08-8b273eb3e0e4"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_WindWhispers"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_GaleDeflection"/>
                     <attribute id="UUID" type="guid" value="438610de-b4a4-4a60-87e0-7f6c4034b140"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Unboung Level 7"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_StormFists"/>
+                    <attribute id="Name" type="FixedString" value="Unbound Level 6"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_WindWhispers"/>
+                    <attribute id="UUID" type="guid" value="a841e643-352c-4b0c-92c5-3e9bf2ddfbb8"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Unbound Level 7"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_FlowState"/>
                     <attribute id="UUID" type="guid" value="87872209-4d00-4a57-8e24-02fbb18c75bc"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 9"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Ability_Untethered;Shout_Arcana_Card_Spell_EvasiveFlow"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_StormFists"/>
                     <attribute id="UUID" type="guid" value="fc46dcfe-4126-4b55-92ab-87e8fb43e8f9"/>
                 </node>
                 <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Unbound Level 10"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Ability_Untethered"/>
+                    <attribute id="UUID" type="guid" value="87fc92d3-1b5e-4a2e-adf3-816b8cbb511f"/>
+                </node>
+                <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 11"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_Thunderclap"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Created_WhereTheWindsMeet"/>
                     <attribute id="UUID" type="guid" value="f0892650-f4dd-41c1-bbe3-76cd7e361985"/>
                 </node>
                 <node id="SpellList">
@@ -225,16 +240,6 @@
                     <attribute id="UUID" type="guid" value="8749e2ed-fd67-4448-8313-50be6e541b22"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Arcana Deck Core"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Reweave"/>
-                    <attribute id="UUID" type="guid" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Name" type="FixedString" value="Arcana Deck DEBUG"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Tangle_DEBUG;Shout_Arcana_Card_Spell_DEBUG_Fated;Shout_Arcana_Card_Spell_DEBUG_Fleeting;Shout_Arcana_Card_Spell_DEBUG_Unique;Shout_Arcana_Card_Spell_DEBUG_Tangler;Target_Arcana_Util_DEBUG_AddDoubt"/>
-                    <attribute id="UUID" type="guid" value="f2e5e2e9-42c8-4f0e-88de-830ef0224290"/>
-                </node>
-                <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Kingmaker Level 3"/>
                     <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_AtroposCut"/>
                     <attribute id="UUID" type="guid" value="f48fbecb-c8b6-4837-a3f9-270a905caa19"/>
@@ -258,6 +263,16 @@
                     <attribute id="Name" type="FixedString" value="Kingmaker Level 11"/>
                     <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_TheWheelStops"/>
                     <attribute id="UUID" type="guid" value="72df5574-9198-4cd6-9013-61ec2ce8bf59"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Arcana Deck Core"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Reweave"/>
+                    <attribute id="UUID" type="guid" value="20d9404e-35c0-4dbc-ad46-f4d8a6e76dfc"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Arcana Deck DEBUG"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Tangle_DEBUG;Shout_Arcana_Card_Spell_DEBUG_Fated;Shout_Arcana_Card_Spell_DEBUG_Fleeting;Shout_Arcana_Card_Spell_DEBUG_Unique;Shout_Arcana_Card_Spell_DEBUG_Tangler;Target_Arcana_Util_DEBUG_AddDoubt"/>
+                    <attribute id="UUID" type="guid" value="f2e5e2e9-42c8-4f0e-88de-830ef0224290"/>
                 </node>
             </children>
         </node>

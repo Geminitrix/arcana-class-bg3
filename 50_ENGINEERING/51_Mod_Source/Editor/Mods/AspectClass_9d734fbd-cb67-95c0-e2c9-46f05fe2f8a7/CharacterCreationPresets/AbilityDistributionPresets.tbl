@@ -34,12 +34,12 @@
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
         <field name="UUID" type="IdTableFieldDefinition" value="e611f20a-75c8-47ac-8323-c9e65898c1ec" />
         <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="dc2e68d3-5577-4a9f-be4f-1a71707c1995" />
-        <field name="Strength" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
         <field name="Dexterity" type="IntegerTableFieldDefinition" value="15" />
-        <field name="Constitution" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="13" />
         <field name="Intelligence" type="IntegerTableFieldDefinition" value="15" />
-        <field name="Wisdom" type="IntegerTableFieldDefinition" value="13" />
-        <field name="Charisma" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="10" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
         <field name="Comment" type="CommentTableFieldDefinition" value="Unbound INT / DEX" />
       </fields>
     </stat_object>

@@ -2318,12 +2318,12 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag_Boreas;Shout_Arcana_Created_AeolusBag_Notus;" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag_Boreas;Shout_Arcana_Created_AeolusBag_Notus;Shout_Arcana_Created_AeolusBag_Eurus;Shout_Arcana_Created_AeolusBag_BoreasNotus;Shout_Arcana_Created_AeolusBag_NotusEurus;Shout_Arcana_Created_AeolusBag_EurusBoreas;" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self();" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_GustOfWind" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hba1bec4cg4d8dgb7a2g9075g1812e8ce849e" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h659a7139g367dg3a92g911cgcd3db39dacb8" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h9bce9a43gffd4g861ege79dg475a6629a007" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h659a7139g367dg3a92g911cgcd3db39dacb8" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h9bce9a43gffd4g861ege79dg475a6629a007" version="2" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Monk_WholenessOfBody_L1to3" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Monk_WholenessOfBody_L1to3" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Stop" />
@@ -2335,7 +2335,7 @@
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent;IsLinkedSpellContainer" enumeration_type_name="SpellFlagList" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN')" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="66e75793-b0e1-42cd-812a-ee1f403a58da" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="fa88f7ad-1ef6-4913-8166-573d1248d907" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
@@ -2349,24 +2349,108 @@
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h447a8cb5g4034g4662g8b42gac17c96a756c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h310413beg0cfeg3085gfc72g9ef1b1faa5f8" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hc338d030g7f05g53f2gd5f2ga1159750c24e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h310413beg0cfeg3085gfc72g9ef1b1faa5f8" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h19de84e2g2e35g482dg35e8g26c98ae49f5f" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and not HasPassive('Arcana_Passive_Zephyr_Hurricane') and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and not HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
       </fields>
     </stat_object>
-    <stat_object color="#FF000000" is_substat="false">
+    <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="fc24fafe-8ea6-4b63-bf8d-e9747731029b" />
+        <field name="UUID" type="IdTableFieldDefinition" value="daf65d40-8568-47c9-89ad-34175fe5c1f2" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag_Notus" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="5453f36e-9512-49f6-9ccd-69ae4a21b5f1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6cc1a8a6g7306geee6g65c4g87038a2a8421" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf6c257b5g8038g359ega269g227ce4b91be7" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hb15f6e5fg4394g638fg6c85ga7e254ea6d82" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd695a198g5630gd9d4g9178g3bb622607981" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h968e4d30ge47ag54f1gcb82g357995e9cfc5" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hb87b663cg4c6dge03ag6612gd619c3922860" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and not HasPassive('Arcana_Passive_Zephyr_Hurricane') and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and not HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b7b7a854-1726-4dff-87ca-de26beb52cce" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag_Eurus" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="5453f36e-9512-49f6-9ccd-69ae4a21b5f1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd801411dga291gbcecg6038g6d12700bd7f4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h053a78b1g6060gabf1g9e4bg2279893eff23" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h8a44daf7g34c3gd742g0465g0478553cb919" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Gale') and not HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3b441f84-b3f9-4685-b132-04039fe33743" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag_BoreasNotus" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="5453f36e-9512-49f6-9ccd-69ae4a21b5f1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7b68c92bg0c45ge9d8g4741ge12531c0912c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h063bc6e7g6945gbf31ga2f4g28def30dbdbd" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h172ef75ag97bcgf51fg3ab5geb33714349e2" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c5ea3e46-b428-48e0-9f8b-6d78ec5d499e" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag_NotusEurus" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="5453f36e-9512-49f6-9ccd-69ae4a21b5f1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8f08c0f2g1013gfd7agdce0g01cb5420ea2d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h78ff60d5g9c31g530dgf804g554f995ec4d7" version="1" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hfebb2141gfc82g5276gc905gf1bf9d0aed3f" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b8d5031c-6ac5-49fa-829c-ebc505f24ab1" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_AeolusBag_EurusBoreas" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="5453f36e-9512-49f6-9ccd-69ae4a21b5f1" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h78f483a7g7b5dga4a9ga51dg3a58f351f8d3" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9a99082cgad37ga1deg8c8ag4e88ffbcce58" version="2" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h3165df7cga412g88deg5f82gf3b771e3b291" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_READY') and not HasStatus('BAG_OPEN') and HasPassive('Arcana_Passive_Zephyr_Hurricane')" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="33599b2b-c3f4-4d67-8659-7ae852ee95e3" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_TheCalm" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_Sanctuary" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h04267968g6b08gbb66gd7f7g520813a4d5c6" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hbc68c8adg47a5g3666gfa9fg0215347115d1" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d8,Thunder)" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h74b7cf7eg9ed5g92b5ged6fg579520453873" version="1" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Monk_WholenessOfBody_L1to3" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Monk_WholenessOfBody_L1to3" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Stop" />
+        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;032e057c-c5af-47a8-b65a-bf297ba03601,,;c6ba268f-f7a2-4710-aed2-dcd241b078e9,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Damage" enumeration_type_name="VerbalIntent" version="1" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent;Temporary" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('BAG_OPEN')" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="66e75793-b0e1-42cd-812a-ee1f403a58da" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="fa88f7ad-1ef6-4913-8166-573d1248d907" />
+        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2392,6 +2476,7 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="None" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasStatus('ARCANA_WEAVING',context.Source) and not (HasStatus('GALE_DEFLECTION_READY',context.Source) and HasActionResource('ArcanaReactGaleDeflection',3,0,false,false,context.Source))" />
+        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2440,13 +2525,13 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_FlowState" />
         <field name="Level" type="IntegerTableFieldDefinition" value="2" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE,100,2);" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE,100,3);" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StillnessOfMind" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8288db8fg32dfg6e3dgda26gcd08aedf318a" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5" version="12" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5c5dd9ccg21a6ge6e1g1f8fg8f392e8e5ce5" version="13" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="GainTemporaryHitPoints(ClassLevel(Arcana)*2)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE,100,2)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE,100,3)" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Monk_WholenessOfBody_L1to3" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Monk_WholenessOfBody_L1to3" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Stop" />
@@ -2457,10 +2542,8 @@
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="66e75793-b0e1-42cd-812a-ee1f403a58da" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="fa88f7ad-1ef6-4913-8166-573d1248d907" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h862291ffg0dcagc01agff59g3707148c1f0c" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
@@ -2473,8 +2556,6 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_FlowState" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE_3,100,3);" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE_3,100,3)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2485,8 +2566,6 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_FlowState" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE_4,100,4);" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE_4,100,4)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2497,9 +2576,6 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_FlowState" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE_5,100,5);" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf33d690dgec42g3152g81e3g18cadacd3f32" version="1" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE_5,100,5)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2510,9 +2586,6 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_FlowState" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLOW_STATE_6,100,6);" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3c90790fg6444g0b67g0c79gb0826af77f5b" version="1" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLOW_STATE_6,100,6)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2524,7 +2597,7 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_DangerSense" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he348b9b5g4bffgf77cgaa79g953924869067" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h64279279ga897g3b4bgc173gcc1156e709e0" version="6" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h64279279ga897g3b4bgc173gcc1156e709e0" version="8" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(WIND_WHISPERS,100,1)" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Vocal_Component_Monk_Utility" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Generic_GeneralAction_Loop" />
@@ -2536,16 +2609,14 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="b3b2d16b-61c7-4082-8394-0c04fb9ffdec,,;81c58c55-625d-46c3-bbb7-179b23ef725e,,;3c35a4e1-4441-4603-9c71-82179057d452,,;18c8ab7a-cfef-45b9-851d-e2bc52c9ebc3,,;e601e8fd-4017-4d26-a63a-e1d7362c99b3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="Stealth;Invisible;IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="AnimationIntentType" type="EnumerationTableFieldDefinition" value="Aggressive" enumeration_type_name="SpellAnimationIntentType" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="AnimationIntentType" type="EnumerationTableFieldDefinition" value="Peaceful" enumeration_type_name="SpellAnimationIntentType" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="c520a0bf-adc6-44f6-abcd-94bc0925b881" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="0ed6eeea-fb80-45e5-a190-d72579f7e3d6" />
         <field name="CinematicArenaFlags" type="EnumerationTableFieldDefinition" value="Ignore" enumeration_type_name="CinematicArenaFlags" version="1" />
         <field name="SpellSoundMagnitude" type="EnumerationTableFieldDefinition" value="Small" enumeration_type_name="SpellSoundMagnitude" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,WIND_WHISPERS,100,1);" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h82844638g0047g3b7cg19d4g22048d1b74e0" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
     </stat_object>
@@ -2581,62 +2652,6 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="69d1576c-011e-433b-aa6d-a8d0fb020efb" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EvasiveFlow" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="3" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,EVASIVE_FLOW,100,1);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,1);" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_StepOfTheWind_Disengage" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb29aa0aegb636g3a54gd23fg07eb5b76c615" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hbec0c1e5g4648g9671g5329g17403f153608" version="6" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EVASIVE_FLOW,100,1)" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="Action_Prepare_Monk_StepoftheWind" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Action_Loop_Monk_StepoftheWind" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Disengage" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Disengage" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:3;" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="4f0a01e4-761d-4236-b789-33c1e7532023,,;9dec9d1f-ac78-4e2d-9095-1e0c8351144c,,;bd7104f0-6bb8-413c-8a38-ca0b2072a624,,;e3dd360c-2bc6-470b-aa4a-6b6a64e8e215,,;e85be5a8-6e48-4da4-8486-0d168159df4e,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Utility" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="NoCameraMove;IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="AnimationIntentType" type="EnumerationTableFieldDefinition" value="Aggressive" enumeration_type_name="SpellAnimationIntentType" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not Immobilized() and not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f56fb8e0-815b-41e0-9071-3c2305c93660" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="08ecdc25-31ea-4f32-8787-19b97971a9f1" />
-        <field name="CinematicArenaFlags" type="EnumerationTableFieldDefinition" value="Ignore" enumeration_type_name="CinematicArenaFlags" version="1" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h220a199fg83b7ge1d0gf593g6654fbde831c" version="1" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="d65caffc-41d5-4b06-a93d-5d0c5e550393" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EvasiveFlow_5" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="69d1576c-011e-433b-aa6d-a8d0fb020efb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_EvasiveFlow" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:5;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,EVASIVE_FLOW,100,2);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,2);" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EVASIVE_FLOW,100,2)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="55417892-c270-450b-b5f8-ea55da1868cf" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_EvasiveFlow_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="69d1576c-011e-433b-aa6d-a8d0fb020efb" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_EvasiveFlow" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:6;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,EVASIVE_FLOW,100,3);ApplyStatus(SELF,EVASIVE_FLOW_OPENING,100,3);" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(EVASIVE_FLOW,100,3)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="c3f8b549-294f-4d7f-baab-e862f8089474" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_StormFists" />
         <field name="Level" type="IntegerTableFieldDefinition" value="4" />
@@ -2645,8 +2660,8 @@
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Shatter" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h82392b3bg213dg4c12gb6c6g5f651139d12d" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h456b6976gfa1cg7d54geb90g1660c0e4606b" version="5" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4+DexterityModifier,Thunder)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h456b6976gfa1cg7d54geb90g1660c0e4606b" version="7" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4+DexterityModifier,Thunder);2" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(STORM_FISTS,100,3)" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Monk_WholenessOfBody_L1to3" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Monk_WholenessOfBody_L1to3" />
@@ -2660,8 +2675,6 @@
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="216e0279-36c2-4b1e-801a-16ce94316c96" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="ca5821cf-e718-4529-989f-d658f0791a1d" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="he1334bc7g6336gf33fg3a0bg9b16c790118a" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
@@ -2674,9 +2687,8 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_StormFists" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:5;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,STORM_FISTS_5,100,4);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6+DexterityModifier,Thunder)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(STORM_FISTS_5,100,4)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,STORM_FISTS_2,100,3);" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(STORM_FISTS_2,100,3)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2687,53 +2699,8 @@
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_StormFists" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:6;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,STORM_FISTS_6,100,5);" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d8+DexterityModifier,Thunder)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(STORM_FISTS_6,100,5)" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="07e168e5-211e-4544-b27c-f8de2e655466" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Thunderclap" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="4" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,THUNDERCLAP,100,3);" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_ChromaticOrb_Thunder" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hba1f43ccg5c79g67bdg3e95g58ca95fe3c21" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd264d2c3g3d31geeeag9a53g0a1a187689e2" version="7" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(,Thunder)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(THUNDERCLAP,100,3)" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Monk_WholenessOfBody_L1to3" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Spell_Impact_Monk_WholenessOfBody_L1to3" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="Vocal_Component_Stop" />
-        <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:4;" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="355a5479-07c9-4a34-9ab6-3b2669fdd248,,;,,;2ac8ee64-6d74-4cad-a74c-660ef3fc3d06,,;5bf6f6e6-353e-40f9-9a6f-0d6d16e19496,,;1c5627cb-6352-454b-9b84-c5b10ef2d201,,;,,;1cc6ba3b-fa78-48f8-858c-ac4c78fdb8fc,,;,,;,," />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Utility" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="AnimationIntentType" type="EnumerationTableFieldDefinition" value="Aggressive" enumeration_type_name="SpellAnimationIntentType" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="66e75793-b0e1-42cd-812a-ee1f403a58da" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="fa88f7ad-1ef6-4913-8166-573d1248d907" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hf42c12f5g68c3g33d6g1283gdb0b20f96472" version="1" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="bac87349-5a0c-4c6a-82ff-2623985ed0e2" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_Thunderclap_6" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="07e168e5-211e-4544-b27c-f8de2e655466" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_Thunderclap" />
-        <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:6;" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,THUNDERCLAP,100,5);" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(THUNDERCLAP,100,5)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,STORM_FISTS_3,100,3);" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(STORM_FISTS_3,100,3)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2742,12 +2709,11 @@
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Ability_Untethered" />
         <field name="Level" type="IntegerTableFieldDefinition" value="5" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLY_UNTETHERED,100,-1);ApplyStatus(SELF,ZEPHYR_STRIKE,100,1);" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,FLY_UNTETHERED,100,-1);" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_TempestuousMagic" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha4615c56gf178gd9b4g85ffgb044857109de" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc722a395gc58egeaa3g741ag3ed8de7bb01f" version="5" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h1e336867gd053g4125g3c76g6b6c7299e2d8" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc722a395gc58egeaa3g741ag3ed8de7bb01f" version="6" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(FLY_UNTETHERED,100,-1) " />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Vocal_Component_Monk_Utility" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Monk_RidetheWind" />
@@ -2758,8 +2724,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="c7438204-9e84-4eee-91b4-c3289fbda0b7,,;9dec9d1f-ac78-4e2d-9095-1e0c8351144c,,;bd7104f0-6bb8-413c-8a38-ca0b2072a624,,;1853afa3-d7c2-4957-a293-c32b6ec9a88a,,;36a98c4d-bab0-4302-ae78-d7a75c3bb9e4,,;,,;688653ba-7032-4d40-ac02-ce8b3af93516,,;,,;,," />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Buff" enumeration_type_name="VerbalIntent" version="1" />
         <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasSomaticComponent;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not (WearingArmor(context.Source) or HasShieldEquipped(context.Source))" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;HasSomaticComponent" enumeration_type_name="SpellFlagList" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="7bb2af21-e943-4e9e-92f0-ab5143c1a9d7" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="31c7da90-3ba8-4579-a8b7-9610885604fb" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />

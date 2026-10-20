@@ -30,8 +30,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="dc2e68d3-5577-4a9f-be4f-1a71707c1995" />
         <field name="ParentUUID" type="GuidObjectTableFieldDefinition" value="799a9fd7-f042-411a-80ae-a0eb46e7f829" />
         <field name="NameFS" type="FixedStringTableFieldDefinition" value="Unbound" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8bcf3e57gbc72gd8bbg1503g0762e93077a9" version="4" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf756bce1g79bag5985ga624gb4cc6e843978" version="3" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8bcf3e57gbc72gd8bbg1503g0762e93077a9" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf756bce1g79bag5985ga624gb4cc6e843978" version="4" />
         <field name="ProgressionTableUUID" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
         <field name="SoundClassType" type="FixedStringTableFieldDefinition" value="Monk" />
         <field name="LearningStrategy" type="EnumerationTableFieldDefinition" value="AllChildren" enumeration_type_name="LearningStrategy" version="1" />

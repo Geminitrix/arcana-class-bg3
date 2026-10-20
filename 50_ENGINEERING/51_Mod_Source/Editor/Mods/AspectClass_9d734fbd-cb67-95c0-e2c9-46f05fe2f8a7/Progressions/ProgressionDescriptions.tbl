@@ -171,8 +171,8 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_4" />
         <field name="UUID" type="IdTableFieldDefinition" value="8b20c6f0-e77a-433c-8bce-2475cf5b4165" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h869a34deg0c99gfa1bg8672g22a4fb8339b4" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9a3184f7g73a8g6169g04a6g6dc398547d7f" version="3" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h869a34deg0c99gfa1bg8672g22a4fb8339b4" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9a3184f7g73a8g6169g04a6g6dc398547d7f" version="4" />
         <field name="Type" type="FixedStringTableFieldDefinition" value="Unbound" />
         <field name="ProgressionTableId" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
       </fields>

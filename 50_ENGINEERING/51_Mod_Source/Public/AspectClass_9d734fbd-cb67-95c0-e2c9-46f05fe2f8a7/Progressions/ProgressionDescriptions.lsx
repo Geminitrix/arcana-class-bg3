@@ -114,8 +114,8 @@
                     <attribute id="UUID" type="guid" value="9a3d1dc4-2599-419d-a6bb-7591d02b5517"/>
                 </node>
                 <node id="ProgressionDescription">
-                    <attribute id="Description" type="TranslatedString" handle="h9a3184f7g73a8g6169g04a6g6dc398547d7f" version="3"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h869a34deg0c99gfa1bg8672g22a4fb8339b4" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h9a3184f7g73a8g6169g04a6g6dc398547d7f" version="4"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h869a34deg0c99gfa1bg8672g22a4fb8339b4" version="2"/>
                     <attribute id="ProgressionTableId" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
                     <attribute id="Type" type="FixedString" value="Unbound"/>
                     <attribute id="UUID" type="guid" value="8b20c6f0-e77a-433c-8bce-2475cf5b4165"/>

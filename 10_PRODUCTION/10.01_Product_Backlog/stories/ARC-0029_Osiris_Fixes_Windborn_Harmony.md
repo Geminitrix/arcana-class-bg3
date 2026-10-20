@@ -4,7 +4,7 @@ title: "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak"
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: unbound
-status: ready
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -68,9 +68,9 @@ Tier II got `RESONANT_SURGE_FREE` (seen on a level-7 Windborn). It gains
 
 ## Acceptance criteria
 
-- [ ] The game's `ARCANA_Aspect_Fool` matches `55/_wip/Unbound/arc0029/ARCANA_Aspect_Fool.txt`; the Story compiles with `0 error(s)`
-- [ ] The game's `ARCANA_Aspect_Temperance` carries the `HasPassive(... Temperance_II ...)` condition
-- [ ] The Stats edits of §3 are in the game (checked against this list after `sync_data`)
+- [x] The game's `ARCANA_Aspect_Fool` matches `55/_wip/Unbound/arc0029/ARCANA_Aspect_Fool.txt`; the Story compiles with `0 error(s)`
+- [x] The game's `ARCANA_Aspect_Temperance` carries the `HasPassive(... Temperance_II ...)` condition
+- [x] The Stats edits of §3 are in the game (checked against this list after `sync_data`)
 - [ ] Play: 4 enemies, 3 marked, open the bag with Notus → only those 3 take `HEADWIND_NOTUS`, and keep it until the wind stops
 - [ ] Play: an enemy marked while the wind blows takes the headwind; marked with no wind, it doesn't
 - [ ] Play: The Calm with 2+ turns left hits every enemy under a headwind (1d8 per turn left to level 6, 2d6 from 7), once each; the headwinds end; the bag can reopen the same turn
@@ -87,3 +87,10 @@ Tier II got `RESONANT_SURGE_FREE` (seen on a level-7 Windborn). It gains
 
 - 2026-10-20 — created at the Owner's request from the ARC-0026 review. The generator fix is in (92d4635); the rest
   waits for the Owner to paste and compile (game open, OR-11).
+- 2026-10-20 — Owner: `[fechado] ARC-0029` ("algumas alterações eu já fiz no jogo, confira e altere"); pulled forward
+  past the WIP limit at the Owner's request (OR-3). Checked: the game's `ARCANA_Aspect_Fool` already had the final rules
+  (only the header comment differs from `_wip`); every Stats edit of §3 was in the game, and `INTO_THE_STORM` became a
+  `StartTurn` tick (`TickFunctors` `Force(3, OriginToTarget)` + Off Balance) — the Owner's choice: a Windswept enemy
+  near her at Tier III is pushed at each of its turn starts. Fixed by Claude: the Tier II rule of
+  `ARCANA_Aspect_Temperance` (backup in `94_Safety_Backups/ARC-0029_2026-10-20/`). `sync_data` run (it also brought the
+  Owner's ARC-0026 typing and the removal of the probe goal). Next: the Owner compiles the Story and plays the tests above.

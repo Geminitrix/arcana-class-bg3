@@ -32,8 +32,8 @@
                     <attribute id="CanLearnSpells" type="bool" value="true"/>
                     <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
                     <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Unbound"/>
-                    <attribute id="Description" type="TranslatedString" handle="hf756bce1g79bag5985ga624gb4cc6e843978" version="3"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h8bcf3e57gbc72gd8bbg1503g0762e93077a9" version="4"/>
+                    <attribute id="Description" type="TranslatedString" handle="hf756bce1g79bag5985ga624gb4cc6e843978" version="4"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h8bcf3e57gbc72gd8bbg1503g0762e93077a9" version="5"/>
                     <attribute id="LearningStrategy" type="uint8" value="1"/>
                     <attribute id="MustPrepareSpells" type="bool" value="true"/>
                     <attribute id="Name" type="FixedString" value="Unbound"/>

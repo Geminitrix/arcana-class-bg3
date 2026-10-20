@@ -25,14 +25,14 @@
                     <attribute id="Wisdom" type="int32" value="15"/>
                 </node>
                 <node id="AbilityDistributionPreset">
-                    <attribute id="Charisma" type="int32" value="8"/>
+                    <attribute id="Charisma" type="int32" value="10"/>
                     <attribute id="ClassUUID" type="guid" value="dc2e68d3-5577-4a9f-be4f-1a71707c1995"/>
-                    <attribute id="Constitution" type="int32" value="10"/>
+                    <attribute id="Constitution" type="int32" value="13"/>
                     <attribute id="Dexterity" type="int32" value="15"/>
                     <attribute id="Intelligence" type="int32" value="15"/>
-                    <attribute id="Strength" type="int32" value="10"/>
+                    <attribute id="Strength" type="int32" value="8"/>
                     <attribute id="UUID" type="guid" value="e611f20a-75c8-47ac-8323-c9e65898c1ec"/>
-                    <attribute id="Wisdom" type="int32" value="13"/>
+                    <attribute id="Wisdom" type="int32" value="10"/>
                 </node>
                 <node id="AbilityDistributionPreset">
                     <attribute id="Charisma" type="int32" value="10"/>

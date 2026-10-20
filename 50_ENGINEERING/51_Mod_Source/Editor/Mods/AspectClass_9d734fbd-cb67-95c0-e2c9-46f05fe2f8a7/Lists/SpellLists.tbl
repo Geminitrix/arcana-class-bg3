@@ -166,42 +166,63 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="43261c49-335c-4231-ae5d-6a828cff974c" />
         <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 1" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst;Target_TrueStrike" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_GaleBurst" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="272973cb-2504-439a-a1d8-ab4f7d815db3" />
+        <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 2" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Created_AeolusBag" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="706b4719-9a6d-42c0-8e08-8b273eb3e0e4" />
         <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 3" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast;Shout_Arcana_Card_Spell_FlowState;Shout_Arcana_Card_Passive_GaleDeflection" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="438610de-b4a4-4a60-87e0-7f6c4034b140" />
         <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 5" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_GaleDeflection" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a841e643-352c-4b0c-92c5-3e9bf2ddfbb8" />
+        <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 6" />
         <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_WindWhispers" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="87872209-4d00-4a57-8e24-02fbb18c75bc" />
-        <field name="Name" type="NameTableFieldDefinition" value="Unboung Level 7" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_StormFists" />
+        <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 7" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_FlowState" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="fc46dcfe-4126-4b55-92ab-87e8fb43e8f9" />
         <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 9" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Ability_Untethered;Shout_Arcana_Card_Spell_EvasiveFlow" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_StormFists" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FFDAA520" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="87fc92d3-1b5e-4a2e-adf3-816b8cbb511f" />
+        <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 10" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Ability_Untethered" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="f0892650-f4dd-41c1-bbe3-76cd7e361985" />
         <field name="Name" type="NameTableFieldDefinition" value="Unbound Level 11" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Spell_Thunderclap" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Created_WhereTheWindsMeet" />
       </fields>
     </stat_object>
     <stat_object color="#FF2F4F4F" is_substat="false">

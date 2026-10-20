@@ -477,12 +477,12 @@
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_DeflectMissile" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0b5783gffb9gab5cge25fg40567d09d2ab" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc7a1320ag001bg324fg456fg54638e396870" version="1" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MartialArtsUnarmedDamage,Bludgeoning)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage,Bludgeoning)" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Monk_DeflectMissile" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;c3340bf4-833e-4c4d-b679-8ccdb26c30e7,,;6c5e8729-472f-4aab-acc4-a51d6657a50d,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" value="Utility" enumeration_type_name="VerbalIntent" version="1" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsAttack;IsHarmful;IsSpell" enumeration_type_name="SpellFlagList" version="1" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="IsSpell;IsAttack;IsHarmful" enumeration_type_name="SpellFlagList" version="1" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="5f319816-74c9-484c-9b27-5a25077ea126" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="8bfd5bf7-cb91-49f4-a9c4-b26a477e9299" />
         <field name="Level" type="IntegerTableFieldDefinition" value="2" />
@@ -494,9 +494,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="83527623-d774-4ee8-aa50-a612dd120b6e" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Ability_Fly_Untethered" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="21a440e2-13ce-4b12-b7a3-5847137807b2" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_TempestuousMagic" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source);" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="99" />
       </fields>
     </stat_object>
