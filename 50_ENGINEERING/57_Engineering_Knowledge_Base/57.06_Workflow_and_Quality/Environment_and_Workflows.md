@@ -38,6 +38,11 @@ There is no in-Toolkit script editor. Author files externally, then reload.
   checked"* revealed a 2-arity declaration that didn't match the 3-arity DB the rules used).
   `story_orphanqueries_found.txt` lists the same thing. Compiling needs the Toolkit open, so the cycle is:
   edit with `[fechado]` → the Owner compiles → next message `[aberto]` → read `log.txt`.
+  The Toolkit log shows `Reading file '…/Story/story_orphanqueries_found.txt' with 0 size!` and the same for
+  `Story/RawFiles/story_definitions.div` after every compile: **not an error**. The Story Editor rewrites both on each
+  compile, and they are empty when there is nothing to list (no orphan query; the mod defines no Osiris symbols of
+  its own). Both were already 0 bytes in September 2026. Don't delete them: the next compile writes them again.
+  (ARC-0029, 2026-10-21.)
 - **LSX data** (Progressions, ClassDescriptions, Lists, Levelmaps) → the Toolkit's **UUID Object Editor**.
 - **Two copies of every table.** The Toolkit keeps what the game reads in `Public/<Mod>/…/*.lsx` **and** what its
   editor shows in `Editor/Mods/<Mod>/…/*.tbl` (Stats: `Editor/Mods/<Mod>/Stats/…/*.stats`). An edit made outside the
