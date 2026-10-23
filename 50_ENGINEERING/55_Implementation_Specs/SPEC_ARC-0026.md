@@ -4,10 +4,18 @@ ticket: ARC-0026
 status: draft
 implementation: owner
 author: Mod Engineer
-updated: 2026-10-18
+updated: 2026-10-23
 ---
 
 # SPEC_ARC-0026 · The Windborn — implementation plan
+
+> **2026-10-23 — the Owner's build supersedes part of this file (WB52–WB61, `21.04/Unbound/DECISIONS.md`).** While
+> playing levels 1–8 the Owner changed the build in the Toolkit (commit `60afc0e`): the Rush stays 9 m and costs movement
+> (WB52); Storm's second Rush is granted on casting, 12 m, any enemy (WB53); **Zephyr: Tempest replaces Storm Fists**
+> (WB54), **Zephyr: Ally Tempest replaces Leap of Faith** (WB55), **Unleashed Winds replaces Where the Winds Meet**
+> (WB56); the Windswept split in Wind Whispers, Gale Deflection and Empty State (WB57); out of combat (WB58); Weightless
+> +4 / +7 / +10 / +13 m (WB59); winds don't refresh (WB60); the West Wind voice and the Owner's icons (WB61). Where this
+> file disagrees, **the game and those decisions win**; `05.02/Unbound.md` describes the game as it is.
 
 > Technical source for building the Windborn (internal name *Unbound*) **from zero** in the Toolkit (Owner, 2026-10-18: the old
 > Unbound is deleted and typed again). The typing view is **`TOOLKIT_ARC-0026.md`** (one file, OR-4), in the order to implement,
@@ -181,6 +189,62 @@ The Windborn's robe and the character-creation kit.
 
 `Arcana_Passive_EyeOfTheStorm`, `Arcana_Passive_EyeOfTheStorm_UI`, `Arcana_Passive_FlowingStrikeZephyr`, `Arcana_Passive_Momentum`, `Arcana_Passive_Momentum_UI`, `Arcana_Passive_Thunderclap`, `Arcana_Passive_TwinkleToes_1`, `Arcana_Passive_TwinkleToes_11`, `Arcana_Passive_TwinkleToes_12`, `Arcana_Passive_TwinkleToes_13`, `Arcana_Passive_TwinkleToes_15`, `Arcana_Passive_TwinkleToes_17`, `Arcana_Passive_TwinkleToes_19`, `Arcana_Passive_TwinkleToes_20`, `Arcana_Passive_TwinkleToes_3`, `Arcana_Passive_TwinkleToes_5`, `Arcana_Passive_TwinkleToes_7`, `Arcana_Passive_TwinkleToes_9`, `Arcana_Passive_Weightless_11`, `Arcana_Passive_Weightless_5`, `Arcana_Passive_Weightless_7`, `Arcana_Passive_Weightless_9`, `Arcana_Passive_Windswept_Touch`, `EVASIVE_FLOW`, `FLOW_STATE_3`, `FLOW_STATE_4`, `FLOW_STATE_5`, `FLOW_STATE_6`, `Interrupt_Arcana_Aspect_FoolsLuck`, `Shout_Arcana_Card_Spell_EvasiveFlow`, `Shout_Arcana_Card_Spell_EvasiveFlow_5`, `Shout_Arcana_Card_Spell_EvasiveFlow_6`, `Shout_Arcana_Card_Spell_Thunderclap`, `Shout_Arcana_Card_Spell_Thunderclap_6`, `THUNDERCLAP`, `WANDERLUST_HIT_TECH`.
 Also gone: Twinkle Toes and the old Weightless chain (Weightless 1/4/8/12 replace them), Target_TrueStrike from the level-1 list.
+
+## Fixes owed (WB62) — to apply with `[fechado] ARC-0026`
+
+Found in the propagation of 2026-10-23; none is a design change. The Owner may type them in the Toolkit
+(`implementation: owner`) or tell Claude to apply them (`implementation: claude`). After applying: sync (`sync_data.sh`),
+`check_cards.pl`, `dossier_texts.pl` and `QA_ARC-0026` A.3.
+
+**Stats**
+
+| # | Entry (file) | Field | Today | Fix |
+|---|---|---|---|---|
+| F1 | `Target_Arcana_Created_ZephyrStrike` (`SpellData/Target.stats`) | `DisplayName` | handle `h56bc27caga588g2b1agc487ge918b523cedf` ("Zephyr Rush", shared with the Rush) | handle `h939a9ea3gfbabg50bbgaa8fga3efd4c6de88` ("Zephyr Strike", already in the loca for `ZEPHYR_STRIKE`) |
+| F2 | `Target_Arcana_Created_UnleashedWinds` (`SpellData/Target.stats`) | `TargetConditions` | `Enemy() not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source);` | `Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)` |
+| F3 | `Shout_Arcana_Card_Passive_GaleDeflection` (`SpellData/Shout.stats`) | `Level` | `2` | `3` (it costs a level-3 slot since WB57) |
+| F4 | `ZEPHYR_TEMPEST_ALLY` (`StatusData/Status_BOOST.stats`) | `Icon` | none (a visible status on an ally) | `PassiveFeature_HeartOfTheStorm_Resistance` (the card's icon) or the Owner's choice |
+
+**English loca** (`Localization/English/english.xml`; the other languages follow Localization)
+
+| # | Handle | Where | Today | Fix |
+|---|---|---|---|---|
+| F5 | `hccc388f3g3470g7274g913agf1747c6c5cb9` | Zephyr Rush (description) | "Ride the Weast Wind…" | "Ride the West Wind…" |
+| F6 | `h955602a4ga4e5g7675gd372g15f80a687280` | Zephyr Rush: Storm | "The Weast Wind can carry you…" | "The West Wind can carry you…" |
+| F7 | `hf9cd17fegc710g12cbg5181gb6e7c97bf309`, `h54c232b7gf728g84d0gea11g54ae2c0eba23` | Windswept (×2) | "Touched by the Weast Wind." | "Touched by the West Wind." |
+| F8 | `h172ef75ag97bcgf51fg3ab5geb33714349e2` | Aeolus' Bag: Boreas and Notus (extra description) | "Winswept" | "Windswept" |
+| F9 | `hdae8725bg5610gc5e1g134ag9ee368e826f7` | `Arcana_Passive_WindWhispers` (name) | "Whind Whispers" | "Wind Whispers" |
+| F10 | `hd97fd5c1g81d2g01ebgc6f7gd346aa83d5dc` | Unleashed Winds (name) | "Unleash Winds" | "Unleashed Winds" (WB56) |
+| F11 | `h456b6976gfa1cg7d54geb90g1660c0e4606b`, `hc7a1320ag001bg324fg456fg54638e396870`, `hf77f8e6egab61g4904gb290gb7bc67941ee7` | Zephyr: Tempest, Gale Deflection: Redirect, Ready: Gale Deflection | "the West wind" | "the West Wind" (WB61) |
+| F12 | `h9a99082cgad37ga1deg8c8ag4e88ffbcce58` | Aeolus' Bag: Eurus and Boreas | "the South and North Winds" | "the East and North Winds" |
+| F13 | `h78ff60d5g9c31g530dgf804g554f995ec4d7` | Aeolus' Bag: Notus and Eurus | "Your gain protection" | "Your allies gain protection" |
+| F14 | `h402ace5bgf1e8g2fe1gf6e4g220b7505458b` | `Interrupt_Arcana_Reaction_GaleDeflection` | "Reduce the damage from a ranged weapon attack by…" | "Reduce the damage from a ranged weapon attack made by a non-Windswept enemy by…" (WB57) |
+| F15 | `h04212dafge9bcgc6d2g82d7gf9dd7540b5d0` | The Open Road | "Every enemy you hit, becomes Windswept." | "Enemies you hit, or that fail a saving throw against you, become Windswept." |
+| F16 | `ha5a822f1g6c30g657cg2335gd1a7e2288437` | Zephyr | "After making an attack while unarmed, …" | "After an unarmed attack or an Arcane card, …" (WB3) |
+| F17 | `h6e8df9f1g98f4gc696g0586g988b14114aa3`, `hdefa8084g831cg23b3ga2adg71c342e61c0c`, `hb5e3c061ge8f4gdda1g76d1gbe8b970f9fbf`, `h73f0d397g8ed2gde09g1339g785e8b68d8f3`, `he8f928aag9dadg34dcgd4f0g4de0daeac346` | Descriptions of `Arcana_Passive_WindWhispers`, `Arcana_Passive_ZephyrTempest`, `ZEPHYR_STRIKE`, `ZEPHYR_RUSH_STORM`, `BAG_READY` | "### EMPTY" | Empty, or one line (they are hidden) |
+
+**PC deck** (`ScriptExtender/Lua/Server/Cards/CardDB.lua`; PC edition only)
+
+| # | Where | Today | Fix |
+|---|---|---|---|
+| F18 | Card table, the Aspect card | `["Rush_Arcana_Created_Aspect_LeapOfFaith"] = { aspect = "Unbound" },` | `["Shout_Arcana_Created_TheCalm"] = { aspect = "Unbound" },` |
+| F19 | `D.statusConjures` | `ASPECT_AWAKENED_FOOL = { id = "Rush_Arcana_Created_Aspect_LeapOfFaith", lasts = 99 },` | `ASPECT_AWAKENED_FOOL = { id = "Shout_Arcana_Created_TheCalm", lasts = 99 },` |
+| F20 | `D.statusConjures` | `ARCANA_ZEPHYR_RUSH = { id = "Rush_Arcana_Created_ZephyrRush", lasts = 1 },` (the status is `ZEPHYR_RUSH` since WB51) | `ZEPHYR_RUSH = { … }`, plus `ZEPHYR_RUSH_STORM = { id = "Rush_Arcana_Created_ZephyrRush_Storm", lasts = 1 },` (WB53) |
+| F21 | Card table and `D.reactions` | Ready: Gale Deflection `cost = 2`, `perRound = 3` | `cost = 3` (WB57); `perRound` follows Q4 |
+| F22 | To check in a PC run | Aeolus' Bag and Unleashed Winds are created, not cards: the lock of non-cards may keep them out of combat | A conjure on `BAG_READY` and on the level-11 grant, or the exception the Resonant's ultimate uses |
+
+**To confirm with the Owner before typing** (names; WB39 / WB41 say otherwise):
+
+| # | Today | Design |
+|---|---|---|
+| Q1 | The movement passive is named **Twinkle Toes** (`Arcana_Passive_TwinkleToes_1/4/8/12`) | **Weightless** (WB39, WB44) |
+| Q2 | **Agility** · **Precision** (`Arcana_Passive_Agility`, `Arcana_Passive_Precision`) | Flowing Strikes: Agility · Flowing Strikes: Precision (WB41) |
+| Q3 | Level 5 grants vanilla **Extra Attack** | Flowing Assault (WB41) — same effect, the design's name |
+| Q4 | Ready: Gale Deflection gives one use per cast (up to 3; `ArcanaReactGaleDeflection` never refills) | The text and WB57 say one use per turn — `QA_ARC-0026` L6.3 decides which is meant |
+
+**Story — done in the tools, nothing to type:** `check_cards.pl` flagged `ARCANA_Aspect_Fool.txt` comparing
+`Shout_Arcana_Created_TheCalm` by name. The Calm pays no slot, so it has no upcast variant and its name is exact; the
+check now skips cards without a slot cost (2026-10-23). `check_cards.pl`: OK.
 
 ## Tests
 

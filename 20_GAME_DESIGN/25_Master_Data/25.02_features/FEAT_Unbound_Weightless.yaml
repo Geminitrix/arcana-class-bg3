@@ -1,15 +1,11 @@
 id: FEAT_Unbound_Weightless
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner's Toolkit build (WB52–WB61): values are the game's, pending_build closed"
 kind: feature
 subclass: Unbound
-ticket: ARC-0022
+ticket: ARC-0026
 design: "21.04/Unbound/DESIGN.md §6"
 balance_report: "22.05/Unbound.md"
 values:
-  speed: { value: "+3 m at 1, +5 m per odd level, +38 m at 12", unit: metres, by_level: { 1: 3, 3: 8, 5: 13, 7: 18, 9: 23, 11: 28, 12: 38 }, note: "today: Twinkle Toes" }
-  jump:  { value: "x2 to x6", by_level: { 5: 2, 7: 3, 9: 4, 11: 5, 12: 6 }, note: "today: Feather Fall (Weightless_*)" }
-
-pending_build:
-  speed_next:   { value: "+3 / +4.5 / +6 / +9", unit: metres, by_level: { 1: 3, 4: 4.5, 8: 6, 12: 9 }, note: "WB39: ranks with Zephyr" }
-  jump_next:    { value: "x1 / x2 / x3 / x4", by_level: { 1: 1, 4: 2, 8: 3, 12: 4 } }
-  falling_next: { value: "full / half / half / immune", by_level: { 1: "full", 4: "half", 8: "half", 12: "immune" } }
+  speed:   { value: "+4 / +7 / +10 / +13", unit: metres, by_level: { 1: 4, 4: 7, 8: 10, 12: 13 }, note: "WB59: ranks with Zephyr (Arcana_Passive_TwinkleToes_1/4/8/12)" }
+  jump:    { value: "x1 / x2 / x3 / x4", by_level: { 1: 1, 4: 2, 8: 3, 12: 4 } }
+  falling: { value: "full / half / half / immune", by_level: { 1: "full", 4: "half", 8: "half", 12: "immune" } }

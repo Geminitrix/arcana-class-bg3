@@ -1,15 +1,15 @@
 ---
 id: 21.04/Unbound/DESIGN
 owner: Lead Class Designer
-state: approved design (WB0–WB44, 2026-10-16); sizes approved (WB45–WB48), values in 25. The game still has the old Unbound build (`05.02/Unbound.md`) until the build ticket ships
-reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change
+state: built by the Owner in the Toolkit (ARC-0026, WB51), playtested to level 8; design WB0–WB62 — the Owner's changes of 2026-10-23 (WB52–WB61) folded in
+reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — WB52–WB62 (the Owner's Toolkit changes: Zephyr: Tempest, Ally Tempest, Unleashed Winds, the Windswept split in the defences) folded in
 ---
 
 # The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
 
 > Design document for the Arcana's subclass **The Windborn**: identity, the Open Road and every one of its rules, every
 > card and passive, the Aspect Awakening, the progression and the technical pattern. Decisions are in `DECISIONS.md`
-> (WB0–WB44); the review behind them is `REFINE_Unbound.md` (ARC-0022). Every gameplay effect lives in Stats, Osiris
+> (WB0–WB62); the review behind them is `REFINE_Unbound.md` (ARC-0022). Every gameplay effect lives in Stats, Osiris
 > and Khonsu, so the subclass runs in **both editions**.
 >
 > **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this document says *(25)*; the sizes were approved in the
@@ -51,7 +51,7 @@ before any shipped text quotes them (DM-S7).
 | The first step of the journey | **The Open Road** (core rule); Tier I **The First Step** |
 | Air (Thoth) | The whole kit is wind: Zephyr Strike, the four winds, Weightless |
 | The small dog, the companion on the road | Tier II **Fellow Travellers** — the party carries the wind |
-| The leap into the unknown | **Leap of Faith**; Tier III **Into the Storm** |
+| The leap into the unknown | Tier III **Into the Storm**; the Rush into the untouched (Leap of Faith retired, WB55) |
 | Number 0 | **The Calm** — Beaufort force 0, the Fool's zero |
 | The bundle carried light | No armour, no weapons (chassis) |
 | Reversed: recklessness | The Windborn's weakness — she goes where no one is guarding her |
@@ -127,7 +127,8 @@ One passive teaches it once (WB27); cards don't repeat it in their tooltips.
 - **Zephyr Strike** (WB5, WB18): after an unarmed attack or one of your cards, you can make a Zephyr Strike as a bonus
   action. Against an enemy that **isn't Windswept** it is a **Rush** — the wind carries you to it (range (25)) and you
   strike. Against a Windswept enemy it is a plain strike. When every standing enemy is Windswept there is no Rush:
-  opening the bag reopens the road.
+  opening the bag reopens the road. The Rush reaches **9 m at every rank** and costs, beside the bonus action, **the
+  movement it covers** (WB52).
 
 ### 4.2 Zephyr Strike in ranks (WB4, WB6, WB16, WB17)
 
@@ -135,7 +136,7 @@ One passive teaches it once (WB27); cards don't repeat it in their tooltips.
 |---|---|---|---|---|
 | 1 | **Breeze** | The Rush to an unmarked enemy | (level 2) Boreas, Notus; wind cap (25) | rank 1 |
 | 4 | **Gale** | + pushes the target (25) m | + Eurus; cap (25) | rank 2 |
-| 8 | **Storm** | + after hitting an unmarked enemy, **one more Rush** to another unmarked enemy within (25) m, free, the same turn | cap (25) | rank 3 |
+| 8 | **Storm** | + casting a Rush grants **one more Rush** the same turn: to **any enemy, Windswept or not**, within 12 m, for half the movement it covers (WB53) | cap (25) | rank 3 |
 | 12 | **Hurricane** | — | the bag releases **two winds at once**; cap (25) | rank 4 |
 
 Each rank is announced at level-up ("your wind grows: …") — the Windborn's exception to the standard's empty levels
@@ -149,7 +150,7 @@ Each rank is announced at level-up ("your wind grows: …") — the Windborn's e
 - **Exhale:** opening the bag **clears every mark**; the road reopens.
 - **The wind sweeps:** while a wind blows, **at the start of your turn it sweeps every mark away**. Marks therefore work
   through the whole round (the Open Path, the bane) and the road reopens each turn of wind. The sweep doesn't extend the
-  wind.
+  wind, and a wind already blowing is never refreshed (WB60).
 - **Boon and bane:** the wind's boon is for allies; its bane falls on **Windswept** enemies.
 - **Hurricane (level 12):** choose two winds; both blow for the same X.
 
@@ -159,10 +160,13 @@ Created card, free, once per combat (standard §5.6). **Usable only while a wind
 turn it had left becomes a gust of (25) Thunder on every Windswept enemy; every mark is swept (each counts for the
 Awakening) and the bag can be opened again immediately. **Action** (WB48), so the bag can reopen the same turn.
 
-### 4.5 Where the Winds Meet — capstone (level 11; WB26)
+### 4.5 Unleashed Winds — capstone (level 11; WB56)
 
-**Action**. Once per Long Rest. **Usable only while no wind blows.** Choose a point within (25) m: every enemy within (25) m of it is
-pulled toward the centre from one (25) m area (Windswept enemies pulled (25) m, the others less, WB49), left Off Balance and **marked**; the collision deals Thunder damage, DEX save for half (WB46). The mirror of The Calm.
+**Action**, level-6 slot. **Not while the bag is open.** Choose a point within 18 m; every enemy within 9 m of it makes a
+**Strength** saving throw. On a failure it takes (25) Thunder, a **Windswept** enemy is **pulled 6 m to the centre** and any
+other is **thrown 6 m away**, and all of them are Off Balance; on a success, half damage. The four winds scatter the field
+by the marks: the touched are gathered, the untouched are cast out. The mirror of The Calm. (Replaces Where the Winds
+Meet, WB46, WB49, WB50.)
 
 ### 4.6 The winds (WB15)
 
@@ -179,27 +183,27 @@ Eurus is weighed against the others so it isn't always the right choice (DM-B5).
 
 | Creates | Changes | Spends | Reads |
 |---|---|---|---|
-| any hit; failed saves against your cards; Leap of Faith's path; Riposte and Gale Deflection hits; allies' hits (Tier II); Where the Winds Meet | Gale push, Wind Blast, Gale Burst (move marked enemies); Storm's second Rush | **Aeolus' Bag** (opening and sweeps); **The Calm** | Zephyr Strike (Rush or not); the Open Path; the bag (X, the bane's targets); Storm Fists (unmarked bonus); the Awakening |
+| any hit; failed saves against your cards; Riposte and Gale Deflection hits; allies' hits (Tier II); Unleashed Winds | Gale push, Wind Blast, Gale Burst (move marked enemies); Unleashed Winds (pulls the marked, throws the rest); Storm's second Rush | **Aeolus' Bag** (opening and sweeps); **The Calm** | Zephyr Strike (Rush or not); the Open Path; the bag (X, the bane's targets); Zephyr: Tempest and Ally Tempest (bonus on the marked); Wind Whispers, Gale Deflection, Empty State (which attackers they answer); the Awakening |
 
 ### 4.8 Both sides of the field
 
 - **Windswept** lands only on enemies. Allies are never marked.
 - **The winds:** boon on allies, bane on Windswept enemies only. No wind harms an ally.
-- **Pushes and pulls** (Gale, Wind Blast, Gale Burst, Where the Winds Meet) move enemies only; the player aims them and
+- **Pushes and pulls** (Gale, Wind Blast, Gale Burst, Unleashed Winds) move enemies only; the player aims them and
   chooses the point of the pull, so an enemy pulled next to an ally is a choice, not a rule.
 
 ### 4.9 Resolution order
 
 1. **A hit or a failed save:** the effect resolves (damage, push), then the target becomes Windswept.
 2. **Zephyr Strike:** whether it is a Rush is read **when it is cast** (the target's state before the strike). At Storm,
-   the second Rush is granted only if the first target was unmarked when the first Rush was cast.
+   casting the Rush grants the second Rush (WB53).
 3. **Start of your turn, wind blowing:** sweep every mark → count each for the Awakening → Tier III pushes each swept
    enemy → the turn begins.
 4. **Opening the bag:** count X (standing Windswept enemies, capped) → clear the marks (each counts) → the chosen wind
    starts for X turns.
 5. **The Calm:** read the wind's remaining turns R → R gusts on each Windswept enemy → sweep (each counts) → the wind
    ends → the bag can open.
-6. **Where the Winds Meet:** pull → Off Balance → mark.
+6. **Unleashed Winds:** Strength save → damage → pull (Windswept) or push (the others) → Off Balance → mark.
 
 What ends a mark: the end of your next turn, a sweep, opening the bag, The Calm, the target's death, the end of combat.
 
@@ -234,15 +238,16 @@ releases what was gathered.
 |---|---|---|---|---|---|
 | **Gale Burst** | 1 | Action | creates, changes | 9 m; STR save: Thunder, pushed, Prone; half on a success | WB28 |
 | **Wind Blast** | 3 | Action | creates, changes | 12 m line; STR save: pushed, Off Balance; clears clouds and Burning — the wide marker | WB30 |
-| **Wind Whispers** | 5 | Bonus | creates | Until your next turn: attacks against you have Disadvantage; Riposte on a melee miss (marks); your next unarmed attack has Advantage | WB33 |
-| **Flow State** | 6 | Action | (enabler) | THP and one extra bonus action, for (25) turns within the reference fight | WB31 |
-| **Ready: Gale Deflection** | 6 | (reaction card) | creates | Gain Gale Deflection uses until combat ends; the returned missile marks; may protect an ally within (25) m | WB32 |
-| **Storm Fists** | 7 | Bonus | reads | Unarmed hits deal extra Thunder **against enemies that weren't Windswept** | WB34 |
+| **Wind Whispers** | 5 | Bonus | creates | 2 turns: melee attacks against you **by enemies that aren't Windswept** have Disadvantage; Riposte when one of them misses (marks; the reaction asks); jumping costs no bonus action; usable out of combat | WB33, WB57, WB58 |
+| **Flow State** | 6 | Action | (enabler) | THP and one extra bonus action, for (25) turns within the reference fight; usable out of combat | WB31, WB58 |
+| **Ready: Gale Deflection** | 6 | (reaction card, level 3) | creates | Until combat ends, one Gale Deflection per turn against ranged attacks **by enemies that aren't Windswept**, for you or an ally nearby; the returned missile marks | WB32, WB57 |
+| **Zephyr: Tempest** | 7 | Bonus | reads | Level-4 card; 3 turns: your unarmed hits **against Windswept enemies** deal extra (25) Thunder and inflict Reverberation; upcasts at 5 and 6 | WB54 |
 | **Untethered** *(ability card)* | 9 | Action | (identity) | Fly; +(25) AC while flying (Eye of the Storm folded in) | WB35 |
-| **Leap of Faith** | 10 | Action | creates | Once per Short Rest: rush up to (25) m through a line, striking and marking every enemy in the path (`Rush_ForceTunnel` animation) | WB7, WB38 |
+| **Zephyr: Ally Tempest** | 10 | Bonus | reads | Level-5 card on an ally; 5 turns: their weapon hits **against Windswept enemies** deal extra (25) Thunder and inflict Reverberation; upcast at 6 | WB55 |
 
-**Created cards:** Zephyr Strike (§4.1, §4.2), The Calm (§4.4). **Features:** Aeolus' Bag (§4.3), Where the Winds Meet
-(§4.5). **Retired:** True Strike (WB29), Evasive Flow (WB36), Thunderclap (WB37).
+**Created cards:** Zephyr Strike (§4.1, §4.2), The Calm (§4.4). **Features:** Aeolus' Bag (§4.3), Unleashed Winds
+(§4.5). **Retired:** True Strike (WB29), Evasive Flow (WB36), Thunderclap (WB37), Storm Fists (WB54), Leap of Faith
+(WB55), Where the Winds Meet (WB56). Blade Ward, Aeolus' Bag and The Calm can be used out of combat (WB58).
 
 ---
 
@@ -254,10 +259,10 @@ releases what was gathered.
 | **Be the Leaf** | 1 | AC = 10 + DEX + INT; doesn't stack with Mage Armour | WB21, WB40 |
 | **Flowing Strikes: Agility** | 1 | Unarmed attacks use DEX if higher | WB41 |
 | **Flowing Strikes: Precision** | 1 | Unarmed damage die by level | WB41 |
-| **Weightless** | 1 · 4 · 8 · 12 | Movement speed, jump distance and falling damage improve with Zephyr's ranks; announced at each rank | WB39 |
+| **Weightless** | 1 · 4 · 8 · 12 | Movement speed, jump distance and falling damage improve with Zephyr's ranks; announced at each rank | WB39, WB47, WB59 |
 | **Flowing Assault** | 5 | Extra Attack | WB41 |
 | **Magic Strikes** | 7 | Unarmed attacks count as magical | WB41 |
-| **Empty State** | 9 | Half damage from attacks that hit; Evasion against DEX saves | WB42 |
+| **Empty State** | 9 | Against **Windswept** attackers: half damage from their hits; Evasion against their DEX saves | WB42, WB57 |
 | **0 - The Fool: Awakening** | 3 | Explains the goal and tiers (§8) | WB22, WB24 |
 
 **Retired:** Twinkle Toes and Feather Fall (merged into Weightless, WB39), Eye of the Storm (WB35), Momentum (WB37).
@@ -272,7 +277,9 @@ releases what was gathered.
 | **The wind** (one per wind: Boreas, Notus, Eurus) | allies (boon) and Windswept enemies (bane) | icon with turns left | Lasts X; ends early with The Calm |
 | **The bag is open** | the Windborn | icon with turns left | Blocks opening the bag; the cue for The Calm and the capstone |
 | **Zephyr Strike** (existing `ZEPHYR_STRIKE`) | the Windborn | created card in hand | Rush or plain strike by target |
-| **Storm: the wind doesn't stop** | the Windborn | created card, one turn | The second Rush |
+| **Storm: the wind doesn't stop** (`ZEPHYR_RUSH_STORM`) | the Windborn | hidden; grants the second Rush | Granted when the Rush is cast; ends when the second Rush is cast (WB53) |
+| **Zephyr: Tempest** (`ZEPHYR_TEMPEST`, `_2`, `_3`) | the Windborn | icon + ForceOverhead, 3 turns | Bonus Thunder and Reverberation on the marked (WB54) |
+| **Zephyr: Ally Tempest** (`ZEPHYR_TEMPEST_ALLY`) | an ally | icon, 5 turns | Bonus Thunder and Reverberation on the marked (WB55) |
 | **Awakening progress** | the Windborn | counter (ARC-0007 pattern) | Marks released toward the next tier |
 | **Tiers I–III** | the Windborn | tier status with its bonus | §8 |
 
@@ -305,11 +312,11 @@ No tier gives an ability bonus (`10.06`: the old +3 DEX goes). VFX: Haste.
 | 4 | Gale: push, Eurus, longer wind, Weightless 2 | "My Zephyr pushes; a new wind" | 1 (push) |
 | 5 | Flowing Assault; Wind Whispers | "Two strikes; the air warns me" | 1 (Riposte) |
 | 6 | Flow State; Ready: Gale Deflection | "I flow; I turn arrows back" | 2 |
-| 7 | Tier II Fellow Travellers; Magic Strikes; Storm Fists | "The party carries my wind" | 1 (allies mark) |
+| 7 | Tier II Fellow Travellers; Magic Strikes; Zephyr: Tempest | "The party carries my wind" | 1 (allies mark) |
 | 8 | Storm: second Rush, longer wind, Weightless 3 | "The wind doesn't stop" | 1 (chain) |
 | 9 | Untethered; Empty State | "I fly; blows barely touch me" | 1 (flight) |
-| 10 | Leap of Faith | "I leap through them all" | 1 |
-| 11 | Where the Winds Meet | "I gather the battlefield" | 1 (pull) |
+| 10 | Zephyr: Ally Tempest | "My wind fights beside them" | 1 (allies strike the marked) |
+| 11 | Unleashed Winds | "I unleash the four winds" | 1 (pull the marked, throw the rest) |
 | 12 | Tier III Into the Storm + Hurricane (two winds), Weightless 4 | "The storm" | 1 (sweeps push) |
 
 Every level has a headline; no level is empty; levels 4 and 8 carry only Zephyr's ranks (WB16).
@@ -320,7 +327,7 @@ Every level has a headline; no level is empty; levels 4 and 8 carry only Zephyr'
 |---|---|---|
 | Introduce | 1–3 | The wind marks and carries; the bag; the Aspect wakes |
 | Develop | 4–7 | The wind pushes, strikes twice, deflects, and the party carries it |
-| Turn | 8–10 | The wind doesn't stop: chains, flight, the leap through everyone |
+| Turn | 8–10 | The wind doesn't stop: chains, flight, the wind lent to the party |
 | Conclude | 11–12 | She gathers the field and becomes the storm |
 
 ### 9.3 The peak
@@ -336,7 +343,7 @@ balance pass (DM-J6).
 Turn 1: mark wide (Wind Blast, Gale Burst) or rush to the back line. Turn 2: open the bag with what was gathered — the
 party gets its wind, the marked enemies its bane, and the road reopens. While the wind blows, every turn starts with a
 clean road: rush to the untouched, mark, and let the sweep carry the count toward the Aspect. When the fight needs it,
-The Calm cashes the remaining wind and reopens the bag; at level 11 the winds meet and gather the whole field for the
+The Calm cashes the remaining wind and reopens the bag; at level 11 the four winds are unleashed — the marked are gathered, the rest thrown back — for the
 storm of level 12.
 
 ---
@@ -344,15 +351,17 @@ storm of level 12.
 ## 11. Text
 
 Names (WB44): Windswept · The Open Road · Zephyr Strike · Breeze, Gale, Storm, Hurricane · Weightless · Aeolus' Bag ·
-Boreas, Notus, Eurus · The Calm · Where the Winds Meet · The First Step, Fellow Travellers, Into the Storm. Display name
-**The Windborn** (WB0). Descriptions follow `31.03` and the class voice (`31.01` §5); written in `32.01/Unbound.md`.
+Boreas, Notus, Eurus · The Calm · Unleashed Winds · Zephyr: Tempest · Zephyr: Ally Tempest · The First Step, Fellow
+Travellers, Into the Storm; the passive is **Zephyr**, its ranks **Zephyr: Gale / Storm / Hurricane** (WB61). The wind is
+Zephyrus, **the West Wind**, in the texts (WB61). Display name **The Windborn** (WB0). Descriptions follow `31.03` and the class voice (`31.01` §5); written in `32.01/Unbound.md`.
 
 ---
 
 ## 12. Balance notes (for the balance pass)
 
 - Watch: **Eurus** (party attack bonus — bounded accuracy, standard §8.3); **Tier II** (allies mark — the bag fills
-  fast); **Storm's** second Rush (an extra attack per turn); **Tier III** mass push; **Where the Winds Meet**.
+  fast); **Storm's** second Rush (an extra attack per turn, any target since WB53); **Tier III** mass push; **Unleashed
+  Winds**; **Zephyr: Tempest** and **Ally Tempest** (two damage riders on the marked, WB54–WB55).
 - The bag's **uptime** in a reference fight (X capped by rank; the sweep doesn't extend it).
 - **Weightless** values: today's speed bonus reaches +38 m at level 12 — re-cost against vanilla and the reference fight.
 - **Flow State** duration within the fight (B6); the Awakening goals against the peak timeline (J6).
@@ -374,10 +383,10 @@ hook — confirm in `56`/`57`); tiers by the released count. Combat start and en
 
 | Piece | Pattern |
 |---|---|
-| Zephyr's Rush | `Rush_SpringAttack` (as vanilla `Rush_MAG_ZephyrFlash` and today's Leap of Faith) with a target condition on Windswept |
-| Leap of Faith | `Rush_ForceTunnel` animation, wind VFX |
-| Storm's second Rush | A one-turn created card granted by a status (as `ZEPHYR_STRIKE`) |
-| Where the Winds Meet | `Target_Shatter` (a point on the ground, an area around it; WB50) with the pull `Force(-6, TargetToEntity)` of `Projectile_MAG_PullingShout_Explosion` |
+| Zephyr's Rush | `Rush_SpringAttack` (as vanilla `Rush_MAG_ZephyrFlash`) with a target condition on Windswept; `Movement:Distance` in its costs (WB52) |
+| Zephyr: Tempest / Ally Tempest | A BOOST status with `IF(… HasStatus('WINDSWEPT',context.Target)):DamageBonus(…,Thunder)` and a passive applying vanilla `MAG_THUNDER_REVERBERATION` once per attack |
+| Storm's second Rush | A status granted on casting the Rush unlocks a second Rush spell (`UnlockSpell`), removed when it is cast |
+| Unleashed Winds | `Target_Shatter` pattern (a point on the ground, an area around it); STR save; `Force(-6, OriginToTarget)` on Windswept, `Force(6, OriginToTarget)` on the others |
 | The winds | Aura-style statuses (vanilla `AURA_OF_PROTECTION`) or statuses applied to the party; bane on Windswept |
 | The bag's choice | One variant per wind (container) |
 | Weightless | One generator table (`82_Automation/stats/`), four ranks |
@@ -406,7 +415,8 @@ segments (ADR-0002, `33.03`); internal name **Unbound** stays.
 4. The bag: X counted and capped; marks cleared; the sweep at the start of the turn while the wind blows; the bag
    shut while it blows.
 5. The Calm: gusts = remaining turns; the bag reopens.
-6. Where the Winds Meet: refused while a wind blows; one area, Windswept enemies pulled farther (WB49).
-7. Storm's second Rush only after an unmarked target.
+6. Unleashed Winds: refused while the bag is open; STR save; Windswept enemies pulled in, the others thrown out (WB56).
+7. Storm: casting the Rush grants a second Rush to any enemy within 12 m (WB53).
 8. Tier II: an ally's hit marks; Tier III: sweeps push.
 9. Armour or a shield turns everything off.
+10. Zephyr: Tempest and Ally Tempest: extra Thunder and Reverberation only on Windswept targets (WB54, WB55).

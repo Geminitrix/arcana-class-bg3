@@ -1,0 +1,13 @@
+id: SPL_Unbound_ZephyrTempest
+reviewed: "2026-10-23 ARC-0026 — the Owner's Toolkit build (WB52–WB61): values are the game's"
+kind: spell
+subclass: Unbound
+ticket: ARC-0026
+design: "21.04/Unbound/DESIGN.md §5 (WB54)"
+balance_report: "22.05/Unbound.md"
+game_ids: [Shout_Arcana_Card_Spell_ZephyrTempest, ZEPHYR_TEMPEST, ZEPHYR_TEMPEST_2, ZEPHYR_TEMPEST_3, Arcana_Passive_ZephyrTempest]
+values:
+  slot:          { value: 4, unit: count, note: "card level; bonus action" }
+  damage:        { value: "1d6 / 2d6 / 3d6 + DEX modifier", unit: damage, type: Thunder, by_level: { 4: "1d6", 5: "2d6", 6: "3d6" }, note: "by slot; unarmed hits against Windswept enemies only" }
+  duration:      { value: 3, unit: turns, note: "ends when combat ends" }
+  reverberation: { value: 2, unit: turns, note: "vanilla MAG_THUNDER_REVERBERATION, once per attack" }

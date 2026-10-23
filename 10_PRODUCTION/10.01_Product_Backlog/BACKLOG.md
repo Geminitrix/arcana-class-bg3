@@ -26,7 +26,7 @@
 | [QA_ARC-0017](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Resonant/QA_ARC-0017.md) | Playtest — The Heartsong — refining R49–R68 (levels 1–12) | playtest | QA Lead |  | / | in_qa |  |  |
 | [QA_ARC-0020](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Deceiver/QA_ARC-0020.md) | Playtest — The Veilwalker — refining DV1–DV33 (levels 1–12) | playtest | QA Lead |  | / | draft |  |  |
 | [QA_ARC-0025](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Starchild/QA_ARC-0025.md) | Playtest — The Starchild — rework SC0–SC36 (levels 1–12) | playtest | QA Lead |  | / | draft |  |  |
-| [QA_ARC-0026](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Unbound/QA_ARC-0026.md) | Playtest — The Windborn — rework WB0–WB50 (levels 1–12) | playtest | QA Lead |  | / | in_qa |  |  |
+| [QA_ARC-0026](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Unbound/QA_ARC-0026.md) | Playtest — The Windborn — rework WB0–WB61 (levels 1–12) | playtest | QA Lead |  | / | in_qa |  |  |
 | [QA_ARC-0030](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Class/QA_ARC-0030.md) | Playtest — The Arcana — Osiris goals: standard and preventive fixes (any level) | playtest | QA Lead |  | / | ready |  |  |
 
 Done tickets: 15.

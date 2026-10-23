@@ -1,23 +1,17 @@
 ---
-source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
-synced_at: 2026-10-11 (every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-02)
+source: 51 (Progressions, Lists, Stats, Story) — read from the game on 2026-10-23 (dump_progression.pl, dossier_texts.pl, the Editor .stats, ARCANA_Aspect_Fool.txt)
+synced_at: 2026-10-23 (after the Owner's Toolkit build, commit 60afc0e)
 state: synced
-reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10)
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10); 2026-10-23 ARC-0026 — rewritten from the game: the Owner's Toolkit build of the Windborn (WB51–WB61) replaces the old Unbound
 ---
 
-# 🍃 The Unbound — 0 · The Fool · Aspect of Curiosity
+# 🍃 The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
 
-> **Approved redesign, not in the game yet (ARC-0022, 2026-10-16):** display name *The Windborn*; the Open Road
-> (Windswept, Zephyr's Rush, Aeolus' Bag), new tiers, The Calm, Where the Winds Meet, Weightless. Design:
-> `21.04_Subclasses/Unbound/DESIGN.md`. Everything below is the game as it is today.
->
-> **Build in progress (ARC-0026), 2026-10-18:** the Owner deletes the old Unbound and types the Windborn **from zero** from
-> `55/TOOLKIT_ARC-0026.md` (feature by feature; WB51). In the game today: part of it typed by the Owner (`WINDSWEPT`,
-> `Arcana_Passive_TheOpenRoad`, `Arcana_Passive_Zephyr`, Zephyr Rush, the first bag entries), not yet checked against the file.
-> Until the rebuild is typed, the sections below describe the old Unbound.
+> **Built by the Owner in the Toolkit (ARC-0026, WB51–WB61), playtested to level 8 (`QA_ARC-0026`).** Design:
+> `21.04_Subclasses/Unbound/DESIGN.md`; decisions WB0–WB62. Text fixes still owed to the game: WB62 (`32.01/Unbound.md`).
 
-> Last verified: **2026-10-02** · Progression table `d75cb44d-bba6-43ad-851f-4497ec526e80` ·
-> Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with `82_Automation/dump_progression.pl`.
+> Last verified: **2026-10-23** · Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with
+> `82_Automation/dump_progression.pl`.
 
 ---
 
@@ -28,13 +22,10 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 | **Arcanum** | 0 · The Fool — the start of the journey, freedom, the leap into the unknown |
 | **Aspect** | Curiosity |
 | **Colour** | Yellow `#f2c939` · 🍃 |
-| **Role** | Unarmoured unarmed striker; mobility, evasion, action economy |
-| **Fantasy** | "Weightless, fast, and always exactly where you need to be." |
-| **Inspirations** | Aang and the Air Nomads (*Avatar: The Last Airbender*); wild folk, animal friends, travellers and wanderers |
+| **Role** | Unarmoured unarmed striker who marks the field and releases it as wind for the party |
+| **Fantasy** | "The wind marks what I touch and carries me to the rest." |
+| **Voice** | Zephyrus, the West Wind (WB61); Aeolus' bag of winds (Homer); Aang and the Air Nomads |
 | **Sound set / dialogue** | Monk |
-
-Curiosity of movement: very fast, a world traveller crossing countries and horizons. "Unbound" means
-free to move, not in conflict with Mystra.
 
 ---
 
@@ -44,126 +35,101 @@ free to move, not in conflict with Mystra.
 |---|---|
 | Abilities | Spellcasting **Intelligence** · secondary **Dexterity** |
 | Saving throws | Dexterity, Wisdom |
-| Armour | **None — by design** |
+| Armour | **None — by design**: every Windborn passive, card and status needs no armour and no shield |
 | Weapons | None (unarmed) |
-| Skills (choose 4, then 2 Expertise) | *The Wanderer*: Acrobatics, Animal Handling, Nature, Perception, Survival, Stealth, Sleight of Hand, Athletics |
-| Ability preset | STR 10 · DEX **15** · CON 13 · INT 8 · WIS **15** · CHA 10 |
-| Starting gear | Unbound robe (cloth, AC 10), no weapon |
-
-**The armour rule:** every Unbound passive, card and status carries *"Only active while not wearing
-armour or using a shield"* (`not WearingArmor() and not HasShieldEquipped()`). Putting on armour or a
-shield ends the Unbound's statuses.
+| AC | **Be the Leaf**: 10 + DEX + INT (`ACOverrideFormula`) |
 
 ---
 
 ## 3. How it plays
 
-1. Close the gap with huge movement speed (Twinkle Toes) and jumps.
-2. Punch: unarmed attacks scale on Dexterity with a rising damage die (Flowing Strikes).
-3. **Every unarmed attack and every Arcane card grants Zephyr Strike** — an extra unarmed attack as a
-   bonus action. Flow State adds bonus actions to spend on it.
-4. Stay alive by not being hit: Be the Leaf (WIS to AC), Wind Whispers (Disadvantage + riposte),
-   Gale Deflection against ranged attacks, Empty State.
-5. Hit many different enemies in one round to awaken **The Fool**.
+1. **Mark:** any damage she deals makes an enemy **Windswept** until the end of her next turn (The Open Road); her save
+   cards mark those who fail. A Windswept enemy can't make opportunity attacks.
+2. **Rush:** after an unarmed attack, **Zephyr** offers a bonus action: **Zephyr Rush** (9 m, to an enemy that isn't
+   Windswept; costs the movement it covers) or **Zephyr Strike** (a plain strike).
+3. **Release:** **Aeolus' Bag** (bonus action, needs a mark) releases one wind for X turns (X = marks, capped 2 / 3 / 4 /
+   5 by rank): allies get its tailwind, marked enemies its headwind; the marks are released and each of her turns starts
+   with a sweep. **The Calm** cashes the wind left into gusts and reopens the bag.
+4. **The split:** the marked and the unmarked are answered differently — the Tempests and Empty State work on the marked,
+   Wind Whispers and Gale Deflection against the unmarked (WB57).
+5. Released marks wake **The Fool** (3 / 5 / 8).
 
 ---
 
-## 4. Strengths · weaknesses · what sets it apart
-
-| Strengths | Weaknesses |
-|---|---|
-| Best **mobility** of the class: up to +38 m speed at level 12, jump ×6, immune to falling | **No armour or shield, ever** — the whole kit turns off |
-| **Action economy**: Zephyr Strike after everything, Flow State's extra bonus actions, Flowing Assault (Extra Attack) | Low **sustain**: no healing; THP from Flow State only |
-| Layered **evasion**: Be the Leaf, Wind Whispers, Gale Deflection (3/round), Empty State, Fool's Luck | Damage is mostly single-target, melee-range |
-| Strong **utility** out of combat: Untethered flight, jumps, skills | Little control (Prone, push, Off Balance) |
-| Awakening rewards spreading hits — good in crowded fights | The Aspect goal asks for **different** enemies; a duel only counts if few enemies stand |
-
-**What sets it apart:** the only Arcana that is a martial first — no weapons, no armour, and its cards
-are mostly self-buffs that feed more attacks. Every card ends with *"Afterwards, you can make a Zephyr
-Strike as a bonus action."*
-
-**Related to:** Monk (chassis, sound set, unarmed scaling), Air/wind elementalism, the Fool's leap.
-
----
-
-## 5. Level table
+## 4. Level table
 
 | Lvl | Passives | Cards / spells |
 |---|---|---|
-| 1 | Be the Leaf · Twinkle Toes (+3 m) · Flowing Strikes: Agility / Precision / Zephyr | Gale Burst · True Strike ⭐ |
-| 2 | — | — |
-| 3 | Twinkle Toes (+8 m) · **0 - The Fool: Awakening** · *Wanderlust* (Tier I) | Wind Blast · Flow State · Ready: Gale Deflection |
-| 4 | — | — |
-| 5 | Twinkle Toes (+13 m) · Feather Fall (50%, jump ×2) · Flowing Assault | Wind Whispers |
-| 6 | — | — |
-| 7 | Twinkle Toes (+18 m) · Feather Fall (40%, ×3) · Magic Strikes · *Restless Wind* (Tier II) | Storm Fists |
-| 8 | — | — |
-| 9 | Twinkle Toes (+23 m) · Feather Fall (30%, ×4) · Eye of the Storm | Untethered · Evasive Flow |
-| 10 | — | — |
-| 11 | Twinkle Toes (+28 m) · Feather Fall (20%, ×5) · Momentum | Thunderclap |
-| 12 | Twinkle Toes (+38 m) · Feather Fall (immune, ×6) · Empty State · *Aspect of Curiosity* (Tier III) | — |
-| 13–20 | Twinkle Toes only: +43 / +48 / +53 / +58 / +68 m at 13 / 15 / 17 / 19 / 20 | — |
+| 1 | Be the Leaf · Agility · Precision · The Open Road · Zephyr · Twinkle Toes rank 1 (+4 m) | Gale Burst |
+| 2 | Aeolus' Bag (hidden) | Aeolus' Bag |
+| 3 | **0 - The Fool: Awakening** · The First Step (Tier I, hidden) | Wind Blast · The Calm (from Tier I) |
+| 4 | Zephyr: Gale · Twinkle Toes rank 2 (+7 m) | — |
+| 5 | Extra Attack (vanilla `ExtraAttack`) | Wind Whispers |
+| 6 | — (boosts: the Gale Deflection resources) | Ready: Gale Deflection · Flow State |
+| 7 | Magic Strikes · Fellow Travellers (Tier II, hidden) | Zephyr: Tempest |
+| 8 | Zephyr: Storm · Twinkle Toes rank 3 (+10 m) | — |
+| 9 | Empty State | Untethered |
+| 10 | — | Zephyr: Ally Tempest |
+| 11 | — | Unleashed Winds (the game text still says "Unleash Winds") |
+| 12 | Zephyr: Hurricane · Twinkle Toes rank 4 (+13 m) · Into the Storm (Tier III, hidden) | — |
+| 13–20 | — | — |
 
-⭐ vanilla cantrip. Hidden: `Monk_SoundSwitch` (L1).
+Hidden: `Monk_SoundSwitch`, `UnlockedSpellSlotLevel1` (L1). The movement passive shows as **Twinkle Toes** in the
+game; the design calls it Weightless (WB39) — see WB62.
 
 ---
 
-## 6. Cards
+## 5. Cards
 
-Cost = **one Woven Spell Slot** of the card's level (out of combat / console) or **Threads = card level**
-(combat, PC). All grant **Zephyr Strike** afterwards. All require no armour and no shield.
+Cost = **one Woven Spell Slot** of the card's level (console) or **Threads** (PC). All need no armour and no shield.
 
 | Card | Gained | Card lvl | Action | Effect | Upcast |
 |---|---|---|---|---|---|
-| **Gale Burst** | 1 | 1 | Action | 9 m. STR save: Thunder damage, pushed back, Prone; half damage on a success. Also grants a free unarmed strike | SL1–2 1d10, push 6 m · SL3–4 2d10, 7 m · SL5–6 3d10, 8 m |
-| **Wind Blast** | 3 | 2 | Action | 12 m line. STR save: pushed 5 m and Off Balance. Clears cloud surfaces and Burning | — |
-| **Flow State** | 3 | 2 | Action | Combat only. THP = 2 × Arcana level and +1 bonus action | Lasts 2/3/4/5/6 turns at SL2–6; **2** bonus actions from SL5 |
-| **Ready: Gale Deflection** | 3 | 2 | (reaction card) | Until combat ends, gain Gale Deflection and one use. Up to **3 uses per round** | — |
-| **Wind Whispers** | 5 | 3 | Bonus | Combat only. Until the start of your next turn: attacks against you have Disadvantage; **Wind Riposte** — an enemy melee miss triggers an automatic unarmed counter (reaction) | — |
-| **Storm Fists** | 7 | 4 | Bonus | Combat only. Unarmed attacks deal extra Thunder + DEX mod | 1d4 / 1d6 / 1d8 at SL4/5/6; lasts 3/4/5 turns |
-| **Untethered** *(ability card)* | 9 | 5 | Action | Gain Fly. Enables **Eye of the Storm** (+2 AC while flying). Castable outside combat, but the flight ends when combat starts and when it ends | — |
-| **Evasive Flow** | 9 | 3 | Bonus | Combat only. Jumping costs no bonus action and your next unarmed attack this turn has Advantage | Lasts 2 / 3 turns at SL5–6 (arrives at level 9, slot 5) |
-| **Thunderclap** | 11 | 4 | Bonus | Combat only. Thunder damage you deal inflicts 2 turns of Reverberation. Enables **Momentum** (+2 AC) | Lasts 5 turns (arrives at level 11, always slot 6) |
+| **Gale Burst** | 1 | 1 | Action | STR save: 1d10 Thunder, pushed 6 m, Prone 1 turn; half damage on a success | Slots 2–6 (cost only) |
+| **Wind Blast** | 3 | 2 | Action | Line; STR save: pushed 5 m, Off Balance 1 turn, **Windswept**; clears clouds and Burning | Slots 3–6 |
+| **Wind Whispers** | 5 | 3 | Bonus | 2 turns; usable out of combat: melee attacks by **unmarked** enemies have Disadvantage; **Wind Riposte** (asks first) when one of them misses; jumping costs no bonus action | Slots 4–6 |
+| **Flow State** | 6 | 2 | Action | 3 turns; usable out of combat: THP = 2 × Arcana level and +1 bonus action | Slots 3–6 (cost only) |
+| **Ready: Gale Deflection** | 6 | 3 | (reaction card) | Until combat ends: reaction against a ranged weapon attack by an **unmarked** enemy, on her or an ally nearby: −(1d10 + DEX + Arcana level) damage; at 0, Redirect (marks). The text says one use per turn; the stats give one use per cast (up to 3) with no per-turn refill — `QA_ARC-0026` L6.3 decides | Slots 4–6 |
+| **Zephyr: Tempest** | 7 | 4 | Bonus | Self, 3 turns: unarmed hits on **Windswept** enemies +1d6 + DEX Thunder and 2 turns of Reverberation | Slot 5: 2d6, slot 6: 3d6 |
+| **Untethered** *(ability card)* | 9 | 5 | Action | Fly and +2 AC while it lasts | Slot 6 |
+| **Zephyr: Ally Tempest** | 10 | 5 | Bonus | An ally, 5 turns: their weapon hits on **Windswept** enemies +1d4 Thunder and 1 turn of Reverberation | Slot 6 |
 
-### Created cards
+### Created cards and features
 
 | Card | Source | Cost | Effect |
 |---|---|---|---|
-| **Zephyr Strike** | Status `ZEPHYR_STRIKE`, from any unarmed attack, any Arcane card or True Strike | Bonus action · 1 Thread (PC) · no slot | One unarmed attack. Lasts 1 turn in hand |
-| **Leap of Faith** *(Aspect card)* | Awakening Tier I | Action · 0 Threads · once per combat | Rush up to 18 m; unarmed attack against every creature in the path, each adding Thunder damage (`GaleBurst_Damage`, by character level); then Zephyr Strike |
+| **Zephyr Rush** | Zephyr, after an unarmed attack | Bonus action + the movement it covers | 9 m at every rank, to an enemy that isn't Windswept; unarmed strike. Gale: pushes 3 m. Storm: casting it grants **Zephyr Rush: Storm** — 12 m, any enemy, half the movement, unarmed + DEX Thunder |
+| **Zephyr Strike** | Zephyr | Bonus action | A plain unarmed strike (the game shows it as "Zephyr Rush" — WB62) |
+| **Aeolus' Bag** | Level 2 | Bonus action; needs a Windswept enemy; usable out of combat | Boreas (allies +3 m / marked −3 m), Notus (ranged attacks on allies at Disadvantage / marked −1d4 to saves), Eurus from Gale (allies +1d4 to attacks / marked −1d4 to attacks); pairs at Hurricane; a blowing wind is never refreshed |
+| **The Calm** *(Aspect card)* | Tier I | Action; once per combat; usable out of combat | Only while a wind blows: each turn left becomes a gust (1d8 Thunder) on every enemy under a headwind; marks released; the bag reopens |
+| **Unleashed Winds** *(capstone)* | Level 11 | Action + level-6 slot; not while the bag is open | A point within 18 m, 9 m area, STR save: 4d8 Thunder, Windswept pulled 6 m in, the others pushed 6 m out, Off Balance 1 turn; half on a success. Its `TargetConditions` lack an `and` (WB62) |
 
 ---
 
-## 7. Passives
+## 6. Passives
 
 | Passive | Lvl | Effect |
 |---|---|---|
-| **Be the Leaf** | 1 | AC = 10 + DEX + WIS (`ACOverrideFormula`). Doesn't stack with Mage Armour |
-| **Twinkle Toes** | 1→20 | Movement speed +3 / 8 / 13 / 18 / 23 / 28 / 38 / 43 / 48 / 53 / 58 / 68 m |
-| **Flowing Strikes: Agility** | 1 | Unarmed attacks use DEX instead of STR if higher |
-| **Flowing Strikes: Precision** | 1 | Unarmed damage die by character level: 1d4 (1–3), 1d6 (4–6), 1d8 (7–9), 1d10 (10–12), 1d12 (13–18), 1d20 (19–20) |
-| **Flowing Strikes: Zephyr** | 1 | After an unarmed attack or an Arcane spell, Zephyr Strike as a bonus action |
-| **Gale Deflection** *(via card)* | 3 | Reaction: reduce a ranged weapon attack's damage by 1d10 + DEX mod + Arcana level; at 0, hurl the missile back (Redirect) |
-| **Feather Fall** | 5→12 | Falling damage 50 / 40 / 30 / 20 % / immune; Jump ×2 / ×3 / ×4 / ×5 / ×6 |
-| **Flowing Assault** | 5 | Extra Attack (unarmed or weapon), restricted to no armour / no shield |
+| **Be the Leaf** | 1 | AC = 10 + DEX + INT |
+| **Agility · Precision** | 1 | Unarmed attacks on DEX; unarmed damage die by level (the design's Flowing Strikes) |
+| **The Open Road** | 1 | An enemy she damages becomes Windswept (2 of her turns) |
+| **Zephyr** · Gale · Storm · Hurricane | 1 · 4 · 8 · 12 | Zephyr Rush / Strike after an unarmed attack; Gale: push 3 m and Eurus; Storm: the second Rush; Hurricane: two winds |
+| **Twinkle Toes** (Weightless) | 1 · 4 · 8 · 12 | Speed +4 / +7 / +10 / +13 m; jump ×1 / ×2 / ×3 / ×4; falling damage full / half / half / none |
+| **Extra Attack** | 5 | Vanilla |
 | **Magic Strikes** | 7 | Unarmed attacks count as magical |
-| **Eye of the Storm** | 9 | +2 AC while Untethered is active |
-| **Momentum** | 11 | +2 AC while Thunderclap is active |
-| **Empty State** | 12 | Half damage from attacks that hit; Evasion against DEX-save spells. Doesn't spend the reaction |
+| **Empty State** | 9 | Against **Windswept** attackers: half damage; Evasion on their DEX saves |
 
 ---
 
-## 8. Aspect Awakening — 0 · The Fool
+## 7. Aspect Awakening — 0 · The Fool
 
-**Objective — strike different enemies within a single round** (from the start of your turn to the start
-of the next, so reactions count). Any attack that hits counts: unarmed, Zephyr, Gale Deflection, spell
-attacks. If fewer enemies stand at the start of your turn than the goal, hits on any enemy count.
-Progress **counts down** what is left (ARC-0007, one status per tier) and resets each round.
+**Objective — release Windswept marks** (opening the bag, its sweeps, The Calm), cumulative within the fight; goals
+**3 / 5 / 8** (`ARCANA_Aspect_Common.txt`).
 
-| Tier | Level | Goal | Name | Bonus (until combat ends) |
-|---|---|---|---|---|
-| I | 3 | 3 enemies | **Wanderlust** | +3 m movement; moving doesn't provoke Opportunity Attacks; unarmed attacks +1d4 Thunder |
-| II | 7 | 4 enemies | **Restless Wind** | Advantage on DEX saves; +1 reaction; once per turn, Zephyr Strike costs no bonus action |
-| III | 12 | 5 enemies | **Aspect of Curiosity** | +3 DEX; another +1 reaction; **Fool's Luck**: once per round, the first attack against you misses |
+| Tier | Level | Name | Bonus (until combat ends) |
+|---|---|---|---|
+| I | 3 | **The First Step** | The first Zephyr Rush each turn costs no bonus action; grants The Calm |
+| II | 7 | **Fellow Travellers** | Allies' hits also mark Windswept |
+| III | 12 | **Into the Storm** | Each sweep pushes every swept enemy 3 m and leaves it Off Balance |
 
-Aspect card: **Leap of Faith**. VFX: Haste. All bonuses need no armour / no shield.
+VFX: Haste. Retired and unreachable (OR-10): Fool's Luck (`Interrupt_Arcana_Aspect_FoolsLuck`).

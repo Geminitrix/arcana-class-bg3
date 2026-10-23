@@ -16,3 +16,4 @@ Replaced GDDs, specs, baselines and applied patches.
 | `2026-10-17_Studio_Constitution_v0.4/` | 2026-10-17 | The v0.4 master spec (Portuguese, 38 roles, paths never used) and the 00.07 implementation policy, replaced by `00.01/Operating_Rules.md` (ADR-0010) |
 | `2026-10-17_TOOLKIT_per_level_and_test_files/` | 2026-10-17 | 14 per-level / per-stage Toolkit guides and 23 test files (GUIDE_ARC, TC_ARC, QA-####), merged into one TOOLKIT_ARC and one QA_ARC per ARC (Owner, OR-4) — map in its README |
 | `2026-10-20_ARC-0030_mirrorwithdraw_goal/` | 2026-10-20 | The Osiris goal of the old Mirror Withdraw: its spells and status no longer exist; Withdraw and Mimic: Withdraw replaced it (ARC-0030, RISKS B5) |
+| `2026-10-23_ARC-0026_Windborn_retired/` | 2026-10-23 | Storm Fists, Leap of Faith and Where the Winds Meet (master data + spell sheets), replaced in the Owner's Toolkit build by Zephyr: Tempest, Zephyr: Ally Tempest and Unleashed Winds (WB54–WB56) |

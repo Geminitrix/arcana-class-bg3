@@ -1,0 +1,16 @@
+id: SPL_Unbound_UnleashedWinds
+reviewed: "2026-10-23 ARC-0026 — the Owner's Toolkit build (WB52–WB61): values are the game's"
+kind: spell
+subclass: Unbound
+ticket: ARC-0026
+design: "21.04/Unbound/DESIGN.md §4.5 (WB56)"
+balance_report: "22.05/Unbound.md"
+game_ids: [Target_Arcana_Created_UnleashedWinds]
+values:
+  slot:        { value: 6, unit: count, note: "Action; not while the bag is open" }
+  range:       { value: 18, unit: metres, note: "the point on the ground" }
+  area_radius: { value: 9, unit: metres }
+  damage:      { value: 4d8, unit: damage, type: Thunder, note: "Strength save; half on a success" }
+  pull:        { value: 6, unit: metres, note: "a Windswept enemy, to the centre" }
+  push:        { value: 6, unit: metres, note: "any other enemy, away from the centre" }
+  off_balance: { value: 1, unit: turns }

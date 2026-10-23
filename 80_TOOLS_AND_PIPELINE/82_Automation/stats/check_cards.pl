@@ -116,6 +116,8 @@ for my $f (bsd_glob("$D/Mods/$M/Story/RawFiles/Goals/*.txt")) {
     my $s = slurp($f);
     while ($s =~ /^((?:UsingSpell|UsingSpellOnTarget|CastSpell|CastedSpell)\([^\r\n]*"([A-Za-z]+_Arcana_(?:Card_[A-Za-z]+|Created)_[A-Za-z0-9_]+)")/mg) {
         my $card = $2;
+        # carta que nao paga com espaco (ex.: The Calm, so ActionPoint) nao tem variante: o nome e exato
+        next unless (field($card, 'UseCosts') // '') =~ /SpellSlotsGroup|ArcanaSpellSlot/;
         push @err, "Story compara nome de carta  $bn  ($card) -- use DB_ARCANA_CardFamily";
     }
 }

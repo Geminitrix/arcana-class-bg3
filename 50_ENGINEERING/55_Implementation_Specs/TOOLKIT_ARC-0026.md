@@ -10,6 +10,16 @@ author: Mod Engineer
 
 # TOOLKIT_ARC-0026 · The Windborn — the whole subclass, from zero
 
+> **2026-10-23 — the Owner's build supersedes part of this file (WB52–WB61, `21.04/Unbound/DECISIONS.md`).** While
+> playing levels 1–8 the Owner changed the build in the Toolkit (commit `60afc0e`): the Rush stays 9 m and costs movement
+> (WB52); Storm's second Rush is granted on casting, 12 m, any enemy (WB53); **Zephyr: Tempest replaces Storm Fists**
+> (WB54), **Zephyr: Ally Tempest replaces Leap of Faith** (WB55), **Unleashed Winds replaces Where the Winds Meet**
+> (WB56); the Windswept split in Wind Whispers, Gale Deflection and Empty State (WB57); out of combat (WB58); Weightless
+> +4 / +7 / +10 / +13 m (WB59); winds don't refresh (WB60); the West Wind voice and the Owner's icons (WB61). Where this
+> file disagrees, **the game and those decisions win**; `05.02/Unbound.md` describes the game as it is.
+>
+> The fixes still owed to the game are in `SPEC_ARC-0026` "Fixes owed (WB62)".
+
 > **What this file is.** Everything to type in the BG3 Toolkit to build the Windborn (internal name *Unbound*) **from zero**,
 > after you delete the old Unbound: 116 Stats entries, the lists, the progression, the class objects and two goals — the final
 > version of the decisions WB0–WB50 and of the answers of 2026-10-18. One file, in the order to type it, **feature by

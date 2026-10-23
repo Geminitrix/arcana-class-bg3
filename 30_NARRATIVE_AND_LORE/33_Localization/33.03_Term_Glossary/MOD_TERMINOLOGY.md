@@ -122,7 +122,7 @@ yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `Si
 | 2 - The High Priestess · Veiled · Two Pillars · Aspect of Doubt | Awakening and tiers I · II · III | Empress, Aspect of Love |
 | The Deceiver | The subclass | — |
 
-## The Windborn (reviewed 2026-10-17 ARC-0022 — WB0–WB48 terms; ARC-0026 stage 1 checked (probes castable), no change; WB49 checked, no change; P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; rows marked ★ reach the game with the build)
+## The Windborn (reviewed 2026-10-17 ARC-0022 — WB0–WB48 terms; ARC-0026 stage 1 checked (probes castable), no change; WB49 checked, no change; P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner's Toolkit build (WB52–WB61): Zephyr's ranks, the Tempests, Unleashed Winds, the West Wind; rows marked ★ arrived with that build)
 
 English is final in game for the unmarked rows (`32.01/Unbound.md`). Internal ids keep the old names (`Unbound`, `Fool`,
 `TwinkleToes`, `Weightless`, `FlowingStrikeZephyr`) — never translate or show them.
@@ -132,15 +132,16 @@ English is final in game for the unmarked rows (`32.01/Unbound.md`). Internal id
 | ★ The Windborn | The subclass (WB0) | The Unbound (old display name) |
 | ★ The Open Road | The core rule: the wind marks every enemy you touch and carries you to the ones it hasn't touched (WB27) | Flowing Strikes: Zephyr |
 | ★ Windswept | The mark on an enemy; it can't make opportunity attacks | marked, swept (as a status name) |
-| Zephyr Strike · ★ Rush | The signature bonus-action strike · its carry to an unmarked enemy | — |
-| ★ Breeze · Gale · Storm · Hurricane | Zephyr's ranks (Beaufort) at 1 / 4 / 8 / 12 | Force 1–12 as numbers |
+| Zephyr Strike · ★ Zephyr Rush · ★ Zephyr Rush: Storm | The signature bonus-action strike · its carry to an unmarked enemy · Storm's second Rush (WB53) | — |
+| ★ Breeze · Gale · Storm · Hurricane | Zephyr's ranks (Beaufort) at 1 / 4 / 8 / 12; in game the passive is **Zephyr** and its ranks **Zephyr: Gale / Storm / Hurricane** (WB61) | Force 1–12 as numbers; Zephyr Strike: Gale (old rank name) |
+| ★ the West Wind | Zephyrus, the wind the texts name (WB61) | Weast Wind |
 | ★ Aeolus' Bag · ★ Boreas · ★ Notus · ★ Eurus | The ultimate · the North, South and East Winds | Bag of Winds, Aeolus's Bag |
 | ★ The Calm | The Aspect card | Dead Calm |
-| ★ Where the Winds Meet | The capstone | Vortex, Tornado |
+| ★ Unleashed Winds | The capstone (WB56) | Unleash Winds; Where the Winds Meet (retired); Vortex, Tornado |
 | ★ Weightless | The movement passive by rank | Twinkle Toes, Feather Fall (vanilla spell name) |
 | ★ The First Step · ★ Fellow Travellers · ★ Into the Storm | Awakening tiers I · II · III | Wanderlust, Restless Wind, Aspect of Curiosity (as a tier) |
 | 0 - The Fool | The Arcanum and its Awakening passive | — |
-| Gale Burst · Wind Blast · Wind Whispers · Flow State · Ready: Gale Deflection · Storm Fists · Untethered · Leap of Faith | Her cards | Thunderclap, Evasive Flow (retired) |
+| Gale Burst · Wind Blast · Wind Whispers · Flow State · Ready: Gale Deflection · ★ Zephyr: Tempest · Untethered · ★ Zephyr: Ally Tempest | Her cards (WB54, WB55) | Thunderclap, Evasive Flow, Storm Fists, Leap of Faith (retired); Whind Whispers |
 | Be the Leaf · Flowing Strikes · Flowing Assault · Magic Strikes · Empty State | Her passives | Momentum, Eye of the Storm (retired) |
 
 ## The Starchild (reviewed 2026-10-16 ARC-0023 — SC0–SC32 terms; 2026-10-17 ARC-0025 — SC33–SC36 sizes, no new term; stage 1 probes, no change; rows marked ★ reach the game with the build)
