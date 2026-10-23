@@ -136,32 +136,32 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_GaleDeflection"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_WindWhispers"/>
                     <attribute id="UUID" type="guid" value="438610de-b4a4-4a60-87e0-7f6c4034b140"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 6"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_WindWhispers"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_GaleDeflection;Shout_Arcana_Card_Spell_FlowState"/>
                     <attribute id="UUID" type="guid" value="a841e643-352c-4b0c-92c5-3e9bf2ddfbb8"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 7"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_FlowState"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_ZephyrTempest"/>
                     <attribute id="UUID" type="guid" value="87872209-4d00-4a57-8e24-02fbb18c75bc"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 9"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_StormFists"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Ability_Untethered"/>
                     <attribute id="UUID" type="guid" value="fc46dcfe-4126-4b55-92ab-87e8fb43e8f9"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 10"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Ability_Untethered"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Spell_ZephyrTempestAlly"/>
                     <attribute id="UUID" type="guid" value="87fc92d3-1b5e-4a2e-adf3-816b8cbb511f"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Unbound Level 11"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Created_WhereTheWindsMeet"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Created_UnleashedWinds"/>
                     <attribute id="UUID" type="guid" value="f0892650-f4dd-41c1-bbe3-76cd7e361985"/>
                 </node>
                 <node id="SpellList">

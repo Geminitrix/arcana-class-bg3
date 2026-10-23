@@ -149,7 +149,7 @@
                     <attribute id="UUID" type="guid" value="2efe65ad-2641-4d63-a6c3-edabab7b3ca0"/>
                 </node>
                 <node id="ProgressionDescription">
-                    <attribute id="DisplayName" type="TranslatedString" handle="h4258607eg22b9g2575geb9cg4d8de59a9d7c" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h4258607eg22b9g2575geb9cg4d8de59a9d7c" version="2"/>
                     <attribute id="UUID" type="guid" value="b2f93fb5-b282-4d90-b463-e7bb9596745f"/>
                 </node>
                 <node id="ProgressionDescription">

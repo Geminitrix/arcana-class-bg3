@@ -221,7 +221,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="New_Stat_10" />
         <field name="UUID" type="IdTableFieldDefinition" value="b2f93fb5-b282-4d90-b463-e7bb9596745f" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4258607eg22b9g2575geb9cg4d8de59a9d7c" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4258607eg22b9g2575geb9cg4d8de59a9d7c" version="2" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

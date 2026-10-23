@@ -80,7 +80,6 @@
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Abjuration" enumeration_type_name="SpellSchool" version="1" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(BLADE_WARD,100,2)" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="9" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Ally() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_BladeWard" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h08755ee4gbe98gd8f8ge808g0e62af439eb6" version="1" />
@@ -2835,7 +2834,7 @@
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.MeleeUnarmedAttack)" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage,Bludgeoning);IF(HasPassive('Arcana_Passive_Zephyr_Gale',context.Source)):Force(3);" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not Self() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_FreeUnarmedStrike" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_FlurryOfBlows" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h56bc27caga588g2b1agc487ge918b523cedf" version="5" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ad067bag1d03g5cc6g3769g9cbf6fb2a8f2" version="4" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MartialArtsUnarmedDamage,Bludgeoning)" />
@@ -2865,7 +2864,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="d2279a51-dd5e-7c39-d962-ef57480ab3ef" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_WindRiposte" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="5ba05fe6-b1b7-4d09-8ce3-7478584af581" />
-        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_DangerSense" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_RakishAudacity" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h85b2e19dgcd10g7f44g2692g5fc4a3de0bb6" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h10327d06gd351g00b4ge66fgd7408d790fca" version="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
@@ -2972,19 +2971,19 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="85e610e0-f236-466c-9e77-9133b63c278e" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_WhereTheWindsMeet" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_UnleashedWinds" />
         <field name="Level" type="IntegerTableFieldDefinition" value="6" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="9" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasStatus('BAG_OPEN');" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Strength, SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('WINDSWEPT')):Force(-9, TargetToEntity);IF(not HasStatus('WINDSWEPT')):Force(-6, TargetToEntity);DealDamage(4d8,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('WINDSWEPT')):Force(-3, TargetToEntity);IF(not HasStatus('WINDSWEPT')):Force(-1, TargetToEntity);DealDamage(4d8/2,Thunder,Magical);" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Shatter" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd97fd5c1g81d2g01ebgc6f7gd346aa83d5dc" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h90892e23g6865g19efg5706g1160274ffdcf" version="1" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('WINDSWEPT')):Force(-6, OriginToTarget);IF(not HasStatus('WINDSWEPT')):Force(6, OriginToTarget);DealDamage(4d8,Thunder,Magical);ApplyStatus(OFF_BALANCED,100,1);" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage(4d8/2,Thunder,Magical);" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Monster_ElementalAir_Whirlwind" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd97fd5c1g81d2g01ebgc6f7gd346aa83d5dc" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h90892e23g6865g19efg5706g1160274ffdcf" version="2" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(4d8,Thunder)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Strength" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(OFF_BALANCED,100,1)" />
@@ -3004,6 +3003,8 @@
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="326e77b8-3951-4507-b42a-838533b274e2" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Thunder" enumeration_type_name="Damage Type" version="1" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" value="Sheathed" enumeration_type_name="SpellSheathing" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(4d8,Thunder)" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" value="Class" enumeration_type_name="SpellStyleGroup" version="1" />
       </fields>
     </stat_object>
     <stat_object color="#FF2F4F4F" is_substat="false">

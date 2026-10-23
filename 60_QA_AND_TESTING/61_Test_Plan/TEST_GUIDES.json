@@ -3,6 +3,12 @@
    "tabs" : [
       {
          "guides" : [
+            "test_guides/data/Class/QA_ARC-0030.json"
+         ],
+         "name" : "Class"
+      },
+      {
+         "guides" : [
             "test_guides/data/Kingmaker/QA_ARC-0008.json"
          ],
          "name" : "Kingmaker"

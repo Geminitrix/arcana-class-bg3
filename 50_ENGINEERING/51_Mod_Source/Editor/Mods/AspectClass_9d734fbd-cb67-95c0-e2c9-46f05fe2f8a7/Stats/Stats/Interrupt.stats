@@ -40,9 +40,9 @@
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h2837f023g0194gbdcbga128g045992bece74" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_DeflectMissiles" />
         <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnPreDamage" enumeration_type_name="InterruptContext" version="1" />
-        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self" enumeration_type_name="InterruptContextScope" version="1" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self;Nearby" enumeration_type_name="InterruptContextScope" version="1" />
         <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and IsRangedWeaponAttack() and not HasStatus('SG_Polymorph_BeastShape') and not AnyEntityIsItem()" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and IsRangedWeaponAttack() and not HasStatus('SG_Polymorph_BeastShape') and not AnyEntityIsItem() and not HasStatus('WINDSWEPT',context.Source);" />
         <field name="Properties" type="StringTableFieldDefinition" value="AdjustRoll(OBSERVER_OBSERVER,-(1d10+DexterityModifier+ClassLevel(Arcana)));ApplyStatus(OBSERVER_TARGET,INTERRUPT_GALE_DEFLECT_MISSILES_HIT,100,1);RestoreResource(ArcanaGaleDeflectReturn,1,0);ApplyStatus(OBSERVER_OBSERVER,GALE_DEFLECTION_USED_TECH,100,0);" />
         <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1;ArcanaReactGaleDeflection:1" />
         <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
@@ -55,7 +55,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="166893eb-76bf-4458-bf39-02ccce591c42" />
         <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Reaction_GaleDeflection_Return" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h505342d8g9905g2f9cg6775g4562b770bc96" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hac5f848fg4cc0g9eb9gf88eg9cf5e9a17da8" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hac5f848fg4cc0g9eb9gf88eg9cf5e9a17da8" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_DeflectMissiles" />
         <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnCastHit" enumeration_type_name="InterruptContext" version="1" />
         <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self" enumeration_type_name="InterruptContextScope" version="1" />
@@ -78,10 +78,10 @@
         <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnCastHit" enumeration_type_name="InterruptContext" version="1" />
         <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self" enumeration_type_name="InterruptContextScope" version="1" />
         <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and IsMiss() and not HasStatus('INVISIBILITY') and not AnyEntityIsItem() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source) and HasLastAttackTriggered();" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and IsMiss() and not HasStatus('WINDSWEPT',context.Source) and not HasStatus('INVISIBILITY') and not AnyEntityIsItem() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source) and HasLastAttackTriggered();" />
         <field name="Properties" type="StringTableFieldDefinition" value="UseSpell(SWAP,Target_Arcana_WindRiposte,true,true,true)" />
         <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
-        <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
+        <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
       </fields>
     </stat_object>
     <stat_object color="#FFFA8072" is_substat="false">

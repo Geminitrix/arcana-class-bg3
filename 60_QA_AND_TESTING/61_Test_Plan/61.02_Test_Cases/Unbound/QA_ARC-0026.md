@@ -112,7 +112,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** The subclass is The Windborn. The preset is STR 8, DEX 15, CON 13, INT 15, WIS 10, CHA 10. Armour Class = 10 + DEX + INT (Be the Leaf). Level-1 spells: Gale Burst only (no True Strike)
 - **Fails if:** The old name Unbound anywhere, another preset, Wisdom in the AC, or True Strike in the list
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L1.2 · After an unarmed attack, Zephyr Rush carries you to an unmarked enemy
 
@@ -120,7 +120,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Hit an enemy with an unarmed attack. In the bonus actions, cast Zephyr Rush on an unmarked enemy 6–9 m away, past another enemy
 - **Expected:** Zephyr Strike and Zephyr Rush both appear after the attack (and after a card). The Rush runs to the target and strikes it with no opportunity attack on the way. It needs no weapon and has no Short Rest cooldown
 - **Fails if:** No Zephyr after the attack, an opportunity attack on the way, a weapon requirement, or a cooldown
-- **Result:** FAIL — Funcionou mais ou menos. Acertei o inimigo com o ataque desarmado e apareceu o Zephyr Strike e o Zephyr Rush, entretanto o Zephyr Rush pode selecionar o chão, e na verdade só poderia ser possível selecionar um inimigo. E na verdade o Zephyr Rush ta com o mesmo nome do Zephyr Strike. O Zephyr Rush não está podendo selecionar o inimigo com Windswept, mas está podendo selecionar qualquer lugar no chão.
+- **Result:** pass — Funcionou.
 
 ### L1.3 · The Rush only reaches an unmarked enemy within 9 m
 
@@ -128,7 +128,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Hover Zephyr Rush over a Windswept enemy, then over an unmarked one about 11 m away
 - **Expected:** The Windswept enemy can't be targeted. At level 1 the 11 m enemy is out of range (9 m); Zephyr Strike still works on the marked one
 - **Fails if:** The Rush can target a Windswept enemy, or reaches beyond 9 m
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L1.4 · Damage marks Windswept; a miss doesn't
 
@@ -144,7 +144,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Gale Burst on an enemy (try until one fails and one succeeds)
 - **Expected:** The enemy that fails is pushed, Prone and Windswept; the one that succeeds isn't marked. Gale Burst no longer gives a free unarmed strike, and its tooltip no longer says "Afterwards…"
 - **Fails if:** A success marks, a failure doesn't, or the free strike is still there
-- **Result:** note — Ai temos uma incoerência. A passiva OpenRoad faz com que sempre que cause dano no inimigo, ele recebe o Windswept. Então mesmo o inimigo tendo sucesso no teste do GaleBurst, ele ainda toma dano, consequentemente recebendo o Windswept.
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L1.6 · A Windswept enemy makes no opportunity attack
 
@@ -152,7 +152,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark the enemy next to your melee ally. On the ally's turn, walk away from it. Do the same next to an unmarked enemy
 - **Expected:** The marked enemy doesn't attack; the unmarked one makes its usual opportunity attack
 - **Fails if:** The marked enemy attacks, or the unmarked one doesn't
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L1.7 · Windswept lasts until the end of your next turn
 
@@ -160,7 +160,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark an enemy on your turn. End the turn; play your next turn and end it
 - **Expected:** The mark counts down on your turns only and ends at the end of your next turn
 - **Fails if:** It ends on the enemy's turn, after only one of your turns, or lasts longer
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L1.8 · Weightless: +3 m
 
@@ -168,7 +168,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Compare your movement with and without armour
 - **Expected:** Weightless shows in the passives; movement +3 m without armour; no Twinkle Toes
 - **Fails if:** No bonus, the wrong bonus, or Twinkle Toes still there
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L1.9 · Armour or a shield turns everything off
 
@@ -176,7 +176,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Put on armour (then a shield instead). Hit an enemy with an unarmed attack; look at AC and movement
 - **Expected:** No mark, no Zephyr Strike or Rush, no Weightless bonus, no Be the Leaf. Take it off and they come back
 - **Fails if:** Any of them works in armour or with a shield
-- **Result:** —
+- **Result:** skipped
 
 ### L1.10 · The Open Road and the cards read right
 
@@ -185,7 +185,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** The Open Road explains Windswept, the Open Path and Zephyr; no card says "Afterwards"; no id or raw handle shows
 - **Fails if:** An old text, a raw handle or an id
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L1.11 · PC edition: the deck conjures Zephyr Rush
 
@@ -194,7 +194,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Zephyr Strike and Zephyr Rush are conjured to the hand for the turn
 - **Fails if:** Only Zephyr Strike, or neither
 - **Edition:** PC
-- **Result:** —
+- **Result:** skipped
 
 ## Level 2 — Aeolus' Bag
 
@@ -206,7 +206,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Look at Aeolus' Bag before marking anyone, then after marking one enemy
 - **Expected:** Greyed out with no Windswept enemy; usable (bonus action) once one is marked. It offers Boreas and Notus
 - **Fails if:** Usable with no mark, or still greyed with a mark
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L2.2 · Opening: X = marks, capped at 2; every mark is cleared
 
@@ -214,7 +214,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark 3 enemies. Open the bag with Boreas
 - **Expected:** Every mark is cleared. "The bag is open" shows 2 turns (3 marks, capped at 2 at Breeze). The bag stays shut while the wind blows
 - **Fails if:** The marks stay, the number isn't the capped count, or the bag can open again
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L2.3 · Boreas: allies +3 m, Windswept enemies −3 m
 
@@ -222,7 +222,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** With Boreas blowing, mark an enemy; compare an ally's and that enemy's movement
 - **Expected:** Allies get a tailwind (+3 m); Windswept enemies a headwind (−3 m); unmarked enemies nothing
 - **Fails if:** Wrong amounts, or unmarked enemies affected
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L2.4 · Notus: ranged attacks against allies at Disadvantage; Windswept enemies −1 to saves
 
@@ -230,7 +230,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Open the bag with Notus; let an enemy shoot an ally; make a Windswept enemy roll a save
 - **Expected:** The ranged attack has Disadvantage; the Windswept enemy's save shows −1
 - **Fails if:** No Disadvantage, or no penalty
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L2.5 · While the wind blows, your turn starts with a sweep
 
@@ -238,7 +238,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** With a wind blowing, mark two enemies; end your turn; start the next one
 - **Expected:** At your turn start every mark is cleared; the turns of "the bag is open" go down by one at each of your turn ends; at 0 the wind stops and the bag can open again
 - **Fails if:** The marks stay, the count is wrong, or the wind never stops
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L2.6 · PC edition: the bag is conjured once you have a mark
 
@@ -247,7 +247,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Aeolus' Bag appears in the hand (0 Threads) with its winds
 - **Fails if:** No bag in the hand
 - **Edition:** PC
-- **Result:** —
+- **Result:** skipped
 
 ## Level 3 — The First Step, The Calm, Wind Blast
 
@@ -259,7 +259,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark 3 enemies and release them (open the bag, or let a sweep take them). Watch the Awakening status
 - **Expected:** The Awakening status counts "Windswept marks left to release to awaken The First Step" down from 3; at 0 The First Step wakes
 - **Fails if:** Another count, the old Wanderlust text, or no tier
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L3.2 · The First Step: the first Rush each turn is free
 
@@ -267,7 +267,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** With The First Step awake, use Zephyr Rush twice on two turns (after an unarmed attack each time)
 - **Expected:** The first Rush each turn costs no bonus action; a second Zephyr that turn costs it
 - **Fails if:** Every Rush is free, or none
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L3.3 · The Calm: only while a wind blows; the turns left become gusts
 
@@ -275,7 +275,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Look at The Calm with no wind; open the bag (2+ turns), mark enemies, cast The Calm
 - **Expected:** Greyed with no wind. Cast: the wind stops at once, each Windswept enemy takes 1d8 Thunder per turn left, every mark is swept, and the bag can open again the same turn
 - **Fails if:** Usable without wind, wrong damage, or the bag stays shut
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L3.4 · Wind Blast marks those who fail
 
@@ -283,7 +283,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Wind Blast on a group
 - **Expected:** Each creature that fails is pushed, Off Balance and Windswept; one that succeeds isn't marked; no "Afterwards…" in the text
 - **Fails if:** A success marks, a failure doesn't
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L3.5 · Flow State and Gale Deflection are no longer at level 3
 
@@ -292,7 +292,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Level 3 adds Wind Blast and The Calm (Aspect card); Flow State, Gale Deflection and its resources come at level 6; no Twinkle Toes
 - **Fails if:** Flow State or Gale Deflection still at 3
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ## Level 4 — Gale
 
@@ -304,7 +304,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Zephyr Strike a Windswept enemy; Zephyr Rush an unmarked one about 11 m away
 - **Expected:** Both push the target 3 m. The Rush now reaches 12 m. The Gale passive shows
 - **Fails if:** No push, the wrong distance, or still 9 m
-- **Result:** —
+- **Result:** pass — Funcionou. Mas fiz algumas alterações. O ZephyrRush permanece sempre 9m.
 
 ### L4.2 · Eurus joins the bag; the cap is 3
 
@@ -312,7 +312,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark 4 enemies; open the bag with Eurus; an ally attacks; a Windswept enemy attacks
 - **Expected:** The bag offers Eurus. "The bag is open" shows 3 turns. Allies +1 to attack rolls; Windswept enemies −1
 - **Fails if:** No Eurus, the wrong cap, or wrong bonuses
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L4.3 · Weightless rank 2
 
@@ -320,7 +320,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Check movement, jump distance and falling damage
 - **Expected:** +4.5 m movement, jump ×2, half falling damage (rank 1 gone)
 - **Fails if:** Rank 1 still there, or wrong values
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ## Level 5 — Flowing Assault, Wind Whispers
 
@@ -332,7 +332,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Wind Whispers, then attack
 - **Expected:** Wind Whispers' own effect plus the opening Advantage (the status Evasive Flow used to give)
 - **Fails if:** No Advantage
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ### L5.2 · Flowing Assault and the level-5 texts
 
@@ -341,7 +341,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Flowing Assault works as before; no Twinkle Toes or Feather Fall at level 5 (Weightless rank 2 stays)
 - **Fails if:** Twinkle Toes or the old Weightless 5 present
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass — Funcionou. Fiz algumas alterações.
 
 ## Level 6 — Flow State, Ready: Gale Deflection
 
@@ -353,7 +353,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Flow State at its base slot, then at a higher slot (another fight)
 - **Expected:** 3 turns at every slot, one extra bonus action each turn
 - **Fails if:** Duration grows with the slot, or no extra bonus action
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L6.2 · Gale Deflection also protects an ally within 3 m
 
@@ -361,7 +361,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Let a ranged enemy shoot you, then an ally 2 m from you, then one 5 m away
 - **Expected:** You can react for yourself and for the ally within 3 m; not for the one 5 m away. Its id doesn't show in the combat log
 - **Fails if:** No reaction for the near ally, a reaction for the far one, or an id in the log
-- **Result:** —
+- **Result:** pass — Acho que funcionou. E mudei para apenas inimigos que não estão com Windswept.
 
 ## Level 7 — Fellow Travellers, Storm Fists
 
@@ -373,7 +373,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** With Tier II awake (goal 5), let an ally hit an unmarked enemy
 - **Expected:** The enemy becomes Windswept (your mark: it counts for your bag and Awakening and lasts 2 of your turns)
 - **Fails if:** No mark, or the mark doesn't count for you
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L7.2 · Tier II needs 5 released marks
 
@@ -381,7 +381,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Release marks after Tier I and watch the Awakening status
 - **Expected:** It counts down to Fellow Travellers from 5
 - **Fails if:** Another number
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ### L7.3 · Storm Fists: extra damage only against enemies that aren't Windswept; 3 turns
 
@@ -389,7 +389,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Storm Fists; punch an unmarked enemy, then a Windswept one
 - **Expected:** Extra Thunder damage on the unmarked enemy only; 3 turns at every slot
 - **Fails if:** Extra damage on the Windswept enemy, or a different duration
-- **Result:** —
+- **Result:** pass — Funcionou. Mas fiz alterações: só funciona no inimigo que está com Windswept.
 
 ## Level 8 — Storm
 
@@ -401,7 +401,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Zephyr Rush an unmarked enemy and hit it; look at the bonus actions; Rush again to another unmarked enemy within 9 m
 - **Expected:** A second Rush appears for this turn (free, 9 m, only an unmarked enemy) and goes once used; a missed Rush gives none
 - **Fails if:** No second Rush, it costs an action, it stays, or a miss grants it
-- **Result:** —
+- **Result:** pass — Fiz. Modifiquei algumas coisas.
 
 ### L8.2 · The cap is 4; Weightless rank 3
 
@@ -409,7 +409,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark 5 enemies and open the bag; check movement and jump
 - **Expected:** "The bag is open" shows 4 turns; +6 m movement, jump ×3, half falling damage
 - **Fails if:** Another cap or wrong values
-- **Result:** —
+- **Result:** pass — Funcionou.
 
 ## Level 9 — Untethered, Empty State
 

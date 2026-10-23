@@ -476,7 +476,7 @@
         <field name="Trajectories" type="StringTableFieldDefinition" value="e5f96de3-7ad6-4478-b2a6-b942e15bb71c,ff93ba9c-124c-454e-ac8c-436c136bcef2,75d615be-9277-6e22-6c17-fa51981d7560,8c00238b-549d-dc71-8fcb-42ba68bae142" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_DeflectMissile" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a0b5783gffb9gab5cge25fg40567d09d2ab" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc7a1320ag001bg324fg456fg54638e396870" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc7a1320ag001bg324fg456fg54638e396870" version="2" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage,Bludgeoning)" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Monk_DeflectMissile" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
