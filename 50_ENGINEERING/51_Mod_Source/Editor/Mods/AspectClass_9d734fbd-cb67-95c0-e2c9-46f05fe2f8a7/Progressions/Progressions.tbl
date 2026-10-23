@@ -327,7 +327,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="6" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(a841e643-352c-4b0c-92c5-3e9bf2ddfbb8,,,,AlwaysPrepared)" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ArcanaGaleDeflectReturn,1,0);ActionResource(ArcanaReactGaleDeflection,3,0)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ArcanaGaleDeflectReturn,1,0);ActionResource(ArcanaReactGaleDeflection,1,0)" />
       </fields>
     </stat_object>
     <stat_object color="#FFDAA520" is_substat="false">

@@ -49,8 +49,10 @@ return {
                 T.eq(D.Has(id, "Unique"), r.perRound == 1, id .. " Unique iff once a round")
                 T.eq(D.reactionByUsed[r.used], id, r.used)
             end
-            T.eq(n, 3, "three reaction cards: Gale Deflection, Which One? and Compassion")
-            T.eq(D.reactions["Shout_Arcana_Card_Passive_GaleDeflection"].perRound, 3)
+            T.eq(n, 2, "two reaction cards: Which One? and Compassion")
+            -- WB63 (2026-10-23): Gale Deflection is a normal card now, one copy; its reaction refills once a turn
+            T.eq(D.reactions["Shout_Arcana_Card_Passive_GaleDeflection"], nil, "Gale Deflection is no reaction card")
+            T.eq(D.Has("Shout_Arcana_Card_Passive_GaleDeflection", "Unique"), true, "Gale Deflection is Unique")
         end,
         ["The Resonant (ARC-0002): costs, Unique, the reaction, the conjured cards"] = function()
             T.eq(D.CostOf("Target_Arcana_Card_Spell_Heartstring"), 1, "a cantrip card: 1 Thread")

@@ -1813,6 +1813,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ZEPHYR_TEMPEST_ALLY" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="7af0e2dd-1b48-4b97-a486-4e0ad2daf739" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc8e70842g41d8gaaa2gbb19gbd131a7330f8" version="2" />
+        <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_HeartOfTheStorm_Resistance" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4c05edb1g13f5g33e7g9f0cg6b6228438e99" version="1" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Thunder);1" />
         <field name="StackId" type="StringTableFieldDefinition" value="ZEPHYR_TEMPEST_ALLY" />

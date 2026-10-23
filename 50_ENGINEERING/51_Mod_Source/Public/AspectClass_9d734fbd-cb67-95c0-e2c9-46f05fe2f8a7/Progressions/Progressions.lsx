@@ -293,7 +293,7 @@
                     <attribute id="UUID" type="guid" value="bc0188a8-1914-4bb8-bb2c-e6f056ebad3b"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(ArcanaGaleDeflectReturn,1,0);ActionResource(ArcanaReactGaleDeflection,3,0)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(ArcanaGaleDeflectReturn,1,0);ActionResource(ArcanaReactGaleDeflection,1,0)"/>
                     <attribute id="Level" type="uint8" value="6"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>

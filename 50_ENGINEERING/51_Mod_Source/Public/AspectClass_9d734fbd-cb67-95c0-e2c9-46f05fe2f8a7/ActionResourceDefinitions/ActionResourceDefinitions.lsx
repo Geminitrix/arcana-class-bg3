@@ -59,7 +59,7 @@
                 <node id="ActionResourceDefinition">
                     <attribute id="IsHidden" type="bool" value="true"/>
                     <attribute id="Name" type="FixedString" value="ArcanaReactGaleDeflection"/>
-                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
                     <attribute id="UUID" type="guid" value="9eb62e9f-6465-445a-8b9d-ba81471fac0b"/>
                 </node>
                 <node id="ActionResourceDefinition">

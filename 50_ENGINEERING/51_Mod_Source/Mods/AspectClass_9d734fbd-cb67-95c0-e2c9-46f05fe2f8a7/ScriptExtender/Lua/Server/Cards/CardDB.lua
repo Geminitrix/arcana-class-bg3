@@ -65,9 +65,9 @@ D.cards = {
     ["Target_Arcana_Card_Spell_MaliciousWhispers"] = { aspect = "Deceiver", cost = 1 },
     ["Shout_Arcana_Card_Spell_HowlOfTheDead"] = { aspect = "Eternal", cost = 1 },
 
-    -- Reaction cards: see D.reactions. Gale Deflection can be used up to 3 times a round, so it takes
-    -- three copies.
-    ["Shout_Arcana_Card_Passive_GaleDeflection"] = { aspect = "Unbound", cost = 2 },
+    -- Ready: Gale Deflection (WB63): a normal card, one copy. Played, it keeps GALE_DEFLECTION_READY until combat
+    -- ends; the reaction refills once a turn by itself (ArcanaReactGaleDeflection, ReplenishType Turn).
+    ["Shout_Arcana_Card_Passive_GaleDeflection"] = { aspect = "Unbound", cost = 3, keywords = { Unique = true } },
     -- Tier III of the High Priestess: conjured to the hand when she awakens it (statusConjures), never in the deck.
     ["Shout_Arcana_Card_Passive_WhichOne"] = { aspect = "Deceiver", cost = 3, keywords = { Unique = true } },
 
@@ -111,7 +111,10 @@ D.cards = {
     -- Aspect cards (2026-09-28): created when the subclass awakens its Aspect (ASPECT_AWAKENED_*, see
     -- D.statusConjures). Level 0 and no slot, so they cost no Threads; being conjured sends them to the
     -- exile, and the engine's own OncePerCombat cooldown does the same job on the console.
-    ["Rush_Arcana_Created_Aspect_LeapOfFaith"] = { aspect = "Unbound" },
+    ["Shout_Arcana_Created_TheCalm"] = { aspect = "Unbound" },
+    -- The Windborn's ultimate (WB11): a Created ability, conjured while she has a mark to release (BAG_READY,
+    -- D.statusConjures), no slot, no Thread -- otherwise the lock of non-cards would keep it out of combat.
+    ["Shout_Arcana_Created_AeolusBag"] = { aspect = "Unbound", cost = 0 },
     ["Shout_Arcana_Created_Aspect_VeilLifts"] = { aspect = "Deceiver" },
     ["Shout_Arcana_Created_Aspect_WishUponAStar"] = { aspect = "Starchild" },
     ["Target_Arcana_Created_Aspect_FinalToll"] = { aspect = "Eternal" },
@@ -143,9 +146,11 @@ D.cards = {
 
 D.statusConjures = {
     ZEPHYR_STRIKE = { id = "Target_Arcana_Created_ZephyrStrike", lasts = 1 },
-    ARCANA_ZEPHYR_RUSH = { id = "Rush_Arcana_Created_ZephyrRush", lasts = 1 },
+    ZEPHYR_RUSH = { id = "Rush_Arcana_Created_ZephyrRush", lasts = 1 },
+    ZEPHYR_RUSH_STORM = { id = "Rush_Arcana_Created_ZephyrRush_Storm", lasts = 1 },
+    BAG_READY = { id = "Shout_Arcana_Created_AeolusBag", lasts = 99 },
     -- the Aspect card stays playable for the rest of the fight
-    ASPECT_AWAKENED_FOOL = { id = "Rush_Arcana_Created_Aspect_LeapOfFaith", lasts = 99 },
+    ASPECT_AWAKENED_FOOL = { id = "Shout_Arcana_Created_TheCalm", lasts = 99 },
     ASPECT_AWAKENED_EMPRESS = { id = "Shout_Arcana_Created_Aspect_VeilLifts", lasts = 99 },
     ASPECT_AWAKENED_EMPRESS_III = { id = "Shout_Arcana_Card_Passive_WhichOne", lasts = 99 },
     ASPECT_AWAKENED_STAR = { id = "Shout_Arcana_Created_Aspect_WishUponAStar", lasts = 99 },
@@ -164,10 +169,6 @@ D.statusConjures = {
 --     resource to the copies in hand, capped by what is left of the round's limit. Using the reaction
 --     applies `used` (from the interrupt's own Properties), which discards one copy.
 D.reactions = {
-    ["Shout_Arcana_Card_Passive_GaleDeflection"] = {
-        ready = "GALE_DEFLECTION_READY", resource = "ArcanaReactGaleDeflection",
-        used = "GALE_DEFLECTION_USED_TECH", perRound = 3,
-    },
     ["Shout_Arcana_Card_Passive_WhichOne"] = {
         ready = "WHICH_ONE_READY", resource = "ArcanaReactWhichOne",
         used = "WHICH_ONE_USED_TECH", perRound = 1,
