@@ -2,13 +2,13 @@
 source: 51 (Progressions, Lists, Stats, Story) — read from the game on 2026-10-23 (dump_progression.pl, dossier_texts.pl, the Editor .stats, ARCANA_Aspect_Fool.txt)
 synced_at: 2026-10-23 (after the Owner's Toolkit build, commit 60afc0e)
 state: synced
-reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10); 2026-10-23 ARC-0026 — rewritten from the game: the Owner's Toolkit build of the Windborn (WB51–WB61) replaces the old Unbound
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10); 2026-10-23 ARC-0026 — rewritten from the game: the Owner's Toolkit build of the Windborn (WB51–WB61) replaces the old Unbound; 2026-10-23 ARC-0026 — WB63 (names kept as in the game; Gale Deflection once a turn) and the WB62 fixes applied (dbc714b)
 ---
 
 # 🍃 The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
 
 > **Built by the Owner in the Toolkit (ARC-0026, WB51–WB61), playtested to level 8 (`QA_ARC-0026`).** Design:
-> `21.04_Subclasses/Unbound/DESIGN.md`; decisions WB0–WB62. Text fixes still owed to the game: WB62 (`32.01/Unbound.md`).
+> `21.04_Subclasses/Unbound/DESIGN.md`; decisions WB0–WB62. The WB62 fixes are in the game (2026-10-23, `dbc714b`); WB63 keeps the names as typed and makes Gale Deflection once a turn.
 
 > Last verified: **2026-10-23** · Lists "Unbound Level N" · Osiris `ARCANA_Aspect_Fool.txt` · Check with
 > `82_Automation/dump_progression.pl`.
@@ -70,12 +70,12 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 | 8 | Zephyr: Storm · Twinkle Toes rank 3 (+10 m) | — |
 | 9 | Empty State | Untethered |
 | 10 | — | Zephyr: Ally Tempest |
-| 11 | — | Unleashed Winds (the game text still says "Unleash Winds") |
+| 11 | — | Unleashed Winds |
 | 12 | Zephyr: Hurricane · Twinkle Toes rank 4 (+13 m) · Into the Storm (Tier III, hidden) | — |
 | 13–20 | — | — |
 
-Hidden: `Monk_SoundSwitch`, `UnlockedSpellSlotLevel1` (L1). The movement passive shows as **Twinkle Toes** in the
-game; the design calls it Weightless (WB39) — see WB62.
+Hidden: `Monk_SoundSwitch`, `UnlockedSpellSlotLevel1` (L1). The movement passive is **Twinkle Toes** (WB63; designed
+as Weightless).
 
 ---
 
@@ -89,7 +89,7 @@ Cost = **one Woven Spell Slot** of the card's level (console) or **Threads** (PC
 | **Wind Blast** | 3 | 2 | Action | Line; STR save: pushed 5 m, Off Balance 1 turn, **Windswept**; clears clouds and Burning | Slots 3–6 |
 | **Wind Whispers** | 5 | 3 | Bonus | 2 turns; usable out of combat: melee attacks by **unmarked** enemies have Disadvantage; **Wind Riposte** (asks first) when one of them misses; jumping costs no bonus action | Slots 4–6 |
 | **Flow State** | 6 | 2 | Action | 3 turns; usable out of combat: THP = 2 × Arcana level and +1 bonus action | Slots 3–6 (cost only) |
-| **Ready: Gale Deflection** | 6 | 3 | (reaction card) | Until combat ends: reaction against a ranged weapon attack by an **unmarked** enemy, on her or an ally nearby: −(1d10 + DEX + Arcana level) damage; at 0, Redirect (marks). The text says one use per turn; the stats give one use per cast (up to 3) with no per-turn refill — `QA_ARC-0026` L6.3 decides | Slots 4–6 |
+| **Ready: Gale Deflection** | 6 | 3 | (reaction card) | Until combat ends: reaction against a ranged weapon attack by an **unmarked** enemy, on her or an ally nearby: −(1d10 + DEX + Arcana level) damage; at 0, Redirect (marks). One use per turn: the reaction refills every turn (WB63); on PC one Unique card | Slots 4–6 |
 | **Zephyr: Tempest** | 7 | 4 | Bonus | Self, 3 turns: unarmed hits on **Windswept** enemies +1d6 + DEX Thunder and 2 turns of Reverberation | Slot 5: 2d6, slot 6: 3d6 |
 | **Untethered** *(ability card)* | 9 | 5 | Action | Fly and +2 AC while it lasts | Slot 6 |
 | **Zephyr: Ally Tempest** | 10 | 5 | Bonus | An ally, 5 turns: their weapon hits on **Windswept** enemies +1d4 Thunder and 1 turn of Reverberation | Slot 6 |
@@ -99,10 +99,10 @@ Cost = **one Woven Spell Slot** of the card's level (console) or **Threads** (PC
 | Card | Source | Cost | Effect |
 |---|---|---|---|
 | **Zephyr Rush** | Zephyr, after an unarmed attack | Bonus action + the movement it covers | 9 m at every rank, to an enemy that isn't Windswept; unarmed strike. Gale: pushes 3 m. Storm: casting it grants **Zephyr Rush: Storm** — 12 m, any enemy, half the movement, unarmed + DEX Thunder |
-| **Zephyr Strike** | Zephyr | Bonus action | A plain unarmed strike (the game shows it as "Zephyr Rush" — WB62) |
+| **Zephyr Strike** | Zephyr | Bonus action | A plain unarmed strike |
 | **Aeolus' Bag** | Level 2 | Bonus action; needs a Windswept enemy; usable out of combat | Boreas (allies +3 m / marked −3 m), Notus (ranged attacks on allies at Disadvantage / marked −1d4 to saves), Eurus from Gale (allies +1d4 to attacks / marked −1d4 to attacks); pairs at Hurricane; a blowing wind is never refreshed |
 | **The Calm** *(Aspect card)* | Tier I | Action; once per combat; usable out of combat | Only while a wind blows: each turn left becomes a gust (1d8 Thunder) on every enemy under a headwind; marks released; the bag reopens |
-| **Unleashed Winds** *(capstone)* | Level 11 | Action + level-6 slot; not while the bag is open | A point within 18 m, 9 m area, STR save: 4d8 Thunder, Windswept pulled 6 m in, the others pushed 6 m out, Off Balance 1 turn; half on a success. Its `TargetConditions` lack an `and` (WB62) |
+| **Unleashed Winds** *(capstone)* | Level 11 | Action + level-6 slot; not while the bag is open | A point within 18 m, 9 m area, STR save: 4d8 Thunder, Windswept pulled 6 m in, the others pushed 6 m out, Off Balance 1 turn; half on a success. On PC still locked in combat (a Created spell with no grant yet; ARC-0026) |
 
 ---
 

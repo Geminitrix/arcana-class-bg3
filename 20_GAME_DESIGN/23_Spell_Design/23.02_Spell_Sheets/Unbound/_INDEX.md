@@ -18,6 +18,6 @@ One sheet per card, passive and status family (00.08). Design: `21.04/Unbound/DE
 | [SPL_ZephyrTempest](SPL_ZephyrTempest.md) | Zephyr: Tempest | card | 7 |
 | [SPL_Untethered](SPL_Untethered.md) | Untethered | ability card | 9 |
 | [SPL_ZephyrTempestAlly](SPL_ZephyrTempestAlly.md) | Zephyr: Ally Tempest | card | 10 |
-| [FEAT_Weightless](FEAT_Weightless.md) | Weightless | passive (ranks) | 1 / 4 / 8 / 12 |
+| [FEAT_Weightless](FEAT_Weightless.md) | Twinkle Toes | passive (ranks; designed as Weightless, WB63) | 1 / 4 / 8 / 12 |
 | [FEAT_BeTheLeaf](FEAT_BeTheLeaf.md) | Be the Leaf | passive | 1 |
 | [FEAT_AspectAwakening](FEAT_AspectAwakening.md) | 0 - The Fool: Awakening | feature | 3 / 7 / 12 |

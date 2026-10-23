@@ -21,3 +21,8 @@ slot, so it has no variant and the name is exact: the check now skips cards with
 status icon, eleven text slips ("Weast", "Winswept", "Whind Whispers", "Unleash Winds", …), and the PC deck (still
 conjures Leap of Faith). Four names to confirm (Q1–Q4): Twinkle Toes or Weightless, Agility or Flowing Strikes, Extra
 Attack or Flowing Assault, Gale Deflection one use per turn or per cast.
+
+**Later the same day — applied (`[fechado] ARC-0026`, commit `dbc714b`):** F1–F22 in the game and the Owner's answers as
+**WB63**: Twinkle Toes, Agility, Precision and the vanilla Extra Attack keep their names; Ready: Gale Deflection is once a
+turn (the reaction refills each turn; one Unique card on PC). Lua tests: 138 pass. Still open: Unleashed Winds is locked
+in combat on PC (no conjure yet).

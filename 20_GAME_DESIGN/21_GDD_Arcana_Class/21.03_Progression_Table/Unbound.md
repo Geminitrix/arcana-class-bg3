@@ -13,16 +13,16 @@ has the old Unbound build** (`05.02/Unbound.md`) until the build ticket ships. N
 
 | Level | Passives | Cards and features | Why here |
 |---|---|---|---|
-| **1** | The Open Road · Be the Leaf · Flowing Strikes: Agility, Precision · Weightless (rank 1) | Zephyr Strike (Breeze) · Gale Burst | The mechanic plays from level 1: mark, Open Path, Rush |
+| **1** | The Open Road · Be the Leaf · Agility, Precision · Twinkle Toes (rank 1) | Zephyr Strike (Breeze) · Gale Burst | The mechanic plays from level 1: mark, Open Path, Rush |
 | **2** | — | Aeolus' Bag (Boreas, Notus) | The ultimate arrives small; the release of what level 1 gathers |
 | **3** | Tier I The First Step · 0 - The Fool: Awakening | The Calm (Aspect card) · Wind Blast | The Aspect wakes; the wide marker |
-| **4** | Zephyr: Gale (push) · Weightless (rank 2) — *feat level, exception WB16* | Eurus joins the bag | The signature button grows beside the feat |
-| **5** | Flowing Assault | Wind Whispers | Two strikes; the air warns her |
+| **4** | Zephyr: Gale (push) · Twinkle Toes (rank 2) — *feat level, exception WB16* | Eurus joins the bag | The signature button grows beside the feat |
+| **5** | Extra Attack (vanilla) | Wind Whispers | Two strikes; the air warns her |
 | **6** | — | Flow State · Ready: Gale Deflection | Flow and deflection |
 | **7** | Tier II Fellow Travellers · Magic Strikes | Zephyr: Tempest | The party carries the wind |
-| **8** | Zephyr: Storm (second Rush) · Weightless (rank 3) — *feat level, exception WB16* | — | The wind doesn't stop |
+| **8** | Zephyr: Storm (second Rush) · Twinkle Toes (rank 3) — *feat level, exception WB16* | — | The wind doesn't stop |
 | **9** | Empty State | Untethered | Flight and evasion |
 | **10** | — | Zephyr: Ally Tempest (WB55; Leap of Faith retired) | The wind lent to an ally |
 | **11** | — | Unleashed Winds (capstone, WB56) | The marked gathered, the rest thrown back |
-| **12** | Tier III Into the Storm · Zephyr: Hurricane · Weightless (rank 4) | — | The storm: sweeps push, two winds |
+| **12** | Tier III Into the Storm · Zephyr: Hurricane · Twinkle Toes (rank 4) | — | The storm: sweeps push, two winds |
 | 13–20 | Reserved (expansion module, `21.07`) | | |

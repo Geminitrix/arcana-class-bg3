@@ -325,10 +325,10 @@
                "title" : "Gale Deflection also protects an ally within 3 m"
             },
             {
-               "expected" : "Costs a level-3 slot (4–6 as upcasts); one reaction per turn; none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes",
+               "expected" : "Costs a level-3 slot (4–6 as upcasts); one reaction per turn, back at the start of your next turn (the card is cast once per fight); none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes",
                "fails" : "A level-2 slot, two uses in one turn, a reaction against a Windswept archer, or Flow State refused out of combat or lost on the glove change",
                "id" : "L6.3",
-               "rule" : "WB57, WB58",
+               "rule" : "WB57, WB58, WB63",
                "steps" : "Cast Ready: Gale Deflection (check the slot). Let an unmarked archer shoot you twice in one round, then a Windswept one; let one shoot an ally next to you. Out of combat, cast Flow State and change your gloves",
                "title" : "Gale Deflection: a level-3 slot, once per turn, unmarked shooters only; Flow State out of combat"
             }

@@ -2,7 +2,7 @@
 id: 31.02/Unbound
 owner: Lore Writer
 source: 21.04/Unbound/DESIGN.md §2, §11 · DECISIONS.md WB0–WB4, WB11, WB15, WB25–WB26, WB44 · 31.01_Lore_Bible.md
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner's Toolkit build: Leap of Faith left (WB55), the capstone is Unleashed Winds (WB56), the voice is the West Wind (WB61)
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner's Toolkit build: Leap of Faith left (WB55), the capstone is Unleashed Winds (WB56), the voice is the West Wind (WB61); 2026-10-23 ARC-0026 — WB63 (Twinkle Toes keeps its name; Gale Deflection once a turn) checked
 ---
 
 # 31.02 · Theme — The Windborn (internal: Unbound) (0 · The Fool · Aspect of Curiosity)
@@ -20,7 +20,7 @@ the sun behind; number **0**. Upright: beginnings, the leap, curiosity; reversed
 | Reading | Where the player meets it |
 |---|---|
 | The first step of the journey | **The Open Road** (core rule); **The First Step** (Tier I) |
-| Air | Every piece is wind: Zephyr Strike, the winds of the bag, Weightless |
+| Air | Every piece is wind: Zephyr Strike, the winds of the bag, Twinkle Toes (WB63) |
 | The small dog, the companion | **Fellow Travellers** (Tier II): the party carries the wind |
 | The leap into the unknown | **Into the Storm** (Tier III); **Untethered** (she leaves the ground) |
 | Number 0 | **The Calm** — Beaufort force 0 |

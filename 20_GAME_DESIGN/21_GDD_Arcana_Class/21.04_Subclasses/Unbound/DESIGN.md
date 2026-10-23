@@ -132,7 +132,7 @@ One passive teaches it once (WB27); cards don't repeat it in their tooltips.
 
 ### 4.2 Zephyr Strike in ranks (WB4, WB6, WB16, WB17)
 
-| Level | Rank | Zephyr Strike | Aeolus' Bag | Weightless |
+| Level | Rank | Zephyr Strike | Aeolus' Bag | Twinkle Toes |
 |---|---|---|---|---|
 | 1 | **Breeze** | The Rush to an unmarked enemy | (level 2) Boreas, Notus; wind cap (25) | rank 1 |
 | 4 | **Gale** | + pushes the target (25) m | + Eurus; cap (25) | rank 2 |
@@ -257,15 +257,15 @@ releases what was gathered.
 |---|---|---|---|
 | **The Open Road** | 1 | The core rule (§4.1) | WB27 |
 | **Be the Leaf** | 1 | AC = 10 + DEX + INT; doesn't stack with Mage Armour | WB21, WB40 |
-| **Flowing Strikes: Agility** | 1 | Unarmed attacks use DEX if higher | WB41 |
-| **Flowing Strikes: Precision** | 1 | Unarmed damage die by level | WB41 |
-| **Weightless** | 1 · 4 · 8 · 12 | Movement speed, jump distance and falling damage improve with Zephyr's ranks; announced at each rank | WB39, WB47, WB59 |
-| **Flowing Assault** | 5 | Extra Attack | WB41 |
+| **Agility** | 1 | Unarmed attacks use DEX if higher | WB41, WB63 |
+| **Precision** | 1 | Unarmed damage die by level | WB41, WB63 |
+| **Twinkle Toes** (designed as Weightless) | 1 · 4 · 8 · 12 | Movement speed, jump distance and falling damage improve with Zephyr's ranks; announced at each rank | WB39, WB47, WB59 |
+| **Extra Attack** (vanilla) | 5 | Extra Attack | WB41, WB63 |
 | **Magic Strikes** | 7 | Unarmed attacks count as magical | WB41 |
 | **Empty State** | 9 | Against **Windswept** attackers: half damage from their hits; Evasion against their DEX saves | WB42, WB57 |
 | **0 - The Fool: Awakening** | 3 | Explains the goal and tiers (§8) | WB22, WB24 |
 
-**Retired:** Twinkle Toes and Feather Fall (merged into Weightless, WB39), Eye of the Storm (WB35), Momentum (WB37).
+**Retired:** Feather Fall (merged into the ranks of Twinkle Toes, WB39, WB63), Eye of the Storm (WB35), Momentum (WB37).
 
 ---
 
@@ -306,18 +306,18 @@ No tier gives an ability bonus (`10.06`: the old +3 DEX goes). VFX: Haste.
 
 | Lvl | Arrives | Headline | New concepts |
 |---|---|---|---|
-| 1 | The Open Road (Windswept, Open Path, Zephyr's Rush), Be the Leaf, Flowing Strikes, Weightless 1, Gale Burst | "The wind marks what I touch and carries me to the rest" | 3 (mark, Open Path, Rush) |
+| 1 | The Open Road (Windswept, Open Path, Zephyr's Rush), Be the Leaf, Agility, Precision, Twinkle Toes 1, Gale Burst | "The wind marks what I touch and carries me to the rest" | 3 (mark, Open Path, Rush) |
 | 2 | Aeolus' Bag (Boreas, Notus) | "I can open the bag" | 2 (the bag, winds) |
 | 3 | Tier I The First Step + The Calm; Wind Blast | "My Aspect wakes; I can stop the wind" | 2 (Awakening, The Calm) |
-| 4 | Gale: push, Eurus, longer wind, Weightless 2 | "My Zephyr pushes; a new wind" | 1 (push) |
-| 5 | Flowing Assault; Wind Whispers | "Two strikes; the air warns me" | 1 (Riposte) |
+| 4 | Gale: push, Eurus, longer wind, Twinkle Toes 2 | "My Zephyr pushes; a new wind" | 1 (push) |
+| 5 | Extra Attack; Wind Whispers | "Two strikes; the air warns me" | 1 (Riposte) |
 | 6 | Flow State; Ready: Gale Deflection | "I flow; I turn arrows back" | 2 |
 | 7 | Tier II Fellow Travellers; Magic Strikes; Zephyr: Tempest | "The party carries my wind" | 1 (allies mark) |
-| 8 | Storm: second Rush, longer wind, Weightless 3 | "The wind doesn't stop" | 1 (chain) |
+| 8 | Storm: second Rush, longer wind, Twinkle Toes 3 | "The wind doesn't stop" | 1 (chain) |
 | 9 | Untethered; Empty State | "I fly; blows barely touch me" | 1 (flight) |
 | 10 | Zephyr: Ally Tempest | "My wind fights beside them" | 1 (allies strike the marked) |
 | 11 | Unleashed Winds | "I unleash the four winds" | 1 (pull the marked, throw the rest) |
-| 12 | Tier III Into the Storm + Hurricane (two winds), Weightless 4 | "The storm" | 1 (sweeps push) |
+| 12 | Tier III Into the Storm + Hurricane (two winds), Twinkle Toes 4 | "The storm" | 1 (sweeps push) |
 
 Every level has a headline; no level is empty; levels 4 and 8 carry only Zephyr's ranks (WB16).
 
@@ -350,7 +350,7 @@ storm of level 12.
 
 ## 11. Text
 
-Names (WB44): Windswept · The Open Road · Zephyr Strike · Breeze, Gale, Storm, Hurricane · Weightless · Aeolus' Bag ·
+Names (WB44): Windswept · The Open Road · Zephyr Strike · Breeze, Gale, Storm, Hurricane · Twinkle Toes (WB63) · Aeolus' Bag ·
 Boreas, Notus, Eurus · The Calm · Unleashed Winds · Zephyr: Tempest · Zephyr: Ally Tempest · The First Step, Fellow
 Travellers, Into the Storm; the passive is **Zephyr**, its ranks **Zephyr: Gale / Storm / Hurricane** (WB61). The wind is
 Zephyrus, **the West Wind**, in the texts (WB61). Display name **The Windborn** (WB0). Descriptions follow `31.03` and the class voice (`31.01` §5); written in `32.01/Unbound.md`.

@@ -2,7 +2,7 @@
 id: 42.04/Unbound
 owner: Icon Artist
 source: 21.04/Unbound/DESIGN.md §2.1 (card readings), §2.5 (colour), §4–§8; 31.02/Unbound.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-23, after the Owner's Toolkit build)
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner chose the in-game icons in the Toolkit (WB61): recorded; briefs for Leap of Faith, Storm Fists and Where the Winds Meet retired, Zephyr: Tempest, Zephyr: Ally Tempest and Unleashed Winds added
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — the Owner chose the in-game icons in the Toolkit (WB61): recorded; briefs for Leap of Faith, Storm Fists and Where the Winds Meet retired, Zephyr: Tempest, Zephyr: Ally Tempest and Unleashed Winds added; 2026-10-23 ARC-0026 — WB63 (Twinkle Toes keeps its name; Gale Deflection once a turn) checked
 ---
 
 # 42.04 · Icon briefs — The Windborn (internal: Unbound)
@@ -31,7 +31,7 @@ later art pass; the Owner's choice is the in-game reference until then.
 | Zephyr: Tempest (card, status, passive) | `PassiveFeature_HeartOfTheStorm_Thunder` |
 | Zephyr: Ally Tempest (card) | `PassiveFeature_HeartOfTheStorm_Resistance` |
 | Untethered | `Action_TempestuousMagic` |
-| Weightless (ranks 1 · 4–8 · 12) | `PassiveFeature_UnarmoredMovement` · `_2` · `_3` |
+| Twinkle Toes (ranks 1 · 4–8 · 12) | `PassiveFeature_UnarmoredMovement` · `_2` · `_3` |
 | Be the Leaf · Empty State | `PassiveFeature_PurityOfBody` · `PassiveFeature_MistyEscape` |
 | Awakening and tiers I–III (passives and statuses) | `Action_Mag_SpellSlotRestoration`, `_1`, `_2`, `_3` |
 
@@ -57,7 +57,7 @@ bag. Pipeline: source `42.01` → PNG `42.02/features/the windborn/` → DDS BC7
 | ICO_Unbound_Eurus | Eurus (East Wind) | A wind face with a rising sun behind | Amber + yellow | (none; as above) | 2 |
 | ICO_Unbound_TheCalm | The Calm (Aspect card) | A still horizon, a single leaf hanging in the air | Yellow on pale grey | Skill_Druid_NaturalRecovery | **1** |
 | ICO_Unbound_UnleashedWinds | Unleashed Winds (capstone) | Four gusts bursting from one point, two of them curling back in | Yellow + four wind tints | Action_Monster_ElementalAir_Whirlwind | **1** |
-| ICO_Unbound_Weightless | Weightless | A foot leaving the ground, a feather beneath it | Yellow + white | PassiveFeature_UnarmoredMovement (_2, _3) | 2 |
+| ICO_Unbound_Weightless | Twinkle Toes (WB63) | A foot leaving the ground, a feather beneath it | Yellow + white | PassiveFeature_UnarmoredMovement (_2, _3) | 2 |
 | ICO_Unbound_Awakening | 0 - The Fool: Awakening and its tiers | The Fool at the cliff edge, looking up | Yellow, sun gold | Action_Mag_SpellSlotRestoration (_1–_3) | **1** |
 | ICO_Unbound_ZephyrTempest | Zephyr: Tempest | A fist wrapped in a small thundercloud | Yellow + storm grey | PassiveFeature_HeartOfTheStorm_Thunder | 2 |
 | ICO_Unbound_ZephyrTempestAlly | Zephyr: Ally Tempest | A blade with a ribbon of wind and a spark of thunder | Yellow + storm grey | PassiveFeature_HeartOfTheStorm_Resistance (the status has none) | 2 |

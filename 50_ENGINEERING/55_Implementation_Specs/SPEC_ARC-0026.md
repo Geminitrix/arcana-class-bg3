@@ -190,7 +190,7 @@ The Windborn's robe and the character-creation kit.
 `Arcana_Passive_EyeOfTheStorm`, `Arcana_Passive_EyeOfTheStorm_UI`, `Arcana_Passive_FlowingStrikeZephyr`, `Arcana_Passive_Momentum`, `Arcana_Passive_Momentum_UI`, `Arcana_Passive_Thunderclap`, `Arcana_Passive_TwinkleToes_1`, `Arcana_Passive_TwinkleToes_11`, `Arcana_Passive_TwinkleToes_12`, `Arcana_Passive_TwinkleToes_13`, `Arcana_Passive_TwinkleToes_15`, `Arcana_Passive_TwinkleToes_17`, `Arcana_Passive_TwinkleToes_19`, `Arcana_Passive_TwinkleToes_20`, `Arcana_Passive_TwinkleToes_3`, `Arcana_Passive_TwinkleToes_5`, `Arcana_Passive_TwinkleToes_7`, `Arcana_Passive_TwinkleToes_9`, `Arcana_Passive_Weightless_11`, `Arcana_Passive_Weightless_5`, `Arcana_Passive_Weightless_7`, `Arcana_Passive_Weightless_9`, `Arcana_Passive_Windswept_Touch`, `EVASIVE_FLOW`, `FLOW_STATE_3`, `FLOW_STATE_4`, `FLOW_STATE_5`, `FLOW_STATE_6`, `Interrupt_Arcana_Aspect_FoolsLuck`, `Shout_Arcana_Card_Spell_EvasiveFlow`, `Shout_Arcana_Card_Spell_EvasiveFlow_5`, `Shout_Arcana_Card_Spell_EvasiveFlow_6`, `Shout_Arcana_Card_Spell_Thunderclap`, `Shout_Arcana_Card_Spell_Thunderclap_6`, `THUNDERCLAP`, `WANDERLUST_HIT_TECH`.
 Also gone: Twinkle Toes and the old Weightless chain (Weightless 1/4/8/12 replace them), Target_TrueStrike from the level-1 list.
 
-## Fixes owed (WB62) — to apply with `[fechado] ARC-0026`
+## Fixes owed (WB62) — applied 2026-10-23 (`[fechado] ARC-0026`, commit `dbc714b`)
 
 Found in the propagation of 2026-10-23; none is a design change. The Owner may type them in the Toolkit
 (`implementation: owner`) or tell Claude to apply them (`implementation: claude`). After applying: sync (`sync_data.sh`),
@@ -233,7 +233,7 @@ Found in the propagation of 2026-10-23; none is a design change. The Owner may t
 | F21 | Card table and `D.reactions` | Ready: Gale Deflection `cost = 2`, `perRound = 3` | `cost = 3` (WB57); `perRound` follows Q4 |
 | F22 | To check in a PC run | Aeolus' Bag and Unleashed Winds are created, not cards: the lock of non-cards may keep them out of combat | A conjure on `BAG_READY` and on the level-11 grant, or the exception the Resonant's ultimate uses |
 
-**To confirm with the Owner before typing** (names; WB39 / WB41 say otherwise):
+**Answered by the Owner on 2026-10-23 (WB63), applied in `dbc714b`:** Q1 Twinkle Toes stays (a nod to Aang); Q2 Agility and Precision stay; Q3 the vanilla Extra Attack stays; Q4 one use per turn — `ArcanaReactGaleDeflection` refills each turn (max 1, `ReplenishType Turn`), the card only applies `GALE_DEFLECTION_READY`, and on PC it is one Unique card, out of `D.reactions` (the Lua tests keep the three-a-round stack rules with a fixture; 138 pass). F4: the Ally Tempest status inherited Tempest's icon; it now has its own. F22: Aeolus' Bag is conjured on `BAG_READY`; **Unleashed Winds is still locked in combat on PC** (a Created spell; it needs a grant — open, ARC-0026). The questions as asked:
 
 | # | Today | Design |
 |---|---|---|

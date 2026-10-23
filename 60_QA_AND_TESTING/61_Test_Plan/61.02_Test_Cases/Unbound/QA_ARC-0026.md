@@ -401,9 +401,9 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 
 ### L6.3 · Gale Deflection: a level-3 slot, once per turn, unmarked shooters only; Flow State out of combat
 
-- **Rule:** WB57, WB58
+- **Rule:** WB57, WB58, WB63
 - **Steps:** Cast Ready: Gale Deflection (check the slot). Let an unmarked archer shoot you twice in one round, then a Windswept one; let one shoot an ally next to you. Out of combat, cast Flow State and change your gloves
-- **Expected:** Costs a level-3 slot (4–6 as upcasts); one reaction per turn; none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes
+- **Expected:** Costs a level-3 slot (4–6 as upcasts); one reaction per turn, back at the start of your next turn (the card is cast once per fight); none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes
 - **Fails if:** A level-2 slot, two uses in one turn, a reaction against a Windswept archer, or Flow State refused out of combat or lost on the glove change
 - **Result:** —
 
