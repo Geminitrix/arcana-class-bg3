@@ -3,7 +3,8 @@
       "Type the level from its part of TOOLKIT_ARC-0026.md (one file, a part per level), compile the Story (log.txt: 0 error(s), 0 warning(s)) and tell Claude; then play that level's session here.",
       "Console edition (Script Extender off) unless a test says PC edition.",
       "A Windborn (Unbound subclass) character with no armour and no shield, unless a test says otherwise.",
-      "The stage 1 probes (P1–P9) all passed on 2026-10-17; they are recorded in QA-0004."
+      "The stage 1 probes (P1–P9) all passed on 2026-10-17; they are recorded in QA-0004.",
+      "2026-10-23: the Owner changed the build in the Toolkit while playing levels 1–8 (WB52–WB61). Tests already played keep"
    ],
    "sessions" : [
       {
@@ -73,7 +74,7 @@
                "expected" : "Weightless shows in the passives; movement +3 m without armour; no Twinkle Toes",
                "fails" : "No bonus, the wrong bonus, or Twinkle Toes still there",
                "id" : "L1.8",
-               "rule" : "WB39, WB47",
+               "rule" : "WB39, WB47 — superseded by WB59 (+4 m); see L1.13",
                "steps" : "Compare your movement with and without armour",
                "title" : "Weightless: +3 m"
             },
@@ -102,6 +103,23 @@
                "rule" : "WB5 (PC edition)",
                "steps" : "On the PC edition (Script Extender on), make an unarmed attack in combat",
                "title" : "PC edition: the deck conjures Zephyr Rush"
+            },
+            {
+               "expected" : "The Rush spends the bonus action and the metres it covers; with too little movement left it is refused",
+               "fails" : "It costs no movement, or it is allowed with no movement left",
+               "id" : "L1.12",
+               "rule" : "WB52",
+               "steps" : "Move part of your speed, then Zephyr Rush an unmarked enemy 8 m away; next turn Rush first with full movement",
+               "title" : "Zephyr Rush costs the movement it covers"
+            },
+            {
+               "expected" : "+4 m without armour; jump and falling as normal",
+               "fails" : "Another bonus, or a jump or fall change at rank 1",
+               "id" : "L1.13",
+               "kind" : "observe",
+               "rule" : "WB59",
+               "steps" : "Compare your movement with and without armour",
+               "title" : "Weightless rank 1: +4 m"
             }
          ]
       },
@@ -221,7 +239,7 @@
                "expected" : "Both push the target 3 m. The Rush now reaches 12 m. The Gale passive shows",
                "fails" : "No push, the wrong distance, or still 9 m",
                "id" : "L4.1",
-               "rule" : "WB16, WB17 (Gale)",
+               "rule" : "WB16, WB17 (Gale) — the 12 m Rush superseded by WB52 (9 m at every rank); see L4.4",
                "steps" : "Zephyr Strike a Windswept enemy; Zephyr Rush an unmarked one about 11 m away",
                "title" : "Zephyr pushes 3 m; the Rush reaches 12 m"
             },
@@ -237,9 +255,17 @@
                "expected" : "+4.5 m movement, jump ×2, half falling damage (rank 1 gone)",
                "fails" : "Rank 1 still there, or wrong values",
                "id" : "L4.3",
-               "rule" : "WB47 (Weightless 2)",
+               "rule" : "WB47 (Weightless 2) — superseded by WB59 (+7 m); see L4.4",
                "steps" : "Check movement, jump distance and falling damage",
                "title" : "Weightless rank 2"
+            },
+            {
+               "expected" : "The 11 m enemy is out of reach, the 8 m one is reached; +7 m movement, jump ×2, half falling damage",
+               "fails" : "The Rush reaches 12 m, or other Weightless values",
+               "id" : "L4.4",
+               "rule" : "WB52, WB59",
+               "steps" : "Zephyr Rush an unmarked enemy about 11 m away, then one about 8 m away; check movement, jump and a fall",
+               "title" : "Gale: the Rush stays 9 m; Weightless rank 2 is +7 m"
             }
          ]
       },
@@ -253,7 +279,7 @@
                "expected" : "Wind Whispers' own effect plus the opening Advantage (the status Evasive Flow used to give)",
                "fails" : "No Advantage",
                "id" : "L5.1",
-               "rule" : "WB33 (Wind Whispers)",
+               "rule" : "WB33 (Wind Whispers) — changed by WB57, WB58; see L5.3",
                "steps" : "Cast Wind Whispers, then attack",
                "title" : "Wind Whispers also gives the Advantage Evasive Flow gave"
             },
@@ -265,6 +291,14 @@
                "rule" : "WB43",
                "steps" : "Read Flowing Assault and Wind Whispers; check the passives",
                "title" : "Flowing Assault and the level-5 texts"
+            },
+            {
+               "expected" : "Usable out of combat; lasts 2 turns; Disadvantage only on the unmarked enemy's attack; the Riposte asks before striking, and only against the unmarked one",
+               "fails" : "Refused out of combat, Disadvantage or Riposte against the Windswept enemy, or the Riposte fires without asking",
+               "id" : "L5.3",
+               "rule" : "WB57, WB58",
+               "steps" : "Out of combat, cast Wind Whispers (it should work). In a fight, cast it; let an unmarked enemy and a Windswept one attack you in melee and miss",
+               "title" : "Wind Whispers: 2 turns, only against unmarked melee; the Riposte asks"
             }
          ]
       },
@@ -286,16 +320,24 @@
                "expected" : "You can react for yourself and for the ally within 3 m; not for the one 5 m away. Its id doesn't show in the combat log",
                "fails" : "No reaction for the near ally, a reaction for the far one, or an id in the log",
                "id" : "L6.2",
-               "rule" : "WB32 (Gale Deflection)",
+               "rule" : "WB32 (Gale Deflection) — changed by WB57 (one use per turn, unmarked shooters only); see L6.3",
                "steps" : "Let a ranged enemy shoot you, then an ally 2 m from you, then one 5 m away",
                "title" : "Gale Deflection also protects an ally within 3 m"
+            },
+            {
+               "expected" : "Costs a level-3 slot (4–6 as upcasts); one reaction per turn; none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes",
+               "fails" : "A level-2 slot, two uses in one turn, a reaction against a Windswept archer, or Flow State refused out of combat or lost on the glove change",
+               "id" : "L6.3",
+               "rule" : "WB57, WB58",
+               "steps" : "Cast Ready: Gale Deflection (check the slot). Let an unmarked archer shoot you twice in one round, then a Windswept one; let one shoot an ally next to you. Out of combat, cast Flow State and change your gloves",
+               "title" : "Gale Deflection: a level-3 slot, once per turn, unmarked shooters only; Flow State out of combat"
             }
          ]
       },
       {
          "id" : "L7",
          "level" : 7,
-         "name" : "Level 7 — Fellow Travellers, Storm Fists",
+         "name" : "Level 7 — Fellow Travellers, Zephyr: Tempest",
          "setup" : "Level 7, a fight with allies attacking enemies.",
          "tests" : [
             {
@@ -318,9 +360,17 @@
                "expected" : "Extra Thunder damage on the unmarked enemy only; 3 turns at every slot",
                "fails" : "Extra damage on the Windswept enemy, or a different duration",
                "id" : "L7.3",
-               "rule" : "WB34 (Storm Fists)",
+               "rule" : "WB34 (Storm Fists) — superseded by WB54 (Zephyr: Tempest, Windswept targets only); see L7.4",
                "steps" : "Cast Storm Fists; punch an unmarked enemy, then a Windswept one",
                "title" : "Storm Fists: extra damage only against enemies that aren't Windswept; 3 turns"
+            },
+            {
+               "expected" : "On yourself for 3 turns; the Windswept enemy takes +1d6 + DEX Thunder and 2 turns of Reverberation, once per attack; nothing on the unmarked one; at level 5 +2d6 + DEX. No Storm Fists in the spells",
+               "fails" : "Extra damage on the unmarked enemy, Reverberation twice per attack, the wrong dice, or Storm Fists still there",
+               "id" : "L7.4",
+               "rule" : "WB54",
+               "steps" : "Cast Zephyr: Tempest at level 4 (bonus action); punch a Windswept enemy, then an unmarked one; next fight cast it at level 5",
+               "title" : "Zephyr: Tempest: extra Thunder and Reverberation on Windswept targets, 3 turns"
             }
          ]
       },
@@ -334,7 +384,7 @@
                "expected" : "A second Rush appears for this turn (free, 9 m, only an unmarked enemy) and goes once used; a missed Rush gives none",
                "fails" : "No second Rush, it costs an action, it stays, or a miss grants it",
                "id" : "L8.1",
-               "rule" : "WB16 (Storm) · TC C3",
+               "rule" : "WB16 (Storm) · TC C3 — superseded by WB53; see L8.3",
                "steps" : "Zephyr Rush an unmarked enemy and hit it; look at the bonus actions; Rush again to another unmarked enemy within 9 m",
                "title" : "Storm: after a Rush that deals damage, one more free Rush"
             },
@@ -342,9 +392,26 @@
                "expected" : "\"The bag is open\" shows 4 turns; +6 m movement, jump ×3, half falling damage",
                "fails" : "Another cap or wrong values",
                "id" : "L8.2",
-               "rule" : "WB13 (cap 4), WB47",
+               "rule" : "WB13 (cap 4), WB47 — Weightless superseded by WB59 (+10 m); see L8.4",
                "steps" : "Mark 5 enemies and open the bag; check movement and jump",
                "title" : "The cap is 4; Weightless rank 3"
+            },
+            {
+               "expected" : "The second Rush (Zephyr Rush: Storm) appears as soon as the first is cast, reaches 12 m, may land on a Windswept enemy, costs half the movement it covers and deals unarmed damage + DEX as Thunder; it goes once used",
+               "fails" : "No second Rush, it needs a hit first, it refuses a Windswept enemy, the wrong range or cost, or it stays",
+               "id" : "L8.3",
+               "rule" : "WB53",
+               "steps" : "Zephyr Rush an unmarked enemy; look at the bonus actions; use the second Rush on a Windswept enemy about 11 m away",
+               "title" : "Storm: casting the Rush grants a second Rush — 12 m, any enemy, half the movement"
+            },
+            {
+               "expected" : "+10 m movement, jump ×3, half falling damage",
+               "fails" : "Other values",
+               "id" : "L8.4",
+               "kind" : "observe",
+               "rule" : "WB59",
+               "steps" : "Check movement, jump and a fall",
+               "title" : "Weightless rank 3: +10 m"
             }
          ]
       },
@@ -370,56 +437,63 @@
                "rule" : "WB43, WB36",
                "steps" : "Look at the level-9 passives and spells",
                "title" : "Empty State arrives at 9; Evasive Flow is gone"
+            },
+            {
+               "expected" : "Half damage from the Windswept enemy's hit only; Evasion on the Windswept caster's DEX save; full damage from the unmarked one",
+               "fails" : "Half damage from the unmarked enemy, or no reduction from the Windswept one",
+               "id" : "L9.3",
+               "rule" : "WB57 (WB42)",
+               "steps" : "Let a Windswept enemy and an unmarked one hit you; let a Windswept caster force a DEX save",
+               "title" : "Empty State: half damage only from Windswept attackers"
             }
          ]
       },
       {
          "id" : "L10",
          "level" : 10,
-         "name" : "Level 10 — Leap of Faith",
-         "setup" : "Level 10, enemies standing in a line.",
+         "name" : "Level 10 — Zephyr: Ally Tempest",
+         "setup" : "Level 10, a fight with an armed ally and several enemies, some Windswept.",
          "tests" : [
             {
-               "expected" : "The Force Tunnel dash, striking each enemy in the path and marking them; no slot spent; once per Short Rest. After it (a card) you get Zephyr",
-               "fails" : "No dash animation, a slot spent, usable again before a rest, or no Zephyr after it",
+               "expected" : "On the ally for 5 turns; +1d4 Thunder and 1 turn of Reverberation on the Windswept enemy only; no Leap of Faith anywhere in the spells",
+               "fails" : "Extra damage on the unmarked enemy, the wrong duration, castable on yourself or an enemy, or Leap of Faith still there",
                "id" : "L10.1",
-               "rule" : "WB7, WB38 (P5)",
-               "steps" : "Cast Leap of Faith through a line of enemies; try it again before a Short Rest",
-               "title" : "Leap of Faith: a card, once per Short Rest, on the Force Tunnel dash"
+               "rule" : "WB55",
+               "steps" : "Cast Zephyr: Ally Tempest on an ally (bonus action, level-5 slot); let the ally hit a Windswept enemy, then an unmarked one; count the turns",
+               "title" : "Zephyr: Ally Tempest: an ally's weapon hits on Windswept enemies add Thunder and Reverberation"
             }
          ]
       },
       {
          "id" : "L11",
          "level" : 11,
-         "name" : "Level 11 — Where the Winds Meet",
+         "name" : "Level 11 — Unleashed Winds",
          "setup" : "Level 11, a fight with several enemies, some Windswept.",
          "tests" : [
             {
-               "expected" : "Greyed while a wind blows. Without wind it targets a point on the ground (no enemy under the cursor needed)",
-               "fails" : "Usable with a wind, or it needs a creature as the target",
+               "expected" : "Greyed while the bag is open. Without it, it targets a point on the ground (no enemy under the cursor) and spends an action and a level-6 slot",
+               "fails" : "Usable with the bag open, it needs a creature as the target, or another cost",
                "id" : "L11.1",
-               "rule" : "WB26, WB50",
-               "steps" : "Open the bag, try the capstone; when the wind ends, aim it at an empty spot of ground within 18 m",
-               "title" : "Aimed at the ground; refused while a wind blows"
+               "rule" : "WB56",
+               "steps" : "Open the bag and try Unleashed Winds; when the wind ends, aim it at an empty spot of ground within 18 m",
+               "title" : "Aimed at the ground; refused while the bag is open; a level-6 slot"
             },
             {
-               "expected" : "Both are pulled toward the point (not toward you): the Windswept one reaches it, the other stops about 2 m short. Both take 4d8 Thunder (half on a DEX save), are Off Balance and become Windswept. Once per Long Rest",
-               "fails" : "The pull goes toward you (plan B: a pulling explosion at the point), wrong distances, or no mark",
+               "expected" : "Each makes a Strength save. On a failure: 4d8 Thunder, the Windswept enemy pulled 6 m toward the point, the unmarked one pushed 6 m away, both Off Balance for 1 turn. On a success: half damage, no move",
+               "fails" : "Both move the same way, a DEX save, wrong distances, or Off Balance on a success",
                "id" : "L11.2",
-               "planb" : "GROUND:CreateExplosion of a pulling explosion at the point",
-               "rule" : "WB46, WB49 · TC B7",
-               "steps" : "With one Windswept enemy and one unmarked enemy each about 8 m from the point, cast it",
-               "title" : "The pull: 9 m area, Windswept pulled 9 m, others 6 m — to the point"
+               "rule" : "WB56",
+               "steps" : "With a Windswept enemy and an unmarked one each about 5 m from the point, cast it",
+               "title" : "Windswept enemies pulled 6 m in, the others pushed 6 m out; STR save"
             },
             {
-               "expected" : "Where the Winds Meet replaces Thunderclap; no Momentum",
-               "fails" : "Thunderclap or Momentum still there",
+               "expected" : "Unleashed Winds in the spells; none of the retired pieces",
+               "fails" : "Any retired piece still there",
                "id" : "L11.3",
                "kind" : "observe",
-               "rule" : "WB37, WB34",
+               "rule" : "WB37, WB54–WB56",
                "steps" : "Look at the level-11 spells and passives",
-               "title" : "Thunderclap and Momentum are gone"
+               "title" : "Thunderclap, Momentum, Storm Fists, Leap of Faith and Where the Winds Meet are gone"
             }
          ]
       },
@@ -446,10 +520,10 @@
                "title" : "Hurricane: the bag offers two winds at once; the cap is 5"
             },
             {
-               "expected" : "+9 m movement, jump ×4, no falling damage",
+               "expected" : "+13 m movement, jump ×4, no falling damage",
                "fails" : "Wrong values",
                "id" : "L12.3",
-               "rule" : "WB47 (Weightless 4)",
+               "rule" : "WB47, WB59 (Weightless 4)",
                "steps" : "Check movement, jump and a long fall",
                "title" : "Weightless rank 4"
             },
@@ -486,10 +560,19 @@
                "rule" : "C2 · TC C4, C5",
                "steps" : "At level 12 compare your damage per turn with a Monk's; note the turn each tier wakes at 3, 7 and 12",
                "title" : "Power and tiers against the Monk"
+            },
+            {
+               "expected" : "Zephyr Strike is called Zephyr Strike; \"West Wind\" everywhere, no \"Weast\"; \"Windswept\", \"Wind Whispers\", \"Unleashed Winds\"; Eurus and Boreas named the East and North Winds; no \"### EMPTY\"; the Zephyr: Ally Tempest status has an icon",
+               "fails" : "Any of the listed slips still shows",
+               "id" : "A.3",
+               "kind" : "observe",
+               "rule" : "WB61, WB62",
+               "steps" : "Read Zephyr Strike, Zephyr Rush, Windswept, Aeolus' Bag and its pairs, Wind Whispers (passive), Unleashed Winds, Ready: Gale Deflection and its reaction; hover the hidden statuses",
+               "title" : "Names and texts read right"
             }
          ]
       }
    ],
    "ticket" : "ARC-0026",
-   "title" : "The Windborn — rework WB0–WB50 (levels 1–12)"
+   "title" : "The Windborn — rework WB0–WB61 (levels 1–12)"
 }
