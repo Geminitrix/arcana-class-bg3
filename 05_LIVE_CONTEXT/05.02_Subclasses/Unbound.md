@@ -35,8 +35,8 @@ reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound b
 |---|---|
 | Abilities | Spellcasting **Intelligence** · secondary **Dexterity** |
 | Saving throws | Dexterity, Wisdom |
-| Armour | **None — by design**: every Windborn passive, card and status needs no armour and no shield |
-| Weapons | None (unarmed) |
+| Armour | **None — by design**: every Windborn passive, card and status needs no armour and no shield; with armour or a shield she is **Tethered** (Earthly Ties, WB65) |
+| Weapons | None (unarmed); wielding a weapon also makes her **Tethered** (Earthly Ties, WB65) |
 | AC | **Be the Leaf**: 10 + DEX + INT (`ACOverrideFormula`) |
 
 ---
