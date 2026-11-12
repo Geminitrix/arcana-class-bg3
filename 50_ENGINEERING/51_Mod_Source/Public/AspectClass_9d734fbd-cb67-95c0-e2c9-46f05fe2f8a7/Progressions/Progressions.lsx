@@ -239,7 +239,7 @@
                     <attribute id="IsMulticlass" type="bool" value="true"/>
                     <attribute id="Level" type="uint8" value="1"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_EarthlyTies;Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>
@@ -250,7 +250,7 @@
                     <attribute id="IsMulticlass" type="bool" value="false"/>
                     <attribute id="Level" type="uint8" value="1"/>
                     <attribute id="Name" type="LSString" value="Unbound"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_EarthlyTies;Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(46830276-a1ea-46dd-909e-ad4bf0059235,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="d75cb44d-bba6-43ad-851f-4497ec526e80"/>

@@ -1701,4 +1701,8 @@
   <content contentuid="h4c05edb1g13f5g33e7g9f0cg6b6228438e99" version="1">Your weapon attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
   <content contentuid="h5ef5b839g9efbgb7b9g36b4g973fce96def2" version="1">Base Racial Speed</content>
   <content contentuid="h79e8580cga9e7g754bg2448g79493d61378d" version="1">You can move [3] per turn.</content>
+  <content contentuid="h79930739g1f75ge8e3g9e37gda4d22359bbb" version="1">Tethered</content>
+  <content contentuid="h6c96e5bbg7f05gf830g392dg25e830a4f76c" version="1">Held down by armour or steel. Can't move, take actions, bonus actions or reactions, or cast spells until the armour, shield and weapons come off.</content>
+  <content contentuid="hafc9f129g0cf1g9f3bg7eb6gf961315f93ab" version="1">Earthly Ties</content>
+  <content contentuid="h63f0e7a2g0ae2g0095g3635g78ccda2112b0" version="1">While you wear armour, hold a shield or wield a weapon, the wind won't carry you: you become &lt;LSTag Type="Status" Tooltip="EARTHLY_TIES"&gt;Tethered&lt;/LSTag&gt; and can't move, act or cast spells.</content>
 </contentList>

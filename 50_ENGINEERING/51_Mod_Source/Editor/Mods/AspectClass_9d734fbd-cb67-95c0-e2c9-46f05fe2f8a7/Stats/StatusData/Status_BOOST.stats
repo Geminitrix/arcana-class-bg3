@@ -1272,6 +1272,21 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="58303dec-6f56-4e6a-beb8-94059e7d9ec2" />
+        <field name="Name" type="NameTableFieldDefinition" value="EARTHLY_TIES" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h79930739g1f75ge8e3g9e37gda4d22359bbb" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6c96e5bbg7f05gf830g392dg25e830a4f76c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="statIcons_HeavyArmorBlockingRage" />
+        <field name="StackId" type="StringTableFieldDefinition" value="EARTHLY_TIES" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResourceBlock(ActionPoint);ActionResourceBlock(BonusActionPoint);ActionResourceBlock(ReactionActionPoint);ActionResourceBlock(Movement);BlockSpellCast();" />
+        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="not WearingArmor(context.Source) and not HasShieldEquipped(context.Source) and Unarmed(context.Source)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnEquip;OnUnequip" enumeration_type_name="StatusEvent" version="1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead;IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_RemoveOnRespec" enumeration_type_name="StatusGroupFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="83ff030a-f007-431a-8051-89fb3eff73a9" />
         <field name="Name" type="NameTableFieldDefinition" value="WINDSWEPT" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcb442b23g5bbfg2f7fg42e5gd9a92efde6c4" version="1" />

@@ -344,6 +344,19 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5724dcfa-2c37-41c6-8c8a-d4a71c968957" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_EarthlyTies" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hafc9f129g0cf1g9f3bg7eb6gf961315f93ab" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h63f0e7a2g0ae2g0095g3635g78ccda2112b0" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="statIcons_HeavyArmorBlockingRage" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnEquip;OnCreate" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="WearingArmor(context.Source) or HasShieldEquipped(context.Source) or not Unarmed(context.Source);" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,EARTHLY_TIES,100,-1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="ed66fe69-8692-4fef-855e-fc82c1e814d2" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_BetheLeaf" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2a5ce6aagbeb9g21d3gabf9ge12dae34d4f4" version="4" />

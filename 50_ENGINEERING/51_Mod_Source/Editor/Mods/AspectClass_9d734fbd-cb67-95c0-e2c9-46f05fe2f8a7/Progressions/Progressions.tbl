@@ -251,7 +251,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="1" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="TableUUID" type="GuidTableFieldDefinition" value="d75cb44d-bba6-43ad-851f-4497ec526e80" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EarthlyTies;Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)" />
         <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
       </fields>
@@ -266,7 +266,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Wisdom)" />
         <field name="Selectors" type="StringTableFieldDefinition" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSkills(46830276-a1ea-46dd-909e-ad4bf0059235,4);SelectSkillsExpertise(f974ebd6-3725-4b90-bb5c-2b647d41615d,2);AddSpells(43261c49-335c-4231-ae5d-6a828cff974c,,,,AlwaysPrepared)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="Arcana_Passive_EarthlyTies;Arcana_Passive_BetheLeaf;Arcana_Passive_Agility;Arcana_Passive_Precision;Arcana_Passive_TwinkleToes_1;Arcana_Passive_TheOpenRoad;Arcana_Passive_Zephyr;Monk_SoundSwitch;UnlockedSpellSlotLevel1" />
         <field name="IsMulticlass" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
