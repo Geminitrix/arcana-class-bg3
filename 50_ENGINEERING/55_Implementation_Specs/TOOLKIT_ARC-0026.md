@@ -226,7 +226,7 @@ Keep this section in every guide; it is how the Owner reads the rest.
 | 118 | UUID Object Editor | DefaultValues / Skills | the Windborn, level 1 | new | — | ☐ |
 | 119 | UUID Object Editor | CharacterCreationPresets / AbilityDistributionPresets | the Windborn | new | 116 | ☐ |
 | 120 | UUID Object Editor | Progressions / Progressions | Arcana level 1 (both rows) | change | 116 | ☐ |
-| 121 | Stories | Goals | `ARCANA_Aspect_Fool` | new goal | — | ☐ |
+| 121 | Stories | Goals | `ARCANA_Unbound_Windswept`, `ARCANA_Unbound_AeolusBag`, `ARCANA_Aspect_Fool` | new goals | — | ☐ |
 | 122 | Stories | Goals | `ARCANA_Aspect_Common` | check the Fool lines | — | ☐ |
 | 123 | — | Generated and PC edition | upcast variants, `ARCANA_CardFamilies`, `CardDB.lua` | Claude | all above | ☐ |
 
@@ -236,9 +236,442 @@ Keep this section in every guide; it is how the Owner reads the rest.
 
 Typed **last** (steps 121, 122): by then every status and spell they name exists.
 
-### 121 · NEW goal `ARCANA_Aspect_Fool` — parent goal: the same as the other `ARCANA_Aspect_` goals
+### 121 · NEW goals `ARCANA_Unbound_Windswept`, `ARCANA_Unbound_AeolusBag`, `ARCANA_Aspect_Fool` — parent goal: the same as the other `ARCANA_` goals
 
-Marks mirrored (hers, and her allies' at Tier II); the bag (X, the cap by rank, the release, the wind for X turns, a sweep at each of her turn starts, `BAG_OPEN` showing the turns left); The Calm's gusts; Tier I's free Rush; Tier III's push; each released mark is one Awakening step; the reset at combat end.
+One goal per mechanic, as the other subclasses: the marks, the bag, and the Aspect alone. Create the three, then compile once.
+
+#### `ARCANA_Unbound_Windswept`
+
+Marks mirrored (hers, and her allies' at Tier II); the release (every mark counted, then removed).
+
+```
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_Windswept((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_Windswept((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+
+KBSECTION
+// Windswept (Unbound): mirrors the Windborn's marks, so the bag can count them and the Aspect can count each release.
+// WINDSWEPT lands on an enemy with her as the source: her hits (Arcana_Passive_TheOpenRoad), her save cards (their
+// SpellSuccess) and, at Tier II, her allies' hits (ARCANA_Aspect_Fool.txt). A status cannot be listed by its source
+// in Osiris, so the DB keeps the list.
+// The release only removes the statuses; the StatusRemoved that follows deletes the rows, so the rows still stand
+// while the rest of a release runs.
+//
+// DBs:
+//   DB_ARCANA_Windswept(Born, Foe)   her marked enemies. Deleted when WINDSWEPT goes, and by the reset.
+// Calls the hooks PROC_ARCANA_Unbound_Windswept_Marked(Born, Foe) and PROC_ARCANA_Unbound_Windswept_Unmarked(Born)
+// (ARCANA_Unbound_AeolusBag.txt) and PROC_ARCANA_Unbound_Windswept_Released(Born, Foe) (ARCANA_Aspect_Fool.txt).
+// Entry point: PROC_ARCANA_Unbound_Windswept_Release (the bag, its sweeps and The Calm). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION Marks: every WINDSWEPT she is the source of
+IF
+StatusApplied((CHARACTER)_Foe, "WINDSWEPT", (CHARACTER)_Born, _)
+AND
+HasPassive(_Born, "Arcana_Passive_TheOpenRoad", 1)
+THEN
+DB_ARCANA_Windswept(_Born, _Foe);
+PROC_ARCANA_Unbound_Windswept_Marked(_Born, _Foe);
+
+IF
+StatusRemoved((CHARACTER)_Foe, "WINDSWEPT", _, _)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+NOT DB_ARCANA_Windswept(_Born, _Foe);
+PROC_ARCANA_Unbound_Windswept_Unmarked(_Born);
+//END_REGION
+
+//REGION Release: every mark is counted first, then removed
+PROC
+PROC_ARCANA_Unbound_Windswept_Release((CHARACTER)_Born)
+THEN
+PROC_ARCANA_Unbound_Windswept_ReleaseCount(_Born);
+PROC_ARCANA_Unbound_Windswept_ReleaseClear(_Born);
+
+PROC
+PROC_ARCANA_Unbound_Windswept_ReleaseCount((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+PROC_ARCANA_Unbound_Windswept_Released(_Born, _Foe);
+
+PROC
+PROC_ARCANA_Unbound_Windswept_ReleaseClear((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+RemoveStatus(_Foe, "WINDSWEPT", _Born);
+//END_REGION
+
+//REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+NOT DB_ARCANA_Windswept(_Born, _Foe);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+```
+
+#### `ARCANA_Unbound_AeolusBag`
+
+The bag: X, the cap by rank, the headwinds, the release, the wind until the start of her X-th next turn, a sweep at each of her turns the wind outlasts, `BAG_OPEN` showing the turns left; the reset at combat end.
+
+```
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_BagTurns((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
+NOT DB_ARCANA_BagTurns((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
+PROC_ARCANA_Unbound_AeolusBag_Init();
+
+KBSECTION
+// Aeolus' Bag (Unbound): opening the bag releases her Windswept marks and sets the chosen wind(s) blowing.
+// Opening counts X (her standing Windswept enemies, capped by Zephyr's rank), gives each of them the chosen wind's
+// headwind, releases every mark (ARCANA_Unbound_Windswept.txt) and starts the wind for X turns. The wind is counted
+// like a status: it blows from the opening until the start of her X-th next turn, so her allies (the tailwind, an
+// aura of WIND_*) and her enemies (the headwind) live through X rounds of it. Each of her turns the wind outlasts
+// starts with a sweep. BAG_OPEN shows the turns left (TickType StartTurn); the goal keeps its own count and removes
+// the status when the wind stops. A wind already blowing is never refreshed (WB60).
+//
+// DBs (tables, rebuilt by PROC_ARCANA_Unbound_AeolusBag_Init on a new game and on every load):
+//   DB_ARCANA_BagSpell(Spell)          the bag's spells.
+//   DB_ARCANA_BagWind(Spell, Wind)     the wind(s) each bag spell sets blowing.
+//   DB_ARCANA_Headwind(Wind, Headwind) the headwind each wind gives the enemies.
+// DBs (state; the reset deletes every row of the Windborn when her fight ends):
+//   DB_ARCANA_Headwinded(Born, Foe, Headwind) headwinds given while a wind blows. Deleted when the wind stops.
+//   DB_ARCANA_BagX(Born, X) / DB_ARCANA_BagCap(Born, Cap)   the count and the cap when the bag opens.
+//   DB_ARCANA_BagTurns(Born, Turns)           the wind's turns left. Deleted when the wind stops.
+// Reads: DB_ARCANA_Windswept (ARCANA_Unbound_Windswept.txt). Calls PROC_ARCANA_Unbound_Windswept_Release.
+// Answers the hooks PROC_ARCANA_Unbound_Windswept_Marked and PROC_ARCANA_Unbound_Windswept_Unmarked.
+// Entry point: PROC_ARCANA_Unbound_AeolusBag_EndWind (The Calm, ARCANA_Aspect_Fool.txt). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION Tables
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Init()
+AND
+DB_ARCANA_BagWind(_Spell, _Wind)
+THEN
+NOT DB_ARCANA_BagWind(_Spell, _Wind);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Init()
+AND
+DB_ARCANA_BagSpell(_Spell)
+THEN
+NOT DB_ARCANA_BagSpell(_Spell);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Init()
+AND
+DB_ARCANA_Headwind(_Wind, _Headwind)
+THEN
+NOT DB_ARCANA_Headwind(_Wind, _Headwind);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Init()
+THEN
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Boreas");
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Notus");
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Eurus");
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_BoreasNotus");
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_NotusEurus");
+DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_EurusBoreas");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Boreas", "WIND_BOREAS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Notus", "WIND_NOTUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Eurus", "WIND_EURUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasNotus", "WIND_BOREAS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasNotus", "WIND_NOTUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_NotusEurus", "WIND_NOTUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_NotusEurus", "WIND_EURUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_EurusBoreas", "WIND_EURUS");
+DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_EurusBoreas", "WIND_BOREAS");
+DB_ARCANA_Headwind("WIND_BOREAS", "HEADWIND_BOREAS");
+DB_ARCANA_Headwind("WIND_NOTUS", "HEADWIND_NOTUS");
+DB_ARCANA_Headwind("WIND_EURUS", "HEADWIND_EURUS");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Unbound_AeolusBag_Init();
+//END_REGION
+
+//REGION Ready: the bag can open while she has a mark; a mark made while a wind blows takes its headwind
+PROC
+PROC_ARCANA_Unbound_Windswept_Marked((CHARACTER)_Born, (CHARACTER)_Foe)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_Ready(_Born);
+PROC_ARCANA_Unbound_AeolusBag_LateHeadwind(_Born, _Foe);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Ready((CHARACTER)_Born)
+AND
+HasPassive(_Born, "Arcana_Passive_AeolusBag", 1)
+THEN
+ApplyStatus(_Born, "BAG_READY", -1.0, 1, _Born);
+
+// an enemy marked while a wind blows takes that wind's headwind too, until the wind stops
+PROC
+PROC_ARCANA_Unbound_AeolusBag_LateHeadwind((CHARACTER)_Born, (CHARACTER)_Foe)
+AND
+DB_ARCANA_Headwind(_Wind, _Headwind)
+AND
+HasActiveStatus(_Born, _Wind, 1)
+AND
+IsDead(_Foe, 0)
+THEN
+DB_ARCANA_Headwinded(_Born, _Foe, _Headwind);
+ApplyStatus(_Foe, _Headwind, -1.0, 1, _Born);
+
+PROC
+PROC_ARCANA_Unbound_Windswept_Unmarked((CHARACTER)_Born)
+AND
+NOT DB_ARCANA_Windswept(_Born, _)
+THEN
+RemoveStatus(_Born, "BAG_READY", _Born);
+//END_REGION
+
+//REGION Opening the bag: X, the cap, the headwinds, the release, the wind
+IF
+CastedSpell((CHARACTER)_Born, _Spell, _, _, _)
+AND
+DB_ARCANA_BagSpell(_Spell)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_Open(_Born, _Spell);
+
+// the headwinds are given before the release, while the marks are still there
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Open((CHARACTER)_Born, (STRING)_Spell)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_CountX(_Born);
+PROC_ARCANA_Unbound_AeolusBag_CapX(_Born);
+PROC_ARCANA_Unbound_AeolusBag_Headwinds(_Born, _Spell);
+PROC_ARCANA_Unbound_Windswept_Release(_Born);
+PROC_ARCANA_Unbound_AeolusBag_StartWind(_Born, _Spell);
+
+// X = her standing Windswept enemies
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CountX((CHARACTER)_Born)
+AND
+DB_ARCANA_BagX(_Born, _Old)
+THEN
+NOT DB_ARCANA_BagX(_Born, _Old);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CountX((CHARACTER)_Born)
+THEN
+DB_ARCANA_BagX(_Born, 0);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CountX((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+AND
+IsDead(_Foe, 0)
+AND
+DB_ARCANA_BagX(_Born, _N)
+AND
+IntegerSum(_N, 1, _M)
+THEN
+NOT DB_ARCANA_BagX(_Born, _N);
+DB_ARCANA_BagX(_Born, _M);
+
+// the cap by Zephyr's rank (FEAT_Unbound_AeolusBag wind_cap_next): Breeze 2, Gale 3, Storm 4, Hurricane 5
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CapX((CHARACTER)_Born)
+AND
+DB_ARCANA_BagCap(_Born, _Old)
+THEN
+NOT DB_ARCANA_BagCap(_Born, _Old);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CapX((CHARACTER)_Born)
+THEN
+DB_ARCANA_BagCap(_Born, 2);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CapX((CHARACTER)_Born)
+AND
+HasPassive(_Born, "Arcana_Passive_Zephyr_Gale", 1)
+THEN
+NOT DB_ARCANA_BagCap(_Born, 2);
+DB_ARCANA_BagCap(_Born, 3);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CapX((CHARACTER)_Born)
+AND
+HasPassive(_Born, "Arcana_Passive_Zephyr_Storm", 1)
+AND
+DB_ARCANA_BagCap(_Born, _Cap)
+THEN
+NOT DB_ARCANA_BagCap(_Born, _Cap);
+DB_ARCANA_BagCap(_Born, 4);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_CapX((CHARACTER)_Born)
+AND
+HasPassive(_Born, "Arcana_Passive_Zephyr_Hurricane", 1)
+AND
+DB_ARCANA_BagCap(_Born, _Cap)
+THEN
+NOT DB_ARCANA_BagCap(_Born, _Cap);
+DB_ARCANA_BagCap(_Born, 5);
+
+// every enemy Windswept when the bag opens takes the headwind of each chosen wind, until the wind stops
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Headwinds((CHARACTER)_Born, (STRING)_Spell)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+AND
+IsDead(_Foe, 0)
+AND
+DB_ARCANA_BagWind(_Spell, _Wind)
+AND
+DB_ARCANA_Headwind(_Wind, _Headwind)
+THEN
+DB_ARCANA_Headwinded(_Born, _Foe, _Headwind);
+ApplyStatus(_Foe, _Headwind, -1.0, 1, _Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_StartWind((CHARACTER)_Born, (STRING)_Spell)
+AND
+DB_ARCANA_BagX(_Born, _X)
+AND
+_X > 0
+AND
+DB_ARCANA_BagCap(_Born, _Cap)
+AND
+IntegerMin(_X, _Cap, _Turns)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_SetTurns(_Born, _Turns);
+PROC_ARCANA_Unbound_AeolusBag_ShowTurns(_Born, _Turns);
+PROC_ARCANA_Unbound_AeolusBag_Winds(_Born, _Spell);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Winds((CHARACTER)_Born, (STRING)_Spell)
+AND
+DB_ARCANA_BagWind(_Spell, _Wind)
+THEN
+ApplyStatus(_Born, _Wind, -1.0, 1, _Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_SetTurns((CHARACTER)_Born, (INTEGER)_Turns)
+AND
+DB_ARCANA_BagTurns(_Born, _Old)
+THEN
+NOT DB_ARCANA_BagTurns(_Born, _Old);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_SetTurns((CHARACTER)_Born, (INTEGER)_Turns)
+THEN
+DB_ARCANA_BagTurns(_Born, _Turns);
+
+// "the bag is open" is applied once, when the bag opens, and counts its own turns down (TickType StartTurn);
+// the goal keeps its own count in DB_ARCANA_BagTurns and removes the status when the wind stops
+PROC
+PROC_ARCANA_Unbound_AeolusBag_ShowTurns((CHARACTER)_Born, (INTEGER)_Turns)
+AND
+_Turns > 0
+AND
+IntegerProduct(_Turns, 6, _Secs)
+AND
+IntegerToReal(_Secs, _Dur)
+THEN
+ApplyStatus(_Born, "BAG_OPEN", _Dur, 1, _Born);
+//END_REGION
+
+//REGION The wind's turns: counted down at her turn start; a sweep while turns are left; at 0 the wind stops
+// X turns of wind, counted like a status: it blows from the opening until the start of her X-th next turn, so allies
+// and enemies live through X rounds of it. Each of her turns the wind outlasts starts with a sweep; at 0 the wind
+// stops and the bag can open again
+IF
+TurnStarted((CHARACTER)_Born)
+AND
+DB_ARCANA_BagTurns(_Born, _T)
+AND
+IntegerSubtract(_T, 1, _Left)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_SetTurns(_Born, _Left);
+PROC_ARCANA_Unbound_AeolusBag_Sweep(_Born, _Left);
+PROC_ARCANA_Unbound_AeolusBag_WindCheck(_Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_Sweep((CHARACTER)_Born, (INTEGER)_Left)
+AND
+_Left > 0
+THEN
+PROC_ARCANA_Unbound_Windswept_Release(_Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_WindCheck((CHARACTER)_Born)
+AND
+DB_ARCANA_BagTurns(_Born, _T)
+AND
+_T <= 0
+THEN
+PROC_ARCANA_Unbound_AeolusBag_EndWind(_Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_EndWind((CHARACTER)_Born)
+AND
+DB_ARCANA_BagTurns(_Born, _T)
+THEN
+NOT DB_ARCANA_BagTurns(_Born, _T);
+
+// the headwinds end with the wind
+PROC
+PROC_ARCANA_Unbound_AeolusBag_EndWind((CHARACTER)_Born)
+AND
+DB_ARCANA_Headwinded(_Born, _Foe, _Headwind)
+THEN
+NOT DB_ARCANA_Headwinded(_Born, _Foe, _Headwind);
+RemoveStatus(_Foe, _Headwind, _Born);
+
+PROC
+PROC_ARCANA_Unbound_AeolusBag_EndWind((CHARACTER)_Born)
+THEN
+RemoveStatus(_Born, "BAG_OPEN", _Born);
+RemoveStatus(_Born, "WIND_BOREAS", _Born);
+RemoveStatus(_Born, "WIND_NOTUS", _Born);
+RemoveStatus(_Born, "WIND_EURUS", _Born);
+//END_REGION
+
+//REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+AND
+DB_ARCANA_BagX(_Born, _X)
+THEN
+NOT DB_ARCANA_BagX(_Born, _X);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+AND
+DB_ARCANA_BagCap(_Born, _Cap)
+THEN
+NOT DB_ARCANA_BagCap(_Born, _Cap);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+THEN
+PROC_ARCANA_Unbound_AeolusBag_EndWind(_Born);
+RemoveStatus(_Born, "BAG_READY", _Born);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+```
+
+Numbers: the cap `2` / `3` / `4` / `5` = `FEAT_Unbound_AeolusBag#wind_cap_next`.
+
+#### `ARCANA_Aspect_Fool`
+
+Each released mark is one Awakening step; Tier II's Fellow Travellers; The Calm's gusts (Tier I's free Rush and Tier III's push live in the Stats); the reset at combat end.
 
 ```
 Version 1
@@ -247,30 +680,23 @@ INITSECTION
 PROC_ARCANA_Fool_Init();
 
 KBSECTION
-// The Fool / the Windborn (internal: Unbound), ARC-0026 (WB8-WB25). Replaces the Wanderlust round goal.
-// Marks: WINDSWEPT on an enemy, with her as the source (her hits: Arcana_Passive_TheOpenRoad; her save
-// cards: their SpellSuccess; her allies' hits at Tier II: here). DB_ARCANA_Windswept(_Born, _Foe) mirrors them.
-// The bag: opening counts X (her Windswept enemies, capped by Zephyr's rank), releases every mark and starts the
-// chosen wind(s) for X of her turns; while it blows, each of her turns starts with a sweep. Every released mark is
-// one Awakening step (PROC_ARCANA_Aspect_Step, goals 3/5/8 in ARCANA_Aspect_Common.txt).
-// Entered by the Owner at level 2 of TOOLKIT_ARC-0026 (it replaces the whole goal); level 3 sets the three FOOL rows
-// of DB_ARCANA_AspectTier in ARCANA_Aspect_Common to 3 / 5 / 8. Compile in the Story Editor.
+// Aspect of The Fool (the Windborn; internal ids keep "Unbound" and "Fool"; decisions WB8-WB25).
+//   Goal: every Windswept mark released is one step. ARCANA_Unbound_Windswept.txt calls
+//   PROC_ARCANA_Unbound_Windswept_Released for each mark the bag, its sweeps or The Calm release; 3 / 5 / 8 in
+//   ARCANA_Aspect_Common.txt.
+//   Tier I (The First Step) lives in the Stats (ASPECT_AWAKENED_FOOL_I/II/III apply THE_FIRST_STEP) and Tier III
+//   (Into the Storm) in the aura of ASPECT_AWAKENED_FOOL_III. Tier II (Fellow Travellers): here. Aspect card: The Calm
+//   (the turns left become gusts on every enemy under a headwind, then the marks are released and the bag reopens).
+//
+// DBs (tables, rebuilt by PROC_ARCANA_Fool_Init on a new game and on every load):
+//   DB_ARCANA_CalmGust(Turns, Gust)    The Calm's gust status by turns left.
+// DBs (state):
+//   DB_ARCANA_Gusted(Foe)              transient: one gust per enemy, however many headwinds.
+// Reads: DB_ARCANA_BagTurns (ARCANA_Unbound_AeolusBag.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached
+// (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Unbound_Windswept_Release, PROC_ARCANA_Unbound_AeolusBag_EndWind.
+// Answers the hook PROC_ARCANA_Unbound_Windswept_Released. Hooks: PROC_ARCANA_Aspect_Reset.
 
 //REGION Tables
-PROC
-PROC_ARCANA_Fool_Init()
-AND
-DB_ARCANA_BagWind(_Spell, _Wind)
-THEN
-NOT DB_ARCANA_BagWind(_Spell, _Wind);
-
-PROC
-PROC_ARCANA_Fool_Init()
-AND
-DB_ARCANA_BagSpell(_Spell)
-THEN
-NOT DB_ARCANA_BagSpell(_Spell);
-
 PROC
 PROC_ARCANA_Fool_Init()
 AND
@@ -281,21 +707,6 @@ NOT DB_ARCANA_CalmGust(_R, _Gust);
 PROC
 PROC_ARCANA_Fool_Init()
 THEN
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Boreas");
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Notus");
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_Eurus");
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_BoreasNotus");
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_BoreasEurus");
-DB_ARCANA_BagSpell("Shout_Arcana_Created_AeolusBag_NotusEurus");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Boreas", "WIND_BOREAS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Notus", "WIND_NOTUS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_Eurus", "WIND_EURUS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasNotus", "WIND_BOREAS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasNotus", "WIND_NOTUS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasEurus", "WIND_BOREAS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_BoreasEurus", "WIND_EURUS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_NotusEurus", "WIND_NOTUS");
-DB_ARCANA_BagWind("Shout_Arcana_Created_AeolusBag_NotusEurus", "WIND_EURUS");
 DB_ARCANA_CalmGust(1, "CALM_GUST_1");
 DB_ARCANA_CalmGust(2, "CALM_GUST_2");
 DB_ARCANA_CalmGust(3, "CALM_GUST_3");
@@ -308,38 +719,14 @@ THEN
 PROC_ARCANA_Fool_Init();
 //END_REGION
 
-//REGION Marks
-IF
-StatusApplied((CHARACTER)_Foe, "WINDSWEPT", (CHARACTER)_Born, _)
-AND
-HasPassive(_Born, "Arcana_Passive_TheOpenRoad", 1)
-THEN
-DB_ARCANA_Windswept(_Born, _Foe);
-PROC_ARCANA_Fool_Ready(_Born);
-
+//REGION Goal: every released mark is one Awakening step
 PROC
-PROC_ARCANA_Fool_Ready((CHARACTER)_Born)
-AND
-HasPassive(_Born, "Arcana_Passive_AeolusBag", 1)
+PROC_ARCANA_Unbound_Windswept_Released((CHARACTER)_Born, (CHARACTER)_Foe)
 THEN
-ApplyStatus(_Born, "BAG_READY", -1.0, 1, _Born);
+PROC_ARCANA_Aspect_Step(_Born, "FOOL");
+//END_REGION
 
-IF
-StatusRemoved((CHARACTER)_Foe, "WINDSWEPT", _, _)
-AND
-DB_ARCANA_Windswept(_Born, _Foe)
-THEN
-NOT DB_ARCANA_Windswept(_Born, _Foe);
-PROC_ARCANA_Fool_ReadyCheck(_Born);
-
-PROC
-PROC_ARCANA_Fool_ReadyCheck((CHARACTER)_Born)
-AND
-NOT DB_ARCANA_Windswept(_Born, _)
-THEN
-RemoveStatus(_Born, "BAG_READY", _Born);
-
-// Tier II Fellow Travellers: an ally's hit marks the enemy in her name (2 of her turns, as her own marks)
+//REGION Tier II: Fellow Travellers (an ally's hit marks the enemy in her name, 2 of her turns, as her own marks)
 IF
 AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, _, _, _)
 AND
@@ -360,216 +747,7 @@ THEN
 ApplyStatus(_Foe, "WINDSWEPT", 12.0, 1, _Born);
 //END_REGION
 
-//REGION Release: every released mark is one Awakening step; Tier III pushes each swept enemy
-PROC
-PROC_ARCANA_Fool_Release((CHARACTER)_Born)
-THEN
-PROC_ARCANA_Fool_ReleaseCount(_Born);
-PROC_ARCANA_Fool_ReleaseClear(_Born);
-
-// counted first, so the sweep that wakes Tier III already pushes
-PROC
-PROC_ARCANA_Fool_ReleaseCount((CHARACTER)_Born)
-AND
-DB_ARCANA_Windswept(_Born, _Foe)
-THEN
-PROC_ARCANA_Aspect_Step(_Born, "FOOL");
-
-PROC
-PROC_ARCANA_Fool_ReleaseClear((CHARACTER)_Born)
-AND
-DB_ARCANA_Windswept(_Born, _Foe)
-THEN
-PROC_ARCANA_Fool_Storm(_Born, _Foe);
-RemoveStatus(_Foe, "WINDSWEPT", _Born);
-
-PROC
-PROC_ARCANA_Fool_Storm((CHARACTER)_Born, (CHARACTER)_Foe)
-AND
-DB_ARCANA_AspectReached(_Born, 3)
-AND
-HasPassive(_Born, "Arcana_Passive_Aspect_Fool_III", 1)
-THEN
-ApplyStatus(_Foe, "INTO_THE_STORM", 0.0, 1, _Born);
-//END_REGION
-
-//REGION The bag
-IF
-CastedSpell((CHARACTER)_Born, _Spell, _, _, _)
-AND
-DB_ARCANA_BagSpell(_Spell)
-THEN
-PROC_ARCANA_Fool_OpenBag(_Born, _Spell);
-
-PROC
-PROC_ARCANA_Fool_OpenBag((CHARACTER)_Born, (STRING)_Spell)
-THEN
-PROC_ARCANA_Fool_CountX(_Born);
-PROC_ARCANA_Fool_CapX(_Born);
-PROC_ARCANA_Fool_Release(_Born);
-PROC_ARCANA_Fool_StartWind(_Born, _Spell);
-
-// X = her standing Windswept enemies
-PROC
-PROC_ARCANA_Fool_CountX((CHARACTER)_Born)
-AND
-DB_ARCANA_BagX(_Born, _Old)
-THEN
-NOT DB_ARCANA_BagX(_Born, _Old);
-
-PROC
-PROC_ARCANA_Fool_CountX((CHARACTER)_Born)
-THEN
-DB_ARCANA_BagX(_Born, 0);
-
-PROC
-PROC_ARCANA_Fool_CountX((CHARACTER)_Born)
-AND
-DB_ARCANA_Windswept(_Born, _Foe)
-AND
-IsDead(_Foe, 0)
-AND
-DB_ARCANA_BagX(_Born, _N)
-AND
-IntegerSum(_N, 1, _M)
-THEN
-NOT DB_ARCANA_BagX(_Born, _N);
-DB_ARCANA_BagX(_Born, _M);
-
-// the cap by Zephyr's rank (25 FEAT_Unbound_AeolusBag wind_cap_next): Breeze 2, Gale 3, Storm 4, Hurricane 5
-PROC
-PROC_ARCANA_Fool_CapX((CHARACTER)_Born)
-AND
-DB_ARCANA_BagCap(_Born, _Old)
-THEN
-NOT DB_ARCANA_BagCap(_Born, _Old);
-
-PROC
-PROC_ARCANA_Fool_CapX((CHARACTER)_Born)
-THEN
-DB_ARCANA_BagCap(_Born, 2);
-
-PROC
-PROC_ARCANA_Fool_CapX((CHARACTER)_Born)
-AND
-HasPassive(_Born, "Arcana_Passive_Zephyr_Gale", 1)
-THEN
-NOT DB_ARCANA_BagCap(_Born, 2);
-DB_ARCANA_BagCap(_Born, 3);
-
-PROC
-PROC_ARCANA_Fool_CapX((CHARACTER)_Born)
-AND
-HasPassive(_Born, "Arcana_Passive_Zephyr_Storm", 1)
-AND
-DB_ARCANA_BagCap(_Born, _Cap)
-THEN
-NOT DB_ARCANA_BagCap(_Born, _Cap);
-DB_ARCANA_BagCap(_Born, 4);
-
-PROC
-PROC_ARCANA_Fool_CapX((CHARACTER)_Born)
-AND
-HasPassive(_Born, "Arcana_Passive_Zephyr_Hurricane", 1)
-AND
-DB_ARCANA_BagCap(_Born, _Cap)
-THEN
-NOT DB_ARCANA_BagCap(_Born, _Cap);
-DB_ARCANA_BagCap(_Born, 5);
-
-PROC
-PROC_ARCANA_Fool_StartWind((CHARACTER)_Born, (STRING)_Spell)
-AND
-DB_ARCANA_BagX(_Born, _X)
-AND
-_X > 0
-AND
-DB_ARCANA_BagCap(_Born, _Cap)
-AND
-IntegerMin(_X, _Cap, _Turns)
-THEN
-PROC_ARCANA_Fool_SetTurns(_Born, _Turns);
-PROC_ARCANA_Fool_Winds(_Born, _Spell);
-
-PROC
-PROC_ARCANA_Fool_Winds((CHARACTER)_Born, (STRING)_Spell)
-AND
-DB_ARCANA_BagWind(_Spell, _Wind)
-THEN
-ApplyStatus(_Born, _Wind, -1.0, 1, _Born);
-
-PROC
-PROC_ARCANA_Fool_SetTurns((CHARACTER)_Born, (INTEGER)_Turns)
-AND
-DB_ARCANA_BagTurns(_Born, _Old)
-THEN
-NOT DB_ARCANA_BagTurns(_Born, _Old);
-
-PROC
-PROC_ARCANA_Fool_SetTurns((CHARACTER)_Born, (INTEGER)_Turns)
-THEN
-DB_ARCANA_BagTurns(_Born, _Turns);
-
-// "the bag is open" shows the turns left: the status is frozen, so the number is the one set here (RESONANT_OVERLOAD
-// pattern, proved by probe P8)
-PROC
-PROC_ARCANA_Fool_SetTurns((CHARACTER)_Born, (INTEGER)_Turns)
-AND
-_Turns > 0
-AND
-IntegerProduct(_Turns, 6, _Secs)
-AND
-IntegerToReal(_Secs, _Dur)
-THEN
-ApplyStatus(_Born, "BAG_OPEN", _Dur, 1, _Born);
-
-// X turns of wind, the opening turn included: each of her turns starts with a sweep while turns are left,
-// each of her turns ends one turn shorter; at 0 the wind stops and the bag can open again
-IF
-TurnStarted((CHARACTER)_Born)
-AND
-DB_ARCANA_BagTurns(_Born, _T)
-AND
-_T > 0
-THEN
-PROC_ARCANA_Fool_Release(_Born);
-
-IF
-TurnEnded((CHARACTER)_Born)
-AND
-DB_ARCANA_BagTurns(_Born, _T)
-AND
-IntegerSubtract(_T, 1, _Left)
-THEN
-PROC_ARCANA_Fool_SetTurns(_Born, _Left);
-PROC_ARCANA_Fool_WindCheck(_Born);
-
-PROC
-PROC_ARCANA_Fool_WindCheck((CHARACTER)_Born)
-AND
-DB_ARCANA_BagTurns(_Born, _T)
-AND
-_T <= 0
-THEN
-PROC_ARCANA_Fool_EndWind(_Born);
-
-PROC
-PROC_ARCANA_Fool_EndWind((CHARACTER)_Born)
-AND
-DB_ARCANA_BagTurns(_Born, _T)
-THEN
-NOT DB_ARCANA_BagTurns(_Born, _T);
-
-PROC
-PROC_ARCANA_Fool_EndWind((CHARACTER)_Born)
-THEN
-RemoveStatus(_Born, "BAG_OPEN", _Born);
-RemoveStatus(_Born, "WIND_BOREAS", _Born);
-RemoveStatus(_Born, "WIND_NOTUS", _Born);
-RemoveStatus(_Born, "WIND_EURUS", _Born);
-//END_REGION
-
-//REGION The Calm: the remaining turns become gusts on every Windswept enemy, then release and the bag reopens
+//REGION Aspect card: The Calm (the turns left become gusts on every enemy under a headwind, then release and reopen)
 IF
 CastedSpell((CHARACTER)_Born, "Shout_Arcana_Created_TheCalm", _, _, _)
 AND
@@ -578,85 +756,65 @@ AND
 _R > 0
 THEN
 PROC_ARCANA_Fool_Gusts(_Born, _R);
-PROC_ARCANA_Fool_Release(_Born);
-PROC_ARCANA_Fool_EndWind(_Born);
+PROC_ARCANA_Unbound_Windswept_Release(_Born);
+PROC_ARCANA_Unbound_AeolusBag_EndWind(_Born);
 
 PROC
 PROC_ARCANA_Fool_Gusts((CHARACTER)_Born, (INTEGER)_R)
 AND
 DB_ARCANA_CalmGust(_R, _Gust)
 AND
-DB_ARCANA_Windswept(_Born, _Foe)
+DB_ARCANA_Aspect_InCombat(_Born, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Foe, _Combat)
+AND
+IsEnemy(_Born, _Foe, 1)
 AND
 IsDead(_Foe, 0)
 THEN
-ApplyStatus(_Foe, _Gust, 0.0, 1, _Born);
-//END_REGION
+PROC_ARCANA_Fool_GustFoe(_Born, _Foe, _Gust);
 
-//REGION Tier I The First Step: the first Rush each turn is free (FOOL_ZEPHYR_FREE unlocks the free Rush variant)
+// any headwind marks the enemy once, so two winds (Hurricane) don't hit it twice
 PROC
-PROC_ARCANA_Aspect_OnTier((CHARACTER)_Born, (STRING)_Aspect, (INTEGER)_Tier)
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
 AND
-_Aspect == "FOOL"
-AND
-_Tier == 1
+HasActiveStatus(_Foe, "HEADWIND_BOREAS", 1)
 THEN
-ApplyStatus(_Born, "FOOL_ZEPHYR_FREE", 6.0, 1, _Born);
+DB_ARCANA_Gusted(_Foe);
 
-IF
-TurnStarted((CHARACTER)_Born)
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
 AND
-DB_ARCANA_AspectReached(_Born, 1)
-AND
-HasPassive(_Born, "Arcana_Passive_Aspect_Fool_I", 1)
+HasActiveStatus(_Foe, "HEADWIND_NOTUS", 1)
 THEN
-ApplyStatus(_Born, "FOOL_ZEPHYR_FREE", 6.0, 1, _Born);
+DB_ARCANA_Gusted(_Foe);
 
-IF
-CastedSpell((CHARACTER)_Born, _Spell, _, _, _)
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
 AND
-DB_ARCANA_CardFamily(_Spell, "Rush_Arcana_Created_ZephyrRush")
-AND
-HasActiveStatus(_Born, "FOOL_ZEPHYR_FREE", 1)
+HasActiveStatus(_Foe, "HEADWIND_EURUS", 1)
 THEN
-RemoveStatus(_Born, "FOOL_ZEPHYR_FREE", _Born);
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+DB_ARCANA_Gusted(_Foe)
+THEN
+NOT DB_ARCANA_Gusted(_Foe);
+ApplyStatus(_Foe, _Gust, 0.0, 1, _Born);
 //END_REGION
 
 //REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
 PROC
 PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
-AND
-DB_ARCANA_Windswept(_Born, _Foe)
 THEN
-NOT DB_ARCANA_Windswept(_Born, _Foe);
-
-PROC
-PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
-AND
-DB_ARCANA_BagX(_Born, _X)
-THEN
-NOT DB_ARCANA_BagX(_Born, _X);
-
-PROC
-PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
-AND
-DB_ARCANA_BagCap(_Born, _Cap)
-THEN
-NOT DB_ARCANA_BagCap(_Born, _Cap);
-
-PROC
-PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
-THEN
-PROC_ARCANA_Fool_EndWind(_Born);
-RemoveStatus(_Born, "BAG_READY", _Born);
-RemoveStatus(_Born, "FOOL_ZEPHYR_FREE", _Born);
+RemoveStatus(_Born, "THE_FIRST_STEP", _Born);
 //END_REGION
 EXITSECTION
 
 ENDEXITSECTION
 ```
-
-Numbers: the cap `2` / `3` / `4` / `5` = `FEAT_Unbound_AeolusBag#wind_cap_next`.
 
 ### 122 · CHANGED goal `ARCANA_Aspect_Common` — the Fool lines (a shared goal: only these lines)
 

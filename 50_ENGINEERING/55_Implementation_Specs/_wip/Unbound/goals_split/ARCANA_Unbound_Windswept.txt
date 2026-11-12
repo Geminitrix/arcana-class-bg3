@@ -1,0 +1,71 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_Windswept((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_Windswept((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+
+KBSECTION
+// Windswept (Unbound): mirrors the Windborn's marks, so the bag can count them and the Aspect can count each release.
+// WINDSWEPT lands on an enemy with her as the source: her hits (Arcana_Passive_TheOpenRoad), her save cards (their
+// SpellSuccess) and, at Tier II, her allies' hits (ARCANA_Aspect_Fool.txt). A status cannot be listed by its source
+// in Osiris, so the DB keeps the list.
+// The release only removes the statuses; the StatusRemoved that follows deletes the rows, so the rows still stand
+// while the rest of a release runs.
+//
+// DBs:
+//   DB_ARCANA_Windswept(Born, Foe)   her marked enemies. Deleted when WINDSWEPT goes, and by the reset.
+// Calls the hooks PROC_ARCANA_Unbound_Windswept_Marked(Born, Foe) and PROC_ARCANA_Unbound_Windswept_Unmarked(Born)
+// (ARCANA_Unbound_AeolusBag.txt) and PROC_ARCANA_Unbound_Windswept_Released(Born, Foe) (ARCANA_Aspect_Fool.txt).
+// Entry point: PROC_ARCANA_Unbound_Windswept_Release (the bag, its sweeps and The Calm). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION Marks: every WINDSWEPT she is the source of
+IF
+StatusApplied((CHARACTER)_Foe, "WINDSWEPT", (CHARACTER)_Born, _)
+AND
+HasPassive(_Born, "Arcana_Passive_TheOpenRoad", 1)
+THEN
+DB_ARCANA_Windswept(_Born, _Foe);
+PROC_ARCANA_Unbound_Windswept_Marked(_Born, _Foe);
+
+IF
+StatusRemoved((CHARACTER)_Foe, "WINDSWEPT", _, _)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+NOT DB_ARCANA_Windswept(_Born, _Foe);
+PROC_ARCANA_Unbound_Windswept_Unmarked(_Born);
+//END_REGION
+
+//REGION Release: every mark is counted first, then removed
+PROC
+PROC_ARCANA_Unbound_Windswept_Release((CHARACTER)_Born)
+THEN
+PROC_ARCANA_Unbound_Windswept_ReleaseCount(_Born);
+PROC_ARCANA_Unbound_Windswept_ReleaseClear(_Born);
+
+PROC
+PROC_ARCANA_Unbound_Windswept_ReleaseCount((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+PROC_ARCANA_Unbound_Windswept_Released(_Born, _Foe);
+
+PROC
+PROC_ARCANA_Unbound_Windswept_ReleaseClear((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+RemoveStatus(_Foe, "WINDSWEPT", _Born);
+//END_REGION
+
+//REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+AND
+DB_ARCANA_Windswept(_Born, _Foe)
+THEN
+NOT DB_ARCANA_Windswept(_Born, _Foe);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

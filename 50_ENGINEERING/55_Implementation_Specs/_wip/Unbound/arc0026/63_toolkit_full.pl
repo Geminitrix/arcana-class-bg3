@@ -237,8 +237,16 @@ sub closure { my ($tab, @roots) = @_; my %in; my @q = grep { $tab->{$_} } @roots
     while (defined(my $n = shift @q)) { next if $in{$n}++; push @q, refs_of($tab, $n), grep { $tab->{$_} } @{$kids{$n} // []} } \%in }
 sub tokens { my %t; for (@_) { $t{$1} = 1 while /\b([A-Za-z][A-Za-z0-9_]{3,})\b/g } keys %t }
 my (%GOALS, %GOALB);
-$GOALS{Fool} = ren(slurp("$WIP/22_goal_fool.txt")); (my $gcode = $GOALS{Fool}) =~ s{//[^
-]*}{}g; $GOALS{Fool} =~ s/Arcana_Passive_Windswept_Touch/Arcana_Passive_TheOpenRoad/g;
+# one goal per mechanic, as the other subclasses (Owner, 2026-11-12): the marks, the bag, the Aspect alone
+my $SPLIT = "$ROOT/50_ENGINEERING/55_Implementation_Specs/_wip/Unbound/goals_split";
+my @GOALSPLIT = (
+  ['Unbound_Windswept', "Marks mirrored (hers, and her allies' at Tier II); the release (every mark counted, then removed).", ''],
+  ['Unbound_AeolusBag', "The bag: X, the cap by rank, the headwinds, the release, the wind until the start of her X-th next turn, a sweep at each of her turns the wind outlasts, `BAG_OPEN` showing the turns left; the reset at combat end.",
+   "\nNumbers: the cap `2` / `3` / `4` / `5` = `FEAT_Unbound_AeolusBag#wind_cap_next`.\n"],
+  ['Aspect_Fool', "Each released mark is one Awakening step; Tier II's Fellow Travellers; The Calm's gusts (Tier I's free Rush and Tier III's push live in the Stats); the reset at combat end.", ''],
+);
+$GOALS{$_->[0]} = slurp("$SPLIT/ARCANA_$_->[0].txt") for @GOALSPLIT;
+(my $gcode = join "\n", map { $GOALS{$_->[0]} } @GOALSPLIT) =~ s{//[^\n]*}{}g;
 my $COMMON = git_show("50_ENGINEERING/51_Mod_Source/Mods/$M/Story/RawFiles/Goals/ARCANA_Aspect_Common.txt");
 my @COMMONFOOL = grep { /"FOOL"/ } split /\n/, $COMMON;
 my @roots = (map({ split /;/, ($_->{a}{PassivesAdded} // '') } @PROG), map({ split /;/ } values %LISTS), 'EQP_CC_Unbound',
@@ -480,9 +488,11 @@ for my $d (@BDEF) { my $n = $row->('UUID Object Editor', "DefaultValues / $d->{f
   push @uuid, "### $n · CHANGED · Progressions / Progressions · the Arcana class, level 1 (`39f4e9d3…` and `082473bf…`)\n\nIn both rows, add the Windborn to **SubClasses**: `<UUID from step $stepof{CLASS}>` (if you deleted the old Unbound, its entry left this list with it).\n" }
 
 # ---------------------------------------------------------------- Osiris (last: everything it names exists)
-{ my $n = $row->('Stories', 'Goals', '`ARCANA_Aspect_Fool`', 'new goal', '—');
-  (my $g = $GOALS{Fool}) =~ s/\n+$//;
-  push @stories, "### $n · NEW goal `ARCANA_Aspect_Fool` — parent goal: the same as the other `ARCANA_Aspect_` goals\n\nMarks mirrored (hers, and her allies' at Tier II); the bag (X, the cap by rank, the release, the wind for X turns, a sweep at each of her turn starts, `BAG_OPEN` showing the turns left); The Calm's gusts; Tier I's free Rush; Tier III's push; each released mark is one Awakening step; the reset at combat end.\n\n```\n$g\n```\n\nNumbers: the cap `2` / `3` / `4` / `5` = `FEAT_Unbound_AeolusBag#wind_cap_next`.\n"; push @NUMS, '`FEAT_Unbound_AeolusBag#wind_cap_next`' }
+{ my $names = join(', ', map { "`ARCANA_$_->[0]`" } @GOALSPLIT);
+  my $n = $row->('Stories', 'Goals', $names, 'new goals', '—');
+  my $s = "### $n · NEW goals $names — parent goal: the same as the other `ARCANA_` goals\n\nOne goal per mechanic, as the other subclasses: the marks, the bag, and the Aspect alone. Create the three, then compile once.\n";
+  for my $gs (@GOALSPLIT) { (my $g = $GOALS{$gs->[0]}) =~ s/\n+$//; $s .= "\n#### `ARCANA_$gs->[0]`\n\n$gs->[1]\n\n```\n$g\n```\n$gs->[2]" }
+  push @stories, $s; push @NUMS, '`FEAT_Unbound_AeolusBag#wind_cap_next`' }
 { my $n = $row->('Stories', 'Goals', '`ARCANA_Aspect_Common`', 'check the Fool lines', '—');
   my @l = map { my $x = $_; $x =~ s/^\s+//; $x =~ s/("FOOL", 2, "Arcana_Passive_Aspect_Fool_II", "ASPECT_AWAKENED_FOOL_II", )4\)/${1}5)/; $x =~ s/("FOOL", 3, "Arcana_Passive_Aspect_Fool_III", "ASPECT_AWAKENED_FOOL_III", )5\)/${1}8)/; $x } @COMMONFOOL;
   push @stories, "### $n · CHANGED goal `ARCANA_Aspect_Common` — the Fool lines (a shared goal: only these lines)\n\nIn `PROC_ARCANA_Aspect_Init()`, the Fool's lines must read exactly:\n\n```\n" . join("\n", @l) . "\n```\n\nNumbers: goals `3` / `5` / `8` = `FEAT_Unbound_AspectAwakening#goals_next`.\n"; push @NUMS, '`FEAT_Unbound_AspectAwakening#goals_next`' }

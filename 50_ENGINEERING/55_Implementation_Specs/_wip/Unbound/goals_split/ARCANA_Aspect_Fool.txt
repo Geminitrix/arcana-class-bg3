@@ -1,0 +1,140 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+PROC_ARCANA_Fool_Init();
+
+KBSECTION
+// Aspect of The Fool (the Windborn; internal ids keep "Unbound" and "Fool"; decisions WB8-WB25).
+//   Goal: every Windswept mark released is one step. ARCANA_Unbound_Windswept.txt calls
+//   PROC_ARCANA_Unbound_Windswept_Released for each mark the bag, its sweeps or The Calm release; 3 / 5 / 8 in
+//   ARCANA_Aspect_Common.txt.
+//   Tier I (The First Step) lives in the Stats (ASPECT_AWAKENED_FOOL_I/II/III apply THE_FIRST_STEP) and Tier III
+//   (Into the Storm) in the aura of ASPECT_AWAKENED_FOOL_III. Tier II (Fellow Travellers): here. Aspect card: The Calm
+//   (the turns left become gusts on every enemy under a headwind, then the marks are released and the bag reopens).
+//
+// DBs (tables, rebuilt by PROC_ARCANA_Fool_Init on a new game and on every load):
+//   DB_ARCANA_CalmGust(Turns, Gust)    The Calm's gust status by turns left.
+// DBs (state):
+//   DB_ARCANA_Gusted(Foe)              transient: one gust per enemy, however many headwinds.
+// Reads: DB_ARCANA_BagTurns (ARCANA_Unbound_AeolusBag.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached
+// (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Unbound_Windswept_Release, PROC_ARCANA_Unbound_AeolusBag_EndWind.
+// Answers the hook PROC_ARCANA_Unbound_Windswept_Released. Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION Tables
+PROC
+PROC_ARCANA_Fool_Init()
+AND
+DB_ARCANA_CalmGust(_R, _Gust)
+THEN
+NOT DB_ARCANA_CalmGust(_R, _Gust);
+
+PROC
+PROC_ARCANA_Fool_Init()
+THEN
+DB_ARCANA_CalmGust(1, "CALM_GUST_1");
+DB_ARCANA_CalmGust(2, "CALM_GUST_2");
+DB_ARCANA_CalmGust(3, "CALM_GUST_3");
+DB_ARCANA_CalmGust(4, "CALM_GUST_4");
+DB_ARCANA_CalmGust(5, "CALM_GUST_5");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Fool_Init();
+//END_REGION
+
+//REGION Goal: every released mark is one Awakening step
+PROC
+PROC_ARCANA_Unbound_Windswept_Released((CHARACTER)_Born, (CHARACTER)_Foe)
+THEN
+PROC_ARCANA_Aspect_Step(_Born, "FOOL");
+//END_REGION
+
+//REGION Tier II: Fellow Travellers (an ally's hit marks the enemy in her name, 2 of her turns, as her own marks)
+IF
+AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, _, _, _)
+AND
+DB_ARCANA_AspectReached(_Born, 2)
+AND
+HasPassive(_Born, "Arcana_Passive_Aspect_Fool_II", 1)
+AND
+_Ally != _Born
+AND
+DB_ARCANA_Aspect_InCombat(_Born, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Ally, _Combat)
+AND
+IsEnemy(_Born, _Foe, 1)
+AND
+IsEnemy(_Born, _Ally, 0)
+THEN
+ApplyStatus(_Foe, "WINDSWEPT", 12.0, 1, _Born);
+//END_REGION
+
+//REGION Aspect card: The Calm (the turns left become gusts on every enemy under a headwind, then release and reopen)
+IF
+CastedSpell((CHARACTER)_Born, "Shout_Arcana_Created_TheCalm", _, _, _)
+AND
+DB_ARCANA_BagTurns(_Born, _R)
+AND
+_R > 0
+THEN
+PROC_ARCANA_Fool_Gusts(_Born, _R);
+PROC_ARCANA_Unbound_Windswept_Release(_Born);
+PROC_ARCANA_Unbound_AeolusBag_EndWind(_Born);
+
+PROC
+PROC_ARCANA_Fool_Gusts((CHARACTER)_Born, (INTEGER)_R)
+AND
+DB_ARCANA_CalmGust(_R, _Gust)
+AND
+DB_ARCANA_Aspect_InCombat(_Born, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Foe, _Combat)
+AND
+IsEnemy(_Born, _Foe, 1)
+AND
+IsDead(_Foe, 0)
+THEN
+PROC_ARCANA_Fool_GustFoe(_Born, _Foe, _Gust);
+
+// any headwind marks the enemy once, so two winds (Hurricane) don't hit it twice
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_BOREAS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_NOTUS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_EURUS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+DB_ARCANA_Gusted(_Foe)
+THEN
+NOT DB_ARCANA_Gusted(_Foe);
+ApplyStatus(_Foe, _Gust, 0.0, 1, _Born);
+//END_REGION
+
+//REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+THEN
+RemoveStatus(_Born, "THE_FIRST_STEP", _Born);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
