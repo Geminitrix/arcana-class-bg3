@@ -18,7 +18,7 @@
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage,Bludgeoning);IF(HasPassive('Arcana_Passive_Zephyr_Gale',context.Source)):Force(3);" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead() and not HasStatus('WINDSWEPT') and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasStatus('SG_Polymorph_BeastShape')" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="Combat;!Immobile" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="!Immobile" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Monk_FistOfUnbrokenAir" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h56bc27caga588g2b1agc487ge918b523cedf" version="6" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hccc388f3g3470g7274g913agf1747c6c5cb9" version="3" />

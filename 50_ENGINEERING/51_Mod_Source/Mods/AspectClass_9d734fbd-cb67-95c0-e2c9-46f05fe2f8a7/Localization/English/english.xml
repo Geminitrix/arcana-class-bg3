@@ -1603,7 +1603,7 @@
   <content contentuid="h04212dafge9bcgc6d2g82d7gf9dd7540b5d0" version="3">Enemies you hit, or that fail a saving throw against you, become &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt;.</content>
   <content contentuid="h56631c21gb82bg0dd7gff74gc6daddcbfccf" version="2">Windswept lasts until the end of your next turn, and the marked enemies can't make &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="hb51386f4g187dg1df6gef27g32d856114dc2" version="3">Zephyr</content>
-  <content contentuid="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="1">After an unarmed attack or an Arcane card, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; or a &lt;LSTag Type="Spell" Tooltip="Rush_Arcana_Created_ZephyrRush"&gt;Zephyr Rush&lt;/LSTag&gt; as a bonus action.</content>
+  <content contentuid="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="2">After an unarmed attack or an Arcane spell, you can make a &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Created_ZephyrStrike"&gt;Zephyr Strike&lt;/LSTag&gt; or a &lt;LSTag Type="Spell" Tooltip="Rush_Arcana_Created_ZephyrRush"&gt;Zephyr Rush&lt;/LSTag&gt; as a bonus action.</content>
   <content contentuid="he99937b0g4af1g8c0bgb991g5f714c408369" version="1">Twinkle Toes</content>
   <content contentuid="hb25b5c44g85cbg3ac1gab99g64e792a6ee75" version="2">You move as if the air carried you. Your &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; increases by [1].</content>
   <content contentuid="h9c0cfebfgf977g47bdg43d2ga0d6fe592aee" version="1">Aeolus' Bag: Untied</content>
@@ -1630,7 +1630,7 @@
   <content contentuid="hf6c257b5g8038g359ega269g227ce4b91be7" version="1">Release Notus, the South Wind. Rain and fog cloak your allies from ranged attacks, and enemies falter on their Saving Throws.</content>
   <content contentuid="hb15f6e5fg4394g638fg6c85ga7e254ea6d82" version="1">While a wind blows, the bag stays shut, and at the start of your turn the wind sweeps every Windswept mark away. Your allies ride its tailwind, and enemies face its headwind.</content>
   <content contentuid="h9c8c3d1aga7d2ge653gd3cage67b6509ce78" version="1">Storm: The Wind Doesn't Stop</content>
-  <content contentuid="h73f0d397g8ed2gde09g1339g785e8b68d8f3" version="3"></content>
+  <content contentuid="h73f0d397g8ed2gde09g1339g785e8b68d8f3" version="3" />
   <content contentuid="he42dc747g6432gffefg38feged86b8ceda56" version="2">Zephyr: Gale</content>
   <content contentuid="h1c5b64b0g7b6dg3e37g9378g1e4b3c546b34" version="2">The West Wind grows. Your &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Zephyr"&gt;Zephyr Strike&lt;/LSTag&gt; pushes the target back [1], the bag's winds blow longer, and &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_AeolusBag_Eurus"&gt;Eurus&lt;/LSTag&gt; joins &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_AeolusBag"&gt;Aeolus' Bag&lt;/LSTag&gt;.</content>
   <content contentuid="h5b5a5962ga302gec5fg05dfgd8601849542b" version="2">Zephyr: Storm</content>
@@ -1681,16 +1681,16 @@
   <content contentuid="h17406e64gb638g822fg3b2bg8c14167f466c" version="1">Comprehend Art</content>
   <content contentuid="hf9a3d5b3g122cg83b9g5063g4c39cf38437d" version="1">Zephyr Rush Free</content>
   <content contentuid="hdae8725bg5610gc5e1g134ag9ee368e826f7" version="1">Wind Whispers</content>
-  <content contentuid="h6e8df9f1g98f4gc696g0586g988b14114aa3" version="1"></content>
+  <content contentuid="h6e8df9f1g98f4gc696g0586g988b14114aa3" version="1" />
   <content contentuid="h5a87d5c2gb4b2gcfb3g4ee4g886a54d38c66" version="2">### EMPTY</content>
   <content contentuid="h3edb69bfge33bgb50cgdd85g3196b28cd7be" version="1">Each time the wind sweeps the marks away, every swept enemy is pushed back [1] and becomes &lt;LSTag Type="Status" Tooltip="OFF_BALANCED"&gt;Off Balance&lt;/LSTag&gt;.</content>
-  <content contentuid="hb5e3c061ge8f4gdda1g76d1gbe8b970f9fbf" version="1"></content>
+  <content contentuid="hb5e3c061ge8f4gdda1g76d1gbe8b970f9fbf" version="1" />
   <content contentuid="h54043802g54f6g00e8gb3bcge304ea0c0506" version="1">### EMPTY</content>
   <content contentuid="hcb442b23g5bbfg2f7fg42e5gd9a92efde6c4" version="1">Windswept</content>
   <content contentuid="h54c232b7gf728g84d0gea11g54ae2c0eba23" version="2">Touched by the West Wind. Can't make &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;. Suffers the bane of any wind the Windborn releases.</content>
-  <content contentuid="he8f928aag9dadg34dcgd4f0g4de0daeac346" version="1"></content>
+  <content contentuid="he8f928aag9dadg34dcgd4f0g4de0daeac346" version="1" />
   <content contentuid="h28cdcb05gdc34g7152g5840g3381818106ae" version="1">Zephyr Rush</content>
-  <content contentuid="hdefa8084g831cg23b3ga2adg71c342e61c0c" version="1"></content>
+  <content contentuid="hdefa8084g831cg23b3ga2adg71c342e61c0c" version="1" />
   <content contentuid="ha07b16b5g6096g5c0fg73cag9e498809ba87" version="1">Zephyr: Tempest</content>
   <content contentuid="hc2491d44gf2b5g91e8gaff3g23c603363d22" version="1">The West Wind joins the fight to help your allies. Grant to all allies </content>
   <content contentuid="hb1329fbfg93cegd778g4b95g6ae83e86a900" version="1">Zephyr: Tempest</content>

@@ -10,6 +10,17 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="070a0caf-0f85-883d-5947-3483cc59c584" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_DEBUG_AddDoubt" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8d533945g69a0g7ef1gd891g5ce67c06da28" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcd45f700gbe75gf849g7994gaf567019c8ee" version="2" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_ADD_TECH,100,0);" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
         <field name="Name" type="NameTableFieldDefinition" value="DEBUG_IncreaseHP" />
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
@@ -43,17 +54,6 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(FEELING_DISAPPROVAL,100,2);ApplyStatus(FEELING_ENVY,100,2);" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9da5c728g3318g326egff18gb1cc6ef1dee4" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="070a0caf-0f85-883d-5947-3483cc59c584" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Util_DEBUG_AddDoubt" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8d533945g69a0g7ef1gd891g5ce67c06da28" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hcd45f700gbe75gf849g7994gaf567019c8ee" version="2" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_ADD_TECH,100,0);" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

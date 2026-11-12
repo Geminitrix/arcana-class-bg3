@@ -21,7 +21,7 @@
     <stat_object color="#FF000000" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="64ff8e6a-aac6-47ca-a41b-681bfc81ac6f" />
-        <field name="Name" type="NameTableFieldDefinition" value="ARCANA DEBUG" />
+        <field name="Name" type="NameTableFieldDefinition" value="ARCANA PASSIVES" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -400,7 +400,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="ed581bbd-0c86-42ce-9fdc-e4cd3481a458" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Zephyr" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb51386f4g187dg1df6gef27g32d856114dc2" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha5a822f1g6c30g657cg2335gd1a7e2288437" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_KiResonation_Punch" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnAttack;OnCast" enumeration_type_name="StatsFunctorContext" version="1" />
@@ -1234,12 +1234,6 @@
         <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(MOONSTONE_HELPER,100,1);SpawnExtraProjectiles(Projectile_Arcana_Equip_Moonstone)" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="RegainHitPoints(WisdomModifier*5);Distance(9)" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object color="#FF808080" is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a98a5708-9692-4307-96c0-8cb22f735704" />
-        <field name="Name" type="NameTableFieldDefinition" value="ARCANA PASSIVES" />
       </fields>
     </stat_object>
   </stat_objects>
