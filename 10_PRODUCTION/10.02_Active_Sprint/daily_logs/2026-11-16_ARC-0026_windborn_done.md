@@ -19,7 +19,7 @@ Owner's notes that say "changed" were read against the game files.
 25 (Ally Tempest + six stage 6 files), 32.01, README. `check_propagation` OK, `check_readme` OK, `validate` 0 errors.
 
 **Open, not blocking:**
-- 22.05: Zephyr: Ally Tempest was estimated for one ally with weapon hits; WB66 gives it to every melee ally - re-estimate.
+- 22.05: Zephyr: Ally Tempest stays as the Owner decided (WB66), without a new estimate (Owner, 2026-11-16).
 - The PC deck tests (L1.11, L2.6) were not played.
 - The new texts (Earthly Ties, Ally Tempest Aura) exist only in English; the other 14 languages wait for a translation sync.
 - The Story Editor writes one LF line at the end of `ARCANA_Aspect_Fool`; `check_osiris` reports it, the game compiles clean.
