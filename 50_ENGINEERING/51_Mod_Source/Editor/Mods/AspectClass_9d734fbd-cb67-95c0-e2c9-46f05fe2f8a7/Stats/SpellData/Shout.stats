@@ -2695,14 +2695,13 @@
         <field name="UUID" type="IdTableFieldDefinition" value="3262092f-2b02-4d02-976c-39f9c270de07" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Spell_ZephyrTempestAlly" />
         <field name="Level" type="IntegerTableFieldDefinition" value="5" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,ZEPHYR_TEMPEST_ALLY,100,5);" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="99" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,ZEPHYR_TEMPEST_ALLY_AURA,100,5);" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha8e1f3edga2b4gb9c0ga52ag791b020db0de" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h36f5c0c3geebfg8705g9b2dg81c3cd234c7e" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h36f5c0c3geebfg8705g9b2dg81c3cd234c7e" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Thunder);1" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(ZEPHYR_TEMPEST_ALLY,100,5)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(ZEPHYR_TEMPEST_ALLY_AURA,100,5)" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="c3f8b549-294f-4d7f-baab-e862f8089474" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Ally() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:5;" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_HeartOfTheStorm_Resistance" />
       </fields>

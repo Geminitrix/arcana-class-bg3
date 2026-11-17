@@ -1841,7 +1841,7 @@
         <field name="StackPriority" type="IntegerTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="StackType" type="EnumerationTableFieldDefinition" clear_inherited_value="true" value="" enumeration_type_name="StatusStackType" version="1" />
         <field name="AuraRadius" type="IntegerTableFieldDefinition" value="99" />
-        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF:(Ally()):ApplyStatus(ZEPHYR_TEMPEST_ALLY,100,-1)" />
+        <field name="AuraStatuses" type="StringTableFieldDefinition" value="IF(Ally()):ApplyStatus(ZEPHYR_TEMPEST_ALLY,100,-1)" />
         <field name="Boosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="Passives" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
       </fields>

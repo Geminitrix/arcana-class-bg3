@@ -52,13 +52,15 @@ PROC_ARCANA_Aspect_Step(_Born, "FOOL");
 
 //REGION Tier II: Fellow Travellers (an ally's hit marks the enemy in her name, 2 of her turns, as her own marks)
 IF
-AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, _, _, _)
+AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, (INTEGER)_AllyDamage, _, _)
 AND
 DB_ARCANA_AspectReached(_Born, 2)
 AND
 HasPassive(_Born, "Arcana_Passive_Aspect_Fool_II", 1)
 AND
 _Ally != _Born
+AND
+_AllyDamage > 0
 AND
 DB_ARCANA_Aspect_InCombat(_Born, _Combat)
 AND

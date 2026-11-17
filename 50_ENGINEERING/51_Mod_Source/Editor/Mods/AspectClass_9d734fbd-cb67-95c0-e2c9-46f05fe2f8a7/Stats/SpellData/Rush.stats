@@ -54,7 +54,7 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="05f029df-0d00-c6c6-76ec-86265f4658b3" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="12" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h41064b24g0296g9c24gcc25g8332a94519f7" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h955602a4ga4e5g7675gd372g15f80a687280" version="4" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h955602a4ga4e5g7675gd372g15f80a687280" version="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="Movement:Distance*0.5;" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source);" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(UnarmedDamage+DexterityModifier,Thunder)" />
