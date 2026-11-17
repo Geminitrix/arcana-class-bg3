@@ -9,7 +9,6 @@
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_review | owner | S01 |
 | [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | ready | owner |  |
 | [ARC-0025](stories/ARC-0025_Starchild_Refining_Build.md) | "Starchild refining build: the game plays SC0–SC32" | rework | Mod Engineer | must | 5/5 | ready | owner |  |
-| [ARC-0026](stories/ARC-0026_Windborn_Refining_Build.md) | "Windborn refining build: the game plays WB0–WB48" | rework | Mod Engineer | must | 5/5 | in_qa | owner | S01 |
 | [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA Lead | should | 4/2 | backlog | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Producer | should | 3/2 | backlog | claude |  |
 | [ARC-0013](stories/ARC-0013_Mod_Terminology_Rework.md) | Mod terminology: rewrite the glossary for the rework | chore | Lore Writer | should | 3/2 | backlog | pending |  |
@@ -29,4 +28,4 @@
 | [QA_ARC-0026](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Unbound/QA_ARC-0026.md) | Playtest — The Windborn — rework WB0–WB61 (levels 1–12) | playtest | QA Lead |  | / | in_qa |  |  |
 | [QA_ARC-0030](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Class/QA_ARC-0030.md) | Playtest — The Arcana — Osiris goals: standard and preventive fixes (any level) | playtest | QA Lead |  | / | ready |  |  |
 
-Done tickets: 15.
+Done tickets: 16.

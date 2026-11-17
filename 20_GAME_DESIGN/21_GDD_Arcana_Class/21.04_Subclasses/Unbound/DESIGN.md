@@ -2,7 +2,7 @@
 id: 21.04/Unbound/DESIGN
 owner: Lead Class Designer
 state: built by the Owner in the Toolkit (ARC-0026, WB51), playtested to level 8; design WB0–WB62 — the Owner's changes of 2026-10-23 (WB52–WB61) folded in
-reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — WB52–WB62 (the Owner's Toolkit changes: Zephyr: Tempest, Ally Tempest, Unleashed Winds, the Windswept split in the defences) folded in
+reviewed: 2026-10-16 ARC-0022 — written from DECISIONS.md (WB0–WB44) and REFINE_Unbound.md; 2026-10-16 ARC-0022 — balance pass approved (WB45–WB48), sizes in 25; 2026-10-17 ARC-0022 — propagation, no change; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — WB52–WB62 (the Owner's Toolkit changes: Zephyr: Tempest, Ally Tempest, Unleashed Winds, the Windswept split in the defences) folded in; 2026-11-16 ARC-0026 — WB66 (Ally Tempest: an aura from herself, every ally, melee) and WB67 (Fellow Travellers needs a damaging hit), from the Owner's Toolkit build
 ---
 
 # The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
@@ -183,7 +183,7 @@ Eurus is weighed against the others so it isn't always the right choice (DM-B5).
 
 | Creates | Changes | Spends | Reads |
 |---|---|---|---|
-| any hit; failed saves against your cards; Riposte and Gale Deflection hits; allies' hits (Tier II); Unleashed Winds | Gale push, Wind Blast, Gale Burst (move marked enemies); Unleashed Winds (pulls the marked, throws the rest); Storm's second Rush | **Aeolus' Bag** (opening and sweeps); **The Calm** | Zephyr Strike (Rush or not); the Open Path; the bag (X, the bane's targets); Zephyr: Tempest and Ally Tempest (bonus on the marked); Wind Whispers, Gale Deflection, Empty State (which attackers they answer); the Awakening |
+| any hit; failed saves against your cards; Riposte and Gale Deflection hits; allies' damaging hits (Tier II); Unleashed Winds | Gale push, Wind Blast, Gale Burst (move marked enemies); Unleashed Winds (pulls the marked, throws the rest); Storm's second Rush | **Aeolus' Bag** (opening and sweeps); **The Calm** | Zephyr Strike (Rush or not); the Open Path; the bag (X, the bane's targets); Zephyr: Tempest and Ally Tempest (bonus on the marked); Wind Whispers, Gale Deflection, Empty State (which attackers they answer); the Awakening |
 
 ### 4.8 Both sides of the field
 
@@ -243,7 +243,7 @@ releases what was gathered.
 | **Ready: Gale Deflection** | 6 | (reaction card, level 3) | creates | Until combat ends, one Gale Deflection per turn against ranged attacks **by enemies that aren't Windswept**, for you or an ally nearby; the returned missile marks | WB32, WB57 |
 | **Zephyr: Tempest** | 7 | Bonus | reads | Level-4 card; 3 turns: your unarmed hits **against Windswept enemies** deal extra (25) Thunder and inflict Reverberation; upcasts at 5 and 6 | WB54 |
 | **Untethered** *(ability card)* | 9 | Action | (identity) | Fly; +(25) AC while flying (Eye of the Storm folded in) | WB35 |
-| **Zephyr: Ally Tempest** | 10 | Bonus | reads | Level-5 card on an ally; 5 turns: their weapon hits **against Windswept enemies** deal extra (25) Thunder and inflict Reverberation; upcast at 6 | WB55 |
+| **Zephyr: Ally Tempest** | 10 | Bonus | reads | Level-5 card cast on herself; 5 turns: an aura gives every ally the rider - their **melee** hits **against Windswept enemies** deal extra (25) Thunder and inflict Reverberation; upcast at 6 | WB55, WB66 |
 
 **Created cards:** Zephyr Strike (§4.1, §4.2), The Calm (§4.4). **Features:** Aeolus' Bag (§4.3), Unleashed Winds
 (§4.5). **Retired:** True Strike (WB29), Evasive Flow (WB36), Thunderclap (WB37), Storm Fists (WB54), Leap of Faith
@@ -279,7 +279,7 @@ releases what was gathered.
 | **Zephyr Strike** (existing `ZEPHYR_STRIKE`) | the Windborn | created card in hand | Rush or plain strike by target |
 | **Storm: the wind doesn't stop** (`ZEPHYR_RUSH_STORM`) | the Windborn | hidden; grants the second Rush | Granted when the Rush is cast; ends when the second Rush is cast (WB53) |
 | **Zephyr: Tempest** (`ZEPHYR_TEMPEST`, `_2`, `_3`) | the Windborn | icon + ForceOverhead, 3 turns | Bonus Thunder and Reverberation on the marked (WB54) |
-| **Zephyr: Ally Tempest** (`ZEPHYR_TEMPEST_ALLY`) | an ally | icon, 5 turns | Bonus Thunder and Reverberation on the marked (WB55) |
+| **Zephyr: Ally Tempest** (`ZEPHYR_TEMPEST_ALLY_AURA` on her, `ZEPHYR_TEMPEST_ALLY` on every ally) | her and every ally | icon, 5 turns | Bonus Thunder and Reverberation on the marked, melee only (WB55, WB66) |
 | **Awakening progress** | the Windborn | counter (ARC-0007 pattern) | Marks released toward the next tier |
 | **Tiers I–III** | the Windborn | tier status with its bonus | §8 |
 
@@ -293,7 +293,7 @@ cumulative within the fight. Progress shows as a counter. Goals per tier (25).
 | Tier | Level | Name | Bonus (until combat ends) |
 |---|---|---|---|
 | I | 3 | **The First Step** | Your first Rush each turn costs no bonus action — Zephyr and the bag can share a turn. Grants **The Calm** |
-| II | 7 | **Fellow Travellers** | Your allies' hits also mark Windswept |
+| II | 7 | **Fellow Travellers** | Your allies' damaging hits also mark Windswept (WB67) |
 | III | 12 | **Into the Storm** | Each sweep of the wind pushes every swept enemy (25) m and leaves it Off Balance |
 
 No tier gives an ability bonus (`10.06`: the old +3 DEX goes). VFX: Haste.

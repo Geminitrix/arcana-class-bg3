@@ -19,7 +19,7 @@ Extender) turns combat into a **deck builder** paid with **Threads**.
 
 | Subclass | Arcanum | Status |
 |---|---|---|
-| Unbound (Windborn) | 0 · The Fool | Existing — rework in build (ARC-0026) |
+| Unbound (Windborn) | 0 · The Fool | Existing — rework done (ARC-0026) |
 | Deceiver (Veilwalker) | II · The High Priestess | Existing — refining designed, build ready (ARC-0020) |
 | Starchild | XVII · The Star | Existing — rework designed, build ready (ARC-0025) |
 | Eternal | XIII · Death | Existing — rework |

@@ -1,12 +1,10 @@
 id: SPL_Unbound_TheCalm
-reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change"
+reviewed: "2026-10-16 ARC-0022 — balance pass approved by the Owner (WB45–WB48); not built; values: holds today's game (05.02/Unbound.md), pending_build: what the build applies; 2026-10-17 ARC-0022 checked (propagation); 2026-10-17 ARC-0026 checked (stage 1 probes, no value change); 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-11-16 ARC-0026 — stage 6: built and playtested (QA_ARC-0026), pending_build moved into values, checked against the game files"
 kind: spell
 subclass: Unbound
 ticket: ARC-0022
 design: "21.04/Unbound/DESIGN.md §4.4"
 balance_report: "22.05/Unbound.md"
-values: {}
-
-pending_build:
-  action_next: { value: "Action; free, once per combat; only while a wind blows", note: "WB25; action so the bag can reopen the same turn" }
-  gust_damage_next: { value: "1d8 per gust", unit: damage, type: Thunder, by_level: { 3: 1d8, 7: 2d6 }, note: "one gust per remaining turn of wind, on every Windswept enemy, no roll" }
+values:
+  action:      { value: "Action, no slot; only while a wind blows (BAG_OPEN)", note: "WB25; action so the bag can reopen the same turn; the once-per-combat limit is not in the spell's stats (SpellFlags Temporary)" }
+  gust_damage: { value: "1d8 per gust", unit: damage, type: Thunder, by_level: { 3: 1d8, 7: 2d6 }, note: "one gust per remaining turn of wind, on every enemy under a headwind, no roll (CALM_GUST_1-5)" }

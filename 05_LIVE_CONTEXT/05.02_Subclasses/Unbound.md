@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — read from the game on 2026-10-23 (dump_progression.pl, dossier_texts.pl, the Editor .stats, ARCANA_Aspect_Fool.txt)
 synced_at: 2026-10-23 (after the Owner's Toolkit build, commit 60afc0e)
 state: synced
-reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10); 2026-10-23 ARC-0026 — rewritten from the game: the Owner's Toolkit build of the Windborn (WB51–WB61) replaces the old Unbound; 2026-10-23 ARC-0026 — WB63 (names kept as in the game; Gale Deflection once a turn) and the WB62 fixes applied (dbc714b)
+reviewed: 2026-10-17 ARC-0022 — the game is unchanged (still the old Unbound build); the approved redesign (WB0–WB48) lives in `21.04_Subclasses/Unbound/DESIGN.md` until its build ships; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — QA-0004: 7 probes pass, the Owner's probe edits live in the game, stage 1 complete (all 9 probes pass); stage 2 applied (probes removed, the Open Road in the game; see the build note); 2026-10-17 ARC-0026 — the build moves to the Toolkit guides per level; retired entries kept (OR-10); 2026-10-23 ARC-0026 — rewritten from the game: the Owner's Toolkit build of the Windborn (WB51–WB61) replaces the old Unbound; 2026-10-23 ARC-0026 — WB63 (names kept as in the game; Gale Deflection once a turn) and the WB62 fixes applied (dbc714b); 2026-11-16 ARC-0026 — WB66 (Ally Tempest: an aura from herself, every ally, melee) and WB67 (Fellow Travellers needs a damaging hit), from the Owner's Toolkit build
 ---
 
 # 🍃 The Windborn (internal: Unbound) — 0 · The Fool · Aspect of Curiosity
@@ -92,7 +92,7 @@ Cost = **one Woven Spell Slot** of the card's level (console) or **Threads** (PC
 | **Ready: Gale Deflection** | 6 | 3 | (reaction card) | Until combat ends: reaction against a ranged weapon attack by an **unmarked** enemy, on her or an ally nearby: −(1d10 + DEX + Arcana level) damage; at 0, Redirect (marks). One use per turn: the reaction refills every turn (WB63); on PC one Unique card | Slots 4–6 |
 | **Zephyr: Tempest** | 7 | 4 | Bonus | Self, 3 turns: unarmed hits on **Windswept** enemies +1d6 + DEX Thunder and 2 turns of Reverberation | Slot 5: 2d6, slot 6: 3d6 |
 | **Untethered** *(ability card)* | 9 | 5 | Action | Fly and +2 AC while it lasts | Slot 6 |
-| **Zephyr: Ally Tempest** | 10 | 5 | Bonus | An ally, 5 turns: their weapon hits on **Windswept** enemies +1d4 Thunder and 1 turn of Reverberation | Slot 6 |
+| **Zephyr: Ally Tempest** | 10 | 5 | Bonus | Herself, 5 turns: an aura gives every ally +1d4 Thunder and 1 turn of Reverberation on their **melee** hits on **Windswept** enemies (WB66) | Slot 6 |
 
 ### Created cards and features
 
@@ -129,7 +129,7 @@ Cost = **one Woven Spell Slot** of the card's level (console) or **Threads** (PC
 | Tier | Level | Name | Bonus (until combat ends) |
 |---|---|---|---|
 | I | 3 | **The First Step** | The first Zephyr Rush each turn costs no bonus action; grants The Calm |
-| II | 7 | **Fellow Travellers** | Allies' hits also mark Windswept |
+| II | 7 | **Fellow Travellers** | Allies' hits that deal damage also mark Windswept (WB67) |
 | III | 12 | **Into the Storm** | Each sweep pushes every swept enemy 3 m and leaves it Off Balance |
 
 VFX: Haste. Retired and unreachable (OR-10): Fool's Luck (`Interrupt_Arcana_Aspect_FoolsLuck`).

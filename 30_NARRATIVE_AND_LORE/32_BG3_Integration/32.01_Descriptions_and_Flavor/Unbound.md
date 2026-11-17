@@ -2,7 +2,7 @@
 id: 32.01/Unbound
 owner: Lore Writer
 source: game loca (51 Mods/…/Localization/English/english.xml) + Stats ids, extracted 2026-10-23 with dossier_texts.pl (after the Owner's Toolkit build, commit 60afc0e); 21.04/Unbound/DESIGN.md §11; DECISIONS.md WB0, WB27–WB44, WB51–WB62
-reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); names of the build (WB44) at the end; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — regenerated from the Owner's Toolkit build; review notes rewritten (WB62); 2026-10-23 ARC-0026 — WB63 (names kept as in the game; Gale Deflection once a turn) and the WB62 fixes applied (dbc714b)
+reviewed: 2026-10-17 ARC-0022 — created (propagation, 00.08); names of the build (WB44) at the end; 2026-10-17 ARC-0026 — stage 1 probes applied (probes castable), no change; 2026-10-17 ARC-0026 — WB49 (QA-0004 probe outcomes) checked, no change; 2026-10-17 ARC-0026 — P8 fix applied, no change; 2026-10-17 ARC-0026 — stage 1 complete, WB50 checked, no change; 2026-10-17 ARC-0026 — stage 2 applied, no change; 2026-10-17 ARC-0026 — Toolkit guides per level (the Owner types), no change; retired entries kept (OR-10); 2026-10-18 ARC-0026 — WB51 (rebuild from zero, OR-59 ids) checked, no change; 2026-10-23 ARC-0026 — regenerated from the Owner's Toolkit build; review notes rewritten (WB62); 2026-10-23 ARC-0026 — WB63 (names kept as in the game; Gale Deflection once a turn) and the WB62 fixes applied (dbc714b); 2026-11-16 ARC-0026 — WB66 (Ally Tempest: an aura from herself, every ally, melee) and WB67 (Fellow Travellers needs a damaging hit), from the Owner's Toolkit build
 ---
 
 # 32.01 · Player-facing text — The Windborn (internal: Unbound)
@@ -54,7 +54,7 @@ record; the tables below are re-read from the game after the fix:
 | `Shout_Arcana_Card_Spell_FlowState` | Flow State | Enter a temporary state of flow where you gain temporary hit points, and an additional bonus action. |
 | `Shout_Arcana_Card_Spell_WindWhispers` | Wind Whispers | Attack Rolls against you from non-Windswept enemies have Disadvantage. When their attack misses, you can use your reaction to strike back with an unarmed attack. Additionally, jumping no longer requires a bonus action. |
 | `Shout_Arcana_Card_Spell_ZephyrTempest` | Zephyr: Tempest | The West Wind flows through your hands, causing your unarmed attacks against Windswept enemies to deal an additional [1] and inflict [2] turns of Reverberation. |
-| `Shout_Arcana_Card_Spell_ZephyrTempestAlly` | Zephyr: Ally Tempest | The West Wind joins the fight to help your allies, causing their weapon attacks against Windswept enemies to deal an additional [1] and inflict [2] turn of Reverberation. |
+| `Shout_Arcana_Card_Spell_ZephyrTempestAlly` | Zephyr: Ally Tempest | The West Wind joins the fight to help your allies, causing their melee attacks against Windswept enemies to deal an additional [1] and inflict [2] turn of Reverberation. |
 | `Shout_Arcana_Card_Ability_Untethered` | Untethered | Freed from earthly ties, gain the ability to Fly. |
 | `Target_Arcana_Created_ZephyrStrike` | Zephyr Strike | Swiftly strike an enemy as a bonus action. |
 | `Target_Arcana_Card_Spell_GaleBurst` | Gale Burst | Channel the air into your fist and release it in a focused burst, launching your target backwards [1] and knocking it Prone. |
@@ -112,7 +112,8 @@ record; the tables below are re-read from the game after the fix:
 | `GALE_DEFLECT_MISSILES` | Gale Deflect Missiles | You can use your reaction to deflect the missiles from ranged weapon attacks. When you do so, the damage is reduced by 1d10 + [1] + your Arcana level. |
 | `FLOW_STATE` | Flow State | You gained [1] and an additional bonus action. |
 | `ZEPHYR_TEMPEST` | Zephyr: Tempest | Your unarmed attacks against Windswept enemies deal an additional [1] and inflict [2] turns of Reverberation. |
-| `ZEPHYR_TEMPEST_ALLY` | Zephyr: Ally Tempest | Your weapon attacks against Windswept enemies deal an additional [1] and inflict [2] turns of Reverberation. |
+| `ZEPHYR_TEMPEST_ALLY_AURA` | Zephyr: Ally Tempest Aura | Your allies' melee attacks against Windswept enemies deal an additional [1] and inflict [2] turns of Reverberation. |
+| `ZEPHYR_TEMPEST_ALLY` | Zephyr: Ally Tempest | Your melee attacks against Windswept enemies deal an additional [1] and inflict [2] turns of Reverberation. |
 | `FLY_UNTETHERED` | Fly | Can Fly to a target position. |
 | `INTERRUPT_GALE_DEFLECT_MISSILES_HIT` | INTERRUPT_GALE_DEFLECT_MISSILES_HIT |  |
 

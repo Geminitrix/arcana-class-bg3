@@ -4,14 +4,14 @@ title: "Windborn refining build: the game plays WB0–WB48"
 type: rework
 epic: EPIC_Rework_Subclasses
 subclass: unbound
-status: in_qa
+status: done
 owner: Mod Engineer
 implementation: owner
 priority: must
 value: 5
 effort: 5
 inputs: [21.04/Unbound/DESIGN.md, 21.04/Unbound/DECISIONS.md, 25 (*_Unbound_*, pending_build), 22.05/Unbound.md, 32.01/Unbound.md, 61.02/Unbound/QA_ARC-0026.md]
-outputs: [55/SPEC_ARC-0026.md, 55/_wip/Unbound/arc0026/, game files (Stats, LSX, Osiris, loca), 05.02/Unbound.md, 61.02/Unbound/QA_ARC-0026.md]
+outputs: [55/SPEC_ARC-0026.md, 55/TOOLKIT_ARC-0026.md, 55/_wip/Unbound/arc0026/, 55/_wip/Unbound/goals_split/, game files (Stats, LSX, Osiris goals ARCANA_Aspect_Fool + ARCANA_Unbound_Windswept + ARCANA_Unbound_AeolusBag, loca), 05.02/Unbound.md, 25 (*_Unbound_*), 61.02/Unbound/QA_ARC-0026.md]
 blocked_by: []
 sprint: S01
 created: 2026-10-17
@@ -24,19 +24,19 @@ created: 2026-10-17
 
 ## Acceptance criteria
 
-- [ ] Design gate (`_SUBCLASS_STANDARD` §15) and Narrative gate (`32.04`) recorded — carried from the design ticket
+- [x] Design gate (`_SUBCLASS_STANDARD` §15) and Narrative gate (`32.04`) recorded — carried from the design ticket (see Gates)
 - [x] Sizes decided with the Owner (WB45–WB48); arithmetic in `22.05/Unbound.md`; values in `25` (`pending_build`)
 - [x] Stage 0: patches, structure script and goal drafts in `55/_wip/Unbound/arc0026/`, dry runs clean; texts through the Narrative gate (`32.04`)
-- [ ] Probes P1–P8 recorded, plan B applied where one failed
-- [ ] Stages 2–5 applied, one `[fechado] ARC-0026` message each; Story compiled with 0 errors after each goal change
-- [ ] `61.02/Unbound/` rows pass in game; guide `QA_ARC-0026.md` on the Arcana Test Guides page
-- [ ] Stage 6: `25` holds no Windborn `pending_build` block; `05.02` synced; `check_propagation` OK
+- [x] Probes P1–P8 recorded, plan B applied where one failed — QA-0004 9/9 (P6 and P7 plan B, P8 fixed), stage 1 complete 2026-10-17
+- [x] Stages 2–5 applied, one `[fechado] ARC-0026` message each; Story compiled with 0 errors after each goal change — from 2026-10-17 the Owner typed levels 1–12 himself (TOOLKIT_ARC-0026); last compile 2026-11-16 23:34, 0 errors, 0 warnings
+- [x] `61.02/Unbound/` rows pass in game; guide `QA_ARC-0026.md` on the Arcana Test Guides page — 65 done: 63 pass, 2 skipped (L1.11, L2.6: PC edition, not played by the Owner), synced in f257201
+- [x] Stage 6: `25` holds no Windborn `pending_build` block; `05.02` synced; `check_propagation` OK — 6 YAML moved to the game's values 2026-11-16 (Notus/Eurus are 1d4 in the game)
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`) — names checked against the vanilla corpus first (ARC-0021 collision check)
-- [ ] DoD (`00.03`)
+- [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — Owner accepted after the in-game tests (2026-11-16, QA_ARC-0026 65/65); the Owner's later changes are recorded as WB52–WB67
+- [x] Narrative gate (`32.04`) — names checked against the vanilla corpus first (ARC-0021 collision check) — passed 2026-10-17 (`32.04/ARC-0026_Windborn.md`); texts the Owner typed later (WB52–WB67, Earthly Ties) wait for the English polish of ARC-0006
+- [x] DoD (`00.03`) — criteria above with evidence; 05.00 / 05.02 and README updated; validate 0 errors; check_osiris: the Story Editor leaves one LF line at the end of ARCANA_Aspect_Fool (cosmetic, compiles clean); daily log; board; commit
 
 ## Log
 
@@ -65,3 +65,4 @@ created: 2026-10-17
 - 2026-10-18 — **TOOLKIT_ARC-0026 rewritten from zero, feature by feature** (Owner: the file was "extremamente bagunçado" and broke the rules; the Owner deletes the old Unbound and types it again). `63_toolkit_full.pl` writes TOOLKIT_ARC-0026.md (123 steps: 116 Stats entries in 16 features, then the lists, progression and class objects, then the two goals) and SPEC_ARC-0026.md in the same order (OR-5). It reads the game before ARC-0026 (09f30e0 .stats), the patches, the Owner's typing (sync of 2026-10-18) and vanilla. The Toolkit field order and labels come from StatObjectDefinitions.sod. Animations are copied from a named vanilla spell; effects are picked by their MultiEffectInfo name. Found and fixed: `WIND_*` pointed to `ARCANA_TAILWIND_*` (no longer exists); the bag spells checked `BAG_READY` while the status was named `BAG_OPEN_READY`; tail/headwind params were swapped; the shared Zephyr Strike handles had been renamed to "Zephyr Rush"; Leap of Faith and the capstone carried vanilla tooltips (Off Balance, upcast); Leap of Faith's animation comes from Force Tunnel. WB51 records the answers of 2026-10-18.
 - 2026-10-23 — **The Owner's Toolkit build propagated** (Producer, 00.08): the Owner changed the build while playing levels 1–8 (commit 60afc0e). Recorded as WB52–WB61 (Rush 9 m and movement, Storm's second Rush, Zephyr: Tempest replaces Storm Fists, Zephyr: Ally Tempest replaces Leap of Faith, Unleashed Winds replaces Where the Winds Meet, the Windswept split, out of combat, Weightless +4/+7/+10/+13 m, winds don't refresh, the West Wind) — Leap of Faith out and the name Unleashed Winds confirmed by the Owner. Brought up to date: DESIGN, 21.03, 21.08, 23.02 (regenerated, 17 sheets), 25 (3 new, 3 updated, 3 archived to 93), 22.05 (V6 added), 26.01, 31.02, 32.01 (regenerated), 33.03, 42.04 (the Owner's icons), 05.02 (rewritten from the game; verify_context 0 missing), QA_ARC-0026 (tested ids kept; L1.12–13, L4.4, L5.3, L6.3, L7.4, L8.3–4, L9.3, A.3 added; L10–L11 rewritten). **WB62 — fixes owed to the game**, exact edits in SPEC_ARC-0026 "Fixes owed" F1–F22 (ZephyrStrike's name handle, Unleashed Winds' TargetConditions missing an `and`, Gale Deflection Level, text slips, the PC deck) plus Q1–Q4 to confirm (Twinkle Toes / Weightless, Agility / Flowing Strikes, Extra Attack / Flowing Assault, Gale Deflection per turn or per cast). check_cards: the The Calm finding was a false positive (no slot, no variant) — the check now skips cards without a slot cost.
 - 2026-10-23 — **WB62 applied and WB63** ([fechado] ARC-0026, implementation: claude; commit dbc714b). F1–F22 in the game files, then sync_data: Zephyr Strike's own name, Unleashed Winds' TargetConditions, Gale Deflection Level 3, the Ally Tempest icon (it inherited Tempest's), eleven English text slips and the empty descriptions, the PC deck (The Calm as the Aspect card, ZEPHYR_RUSH / ZEPHYR_RUSH_STORM / BAG_READY conjures). Owner's answers (WB63): Twinkle Toes, Agility, Precision and vanilla Extra Attack keep their names; **Gale Deflection once a turn** — ArcanaReactGaleDeflection refills each turn (max 1), the card only readies it, one Unique card on PC (out of D.reactions). Lua tests updated (fixture keeps the stack rules): 138 pass standalone; check_cards OK; XML and Lua parse. **Open:** Unleashed Winds is still locked in combat on PC (a Created spell with no conjure); the Toolkit regenerates Public/Stats/Generated on its next save (not in git); playtest QA_ARC-0026 from level 9 and L6.3 / A.3.
+- 2026-11-16 — **Done** (Owner: "pode marcar essa subclasse como pronta"). QA_ARC-0026 synced: 63 pass, 2 PC skips. Story recompiled (0 errors) with Fellow Travellers needing a damaging hit; WB66 (Ally Tempest as an aura, melee) and WB67 recorded and propagated (05.02, DESIGN, 21.03, 22.05, 23.02, 25, 32.01). Stage 6: the 6 Windborn `pending_build` blocks moved into values from the game (Notus/Eurus 1d4). 8 game files that were never committed went in (b071443; the Kingmaker ones as 443a1eb). **Open, not blocking:** 22.05 Ally Tempest re-estimate after WB66; the PC deck tests L1.11 / L2.6 not played; the 14 other languages miss the new texts; ARCANA_Aspect_Fool keeps the Story Editor's LF line.
