@@ -236,7 +236,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Kingmaker Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone;Target_Arcana_Card_Spell_TurnTheSpoke"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone"/>
                     <attribute id="UUID" type="guid" value="8749e2ed-fd67-4448-8313-50be6e541b22"/>
                 </node>
                 <node id="SpellList">
@@ -273,6 +273,11 @@
                     <attribute id="Name" type="FixedString" value="Arcana Deck DEBUG"/>
                     <attribute id="Spells" type="LSString" value="Shout_Arcana_Created_Tangle_DEBUG;Shout_Arcana_Card_Spell_DEBUG_Fated;Shout_Arcana_Card_Spell_DEBUG_Fleeting;Shout_Arcana_Card_Spell_DEBUG_Unique;Shout_Arcana_Card_Spell_DEBUG_Tangler;Target_Arcana_Util_DEBUG_AddDoubt"/>
                     <attribute id="UUID" type="guid" value="f2e5e2e9-42c8-4f0e-88de-830ef0224290"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Kingmaker Level 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_TurnTheSpoke"/>
+                    <attribute id="UUID" type="guid" value="565cb84e-3e7f-4b8b-9054-c1fd17ac756d"/>
                 </node>
             </children>
         </node>

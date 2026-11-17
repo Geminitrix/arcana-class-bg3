@@ -772,6 +772,19 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="854aa4ed-63c3-a8bb-146f-d2ea17112667" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Severance" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h086e4237gb50cgfedcga45fg3f286d0368c8" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h59f96b3dg664dg739dg9888g10653038fb83" version="3" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_OtilukesResilientSphere" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnCastResolved" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="SpellId('Target_Arcana_Card_Spell_AtroposCut') or SpellId('Target_Arcana_Card_Spell_AtroposCut_3') or SpellId('Target_Arcana_Card_Spell_AtroposCut_4') or SpellId('Target_Arcana_Card_Spell_AtroposCut_5') or SpellId('Target_Arcana_Card_Spell_AtroposCut_6')" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,KINGMAKER_SEVERANCE,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="819ff001-7bdf-c5e5-a45c-db6c348e92dd" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Court_Level7" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hba5dc8ffg3a56g0331g4d47g5c4f7f37e359" version="1" />
@@ -1257,19 +1270,6 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8358b652g17ebg98aeg910ag470732737d25" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_BanishingSmite_Melee" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="854aa4ed-63c3-a8bb-146f-d2ea17112667" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Severance" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h086e4237gb50cgfedcga45fg3f286d0368c8" version="2" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h59f96b3dg664dg739dg9888g10653038fb83" version="3" />
-        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_OtilukesResilientSphere" />
-        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnCastResolved" enumeration_type_name="StatsFunctorContext" version="1" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="SpellId('Target_Arcana_Card_Spell_AtroposCut') or SpellId('Target_Arcana_Card_Spell_AtroposCut_3') or SpellId('Target_Arcana_Card_Spell_AtroposCut_4') or SpellId('Target_Arcana_Card_Spell_AtroposCut_5') or SpellId('Target_Arcana_Card_Spell_AtroposCut_6')" />
-        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,KINGMAKER_SEVERANCE,100,1)" />
       </fields>
     </stat_object>
   </stat_objects>

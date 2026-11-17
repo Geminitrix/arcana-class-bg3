@@ -517,12 +517,10 @@
         <field name="Trajectories" type="StringTableFieldDefinition" value="792ba497-a6ea-46bc-81cb-deb78e4dd9d3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_HellishRebuke" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h74c61ad3gcfdfgf045g20edg7e6ebc566ffd" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hdafeeac4g4418gaa3bg63a2g06c6b9f4158d" version="1" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h692a4511g32d0gc74eg5d6egf5a7d26b672a" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hdafeeac4g4418gaa3bg63a2g06c6b9f4158d" version="2" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(D6Cantrip),Bludgeoning)" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Evocation" enumeration_type_name="SpellSchool" version="1" />
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Bludgeoning)" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="RangedSpellAttack" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Fire_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Fire_Gen_L1to3_Loop" />
@@ -538,6 +536,7 @@
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="c88e9cfa-df92-477a-ae75-cbfb932350b4" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="e235ca47-1bf5-4587-9475-cf191b6005f9" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Bludgeoning" enumeration_type_name="Damage Type" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Bludgeoning)" />
       </fields>
     </stat_object>
     <stat_object color="#FF000000" is_substat="false">

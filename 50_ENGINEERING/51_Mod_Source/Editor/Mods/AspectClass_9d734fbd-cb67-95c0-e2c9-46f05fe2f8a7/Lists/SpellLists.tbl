@@ -309,7 +309,7 @@
         <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_EmotionalContagion" />
       </fields>
     </stat_object>
-    <stat_object color="#FF6A5ACD" is_substat="false">
+    <stat_object color="#FFFA8072" is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="e9fb9260-2979-4c45-b326-59886e342963" />
         <field name="Name" type="NameTableFieldDefinition" value="Resonant Level 10" />
@@ -327,7 +327,14 @@
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="8749e2ed-fd67-4448-8313-50be6e541b22" />
         <field name="Name" type="NameTableFieldDefinition" value="Kingmaker Level 1" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone;Target_Arcana_Card_Spell_TurnTheSpoke" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_Arcana_Card_Spell_SpokeOfTheWheel;Target_Arcana_Card_Spell_Coronation;Target_Arcana_Card_Spell_Dethrone" />
+      </fields>
+    </stat_object>
+    <stat_object color="#FF66CDAA" is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="565cb84e-3e7f-4b8b-9054-c1fd17ac756d" />
+        <field name="Name" type="NameTableFieldDefinition" value="Kingmaker Level 2" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_TurnTheSpoke" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">
