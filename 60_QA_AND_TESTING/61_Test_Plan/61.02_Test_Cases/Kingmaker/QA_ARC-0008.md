@@ -33,7 +33,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Coronation on an ally
 - **Expected:** It shows Rising (+3 m, can't be Prone)
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.2 · Dethrone on an enemy, then a save success on another
 
@@ -41,7 +41,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Dethrone on an enemy, then a save success on another
 - **Expected:** Damage (half on the save) and Falling on both
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.3 · Spoke of the Wheel on a Fallen enemy vs a normal one
 
@@ -49,7 +49,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Spoke of the Wheel on a Fallen enemy vs a normal one
 - **Expected:** The extra 1d4 shows only on the Falling / Fallen target
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.4 · End the turn; at your next turn start
 
@@ -57,7 +57,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** End the turn; at your next turn start
 - **Expected:** Ally → Reigning and King; enemy → Fallen; the change shows before you act, with you as the source (tooltip)
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.5 · Turn the Spoke on the Falling enemy
 
@@ -65,7 +65,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Turn the Spoke on the Falling enemy
 - **Expected:** It drops to Fallen at once; no slot spent
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.6 · Be downed with creatures on the Wheel
 
@@ -73,7 +73,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Be downed with creatures on the Wheel
 - **Expected:** The Wheel still turns at your turn start (SP90); plan B: Osiris drives the turn from the next creature's `TurnStarted`
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** skipped
 
 ### L1.7 · Kill a creature on the Wheel; end combat
 
@@ -81,7 +81,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Kill a creature on the Wheel; end combat
 - **Expected:** The dead one leaves the Wheel; at combat end every position status is gone
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L1.8 · Crown two allies on different turns
 
@@ -89,7 +89,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Crown two allies on different turns
 - **Expected:** The first ally to Reign is King; when both Reign, the other is Regent (changed 2026-11-16, SP115: the crown follows rounds Reigning)
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** skipped
 
 ### L1.9 · The King leaves Reigning
 
@@ -133,7 +133,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 3: Coronation on an ally, Dethrone on an enemy within 9 m of it; end the turn
 - **Expected:** At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d8 Force from you (combat log; 2d6 at level 5, 2d8 at 9 — SP117) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.2 · Same, with the enemy more than 9 m from the ally
 
@@ -141,7 +141,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Same, with the enemy more than 9 m from the ally
 - **Expected:** Fallen, no Crossing | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.3 · Two Reigning allies next to one enemy entering Fallen; then Turn th...
 
@@ -149,7 +149,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Two Reigning allies next to one enemy entering Fallen; then Turn the Spoke it round to Fallen again in the same round
 - **Expected:** Two Crossings (one per Reigning ally) the first time; none the second time in the same round (changed 2026-11-16, SP117) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.4 · Fight with one enemy on the Wheel, then two
 
@@ -157,7 +157,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Fight with one enemy on the Wheel, then two
 - **Expected:** The Awakening counts 2 per Crossing with one enemy, 1 with two; 3 Crossings awaken Tyche (status, card *Rota Fortunae* in the hotbar) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.5 · With Tyche: Coronation, then Dethrone next to the Reigning ally
 
@@ -165,7 +165,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** With Tyche: Coronation, then Dethrone next to the Reigning ally
 - **Expected:** The ally enters Reigning (King at once); the enemy enters Fallen and crosses at once | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.6 · Rota Fortunae
 
@@ -173,7 +173,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Rota Fortunae
 - **Expected:** Every creature on the Wheel moves one step; a Falling enemy near a Reigning ally crosses; it can't be cast again this combat | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.7 · Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each)
 
@@ -181,7 +181,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Atropos' Cut on a Fallen, a Falling, a Rising and a Reigning enemy (one each)
 - **Expected:** 1d4 / 1d8 / 2d8 / 3d8 Slashing (changed 2026-11-16, SP120); the enemy loses its position status and the Wheel ignores it | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass — Funcionou, mas fiz alterações.
 
 ### L3.8 · Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' ...
 
@@ -189,7 +189,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' Cut with a higher slot
 - **Expected:** The ally leaves the Wheel, keeps *Reigning* until the end of its next turn and **keeps the crown** (SP115); Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 / 2d4 (Reigning … Fallen, SP120) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L3.9 · An ally enters Reigning next to a Fallen enemy
 

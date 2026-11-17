@@ -179,7 +179,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Put on armour (then a shield instead). Hit an enemy with an unarmed attack; look at AC and movement
 - **Expected:** No mark, no Zephyr Strike or Rush, no Weightless bonus, no Be the Leaf. Take it off and they come back
 - **Fails if:** Any of them works in armour or with a shield
-- **Result:** skipped
+- **Result:** pass
 
 ### L1.10 · The Open Road and the cards read right
 
@@ -205,7 +205,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Move part of your speed, then Zephyr Rush an unmarked enemy 8 m away; next turn Rush first with full movement
 - **Expected:** The Rush spends the bonus action and the metres it covers; with too little movement left it is refused
 - **Fails if:** It costs no movement, or it is allowed with no movement left
-- **Result:** —
+- **Result:** pass
 
 ### L1.13 · Weightless rank 1: +4 m
 
@@ -214,7 +214,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** +4 m without armour; jump and falling as normal
 - **Fails if:** Another bonus, or a jump or fall change at rank 1
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Level 2 — Aeolus' Bag
 
@@ -348,7 +348,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Zephyr Rush an unmarked enemy about 11 m away, then one about 8 m away; check movement, jump and a fall
 - **Expected:** The 11 m enemy is out of reach, the 8 m one is reached; +7 m movement, jump ×2, half falling damage
 - **Fails if:** The Rush reaches 12 m, or other Weightless values
-- **Result:** —
+- **Result:** pass
 
 ## Level 5 — Flowing Assault, Wind Whispers
 
@@ -377,7 +377,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Out of combat, cast Wind Whispers (it should work). In a fight, cast it; let an unmarked enemy and a Windswept one attack you in melee and miss
 - **Expected:** Usable out of combat; lasts 2 turns; Disadvantage only on the unmarked enemy's attack; the Riposte asks before striking, and only against the unmarked one
 - **Fails if:** Refused out of combat, Disadvantage or Riposte against the Windswept enemy, or the Riposte fires without asking
-- **Result:** —
+- **Result:** pass
 
 ## Level 6 — Flow State, Ready: Gale Deflection
 
@@ -405,7 +405,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Ready: Gale Deflection (check the slot). Let an unmarked archer shoot you twice in one round, then a Windswept one; let one shoot an ally next to you. Out of combat, cast Flow State and change your gloves
 - **Expected:** Costs a level-3 slot (4–6 as upcasts); one reaction per turn, back at the start of your next turn (the card is cast once per fight); none against the Windswept archer; the ally nearby is covered. Flow State works out of combat and stays when equipment changes
 - **Fails if:** A level-2 slot, two uses in one turn, a reaction against a Windswept archer, or Flow State refused out of combat or lost on the glove change
-- **Result:** —
+- **Result:** pass
 
 ## Level 7 — Fellow Travellers, Zephyr: Tempest
 
@@ -441,7 +441,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Zephyr: Tempest at level 4 (bonus action); punch a Windswept enemy, then an unmarked one; next fight cast it at level 5
 - **Expected:** On yourself for 3 turns; the Windswept enemy takes +1d6 + DEX Thunder and 2 turns of Reverberation, once per attack; nothing on the unmarked one; at level 5 +2d6 + DEX. No Storm Fists in the spells
 - **Fails if:** Extra damage on the unmarked enemy, Reverberation twice per attack, the wrong dice, or Storm Fists still there
-- **Result:** —
+- **Result:** pass
 
 ## Level 8 — Storm
 
@@ -469,7 +469,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Zephyr Rush an unmarked enemy; look at the bonus actions; use the second Rush on a Windswept enemy about 11 m away
 - **Expected:** The second Rush (Zephyr Rush: Storm) appears as soon as the first is cast, reaches 12 m, may land on a Windswept enemy, costs half the movement it covers and deals unarmed damage + DEX as Thunder; it goes once used
 - **Fails if:** No second Rush, it needs a hit first, it refuses a Windswept enemy, the wrong range or cost, or it stays
-- **Result:** —
+- **Result:** pass
 
 ### L8.4 · Weightless rank 3: +10 m
 
@@ -478,7 +478,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** +10 m movement, jump ×3, half falling damage
 - **Fails if:** Other values
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Level 9 — Untethered, Empty State
 
@@ -490,7 +490,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Untethered; compare AC before and after
 - **Expected:** +2 AC while flying; Eye of the Storm no longer shows anywhere
 - **Fails if:** No AC, or Eye of the Storm still there
-- **Result:** —
+- **Result:** pass
 
 ### L9.2 · Empty State arrives at 9; Evasive Flow is gone
 
@@ -499,7 +499,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Empty State at level 9 (not 12); Untethered in the spells; no Evasive Flow
 - **Fails if:** Empty State missing or Evasive Flow still in the list
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass — Mudei.
 
 ### L9.3 · Empty State: half damage only from Windswept attackers
 
@@ -507,7 +507,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Let a Windswept enemy and an unmarked one hit you; let a Windswept caster force a DEX save
 - **Expected:** Half damage from the Windswept enemy's hit only; Evasion on the Windswept caster's DEX save; full damage from the unmarked one
 - **Fails if:** Half damage from the unmarked enemy, or no reduction from the Windswept one
-- **Result:** —
+- **Result:** pass — Não existe mais.
 
 ## Level 10 — Zephyr: Ally Tempest
 
@@ -519,7 +519,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Cast Zephyr: Ally Tempest on an ally (bonus action, level-5 slot); let the ally hit a Windswept enemy, then an unmarked one; count the turns
 - **Expected:** On the ally for 5 turns; +1d4 Thunder and 1 turn of Reverberation on the Windswept enemy only; no Leap of Faith anywhere in the spells
 - **Fails if:** Extra damage on the unmarked enemy, the wrong duration, castable on yourself or an enemy, or Leap of Faith still there
-- **Result:** —
+- **Result:** pass — Fiz algumas mudanças, mas funcionou, mudei para ataques melee.
 
 ## Level 11 — Unleashed Winds
 
@@ -531,7 +531,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Open the bag and try Unleashed Winds; when the wind ends, aim it at an empty spot of ground within 18 m
 - **Expected:** Greyed while the bag is open. Without it, it targets a point on the ground (no enemy under the cursor) and spends an action and a level-6 slot
 - **Fails if:** Usable with the bag open, it needs a creature as the target, or another cost
-- **Result:** —
+- **Result:** pass
 
 ### L11.2 · Windswept enemies pulled 6 m in, the others pushed 6 m out; STR save
 
@@ -539,7 +539,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** With a Windswept enemy and an unmarked one each about 5 m from the point, cast it
 - **Expected:** Each makes a Strength save. On a failure: 4d8 Thunder, the Windswept enemy pulled 6 m toward the point, the unmarked one pushed 6 m away, both Off Balance for 1 turn. On a success: half damage, no move
 - **Fails if:** Both move the same way, a DEX save, wrong distances, or Off Balance on a success
-- **Result:** —
+- **Result:** pass
 
 ### L11.3 · Thunderclap, Momentum, Storm Fists, Leap of Faith and Where the Winds Meet are gone
 
@@ -548,7 +548,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Unleashed Winds in the spells; none of the retired pieces
 - **Fails if:** Any retired piece still there
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Level 12 — Into the Storm, Hurricane
 
@@ -560,7 +560,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Wake Tier III (goal 8); let a sweep release marks
 - **Expected:** Every swept enemy is pushed 3 m away from you and is Off Balance — the sweep that wakes the tier included
 - **Fails if:** No push, the wrong direction, or the waking sweep doesn't push
-- **Result:** —
+- **Result:** pass
 
 ### L12.2 · Hurricane: the bag offers two winds at once; the cap is 5
 
@@ -568,7 +568,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Mark 6 enemies and open the bag
 - **Expected:** The bag offers the pairs (Boreas + Notus, Boreas + Eurus, Notus + Eurus) instead of single winds; both winds blow; "the bag is open" shows 5 turns
 - **Fails if:** Single winds still offered, only one wind blows, or another cap
-- **Result:** —
+- **Result:** pass
 
 ### L12.3 · Weightless rank 4
 
@@ -576,7 +576,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Steps:** Check movement, jump and a long fall
 - **Expected:** +13 m movement, jump ×4, no falling damage
 - **Fails if:** Wrong values
-- **Result:** —
+- **Result:** pass
 
 ### L12.4 · No old tier bonuses; no Fool's Luck; nothing after 12
 
@@ -585,7 +585,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** No ability bonus from the tiers, no Fool's Luck reaction or resource; levels 13–20 add no Twinkle Toes
 - **Fails if:** An old tier bonus or Fool's Luck still there
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Any level — full run
 
@@ -598,7 +598,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** A Rush most turns; the bag by turn 2–3; every wind chosen in some fights (none above about 60%)
 - **Fails if:** A turn every time without a choice, no bag, or one wind always
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ### A.2 · Power and tiers against the Monk
 
@@ -607,7 +607,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Damage within about ±15% of the Monk; each tier wakes on turn 2–3
 - **Fails if:** More than 15% over, or a tier after turn 4
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 **After the WB62 fix** (`[fechado] ARC-0026`; `SPEC_ARC-0026` "Fixes owed"):
 
@@ -618,7 +618,7 @@ Before (this section): Stage 1 of ARC-0026 is applied (a [fechado] ARC-0026 mess
 - **Expected:** Zephyr Strike is called Zephyr Strike; "West Wind" everywhere, no "Weast"; "Windswept", "Wind Whispers", "Unleashed Winds"; Eurus and Boreas named the East and North Winds; no "### EMPTY"; the Zephyr: Ally Tempest status has an icon
 - **Fails if:** Any of the listed slips still shows
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Appendix — TC_ARC-0022 (design-stage draft, verbatim)
 
