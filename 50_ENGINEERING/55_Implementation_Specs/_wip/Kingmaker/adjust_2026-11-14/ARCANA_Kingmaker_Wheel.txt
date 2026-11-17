@@ -815,6 +815,18 @@ THEN
 RemoveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", _Kingmaker);
 //END_REGION
 
+//REGION Severance (level 4) - after an Atropos' Cut, the next Dethrone costs a bonus action (KINGMAKER_SEVERANCE, given
+// by Arcana_Passive_Severance in Stats); the first Dethrone spends it
+IF
+CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_Dethrone")
+AND
+HasActiveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", 1)
+THEN
+RemoveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", _Kingmaker);
+//END_REGION
+
 //REGION Master of Healing - healing an ally on the Wheel that is Fallen or Rising moves it one step (toward Reigning)
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_HEAL_STEP_TECH", (CHARACTER)_Healer, _)

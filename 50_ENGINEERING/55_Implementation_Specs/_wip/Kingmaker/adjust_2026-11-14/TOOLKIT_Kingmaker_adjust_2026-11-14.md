@@ -1,8 +1,16 @@
 # TOOLKIT · Kingmaker adjustments (2026-11-14)
 
-Owner request, no ticket (ARC-0008 follow-up). The Owner types everything; Claude applied nothing in the game.
-Decisions (Owner, 2026-11-14): King's Hand = crit without the crown · Crossing 1d8 / 2d6 / 2d8 · Swift Shears
-every turn · Swift Shears at level 3.
+Owner request, no ticket (ARC-0008 follow-up). Decisions (Owner, 2026-11-14): King's Hand = crit without the crown ·
+Crossing 1d8 / 2d6 / 2d8 · Swift Shears every turn · Swift Shears at level 3.
+
+**2026-11-16 — the Owner asked Claude to apply it** (`[fechado] ARC-0008`), together with the Owner's own Toolkit
+work: Atropos' Cut now hits harder the higher the enemy stands (Reigning 3d8 · Rising 2d8 · Falling 1d8 · Fallen
+1d4), and the level-4 passive PLACEHOLDER1 — after Atropos' Cut, the next Dethrone costs a bonus action — named
+**Severance** (`Arcana_Passive_Severance` / `KINGMAKER_SEVERANCE`). Fixed while renaming: the status went on the
+cut enemy (`ApplyStatus` without `SELF`), the Conditions ended in `;`, nothing spent it after the first Dethrone
+(now a Story rule), the Dethrone icon glows while it is ready. Applied with, in order:
+`stats_add.pl 70_adjust.patch --apply` (stats both sides + texts), `71_files.pl BACKUP --apply` (LevelMaps,
+Progressions, the goal). Sections 1–5 below stay as the record of what those two write.
 
 | # | Change | Where |
 |---|---|---|

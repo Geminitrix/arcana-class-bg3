@@ -1,0 +1,113 @@
+# ARC-0008 adjustments (Owner, 2026-11-14/16): lasting crown, Court never crowned, the Crossing per Reigning ally and
+# from both sides, Swift Shears (level 3), Severance (level 4, was the Owner's PLACEHOLDER1).
+# Guide: TOOLKIT_Kingmaker_adjust_2026-11-14.md (this folder). Applied with
+#   perl 80_TOOLS_AND_PIPELINE/82_Automation/stats/stats_add.pl <this> --apply      ([fechado] ARC-0008)
+# No `using`: every field is written.
+
+# changed texts (existing handles: text replaced, version +1)
+@loca hc49689c0g291cg629bg2075g0bbfb07af743 Creatures you set on Fortune's wheel move one position at the start of your turn - <LSTag Type="Status" Tooltip="KINGMAKER_RISING">Rising</LSTag>, <LSTag Type="Status" Tooltip="KINGMAKER_REIGNING">Reigning</LSTag>, <LSTag Type="Status" Tooltip="KINGMAKER_FALLING">Falling</LSTag>, <LSTag Type="Status" Tooltip="KINGMAKER_FALLEN">Fallen</LSTag>, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>, and keeps it - even off the Wheel - until another ally has Reigned longer.
+@loca he8aeaef6ge103gb1eeg33bfg1739036090df When an enemy on the Wheel becomes <LSTag Type="Status" Tooltip="KINGMAKER_FALLEN">Fallen</LSTag>, it takes [2] for each ally on the Wheel <LSTag Type="Status" Tooltip="KINGMAKER_REIGNING">Reigning</LSTag> within [1]. When an ally on the Wheel becomes Reigning, each Fallen enemy within [1] of it takes [2]. Each ally does this to an enemy only once per round.
+@loca h98a1667ag257bg89c1g3a7bg812ce656a521 An enemy that begins <LSTag Type="Status" Tooltip="KINGMAKER_REIGNING">Reigning</LSTag> on the Wheel gains <LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS">Hubris</LSTag>. The higher it climbs, the harder it falls - its next <LSTag Type="Passive" Tooltip="Arcana_Passive_TheCrossing">Crossing</LSTag> deals [1] instead.
+@loca hbf648abdgae22gea64g24cegda87df7bc3d1 Climbed too high. The next Crossing it suffers deals [1] instead.
+@loca h8056fb4fgea1fg274cg6ef6gd12ea0f42956 Lay Fallen while an ally reigned nearby, and took Force damage.
+@loca h6151f413g0c66gb00bg764agd7b88239daf0 Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands.
+@loca h3b48dcb1g0180geefbg8b4cgd0eb5735c31c Wears the crown of Fortune's wheel, on the Wheel or off it, until another ally has Reigned longer. The Kingmaker's Court serves the King.
+@loca h3c47e40ag0ca9g7ee5g3da5g7fc7b9ec55ff Name your Court. Each ally you appoint holds an office until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. An office holder can never be the King or a Regent.
+@loca hf5ce5edag27cdgeb7cg6ab0g0dd731cae197 Serves as the King's Hand and never wears the crown. While there is no King, or the King is not Reigning, lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20.
+@loca hae806e9bg81e9gff5dgdadfg62be7fc047d4 Appoint an ally as the King's Hand. It never wears the crown, but while there is no King, or the King is not Reigning, it lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20.
+@loca h8312755bg6e76g27d3g11f6gb268c41fc2c2 Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it.
+@loca h859f8ee7g4399gc9cbg6818gca91d9e2d9b5 Appoint an ally as Master of Ships. An enemy within [1] of it that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it.
+# Severance: the Owner's PLACEHOLDER1 handles, renamed and the text fixed
+@loca h086e4237gb50cgfedcga45fg3f286d0368c8 Severance
+@loca h59f96b3dg664dg739dg9888g10653038fb83 When you cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag>, your next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone">Dethrone</LSTag> this turn costs a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag> instead of an action.
+@loca h49b6e0cbgb7abgd31dgbffcg360dbd7e6777 Severance
+@loca h658ac483gd812g02b0g391bga76e1b3f08bf The next Dethrone costs a bonus action instead of an action.
+
+# new texts
+@loca KM_SHEARS_NAME Swift Shears
+@loca KM_SHEARS_DESC Once per turn, you can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action.
+@loca KM_SHEARS_FREE_DESC Can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. Ends after that cast, or at the end of the turn.
+
+@file Status_BOOST
+@section KINGMAKER STATUS
+@remove PLACE_HOLDER_1
+@set KINGMAKER_HUBRIS DescriptionParams DealDamage(Cause.LevelMapValue(Kingmaker_CrossingHubris),Force)
+
+new entry "KINGMAKER_CROSSING_TECH_2"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hcfba5c96g92a7g281bg7601gf8adc9e673a1}}"
+data "Description" "{{h8056fb4fgea1fg274cg6ef6gd12ea0f42956}}"
+data "Icon" "Spell_Evocation_MagicMissile"
+data "StackId" "KINGMAKER_CROSSING_TECH_2"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "ForceOverhead;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(Cause.LevelMapValue(Kingmaker_Crossing),Force,Magical)"
+
+new entry "KINGMAKER_CROSSING_TECH_3"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hcfba5c96g92a7g281bg7601gf8adc9e673a1}}"
+data "Description" "{{h8056fb4fgea1fg274cg6ef6gd12ea0f42956}}"
+data "Icon" "Spell_Evocation_MagicMissile"
+data "StackId" "KINGMAKER_CROSSING_TECH_3"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "ForceOverhead;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(Cause.LevelMapValue(Kingmaker_Crossing),Force,Magical)"
+
+new entry "KINGMAKER_CROSSING_TECH_4"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{hcfba5c96g92a7g281bg7601gf8adc9e673a1}}"
+data "Description" "{{h8056fb4fgea1fg274cg6ef6gd12ea0f42956}}"
+data "Icon" "Spell_Evocation_MagicMissile"
+data "StackId" "KINGMAKER_CROSSING_TECH_4"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "ForceOverhead;DisablePortraitIndicator"
+data "OnApplyFunctors" "DealDamage(Cause.LevelMapValue(Kingmaker_Crossing),Force,Magical)"
+
+new entry "KINGMAKER_SHEARS_FREE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{KM_SHEARS_NAME}}"
+data "Description" "{{KM_SHEARS_FREE_DESC}}"
+data "Icon" "Spell_Abjuration_BanishingSmite_Melee"
+data "StackId" "KINGMAKER_SHEARS_FREE"
+data "StackType" "Overwrite"
+data "TickType" "EndTurn"
+data "Boosts" "UnlockSpellVariant(SpellId('Target_Arcana_Card_Spell_AtroposCut') or SpellId('Target_Arcana_Card_Spell_AtroposCut_3') or SpellId('Target_Arcana_Card_Spell_AtroposCut_4') or SpellId('Target_Arcana_Card_Spell_AtroposCut_5') or SpellId('Target_Arcana_Card_Spell_AtroposCut_6'),ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "RemoveEvents" "OnCombatEnded"
+data "StatusPropertyFlags" "ForceOverhead"
+
+new entry "KINGMAKER_SEVERANCE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{h49b6e0cbgb7abgd31dgbffcg360dbd7e6777}}"
+data "Description" "{{h658ac483gd812g02b0g391bga76e1b3f08bf}}"
+data "Icon" "Spell_Enchantment_Bless"
+data "StackId" "KINGMAKER_SEVERANCE"
+data "StackType" "Ignore"
+data "Boosts" "UnlockSpellVariant(SpellId('Target_Arcana_Card_Spell_Dethrone') or SpellId('Target_Arcana_Card_Spell_Dethrone_2') or SpellId('Target_Arcana_Card_Spell_Dethrone_3') or SpellId('Target_Arcana_Card_Spell_Dethrone_4') or SpellId('Target_Arcana_Card_Spell_Dethrone_5') or SpellId('Target_Arcana_Card_Spell_Dethrone_6'),ModifyUseCosts(Replace,BonusActionPoint,1,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+@file Passive
+@section KINGMAKER PASSIVES
+@remove Arcana_Passive_PLACEHOLDER1
+@set Arcana_Passive_Hubris DescriptionParams DealDamage(LevelMapValue(Kingmaker_CrossingHubris),Force)
+
+new entry "Arcana_Passive_SwiftShears"
+type "PassiveData"
+data "DisplayName" "{{KM_SHEARS_NAME}}"
+data "Description" "{{KM_SHEARS_DESC}}"
+data "Icon" "Spell_Abjuration_BanishingSmite_Melee"
+data "Properties" "Highlighted"
+
+new entry "Arcana_Passive_Severance"
+type "PassiveData"
+data "DisplayName" "{{h086e4237gb50cgfedcga45fg3f286d0368c8}}"
+data "Description" "{{h59f96b3dg664dg739dg9888g10653038fb83}}"
+data "Icon" "Spell_Evocation_OtilukesResilientSphere"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCastResolved"
+data "Conditions" "SpellId('Target_Arcana_Card_Spell_AtroposCut') or SpellId('Target_Arcana_Card_Spell_AtroposCut_3') or SpellId('Target_Arcana_Card_Spell_AtroposCut_4') or SpellId('Target_Arcana_Card_Spell_AtroposCut_5') or SpellId('Target_Arcana_Card_Spell_AtroposCut_6')"
+data "StatsFunctors" "ApplyStatus(SELF,KINGMAKER_SEVERANCE,100,1)"
