@@ -69,12 +69,44 @@
                "title" : "Kill a creature on the Wheel; end combat"
             },
             {
-               "expected" : "When both Reign, the older one is King, the other Regent",
+               "expected" : "The first ally to Reign is King; when both Reign, the other is Regent (changed 2026-11-16, SP115: the crown follows rounds Reigning)",
                "fails" : "It does not happen as expected.",
                "id" : "L1.8",
                "rule" : "P4 · SPEC_ARC-0008",
                "steps" : "Crown two allies on different turns",
                "title" : "Crown two allies on different turns"
+            },
+            {
+               "expected" : "A keeps the King status while Falling, Fallen and Rising; no other ally is King",
+               "fails" : "A loses the crown when it leaves Reigning, or another ally takes it.",
+               "id" : "L1.9",
+               "rule" : "A1 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Crown ally A (the first to Reign); let the Wheel move A on to Falling",
+               "title" : "The King leaves Reigning"
+            },
+            {
+               "expected" : "A keeps the crown; B is Regent while it Reigns",
+               "fails" : "B takes the crown on a tie.",
+               "id" : "L1.10",
+               "rule" : "A3 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Ally B Reigns as many rounds as King A in total (count the turn starts each one began Reigning)",
+               "title" : "A tie keeps the King"
+            },
+            {
+               "expected" : "B becomes King at your turn start; A loses the King status",
+               "fails" : "The crown stays with A, or both show King.",
+               "id" : "L1.11",
+               "rule" : "A4 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Ally B Reigns one round more than King A in total (Turn the Spoke helps)",
+               "title" : "A longer reign takes the crown"
+            },
+            {
+               "expected" : "The ally with the most rounds Reigning becomes King at once",
+               "fails" : "Nobody is crowned, or the dead ally keeps the status.",
+               "id" : "L1.12",
+               "rule" : "A5 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Let King A die (on the Wheel or off it)",
+               "title" : "The King dies"
             }
          ]
       },
@@ -85,7 +117,7 @@
          "setup" : "A Kingmaker at level 3, in a party of four, a normal fight.",
          "tests" : [
             {
-               "expected" : "At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d4 Force from you (combat log) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`",
+               "expected" : "At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d8 Force from you (combat log; 2d6 at level 5, 2d8 at 9 — SP117) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`",
                "fails" : "It does not happen as expected.",
                "id" : "L3.1",
                "rule" : "P9 · SPEC_ARC-0008",
@@ -101,7 +133,7 @@
                "title" : "Same, with the enemy more than 9 m from the ally"
             },
             {
-               "expected" : "One Crossing only, both times | —",
+               "expected" : "Two Crossings (one per Reigning ally) the first time; none the second time in the same round (changed 2026-11-16, SP117) | —",
                "fails" : "It does not happen as expected.",
                "id" : "L3.3",
                "rule" : "P11 · SPEC_ARC-0008",
@@ -133,20 +165,76 @@
                "title" : "Rota Fortunae"
             },
             {
-               "expected" : "3d8 / 2d8 / 1d8 Slashing; the enemy loses its position status and the Wheel ignores it | —",
+               "expected" : "1d4 / 1d8 / 2d8 / 3d8 Slashing (changed 2026-11-16, SP120); the enemy loses its position status and the Wheel ignores it | —",
                "fails" : "It does not happen as expected.",
                "id" : "L3.7",
                "rule" : "P15 · SPEC_ARC-0008",
-               "steps" : "Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each)",
+               "steps" : "Atropos' Cut on a Fallen, a Falling, a Rising and a Reigning enemy (one each)",
                "title" : "Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each)"
             },
             {
-               "expected" : "The ally leaves the Wheel, keeps *Reigning* until the end of its next turn, loses the crown; Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 | —",
+               "expected" : "The ally leaves the Wheel, keeps *Reigning* until the end of its next turn and **keeps the crown** (SP115); Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 / 2d4 (Reigning … Fallen, SP120) | —",
                "fails" : "It does not happen as expected.",
                "id" : "L3.8",
                "rule" : "P16 · SPEC_ARC-0008",
                "steps" : "Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' Cut with a higher slot",
                "title" : "Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' ..."
+            },
+            {
+               "expected" : "The enemy takes a Crossing at once",
+               "fails" : "No Crossing until the next turn start.",
+               "id" : "L3.9",
+               "rule" : "C1 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "An enemy already Fallen within 9 m of a Rising ally; Turn the Spoke the ally to Reigning",
+               "title" : "An ally enters Reigning next to a Fallen enemy"
+            },
+            {
+               "expected" : "Four Crossing hits in the combat log, two on each enemy",
+               "fails" : "Fewer hits (two Crossings in the same moment merged into one).",
+               "id" : "L3.10",
+               "rule" : "C3 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Two Reigning allies within 9 m of two enemies that enter Fallen at the same turn start",
+               "title" : "Two Reigning allies, two enemies enter Fallen"
+            },
+            {
+               "expected" : "The first Cut of each turn costs no Action (the card glows, the Swift Shears status shows until then); the second costs the Action; the upcast one is free too; the slot is spent every time",
+               "fails" : "Both free, neither free, or the upcast variant costs an Action as the first cast.",
+               "id" : "L3.11",
+               "rule" : "D1 · SP118 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Cast Atropos' Cut twice in one turn (the second needs an Action); next turn cast it again, upcast",
+               "title" : "Swift Shears"
+            }
+         ]
+      },
+      {
+         "id" : "L4",
+         "level" : 4,
+         "name" : "Level 4 — Severance",
+         "setup" : "A Kingmaker at level 4, in a party of four, a normal fight, two enemies on the Wheel.",
+         "tests" : [
+            {
+               "expected" : "After the Cut the Dethrone icon glows and costs a Bonus Action; the Action is still free",
+               "fails" : "Dethrone still costs the Action, or the enemy cut gets the Severance status.",
+               "id" : "L4.1",
+               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Cast Atropos' Cut on an enemy; then Dethrone another enemy",
+               "title" : "Atropos' Cut, then Dethrone"
+            },
+            {
+               "expected" : "It costs the Action again (the glow is gone)",
+               "fails" : "Every Dethrone of the turn costs a Bonus Action.",
+               "id" : "L4.2",
+               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "After L4.1, cast Dethrone again in the same turn",
+               "title" : "A second Dethrone"
+            },
+            {
+               "expected" : "The upcast Dethrone costs a Bonus Action too",
+               "fails" : "Only the level-1 Dethrone is discounted.",
+               "id" : "L4.3",
+               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Atropos' Cut, then Dethrone with a higher slot",
+               "title" : "Upcast Dethrone after the Cut"
             }
          ]
       },
@@ -157,12 +245,28 @@
          "setup" : "A Kingmaker at level 5 with CHA 15, in a party of four, a normal fight.",
          "tests" : [
             {
-               "expected" : "At your turn start the Hand wears King and crits on 19–20; when an ally reigns, the crown moves to it | —",
+               "expected" : "The Hand never shows the King status; it crits on 19–20 while there is no King, and while the King is not Reigning; when the King Reigns the crit stops (changed 2026-11-16, SP116) | —",
                "fails" : "It does not happen as expected.",
                "id" : "L5.1",
                "rule" : "P18 · SPEC_ARC-0008",
                "steps" : "Appoint the King's Hand; start a fight with nobody on the Wheel",
                "title" : "Appoint the King's Hand; start a fight with nobody on the Wheel"
+            },
+            {
+               "expected" : "It loses the crown; the next ally by rounds Reigning takes it (or nobody, if none has reigned)",
+               "fails" : "The office holder stays King.",
+               "id" : "L5.10",
+               "rule" : "B1 · SP116 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "With a King on the Wheel, appoint it to an office (any)",
+               "title" : "Give the King an office"
+            },
+            {
+               "expected" : "It Reigns (Reigning effects, Crossings near it) but never shows King nor Regent",
+               "fails" : "It is crowned or shown as Regent.",
+               "id" : "L5.11",
+               "rule" : "B2 · SP116 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Coronation on an ally that holds an office; let it Reign for several rounds, longer than anyone",
+               "title" : "An office holder Reigns"
             },
             {
                "expected" : "Two offices land; the third option can't be cast (`COURT_FULL`); in combat the container can't be cast | `GetAbility` key not `\"Charisma\"` → read the modifier from a boost-free stat",
@@ -277,7 +381,7 @@
                "title" : "Level 7 character: open Convene the Court"
             },
             {
-               "expected" : "It shows Hubris while Reigning; its Crossing deals two dice and Hubris goes | —",
+               "expected" : "It shows Hubris while Reigning; its first Crossing deals 3d6 (Hubris; a normal Crossing is 2d6 at level 7) and Hubris goes; a second Reigning ally adds a normal 2d6 Crossing (SP117) | —",
                "fails" : "It does not happen as expected.",
                "id" : "L7.6",
                "rule" : "P25 · SPEC_ARC-0008",
@@ -355,6 +459,14 @@
                "rule" : "P35 · SPEC_ARC-0008",
                "steps" : "Wheel of Ixion through two enemies and an ally",
                "title" : "Wheel of Ixion through two enemies and an ally"
+            },
+            {
+               "expected" : "Two Crossing hits on the enemy",
+               "fails" : "One hit only.",
+               "id" : "L9.7",
+               "rule" : "C7 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "steps" : "Master of Ships and a Reigning ally (not the Ships) both within 9 m of an enemy entering Fallen",
+               "title" : "Master of Ships and a Reigning ally, both near an enemy entering Fallen"
             }
          ]
       },

@@ -1,6 +1,6 @@
 ---
 source: 51 (Progressions, ClassDescriptions, Stats, Story goal ARCANA_Kingmaker_Wheel; dump_progression.pl 2026-10-15) · 21.04/Kingmaker/DESIGN.md · HANDOFF ARC-0008
-synced_at: 2026-10-15 (ARC-0008 propagation)
+synced_at: 2026-11-16 (ARC-0008 Owner adjustments SP115–SP120, applied in game; Story recompile pending)
 state: synced
 ---
 
@@ -9,7 +9,7 @@ state: synced
 **Built in the game files (levels 1–12, ARC-0008 stages 1–6); no probe played yet; not in the published 3.1.0.28.**
 Was *the Spinner* (renamed and redesigned in ARC-0008). Force multiplier: creatures ride the Wheel of Fortune's four
 positions; an enemy that falls while an ally reigns suffers a Crossing. Casts with INT, secondary CHA. Design:
-`21.04/Kingmaker/DESIGN.md`; decisions SP47–SP114: `21.04/Kingmaker/DECISIONS.md`. Tag `THEKINGMAKER`
+`21.04/Kingmaker/DESIGN.md`; decisions SP47–SP120: `21.04/Kingmaker/DECISIONS.md`. Tag `THEKINGMAKER`
 (`f9985485-9df1-43a7-b603-52ac336ebb01`); progression `a688d11f-edff-44c5-95ac-0e4999ebf876` (the former Spinner
 placeholder).
 
@@ -22,7 +22,8 @@ colour teal.
 | Level | Granted |
 |---|---|
 | 1 | The Rota · Spoke of the Wheel (cantrip) · Coronation · Dethrone · Turn the Spoke |
-| 3 | The Crossing · *10 - Wheel of Fortune: Awakening* · Tier I Tyche · Atropos' Cut |
+| 3 | The Crossing · Swift Shears · *10 - Wheel of Fortune: Awakening* · Tier I Tyche · Atropos' Cut |
+| 4 | Severance |
 | 5 | Peripeteia · Convene the Court (King's Hand, Lord Commander, Master of Healing) |
 | 7 | Hubris · Tier II Nemesis · Usurp · Court + Master of Laws, Master of Secrets (passive *The Court: second circle*, hidden) |
 | 9 | Succession · Wheel of Ixion · Court + Master of Coin, Master of Ships (passive *The Court: third circle*, hidden) |
@@ -32,14 +33,20 @@ colour teal.
 ## How it works in the game
 - **The Wheel:** positions Rising → Reigning → Falling → Fallen are permanent statuses (`KINGMAKER_*`) moved by Osiris
   (`ARCANA_Kingmaker_Wheel`) at the Kingmaker's turn start, also while it is downed; a creature leaves on death, combat
-  end or Atropos' Cut. Side fixed on entry. The ally Reigning longest is **King**, other Reigning allies **Regent**;
-  summons are never King. Two Kingmakers keep separate Wheels (SP113).
+  end or Atropos' Cut. Side fixed on entry. **King** = the ally with the most rounds Reigning (counted at each
+  Kingmaker turn start); it keeps the crown off the Wheel and through Atropos' Cut until another ally has strictly
+  more (SP115). Other Reigning allies are **Regent**; summons and Court office holders are never King nor Regent
+  (SP116). Two Kingmakers keep separate Wheels (SP113).
 - **Binding:** Coronation (Bonus Action) → Rising; Dethrone → Falling whatever the save; Wheel of Ixion binds a whole
   line Falling. Turn the Spoke (Bonus Action, no slot) moves one creature a step on.
-- **The Crossing** (3+): an enemy entering Fallen with a Reigning ally within 9 m takes 1d4 / 1d6 / 1d8 Force, once per
-  enemy per round; Hubris (7+) adds a die after the enemy reigned; Fortune's Reach (12) removes the range.
-- **The Court** (5+): offices up to the CHA modifier, out of combat, until the Long Rest; never the Kingmaker; Master of
-  Coin returns one slot once per Long Rest (SP109).
+- **The Crossing** (3+): a Fallen enemy takes 1d8 / 2d6 / 2d8 Force once for **each** Reigning ally within 9 m —
+  when the enemy enters Fallen and when an ally enters Reigning; once per pair per round (SP117). Hubris (7+): the
+  first pair after the enemy reigned deals 2d8 / 3d6 / 3d8; Fortune's Reach (12) removes the range.
+- **Atropos' Cut** (3+): more damage the higher the enemy stands (Reigning 3d8 … Fallen 1d4, SP120); **Swift Shears**
+  (3): the first of each turn costs no action; **Severance** (4): after it, the next Dethrone costs a Bonus Action.
+- **The Court** (5+): offices up to the CHA modifier, out of combat, until the Long Rest; never the Kingmaker; office
+  holders are never King nor Regent, the King's Hand only crits on 19–20 while the King isn't Reigning (SP116); Master
+  of Coin returns one slot once per Long Rest (SP109).
 - **Turning points:** Peripeteia (once per combat) flips every position within 18 m; Usurp swaps an ally and an enemy;
   The Wheel Stops (Unique, once per Long Rest) freezes the turn for 2 of the Kingmaker's turns, cards still move
   creatures (SP112).
@@ -62,7 +69,7 @@ Against `21.04/_SUBCLASS_STANDARD.md` §3.
 | S1–S6 | ✅ | Card read literally; Fortuna, Nemesis, Atropos, Ixion; phase in a cycle; the Small Council, DIO / Faceless Void / Bard |
 | W1 | ✅ | SP95's class-description sentence (in game) |
 | W2 the Weave in the features | ⚠️ | Threads only in The Rota and Atropos' Cut (`32.01/Kingmaker.md`); the English pass (ARC-0006) can weave more in |
-| M1–M6 | ✅ | Exclusive positions; one rule (The Rota); a new rule or verb at 3, 5, 7, 9, 11, 12; Crossings once per enemy per round |
+| M1–M6 | ✅ | Exclusive positions; one rule (The Rota); a new rule or verb at 3, 4, 5, 7, 9, 11, 12; Crossings once per (enemy, Reigning ally) pair per round |
 | K1–K6 | ✅ | Ultimate Peripeteia; two Bonus Action plays and the cantrip at level 1 |
 | P1–P6, P8–P10 | ✅ | Specialist in party amplification; payoff on turn 2 (turn 1 with Tyche); no SE |
 | P7 readable | ⚠️ | Positions and King on the portrait; the 9 m Crossing range is invisible until level 12 |
@@ -77,6 +84,7 @@ Against `21.04/_SUBCLASS_STANDARD.md` §3.
 (positions) and one secondary (the Court).
 
 ## Open
-Probes P1–P48 (Owner) · SPEC stage 7: PC deck (`CardDB.lua`), renames, icons — the subclass icon doesn't show
+Story recompile after the 2026-11-16 adjustments, then probes A1–D3 + Severance (`55/_wip/Kingmaker/adjust_2026-11-14/`)
+and the Awakening pace with one Crossing per Reigning ally · Probes P1–P48 (Owner) · SPEC stage 7: PC deck (`CardDB.lua`), renames, icons — the subclass icon doesn't show
 (`42.04/Kingmaker.md`) · emoji and Aspect VFX · the role sits close to the Resonant's; a magical burst/DPR subclass is
 planned (Owner, 2026-10-13).

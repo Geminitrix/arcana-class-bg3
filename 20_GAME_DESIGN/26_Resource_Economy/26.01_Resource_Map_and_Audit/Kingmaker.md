@@ -1,8 +1,8 @@
 ---
 id: 26.01/Kingmaker
 owner: Balance Designer
-source: 21.04/Kingmaker/DECISIONS.md (SP47–SP114), DESIGN.md §4–§9
-reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
+source: 21.04/Kingmaker/DECISIONS.md (SP47–SP120), DESIGN.md §4–§9
+reviewed: 2026-11-16 ARC-0008 — Swift Shears and Severance in the action economy (SP118, SP119)
 ---
 
 # 26.01 · Resource audit — The Kingmaker
@@ -21,6 +21,7 @@ reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
 | Slot | Users | Conflict |
 |---|---|---|
 | Action | Dethrone, cantrip, Atropos' Cut, Peripeteia, Usurp, Wheel of Ixion, The Wheel Stops, Rota Fortunae | Normal choice |
-| **Bonus Action** | **Coronation, Turn the Spoke** (SP106, SP107), **readying Foreseen** (SP114, once per combat) | ⚠️ three users — by design Coronation and Turn the Spoke are the turn's choice; Foreseen costs one turn's choice once per combat. Acceptable, watch in play |
+| **Free (no action)** | **Atropos' Cut**, the first of each turn (Swift Shears, level 3, SP118) | ⚠️ new: a level-3 Kingmaker can Cut (free) + Dethrone (Action) + Coronation or Turn the Spoke (Bonus Action) in one turn; the slots are the limit. Watch in play |
+| **Bonus Action** | **Coronation, Turn the Spoke** (SP106, SP107), **readying Foreseen** (SP114, once per combat), **Dethrone after an Atropos' Cut** (Severance, level 4, SP119) | ⚠️ four users — by design Coronation and Turn the Spoke are the turn's choice; Foreseen costs one turn's choice once per combat; with Severance, Cut (free) + Dethrone (Bonus Action) leaves the Action open: two slots and a third spell in one turn from level 4. Watch in play |
 | Reaction | Ready: Foreseen (once per round) | A Fallen Kingmaker (self-coronation) loses its reactions, Foreseen included — intended cost |
 | Concentration | None | — |

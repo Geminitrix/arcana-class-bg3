@@ -169,15 +169,18 @@ easier to hit and can't react — so a Crossing pair multiplies instead of stack
 
 ### 4.3 The King and the Regents
 
-- The ally **Reigning** carries a visible **King** status: a crown on the portrait, named in the combat log.
-  It moves with the Reigning position.
-- **One King at a time.** When several allies are Reigning, one is the King and the others are **Regent**
-  (same Reigning effects, no crown). Offices that read "the King" ignore Regents.
-- **Who wears the crown:** among the allies Reigning, the one that has been on the Wheel the longest. The
-  crown stays with it while it Reigns, then passes to the next Regent in the same order.
+- The **King** carries a visible status: a crown on the portrait, named in the combat log.
+- **One King at a time.** Other allies that are Reigning are **Regent** (same Reigning effects, no crown).
+  Offices that read "the King" ignore Regents.
+- **Who wears the crown — the longest reign** (SP115): at each of the Kingmaker's turn starts every ally
+  that is Reigning counts one more round. The King is the ally with the most rounds, and **keeps the crown**
+  when it leaves Reigning and even off the Wheel (*Atropos' Cut*), until another ally has **strictly more**
+  rounds; a tie keeps the King. The first ally to Reign is crowned at once. Death and the end of the fight
+  reset the count.
 - **A summon is never King**, only Regent: it still enables Crossings, but the crown — and the offices
   that read it — always belong to a party member.
-- **The King's Hand** (§6.2) wears the crown while no ally is Reigning.
+- **The Court never wears the crown** (SP116): an office holder is never King nor Regent; appointing the
+  King hands the crown on. Choosing who serves is choosing who can rule.
 
 ### 4.4 Entering the Wheel
 
@@ -193,9 +196,9 @@ the Wheel the ally reigns while the enemy hits the bottom.
 
 ### 4.5 The start of the Kingmaker's turn
 
-1. Every creature on the Wheel moves one position on, **all at once**.
-2. Every enemy that **entered Fallen** is checked for a Crossing (§5).
-3. The Crossings resolve **oldest on the Wheel first**.
+1. Every ally that is Reigning counts one more round of reign (§4.3).
+2. Every creature on the Wheel moves one position on, **all at once**.
+3. Every enemy that **entered Fallen** and every ally that **entered Reigning** is checked for Crossings (§5).
 
 Nothing changes between two of the Kingmaker's turns, except what the Kingmaker's own cards, the Court and
 Ready: Foreseen do. The whole round is played in a known state.
@@ -217,12 +220,13 @@ Ready: Foreseen do. The whole round is played in a known state.
 
 ## 5. The Crossing (level 3)
 
-> **When an enemy on the Wheel enters Fallen while an ally on the Wheel within 9 m is Reigning, the enemy
-> takes Force damage** (`FEAT_Kingmaker_Crossing`).
+> **A Fallen enemy on the Wheel takes Force damage once for each ally on the Wheel Reigning within 9 m —
+> when the enemy enters Fallen, and when an ally enters Reigning** (`FEAT_Kingmaker_Crossing`, SP117).
 
-- **Any cause** counts: the turn of the Wheel, *Turn the Spoke*, *Dethrone* under Tyche, *Peripeteia*,
-  *Usurp*, *Succession*, Ready: Foreseen.
-- **Once per enemy per round**, however many allies Reign near it.
+- **Any cause** counts, on both sides: the turn of the Wheel, *Turn the Spoke*, *Dethrone* and *Coronation*
+  under Tyche, *Peripeteia*, *Usurp*, *Succession*, the Master of Healing, Ready: Foreseen.
+- **Once per pair per round:** two Reigning allies near two Fallen enemies make four Crossings; the same
+  ally never crosses the same enemy twice in a round.
 - The **Master of Ships** extends the source (§6.2); **The Wheel Stops** presses every turn (§7.10).
 - **Range by level:** 9 m from level 3; **the whole field** at level 12.
 - **Hubris** (level 7, §8.3) amplifies the Crossing of an enemy that has reigned.
@@ -254,13 +258,13 @@ the Kingmaker kills it first, cuts it off the Wheel, or saves *Usurp* for the mo
 
 | Level | Office | Effect on the holder |
 |---|---|---|
-| 5 | **King's Hand** | While no ally is Reigning, the Hand wears the crown: it is the King and crits on 19–20 |
+| 5 | **King's Hand** | Never wears the crown (SP116); while there is no King, or the King is not Reigning, the Hand crits on 19–20 |
 | 5 | **Lord Commander** | Within 3 m of the King, attack rolls against the King have Disadvantage |
 | 5 | **Master of Healing** | Healing an ally on the Wheel moves it one position on **only when that step brings it toward Reigning** (Fallen → Rising, Rising → Reigning); at Reigning or Falling nothing happens |
 | 7 | **Master of Laws** | An enemy that attacks the King falls one step further at the next turn of the Wheel — **never past Fallen and never up to Reigning**: from Rising it skips its reign and lands on Falling; from Reigning it drops to Fallen (and may cross); from Falling or Fallen it takes the normal step only |
 | 7 | **Master of Secrets** | Enemies on the Wheel within 9 m can't be invisible or hidden; the holder has Advantage against Falling enemies |
 | 9 | **Master of Coin** | **Once per Long Rest**, when it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) |
-| 9 | **Master of Ships** | A Crossing also pays when the Fallen enemy is within 9 m of the Master of Ships, not only of a Reigning ally |
+| 9 | **Master of Ships** | One more Crossing source: a Fallen enemy within 9 m of the Master of Ships crosses with it too, as if a Reigning ally stood there |
 
 Offices show as a status on the holder, named after the office.
 
@@ -297,9 +301,13 @@ an enemy out of Reigning. The early bonus-action play (K6).
 ### 7.5 *Atropos' Cut* (level 3)
 
 **Action** *(cost: 25)*. Removes one creature from the Wheel — *the thread falls where it is*:
-- **Enemy:** takes damage that grows the lower it is — highest at Fallen, lowest at Reigning *(25)*.
+- **Enemy:** takes damage that grows **the higher it stands** — highest at Reigning, lowest at Fallen *(25)*:
+  the higher they climb, the harder they fall (SP120).
 - **Ally:** leaves the Wheel; if it was Reigning it keeps the Reigning effects until the end of its next turn
-  (it leaves on top).
+  (it leaves on top). **The King keeps the crown** off the Wheel (SP115).
+- ***Swift Shears*** (level 3, SP118): the first Atropos' Cut of each of the Kingmaker's turns costs no action.
+- ***Severance*** (level 4, SP119): after an Atropos' Cut, the next *Dethrone* that turn costs a Bonus Action —
+  the cut, then the fall.
 
 ### 7.6 *Peripeteia* — the ultimate (level 5)
 
@@ -362,7 +370,8 @@ The core rule (§4.1), the four positions (§4.2) and the King (§4.3), explaine
 
 ### 8.3 *Hubris* (level 7) — *the higher they climb, the harder they fall*
 When an enemy on the Wheel enters **Reigning**, it gains the status *Hubris*; the **next Crossing** it
-suffers is amplified *(25)* and consumes the status. Every enemy reigns once per cycle, so it pays every
+suffers is amplified *(25)* and consumes the status — with several Reigning allies, only its first Crossing
+is amplified (SP117). Every enemy reigns once per cycle, so it pays every
 cycle; an enemy dropped straight from Reigning to Fallen (Peripeteia, Usurp) still carries *Hubris* and pays
 at once.
 
@@ -380,7 +389,8 @@ The Crossing loses its 9 m limit (§5).
 
 ### 9.1 The goal — Crossings
 
-**Each time an enemy takes Crossing damage, count 1** — at most once per enemy per round. The Master of
+**Each time an enemy takes Crossing damage, count 1** — once per (enemy, Reigning ally) pair per round
+(SP117: with several Reigning allies the goals fill faster; watch in play). The Master of
 Ships' Crossings and the stopped Wheel's pressing count too. The goal shows as the ARC-0007 countdown
 (COUNT type) on the *Awakening* status. Goals **3 / 5 / 8** (`FEAT_Kingmaker_AspectAwakening`). **A lone enemy:** while only one enemy is on the Wheel, each Crossing counts **2**.
 
@@ -416,8 +426,8 @@ grants ***Ready: Foreseen*** (§7.9). No ability score bonus.
 |---|---|---|
 | **1** | **The Rota** | Cantrip *Spoke of the Wheel* · *Coronation* · *Dethrone* · *Turn the Spoke* (Bonus Action) |
 | 2 | — (base class) | — |
-| **3** | **The Crossing** (9 m) · **10 - Wheel of Fortune: Awakening** · Tier I **Tyche** → *Rota Fortunae* | *Atropos' Cut* |
-| 4 | — | — |
+| **3** | **The Crossing** (9 m) · **Swift Shears** · **10 - Wheel of Fortune: Awakening** · Tier I **Tyche** → *Rota Fortunae* | *Atropos' Cut* |
+| **4** | **Severance** (after *Atropos' Cut*, the next *Dethrone* costs a Bonus Action) | — |
 | **5** | — | ***Peripeteia*** (ultimate) · utility *Convene the Court* (King's Hand, Lord Commander, Master of Healing) |
 | 6 | — | — |
 | **7** | **Hubris** · Tier II **Nemesis** | *Usurp* · Court: + Master of Laws, Master of Secrets |
@@ -491,7 +501,8 @@ Everything is Stats, Osiris and Khonsu; nothing needs Script Extender. Signature
   permanent statuses, so nothing ticks on its own.
 - **Crossing** — collect the enemies that entered Fallen; for each, look for a Reigning ally within 9 m with
   `GetDistanceTo` (:626); apply the Crossing damage through a `_TECH` status (`ApplyStatus(<X>_TECH,100,0)`
-  pattern); once per enemy per round.
+  pattern); once per (enemy, Reigning ally) pair per round, from both sides (SP117), each hit on its own of four
+  `KINGMAKER_CROSSING_TECH` statuses so hits landing together are never merged.
 - **Cards** — Coronation, Dethrone, Ixion, Turn the Spoke, Usurp, Peripeteia, Rota Fortunae, Cut, The Wheel
   Stops and Foreseen apply a `_TECH` status that Osiris turns into the ledger change.
 - **Deaths** — `Died` (:312) feeds Succession and removes the dead; **summons** — `IsSummon` (:911) bars the

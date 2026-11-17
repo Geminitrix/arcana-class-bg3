@@ -1,5 +1,5 @@
 id: FEAT_Kingmaker_Court
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-16 ARC-0008 — Owner adjustments: office holders are never King nor Regent; the King's Hand keeps only the 19-20 crit"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
@@ -12,3 +12,4 @@ values:
   master_of_secrets_radius: { value: 9, unit: metres }
   master_of_ships_radius:   { value: 9, unit: metres }
   master_of_coin_uses:      { value: 1, unit: count, note: "per Long Rest: one Woven Spell Slot (PC: a Thread)" }
+  kings_hand_crit:          { value: 19, note: "critical hits on 19–20 while there is no King or the King is not Reigning; the Hand never wears the crown" }

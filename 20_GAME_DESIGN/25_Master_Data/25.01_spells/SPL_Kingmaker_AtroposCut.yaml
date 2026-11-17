@@ -1,5 +1,5 @@
 id: SPL_Kingmaker_AtroposCut
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-16 ARC-0008 — Owner's Toolkit change: the higher the enemy stands, the harder the cut (was the reverse)"
 kind: spell
 subclass: Kingmaker
 ticket: ARC-0008
@@ -7,10 +7,10 @@ design: "21.04/Kingmaker/DESIGN.md §7.5"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
 game_ids: [Target_Arcana_Card_Spell_AtroposCut]
 values:
-  card_level:      { value: 2, note: "Action" }
+  card_level:      { value: 2, note: "Action; the first each turn costs no action with Swift Shears (FEAT_Kingmaker_SwiftShears)" }
   range:           { value: 18, unit: metres }
-  damage_fallen:   { value: 3d8, unit: damage, type: Slashing, note: "no save; +1d8 per slot level above 2 at every position" }
-  damage_falling:  { value: 2d8, unit: damage, type: Slashing }
-  damage_rising:   { value: 1d8, unit: damage, type: Slashing }
-  damage_reigning: { value: 1d8, unit: damage, type: Slashing }
-  upcast_die:      { value: 1d8, unit: damage, note: "added per slot level above the card level to every d8 damage term (gen_upcast_variants.pl)" }
+  damage_reigning: { value: 3d8, unit: damage, type: Slashing, note: "no save" }
+  damage_rising:   { value: 2d8, unit: damage, type: Slashing }
+  damage_falling:  { value: 1d8, unit: damage, type: Slashing }
+  damage_fallen:   { value: 1d4, unit: damage, type: Slashing }
+  upcast_die:      { value: each, unit: damage, note: "every term gains one die of its own size per slot level above 2 (gen_upcast_variants.pl): 1d4/1d8/2d8/3d8 -> 2d4/2d8/3d8/4d8 at slot 3" }

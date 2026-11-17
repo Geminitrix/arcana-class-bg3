@@ -18,6 +18,8 @@ One sheet per card, passive and status family (00.08). Design: `21.04/Kingmaker/
 | [SPL_ReadyForeseen](SPL_ReadyForeseen.md) | Ready: Foreseen | Aspect card (created) + reaction | 12 |
 | [FEAT_TheRota](FEAT_TheRota.md) | The Rota | passive | 1 |
 | [FEAT_TheCrossing](FEAT_TheCrossing.md) | The Crossing | passive | 3 |
+| [FEAT_SwiftShears](FEAT_SwiftShears.md) | Swift Shears | passive | 3 |
+| [FEAT_Severance](FEAT_Severance.md) | Severance | passive | 4 |
 | [FEAT_Hubris](FEAT_Hubris.md) | Hubris | passive | 7 |
 | [FEAT_Succession](FEAT_Succession.md) | Succession | passive | 9 |
 | [FEAT_FortunesReach](FEAT_FortunesReach.md) | Fortune's Reach | passive | 12 |

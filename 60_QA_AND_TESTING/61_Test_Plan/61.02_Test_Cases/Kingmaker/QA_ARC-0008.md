@@ -87,8 +87,40 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P4 · SPEC_ARC-0008
 - **Steps:** Crown two allies on different turns
-- **Expected:** When both Reign, the older one is King, the other Regent
+- **Expected:** The first ally to Reign is King; when both Reign, the other is Regent (changed 2026-11-16, SP115: the crown follows rounds Reigning)
 - **Fails if:** It does not happen as expected.
+- **Result:** —
+
+### L1.9 · The King leaves Reigning
+
+- **Rule:** A1 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Crown ally A (the first to Reign); let the Wheel move A on to Falling
+- **Expected:** A keeps the King status while Falling, Fallen and Rising; no other ally is King
+- **Fails if:** A loses the crown when it leaves Reigning, or another ally takes it.
+- **Result:** —
+
+### L1.10 · A tie keeps the King
+
+- **Rule:** A3 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Ally B Reigns as many rounds as King A in total (count the turn starts each one began Reigning)
+- **Expected:** A keeps the crown; B is Regent while it Reigns
+- **Fails if:** B takes the crown on a tie.
+- **Result:** —
+
+### L1.11 · A longer reign takes the crown
+
+- **Rule:** A4 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Ally B Reigns one round more than King A in total (Turn the Spoke helps)
+- **Expected:** B becomes King at your turn start; A loses the King status
+- **Fails if:** The crown stays with A, or both show King.
+- **Result:** —
+
+### L1.12 · The King dies
+
+- **Rule:** A5 · SP115 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Let King A die (on the Wheel or off it)
+- **Expected:** The ally with the most rounds Reigning becomes King at once
+- **Fails if:** Nobody is crowned, or the dead ally keeps the status.
 - **Result:** —
 
 ## Level 3 — The Crossing, Awakening Tier I Tyche, Atropos' Cut
@@ -99,7 +131,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P9 · SPEC_ARC-0008
 - **Steps:** Level 3: Coronation on an ally, Dethrone on an enemy within 9 m of it; end the turn
-- **Expected:** At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d4 Force from you (combat log) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`
+- **Expected:** At your turn start the ally Reigns and the enemy, Fallen, shows The Crossing and takes 1d8 Force from you (combat log; 2d6 at level 5, 2d8 at 9 — SP117) | No damage: `Cause.` not resolved from Osiris → three statuses with fixed dice, chosen by `GetLevel`
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
@@ -115,7 +147,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P11 · SPEC_ARC-0008
 - **Steps:** Two Reigning allies next to one enemy entering Fallen; then Turn the Spoke it round to Fallen again in the same round
-- **Expected:** One Crossing only, both times | —
+- **Expected:** Two Crossings (one per Reigning ally) the first time; none the second time in the same round (changed 2026-11-16, SP117) | —
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
@@ -146,8 +178,8 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 ### L3.7 · Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each)
 
 - **Rule:** P15 · SPEC_ARC-0008
-- **Steps:** Atropos' Cut on a Fallen, a Falling and a Rising enemy (one each)
-- **Expected:** 3d8 / 2d8 / 1d8 Slashing; the enemy loses its position status and the Wheel ignores it | —
+- **Steps:** Atropos' Cut on a Fallen, a Falling, a Rising and a Reigning enemy (one each)
+- **Expected:** 1d4 / 1d8 / 2d8 / 3d8 Slashing (changed 2026-11-16, SP120); the enemy loses its position status and the Wheel ignores it | —
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
@@ -155,8 +187,60 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P16 · SPEC_ARC-0008
 - **Steps:** Atropos' Cut on the Reigning King; then cast Dethrone and Atropos' Cut with a higher slot
-- **Expected:** The ally leaves the Wheel, keeps *Reigning* until the end of its next turn, loses the crown; Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 | —
+- **Expected:** The ally leaves the Wheel, keeps *Reigning* until the end of its next turn and **keeps the crown** (SP115); Dethrone at slot 2 shows 4d6, the Cut at slot 3 shows 4d8 / 3d8 / 2d8 / 2d4 (Reigning … Fallen, SP120) | —
 - **Fails if:** It does not happen as expected.
+- **Result:** —
+
+### L3.9 · An ally enters Reigning next to a Fallen enemy
+
+- **Rule:** C1 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** An enemy already Fallen within 9 m of a Rising ally; Turn the Spoke the ally to Reigning
+- **Expected:** The enemy takes a Crossing at once
+- **Fails if:** No Crossing until the next turn start.
+- **Result:** —
+
+### L3.10 · Two Reigning allies, two enemies enter Fallen
+
+- **Rule:** C3 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Two Reigning allies within 9 m of two enemies that enter Fallen at the same turn start
+- **Expected:** Four Crossing hits in the combat log, two on each enemy
+- **Fails if:** Fewer hits (two Crossings in the same moment merged into one).
+- **Result:** —
+
+### L3.11 · Swift Shears
+
+- **Rule:** D1 · SP118 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Cast Atropos' Cut twice in one turn (the second needs an Action); next turn cast it again, upcast
+- **Expected:** The first Cut of each turn costs no Action (the card glows, the Swift Shears status shows until then); the second costs the Action; the upcast one is free too; the slot is spent every time
+- **Fails if:** Both free, neither free, or the upcast variant costs an Action as the first cast.
+- **Result:** —
+
+## Level 4 — Severance
+
+**Setup:** A Kingmaker at level 4, in a party of four, a normal fight, two enemies on the Wheel.
+
+### L4.1 · Atropos' Cut, then Dethrone
+
+- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Cast Atropos' Cut on an enemy; then Dethrone another enemy
+- **Expected:** After the Cut the Dethrone icon glows and costs a Bonus Action; the Action is still free
+- **Fails if:** Dethrone still costs the Action, or the enemy cut gets the Severance status.
+- **Result:** —
+
+### L4.2 · A second Dethrone
+
+- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** After L4.1, cast Dethrone again in the same turn
+- **Expected:** It costs the Action again (the glow is gone)
+- **Fails if:** Every Dethrone of the turn costs a Bonus Action.
+- **Result:** —
+
+### L4.3 · Upcast Dethrone after the Cut
+
+- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Atropos' Cut, then Dethrone with a higher slot
+- **Expected:** The upcast Dethrone costs a Bonus Action too
+- **Fails if:** Only the level-1 Dethrone is discounted.
 - **Result:** —
 
 ## Level 5 — Peripeteia, the Court
@@ -167,8 +251,24 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P18 · SPEC_ARC-0008
 - **Steps:** Appoint the King's Hand; start a fight with nobody on the Wheel
-- **Expected:** At your turn start the Hand wears King and crits on 19–20; when an ally reigns, the crown moves to it | —
+- **Expected:** The Hand never shows the King status; it crits on 19–20 while there is no King, and while the King is not Reigning; when the King Reigns the crit stops (changed 2026-11-16, SP116) | —
 - **Fails if:** It does not happen as expected.
+- **Result:** —
+
+### L5.10 · Give the King an office
+
+- **Rule:** B1 · SP116 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** With a King on the Wheel, appoint it to an office (any)
+- **Expected:** It loses the crown; the next ally by rounds Reigning takes it (or nobody, if none has reigned)
+- **Fails if:** The office holder stays King.
+- **Result:** —
+
+### L5.11 · An office holder Reigns
+
+- **Rule:** B2 · SP116 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Coronation on an ally that holds an office; let it Reign for several rounds, longer than anyone
+- **Expected:** It Reigns (Reigning effects, Crossings near it) but never shows King nor Regent
+- **Fails if:** It is crowned or shown as Regent.
 - **Result:** —
 
 ### L5.2 · Level 5, CHA 15 (+2): Convene the Court twice out of combat, then t...
@@ -283,7 +383,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P25 · SPEC_ARC-0008
 - **Steps:** Level 7: let an enemy reach Reigning; next turn it falls to Fallen next to a Reigning ally
-- **Expected:** It shows Hubris while Reigning; its Crossing deals two dice and Hubris goes | —
+- **Expected:** It shows Hubris while Reigning; its first Crossing deals 3d6 (Hubris; a normal Crossing is 2d6 at level 7) and Hubris goes; a second Reigning ally adds a normal 2d6 Crossing (SP117) | —
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
@@ -353,6 +453,14 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Wheel of Ixion through two enemies and an ally
 - **Expected:** Enemies take 5d6 (half on a CHA save) and enter Falling; the ally takes no damage from the wheel; the line burns for 2 turns and the ally standing in it burns | The Kingmaker's own square catches fire → `FrontOffset 0`
 - **Fails if:** It does not happen as expected.
+- **Result:** —
+
+### L9.7 · Master of Ships and a Reigning ally, both near an enemy entering Fallen
+
+- **Rule:** C7 · SP117 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Steps:** Master of Ships and a Reigning ally (not the Ships) both within 9 m of an enemy entering Fallen
+- **Expected:** Two Crossing hits on the enemy
+- **Fails if:** One hit only.
 - **Result:** —
 
 ## Level 11 — The Wheel Stops
@@ -516,3 +624,4 @@ The Owner plays P1–P48 in one session; failures become bugs in `62` (bug vs de
 ## Log
 
 - 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources QA-0002, GUIDE_ARC-0008, TC_ARC-0008 merged; nothing removed.
+- 2026-11-16 — Owner adjustments SP115–SP120 (Claude): L1.8, L3.1, L3.3, L3.7, L3.8, L5.1, the level-7 Hubris test changed to the new rules; added L1.9–L1.12, L3.9–L3.11, Level 4 (L4.1–L4.3), L5.10–L5.11, L9.7. Not played yet.

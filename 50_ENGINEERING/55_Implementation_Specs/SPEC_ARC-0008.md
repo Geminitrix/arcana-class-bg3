@@ -4,7 +4,7 @@ ticket: ARC-0008
 status: draft
 implementation: owner
 author: Mod Engineer
-updated: 2026-10-15
+updated: 2026-11-16
 ---
 
 # SPEC_ARC-0008 · The Kingmaker — implementation plan
@@ -17,7 +17,7 @@ updated: 2026-10-15
 enemies hit the bottom — and every fall beside a reign hurts.*
 
 **Design:** `21.04/Kingmaker/DESIGN.md` · **Decisions:** `21.04/Kingmaker/DECISIONS.md`
-(SP47–SP111) · **Numbers:** `25.01/SPL_Kingmaker_*`, `25.02/FEAT_Kingmaker_*` · **Texts:** `32.01/Kingmaker_texts_with_params.md`
+(SP47–SP120) · **Numbers:** `25.01/SPL_Kingmaker_*`, `25.02/FEAT_Kingmaker_*` · **Texts:** `32.01/Kingmaker_texts_with_params.md`
 (pending the Narrative gate) · **Balance:** `22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md`.
 
 ## Global constraints
@@ -44,6 +44,7 @@ enemies hit the bottom — and every fall beside a reign hurts.*
 | **4** | 7 | *Hubris*, Tier II *Nemesis*, *Usurp*, Master of Laws, Master of Secrets | **Written below** (2026-10-15); Claude implements; probes P25–P32 at the end |
 | **5** | 9 | *Succession*, *Wheel of Ixion* (line + fire surface), Master of Coin, Master of Ships | **Written below** (2026-10-15); Claude implements; probes P33–P40 at the end |
 | **6** | 11–12 | *The Wheel Stops*, *Fortune's Reach*, Tier III (allies never Fallen), *Ready: Foreseen*; two Kingmakers keep separate Wheels (SP113, amends SP93) | **Written below** (2026-10-15); Claude implements; probes P41–P48 at the end |
+| **6a** | 1–12 | **Owner adjustments** (SP115–SP120): the crown by rounds Reigning, kept off the Wheel; the Court never crowned; the Crossing per Reigning ally and from both sides (1d8 / 2d6 / 2d8); *Swift Shears* (3); *Severance* (4); the Owner's reversed *Atropos' Cut* | **Applied 2026-11-16** by Claude (`[fechado] ARC-0008`), see the section at the end; probes in `QA_ARC-0008` (L1.9–L1.12, L3.9–L3.11, L4.1–L4.3, L5.10–L5.11, L9.7) |
 | 7 | — | PC edition `CardDB.lua` (Claude), test cases in `60`, `05` handoff, renames and icons | DoD |
 
 ---
@@ -397,3 +398,28 @@ Kingmakers keep separate Wheels — amends SP93), **SP114** (Ready: Foreseen cos
 | P46 | A Reigning enemy on the Wheel attacks an ally; take Foreseen | Before the roll it becomes Falling (no 19–20 crit, −1d4); a Falling attacker becomes Fallen and may cross | The step lands after the roll → swap the position statuses in the interrupt's own Properties |
 | P47 | A Rising or Fallen enemy attacks | Foreseen isn't offered | `IsAttack()` false in `OnSpellCast` → drop it and keep the target condition |
 | P48 | Two Kingmakers in the party | Each crowns and turns their own Wheel; one creature can't be on both | — |
+
+---
+
+## Stage 6a — Owner adjustments (applied 2026-11-16)
+
+Decisions SP115–SP120 (`21.04/Kingmaker/DECISIONS.md`). Files: `_wip/Kingmaker/adjust_2026-11-14/` — the typing record
+`TOOLKIT_Kingmaker_adjust_2026-11-14.md`, `70_adjust.patch` (stats both sides + texts, `stats_add.pl`), `71_files.pl`
+(LevelMaps, Progressions, the goal) and the goal `ARCANA_Kingmaker_Wheel.txt`. Rehearsed on a copy of 51; the game
+files came out identical to the rehearsal; check_cards OK; validate 0 errors (4 old warnings).
+
+### How each rule is built
+
+| Rule | Build |
+|---|---|
+| The crown (SP115) | `DB_ARCANA_Kingmaker_ReignTime(Owner, Ally, Rounds)`: +1 for every Reigning ally at the owner's `TurnStarted`, before the Wheel turns; 0 when an ally enters Reigning. `DB_ARCANA_Kingmaker_King(Owner, King)` holds the crown off the Wheel; `PROC_ARCANA_Kingmaker_Crown` seeds the King, a challenger needs strictly more rounds; statuses are removed only where they no longer belong. `Died` clears the rounds and hands a dead King's crown on; `CombatEnded` clears both |
+| The Court (SP116) | `NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)` in every crown and Regent rule; appointing an office calls the crown again. King's Hand: `KINGMAKER_HAND_CROWN` (19–20) only while there is no King or the King is not Reigning |
+| The Crossing (SP117) | Pairs `DB_ARCANA_Kingmaker_CrossPair(Owner, Enemy, Source)` from `NewFallen` (enemy side) and `NewRuler` (ally side, from `PROC_ARCANA_Kingmaker_Fell`); once per pair per round (`CrossedBy`); Fortune's Reach drops the distance; the Master of Ships is one more source. Hubris pays on the first pair only (`HubrisSpent`). Each hit on an enemy in a round uses the next of `KINGMAKER_CROSSING_TECH`, `_2`, `_3`, `_4` (`DB_ARCANA_Kingmaker_CrossStatus`), so two hits in the same moment are never merged. LevelMaps `Kingmaker_Crossing` 1d8/2d6/2d8, `Kingmaker_CrossingHubris` 2d8/3d6/3d8 |
+| Swift Shears (SP118) | `KINGMAKER_SHEARS_FREE` (6 s, `TickType EndTurn`): `UnlockSpellVariant(SpellId(...) or ... ,ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),...)` over the five Atropos' Cut ids — the `RESONANT_SURGE_FREE` recipe. Given at the owner's `TurnStarted` with `Arcana_Passive_SwiftShears`; removed by `CastedSpell` + `DB_ARCANA_CardFamily(_, "Target_Arcana_Card_Spell_AtroposCut")` |
+| Severance (SP119) | The Owner's PLACEHOLDER1, renamed: `Arcana_Passive_Severance` (`OnCastResolved`, the five Atropos' Cut ids) → `ApplyStatus(SELF,KINGMAKER_SEVERANCE,100,1)`; the status unlocks `ModifyUseCosts(Replace,BonusActionPoint,1,0,ActionPoint)` + `ModifyIconGlow()` on the six Dethrone ids; the first Dethrone spends it (`CastedSpell` + card family). Fixed on the way: `SELF` was missing (the status went on the cut enemy), the Conditions ended in `;`, nothing spent it |
+| Atropos' Cut (SP120) | The Owner's Toolkit change; `25.01/SPL_Kingmaker_AtroposCut` now `upcast_die: each` — `gen_upcast_variants.pl` learnt it (every term gains a die of its own size) and reproduces the variants in game |
+
+### Probes
+
+`QA_ARC-0008`: L1.8–L1.12 (crown), L3.1, L3.3, L3.7–L3.11 (Crossing, Cut, Swift Shears), L4.1–L4.3 (Severance), L5.1,
+L5.10–L5.11 (Court), L7 Hubris, L9.7 (Ships). Before them: recompile the Story (0 errors).

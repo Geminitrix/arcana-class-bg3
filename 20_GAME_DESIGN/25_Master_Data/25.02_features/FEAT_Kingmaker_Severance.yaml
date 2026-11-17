@@ -1,0 +1,11 @@
+id: FEAT_Kingmaker_Severance
+reviewed: "2026-11-16 ARC-0008 — new, level 4 (the Owner's PLACEHOLDER1, named and fixed, SP119)"
+kind: feature
+subclass: Kingmaker
+ticket: ARC-0008
+design: "21.04/Kingmaker/DESIGN.md §7.5"
+balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
+game_ids: [Arcana_Passive_Severance, KINGMAKER_SEVERANCE, ARCANA_Kingmaker_Wheel]
+values:
+  discounted_casts: { value: 1, unit: count, note: "after an Atropos' Cut, the next Dethrone (any variant) costs a bonus action instead of an action; spent by that Dethrone" }
+  duration:         { value: 1, unit: turns }

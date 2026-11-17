@@ -1,5 +1,5 @@
 id: FEAT_Kingmaker_TheRota
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-16 ARC-0008 — Owner adjustments: the crown follows rounds Reigning and outlasts the Wheel"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
@@ -11,3 +11,4 @@ values:
   falling_movement:         { value: -3, unit: metres, note: "ActionResource(Movement,-3,0) — vanilla RAY_OF_FROST" }
   falling_attack_penalty:   { value: 1d4, unit: penalty, note: "to attack rolls — RollBonus(Attack,-1d4), vanilla Bane" }
   tier3_ally_falling_turns: { value: 2, unit: turns, note: "Tier III: an ally stays Falling two turns instead of entering Fallen" }
+  crown_rule:               { value: "most rounds Reigning", note: "+1 per Reigning ally at the Kingmaker's turn start; the King keeps the crown (off the Wheel, through Atropos' Cut) until another ally has strictly more; not summons, not Court office holders; reset at death and the end of the fight" }

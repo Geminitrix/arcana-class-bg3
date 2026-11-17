@@ -231,6 +231,8 @@ my $TYPES = qr/^(Target|Shout|Projectile|Zone|Teleportation)_/;
 # variante, um dado daquele tamanho a mais por nivel acima do nivel da carta, em todo termo NdX com esse
 # X dos campos abaixo. Esses campos passam a ser do gerador nessas cartas: o que estiver preservado neles
 # e descartado (campo repetido faz o Toolkit truncar o .stats). O numero mora so no 25 (ADR-0005).
+# `upcast_die: { value: each }` (2026-11-16): todo termo NdX ganha um dado do proprio tamanho por nivel
+# (Atropos' Cut: 1d4 / 1d8 / 2d8 / 3d8 -> 2d4 / 2d8 / 3d8 / 4d8 no nivel 3).
 my @SCALED = qw(SpellSuccess SpellFail SpellProperties TooltipDamageList DescriptionParams ExtraDescriptionParams);
 my %SCALED = map { $_ => 1 } @SCALED;
 my %UPCAST;   # carta -> [quantos dados por nivel, tamanho do dado]
@@ -238,10 +240,10 @@ my %UPCAST;   # carta -> [quantos dados por nivel, tamanho do dado]
     my $md = $ENV{ARCANA_ROOT} // 'C:/Lumox Studios/Arcana Class';
     for my $y (bsd_glob("$md/20_GAME_DESIGN/25_Master_Data/25.01_spells/*.yaml")) {
         open my $h, '<:raw', $y or die "$y: $!"; local $/; my $s = <$h>; close $h;
-        my ($die) = $s =~ /^\s*upcast_die:\s*\{\s*value:\s*(\d*d\d+)/m or next;
+        my ($die) = $s =~ /^\s*upcast_die:\s*\{\s*value:\s*(\d*d\d+|each)\b/m or next;
         my ($ids) = $s =~ /^game_ids:\s*\[([^\]]*)\]/m;
         unless ($ids) { push @warn, "  $y: upcast_die sem game_ids -- ignorado"; next }
-        my ($cnt, $size) = $die =~ /^(\d*)d(\d+)$/;
+        my ($cnt, $size) = $die eq 'each' ? ('', 0) : $die =~ /^(\d*)d(\d+)$/;   # size 0 = each term, its own die
         $UPCAST{$_} = [ ($cnt eq '' ? 1 : $cnt), $size ] for grep { length } map { s/^\s+|\s+$//gr } split /,/, $ids;
     }
 }
@@ -255,7 +257,9 @@ sub scaled_fields { my ($n, $L) = @_;
     my @out;
     for my $f (@SCALED) {
         my $v = field_of($n, $f); next unless defined $v;
-        (my $w = $v) =~ s/\b(\d+)d$size\b/($1 + $k) . "d$size"/ge;
+        my $w = $v;
+        if ($size) { $w =~ s/\b(\d+)d$size\b/($1 + $k) . "d$size"/ge }
+        else       { $w =~ s/\b(\d+)d(\d+)\b/($1 + $k) . "d$2"/ge }
         push @out, [$f, $w] if $w ne $v;
     }
     push @warn, "  $n: upcast_die d$size nao achou nenhum termo d$size para escalar" unless @out;
@@ -335,7 +339,7 @@ $khnNote = sprintf("%d variante(s) com campos editados preservados", scalar keys
     my $goal = "$dir/ARCANA_CardFamilies.txt";
     # Os goals sao CRLF. O cat -A do Git Bash esconde o CR e ja enganou uma checagem minha, entao o
     # fim de linha e lido de um goal existente em vez de assumido.
-    my $w = "$dir/ARCANA_Spell_Withdraw.txt";
+    my $w = "$dir/ARCANA_Deceiver_Withdraw.txt";   # ARCANA_Spell_Withdraw until ARC-0030 renamed it
     my $g = exists $pending{$w} ? $pending{$w} : do { open my $h,'<:raw',$w or die "$w: $!"; local $/; my $x=<$h>; close $h; $x };
     my $nl = ($g =~ /\r\n/) ? "\r\n" : "\n";
     my @facts;

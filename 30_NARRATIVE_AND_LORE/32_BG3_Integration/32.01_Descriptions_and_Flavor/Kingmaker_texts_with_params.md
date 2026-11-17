@@ -24,11 +24,13 @@ Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/DESIGN.
 
 | Id (proposed) | DisplayName | Description | Params |
 |---|---|---|---|
-| `Arcana_Passive_TheRota` | The Rota | Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>. | — |
-| `Arcana_Passive_TheCrossing` | The Crossing | When an enemy on the Wheel becomes Fallen while an ally on the Wheel is Reigning within [1], the enemy takes [2]. Once per enemy per round. | [1] `Distance(9)` · [2] `DealDamage(LevelMapValue(Kingmaker_Crossing),Force)` — `FEAT_Kingmaker_Crossing` (1d4/1d6/1d8 by level, LevelMap `Kingmaker_Crossing`) |
-| `Arcana_Passive_Hubris` | Hubris | An enemy that begins Reigning on the Wheel gains <LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS">Hubris</LSTag>. The higher it climbs, the harder it falls - its next Crossing deals an additional [1]. | [1] one Crossing die — `FEAT_Kingmaker_Hubris` |
+| `Arcana_Passive_TheRota` | The Rota | Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.<br><br>The ally that has Reigned the longest wears the crown as the <LSTag Type="Status" Tooltip="KINGMAKER_KING">King</LSTag>, and keeps it - even off the Wheel - until another ally has Reigned longer. | — |
+| `Arcana_Passive_TheCrossing` | The Crossing | When an enemy on the Wheel becomes Fallen, it takes [2] for each ally on the Wheel Reigning within [1]. When an ally on the Wheel becomes Reigning, each Fallen enemy within [1] of it takes [2]. Each ally does this to an enemy only once per round. | [1] `Distance(9)` · [2] `DealDamage(LevelMapValue(Kingmaker_Crossing),Force)` — `FEAT_Kingmaker_Crossing` (1d8/2d6/2d8 by level, LevelMap `Kingmaker_Crossing`, SP117) |
+| `Arcana_Passive_Hubris` | Hubris | An enemy that begins Reigning on the Wheel gains <LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS">Hubris</LSTag>. The higher it climbs, the harder it falls - its next Crossing deals [1] instead. | [1] `DealDamage(LevelMapValue(Kingmaker_CrossingHubris),Force)` — `FEAT_Kingmaker_Hubris` (2d8/3d6/3d8) |
 | `Arcana_Passive_Succession` | Succession | When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king. | [1] `Distance(9)` — `FEAT_Kingmaker_Succession` |
-| `Arcana_Passive_FortunesReach` *(working name)* | Fortune's Reach | Your Crossings no longer need an ally nearby: an enemy that becomes Fallen while any ally on the Wheel is Reigning takes Crossing damage. | — |
+| `Arcana_Passive_FortunesReach` | Fortune's Reach | Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands. | — |
+| `Arcana_Passive_SwiftShears` | Swift Shears | Once per turn, you can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. | — `FEAT_Kingmaker_SwiftShears` (SP118) |
+| `Arcana_Passive_Severance` | Severance | When you cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag>, your next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone">Dethrone</LSTag> this turn costs a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag> instead of an action. | — `FEAT_Kingmaker_Severance` (SP119) |
 
 ### Awakening (the ARC-0007 shape)
 
@@ -57,18 +59,20 @@ Status descriptions are written from outside the creature. Each position opens w
 | `KINGMAKER_REIGNING` | Reigning | Regno - 'I reign.' Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag>.<br><br>Becomes Falling when the Wheel next turns. | — |
 | `KINGMAKER_FALLING` | Falling | Regnavi - 'I have reigned.' Moves slower and subtracts [1] from <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.<br><br>Becomes Fallen when the Wheel next turns. | [1] `1d4` — `FEAT_Kingmaker_TheRota` |
 | `KINGMAKER_FALLEN` | Fallen | Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.<br><br>Becomes Rising when the Wheel next turns. | — |
-| `KINGMAKER_KING` | King | Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King. | — |
+| `KINGMAKER_KING` | King | Wears the crown of Fortune's wheel, on the Wheel or off it, until another ally has Reigned longer. The Kingmaker's Court serves the King. | — |
 | `KINGMAKER_REGENT` | Regent | Reigns beside the King without wearing the crown. | — |
-| `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals an additional [1]. | [1] one Crossing die — `FEAT_Kingmaker_Hubris` |
+| `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals [1] instead. | [1] `DealDamage(Cause.LevelMapValue(Kingmaker_CrossingHubris),Force)` — `FEAT_Kingmaker_Hubris` |
 | `KINGMAKER_WHEEL_STOPPED` | The Wheel Stops | Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped. (SP112) | — |
-| `KINGMAKER_CROSSING_TECH` | The Crossing | Fell while an ally reigned nearby, and took Force damage. *(shown over the enemy)* | — |
+| `KINGMAKER_CROSSING_TECH` | The Crossing | Lay Fallen while an ally reigned nearby, and took Force damage. *(shown over the enemy; `_2`, `_3`, `_4` are identical copies, one per Crossing in a round)* | — |
+| `KINGMAKER_SHEARS_FREE` | Swift Shears | Can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. Ends after that cast, or at the end of the turn. | — |
+| `KINGMAKER_SEVERANCE` | Severance | The next Dethrone costs a bonus action instead of an action. *(hidden status; the Dethrone icon glows)* | — |
 | `KINGMAKER_REIGNING_LINGER` | Reigning | Cut from the Wheel at its peak. Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> until the end of its next turn. | — |
 
 ### The Court (one status per office, on the holder)
 
 | Id (proposed) | DisplayName | Description | Params |
 |---|---|---|---|
-| `COURT_KINGS_HAND` | King's Hand | Serves as the King's Hand. While no ally is Reigning, wears the crown and lands a Critical Hit on a roll of 19 or 20. | — |
+| `COURT_KINGS_HAND` | King's Hand | Serves as the King's Hand and never wears the crown. While there is no King, or the King is not Reigning, lands a Critical Hit on a roll of 19 or 20. | — |
 | `COURT_LORD_COMMANDER` | Lord Commander | Guards the crown. Attack Rolls against the King have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag> while the King is within [1]. | [1] `Distance(3)` — `FEAT_Kingmaker_Court` |
 | `KINGMAKER_GUARDED` | Guarded | The Lord Commander stands guard. <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag> against it have <LSTag Tooltip="Disadvantage">Disadvantage</LSTag>. | — |
 | `KINGMAKER_EXPOSED` | Exposed | The Master of Secrets has its measure. Can't become <LSTag Type="Status" Tooltip="INVISIBLE">Invisible</LSTag> or hide. | — |
@@ -78,7 +82,7 @@ Status descriptions are written from outside the creature. Each position opens w
 | `COURT_MASTER_OF_LAWS` | Master of Laws | An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning. | — |
 | `COURT_MASTER_OF_SECRETS` | Master of Secrets | Enemies on the Wheel within [1] can't be <LSTag Type="Status" Tooltip="INVISIBLE">Invisible</LSTag> or hide. Has Advantage on Attack Rolls against Falling enemies. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
 | `COURT_MASTER_OF_COIN` | Master of Coin | Once per <LSTag Tooltip="LongRest">Long Rest</LSTag>, hitting a Fallen enemy returns a spell slot to the Kingmaker. | — |
-| `COURT_MASTER_OF_SHIPS` | Master of Ships | Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
+| `COURT_MASTER_OF_SHIPS` | Master of Ships | Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
 
 Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*`); the Master of Coin's option reads "Appoint an ally as Master of Coin. Once per Long Rest, when it hits a Fallen enemy, you regain a spell slot."
 
@@ -92,7 +96,7 @@ Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*
 | `Target_Arcana_Card_Spell_Coronation` | Coronation | Crown an ally or yourself and set them Rising on Fortune's wheel. | The crowned creature stays on the Wheel until it dies, combat ends or its thread is cut. | — |
 | `Target_Arcana_Card_Spell_Dethrone` | Dethrone | Cast an enemy down and set it Falling on Fortune's wheel. | On a successful <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> the target takes half damage, but it still joins the Wheel. | no `[n]`; damage shown by TooltipDamageList `DealDamage(3d6,Bludgeoning)` — `SPL_Kingmaker_Dethrone` |
 | `Target_Arcana_Card_Spell_TurnTheSpoke` | Turn the Spoke | Turn a creature on the Wheel one position onward. | The Wheel only turns forward. | — |
-| `Target_Arcana_Card_Spell_AtroposCut` | Atropos' Cut | Cut a creature's thread from Fortune's wheel. | An enemy takes damage that grows the lower it sits: [1] if Fallen, [2] if Falling, [3] if Rising or Reigning.<br><br>An ally leaves the Wheel. If it was Reigning, it keeps Reigning until the end of its next turn. | ExtraDescriptionParams [1] `DealDamage(3d8,Slashing)` · [2] `DealDamage(2d8,Slashing)` · [3] `DealDamage(1d8,Slashing)` — `SPL_Kingmaker_AtroposCut` |
+| `Target_Arcana_Card_Spell_AtroposCut` | Atropos' Cut | Cut a creature's thread from Fortune's wheel.<br><br>An enemy takes damage that grows the higher it stands:<br>- [4] if Fallen;<br>- [3] if Falling;<br>- [2] if Rising;<br>- [1] if Reigning.<br><br>If an ally is chosen, they leave the Wheel. If they were Reigning, they remain Reigning until the end of their next turn. | — (moved into the Description by the Owner, 2026-11-16) | DescriptionParams [1] `DealDamage(3d8,Slashing)` · [2] `DealDamage(2d8,Slashing)` · [3] `DealDamage(1d8,Slashing)` · [4] `DealDamage(1d4,Slashing)` — `SPL_Kingmaker_AtroposCut` (SP120) |
 | `Shout_Arcana_Card_Spell_Peripeteia` | Peripeteia | Reverse the fortunes of every creature on the Wheel within [1]. | Reigning becomes Fallen and Rising becomes Falling, and the reverse. Your allies turn too.<br><br>Once per combat. | DescriptionParams [1] `Distance(18)` — `SPL_Kingmaker_Peripeteia` |
 | `Target_Arcana_Card_Spell_Usurp` | Usurp | An ally and an enemy on the Wheel trade places on it. | Choose one ally and one enemy. Two allies or two enemies don't trade.<br><br>Once per combat. | — |
 | `Zone_Arcana_Card_Spell_WheelOfIxion` | Wheel of Ixion | Send a burning wheel rolling through your foes and bind them to Fortune's wheel, Falling. | Enemies that succeed the <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> take half damage but still join the Wheel. The wheel leaves a trail of fire behind it - allies included. | [1] `DealDamage(5d6,Fire)` — `SPL_Kingmaker_WheelOfIxion` |

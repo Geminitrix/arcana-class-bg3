@@ -2,7 +2,7 @@
 id: 42.04/Kingmaker
 owner: Icon Artist
 source: 21.04/Kingmaker/DESIGN.md §2, §4.2, §12; 31.02/Kingmaker.md; icons in game (Stats `Icon`, dossier_texts.pl --icons, 2026-10-15)
-reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
+reviewed: 2026-11-16 ARC-0008 — Swift Shears and Severance added (SP118, SP119)
 ---
 
 # 42.04 · Icon briefs — The Kingmaker
@@ -34,7 +34,9 @@ Pipeline: source `42.01` → PNG `42.02/features/the kingmaker/` → DDS BC7 `42
 | ICO_Kingmaker_MasterOfSecrets | Master of Secrets (option and status) | An eye behind a half-drawn curtain | Teal + violet | DetectThoughts (shared) | 2 |
 | ICO_Kingmaker_Positions | Rising · Reigning · Falling · Fallen | The same wheel, one of its four points lit | Teal; gold at Reigning | Longstrider · Bless · Bane · Status_Prone | 2 |
 | ICO_Kingmaker_TheRota | The Rota and Convene the Court | A wheel turning (Court: a round table of seats) | Teal | Action_Mag_AuraOfLeadership (×2) | 2 |
-| ICO_Kingmaker_Crossing | The Crossing (passive, tech statuses) | Two figures passing on the wheel, one up, one down | Teal + force violet | MagicMissile (×3) | 2 |
+| ICO_Kingmaker_Crossing | The Crossing (passive, tech statuses) | Two figures passing on the wheel, one up, one down | Teal + force violet | MagicMissile (×6, with `_2`–`_4`) | 2 |
+| ICO_Kingmaker_SwiftShears | Swift Shears (passive and status, level 3) | Open shears already raised over a thread | Teal + steel | BanishingSmite_Melee (shared with Atropos' Cut) | 2 |
+| ICO_Kingmaker_Severance | Severance (passive, level 4) | A cut thread and a crown dropping below it | Teal + gold | OtilukesResilientSphere (shared with The Rota) | 2 |
 | ICO_Kingmaker_Foreseen | Ready: Foreseen, Foreseen, Foreseen ready | An eye in the wheel's hub | Teal | TrueStrike (×3) | 3 |
 | ICO_Kingmaker_TheWheelStops | The Wheel Stops (card and status) | A wheel pinned by a nail | Teal + steel | Transmutation_Slow (×2) | 3 |
 | ICO_Kingmaker_Dethrone · TurnTheSpoke · AtroposCut · Peripeteia · Usurp · WheelOfIxion · SpokeOfTheWheel · FortunesReach | The other cards and the level-12 passive | A crown cast down · a hand on one spoke · shears on a thread · the wheel turned upside down · two seats trading · a burning wheel · a spoke thrown · the wheel's shadow over the field | Teal (Ixion: fire orange) | Each has its own vanilla icon today | 3 |

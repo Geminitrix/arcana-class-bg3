@@ -2,7 +2,7 @@
 id: 31.02/Kingmaker
 owner: Lore Writer
 source: 21.04/Kingmaker/DESIGN.md §2, §12 · DECISIONS.md SP95–SP102 · 31.01_Lore_Bible.md
-reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
+reviewed: 2026-11-16 ARC-0008 — Swift Shears and Severance in the vocabulary (SP118, SP119)
 ---
 
 # 31.02 · Theme — The Kingmaker (X · Wheel of Fortune · Aspect of Anticipation)
@@ -38,7 +38,7 @@ No one on the wheel controls it. The Kingmaker reads the card literally.
 
 ## Vocabulary
 Use: **the Wheel, on the Wheel, turn, position, rise, reign, fall, crown, uncrown, cast down, thread, cut, Crossing,
-Hubris, King, Regent, Court, office, appoint**.
+Hubris, King, Regent, Court, office, appoint, shears, sever** (*Swift Shears*, *Severance*: Atropos' tools, SP118–SP119).
 Never: **Spinner** (the retired working name), **Hand of the King** (it is *King's Hand*, SP101), the work-specific
 Small Council titles replaced by SP101, **Cast Down / Crown / Nudge** as card names (renamed SP102).
 Lowercase *wheel* only inside "Fortune's wheel"; the mechanic is always **the Wheel**.
