@@ -1706,7 +1706,7 @@
   <content contentuid="hafc9f129g0cf1g9f3bg7eb6gf961315f93ab" version="1">Earthly Ties</content>
   <content contentuid="h63f0e7a2g0ae2g0095g3635g78ccda2112b0" version="1">While you wear armour, hold a shield or wield a weapon, the wind won't carry you: you become &lt;LSTag Type="Status" Tooltip="EARTHLY_TIES"&gt;Tethered&lt;/LSTag&gt; and can't move, act or cast spells.</content>
   <content contentuid="h1d8ba45bg5d9eg62f0gf917g0189ea339e06" version="1">Zephyr: Ally Tempest Aura</content>
-  <content contentuid="he9f36500geea1g7cbbg3483g74a06fbc0c04" version="1">Your allie's melee attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
+  <content contentuid="he9f36500geea1g7cbbg3483g74a06fbc0c04" version="2">Your allies' melee attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
   <content contentuid="hec86af0ag85e4ge564gb2b9g622dd1b4d494" version="2">Reigning Helper</content>
   <content contentuid="h2da73ad8g8b69gf001g9b19g48ffe9e4acec" version="2">Rising Helper</content>
   <content contentuid="h6c8f8e02g3d47ga59age92fg2e4ebce0d482" version="2">Fallen Helper</content>

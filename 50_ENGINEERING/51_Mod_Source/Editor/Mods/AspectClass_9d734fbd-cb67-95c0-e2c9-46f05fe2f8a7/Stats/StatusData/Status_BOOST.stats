@@ -1834,7 +1834,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ZEPHYR_TEMPEST_ALLY_AURA" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="7af0e2dd-1b48-4b97-a486-4e0ad2daf739" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1d8ba45bg5d9eg62f0gf917g0189ea339e06" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he9f36500geea1g7cbbg3483g74a06fbc0c04" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he9f36500geea1g7cbbg3483g74a06fbc0c04" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d4,Thunder);1" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_HeartOfTheStorm_Resistance" />
         <field name="StackId" type="StringTableFieldDefinition" value="ZEPHYR_TEMPEST_ALLY_AURA" />
