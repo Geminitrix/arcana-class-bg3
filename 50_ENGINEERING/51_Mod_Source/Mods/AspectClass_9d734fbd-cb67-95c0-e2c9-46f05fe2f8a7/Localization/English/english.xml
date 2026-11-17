@@ -1435,13 +1435,13 @@
   <content contentuid="h010cd193g7308gcf47g9b0egc189c3a81194" version="1">Fallen</content>
   <content contentuid="hc256782agb1e7gcc59ge94eg1b5b81393ac1" version="1">Sum sine regno - 'I am without reign.' Attack Rolls against it have Advantage, and it can't take reactions.&lt;br&gt;&lt;br&gt;Becomes Rising when the Wheel next turns.</content>
   <content contentuid="h4cac1e8cgc2eegfb33g0550g9f26e49e205c" version="1">King</content>
-  <content contentuid="h3b48dcb1g0180geefbg8b4cgd0eb5735c31c" version="1">Wears the crown of Fortune's wheel. The Kingmaker's Court serves the King.</content>
+  <content contentuid="h3b48dcb1g0180geefbg8b4cgd0eb5735c31c" version="2">Wears the crown of Fortune's wheel, on the Wheel or off it, until another ally has Reigned longer. The Kingmaker's Court serves the King.</content>
   <content contentuid="h92dbe463ge8ddg4efcg2f97gd1d36cbb7a5b" version="1">Regent</content>
   <content contentuid="hb171e4e5g0d01g30cbgaabeg6736bc700139" version="1">Reigns beside the King without wearing the crown.</content>
   <content contentuid="hac706065gb231ge3d0g59e3g07ede1388718" version="1">The Rota</content>
-  <content contentuid="hc49689c0g291cg629bg2075g0bbfb07af743" version="2">Creatures you set on Fortune's wheel move one position at the start of your turn - &lt;LSTag Type="Status" Tooltip="KINGMAKER_RISING"&gt;Rising&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.&lt;br&gt;&lt;br&gt;The ally that has Reigned the longest wears the crown as the &lt;LSTag Type="Status" Tooltip="KINGMAKER_KING"&gt;King&lt;/LSTag&gt;.</content>
+  <content contentuid="hc49689c0g291cg629bg2075g0bbfb07af743" version="3">Creatures you set on Fortune's wheel move one position at the start of your turn - &lt;LSTag Type="Status" Tooltip="KINGMAKER_RISING"&gt;Rising&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.&lt;br&gt;&lt;br&gt;The ally that has Reigned the longest wears the crown as the &lt;LSTag Type="Status" Tooltip="KINGMAKER_KING"&gt;King&lt;/LSTag&gt;, and keeps it - even off the Wheel - until another ally has Reigned longer.</content>
   <content contentuid="h74c61ad3gcfdfgf045g20edg7e6ebc566ffd" version="1">Spoke of the Wheel</content>
-  <content contentuid="hdafeeac4g4418gaa3bg63a2g06c6b9f4158d" version="1">Hurl a spoke of Fortune's wheel at a foe.</content>
+  <content contentuid="hdafeeac4g4418gaa3bg63a2g06c6b9f4158d" version="2">Hurl a spoke of Fortune's wheel at a foe.&lt;br&gt;&lt;br&gt;Deals an additional [1] to a creature that is &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt; or &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;.</content>
   <content contentuid="h692a4511g32d0gc74eg5d6egf5a7d26b672a" version="3">Deals an additional [1] to a creature that is &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt; or &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;.</content>
   <content contentuid="h3fdacb7bg38e3g8fd5g5118g0e915a77cdfd" version="1">Coronation</content>
   <content contentuid="h928b52a9ge2b3g925bg0469gb36733d2532c" version="2">Crown anyone and set them &lt;LSTag Type="Status" Tooltip="KINGMAKER_RISING"&gt;Rising&lt;/LSTag&gt; on Fortune's wheel.</content>
@@ -1453,7 +1453,7 @@
   <content contentuid="h3c506cfaged5ag884bgefafg72d75052d2ef" version="1">Turn a creature on the Wheel one position onward.</content>
   <content contentuid="h1fa3bf1bg4f8dg2990g86b8g197be1f8030e" version="1">The Wheel only turns forward.</content>
   <content contentuid="hcfba5c96g92a7g281bg7601gf8adc9e673a1" version="1">The Crossing</content>
-  <content contentuid="h8056fb4fgea1fg274cg6ef6gd12ea0f42956" version="1">Fell while an ally reigned nearby, and took Force damage.</content>
+  <content contentuid="h8056fb4fgea1fg274cg6ef6gd12ea0f42956" version="2">Lay Fallen while an ally reigned nearby, and took Force damage.</content>
   <content contentuid="hb81e64e2g70cfgd202gb4f3g490aa52a448f" version="1">Reigning</content>
   <content contentuid="hc712d2d8g2f3dgc035ga772gcc7bbb8c8dce" version="1">Cut from the Wheel at its peak. Lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20 and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; until the end of its next turn.</content>
   <content contentuid="h9e143a95gbbf4gf914g6208ge3e2799b7869" version="1">10 - Wheel of Fortune</content>
@@ -1461,13 +1461,13 @@
   <content contentuid="h4a5d90f1g7629ga2aeg82cagb5ca388b3851" version="1">10 - Wheel of Fortune: Awakened I</content>
   <content contentuid="hdb57b761g4bccg9dc0gc0bbga4b8608b80c0" version="1">Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.</content>
   <content contentuid="h06183e99g29b9gf53bgfad9gb486733b49b5" version="1">The Crossing</content>
-  <content contentuid="he8aeaef6ge103gb1eeg33bfg1739036090df" version="2">When an enemy on the Wheel becomes &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt; while an ally on the Wheel is &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt; within [1], the enemy takes [2]. Once per enemy per round.</content>
+  <content contentuid="he8aeaef6ge103gb1eeg33bfg1739036090df" version="3">When an enemy on the Wheel becomes &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;, it takes [2] for each ally on the Wheel &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt; within [1]. When an ally on the Wheel becomes Reigning, each Fallen enemy within [1] of it takes [2]. Each ally does this to an enemy only once per round.</content>
   <content contentuid="h2f7f5740g81edg3c01g9158g0df9738978b3" version="1">10 - Wheel of Fortune: Awakening</content>
   <content contentuid="h14195875g0974g11f1g034dgfee9405d137d" version="2">Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_TheCrossing"&gt;Crossing&lt;/LSTag&gt; counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.&lt;br&gt;&lt;br&gt;Level 3: cause 3 Crossings to gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I"&gt;Tyche&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 7: cause 5 Crossings to also gain &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II"&gt;Nemesis&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Level 12: cause 8 Crossings to awaken as the &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III"&gt;Aspect of Anticipation&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;The Awakening status shows how much is left to the next tier.</content>
   <content contentuid="hfe7a348fg85b7g6307gf98dg83b6d54bd789" version="1">Tyche</content>
   <content contentuid="h5ef1fcf4gc897gfbeegfb34g3977e816a895" version="1">Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen.</content>
   <content contentuid="hc06d5981g3cb4ga10cg190dg9235cb383839" version="1">Atropos' Cut</content>
-  <content contentuid="h50445669g1cbbg2708g7451g8b0acee10b89" version="1">Cut a creature's thread from Fortune's wheel.</content>
+  <content contentuid="h50445669g1cbbg2708g7451g8b0acee10b89" version="3">Cut a creature's thread from Fortune's wheel.&lt;br&gt;&lt;br&gt;An enemy takes damage that grows the higher it stands:&lt;br&gt;- [4] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;;&lt;br&gt;- [3] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt;;&lt;br&gt;- [2] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_RISING"&gt;Rising&lt;/LSTag&gt;;&lt;br&gt;- [1] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If an ally is chosen, they leave the Wheel. If they were Reigning, they remain Reigning until the end of their next turn.</content>
   <content contentuid="h1bc4a777gb3eeg0bb4gd028g15320228c305" version="2">An enemy takes damage that grows the lower it sits: [1] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt;, [2] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLING"&gt;Falling&lt;/LSTag&gt;, [3] if &lt;LSTag Type="Status" Tooltip="KINGMAKER_RISING"&gt;Rising&lt;/LSTag&gt; or &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;An ally leaves the Wheel. If it was Reigning, it keeps Reigning until the end of its next turn.</content>
   <content contentuid="hd95f4fafg68c7ge8c4g4954ga7640ec8605b" version="1">Rota Fortunae</content>
   <content contentuid="h88178c6eg22fegf75agdae5g2f781ac80ab8" version="1">Turn Fortune's wheel once more. Every creature on it moves one position onward.</content>
@@ -1482,12 +1482,12 @@
   <content contentuid="hd2e0249cgf65bg4e90gc9c9g11a60c28e718" version="1">Reverse the fortunes of every creature on the Wheel within [1].</content>
   <content contentuid="he37de579gccc3g22c8ge940gc2ad6234296a" version="1">Reigning becomes Fallen and Rising becomes Falling, and the reverse. Your allies turn too.&lt;br&gt;&lt;br&gt;Once per combat.</content>
   <content contentuid="h9456d0fdg86ecgd53fgfbd1g85fdd30ce483" version="1">Convene the Court</content>
-  <content contentuid="h3c47e40ag0ca9g7ee5g3da5g7fc7b9ec55ff" version="1">Name your Court. Each ally you appoint holds an office until your next &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
+  <content contentuid="h3c47e40ag0ca9g7ee5g3da5g7fc7b9ec55ff" version="2">Name your Court. Each ally you appoint holds an office until your next &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. An office holder can never be the King or a Regent.</content>
   <content contentuid="h9bb75814g8d2egb3f5g0f1dg1b32b311095b" version="1">You can appoint as many offices as your Charisma &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;, at least one. You can't hold an office yourself, and an ally holds one office at most.</content>
   <content contentuid="h196b11c4gb519g19d8g5f30g7793523ebd11" version="1">The office lasts until your next &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. Each office can be given once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
   <content contentuid="h647688e8g26f4g19a2g037ag6c8a3b51f98a" version="1">King's Hand</content>
-  <content contentuid="hf5ce5edag27cdgeb7cg6ab0g0dd731cae197" version="1">Serves as the King's Hand. While no ally is Reigning, wears the crown and lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
-  <content contentuid="hae806e9bg81e9gff5dgdadfg62be7fc047d4" version="1">Appoint an ally as the King's Hand. While no ally is Reigning, it wears the crown and lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
+  <content contentuid="hf5ce5edag27cdgeb7cg6ab0g0dd731cae197" version="2">Serves as the King's Hand and never wears the crown. While there is no King, or the King is not Reigning, lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
+  <content contentuid="hae806e9bg81e9gff5dgdadfg62be7fc047d4" version="2">Appoint an ally as the King's Hand. It never wears the crown, but while there is no King, or the King is not Reigning, it lands a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; on a roll of 19 or 20.</content>
   <content contentuid="h12f8ae7agd8abg61f5ge445g98e99b21605d" version="1">Lord Commander</content>
   <content contentuid="hd7dd31a3g4ee4g4d81gba04g4965922b5084" version="1">Guards the crown. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against the King have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; while the King is within [1].</content>
   <content contentuid="h06f83a82gca58gda8eg6cf3g5219f1c04bfd" version="1">Appoint an ally as Lord Commander. While the King is within [1] of it, &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against the King have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
@@ -1497,8 +1497,8 @@
   <content contentuid="hd0353438g9d26g4866g896bg0715dce8b9a7" version="1">Guarded</content>
   <content contentuid="h28d847e6g3909gaf8eg7f1ag0c89d139d180" version="1">The Lord Commander stands guard. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against it have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
   <content contentuid="h8adfe02bgf63fg1203g4d31g596dde2ad9f0" version="1">Hubris</content>
-  <content contentuid="h98a1667ag257bg89c1g3a7bg812ce656a521" version="2">An enemy that begins &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt; on the Wheel gains &lt;LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS"&gt;Hubris&lt;/LSTag&gt;. The higher it climbs, the harder it falls - its next &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_TheCrossing"&gt;Crossing&lt;/LSTag&gt; deals an additional [1].</content>
-  <content contentuid="hbf648abdgae22gea64g24cegda87df7bc3d1" version="1">Climbed too high. The next Crossing it suffers deals an additional [1].</content>
+  <content contentuid="h98a1667ag257bg89c1g3a7bg812ce656a521" version="3">An enemy that begins &lt;LSTag Type="Status" Tooltip="KINGMAKER_REIGNING"&gt;Reigning&lt;/LSTag&gt; on the Wheel gains &lt;LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS"&gt;Hubris&lt;/LSTag&gt;. The higher it climbs, the harder it falls - its next &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_TheCrossing"&gt;Crossing&lt;/LSTag&gt; deals [1] instead.</content>
+  <content contentuid="hbf648abdgae22gea64g24cegda87df7bc3d1" version="2">Climbed too high. The next Crossing it suffers deals [1] instead.</content>
   <content contentuid="h3e7937f4g3296ge4d8gbd57ga4276ec1a9dc" version="1">Fell from its pride while an ally reigned nearby, and took greater Force damage.</content>
   <content contentuid="hac983c2bg4ea9gf279g49ffg7d9552b3e73f" version="1">Nemesis</content>
   <content contentuid="h2b2d03bcg2776g680fg1348g757ae9305db7" version="1">When an enemy with &lt;LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS"&gt;Hubris&lt;/LSTag&gt; suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.</content>
@@ -1525,15 +1525,15 @@
   <content contentuid="h26ba79dbg7e32g654cgfd1dg6b12172ae32d" version="1">Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;, hitting a Fallen enemy returns a spell slot to the Kingmaker.</content>
   <content contentuid="h727fe14dga5d2g7e31g063agd262d1723893" version="1">Appoint an ally as Master of Coin. Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;, when it hits a Fallen enemy, you regain a spell slot.</content>
   <content contentuid="h3298e45bgc841gc580ge751gfc759183f3ea" version="1">Master of Ships</content>
-  <content contentuid="h8312755bg6e76g27d3g11f6gb268c41fc2c2" version="1">Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
-  <content contentuid="h859f8ee7g4399gc9cbg6818gca91d9e2d9b5" version="1">Appoint an ally as Master of Ships. An enemy within [1] of it that becomes Fallen suffers its Crossing as if a Reigning ally stood beside it.</content>
+  <content contentuid="h8312755bg6e76g27d3g11f6gb268c41fc2c2" version="2">Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it.</content>
+  <content contentuid="h859f8ee7g4399gc9cbg6818gca91d9e2d9b5" version="2">Appoint an ally as Master of Ships. An enemy within [1] of it that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it.</content>
   <content contentuid="hb2d56260ge95egfd4fgedd9gafa51574398e" version="1">The Court: third circle</content>
   <content contentuid="ha055ffbbg3af1gdb81g6274g1ec383292e52" version="1">The Wheel Stops</content>
   <content contentuid="h77e3ad6dg71bdg769ag334ag4c16fd4e5146" version="1">Stop Fortune's wheel. It doesn't turn at the start of your next [1] turns.</content>
   <content contentuid="h2b856c7dgb197ga7c8g2760g0374ef737c6a" version="1">While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing.&lt;br&gt;&lt;br&gt;Once per &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
   <content contentuid="h8237a025g5097g4444g2c79g190a63bee6f8" version="1">Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped.</content>
   <content contentuid="h6defdf68g7af0gb2d4g6f37g66e860c9cdb5" version="1">Fortune's Reach</content>
-  <content contentuid="h6151f413g0c66gb00bg764agd7b88239daf0" version="1">Your Crossings no longer need an ally nearby: an enemy that becomes Fallen while any ally on the Wheel is Reigning suffers its Crossing.</content>
+  <content contentuid="h6151f413g0c66gb00bg764agd7b88239daf0" version="2">Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands.</content>
   <content contentuid="h42261336gc225ge9e2gee54g3c68b040ee8e" version="1">Aspect of Anticipation</content>
   <content contentuid="h08241d70gd3f4g3786g9608g114930936eb7" version="1">Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_Aspect_ReadyForeseen"&gt;Foreseen&lt;/LSTag&gt;.</content>
   <content contentuid="h943cca70ge372g10d0g7a33g6e11a0fae93f" version="1">10 - Wheel of Fortune: Awakened III</content>
@@ -1638,7 +1638,7 @@
   <content contentuid="h94b4ded7gde8dg038ag2be7g0df06aaa01d2" version="2">Zephyr: Hurricane</content>
   <content contentuid="hdbf98adbg09a2g0d75g6bdagf4bed909a87c" version="1">When you open Aeolus' Bag, you release two winds at once.</content>
   <content contentuid="h41064b24g0296g9c24gcc25g8332a94519f7" version="1">Zephyr Rush: Storm</content>
-  <content contentuid="h955602a4ga4e5g7675gd372g15f80a687280" version="4">The West Wind can carry you to any enemy this turn.</content>
+  <content contentuid="h955602a4ga4e5g7675gd372g15f80a687280" version="5">The West Wind can carry you to any enemy this turn, whether it's &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; or not.</content>
   <content contentuid="he3ead233g04b7g17a3g3f7agb101cff85bea" version="1">If you have &lt;LSTag Type="Passive" Tooltip="Arcana_Passive_Zephyr_Gale"&gt;Gale&lt;/LSTag&gt;, the strike pushes the target back.</content>
   <content contentuid="h1cf113ffg1494g57a5g0b6eg78fd49123eed" version="1">Tailwind: Eurus</content>
   <content contentuid="h18e6b1d0g94d5ge690ga2f8gaae90805066e" version="1">Steadied by the East Wind. 1d4 bonus to &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.</content>
@@ -1697,12 +1697,29 @@
   <content contentuid="hf03ea122g10dcg01f9g361fg1a8b27331346" version="1">Your allies' attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies also deal an additional [1] and inflict 1 turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;</content>
   <content contentuid="hc8e70842g41d8gaaa2gbb19gbd131a7330f8" version="2">Zephyr: Ally Tempest</content>
   <content contentuid="ha8e1f3edga2b4gb9c0ga52ag791b020db0de" version="2">Zephyr: Ally Tempest</content>
-  <content contentuid="h36f5c0c3geebfg8705g9b2dg81c3cd234c7e" version="2">The West Wind joins the fight to help your allies, causing their weapon attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies to deal an additional [1] and inflict [2] turn of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
-  <content contentuid="h4c05edb1g13f5g33e7g9f0cg6b6228438e99" version="1">Your weapon attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
+  <content contentuid="h36f5c0c3geebfg8705g9b2dg81c3cd234c7e" version="3">The West Wind joins the fight to help your allies, causing their melee attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies to deal an additional [1] and inflict [2] turn of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
+  <content contentuid="h4c05edb1g13f5g33e7g9f0cg6b6228438e99" version="2">Your melee attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
   <content contentuid="h5ef5b839g9efbgb7b9g36b4g973fce96def2" version="1">Base Racial Speed</content>
   <content contentuid="h79e8580cga9e7g754bg2448g79493d61378d" version="1">You can move [3] per turn.</content>
   <content contentuid="h79930739g1f75ge8e3g9e37gda4d22359bbb" version="1">Tethered</content>
   <content contentuid="h6c96e5bbg7f05gf830g392dg25e830a4f76c" version="1">Held down by armour or steel. Can't move, take actions, bonus actions or reactions, or cast spells until the armour, shield and weapons come off.</content>
   <content contentuid="hafc9f129g0cf1g9f3bg7eb6gf961315f93ab" version="1">Earthly Ties</content>
   <content contentuid="h63f0e7a2g0ae2g0095g3635g78ccda2112b0" version="1">While you wear armour, hold a shield or wield a weapon, the wind won't carry you: you become &lt;LSTag Type="Status" Tooltip="EARTHLY_TIES"&gt;Tethered&lt;/LSTag&gt; and can't move, act or cast spells.</content>
+  <content contentuid="h1d8ba45bg5d9eg62f0gf917g0189ea339e06" version="1">Zephyr: Ally Tempest Aura</content>
+  <content contentuid="he9f36500geea1g7cbbg3483g74a06fbc0c04" version="1">Your allie's melee attacks against &lt;LSTag Type="Status" Tooltip="WINDSWEPT"&gt;Windswept&lt;/LSTag&gt; enemies deal an additional [1] and inflict [2] turns of &lt;LSTag Type="Status" Tooltip="MAG_THUNDER_REVERBERATION"&gt;Reverberation&lt;/LSTag&gt;.</content>
+  <content contentuid="hec86af0ag85e4ge564gb2b9g622dd1b4d494" version="2">Reigning Helper</content>
+  <content contentuid="h2da73ad8g8b69gf001g9b19g48ffe9e4acec" version="2">Rising Helper</content>
+  <content contentuid="h6c8f8e02g3d47ga59age92fg2e4ebce0d482" version="2">Fallen Helper</content>
+  <content contentuid="h78cea68eg5941g25b6gfad0g7eb3e0330a9e" version="2">Falling Helper</content>
+  <content contentuid="h20bc72eeg322ag7365gc872g79d3075f2284" version="1">Helper</content>
+  <content contentuid="h266f5073g0ccegeaa6g1a5bg016fa5394881" version="1">Helper</content>
+  <content contentuid="he2a511e7gdeb1g61fdg65e8g3a5c9fed3098" version="1">Helper</content>
+  <content contentuid="h74d5e0d7g8a46ge23dgc691g9566f9b7addd" version="1">Helper</content>
+  <content contentuid="h49b6e0cbgb7abgd31dgbffcg360dbd7e6777" version="2">Severance</content>
+  <content contentuid="h086e4237gb50cgfedcga45fg3f286d0368c8" version="2">Severance</content>
+  <content contentuid="h59f96b3dg664dg739dg9888g10653038fb83" version="3">When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut"&gt;Atropos' Cut&lt;/LSTag&gt;, your next &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone"&gt;Dethrone&lt;/LSTag&gt; this turn costs a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; instead of an action.</content>
+  <content contentuid="h658ac483gd812g02b0g391bga76e1b3f08bf" version="2">The next Dethrone costs a bonus action instead of an action.</content>
+  <content contentuid="h5fd4a719g701ag9d0fg6219g15d2fcd91a1c" version="1">Swift Shears</content>
+  <content contentuid="h8358b652g17ebg98aeg910ag470732737d25" version="1">Once per turn, you can cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut"&gt;Atropos' Cut&lt;/LSTag&gt; without using an action.</content>
+  <content contentuid="h38088bc3gd422g24ccg4cd4g4a92bb01ff6e" version="1">Can cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut"&gt;Atropos' Cut&lt;/LSTag&gt; without using an action. Ends after that cast, or at the end of the turn.</content>
 </contentList>

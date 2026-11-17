@@ -754,7 +754,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="73151e8c-4f1e-44ad-b214-7dab2566a494" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheRota" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hac706065gb231ge3d0g59e3g07ede1388718" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc49689c0g291cg629bg2075g0bbfb07af743" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc49689c0g291cg629bg2075g0bbfb07af743" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_OtilukesResilientSphere" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -764,7 +764,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="d6074463-85af-48da-b2a6-2cff55fdd576" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheCrossing" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h06183e99g29b9gf53bgfad9gb486733b49b5" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he8aeaef6ge103gb1eeg33bfg1739036090df" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="he8aeaef6ge103gb1eeg33bfg1739036090df" version="3" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(9);DealDamage(LevelMapValue(Kingmaker_Crossing),Force)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_Bane" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
@@ -783,8 +783,8 @@
         <field name="UUID" type="IdTableFieldDefinition" value="22a0895c-4e84-7f20-2fad-e41d792a5f39" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Hubris" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8adfe02bgf63fg1203g4d31g596dde2ad9f0" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h98a1667ag257bg89c1g3a7bg812ce656a521" version="2" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Kingmaker_Crossing),Force)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h98a1667ag257bg89c1g3a7bg812ce656a521" version="3" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(LevelMapValue(Kingmaker_CrossingHubris),Force)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Enchantment_CrownOfMadness" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -813,7 +813,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="4bd94d9b-5ef4-455e-e1c0-04f3f2efad53" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_FortunesReach" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6defdf68g7af0gb2d4g6f37g66e860c9cdb5" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6151f413g0c66gb00bg764agd7b88239daf0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6151f413g0c66gb00bg764agd7b88239daf0" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_HuntersMark" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -1247,6 +1247,29 @@
         <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(MOONSTONE_HELPER,100,1);SpawnExtraProjectiles(Projectile_Arcana_Equip_Moonstone)" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="RegainHitPoints(WisdomModifier*5);Distance(9)" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a19e6308-ca24-fa07-3532-27736ce6d691" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_SwiftShears" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5fd4a719g701ag9d0fg6219g15d2fcd91a1c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8358b652g17ebg98aeg910ag470732737d25" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Abjuration_BanishingSmite_Melee" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="854aa4ed-63c3-a8bb-146f-d2ea17112667" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Severance" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h086e4237gb50cgfedcga45fg3f286d0368c8" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h59f96b3dg664dg739dg9888g10653038fb83" version="3" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_OtilukesResilientSphere" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" value="OnCastResolved" enumeration_type_name="StatsFunctorContext" version="1" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="SpellId('Target_Arcana_Card_Spell_AtroposCut') or SpellId('Target_Arcana_Card_Spell_AtroposCut_3') or SpellId('Target_Arcana_Card_Spell_AtroposCut_4') or SpellId('Target_Arcana_Card_Spell_AtroposCut_5') or SpellId('Target_Arcana_Card_Spell_AtroposCut_6')" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(SELF,KINGMAKER_SEVERANCE,100,1)" />
       </fields>
     </stat_object>
   </stat_objects>

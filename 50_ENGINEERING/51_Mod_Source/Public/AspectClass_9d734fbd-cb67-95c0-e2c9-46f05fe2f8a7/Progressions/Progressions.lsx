@@ -1095,13 +1095,14 @@
                     <attribute id="Level" type="uint8" value="2"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(565cb84e-3e7f-4b8b-9054-c1fd17ac756d,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="d6fc13fa-2033-4365-9f4e-999e7143dce0"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="3"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheCrossing;Arcana_Passive_Aspect_WheelOfFortune_Awakening;Arcana_Passive_Aspect_WheelOfFortune_I"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_TheCrossing;Arcana_Passive_Aspect_WheelOfFortune_Awakening;Arcana_Passive_Aspect_WheelOfFortune_I;Arcana_Passive_SwiftShears"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(f48fbecb-c8b6-4837-a3f9-270a905caa19,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
@@ -1110,6 +1111,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="4"/>
                     <attribute id="Name" type="LSString" value="Kingmaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Severance"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="a688d11f-edff-44c5-95ac-0e4999ebf876"/>
                     <attribute id="UUID" type="guid" value="6b32e796-4976-4e23-89bc-cc706315117e"/>

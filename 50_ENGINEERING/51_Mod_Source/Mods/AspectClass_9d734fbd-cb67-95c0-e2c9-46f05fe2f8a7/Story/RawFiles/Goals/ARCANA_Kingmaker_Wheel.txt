@@ -7,34 +7,40 @@ KBSECTION
 // The Kingmaker's Wheel (the Aspect of the Wheel of Fortune). The ledger: owner, creature, position, side (1 ally /
 // 0 enemy, fixed at entry), entry order. The Wheel turns at the owner's turn start; two Kingmakers keep separate
 // Wheels (SP113). Each region title names the feature and the level or tier that brings it.
-// Positions run Rising -> Reigning -> Falling -> Fallen -> Rising. An enemy entering Fallen near a Reigning ally
-// pays the Crossing (Force damage, once per enemy per round); each Crossing is an Awakening step (a lone enemy
-// counts twice). The crown goes to the ally Reigning longest; the Court's offices last until the next Long Rest.
+// Positions run Rising -> Reigning -> Falling -> Fallen -> Rising. The Crossing (Force damage) pairs a Fallen enemy
+// with each Reigning ally near it, once per pair per round: when the enemy enters Fallen and when the ally enters
+// Reigning. Each Crossing is an Awakening step (a lone enemy counts twice). The crown goes to the ally that has spent
+// the most rounds Reigning and stays with it - off the Wheel too - until another ally has Reigned longer; a Court
+// office holder is never King nor Regent. The Court's offices last until the next Long Rest.
 // Wheel of Ixion binds through KINGMAKER_BIND_ENEMY_TECH like Dethrone. During The Wheel Stops the Kingmaker's own
 // cards still move creatures (SP112).
 //
 // DBs (tables, rebuilt by PROC_ARCANA_Kingmaker_Init on a new game and on every load):
 //   DB_ARCANA_Kingmaker_Next(From, To)  DB_ARCANA_Kingmaker_Opposite(From, To)  DB_ARCANA_Kingmaker_PositionStatus(Position, Status)
-//   DB_ARCANA_Kingmaker_Office(Status, Office)  and the positions where a step applies: DB_ARCANA_Kingmaker_HealStep,
-//   DB_ARCANA_Kingmaker_LawStep, DB_ARCANA_Kingmaker_ForeseenStep (Position)
+//   DB_ARCANA_Kingmaker_Office(Status, Office)  DB_ARCANA_Kingmaker_CrossStatus(Slot, Status)  and the positions where a
+//   step applies: DB_ARCANA_Kingmaker_HealStep, DB_ARCANA_Kingmaker_LawStep, DB_ARCANA_Kingmaker_ForeseenStep (Position)
 // DBs (the Wheel; deleted when a creature dies or is cut, and at the end of the owner's fight):
 //   DB_ARCANA_Kingmaker_OnWheel(Owner, Creature, Position, Side, Order)   the ledger
 //   DB_ARCANA_Kingmaker_Counter(Owner, Last)       last entry order handed out
-//   DB_ARCANA_Kingmaker_Best(Owner, King, Order)   the crown's holder
-//   DB_ARCANA_Kingmaker_Crossed(Owner, Enemy)      already crossed this round (cleared at the owner's turn start)
+//   DB_ARCANA_Kingmaker_ReignTime(Owner, Ally, Rounds)   rounds an ally has spent Reigning (kept off the Wheel; until it dies)
+//   DB_ARCANA_Kingmaker_King(Owner, King)          the crown's holder (kept off the Wheel; until it dies or is outreigned)
+//   DB_ARCANA_Kingmaker_CrossedBy(Owner, Enemy, Source)   this pair already crossed this round (cleared at the owner's turn start)
+//   DB_ARCANA_Kingmaker_CrossSlot(Owner, Enemy, N) Crossings the enemy took this round: the next one uses the next status
+//   DB_ARCANA_Kingmaker_HubrisSpent(Owner, Enemy)  its Hubris already paid for a Crossing (cleared at the turn start or new Hubris)
 //   DB_ARCANA_Kingmaker_Held(Owner, Ally)          Tier III: an ally kept Falling one more turn
 //   DB_ARCANA_Kingmaker_Condemned(Owner, Enemy)    Master of Laws: sentenced for the next turn of the Wheel
 //   DB_ARCANA_Kingmaker_Stopped(Owner, Turns)      The Wheel Stops: turns left
 //   DB_ARCANA_Kingmaker_Enemies(Owner, N)          enemies on the Wheel, counted at each Crossing
 //   DB_ARCANA_Kingmaker_UsurpFirst(Owner, Creature, Position, Side, Order)   Usurp's first target, waiting for the second
 // DBs (transient: written and consumed in the same frame):
-//   DB_ARCANA_Kingmaker_Moving, DB_ARCANA_Kingmaker_Pending, DB_ARCANA_Kingmaker_LawPending,
+//   DB_ARCANA_Kingmaker_Moving, DB_ARCANA_Kingmaker_Pending, DB_ARCANA_Kingmaker_LawPending, DB_ARCANA_Kingmaker_ReignTick,
 //   DB_ARCANA_Kingmaker_Inverting, DB_ARCANA_Kingmaker_Usurping, DB_ARCANA_Kingmaker_NewFallen,
-//   DB_ARCANA_Kingmaker_NewReigning, DB_ARCANA_Kingmaker_CrossPending, DB_ARCANA_Kingmaker_NemesisPending,
-//   DB_ARCANA_Kingmaker_NemesisMoved, DB_ARCANA_Kingmaker_Heir
+//   DB_ARCANA_Kingmaker_NewReigning, DB_ARCANA_Kingmaker_NewRuler, DB_ARCANA_Kingmaker_CrossPair,
+//   DB_ARCANA_Kingmaker_NemesisPending, DB_ARCANA_Kingmaker_NemesisMoved, DB_ARCANA_Kingmaker_Heir, DB_ARCANA_Kingmaker_Best
 // DBs (the Court; deleted at the Long Rest):
 //   DB_ARCANA_Kingmaker_Court(Owner, Holder, Office)   DB_ARCANA_Kingmaker_Seats(Owner, Taken)
-// Reads: DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Aspect_Step.
+// Reads: DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt), DB_ARCANA_CardFamily
+// (ARCANA_CardFamilies.txt). Calls PROC_ARCANA_Aspect_Step.
 
 //REGION Tables
 PROC
@@ -88,6 +94,13 @@ NOT DB_ARCANA_Kingmaker_ForeseenStep(_Position);
 
 PROC
 PROC_ARCANA_Kingmaker_Init()
+AND
+DB_ARCANA_Kingmaker_CrossStatus(_Slot, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossStatus(_Slot, _Status);
+
+PROC
+PROC_ARCANA_Kingmaker_Init()
 THEN
 DB_ARCANA_Kingmaker_Next("RISING", "REIGNING");
 DB_ARCANA_Kingmaker_Next("REIGNING", "FALLING");
@@ -114,6 +127,10 @@ DB_ARCANA_Kingmaker_LawStep("REIGNING");
 DB_ARCANA_Kingmaker_LawStep("FALLING");
 DB_ARCANA_Kingmaker_ForeseenStep("REIGNING");
 DB_ARCANA_Kingmaker_ForeseenStep("FALLING");
+DB_ARCANA_Kingmaker_CrossStatus(1, "KINGMAKER_CROSSING_TECH");
+DB_ARCANA_Kingmaker_CrossStatus(2, "KINGMAKER_CROSSING_TECH_2");
+DB_ARCANA_Kingmaker_CrossStatus(3, "KINGMAKER_CROSSING_TECH_3");
+DB_ARCANA_Kingmaker_CrossStatus(4, "KINGMAKER_CROSSING_TECH_4");
 
 IF
 SavegameLoaded()
@@ -122,6 +139,7 @@ PROC_ARCANA_Kingmaker_Init();
 //END_REGION
 
 //REGION The Court (level 5) - offices until the next Long Rest; seats = Charisma modifier, at least 1
+// a new office holder can't wear the crown: the crown is checked again
 IF
 StatusApplied((CHARACTER)_Holder, _Status, _Owner, _)
 AND
@@ -130,6 +148,7 @@ THEN
 DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office);
 ApplyStatus(_Holder, "COURT_HOLDER", -1.0, 1, _Owner);
 PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
 
 PROC
 PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner)
@@ -369,6 +388,27 @@ _Side == 0
 THEN
 DB_ARCANA_Kingmaker_NewReigning(_Owner, _Creature);
 
+// an ally that enters Reigning waits for the Crossing check too, and starts counting its reign (kept for the fight)
+PROC
+PROC_ARCANA_Kingmaker_Fell((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "REIGNING"
+AND
+_Side == 1
+THEN
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Creature);
+
+PROC
+PROC_ARCANA_Kingmaker_Fell((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "REIGNING"
+AND
+_Side == 1
+AND
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Creature, _)
+THEN
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Creature, 0);
+
 // Tier III: an ally that would enter Fallen (any cause) stays Falling one more turn instead
 PROC
 PROC_ARCANA_Kingmaker_Fell((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
@@ -388,13 +428,60 @@ ApplyStatus(_Creature, "KINGMAKER_FALLING", -1.0, 1, _Owner);
 DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
 //END_REGION
 
-//REGION The Wheel turns at the owner's turn start (a new round: every enemy may cross again)
+//REGION The Wheel turns at the owner's turn start (a new round: every pair may cross again)
 IF
 TurnStarted(_Owner)
 AND
-DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source)
 THEN
-NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
+
+// reign time: every ally that spent the round Reigning counts one more round, before the Wheel turns (stopped or not)
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+THEN
+DB_ARCANA_Kingmaker_ReignTick(_Owner, _Ally);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_ReignTick(_Owner, _Ally)
+THEN
+NOT DB_ARCANA_Kingmaker_ReignTick(_Owner, _Ally);
+PROC_ARCANA_Kingmaker_AddReign(_Owner, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_AddReign((GUIDSTRING)_Owner, (CHARACTER)_Ally)
+AND
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _)
+THEN
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_AddReign((GUIDSTRING)_Owner, (CHARACTER)_Ally)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _Old);
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _New);
 
 IF
 TurnStarted(_Owner)
@@ -450,7 +537,7 @@ DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _Creature, _Position, _Side, _Order)
 THEN
 NOT DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _Creature, _Position, _Side, _Order);
 
-// The Wheel Stops: every Fallen enemy on the stopped Wheel is checked for its Crossing again (once per round still holds)
+// The Wheel Stops: every Fallen enemy on the stopped Wheel is checked for its Crossings again (once per pair per round still holds)
 IF
 TurnStarted(_Owner)
 AND
@@ -683,7 +770,8 @@ PROC_ARCANA_Kingmaker_Crown(_Owner);
 PROC_ARCANA_Kingmaker_Settle(_Owner);
 //END_REGION
 
-//REGION Atropos' Cut - the creature leaves the Wheel (the damage is in Stats); an ally cut while Reigning keeps it a turn
+//REGION Atropos' Cut - the creature leaves the Wheel (the damage is in Stats); the King keeps the crown off the Wheel,
+// and an ally cut while Reigning keeps the Reigning boons a turn
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_CUT_TECH", _Owner, _)
 AND
@@ -693,7 +781,6 @@ DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
 THEN
 NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
 RemoveStatus(_Creature, _Status, _Owner);
-RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
 RemoveStatus(_Creature, "KINGMAKER_WHEEL_STOPPED", _Owner);
 NOT DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
 RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
@@ -708,6 +795,36 @@ AND
 _Side == 1
 THEN
 ApplyStatus(_Creature, "KINGMAKER_REIGNING_LINGER", 6.0, 1, _Owner);
+//END_REGION
+
+//REGION Swift Shears (level 3) - the first Atropos' Cut of each of the Kingmaker's turns costs no action
+IF
+TurnStarted((CHARACTER)_Kingmaker)
+AND
+HasPassive(_Kingmaker, "Arcana_Passive_SwiftShears", 1)
+THEN
+ApplyStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 6.0, 1, _Kingmaker);
+
+IF
+CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_AtroposCut")
+AND
+HasActiveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 1)
+THEN
+RemoveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", _Kingmaker);
+//END_REGION
+
+//REGION Severance (level 4) - after an Atropos' Cut, the next Dethrone costs a bonus action (KINGMAKER_SEVERANCE, given
+// by Arcana_Passive_Severance in Stats); the first Dethrone spends it
+IF
+CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_Dethrone")
+AND
+HasActiveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", 1)
+THEN
+RemoveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", _Kingmaker);
 //END_REGION
 
 //REGION Master of Healing - healing an ally on the Wheel that is Fallen or Rising moves it one step (toward Reigning)
@@ -725,60 +842,120 @@ PROC_ARCANA_Kingmaker_Crown(_Owner);
 PROC_ARCANA_Kingmaker_Settle(_Owner);
 //END_REGION
 
-//REGION The crown - the ally Reigning longest (lowest order, not a summon) is King; other Reigning allies are Regents
+//REGION The crown - the ally with the most rounds Reigning (not a summon, not a Court office holder) is King, and keeps
+// the crown - off the Wheel too - until another ally has Reigned strictly longer. Other Reigning allies are Regents.
+// Statuses are only removed where they no longer belong, never removed and given back in the same moment.
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _, _)
+AND
+_Position != "REIGNING"
 THEN
-RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
 RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
 
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", _, _)
+AND
+DB_ARCANA_Kingmaker_Court(_, _Creature, _)
+THEN
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+
+// the King's Hand never wears the crown (saves from before this change may still show it)
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
 DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+AND
+HasActiveStatus(_Hand, "KINGMAKER_KING", 1)
 THEN
 RemoveStatus(_Hand, "KINGMAKER_KING", _Owner);
-RemoveStatus(_Hand, "KINGMAKER_HAND_CROWN", _Owner);
 
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order)
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds)
 THEN
-NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
+
+// the King stands first: alive and out of the Court, it keeps the crown unless someone Reigned longer
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_King(_Owner, _King)
+AND
+IsDead(_King, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _King, _)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _King, _Rounds)
+THEN
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _Rounds);
 
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _Order)
-AND
-IsSummon(_Creature, 0)
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Creature, _Rounds)
 AND
 NOT DB_ARCANA_Kingmaker_Best(_Owner, _, _)
+AND
+IsDead(_Creature, 0)
+AND
+IsSummon(_Creature, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
 THEN
-DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
 
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _Order)
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Creature, _Rounds)
+AND
+IsDead(_Creature, 0)
 AND
 IsSummon(_Creature, 0)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestOrder)
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
 AND
-_Order < _BestOrder
+DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestRounds)
+AND
+_Rounds > _BestRounds
 THEN
-NOT DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestOrder);
-DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestRounds);
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
+
+// the crown changes hands only here: the old King loses it (death, an office, or a longer reign)
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_King(_Owner, _Old)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Old, _)
+THEN
+NOT DB_ARCANA_Kingmaker_King(_Owner, _Old);
+RemoveStatus(_Old, "KINGMAKER_KING", _Owner);
+
+// nobody else on the Wheel wears it (saves from before this change may still show it)
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _)
+AND
+HasActiveStatus(_Creature, "KINGMAKER_KING", 1)
+THEN
+RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
 
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
 DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
 THEN
+DB_ARCANA_Kingmaker_King(_Owner, _King);
 ApplyStatus(_King, "KINGMAKER_KING", -1.0, 1, _Owner);
 
 PROC
@@ -787,10 +964,12 @@ AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _)
 AND
 NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
 THEN
 ApplyStatus(_Creature, "KINGMAKER_REGENT", -1.0, 1, _Owner);
 
-// King's Hand: while no ally Reigns, the Hand wears the crown and crits on 19-20
+// King's Hand: while there is no King, or the King is not Reigning, the Hand crits on 19-20
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
@@ -802,12 +981,62 @@ IsDead(_Hand, 0)
 AND
 IsInCombat(_Hand, 1)
 THEN
-ApplyStatus(_Hand, "KINGMAKER_KING", -1.0, 1, _Owner);
 ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+AND
+IsDead(_Hand, 0)
+AND
+IsInCombat(_Hand, 1)
+THEN
+ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+THEN
+RemoveStatus(_Hand, "KINGMAKER_HAND_CROWN", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _Rounds)
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _King, _Rounds);
+
+// death ends a reign (on the Wheel or off it): its time goes, and a dead King leaves the crown to the next
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Dead, _Rounds)
+THEN
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Dead, _Rounds);
+
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_King(_Owner, _Dead)
+THEN
+NOT DB_ARCANA_Kingmaker_King(_Owner, _Dead);
+RemoveStatus(_Dead, "KINGMAKER_KING", _Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
 //END_REGION
 
-//REGION The Crossing (level 3) - after every change; once per enemy per round, however many allies Reign near it
-// Hubris (level 7): an enemy that entered Reigning and still Reigns now
+//REGION The Crossing (level 3) - after every change; each Fallen enemy crosses once per round with each Reigning ally
+// near it: when the enemy enters Fallen, and when the ally enters Reigning
+// Hubris (level 7): an enemy that entered Reigning and still Reigns now (a new Hubris can pay for a Crossing again)
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
@@ -818,6 +1047,7 @@ AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "REIGNING", 0, _)
 THEN
 ApplyStatus(_Enemy, "KINGMAKER_HUBRIS", -1.0, 1, _Owner);
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
 
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
@@ -826,6 +1056,7 @@ DB_ARCANA_Kingmaker_NewReigning(_Owner, _Enemy)
 THEN
 NOT DB_ARCANA_Kingmaker_NewReigning(_Owner, _Enemy);
 
+// an enemy that entered Fallen: one Crossing with each Reigning ally within 9 m
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
@@ -833,17 +1064,17 @@ DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
 AND
 HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
 AND
-NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
-AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
 AND
 GetDistanceTo(_Enemy, _Ally, _Dist)
 AND
 _Dist <= 9.0
 THEN
-DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
 
 // Fortune's Reach (level 12): the Crossing needs no distance
 PROC
@@ -855,15 +1086,15 @@ HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
 AND
 HasPassive(_Owner, "Arcana_Passive_FortunesReach", 1)
 AND
-NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
-AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
 THEN
-DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
 
-// Master of Ships (level 9): within 9 m of the Ships, as if a Reigning ally stood there
+// Master of Ships (level 9): within 9 m of the Ships, one more Crossing, as if a Reigning ally stood there
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
@@ -871,19 +1102,19 @@ DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
 AND
 HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
 AND
-NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
-AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
 AND
 DB_ARCANA_Kingmaker_Court(_Owner, _Ships, "MASTER_OF_SHIPS")
 AND
 IsDead(_Ships, 0)
 AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ships)
+AND
 GetDistanceTo(_Enemy, _Ships, _Dist)
 AND
 _Dist <= 9.0
 THEN
-DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ships);
 
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
@@ -892,17 +1123,65 @@ DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
 THEN
 NOT DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy);
 
-// an enemy with Hubris: the Crossing deals one more die, the pride is spent, and with Nemesis (Tier II) its Falling
-// neighbours within 3 m drop to Fallen
+// an ally that entered Reigning: one Crossing with each Fallen enemy within 9 m of it
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy)
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+AND
+GetDistanceTo(_Enemy, _Ally, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+// Fortune's Reach (level 12): the Crossing needs no distance
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+HasPassive(_Owner, "Arcana_Passive_FortunesReach", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+THEN
+NOT DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally);
+
+// an enemy with Hubris: its first Crossing deals the greater damage and spends the pride, and with Nemesis (Tier II)
+// its Falling neighbours within 3 m drop to Fallen
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source)
 AND
 HasActiveStatus(_Enemy, "KINGMAKER_HUBRIS", 1)
+AND
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy)
 THEN
-NOT DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
-DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+NOT DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
 ApplyStatus(_Enemy, "KINGMAKER_CROSSING_HUBRIS_TECH", 0.0, 1, _Owner);
 RemoveStatus(_Enemy, "KINGMAKER_HUBRIS", _Owner);
 PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner);
@@ -911,12 +1190,49 @@ PROC_ARCANA_Kingmaker_Nemesis((CHARACTER)_Owner, _Enemy);
 PROC
 PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy)
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source)
 THEN
-NOT DB_ARCANA_Kingmaker_CrossPending(_Owner, _Enemy);
-DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
-ApplyStatus(_Enemy, "KINGMAKER_CROSSING_TECH", 0.0, 1, _Owner);
+NOT DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+PROC_ARCANA_Kingmaker_Cross(_Owner, _Enemy);
 PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner);
+
+// each Crossing an enemy takes in a round uses the next of four identical statuses, so two Crossings in the same moment
+// are never merged into one; past the fourth, the last one is reused
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _)
+THEN
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _Old);
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _New);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+AND
+DB_ARCANA_Kingmaker_CrossStatus(_N, _Status)
+THEN
+ApplyStatus(_Enemy, _Status, 0.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+AND
+_N > 4
+THEN
+ApplyStatus(_Enemy, "KINGMAKER_CROSSING_TECH_4", 0.0, 1, _Owner);
 //END_REGION
 
 //REGION Nemesis (Tier II) - the Falling enemies within 3 m of a Hubris Crossing drop one step, then the Wheel settles again
@@ -1126,6 +1442,25 @@ RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
 IF
 CombatEnded(_Combat)
 AND
+DB_ARCANA_Kingmaker_King(_Owner, _King)
+AND
+QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
+THEN
+NOT DB_ARCANA_Kingmaker_King(_Owner, _King);
+RemoveStatus(_King, "KINGMAKER_KING", _Owner);
+
+IF
+CombatEnded(_Combat)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _Rounds)
+AND
+QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
+THEN
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Ally, _Rounds);
+
+IF
+CombatEnded(_Combat)
+AND
 DB_ARCANA_Kingmaker_Counter(_Owner, _N)
 AND
 QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
@@ -1144,11 +1479,29 @@ NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Order);
 IF
 CombatEnded(_Combat)
 AND
-DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy)
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source)
 AND
 QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
 THEN
-NOT DB_ARCANA_Kingmaker_Crossed(_Owner, _Enemy);
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+
+IF
+CombatEnded(_Combat)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+AND
+QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N);
+
+IF
+CombatEnded(_Combat)
+AND
+DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy)
+AND
+QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
+THEN
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
 
 IF
 CombatEnded(_Combat)
@@ -1158,6 +1511,15 @@ AND
 QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
 THEN
 NOT DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy);
+
+IF
+CombatEnded(_Combat)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+AND
+QRY_ARCANA_Kingmaker_FightOver(_Owner, _Combat)
+THEN
+NOT DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally);
 
 IF
 CombatEnded(_Combat)
