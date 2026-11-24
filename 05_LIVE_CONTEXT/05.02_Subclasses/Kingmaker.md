@@ -46,7 +46,7 @@ colour teal.
   (3): the first of each turn costs no action; **Severance** (4): after it, the next Dethrone costs a Bonus Action.
 - **The Court** (5+): offices up to the CHA modifier, out of combat, until the Long Rest; never the Kingmaker; office
   holders are never King nor Regent, the King's Hand only crits on 19–20 while the King isn't Reigning (SP116); Master
-  of Coin returns one slot once per Long Rest (SP109).
+  of Coin returns one slot once per round (SP121).
 - **Turning points:** Peripeteia (once per combat) flips every position within 18 m; Usurp swaps an ally and an enemy;
   The Wheel Stops (Unique, once per Long Rest) freezes the turn for 2 of the Kingmaker's turns, cards still move
   creatures (SP112).

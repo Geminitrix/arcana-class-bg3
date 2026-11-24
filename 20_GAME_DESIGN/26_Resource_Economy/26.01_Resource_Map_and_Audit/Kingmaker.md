@@ -9,7 +9,7 @@ reviewed: 2026-11-16 ARC-0008 — Swift Shears and Severance in the action econo
 
 | Resource | Sources | Sinks | Recharge | Balance | Risk | Action |
 |---|---|---|---|---|---|---|
-| Woven Spell Slots (PC: Threads) | Class level; **Master of Coin**: one slot back when its holder hits a Fallen enemy, once per Long Rest (SP109) | Coronation, Dethrone (1) · Atropos' Cut (2) · Peripeteia (3) · Usurp (4) · Wheel of Ixion (5) · The Wheel Stops (6) | Long rest | Ordinary caster economy + 1 slot a day | None after SP109 (was ≈ 8 slots a day) | None |
+| Woven Spell Slots (PC: Threads) | Class level; **Master of Coin**: one slot back when its holder hits a Fallen enemy, once per round (SP121) | Coronation, Dethrone (1) · Atropos' Cut (2) · Peripeteia (3) · Usurp (4) · Wheel of Ixion (5) · The Wheel Stops (6) | Long rest | Ordinary caster economy + up to 1 slot a round (≈ 8 a day, 22.05 report §4) | Master of Coin: ≈ 8 slots a day, kept by the Owner (SP121) | None |
 | Threads (PC only) | Deck economy | Every card; Turn the Spoke and the cantrip 1 Thread (level-0 card rule) | Per combat | As the base class | — | None |
 | **Positions on the Wheel** (the main resource) | Coronation, Dethrone, Wheel of Ixion, Succession | Atropos' Cut, death, combat end | The Wheel turns them every Kingmaker turn | Free to keep, but **relentless**: allies who reign will fall, enemies left on the Wheel reign again | No engine: a Crossing moves nothing (only Tier II Nemesis moves Falling enemies, once each) | None |
 | The Court (secondary, set before battle) | Convene the Court, out of combat | — | One fill per office slot per Long Rest; lasts until the Long Rest | Charisma modifier offices | A holder's death leaves the seat empty until the Long Rest | None |

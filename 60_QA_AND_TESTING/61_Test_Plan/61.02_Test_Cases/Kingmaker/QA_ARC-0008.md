@@ -419,7 +419,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P37 · SPEC_ARC-0008
 - **Steps:** Master of Coin hits a Fallen enemy, then another
-- **Expected:** One spell slot (of your slot level) comes back the first time only; after a Long Rest it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`
+- **Expected:** One spell slot (of your slot level) comes back the first time only; the next round it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
@@ -600,7 +600,7 @@ reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
 | The Crossing | P9, P10, P11, P38, P43 | 1d4 Force within 9 m of a Reigning ally, never beyond; once per enemy per round; Master of Ships carries it; Fortune's Reach at any range | pending |
 | Awakening | P12, P13, P14, P26, P44 | Goals 3 / 5 / 8, a lone enemy counts 2; Tyche enters one ahead; Rota Fortunae once per combat; Nemesis drops Falling neighbours; Tier III allies never Fallen | pending |
 | Atropos' Cut | P15, P16 | 3d8 / 2d8 / 1d8 by position, off the Wheel; a Reigning ally keeps Reigning one turn; upcasts add dice | pending |
-| The Court | P17, P19, P20, P21, P22, P29, P30, P31, P32, P37, P39, P40 | Offices up to CHA, locked by level, gone at Long Rest, empty seat on death; each office's rule as in the SPEC; Master of Coin once per Long Rest | pending |
+| The Court | P17, P19, P20, P21, P22, P29, P30, P31, P32, P37, P39, P40 | Offices up to CHA, locked by level, gone at Long Rest, empty seat on death; each office's rule as in the SPEC; Master of Coin once per round | pending |
 | Peripeteia | P23, P24 | Within 18 m every position flips and Crossings pay; once per combat, upcasts included | pending |
 | Hubris and Usurp | P25, P27, P28 | A Reigning enemy gains Hubris, its Crossing deals two dice; Usurp swaps one ally and one enemy, two allies do nothing | pending |
 | Succession | P33, P34 | The nearest enemy off the Wheel within 9 m inherits the position; a Reigning heir gains Hubris | pending |

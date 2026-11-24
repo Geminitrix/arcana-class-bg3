@@ -263,7 +263,7 @@ the Kingmaker kills it first, cuts it off the Wheel, or saves *Usurp* for the mo
 | 5 | **Master of Healing** | Healing an ally on the Wheel moves it one position on **only when that step brings it toward Reigning** (Fallen → Rising, Rising → Reigning); at Reigning or Falling nothing happens |
 | 7 | **Master of Laws** | An enemy that attacks the King falls one step further at the next turn of the Wheel — **never past Fallen and never up to Reigning**: from Rising it skips its reign and lands on Falling; from Reigning it drops to Fallen (and may cross); from Falling or Fallen it takes the normal step only |
 | 7 | **Master of Secrets** | Enemies on the Wheel within 9 m can't be invisible or hidden; the holder has Advantage against Falling enemies |
-| 9 | **Master of Coin** | **Once per Long Rest**, when it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) |
+| 9 | **Master of Coin** | **Once per round**, when it hits a Fallen enemy, the Kingmaker regains a Woven Spell Slot (PC: a Thread) (SP121) |
 | 9 | **Master of Ships** | One more Crossing source: a Fallen enemy within 9 m of the Master of Ships crosses with it too, as if a Reigning ally stood there |
 
 Offices show as a status on the holder, named after the office.
@@ -468,7 +468,7 @@ the Wheel (Succession, Ixion). Level 11 stops it.
 The Kingmaker is strongest with allies who hit often (a crit range of 19–20 rewards many attacks) and who
 stand near the enemies (the 9 m of the Crossing). Alone or with a scattered party it does little; with few
 enemies, Crossings come slowly. The Court is named for the party it has: the Lord Commander for a melee
-King, the Master of Secrets for a rogue, the Master of Coin for long days.
+King, the Master of Secrets for a rogue, the Master of Coin for long fights.
 
 ---
 

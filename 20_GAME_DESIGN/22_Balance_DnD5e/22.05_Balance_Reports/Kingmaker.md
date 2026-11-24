@@ -1,8 +1,8 @@
 ---
 id: 22.05/Kingmaker
 owner: Balance Designer
-source: 21.04/Kingmaker/DECISIONS.md (SP47–SP120), 25 (*_Kingmaker_*), 2026-10-13_ARC-0008_Kingmaker_Balance.md
-reviewed: 2026-11-16 ARC-0008 — Owner adjustments SP115–SP120 listed; not re-priced (no balance pass asked)
+source: 21.04/Kingmaker/DECISIONS.md (SP47–SP121), 25 (*_Kingmaker_*), 2026-10-13_ARC-0008_Kingmaker_Balance.md
+reviewed: 2026-11-24 ARC-0032 — SP121 (Master of Coin once per round) listed with the report's own estimate
 ---
 
 # 22.05 · Balance — The Kingmaker (current verdict)
@@ -22,7 +22,7 @@ Built in the game (levels 1–12); **no probe and no balance playtest played yet
 | **Atropos' Cut reversed (SP120)** | ✅ same total | Same dice, read top-down: Reigning 3d8 … Fallen 1d4 (Fallen was 3d8); upcast now scales every term |
 | **The crown lasts; the Court is never crowned (SP115, SP116)** | n/a | No damage change; the King's Hand crit now needs the King off Reigning |
 | Peripeteia (level-3 card, once per combat, SP108) | ✅ in band | As priced after SP108 |
-| Master of Coin (once per Long Rest, SP109) | ✅ in band | Was 44 % of the budget before SP109 |
+| **Master of Coin once per round (SP121)** | ❌ above band, by the Owner's choice | The form the balance pass priced at ≈ 8 slots a day, ≈ 44 % of D (report §4); the Owner keeps it knowing this. Playtest alarm: slots regained in a day of 4 fights |
 | **The Wheel Stops freezes the turn only (SP112)** | ✅ slightly stronger, still in band | The Kingmaker's cards keep moving creatures during the stop, so the capstone gains flexibility; the pressing damage is unchanged (report §8: alarm if it takes more than a quarter of a boss's HP alone) |
 | **Ready: Foreseen readied with a Bonus Action (SP114)** | ✅ slightly weaker, in band | One Bonus Action once per combat; the reaction value is unchanged |
 | **Two Kingmakers keep separate Wheels (SP113)** | n/a | No effect on a single Kingmaker's budget |

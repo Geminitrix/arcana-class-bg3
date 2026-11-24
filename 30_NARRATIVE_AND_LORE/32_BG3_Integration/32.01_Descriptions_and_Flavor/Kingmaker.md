@@ -52,7 +52,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `Arcana_Passive_Severance` | Severance | When you cast Atropos' Cut, your next Dethrone this turn costs a bonus action instead of an action. |
 | `Arcana_Passive_Succession` | Succession | When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king. |
 | `Arcana_Passive_FortunesReach` | Fortune's Reach | Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands. |
-| `Arcana_Passive_Court_MasterOfCoin` | Master of Coin | Once per Long Rest, hitting a Fallen enemy returns a spell slot to the Kingmaker. |
+| `Arcana_Passive_Court_MasterOfCoin` | Master of Coin | Once per turn, hitting a Fallen enemy returns a Woven Spell Slot to the Kingmaker. |
 | `Arcana_Passive_Court_MasterOfHealing` | Master of Healing | Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising. |
 | `Arcana_Passive_Aspect_WheelOfFortune_Awakening` | 10 - Wheel of Fortune: Awakening | Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.Level 3: cause 3 Crossings to gain Tyche.Level 7: cause 5 Crossings to also gain Nemesis.Level 12: cause 8 Crossings to awaken as the Aspect of Anticipation.The Awakening status shows how much is left to the next tier. |
 | `Arcana_Passive_Aspect_WheelOfFortune_I` | Tyche | Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
@@ -69,7 +69,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `KINGMAKER_RISING` | Rising | Regnabo - 'I shall reign.' Moves faster and can't be knocked Prone.Becomes Reigning when the Wheel next turns. |
 | `COURT_KINGS_HAND` | King's Hand | Serves as the King's Hand and never wears the crown. While there is no King, or the King is not Reigning, lands a Critical Hit on a roll of 19 or 20. |
 | `COURT_LORD_COMMANDER` | Lord Commander | Guards the crown. Attack Rolls against the King have Disadvantage while the King is within [1]. |
-| `COURT_MASTER_OF_COIN` | Master of Coin | Once per Long Rest, hitting a Fallen enemy returns a spell slot to the Kingmaker. |
+| `COURT_MASTER_OF_COIN` | Master of Coin | Once per turn, hitting a Fallen enemy returns a Woven Spell Slot to the Kingmaker. |
 | `COURT_MASTER_OF_HEALING` | Master of Healing | Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising. |
 | `COURT_MASTER_OF_LAWS` | Master of Laws | An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning. |
 | `COURT_MASTER_OF_SECRETS` | Master of Secrets | Enemies on the Wheel within [1] can't be Invisible or hide. Has Advantage on Attack Rolls against Falling enemies. |
@@ -99,7 +99,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 |---|---|---|
 | `Target_Arcana_Util_Court_KingsHand` | King's Hand | Appoint an ally as the King's Hand. It never wears the crown, but while there is no King, or the King is not Reigning, it lands a Critical Hit on a roll of 19 or 20. |
 | `Target_Arcana_Util_Court_LordCommander` | Lord Commander | Appoint an ally as Lord Commander. While the King is within [1] of it, Attack Rolls against the King have Disadvantage. |
-| `Target_Arcana_Util_Court_MasterOfCoin` | Master of Coin | Appoint an ally as Master of Coin. Once per Long Rest, when it hits a Fallen enemy, you regain a spell slot. |
+| `Target_Arcana_Util_Court_MasterOfCoin` | Master of Coin | Appoint an ally as Master of Coin. Once per turn, when it hits a Fallen enemy, you regain a spell slot. |
 | `Target_Arcana_Util_Court_MasterOfHealing` | Master of Healing | Appoint an ally as Master of Healing. When it heals an ally on the Wheel that is Fallen or Rising, that ally moves one position closer to Reigning. |
 | `Target_Arcana_Util_Court_MasterOfLaws` | Master of Laws | Appoint an ally as Master of Laws. An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning. |
 | `Target_Arcana_Util_Court_MasterOfSecrets` | Master of Secrets | Appoint an ally as Master of Secrets. Enemies on the Wheel within [1] of it can't be Invisible or hide, and it has Advantage on Attack Rolls against Falling enemies. |

@@ -191,23 +191,12 @@ THEN
 RemoveStatus(_Hand, "KINGMAKER_HAND_CROWN", _Owner);
 ```
 
-### F5 · Master of Coin (level 9) — once per Long Rest
+### F5 · Master of Coin (level 9) — once per round (SP121)
 
-Two divergences from DESIGN ("**Once per Long Rest**"): `KINGMAKER_COIN_SPENT` is now applied for `6.0` (one round, so
-once per round), and the Long Rest rule that removed it is gone. **Owner decision needed:** back to once per Long Rest
-(recommended, as designed) or keep once per round (then it is a design change: log it in `DECISIONS.md`). If once per
-Long Rest: in `ARCANA_Kingmaker_KingsCourt.txt`, region *Master of Coin*, change `6.0` back to `-1.0`, and add this rule
-in region *The Court*, **before** the rule `LongRestFinished() AND DB_ARCANA_Kingmaker_Seats(...)` that deletes the
-seats (it reads them):
-
-```
-IF
-LongRestFinished()
-AND
-DB_ARCANA_Kingmaker_Seats(_Owner, _N)
-THEN
-RemoveStatus(_Owner, "KINGMAKER_COIN_SPENT", _Owner);
-```
+**Decided by the Owner (2026-11-24, SP121): once per round**, knowing the balance pass's estimate (≈ 8 slots a day,
+≈ 44 % of D). The Story already does it (`KINGMAKER_COIN_SPENT` for `6.0`), so **no Osiris change**: the old Long Rest
+rule is not restored. Only the texts change (F8). Propagated: DECISIONS (SP121), DESIGN, 05.02, 22.05, 25
+(`FEAT_Kingmaker_Court`), 26.01, 32.01, SPEC_ARC-0008 (row and P37), QA_ARC-0008 (L9.2 and the Court row).
 
 ### F6 · Master of Laws (level 7) — the extra step after the Wheel turns, not before
 
@@ -274,9 +263,29 @@ condition loses nothing.)
   §13.2) and LF line endings. The old goal's header (51 copy, lines 7–43) is the source for the new ones.
 - Goal name `ARCANA_Kingmaker_Succesion` → `ARCANA_Kingmaker_Succession` (unpublished, so it may be renamed, OR-59).
 
+### F8 · Master of Coin texts (English, `Localization/English/english.xml`)
+
+The passive and the status already say "Once per turn", but the slot tag opens as `LStag` (it closes as `LSTag`) and
+reads "an Woeven spell slot"; the office's option still says "Once per Long Rest". "Once per turn" is the mod's usual
+wording (13 lines in the game). Replace the two contents:
+
+`h26ba79dbg7e32g654cgfd1dg6b12172ae32d` (`Arcana_Passive_Court_MasterOfCoin`, `COURT_MASTER_OF_COIN`):
+
+```
+Once per turn, hitting a &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt; enemy returns a &lt;LSTag Tooltip="ArcanaSpellSlot"&gt;Woven Spell Slot&lt;/LSTag&gt; to the Kingmaker.
+```
+
+`h727fe14dga5d2g7e31g063agd262d1723893` (`Target_Arcana_Util_Court_MasterOfCoin`):
+
+```
+Appoint an ally as Master of Coin. Once per turn, when it hits a &lt;LSTag Type="Status" Tooltip="KINGMAKER_FALLEN"&gt;Fallen&lt;/LSTag&gt; enemy, you regain a spell slot.
+```
+
+The other 14 languages still say "Long Rest": they catch up in the next translation sync (as ARC-0031 for the Windborn).
+
 ## Acceptance criteria
 
-- [ ] F1–F6 in the game (F5 as the Owner decides); the Story compiles with 0 errors (`Story/log.txt`).
+- [ ] F1–F4 and F6 in the game, F8's two texts in English; the Story compiles with 0 errors (`Story/log.txt`).
 - [ ] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
 - [ ] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
 - [ ] In game, Tier I awakened: Coronation puts an ally at **Reigning**, Dethrone and Wheel of Ixion put an enemy at
@@ -285,7 +294,8 @@ condition loses nothing.)
 - [ ] Swift Shears: the first Atropos' Cut of a turn costs no action, the second does. Severance: after a Cut, only
       the next Dethrone costs a Bonus Action.
 - [ ] King's Hand: never King; crits on 19–20 while there is no King or the King is not Reigning.
-- [ ] Master of Coin: one slot back per Long Rest (or per round, if the Owner decides so in F5).
+- [ ] Master of Coin: one slot back the first hit on a Fallen enemy each round, none on the second; again the next
+      round. Count the slots regained in a day of 4 fights (the balance alarm of SP121).
 - [ ] Master of Laws: a condemned enemy at Rising goes Reigning → Falling at the turn start; at Falling it goes only to
       Fallen, never past it.
 - [ ] `sync_data`, then commit and push (OR-40).
@@ -298,3 +308,5 @@ condition loses nothing.)
 
 - 2026-11-24 — created from the Owner's Tier I report; the cause (F1) and five more losses of the split found by
   comparing the old single goal with the ten new ones.
+- 2026-11-24 — the Owner chose Master of Coin once per round (SP121, over the balance pass's warning); F5 needs no
+  Osiris change; propagated to every department; F8 (texts) added.

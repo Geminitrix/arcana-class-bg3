@@ -81,10 +81,10 @@ Status descriptions are written from outside the creature. Each position opens w
 | `COURT_MASTER_OF_HEALING` | Master of Healing | Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising. | — |
 | `COURT_MASTER_OF_LAWS` | Master of Laws | An enemy that attacks the King falls one position further when the Wheel next turns, but never past Fallen and never up to Reigning. | — |
 | `COURT_MASTER_OF_SECRETS` | Master of Secrets | Enemies on the Wheel within [1] can't be <LSTag Type="Status" Tooltip="INVISIBLE">Invisible</LSTag> or hide. Has Advantage on Attack Rolls against Falling enemies. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
-| `COURT_MASTER_OF_COIN` | Master of Coin | Once per <LSTag Tooltip="LongRest">Long Rest</LSTag>, hitting a Fallen enemy returns a spell slot to the Kingmaker. | — |
+| `COURT_MASTER_OF_COIN` | Master of Coin | Once per turn, hitting a <LSTag Type="Status" Tooltip="KINGMAKER_FALLEN">Fallen</LSTag> enemy returns a <LSTag Tooltip="ArcanaSpellSlot">Woven Spell Slot</LSTag> to the Kingmaker. | — |
 | `COURT_MASTER_OF_SHIPS` | Master of Ships | Carries the Crossing across the field: an enemy within [1] that becomes Fallen suffers one more Crossing, as if a Reigning ally stood beside it. | [1] `Distance(9)` — `FEAT_Kingmaker_Court` |
 
-Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*`); the Master of Coin's option reads "Appoint an ally as Master of Coin. Once per Long Rest, when it hits a Fallen enemy, you regain a spell slot."
+Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*`); the Master of Coin's option reads "Appoint an ally as Master of Coin. Once per turn, when it hits a Fallen enemy, you regain a spell slot." (SP121; it read "Once per Long Rest" before)
 
 ## 4. Spells
 
