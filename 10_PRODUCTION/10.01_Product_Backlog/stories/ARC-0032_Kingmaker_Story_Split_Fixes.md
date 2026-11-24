@@ -309,7 +309,7 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
 
 - [x] F2, F4, F6, F7, F8 in the game (Claude, 2026-11-24, `[fechado]`).
 - [x] F1 and F3 as rewritten (undoing the first build) and F9's texts in the game (Claude, 2026-11-24, `[fechado]`).
-- [ ] The Story compiles with 0 errors (`Story/log.txt`).
+- [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-24 01:10).
 - [x] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
 - [x] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
 - [ ] In game, before and after Tier I: Coronation puts an ally at **Rising**, Dethrone and Wheel of Ixion put an enemy at
@@ -352,3 +352,4 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
 - 2026-11-24 — compile: 3 errors in `ARCANA_Kingmaker_CrownTheKing` (F4b): the split goal types `DB_ARCANA_Kingmaker_Best`
   with `(CHARACTER)_Owner`, and the three King's Hand rules bound `_Owner` as GUIDSTRING first. F4b's blocks now cast it;
   the game copy gets the same three-line fix.
+- 2026-11-24 — the Owner applied the F4b cast and compiled: 0 errors, 0 warnings. Next: the playtest criteria.

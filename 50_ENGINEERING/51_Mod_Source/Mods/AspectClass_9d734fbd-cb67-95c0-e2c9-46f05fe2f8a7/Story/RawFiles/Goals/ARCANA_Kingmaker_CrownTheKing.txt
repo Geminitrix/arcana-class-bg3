@@ -142,7 +142,7 @@ ApplyStatus(_Creature, "KINGMAKER_REGENT", -6.0, 1, _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-NOT DB_ARCANA_Kingmaker_Best(_Owner, _, _)
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, _, _)
 AND
 DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
 AND
@@ -155,7 +155,7 @@ ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
 AND
 NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
 AND
@@ -170,7 +170,7 @@ ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
 AND
