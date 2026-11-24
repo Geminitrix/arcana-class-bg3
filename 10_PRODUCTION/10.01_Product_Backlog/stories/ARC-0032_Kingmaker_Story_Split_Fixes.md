@@ -4,7 +4,7 @@ title: "Kingmaker Story split: restore the rules lost and the Master of Laws ord
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_progress
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -308,7 +308,7 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
 ## Acceptance criteria
 
 - [x] F2, F4, F6, F7, F8 in the game (Claude, 2026-11-24, `[fechado]`).
-- [ ] F1 and F3 as rewritten (undoing the first build) and F9's texts in the game.
+- [x] F1 and F3 as rewritten (undoing the first build) and F9's texts in the game (Claude, 2026-11-24, `[fechado]`).
 - [ ] The Story compiles with 0 errors (`Story/log.txt`).
 - [x] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
 - [x] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
@@ -345,3 +345,7 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
   Owner's Stats (`d28ee51`) already did it, and also reworked Swift Shears and Severance and made The Wheel Stops once
   per combat; the Owner confirmed all four (SP122–SP125; Severance frees the whole action). The first build's F1 and F3
   were wrong (old design): F1 now removes the Tier I guard from the binds, F3 removes the old rules; F9 fixes the texts.
+- 2026-11-24 — F1, F3 and F9 built by Claude on the Owner's `[fechado]` (backup `94_Safety_Backups/ARC-0032_2026-11-24_b/`):
+  the binds lost their Tier I guard, the Tyche region left `ARCANA_Aspect_WheelOfFortune`, Swift Shears and Severance left
+  `ARCANA_Kingmaker_AtroposCut`, six English texts replaced. `check_osiris`: 0 errors on the Kingmaker goals. Waiting
+  for the Owner: compile in the Story Editor, then play the criteria.

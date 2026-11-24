@@ -5,7 +5,7 @@ PROC_ARCANA_Kingmaker_Aspect_Init();
 
 KBSECTION
 // Wheel of Fortune: the Kingmaker's Aspect - the Awakening count and what each tier does to the Wheel.
-// Tier I Tyche binds one position ahead and brings Rota Fortunae; Tier II Nemesis drops the Falling enemies near a
+// Tier I Tyche (the free Turn the Spoke is in Stats, KINGMAKER_TYCHE) brings Rota Fortunae; Tier II Nemesis drops the Falling enemies near a
 // Hubris Crossing; Tier III Foreseen steps an attacker, and an ally that would fall to Fallen is held at Falling.
 // The tiers plug into the Wheel (ARCANA_Kingmaker_Wheel.txt) through PROC_ARCANA_Kingmaker_Move_Override,
 // PROC_ARCANA_Kingmaker_Fell and PROC_ARCANA_Kingmaker_NemesisMove (called last by PROC_ARCANA_Kingmaker_Settle).
@@ -17,7 +17,7 @@ KBSECTION
 //   DB_ARCANA_Kingmaker_Held(Owner, Ally)        an ally held at Falling; deleted when it moves on, dies, is cut, or the fight ends
 //   DB_ARCANA_Kingmaker_Pending(Owner, Creature) Rota Fortunae's list of creatures to move; transient, same frame
 //   DB_ARCANA_Kingmaker_OnWheel, DB_ARCANA_Kingmaker_Moving   the Wheel's ledger (ARCANA_Kingmaker_Wheel.txt)
-// Reads: DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Aspect_Step, PROC_ARCANA_Kingmaker_Bind,
+// Reads: DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Aspect_Step,
 // PROC_ARCANA_Kingmaker_Move, PROC_ARCANA_Kingmaker_Crown, PROC_ARCANA_Kingmaker_Settle.
 
 //REGION Tables
@@ -38,23 +38,6 @@ IF
 SavegameLoaded()
 THEN
 PROC_ARCANA_Kingmaker_Aspect_Init();
-//END_REGION
-
-//REGION Tier I - Tyche: Coronation, Dethrone and Wheel of Ixion bind one position ahead
-// Before Tier I the binds are in ARCANA_Kingmaker_Wheel.txt (Rising / Falling); the two sets never both match.
-IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
-AND
-DB_ARCANA_AspectReached(_Owner, 1)
-THEN
-PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "REIGNING", 1);
-
-IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
-AND
-DB_ARCANA_AspectReached(_Owner, 1)
-THEN
-PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLEN", 0);
 //END_REGION
 
 //REGION Tier I - Rota Fortunae: the Wheel turns once more, now

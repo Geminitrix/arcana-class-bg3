@@ -29,7 +29,7 @@ KBSECTION
 //   DB_ARCANA_Kingmaker_NewRuler, DB_ARCANA_Kingmaker_NewReigning
 // DBs (transient, written and consumed in the same frame): DB_ARCANA_Kingmaker_Moving, DB_ARCANA_Kingmaker_Pending,
 //   DB_ARCANA_Kingmaker_ReignTick
-// Reads: DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt).
+// Reads nothing of the other goals' tables; the tiers hook in through PROC_ARCANA_Kingmaker_Fell and Move_Override.
 
 //REGION Tables
 PROC
@@ -87,19 +87,15 @@ PROC_ARCANA_Kingmaker_Wheel_Init();
 //END_REGION
 
 //REGION Coronation and Dethrone
-// Before Tier I: an ally enters at Rising, an enemy at Falling. With Tyche (Tier I) the binds are in
-// ARCANA_Aspect_WheelOfFortune.txt (Reigning / Fallen).
+// Every tier binds here: an ally enters at Rising, an enemy at Falling (SP122). Tyche (Tier I) frees the first
+// Turn the Spoke of each turn instead, in Stats (KINGMAKER_TYCHE).
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
-AND
-NOT DB_ARCANA_AspectReached(_Owner, 1)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 1);
 
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
-AND
-NOT DB_ARCANA_AspectReached(_Owner, 1)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 0);
 
