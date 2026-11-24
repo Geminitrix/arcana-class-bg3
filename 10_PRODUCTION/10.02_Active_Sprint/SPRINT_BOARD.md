@@ -1,9 +1,10 @@
 # Sprint board — S01
 
-*Generated 2026-11-16 by `82_Automation/update_board.pl` — do not edit.*
+*Generated 2026-11-24 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (0)
+## To Do (1)
 
+- **ARC-0032** "Kingmaker Story split: restore the rules lost and the Master of Laws order"
 
 ## In Progress (0)
 
