@@ -189,7 +189,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="2a441d6a-4fdf-bc6d-d0d9-0e7d940814cb" />
         <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Aspect_Foreseen" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6751e25fg245dg6ea4gec87ga75748d59f76" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76d134b8g69ceg3a44g5aa9g53b28e79fc09" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76d134b8g69ceg3a44g5aa9g53b28e79fc09" version="2" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="he938ff6fgf1dfgf6a0g20bag6fe87eb1c7e1" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_TrueStrike" />
         <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnSpellCast" enumeration_type_name="InterruptContext" version="1" />
