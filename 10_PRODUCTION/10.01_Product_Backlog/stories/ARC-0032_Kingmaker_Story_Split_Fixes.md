@@ -135,7 +135,7 @@ RemoveStatus(_Hand, "KINGMAKER_KING", _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-NOT DB_ARCANA_Kingmaker_Best(_Owner, _, _)
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, _, _)
 AND
 DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
 AND
@@ -148,7 +148,7 @@ ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
 AND
 NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
 AND
@@ -163,7 +163,7 @@ ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
 PROC
 PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
 AND
-DB_ARCANA_Kingmaker_Best(_Owner, _King, _)
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
 AND
@@ -349,3 +349,6 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
   the binds lost their Tier I guard, the Tyche region left `ARCANA_Aspect_WheelOfFortune`, Swift Shears and Severance left
   `ARCANA_Kingmaker_AtroposCut`, six English texts replaced. `check_osiris`: 0 errors on the Kingmaker goals. Waiting
   for the Owner: compile in the Story Editor, then play the criteria.
+- 2026-11-24 — compile: 3 errors in `ARCANA_Kingmaker_CrownTheKing` (F4b): the split goal types `DB_ARCANA_Kingmaker_Best`
+  with `(CHARACTER)_Owner`, and the three King's Hand rules bound `_Owner` as GUIDSTRING first. F4b's blocks now cast it;
+  the game copy gets the same three-line fix.
