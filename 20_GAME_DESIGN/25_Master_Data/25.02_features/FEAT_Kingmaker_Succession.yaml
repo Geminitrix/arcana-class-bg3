@@ -1,10 +1,10 @@
 id: FEAT_Kingmaker_Succession
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-24 ARC-0032 — game_ids: the Kingmaker Story is split into one goal per feature"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §8.4"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Arcana_Passive_Succession, ARCANA_Kingmaker_Wheel]
+game_ids: [Arcana_Passive_Succession, ARCANA_Kingmaker_Succession]
 values:
   heir_range: { value: 9, unit: metres, note: "from the body; the nearest enemy not on the Wheel" }

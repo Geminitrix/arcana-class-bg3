@@ -1,0 +1,72 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Atropos' Cut: the creature leaves the Wheel (the damage is in Stats); a Reigning ally lingers for a turn, and the
+// King keeps the crown off the Wheel (ARCANA_Kingmaker_CrownTheKing.txt). Swift Shears makes the first Cut of each of
+// the Kingmaker's turns free of action; Severance (its status given by Arcana_Passive_Severance in Stats) makes the
+// next Dethrone after a Cut a Bonus Action, and the first Dethrone spends it.
+//
+// DBs (the Wheel's, deleted here for the cut creature): DB_ARCANA_Kingmaker_OnWheel, DB_ARCANA_Kingmaker_Held
+// (ARCANA_Kingmaker_Wheel.txt, ARCANA_Aspect_WheelOfFortune.txt).
+// Reads: DB_ARCANA_Kingmaker_PositionStatus (ARCANA_Kingmaker_Wheel.txt), DB_ARCANA_CardFamily (ARCANA_CardFamilies.txt).
+// Calls PROC_ARCANA_Kingmaker_Crown.
+
+//REGION Atropos' Cut
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_CUT_TECH", _Owner, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _Status)
+THEN
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+RemoveStatus(_Creature, _Status, _Owner);
+RemoveStatus(_Creature, "KINGMAKER_WHEEL_STOPPED", _Owner);
+NOT DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+PROC_ARCANA_Kingmaker_Cut(_Owner, _Creature, _Position, _Side);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Cut((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "REIGNING"
+AND
+_Side == 1
+THEN
+ApplyStatus(_Creature, "KINGMAKER_REIGNING_LINGER", 6.0, 1, _Owner);
+//END_REGION
+
+//REGION Swift Shears (level 3) - the first Atropos' Cut of each of the Kingmaker's turns costs no action
+IF
+TurnStarted((CHARACTER)_Kingmaker)
+AND
+HasPassive(_Kingmaker, "Arcana_Passive_SwiftShears", 1)
+THEN
+ApplyStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 6.0, 1, _Kingmaker);
+
+IF
+CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_AtroposCut")
+AND
+HasActiveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 1)
+THEN
+RemoveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", _Kingmaker);
+//END_REGION
+
+//REGION Severance (level 4) - the first Dethrone after an Atropos' Cut spends KINGMAKER_SEVERANCE
+IF
+CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_Dethrone")
+AND
+HasActiveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", 1)
+THEN
+RemoveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", _Kingmaker);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

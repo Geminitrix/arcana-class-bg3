@@ -535,7 +535,7 @@ Ids as built (`SPEC_ARC-0008`, ADR-0002): cards `<Type>_Arcana_Card_Spell_*`; th
 `Shout_Arcana_Created_Aspect_RotaFortunae` and `Shout_Arcana_Created_Aspect_ReadyForeseen`; the reaction
 `Interrupt_Arcana_Aspect_Foreseen`; the utility `Target_Arcana_Util_ConveneTheCourt` (a *Choose* container);
 passives `Arcana_Passive_*` (level 12: `Arcana_Passive_FortunesReach`); statuses `KINGMAKER_*` and `COURT_*`,
-technical ones ending in `_TECH`; Osiris goal `ARCANA_Kingmaker_Wheel`. Full catalogue: `23.02/Kingmaker/`, `05.03`, `05.04`.
+technical ones ending in `_TECH`; Osiris goals `ARCANA_Kingmaker_*` (one per feature; the Wheel in `ARCANA_Kingmaker_Wheel`) and `ARCANA_Aspect_WheelOfFortune`. Full catalogue: `23.02/Kingmaker/`, `05.03`, `05.04`.
 
 ---
 

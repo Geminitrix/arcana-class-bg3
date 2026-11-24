@@ -1,11 +1,11 @@
 id: FEAT_Kingmaker_Hubris
-reviewed: "2026-11-16 ARC-0008 — Owner adjustments: Hubris follows the raised Crossing"
+reviewed: "2026-11-24 ARC-0032 — game_ids: the Kingmaker Story is split into one goal per feature"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §8.3"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Arcana_Passive_Hubris, KINGMAKER_HUBRIS, KINGMAKER_CROSSING_HUBRIS_TECH, LevelMapValues Kingmaker_CrossingHubris, ARCANA_Kingmaker_Wheel]
+game_ids: [Arcana_Passive_Hubris, KINGMAKER_HUBRIS, KINGMAKER_CROSSING_HUBRIS_TECH, LevelMapValues Kingmaker_CrossingHubris, ARCANA_Kingmaker_Crossing]
 values:
   extra_dice: { value: 1, unit: count, note: "one extra Crossing die on the enemy's first Crossing (one pair only); spent with it" }
   damage:     { value: 2d8, unit: damage, type: Force, by_level: { 7: 3d6, 9: 3d8 }, note: "LevelMap Kingmaker_CrossingHubris: 2d8 (1-4) / 3d6 (5-8) / 3d8 (9+); the texts show this whole value" }

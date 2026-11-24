@@ -1,0 +1,23 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Turn the Spoke: one creature on the Kingmaker's Wheel takes one step, then the Wheel settles.
+//
+// DBs: none of its own. Reads DB_ARCANA_Kingmaker_OnWheel (ARCANA_Kingmaker_Wheel.txt).
+// Calls PROC_ARCANA_Kingmaker_Move, PROC_ARCANA_Kingmaker_Crown, PROC_ARCANA_Kingmaker_Settle.
+
+//REGION Turn The Spoke
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_STEP_TECH", _Owner, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

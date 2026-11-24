@@ -604,7 +604,7 @@ Change the generator, then regenerate; never edit the output by hand. The genera
 |---|---|
 | `ARCANA_Aspect_Common` | the Awakening: roster of the fight, tiers, countdown, the reset hook |
 | `ARCANA_Aspect_Fool` · `_Empress` · `_Star` · `_Death` · `_Temperance` | each Aspect's goal and tier effects (Windborn, Deceiver, Starchild, Eternal, Resonant) |
-| `ARCANA_Kingmaker_Wheel` | the Kingmaker's Wheel, the Crossing and the Court |
+| `ARCANA_Kingmaker_Wheel` · `_Crossing` · `_CrownTheKing` · `_KingsCourt` · `_AtroposCut` · `_Peripeteia` · `_Usurp` · `_TurnTheSpoke` · `_Succession` | the Kingmaker: the Wheel (ledger, binds, turn, stop, leaving), the Crossing, the crown, the Court, one goal per card; its Aspect is `ARCANA_Aspect_WheelOfFortune` |
 | `ARCANA_Deceiver_Doubles` · `ARCANA_Deceiver_Doubt` | the Deceiver's Doubles and the Doubt counter |
 | `ARCANA_Spell_Withdraw` · `ARCANA_Spell_MimicWithdraw` | Withdraw and Mimic: Withdraw (swap with the Double) |
 | `ARCANA_Status_Sigil` | the Sigil's owner and the Doubt of a detonation |

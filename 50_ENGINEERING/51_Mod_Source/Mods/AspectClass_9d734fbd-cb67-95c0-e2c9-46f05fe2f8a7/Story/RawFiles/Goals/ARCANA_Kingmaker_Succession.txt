@@ -1,0 +1,91 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Succession: when an enemy on the Wheel dies, the nearest enemy off the Wheel within 9 m of the body takes its position.
+// It answers Died before ARCANA_Kingmaker_Wheel.txt removes the dead from the ledger (goals answer in alphabetical
+// order), so the dead's position is still known.
+//
+// DBs: DB_ARCANA_Kingmaker_Heir(Owner, Candidate, Distance)   transient: the nearest candidate so far; deleted at the
+// start and at the end of each Succession.
+// Reads: DB_ARCANA_Aspect_InCombat (ARCANA_Aspect_Common.txt), DB_ARCANA_Kingmaker_OnWheel (ARCANA_Kingmaker_Wheel.txt).
+// Calls PROC_ARCANA_Kingmaker_Bind.
+
+//REGION Succession (Level 9)
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Dead, _Position, 0, _)
+AND
+HasPassive(_Owner, "Arcana_Passive_Succession", 1)
+THEN
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, _Dead, _Position);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist)
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Aspect_InCombat(_Owner, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat((CHARACTER)_Candidate, _Combat)
+AND
+_Candidate != _Dead
+AND
+IsEnemy(_Owner, _Candidate, 1)
+AND
+IsDead(_Candidate, 0)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Candidate, _, _, _)
+AND
+GetDistanceTo(_Dead, _Candidate, _Dist)
+AND
+_Dist <= 9.0
+AND
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _, _)
+THEN
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Aspect_InCombat(_Owner, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat((CHARACTER)_Candidate, _Combat)
+AND
+_Candidate != _Dead
+AND
+IsEnemy(_Owner, _Candidate, 1)
+AND
+IsDead(_Candidate, 0)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_, _Candidate, _, _, _)
+AND
+GetDistanceTo(_Dead, _Candidate, _Dist)
+AND
+_Dist <= 9.0
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Best, _BestDist)
+AND
+_Dist < _BestDist
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Best, _BestDist);
+DB_ARCANA_Kingmaker_Heir(_Owner, _Candidate, _Dist);
+
+PROC
+PROC_ARCANA_Kingmaker_Succession((CHARACTER)_Owner, (CHARACTER)_Dead, (STRING)_Position)
+AND
+DB_ARCANA_Kingmaker_Heir(_Owner, _Heir, _Dist)
+THEN
+NOT DB_ARCANA_Kingmaker_Heir(_Owner, _Heir, _Dist);
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Heir, _Position, 0);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

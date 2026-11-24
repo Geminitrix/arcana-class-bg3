@@ -4,7 +4,7 @@ title: "Kingmaker Story split: restore the rules lost and the Master of Laws ord
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: ready
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -285,9 +285,10 @@ The other 14 languages still say "Long Rest": they catch up in the next translat
 
 ## Acceptance criteria
 
-- [ ] F1–F4 and F6 in the game, F8's two texts in English; the Story compiles with 0 errors (`Story/log.txt`).
-- [ ] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
-- [ ] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
+- [x] F1–F4, F6, F7 and F8 in the game (Claude, 2026-11-24, `[fechado]`).
+- [ ] The Story compiles with 0 errors (`Story/log.txt`).
+- [x] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
+- [x] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
 - [ ] In game, Tier I awakened: Coronation puts an ally at **Reigning**, Dethrone and Wheel of Ixion put an enemy at
       **Fallen**; before Tier I, Rising and Falling as before.
 - [ ] Rota Fortunae turns every creature on the Wheel one step at once, and the Crossing follows.
@@ -298,7 +299,7 @@ The other 14 languages still say "Long Rest": they catch up in the next translat
       round. Count the slots regained in a day of 4 fights (the balance alarm of SP121).
 - [ ] Master of Laws: a condemned enemy at Rising goes Reigning → Falling at the turn start; at Falling it goes only to
       Fallen, never past it.
-- [ ] `sync_data`, then commit and push (OR-40).
+- [x] `sync_data`, then commit and push (OR-40).
 
 ## Gates
 
@@ -310,3 +311,10 @@ The other 14 languages still say "Long Rest": they catch up in the next translat
   comparing the old single goal with the ten new ones.
 - 2026-11-24 — the Owner chose Master of Coin once per round (SP121, over the balance pass's warning); F5 needs no
   Osiris change; propagated to every department; F8 (texts) added.
+- 2026-11-24 — built by Claude on the Owner's `[fechado]` request: F1, F2 (`ARCANA_Aspect_WheelOfFortune`), F3
+  (`ARCANA_Kingmaker_AtroposCut`), F4 (`ARCANA_Kingmaker_CrownTheKing`), F6 (hook `PROC_ARCANA_Kingmaker_AfterTurn`:
+  `Wheel` calls it, `KingsCourt` answers it), F7 (headers in all ten goals, CRLF, the NewRuler Crossing rule moved to
+  `Crossing`, the goal renamed `ARCANA_Kingmaker_Succession`), F8 (two English texts). Backup in
+  `94_Safety_Backups/ARC-0032_2026-11-24/`. `check_osiris`: 0 errors in the Kingmaker goals (type-pin warnings only);
+  the rule comparison with the old goal shows only the intended differences. 25 `game_ids`, 57.05 §13.8, DESIGN and
+  05.02 now name the split goals. Waiting for the Owner: compile in the Story Editor, then play the criteria.

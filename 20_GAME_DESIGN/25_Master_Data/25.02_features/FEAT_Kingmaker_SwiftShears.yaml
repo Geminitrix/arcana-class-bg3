@@ -1,10 +1,10 @@
 id: FEAT_Kingmaker_SwiftShears
-reviewed: "2026-11-16 ARC-0008 — new, level 3 (Owner request, SP118)"
+reviewed: "2026-11-24 ARC-0032 — game_ids: the Kingmaker Story is split into one goal per feature"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §7.5"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Arcana_Passive_SwiftShears, KINGMAKER_SHEARS_FREE, ARCANA_Kingmaker_Wheel]
+game_ids: [Arcana_Passive_SwiftShears, KINGMAKER_SHEARS_FREE, ARCANA_Kingmaker_AtroposCut]
 values:
   free_casts: { value: 1, unit: count, note: "per Kingmaker turn: the first Atropos' Cut (any upcast variant) costs no action; the spell slot is still spent" }

@@ -1,6 +1,6 @@
 ---
-source: 51 (Progressions, ClassDescriptions, Stats, Story goal ARCANA_Kingmaker_Wheel; dump_progression.pl 2026-10-15) · 21.04/Kingmaker/DESIGN.md · HANDOFF ARC-0008
-synced_at: 2026-11-16 (ARC-0008 Owner adjustments SP115–SP120, applied in game; Story recompile pending)
+source: 51 (Progressions, ClassDescriptions, Stats, Story goals ARCANA_Kingmaker_* and ARCANA_Aspect_WheelOfFortune; dump_progression.pl 2026-10-15) · 21.04/Kingmaker/DESIGN.md · HANDOFF ARC-0008
+synced_at: 2026-11-24 (ARC-0032: Story split into one goal per feature, lost rules restored; Story recompile pending)
 state: synced
 ---
 

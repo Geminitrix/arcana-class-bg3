@@ -14,3 +14,9 @@ and Dethrone no longer put anyone on the Wheel; review the new goals and open a 
 **Done:** ticket ARC-0032 with every fix as a copy-paste block (game open, OR-11). Nothing in `Data` was changed.
 
 **Open:** the Owner pastes F1-F4 and F6, recompiles, and types the two F8 texts; then playtest the ticket's criteria.
+
+**Later the same day (`[fechado]`):** SP121 propagated; then the ticket built in the game by Claude - F1-F4, F6, F7, F8
+(backup `94_Safety_Backups/ARC-0032_2026-11-24/`). `check_osiris` 0 errors on the Kingmaker goals; the old-vs-new rule
+comparison shows only the intended differences. `sync_data` also picked up the Owner's uncommitted game edits
+(Kingmaker Stats, Progressions, loca; the Fool goal), committed apart under ARC-0008. The Fool goal lost its header in
+those edits: `check_osiris` reports it. Next: the Owner compiles the Story, Claude reads `log.txt`, then the playtest.

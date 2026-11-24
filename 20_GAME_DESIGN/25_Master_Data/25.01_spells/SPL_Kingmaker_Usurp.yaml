@@ -1,11 +1,11 @@
 id: SPL_Kingmaker_Usurp
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-24 ARC-0032 — game_ids: the Kingmaker Story is split into one goal per feature"
 kind: spell
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §7.7"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Target_Arcana_Card_Spell_Usurp, KINGMAKER_USURP_TECH, ARCANA_Kingmaker_Wheel]
+game_ids: [Target_Arcana_Card_Spell_Usurp, KINGMAKER_USURP_TECH, ARCANA_Kingmaker_Usurp]
 values:
   card_level: { value: 4, note: "Action; once per combat" }
   range:      { value: 18, unit: metres }
