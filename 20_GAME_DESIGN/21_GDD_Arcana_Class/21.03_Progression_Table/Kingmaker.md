@@ -2,7 +2,7 @@
 id: 21.03/Kingmaker
 owner: Lead Class Designer
 source: 21.04_Subclasses/Kingmaker/DESIGN.md §10 · checked against the game (dump_progression.pl, 2026-10-15)
-reviewed: 2026-11-16 ARC-0008 — Swift Shears (level 3) and Severance (level 4) added (SP118, SP119)
+reviewed: 2026-11-24 ARC-0032 — Swift Shears and Severance reworked (SP123, SP124)
 ---
 
 # 21.03 · Progression — The Kingmaker (levels 1–12)
@@ -14,8 +14,8 @@ Numbers: `25_Master_Data` (`*_Kingmaker_*`); sheets: `23.02_Spell_Sheets/Kingmak
 |---|---|---|---|
 | **1** | The Rota | Spoke of the Wheel (cantrip) · Coronation (Bonus Action) · Dethrone · Turn the Spoke (Bonus Action) | The Wheel plays from level 1: bind both sides in anti-phase, nudge a spoke, fall back on the cantrip |
 | 2 | — | — | Base class |
-| **3** | The Crossing (9 m) · Swift Shears · 10 - Wheel of Fortune: Awakening · Tier I Tyche | Atropos' Cut · Aspect card Rota Fortunae (conjured when Tyche wakes) | The payoff (Crossing) and the way out (Cut), the first Cut of each turn free of action |
-| **4** | Severance | — | The cut, then the fall: after Atropos' Cut the next Dethrone costs a Bonus Action |
+| **3** | The Crossing (9 m) · Swift Shears · 10 - Wheel of Fortune: Awakening · Tier I Tyche | Atropos' Cut · Aspect card Rota Fortunae (conjured when Tyche wakes) | The payoff (Crossing) and the way out (Cut), after Turn the Spoke the next Cut free of action (SP123) |
+| **4** | Severance | — | The cut, then the fall: after Atropos' Cut the next Dethrone costs no action (SP124) |
 | **5** | — | Peripeteia (the ultimate) · Convene the Court: King's Hand, Lord Commander, Master of Healing | The turning point and the Court, at vanilla's level-5 spike |
 | 6 | — | — | — |
 | **7** | Hubris · Tier II Nemesis · The Court: second circle (hidden) | Usurp · Court: + Master of Laws, Master of Secrets | Punishes enemies that reigned; swaps a throne |

@@ -184,11 +184,11 @@ easier to hit and can't react — so a Crossing pair multiplies instead of stack
 
 ### 4.4 Entering the Wheel
 
-| Way in | Who | Position (Tier I *Tyche*: one ahead) |
+| Way in | Who | Position (every tier, SP122) |
 |---|---|---|
-| *Coronation* (§7.2) | An ally or the Kingmaker | Rising (**Reigning**) |
-| *Dethrone* (§7.3) | An enemy | Falling (**Fallen**) |
-| *Wheel of Ixion* (§7.8) | Every enemy in the line | Falling (**Fallen**) |
+| *Coronation* (§7.2) | An ally or the Kingmaker | Rising |
+| *Dethrone* (§7.3) | An enemy | Falling |
+| *Wheel of Ixion* (§7.8) | Every enemy in the line | Falling |
 | *Succession* (§8.4) | The nearest enemy off the Wheel | The dead enemy's position |
 
 Coronation at Rising and Dethrone at Falling put the two creatures in **anti-phase**: at the next turn of
@@ -223,8 +223,7 @@ Ready: Foreseen do. The whole round is played in a known state.
 > **A Fallen enemy on the Wheel takes Force damage once for each ally on the Wheel Reigning within 9 m —
 > when the enemy enters Fallen, and when an ally enters Reigning** (`FEAT_Kingmaker_Crossing`, SP117).
 
-- **Any cause** counts, on both sides: the turn of the Wheel, *Turn the Spoke*, *Dethrone* and *Coronation*
-  under Tyche, *Peripeteia*, *Usurp*, *Succession*, the Master of Healing, Ready: Foreseen.
+- **Any cause** counts, on both sides: the turn of the Wheel, *Turn the Spoke*, *Peripeteia*, *Usurp*, *Succession*, the Master of Healing, Ready: Foreseen.
 - **Once per pair per round:** two Reigning allies near two Fallen enemies make four Crossings; the same
   ally never crosses the same enemy twice in a round.
 - The **Master of Ships** extends the source (§6.2); **The Wheel Stops** presses every turn (§7.10).
@@ -282,14 +281,14 @@ binds no one.
 
 ### 7.2 *Coronation* (level 1)
 
-**Bonus Action**, level-1 card. An ally or the Kingmaker within 18 m enters the Wheel at **Rising** (Reigning with Tyche).
+**Bonus Action**, level-1 card. An ally or the Kingmaker within 18 m enters the Wheel at **Rising**.
 Self-coronation costs what the Wheel costs: the Kingmaker will fall too, and while Fallen loses its
 reactions — Ready: Foreseen included.
 
 ### 7.3 *Dethrone* (level 1)
 
 **Action**, one enemy within 18 m: **Bludgeoning** damage *(25)*, **Charisma saving throw for half**; the
-enemy enters the Wheel at **Falling** (Fallen with Tyche) **whatever the save** — the Wheel never depends
+enemy enters the Wheel at **Falling** **whatever the save** — the Wheel never depends
 on a die.
 
 ### 7.4 *Turn the Spoke* (level 1)
@@ -305,9 +304,10 @@ an enemy out of Reigning. The early bonus-action play (K6).
   the higher they climb, the harder they fall (SP120).
 - **Ally:** leaves the Wheel; if it was Reigning it keeps the Reigning effects until the end of its next turn
   (it leaves on top). **The King keeps the crown** off the Wheel (SP115).
-- ***Swift Shears*** (level 3, SP118): the first Atropos' Cut of each of the Kingmaker's turns costs no action.
-- ***Severance*** (level 4, SP119): after an Atropos' Cut, the next *Dethrone* that turn costs a Bonus Action —
-  the cut, then the fall.
+- ***Swift Shears*** (level 3, SP123): once per turn, casting *Turn the Spoke* makes the next Atropos' Cut that turn
+  cost no action (the slot is still spent).
+- ***Severance*** (level 4, SP124): once per turn, after an Atropos' Cut, the next *Dethrone* that turn costs no
+  action — the cut, then the fall. With Tyche and Swift Shears a turn can chain Spoke, Cut and Dethrone, all free.
 
 ### 7.6 *Peripeteia* — the ultimate (level 5)
 
@@ -324,7 +324,7 @@ one takes the other's throne.
 ### 7.8 *Wheel of Ixion* (level 9)
 
 **Action.** Ixion's burning wheel rolls: a **line 18 m long and 2 m wide**, **Fire** damage *(25)*,
-Charisma saving throw for half; every **enemy** hit enters the Wheel at **Falling** (Fallen with Tyche)
+Charisma saving throw for half; every **enemy** hit enters the Wheel at **Falling**
 whatever the save. The line leaves a **burning trail** (fire surface) that burns whoever stands in it,
 allies included — aim it away from the party.
 
@@ -340,7 +340,7 @@ in hand is the charge (`02-systems` §8).
 
 ### 7.10 *The Wheel Stops* — capstone (level 11)
 
-**Action, Long Rest, Unique.** Every position on the Wheel is **frozen** for a few turns *(25)*: the Wheel
+**Action, once per combat, Unique** (SP125). Every position on the Wheel is **frozen** for a few turns *(25)*: the Wheel
 doesn't turn. While it is stopped, at the start of each of the Kingmaker's turns, every Fallen enemy within
 9 m of a Reigning ally takes Crossing damage — the stopped Wheel keeps pressing (an explicit exception to
 "enters Fallen"). It is the only way to hold positions. **It freezes the turn only** (SP112): the Wheel doesn't turn at
@@ -400,11 +400,11 @@ Ships' Crossings and the stopped Wheel's pressing count too. The goal shows as t
 | II | 7 | **Nemesis** | the goddess who restores the balance and punishes hubris |
 | III | 12 | **Aspect of Anticipation** | — |
 
-### 9.2 Tier I — Tyche: the Wheel turns faster for those you touch
+### 9.2 Tier I — Tyche: Fortune quickens your hand
 
-Your bindings enter **one position ahead**: Coronation binds an ally at **Reigning**; Dethrone and Wheel of
-Ixion bind enemies at **Fallen**. The phase stays aligned, and a Dethrone next to a Reigning ally crosses at
-once. Still one Crossing per enemy per round. Tier I also creates the Aspect card *Rota Fortunae* (§7.11).
+The first *Turn the Spoke* of each of the Kingmaker's turns costs **no Bonus Action** (SP122): the Spoke can turn
+twice in a turn, or turn once and leave the Bonus Action for Coronation. Bindings still enter at Rising and
+Falling. Tier I also creates the Aspect card *Rota Fortunae* (§7.11).
 
 ### 9.3 Tier II — Nemesis: the fall drags its neighbours
 
@@ -427,7 +427,7 @@ grants ***Ready: Foreseen*** (§7.9). No ability score bonus.
 | **1** | **The Rota** | Cantrip *Spoke of the Wheel* · *Coronation* · *Dethrone* · *Turn the Spoke* (Bonus Action) |
 | 2 | — (base class) | — |
 | **3** | **The Crossing** (9 m) · **Swift Shears** · **10 - Wheel of Fortune: Awakening** · Tier I **Tyche** → *Rota Fortunae* | *Atropos' Cut* |
-| **4** | **Severance** (after *Atropos' Cut*, the next *Dethrone* costs a Bonus Action) | — |
+| **4** | **Severance** (after *Atropos' Cut*, the next *Dethrone* costs no action) | — |
 | **5** | — | ***Peripeteia*** (ultimate) · utility *Convene the Court* (King's Hand, Lord Commander, Master of Healing) |
 | 6 | — | — |
 | **7** | **Hubris** · Tier II **Nemesis** | *Usurp* · Court: + Master of Laws, Master of Secrets |

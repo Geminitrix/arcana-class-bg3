@@ -4,7 +4,7 @@ title: "Kingmaker Story split: restore the rules lost and the Master of Laws ord
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_qa
+status: in_progress
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -19,49 +19,58 @@ created: 2026-11-24
 
 # ARC-0032 · Kingmaker Story split: restore the rules lost and the Master of Laws order
 
-**Goal:** put back in the Kingmaker's split goals every rule the single goal had and the split dropped, and give the
-Master of Laws its old place after the Wheel turns.
-**Intent:** at Tier I Coronation and Dethrone bind again (one position ahead), and Rota Fortunae, Swift Shears,
-Severance, the King's Hand and the Master of Coin play as `21.04/Kingmaker/DESIGN.md` describes.
+**Goal:** put back in the Kingmaker's split goals the rules the Owner's Stats still need, drop the ones the Stats
+rework replaced, and give the Master of Laws its old place after the Wheel turns.
+**Intent:** Coronation and Dethrone bind at every tier, and Rota Fortunae, the King's Hand, the Master of Laws and the
+texts play as `21.04/Kingmaker/DESIGN.md` describes after SP121–SP125.
 
 Found 2026-11-24 from the Owner's report: "at Tier I the Kingmaker can no longer put anyone on the Wheel". On 2026-11-19
-the Owner split `ARCANA_Kingmaker_Wheel` (1597 lines) into ten goals, one per feature. The Story compiled with 0 errors
-(`Story/log.txt`, 2026-11-19 21:40), so nothing is a syntax error: the split lost rules. Method: every rule of the old
-goal (the 51 copy) compared, normalised, with every rule of the ten new goals. Stats were checked: they still apply
-every status listed below, so only the Osiris half is missing. The game was open: every change below is a copy-paste
-block (OR-11). WIP is over the limit (OR-36), but this blocks the Kingmaker's playtest (ARC-0008), so it is `must`.
+the Owner split `ARCANA_Kingmaker_Wheel` (1597 lines) into ten goals, one per feature, and reworked Tyche, Swift
+Shears, Severance and The Wheel Stops in Stats. The Story compiled with 0 errors (`Story/log.txt`, 2026-11-19 21:40),
+so nothing is a syntax error. Method: every rule of the old goal (the 51 copy) compared, normalised, with every rule of
+the ten new goals; then the Owner's Stats edits compared entry by entry (`d28ee51`), which showed that the Tyche binds,
+Swift Shears and Severance rules were dropped on purpose (SP122–SP124). WIP is over the limit (OR-36), but this blocks
+the Kingmaker's playtest (ARC-0008), so it is `must`.
+
+**First version of this ticket (built in the game 2026-11-24, `f3f292b`) is wrong on F1 and F3:** it restored the Tyche
+binds and the old Swift Shears / Severance rules before the Owner's Stats rework was known. F1 and F3 below now undo
+that; the rest stands.
 
 ## The changes
 
-### F1 · Tier I *Tyche* — Coronation and Dethrone bind one position ahead (the reported bug)
+### F1 · Coronation, Dethrone and Wheel of Ixion bind at Rising / Falling at every tier (the reported bug, SP122)
 
-The old goal had four bind rules: two with `NOT DB_ARCANA_AspectReached(_Owner, 1)` (Rising / Falling) and two with
-`DB_ARCANA_AspectReached(_Owner, 1)` (Reigning / Fallen). The split kept only the first two, so once Tier I awakens
-**no rule answers** `KINGMAKER_BIND_ALLY_TECH` / `KINGMAKER_BIND_ENEMY_TECH` — and Wheel of Ixion binds through the
-same status, so it stops too. Add to `ARCANA_Aspect_WheelOfFortune.txt`, a new region right after `Tables`:
+The two bind rules left in `ARCANA_Kingmaker_Wheel.txt` still carry `NOT DB_ARCANA_AspectReached(_Owner, 1)` from the
+old goal, where two other rules handled Tier I. With those gone (SP122), once Tier I awakens **no rule answers**
+`KINGMAKER_BIND_ALLY_TECH` / `KINGMAKER_BIND_ENEMY_TECH` (Wheel of Ixion binds through the same status).
+
+**1a** — `ARCANA_Kingmaker_Wheel.txt`, region *Coronation and Dethrone*: replace the comment and the two `IF` rules
+with:
 
 ```
-//REGION Tier I - Tyche: Coronation and Dethrone bind one position ahead
+// Every tier binds here: an ally enters at Rising, an enemy at Falling (SP122). Tyche (Tier I) frees the first
+// Turn the Spoke of each turn instead, in Stats (KINGMAKER_TYCHE).
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
-AND
-DB_ARCANA_AspectReached(_Owner, 1)
 THEN
-PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "REIGNING", 1);
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 1);
 
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
-AND
-DB_ARCANA_AspectReached(_Owner, 1)
 THEN
-PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLEN", 0);
-//END_REGION
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 0);
 ```
+
+**1b** — `ARCANA_Aspect_WheelOfFortune.txt`: delete the whole region `Tier I - Tyche: Coronation, Dethrone and Wheel of
+Ixion bind one position ahead` (its comment and two rules). In the header, the line "Tier I Tyche binds one position
+ahead and brings Rota Fortunae" becomes "Tier I Tyche (the free Turn the Spoke is in Stats) brings Rota Fortunae", and
+`PROC_ARCANA_Kingmaker_Bind` leaves the "Calls" list.
 
 ### F2 · *Rota Fortunae* (Tier I card) — the Wheel turns once more, now
 
-All three `KINGMAKER_TURN_TECH` rules are gone; the card (`Spell_Shout.txt` applies `KINGMAKER_TURN_TECH`) does
-nothing. Add to `ARCANA_Aspect_WheelOfFortune.txt`, after F1 (the three rules stay together and in this order):
+All three `KINGMAKER_TURN_TECH` rules are gone; the card (`Shout_Arcana_Created_RotaFortunae`, Action, once per combat,
+applies `KINGMAKER_TURN_TECH`) does nothing. Add to `ARCANA_Aspect_WheelOfFortune.txt`, right after `Tables` (the three
+rules stay together and in this order):
 
 ```
 //REGION Tier I - Rota Fortunae: the Wheel turns once more, now
@@ -90,42 +99,14 @@ PROC_ARCANA_Kingmaker_Settle(_Owner);
 //END_REGION
 ```
 
-### F3 · *Swift Shears* (level 3) and *Severance* (level 4)
+### F3 · *Swift Shears* and *Severance* live in Stats — no Osiris (SP123, SP124)
 
-Nothing gives `KINGMAKER_SHEARS_FREE` any more (only Osiris did), and nothing spends `KINGMAKER_SEVERANCE` (the passive
-in Stats still gives it, so after one Cut every Dethrone stays a Bonus Action). Add to `ARCANA_Kingmaker_AtroposCut.txt`,
-after the Atropos' Cut region:
-
-```
-//REGION Swift Shears (level 3) - the first Atropos' Cut of each of the Kingmaker's turns costs no action
-IF
-TurnStarted((CHARACTER)_Kingmaker)
-AND
-HasPassive(_Kingmaker, "Arcana_Passive_SwiftShears", 1)
-THEN
-ApplyStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 6.0, 1, _Kingmaker);
-
-IF
-CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
-AND
-DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_AtroposCut")
-AND
-HasActiveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", 1)
-THEN
-RemoveStatus(_Kingmaker, "KINGMAKER_SHEARS_FREE", _Kingmaker);
-//END_REGION
-
-//REGION Severance (level 4) - the first Dethrone after an Atropos' Cut spends KINGMAKER_SEVERANCE
-IF
-CastedSpell((CHARACTER)_Kingmaker, _Spell, _, _, _)
-AND
-DB_ARCANA_CardFamily(_Spell, "Target_Arcana_Card_Spell_Dethrone")
-AND
-HasActiveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", 1)
-THEN
-RemoveStatus(_Kingmaker, "KINGMAKER_SEVERANCE", _Kingmaker);
-//END_REGION
-```
+The Owner's Stats do both whole: `Arcana_Passive_SwiftShears` (once per turn, on Turn the Spoke) gives
+`KINGMAKER_SWIFT_SHEARS`, `Arcana_Passive_Severance` (once per turn, on Atropos' Cut) gives `KINGMAKER_SEVERANCE`; each
+status frees the next card and ends on that cast or at the end of the turn. `KINGMAKER_SHEARS_FREE` no longer exists
+(it is now only a StackId). In `ARCANA_Kingmaker_AtroposCut.txt` delete the regions *Swift Shears (level 3)* and
+*Severance (level 4)*, and in the header keep only the Cut: "Swift Shears and Severance are whole in Stats
+(KINGMAKER_SWIFT_SHEARS, KINGMAKER_SEVERANCE)"; `DB_ARCANA_CardFamily` leaves the "Reads" list.
 
 ### F4 · King's Hand (level 5) — never crowned; crits on 19–20 while there is no Reigning King
 
@@ -283,17 +264,59 @@ Appoint an ally as Master of Coin. Once per turn, when it hits a &lt;LSTag Type=
 
 The other 14 languages still say "Long Rest": they catch up in the next translation sync (as ARC-0031 for the Windborn).
 
+### F9 · Tyche and Severance texts (English, `Localization/English/english.xml`)
+
+Tyche's texts disagree (one says "cast it again", two still describe the binds ahead) and two read "doensn't";
+Severance says "bonus action" while the Stats free the whole action (SP124, Owner). Replace these contents:
+
+`h7d8aeb38gcef3ga5dag1da2gab3006c2cda3` (`KINGMAKER_TYCHE`):
+
+```
+The next &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke"&gt;Turn the Spoke&lt;/LSTag&gt; this turn doesn't cost a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.
+```
+
+`h5ef1fcf4gc897gfbeegfb34g3977e816a895` (`Arcana_Passive_Aspect_WheelOfFortune_I`):
+
+```
+Your first &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke"&gt;Turn the Spoke&lt;/LSTag&gt; each turn doesn't cost a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.
+```
+
+`hdb57b761g4bccg9dc0gc0bbga4b8608b80c0` (`ASPECT_AWAKENED_WHEEL_I`):
+
+```
+Tyche: your first &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke"&gt;Turn the Spoke&lt;/LSTag&gt; each turn doesn't cost a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.
+```
+
+`hca6c0fb0g05f5g90efg3166g67d75daf320e` (`ASPECT_AWAKENED_WHEEL_II`):
+
+```
+Tyche: your first &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke"&gt;Turn the Spoke&lt;/LSTag&gt; each turn doesn't cost a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Nemesis: when an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.
+```
+
+`hf988d590gcd2fg4d99g9955ge9d1b74382a2` (`ASPECT_AWAKENED_WHEEL_III`):
+
+```
+Tyche: your first &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke"&gt;Turn the Spoke&lt;/LSTag&gt; each turn doesn't cost a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Nemesis: when an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen.&lt;br&gt;&lt;br&gt;Aspect of Anticipation: your allies never touch the bottom of the Wheel; they stay Falling for one more turn instead of becoming Fallen.
+```
+
+`h59f96b3dg664dg739dg9888g10653038fb83` (`Arcana_Passive_Severance`):
+
+```
+When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut"&gt;Atropos' Cut&lt;/LSTag&gt;, your next &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone"&gt;Dethrone&lt;/LSTag&gt; this turn doesn't cost an &lt;LSTag Type="ActionResource" Tooltip="ActionPoint"&gt;action&lt;/LSTag&gt;.
+```
+
 ## Acceptance criteria
 
-- [x] F1–F4, F6, F7 and F8 in the game (Claude, 2026-11-24, `[fechado]`).
+- [x] F2, F4, F6, F7, F8 in the game (Claude, 2026-11-24, `[fechado]`).
+- [ ] F1 and F3 as rewritten (undoing the first build) and F9's texts in the game.
 - [ ] The Story compiles with 0 errors (`Story/log.txt`).
 - [x] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
 - [x] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
-- [ ] In game, Tier I awakened: Coronation puts an ally at **Reigning**, Dethrone and Wheel of Ixion put an enemy at
-      **Fallen**; before Tier I, Rising and Falling as before.
+- [ ] In game, before and after Tier I: Coronation puts an ally at **Rising**, Dethrone and Wheel of Ixion put an enemy at
+      **Falling**. With Tier I, the first Turn the Spoke of each turn costs no Bonus Action, the second does (SP122).
 - [ ] Rota Fortunae turns every creature on the Wheel one step at once, and the Crossing follows.
-- [ ] Swift Shears: the first Atropos' Cut of a turn costs no action, the second does. Severance: after a Cut, only
-      the next Dethrone costs a Bonus Action.
+- [ ] Swift Shears: after Turn the Spoke, the next Atropos' Cut that turn costs no action (once per turn). Severance:
+      after a Cut, the next Dethrone that turn costs no action (once per turn). The chain Spoke - Cut - Dethrone works.
 - [ ] King's Hand: never King; crits on 19–20 while there is no King or the King is not Reigning.
 - [ ] Master of Coin: one slot back the first hit on a Fallen enemy each round, none on the second; again the next
       round. Count the slots regained in a day of 4 fights (the balance alarm of SP121).
@@ -318,3 +341,7 @@ The other 14 languages still say "Long Rest": they catch up in the next translat
   `94_Safety_Backups/ARC-0032_2026-11-24/`. `check_osiris`: 0 errors in the Kingmaker goals (type-pin warnings only);
   the rule comparison with the old goal shows only the intended differences. 25 `game_ids`, 57.05 §13.8, DESIGN and
   05.02 now name the split goals. Waiting for the Owner: compile in the Story Editor, then play the criteria.
+- 2026-11-24 — the Owner: Tyche must not bind ahead; from Tier I the first Turn the Spoke of each turn is free. The
+  Owner's Stats (`d28ee51`) already did it, and also reworked Swift Shears and Severance and made The Wheel Stops once
+  per combat; the Owner confirmed all four (SP122–SP125; Severance frees the whole action). The first build's F1 and F3
+  were wrong (old design): F1 now removes the Tier I guard from the binds, F3 removes the old rules; F9 fixes the texts.

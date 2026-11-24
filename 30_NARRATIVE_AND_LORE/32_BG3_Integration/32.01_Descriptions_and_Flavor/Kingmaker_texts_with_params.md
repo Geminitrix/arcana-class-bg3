@@ -29,15 +29,15 @@ Lore Writer for the Narrative gate (`32.04`).** Design: `21.04/Kingmaker/DESIGN.
 | `Arcana_Passive_Hubris` | Hubris | An enemy that begins Reigning on the Wheel gains <LSTag Type="Status" Tooltip="KINGMAKER_HUBRIS">Hubris</LSTag>. The higher it climbs, the harder it falls - its next Crossing deals [1] instead. | [1] `DealDamage(LevelMapValue(Kingmaker_CrossingHubris),Force)` — `FEAT_Kingmaker_Hubris` (2d8/3d6/3d8) |
 | `Arcana_Passive_Succession` | Succession | When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king. | [1] `Distance(9)` — `FEAT_Kingmaker_Succession` |
 | `Arcana_Passive_FortunesReach` | Fortune's Reach | Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands. | — |
-| `Arcana_Passive_SwiftShears` | Swift Shears | Once per turn, you can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. | — `FEAT_Kingmaker_SwiftShears` (SP118) |
-| `Arcana_Passive_Severance` | Severance | When you cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag>, your next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone">Dethrone</LSTag> this turn costs a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag> instead of an action. | — `FEAT_Kingmaker_Severance` (SP119) |
+| `Arcana_Passive_SwiftShears` | Swift Shears | When you cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke">Turn the Spoke</LSTag>, your next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> this turn doesn't cost an <LSTag Type="ActionResource" Tooltip="ActionPoint">action</LSTag>. | — `FEAT_Kingmaker_SwiftShears` (SP123) |
+| `Arcana_Passive_Severance` | Severance | When you cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag>, your next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone">Dethrone</LSTag> this turn doesn't cost an <LSTag Type="ActionResource" Tooltip="ActionPoint">action</LSTag>. | — `FEAT_Kingmaker_Severance` (SP124) |
 
 ### Awakening (the ARC-0007 shape)
 
 | Id (proposed) | DisplayName | Description |
 |---|---|---|
 | `Arcana_Passive_Aspect_WheelOfFortune_Awakening` | 10 - Wheel of Fortune: Awakening | Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.<br><br>Level 3: cause 3 Crossings to gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_I">Tyche</LSTag>.<br><br>Level 7: cause 5 Crossings to also gain <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_II">Nemesis</LSTag>.<br><br>Level 12: cause 8 Crossings to awaken as the <LSTag Type="Passive" Tooltip="Arcana_Passive_Aspect_WheelOfFortune_III">Aspect of Anticipation</LSTag>.<br><br>The Awakening status shows how much is left to the next tier. |
-| `…_I` | Tyche | Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
+| `…_I` | Tyche | Your first <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke">Turn the Spoke</LSTag> each turn doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>. |
 | `…_II` | Nemesis | When an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen. *(param: `Distance(3)`)* |
 | `…_III` | Aspect of Anticipation | Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare <LSTag Type="Spell" Tooltip="Interrupt_Arcana_Aspect_Foreseen">Foreseen</LSTag>. |
 
@@ -47,7 +47,7 @@ labels, like the other subclasses. Stage 2 (SPEC_ARC-0008) fixes the Tier I ones
 | Id | DisplayName | Description |
 |---|---|---|
 | `ASPECT_AWAKENED_WHEEL` | 10 - Wheel of Fortune | Awakened as the Aspect of Anticipation until combat ends. |
-| `ASPECT_AWAKENED_WHEEL_I` | 10 - Wheel of Fortune: Awakened I | Tyche: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
+| `ASPECT_AWAKENED_WHEEL_I` | 10 - Wheel of Fortune: Awakened I | Tyche: your first <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke">Turn the Spoke</LSTag> each turn doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>. |
 
 ## 3. Statuses
 
@@ -64,8 +64,9 @@ Status descriptions are written from outside the creature. Each position opens w
 | `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals [1] instead. | [1] `DealDamage(Cause.LevelMapValue(Kingmaker_CrossingHubris),Force)` — `FEAT_Kingmaker_Hubris` |
 | `KINGMAKER_WHEEL_STOPPED` | The Wheel Stops | Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped. (SP112) | — |
 | `KINGMAKER_CROSSING_TECH` | The Crossing | Lay Fallen while an ally reigned nearby, and took Force damage. *(shown over the enemy; `_2`, `_3`, `_4` are identical copies, one per Crossing in a round)* | — |
-| `KINGMAKER_SHEARS_FREE` | Swift Shears | Can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. Ends after that cast, or at the end of the turn. | — |
-| `KINGMAKER_SEVERANCE` | Severance | The next Dethrone costs a bonus action instead of an action. *(hidden status; the Dethrone icon glows)* | — |
+| `KINGMAKER_SWIFT_SHEARS` | Swift Shears | Can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCut">Atropos' Cut</LSTag> without using an action. Ends after that cast, or at the end of the turn. | — |
+| `KINGMAKER_SEVERANCE` | Severance | Can cast <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Dethrone">Dethrone</LSTag> without using an <LSTag Type="ActionResource" Tooltip="ActionPoint">action</LSTag>. Ends after that cast, or at the end of the turn. *(the Dethrone icon glows)* | — |
+| `KINGMAKER_TYCHE` | Tyche | The next <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_TurnTheSpoke">Turn the Spoke</LSTag> this turn doesn't cost a <LSTag Type="ActionResource" Tooltip="BonusActionPoint">bonus action</LSTag>. *(hidden status)* | — |
 | `KINGMAKER_REIGNING_LINGER` | Reigning | Cut from the Wheel at its peak. Lands a <LSTag Tooltip="CriticalHit">Critical Hit</LSTag> on a roll of 19 or 20 and has <LSTag Tooltip="Advantage">Advantage</LSTag> on <LSTag Tooltip="SavingThrow">Saving Throws</LSTag> until the end of its next turn. | — |
 
 ### The Court (one status per office, on the holder)
@@ -101,7 +102,7 @@ Stage 5 strings (exact): `55/_wip/Kingmaker/stage5/50_stage5.patch` (`@loca KM_*
 | `Target_Arcana_Card_Spell_Usurp` | Usurp | An ally and an enemy on the Wheel trade places on it. | Choose one ally and one enemy. Two allies or two enemies don't trade.<br><br>Once per combat. | — |
 | `Zone_Arcana_Card_Spell_WheelOfIxion` | Wheel of Ixion | Send a burning wheel rolling through your foes and bind them to Fortune's wheel, Falling. | Enemies that succeed the <LSTag Tooltip="SavingThrow">Saving Throw</LSTag> take half damage but still join the Wheel. The wheel leaves a trail of fire behind it - allies included. | [1] `DealDamage(5d6,Fire)` — `SPL_Kingmaker_WheelOfIxion` |
 | `Shout_Arcana_Card_Spell_TheWheelStops` | The Wheel Stops | Stop Fortune's wheel. It doesn't turn at the start of your next [1] turns. (SP112) | While the Wheel is stopped, at the start of each of your turns every Fallen enemy within [1] of a Reigning ally suffers its Crossing. | DescriptionParams [1] `2` turns · ExtraDescriptionParams [1] `Distance(9)` — `SPL_Kingmaker_TheWheelStops` |
-| `Shout_Arcana_Created_Aspect_RotaFortunae` | Rota Fortunae | Turn Fortune's wheel once more. Every creature on it moves one position onward. | Crossings happen as they do when the Wheel turns.<br><br>Once per combat. | — |
+| `Shout_Arcana_Created_RotaFortunae` | Rota Fortunae | Turn Fortune's wheel once more. Every creature on it moves one position onward. | Crossings happen as they do when the Wheel turns.<br><br>Once per combat. | — |
 | `Interrupt_Arcana_Aspect_Foreseen` | Foreseen | When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. | You saw it coming. | — |
 | `Target_Arcana_Util_ConveneTheCourt` | Convene the Court | Name your Court. Each ally you appoint holds an office until your next <LSTag Tooltip="LongRest">Long Rest</LSTag>. | You can appoint as many offices as your Charisma <LSTag Tooltip="AbilityModifier">Modifier</LSTag>, at least one. You can't hold an office yourself, and an ally holds one office at most. | — |
 

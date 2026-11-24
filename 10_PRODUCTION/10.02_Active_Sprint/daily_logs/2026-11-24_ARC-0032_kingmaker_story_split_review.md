@@ -20,3 +20,11 @@ and Dethrone no longer put anyone on the Wheel; review the new goals and open a 
 comparison shows only the intended differences. `sync_data` also picked up the Owner's uncommitted game edits
 (Kingmaker Stats, Progressions, loca; the Fool goal), committed apart under ARC-0008. The Fool goal lost its header in
 those edits: `check_osiris` reports it. Next: the Owner compiles the Story, Claude reads `log.txt`, then the playtest.
+
+**Then:** the Owner said Tyche must not bind ahead (first Turn the Spoke of each turn free instead). The Owner's Stats
+(`d28ee51`) already did it, and also reworked Swift Shears and Severance and made The Wheel Stops once per combat; the
+Owner confirmed all four: SP122-SP125 (Severance frees the whole action). The first build's F1 (Tyche binds) and F3
+(old Swift Shears / Severance rules) were the old design: ARC-0032 now undoes them (F1 removes the Tier I guard from the
+binds, F3 removes the rules) and adds F9 (Tyche and Severance texts). Propagated to DESIGN, 05.02, 21.03, 22.05, 23.02,
+25, 26.01, 32.01, SPEC, QA (L3.5 retired with its pass, L3.11 rewritten, L3.12-L3.13 and L11.4 added). Lesson: before
+restoring a rule a refactor dropped, compare the owner's Stats edits too, not only the status names.

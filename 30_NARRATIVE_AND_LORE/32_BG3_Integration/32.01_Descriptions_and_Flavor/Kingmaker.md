@@ -48,14 +48,14 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `Arcana_Passive_TheRota` | The Rota | Creatures you set on Fortune's wheel move one position at the start of your turn - Rising, Reigning, Falling, Fallen, and round again. They stay on the Wheel until they die, combat ends or you cut their thread.The ally that has Reigned the longest wears the crown as the King, and keeps it - even off the Wheel - until another ally has Reigned longer. |
 | `Arcana_Passive_TheCrossing` | The Crossing | When an enemy on the Wheel becomes Fallen, it takes [2] for each ally on the Wheel Reigning within [1]. When an ally on the Wheel becomes Reigning, each Fallen enemy within [1] of it takes [2]. Each ally does this to an enemy only once per round. |
 | `Arcana_Passive_Hubris` | Hubris | An enemy that begins Reigning on the Wheel gains Hubris. The higher it climbs, the harder it falls - its next Crossing deals [1] instead. |
-| `Arcana_Passive_SwiftShears` | Swift Shears | Once per turn, you can cast Atropos' Cut without using an action. |
-| `Arcana_Passive_Severance` | Severance | When you cast Atropos' Cut, your next Dethrone this turn costs a bonus action instead of an action. |
+| `Arcana_Passive_SwiftShears` | Swift Shears | When you cast Turn the Spoke, your next Atropos' Cut this turn doesn't cost an action. |
+| `Arcana_Passive_Severance` | Severance | When you cast Atropos' Cut, your next Dethrone this turn doesn't cost an action. |
 | `Arcana_Passive_Succession` | Succession | When an enemy on the Wheel dies, the nearest enemy within [1] that isn't on the Wheel takes its place, in the same position. The king is dead - long live the king. |
 | `Arcana_Passive_FortunesReach` | Fortune's Reach | Your Crossings no longer need an ally nearby: every ally on the Wheel that is Reigning counts, wherever it stands. |
 | `Arcana_Passive_Court_MasterOfCoin` | Master of Coin | Once per turn, hitting a Fallen enemy returns a Woven Spell Slot to the Kingmaker. |
 | `Arcana_Passive_Court_MasterOfHealing` | Master of Healing | Healing an ally on the Wheel lifts it one position closer to Reigning, if it is Fallen or Rising. |
 | `Arcana_Passive_Aspect_WheelOfFortune_Awakening` | 10 - Wheel of Fortune: Awakening | Make your enemies fall while your allies reign during a fight to awaken the Aspect of Anticipation until combat ends. Every Crossing counts, and while only one enemy is on the Wheel each Crossing counts twice. Each goal you reach awakens one more tier.Level 3: cause 3 Crossings to gain Tyche.Level 7: cause 5 Crossings to also gain Nemesis.Level 12: cause 8 Crossings to awaken as the Aspect of Anticipation.The Awakening status shows how much is left to the next tier. |
-| `Arcana_Passive_Aspect_WheelOfFortune_I` | Tyche | Fortune favours those you touch: creatures you set on the Wheel enter one position ahead. Allies you crown begin Reigning, and enemies you cast down begin Fallen. |
+| `Arcana_Passive_Aspect_WheelOfFortune_I` | Tyche | Your first Turn the Spoke each turn doesn't cost a bonus action. |
 | `Arcana_Passive_Aspect_WheelOfFortune_II` | Nemesis | When an enemy with Hubris suffers its Crossing, every enemy within [1] of it that is Falling drops to Fallen. |
 | `Arcana_Passive_Aspect_WheelOfFortune_III` | Aspect of Anticipation | Your allies never touch the bottom of the Wheel: instead of becoming Fallen, they stay Falling for one more turn. You can also prepare Foreseen. |
 
@@ -83,8 +83,9 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals [1] instead. |
 | `KINGMAKER_REGENT` | Regent | Reigns beside the King without wearing the crown. |
 | `KINGMAKER_REIGNING_LINGER` | Reigning | Cut from the Wheel at its peak. Lands a Critical Hit on a roll of 19 or 20 and has Advantage on Saving Throws until the end of its next turn. |
-| `KINGMAKER_SHEARS_FREE` | Swift Shears | Can cast Atropos' Cut without using an action. Ends after that cast, or at the end of the turn. |
-| `KINGMAKER_SEVERANCE` | Severance | The next Dethrone costs a bonus action instead of an action. |
+| `KINGMAKER_SWIFT_SHEARS` | Swift Shears | Can cast Atropos' Cut without using an action. Ends after that cast, or at the end of the turn. |
+| `KINGMAKER_SEVERANCE` | Severance | Can cast Dethrone without using an action. Ends after that cast, or at the end of the turn. |
+| `KINGMAKER_TYCHE` | Tyche | The next Turn the Spoke this turn doesn't cost a bonus action. |
 | `KINGMAKER_WHEEL_STOPPED` | The Wheel Stops | Held on Fortune's wheel: the Wheel doesn't turn it while it is stopped. |
 
 ## Reactions

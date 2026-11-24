@@ -1,6 +1,6 @@
 ---
 source: 51 (Progressions, ClassDescriptions, Stats, Story goals ARCANA_Kingmaker_* and ARCANA_Aspect_WheelOfFortune; dump_progression.pl 2026-10-15) · 21.04/Kingmaker/DESIGN.md · HANDOFF ARC-0008
-synced_at: 2026-11-24 (ARC-0032: Story split into one goal per feature, lost rules restored; Story recompile pending)
+synced_at: 2026-11-24 (ARC-0032: Story split into one goal per feature; Owner Stats rework SP122–SP125; Story fixes and recompile pending)
 state: synced
 ---
 
@@ -43,15 +43,16 @@ colour teal.
   when the enemy enters Fallen and when an ally enters Reigning; once per pair per round (SP117). Hubris (7+): the
   first pair after the enemy reigned deals 2d8 / 3d6 / 3d8; Fortune's Reach (12) removes the range.
 - **Atropos' Cut** (3+): more damage the higher the enemy stands (Reigning 3d8 … Fallen 1d4, SP120); **Swift Shears**
-  (3): the first of each turn costs no action; **Severance** (4): after it, the next Dethrone costs a Bonus Action.
+  (3): after Turn the Spoke, the next Cut costs no action; **Severance** (4): after it, the next Dethrone costs no action
+  (once per turn each, SP123, SP124).
 - **The Court** (5+): offices up to the CHA modifier, out of combat, until the Long Rest; never the Kingmaker; office
   holders are never King nor Regent, the King's Hand only crits on 19–20 while the King isn't Reigning (SP116); Master
   of Coin returns one slot once per round (SP121).
 - **Turning points:** Peripeteia (once per combat) flips every position within 18 m; Usurp swaps an ally and an enemy;
-  The Wheel Stops (Unique, once per Long Rest) freezes the turn for 2 of the Kingmaker's turns, cards still move
+  The Wheel Stops (Unique, once per combat, SP125) freezes the turn for 2 of the Kingmaker's turns, cards still move
   creatures (SP112).
 - **Aspect Awakening 10 - Wheel of Fortune:** goal = Crossings, **counts down** (3 / 5 / 8; a lone enemy counts 2);
-  I Tyche (bindings one position ahead; Rota Fortunae) · II Nemesis (a Hubris Crossing drops nearby Falling enemies) ·
+  I Tyche (the first Turn the Spoke each turn costs no Bonus Action, SP122; Rota Fortunae) · II Nemesis (a Hubris Crossing drops nearby Falling enemies) ·
   III Aspect of Anticipation (allies never Fallen; Ready: Foreseen, readied with a Bonus Action, SP114).
 - Every id: `05.03`, `05.04`.
 
@@ -71,7 +72,7 @@ Against `21.04/_SUBCLASS_STANDARD.md` §3.
 | W2 the Weave in the features | ⚠️ | Threads only in The Rota and Atropos' Cut (`32.01/Kingmaker.md`); the English pass (ARC-0006) can weave more in |
 | M1–M6 | ✅ | Exclusive positions; one rule (The Rota); a new rule or verb at 3, 4, 5, 7, 9, 11, 12; Crossings once per (enemy, Reigning ally) pair per round |
 | K1–K6 | ✅ | Ultimate Peripeteia; two Bonus Action plays and the cantrip at level 1 |
-| P1–P6, P8–P10 | ✅ | Specialist in party amplification; payoff on turn 2 (turn 1 with Tyche); no SE |
+| P1–P6, P8–P10 | ✅ | Specialist in party amplification; payoff on turn 2; no SE |
 | P7 readable | ⚠️ | Positions and King on the portrait; the 9 m Crossing range is invisible until level 12 |
 | A1–A3 | ✅ | Goal = Crossings; the tiers push the Wheel |
 | B1–B4 | ⚠️ | Numbers in `25`, verdict ≈ 92 % at T2 (`22.05/Kingmaker.md`); watch the Awakening pace and three Bonus Action users (`26.01/Kingmaker.md`) |

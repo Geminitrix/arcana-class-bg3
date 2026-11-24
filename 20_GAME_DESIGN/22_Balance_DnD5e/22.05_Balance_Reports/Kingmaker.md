@@ -1,8 +1,8 @@
 ---
 id: 22.05/Kingmaker
 owner: Balance Designer
-source: 21.04/Kingmaker/DECISIONS.md (SP47–SP121), 25 (*_Kingmaker_*), 2026-10-13_ARC-0008_Kingmaker_Balance.md
-reviewed: 2026-11-24 ARC-0032 — SP121 (Master of Coin once per round) listed with the report's own estimate
+source: 21.04/Kingmaker/DECISIONS.md (SP47–SP125), 25 (*_Kingmaker_*), 2026-10-13_ARC-0008_Kingmaker_Balance.md
+reviewed: 2026-11-24 ARC-0032 — SP121–SP125 listed (SP121 with the report's own estimate; SP122–SP125 not re-priced)
 ---
 
 # 22.05 · Balance — The Kingmaker (current verdict)
@@ -18,7 +18,8 @@ Built in the game (levels 1–12); **no probe and no balance playtest played yet
 | T3 before tiers and capstone | ✅ (≈ 83 %) | Tiers and The Wheel Stops close the gap |
 | Crossing 1d4 / 1d6 / 1d8 Force | ⛔ superseded by SP117 | Was ≈ 0.4A per turn, once per enemy |
 | **Crossing 1d8 / 2d6 / 2d8, once per Reigning ally, from both sides (SP117)** | ⚠️ not re-priced | Each hit about doubles and the hits multiply by the Reigning allies near the enemy (two allies, two enemies: four hits) — likely well above the old 0.4A; the playtest alarm "Crossing above 25 % of the party's damage" now matters most. The Awakening also fills about twice as fast |
-| **Swift Shears (SP118) and Severance (SP119)** | ⚠️ not re-priced | Atropos' Cut free of action once a turn from level 3, then Dethrone as a Bonus Action from level 4: more slots spent per turn, bounded by the slots |
+| **Tyche, Swift Shears, Severance (SP122–SP124)** | ⚠️ not re-priced | From Tier I the first Turn the Spoke is free; after it the Cut is free (level 3), after the Cut the Dethrone is free (level 4): Spoke, Cut and Dethrone in one turn, with the Action and the Bonus Action still open. More slots spent per turn, bounded by the slots; Tyche no longer binds ahead, so the first Crossing comes on turn 2 even at Tier I |
+| **The Wheel Stops once per combat (SP125)** | ⚠️ not re-priced | Was once per Long Rest: now in every fight that reaches it; the playtest alarm (a quarter of a boss's HP alone) still applies |
 | **Atropos' Cut reversed (SP120)** | ✅ same total | Same dice, read top-down: Reigning 3d8 … Fallen 1d4 (Fallen was 3d8); upcast now scales every term |
 | **The crown lasts; the Court is never crowned (SP115, SP116)** | n/a | No damage change; the King's Hand crit now needs the King off Reigning |
 | Peripeteia (level-3 card, once per combat, SP108) | ✅ in band | As priced after SP108 |

@@ -1,14 +1,15 @@
 id: FEAT_Kingmaker_AspectAwakening
-reviewed: "2026-10-15 ARC-0008 — propagation (00.08): checked against SP47–SP114"
+reviewed: "2026-11-24 ARC-0032 — SP122-SP125 (Tyche frees the Spoke, Swift Shears and Severance reworked, The Wheel Stops once per combat)"
 kind: feature
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §9"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Arcana_Passive_Aspect_WheelOfFortune_Awakening, Arcana_Passive_Aspect_WheelOfFortune_I, ASPECT_AWAKENED_WHEEL, ASPECT_AWAKENED_WHEEL_I, ARCANA_Aspect_Common]
+game_ids: [Arcana_Passive_Aspect_WheelOfFortune_Awakening, Arcana_Passive_Aspect_WheelOfFortune_I, ASPECT_AWAKENED_WHEEL, ASPECT_AWAKENED_WHEEL_I, KINGMAKER_TYCHE, ARCANA_Aspect_Common, ARCANA_Aspect_WheelOfFortune]
 values:
   goal_tier1:       { value: 3, unit: count, note: "Crossings — each instance of Crossing damage" }
   goal_tier2:       { value: 5, unit: count }
   goal_tier3:       { value: 8, unit: count }
   lone_enemy_count: { value: 2, unit: count, note: "each Crossing counts 2 while only one enemy is on the Wheel" }
+  tyche_free_spokes: { value: 1, unit: count, note: "Tier I: per Kingmaker turn, the first Turn the Spoke costs no Bonus Action (SP122)" }
   nemesis_radius:   { value: 3, unit: metres, note: "Tier II: Falling enemies around the crossed enemy drop to Fallen" }

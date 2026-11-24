@@ -159,12 +159,12 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Fails if:** It does not happen as expected.
 - **Result:** pass
 
-### L3.5 · With Tyche: Coronation, then Dethrone next to the Reigning ally
+### L3.5 · Retired by SP122: Tyche no longer binds one position ahead
 
-- **Rule:** P13 · SPEC_ARC-0008
-- **Steps:** With Tyche: Coronation, then Dethrone next to the Reigning ally
-- **Expected:** The ally enters Reigning (King at once); the enemy enters Fallen and crosses at once | —
-- **Fails if:** It does not happen as expected.
+- **Rule:** SP122 · ARC-0032
+- **Steps:** Not played again: its pass belongs to the old Tyche (bindings one position ahead); L3.12 and L3.13 test the new one
+- **Expected:** —
+- **Fails if:** —
 - **Result:** pass
 
 ### L3.6 · Rota Fortunae
@@ -209,10 +209,26 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 ### L3.11 · Swift Shears
 
-- **Rule:** D1 · SP118 · TOOLKIT_Kingmaker_adjust_2026-11-14
-- **Steps:** Cast Atropos' Cut twice in one turn (the second needs an Action); next turn cast it again, upcast
-- **Expected:** The first Cut of each turn costs no Action (the card glows, the Swift Shears status shows until then); the second costs the Action; the upcast one is free too; the slot is spent every time
-- **Fails if:** Both free, neither free, or the upcast variant costs an Action as the first cast.
+- **Rule:** SP123 · ARC-0032
+- **Steps:** Cast Atropos' Cut without casting Turn the Spoke first; then cast Turn the Spoke and Atropos' Cut (upcast) in the same turn
+- **Expected:** The first Cut costs the Action; after Turn the Spoke the Swift Shears status shows and the next Cut (upcast too) costs no Action; the slot is spent every time
+- **Fails if:** The Cut is free without Turn the Spoke, stays free twice in a turn, or the upcast variant still costs the Action.
+- **Result:** —
+
+### L3.12 · Tyche: two Turn the Spoke in one turn
+
+- **Rule:** SP122 · ARC-0032
+- **Steps:** With Tier I awakened, cast Turn the Spoke twice in one turn; next turn, once more
+- **Expected:** The first Turn the Spoke of each turn costs no Bonus Action, the second costs it; next turn the first is free again
+- **Fails if:** Both are free, neither is free, or the free cast does not come back the next turn.
+- **Result:** —
+
+### L3.13 · Tyche: Coronation and Dethrone after Tier I
+
+- **Rule:** SP122 · ARC-0032
+- **Steps:** With Tier I awakened, cast Coronation on a new ally, Dethrone on a new enemy
+- **Expected:** The ally enters Rising and the enemy enters Falling, as before Tier I
+- **Fails if:** Either does not enter the Wheel, or enters one position ahead.
 - **Result:** —
 
 ## Level 4 — Severance
@@ -221,25 +237,25 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 ### L4.1 · Atropos' Cut, then Dethrone
 
-- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Rule:** SP124 · ARC-0032
 - **Steps:** Cast Atropos' Cut on an enemy; then Dethrone another enemy
-- **Expected:** After the Cut the Dethrone icon glows and costs a Bonus Action; the Action is still free
+- **Expected:** After the Cut the Dethrone icon glows and costs no Action
 - **Fails if:** Dethrone still costs the Action, or the enemy cut gets the Severance status.
 - **Result:** —
 
 ### L4.2 · A second Dethrone
 
-- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Rule:** SP124 · ARC-0032
 - **Steps:** After L4.1, cast Dethrone again in the same turn
 - **Expected:** It costs the Action again (the glow is gone)
-- **Fails if:** Every Dethrone of the turn costs a Bonus Action.
+- **Fails if:** Every Dethrone of the turn is free.
 - **Result:** —
 
 ### L4.3 · Upcast Dethrone after the Cut
 
-- **Rule:** SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14
+- **Rule:** SP124 · ARC-0032
 - **Steps:** Atropos' Cut, then Dethrone with a higher slot
-- **Expected:** The upcast Dethrone costs a Bonus Action too
+- **Expected:** The upcast Dethrone costs no Action too
 - **Fails if:** Only the level-1 Dethrone is discounted.
 - **Result:** —
 
@@ -491,6 +507,14 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 
+### L11.4 · The Wheel Stops in the next fight
+
+- **Rule:** SP125 · ARC-0032
+- **Steps:** Cast The Wheel Stops in a fight, try it again in the same fight, then start a new fight without resting
+- **Expected:** It cannot be cast twice in one fight; it is available again in the next fight
+- **Fails if:** It can be cast twice in a fight, or it waits for a Long Rest.
+- **Result:** —
+
 ## Level 12 — Fortune's Reach, Tier III, Ready: Foreseen
 
 **Setup:** A Kingmaker at level 12, in a party of four, a normal fight.
@@ -598,7 +622,7 @@ reviewed: 2026-10-15 ARC-0008 — created (propagation, 00.08)
 | The Wheel turns | P3, P5, P6, P7 | At the Kingmaker's turn start every position moves on, shown before acting; Turn the Spoke moves one at once, no slot; turns while the Kingmaker is downed; death and combat end clear it | pending |
 | The crown | P4, P18 | The longest-Reigning ally is King, others Regent; the King's Hand wears it while no ally reigns | pending |
 | The Crossing | P9, P10, P11, P38, P43 | 1d4 Force within 9 m of a Reigning ally, never beyond; once per enemy per round; Master of Ships carries it; Fortune's Reach at any range | pending |
-| Awakening | P12, P13, P14, P26, P44 | Goals 3 / 5 / 8, a lone enemy counts 2; Tyche enters one ahead; Rota Fortunae once per combat; Nemesis drops Falling neighbours; Tier III allies never Fallen | pending |
+| Awakening | P12, P13, P14, P26, P44 | Goals 3 / 5 / 8, a lone enemy counts 2; Tyche frees the first Turn the Spoke of each turn (SP122); Rota Fortunae once per combat; Nemesis drops Falling neighbours; Tier III allies never Fallen | pending |
 | Atropos' Cut | P15, P16 | 3d8 / 2d8 / 1d8 by position, off the Wheel; a Reigning ally keeps Reigning one turn; upcasts add dice | pending |
 | The Court | P17, P19, P20, P21, P22, P29, P30, P31, P32, P37, P39, P40 | Offices up to CHA, locked by level, gone at Long Rest, empty seat on death; each office's rule as in the SPEC; Master of Coin once per round | pending |
 | Peripeteia | P23, P24 | Within 18 m every position flips and Crossings pay; once per combat, upcasts included | pending |
