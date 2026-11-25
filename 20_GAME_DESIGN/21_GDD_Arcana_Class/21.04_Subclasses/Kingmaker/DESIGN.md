@@ -290,8 +290,8 @@ reactions — Ready: Foreseen included.
 
 ### 7.3 *Dethrone* (level 1)
 
-**Action**, one enemy within 18 m: **Bludgeoning** damage *(25)*, **Charisma saving throw for half**; the
-enemy enters the Wheel at **Falling** **whatever the save** — the Wheel never depends
+**Action**, one creature within 18 m (usually an enemy, SP126): **Bludgeoning** damage *(25)*, **Charisma saving
+throw for half** — enemies only, an ally takes no damage (SP128); the target enters the Wheel at **Falling** **whatever the save** — the Wheel never depends
 on a die.
 
 ### 7.4 *Turn the Spoke* (level 1)

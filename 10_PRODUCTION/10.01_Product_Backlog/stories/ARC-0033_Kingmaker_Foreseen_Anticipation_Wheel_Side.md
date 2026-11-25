@@ -4,14 +4,14 @@ title: "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies 
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_progress
+status: done
 owner: Mod Engineer
 implementation: owner
 priority: must
 value: 5
 effort: 2
 inputs: [game Stats Interrupt.txt (Interrupt_Arcana_Aspect_Foreseen), game Story ARCANA_Kingmaker_Wheel + ARCANA_Aspect_WheelOfFortune (2026-11-24), 21.04/Kingmaker/DECISIONS.md (SP80, SP82, SP92, SP126), 57.05/OSIRIS.md]
-outputs: [game Stats (Interrupt_Arcana_Aspect_Foreseen), game Story (ARCANA_Kingmaker_Wheel, ARCANA_Aspect_WheelOfFortune), 61.02/Kingmaker/QA_ARC-0008.md]
+outputs: [game Stats (Interrupt_Arcana_Aspect_Foreseen), game Story (ARCANA_Kingmaker_Wheel, ARCANA_Aspect_WheelOfFortune), 61.02/Kingmaker/QA_ARC-0008.md, game Stats (Arcana_Card_Spell_Dethrone*, the Owner's SP128), 21.04/Kingmaker/DECISIONS.md (SP126-SP128), 21.04/Kingmaker/DESIGN.md, 05.02, 23.02, 25, 32.01, 55/SPEC_ARC-0008.md]
 blocked_by: []
 sprint: S01
 created: 2026-11-24
@@ -157,18 +157,18 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 
 - [x] B1 (both copies: `Interrupt.txt`, `Interrupt.stats`), B2 and B3 in the game (Claude, 2026-11-24, `[fechado]`).
 - [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-25 00:04).
-- [ ] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
-      drops to Falling before the blow and that roll loses 1d4 (L12.4, SP127).
+- [x] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
+      drops to Falling before the blow and that roll loses 1d4 (L12.4, SP127). (the Owner's playtest, 2026-11-25)
 - [x] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
 - [x] Tier III: Peripeteia on a Reigning ally leaves it Falling, not Fallen (part of L12.2).
 - [x] Dethrone on an ally: it enters Falling, never gets Hubris, never takes a Crossing, and can still be crowned King.
 - [x] Coronation on an enemy: it enters Rising, gets Hubris when it Reigns, never becomes Regent or King, and crosses
       when Fallen.
-- [ ] `sync_data`, commit and push (OR-40).
+- [x] `sync_data`, commit and push (OR-40).
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`)
 
 ## Log
 
@@ -189,3 +189,5 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
   `HasLastAttackTriggered()`: vanilla `CommonConditions.khn` (l. 1677) reads `context.HitDescription.LastAttack`, which only
   exists once a hit landed — its 14 vanilla interrupts are all `OnCastHit`. At `OnPostRoll` it is always false. Fix:
   remove `and HasLastAttackTriggered()` from the Conditions; everything else stays as B1 says.
+- 2026-11-25 — done. Foreseen works after the Owner removed `HasLastAttackTriggered()`; the Owner played every test.
+  Also logged and propagated: SP128 (the Owner's Stats: Dethrone damages only enemies). DoD as in ARC-0032.

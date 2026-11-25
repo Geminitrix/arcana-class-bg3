@@ -1,6 +1,6 @@
 ---
 source: 51 (Progressions, ClassDescriptions, Stats, Story goals ARCANA_Kingmaker_* and ARCANA_Aspect_WheelOfFortune; dump_progression.pl 2026-10-15) · 21.04/Kingmaker/DESIGN.md · HANDOFF ARC-0008
-synced_at: 2026-11-24 (ARC-0032: Story split into one goal per feature; Owner Stats rework SP122–SP125; Story fixes and recompile pending)
+synced_at: 2026-11-25 (ARC-0032, ARC-0033: Story split and fixed, compiled 0 errors; SP121–SP128 in game; the Owner played the tests)
 state: synced
 ---
 
@@ -33,11 +33,11 @@ colour teal.
 ## How it works in the game
 - **The Wheel:** positions Rising → Reigning → Falling → Fallen are permanent statuses (`KINGMAKER_*`) moved by Osiris
   (`ARCANA_Kingmaker_Wheel`) at the Kingmaker's turn start, also while it is downed; a creature leaves on death, combat
-  end or Atropos' Cut. Side fixed on entry. **King** = the ally with the most rounds Reigning (counted at each
+  end or Atropos' Cut. Side fixed on entry: who the creature is to the Kingmaker, not which card bound it (SP126). **King** = the ally with the most rounds Reigning (counted at each
   Kingmaker turn start); it keeps the crown off the Wheel and through Atropos' Cut until another ally has strictly
   more (SP115). Other Reigning allies are **Regent**; summons and Court office holders are never King nor Regent
   (SP116). Two Kingmakers keep separate Wheels (SP113).
-- **Binding:** Coronation (Bonus Action) → Rising; Dethrone → Falling whatever the save; Wheel of Ixion binds a whole
+- **Binding:** Coronation (Bonus Action, anyone) → Rising; Dethrone (anyone; damage to enemies only, SP128) → Falling whatever the save; Wheel of Ixion binds a whole
   line Falling. Turn the Spoke (Bonus Action, no slot) moves one creature a step on.
 - **The Crossing** (3+): a Fallen enemy takes 1d8 / 2d6 / 2d8 Force once for **each** Reigning ally within 9 m —
   when the enemy enters Fallen and when an ally enters Reigning; once per pair per round (SP117). Hubris (7+): the
@@ -53,7 +53,7 @@ colour teal.
   creatures (SP112).
 - **Aspect Awakening 10 - Wheel of Fortune:** goal = Crossings, **counts down** (3 / 5 / 8; a lone enemy counts 2);
   I Tyche (the first Turn the Spoke each turn costs no Bonus Action, SP122; Rota Fortunae) · II Nemesis (a Hubris Crossing drops nearby Falling enemies) ·
-  III Aspect of Anticipation (allies never Fallen; Ready: Foreseen, readied with a Bonus Action, SP114).
+  III Aspect of Anticipation (allies never Fallen; Ready: Foreseen, readied with a Bonus Action, SP114; the reaction comes once the attack is rolled and a Reigning attacker loses 1d4 on it, SP127).
 - Every id: `05.03`, `05.04`.
 
 ## Strengths · weaknesses

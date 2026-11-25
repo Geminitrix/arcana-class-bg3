@@ -5,8 +5,6 @@
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
 | [ARC-0029](stories/ARC-0029_Osiris_Fixes_Windborn_Harmony.md) | "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak" | bug | Mod Engineer | must | 5/2 | in_qa | owner | S01 |
-| [ARC-0032](stories/ARC-0032_Kingmaker_Story_Split_Fixes.md) | "Kingmaker Story split: restore the rules lost and the Master of Laws order" | bug | Mod Engineer | must | 5/2 | in_qa | owner | S01 |
-| [ARC-0033](stories/ARC-0033_Kingmaker_Foreseen_Anticipation_Wheel_Side.md) | "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies fall, allies bound by Dethrone play as enemies" | bug | Mod Engineer | must | 5/2 | in_progress | owner | S01 |
 | [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Kingmaker (was the Spinner) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_qa | claude | S01 |
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_review | owner | S01 |
 | [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | ready | owner |  |
@@ -31,4 +29,4 @@
 | [QA_ARC-0026](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Unbound/QA_ARC-0026.md) | Playtest — The Windborn — rework WB0–WB61 (levels 1–12) | playtest | QA Lead |  | / | in_qa |  |  |
 | [QA_ARC-0030](60_QA_AND_TESTING/61_Test_Plan/61.02_Test_Cases/Class/QA_ARC-0030.md) | Playtest — The Arcana — Osiris goals: standard and preventive fixes (any level) | playtest | QA Lead |  | / | ready |  |  |
 
-Done tickets: 16.
+Done tickets: 18.

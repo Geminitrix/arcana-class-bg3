@@ -4,14 +4,14 @@ title: "Kingmaker Story split: restore the rules lost and the Master of Laws ord
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_qa
+status: done
 owner: Mod Engineer
 implementation: owner
 priority: must
 value: 5
 effort: 2
 inputs: [game Story ARCANA_Kingmaker_* + ARCANA_Aspect_WheelOfFortune (2026-11-19), 51 copy ARCANA_Kingmaker_Wheel.txt (single goal, last sync 443a1eb), 21.04/Kingmaker/DESIGN.md, 57.05/OSIRIS.md §13.2]
-outputs: [game Story (ARCANA_Aspect_WheelOfFortune, ARCANA_Kingmaker_AtroposCut, ARCANA_Kingmaker_CrownTheKing, ARCANA_Kingmaker_KingsCourt, ARCANA_Kingmaker_Wheel, ARCANA_Kingmaker_Crossing), 51 copy (sync_data)]
+outputs: [game Story (ARCANA_Aspect_WheelOfFortune, ARCANA_Kingmaker_AtroposCut, ARCANA_Kingmaker_CrownTheKing, ARCANA_Kingmaker_KingsCourt, ARCANA_Kingmaker_Wheel, ARCANA_Kingmaker_Crossing), 51 copy (sync_data), 21.04/Kingmaker/DECISIONS.md (SP121-SP125), 21.04/Kingmaker/DESIGN.md, 05.02, 21.03, 22.05, 23.02, 25, 26.01, 32.01, 55/SPEC_ARC-0008.md, 61.02/Kingmaker/QA_ARC-0008.md]
 blocked_by: []
 sprint: S01
 created: 2026-11-24
@@ -312,21 +312,21 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
 - [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-24 01:10).
 - [x] A rule-by-rule comparison of the 51 copy's old goal with the new goals shows only the intended differences.
 - [x] `check_osiris.pl --dir` on the game goals: no errors on the Kingmaker goals (F7).
-- [ ] In game, before and after Tier I: Coronation puts an ally at **Rising**, Dethrone and Wheel of Ixion put an enemy at
-      **Falling**. With Tier I, the first Turn the Spoke of each turn costs no Bonus Action, the second does (SP122).
-- [ ] Rota Fortunae turns every creature on the Wheel one step at once, and the Crossing follows.
-- [ ] Swift Shears: after Turn the Spoke, the next Atropos' Cut that turn costs no action (once per turn). Severance:
-      after a Cut, the next Dethrone that turn costs no action (once per turn). The chain Spoke - Cut - Dethrone works.
-- [ ] King's Hand: never King; crits on 19–20 while there is no King or the King is not Reigning.
-- [ ] Master of Coin: one slot back the first hit on a Fallen enemy each round, none on the second; again the next
-      round. Count the slots regained in a day of 4 fights (the balance alarm of SP121).
-- [ ] Master of Laws: a condemned enemy at Rising goes Reigning → Falling at the turn start; at Falling it goes only to
-      Fallen, never past it.
+- [x] In game, before and after Tier I: Coronation puts an ally at **Rising**, Dethrone and Wheel of Ixion put an enemy at
+      **Falling**. With Tier I, the first Turn the Spoke of each turn costs no Bonus Action, the second does (SP122). (the Owner's playtest, 2026-11-25)
+- [x] Rota Fortunae turns every creature on the Wheel one step at once, and the Crossing follows. (the Owner's playtest, 2026-11-25)
+- [x] Swift Shears: after Turn the Spoke, the next Atropos' Cut that turn costs no action (once per turn). Severance:
+      after a Cut, the next Dethrone that turn costs no action (once per turn). The chain Spoke - Cut - Dethrone works. (the Owner's playtest, 2026-11-25)
+- [x] King's Hand: never King; crits on 19–20 while there is no King or the King is not Reigning. (the Owner's playtest, 2026-11-25)
+- [x] Master of Coin: one slot back the first hit on a Fallen enemy each round, none on the second; again the next
+      round. Count the slots regained in a day of 4 fights (the balance alarm of SP121). (the Owner's playtest, 2026-11-25)
+- [x] Master of Laws: a condemned enemy at Rising goes Reigning → Falling at the turn start; at Falling it goes only to
+      Fallen, never past it. (the Owner's playtest, 2026-11-25)
 - [x] `sync_data`, then commit and push (OR-40).
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`)
 
 ## Log
 
@@ -353,3 +353,7 @@ When you cast &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_AtroposCu
   with `(CHARACTER)_Owner`, and the three King's Hand rules bound `_Owner` as GUIDSTRING first. F4b's blocks now cast it;
   the game copy gets the same three-line fix.
 - 2026-11-24 — the Owner applied the F4b cast and compiled: 0 errors, 0 warnings. Next: the playtest criteria.
+- 2026-11-25 — done. The Owner played every criterion and they pass (Tier I binds, Tyche, Rota Fortunae, Swift Shears,
+  Severance, King's Hand, Master of Coin, Master of Laws). DoD: criteria met with evidence; outputs listed; numbers only
+  in 25; 05.02 updated; README matches 05.00; daily logs; `check_propagation` OK; `sync_data` run. No patch-notes draft:
+  the notes come from the version diff at release (`/patch-notes`).

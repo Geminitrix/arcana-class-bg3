@@ -36,7 +36,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `Target_Arcana_Card_Spell_TurnTheSpoke` | Turn the Spoke | Turn a creature on the Wheel one position onward. |
 | `Target_Arcana_Util_ConveneTheCourt` | Convene the Court | Name your Court. Each ally you appoint holds an office until your next Long Rest. An office holder can never be the King or a Regent. |
 | `Target_Arcana_Card_Spell_Coronation` | Coronation | Crown anyone and set them Rising on Fortune's wheel. |
-| `Target_Arcana_Card_Spell_Dethrone` | Dethrone | Cast anyone down and set it Falling on Fortune's wheel. |
+| `Target_Arcana_Card_Spell_Dethrone` | Dethrone | Cast anyone down and set it Falling on Fortune's wheel.<br><br>Only enemies take the damage. |
 | `Target_Arcana_Card_Spell_AtroposCut` | Atropos' Cut | Cut a creature's thread from Fortune's wheel.An enemy takes damage that grows the higher it stands:- [4] if Fallen;- [3] if Falling;- [2] if Rising;- [1] if Reigning.If an ally is chosen, they leave the Wheel. If they were Reigning, they remain Reigning until the end of their next turn. |
 | `Target_Arcana_Card_Spell_Usurp` | Usurp | An ally and an enemy on the Wheel trade places on it. |
 | `Zone_Arcana_Card_Spell_WheelOfIxion` | Wheel of Ixion | Send a burning wheel rolling through your foes and bind them to Fortune's wheel, Falling. |
