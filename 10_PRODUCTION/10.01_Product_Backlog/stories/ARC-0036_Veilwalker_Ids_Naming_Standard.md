@@ -4,7 +4,7 @@ title: "Veilwalker ids: one naming standard for the Stats, statuses and their re
 type: chore
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
-status: backlog
+status: spec_ready
 owner: Mod Engineer
 implementation: claude
 priority: should
@@ -36,7 +36,7 @@ EtherealChains, Empress or `_SlotN`.
 - Layers in scope: spells, passives, **statuses**, **dead loca strings**. Not in scope: translating the other 14
   languages (their LSTag ids are still updated, or their tooltips break), the header entries (`DECEIVER STATUS`…).
 
-## Rename table (proposal — the Owner approves it before the apply)
+## Rename table (approved by the Owner 2026-11-25 → DV37)
 
 Variants (`_2`…`_6`) follow their root. Proposed names come from `MOD_TERMINOLOGY.md` (the card's in-game name in PascalCase).
 
@@ -66,6 +66,41 @@ Loca: the ~12 unreferenced strings (Hollow Image, Mirror Image: Hall of Mirrors,
 *Sigil* sentences, `Arcane Spells: The Deceiver`, `The Deceiver`) go to `90` and leave the file; `SIGIL_DETONATED_TECH`
 shows *Gale Deflection* (copied from the Windborn) and gets its own name.
 
+## Addendum — found by the dry run (same rule, DV37; Owner's answers 2026-11-25)
+
+| Now | New / action |
+|---|---|
+| Statuses `ETHEREAL_CHAINS(_3…_6, _EFFECT, _LAST_CASTED)` · `MIMIC_LAST_CAST` | `BINDING_FALSEHOOD…` · `TWICE_TOLD_LAST_CAST` (no vanilla clash, checked in `Editor/Mods/Shared, Gustav, GustavX`) |
+| Level map `Sigil_MarkDamage` (read by the Seed) | `Seed_BurstDamage` |
+| Osiris `DB_ARCANA_MirrorImageOf` · `DB_ARCANA_SigilDoubtOwner` · `PROC_ARCANA_Sigil_*` · `ARCANA_MimicWithdraw_*` | `DB_ARCANA_DoubleOf` · `DB_ARCANA_SeedDoubtOwner` · `PROC_ARCANA_Seed_*` · `ARCANA_TwiceToldWithdraw_*` |
+| Osiris calls `Shout_Deceiver_Double_Shatter` — **a spell that no longer exists** (the Stats and the Rulebook say `Shout_Arcana_Double_Splinter`): Splinter on Command, the Splinter cleanup, The Veil Lifts and Tier III never see the Splinter | `Shout_Arcana_Double_Splinter` (**ARC-0020 bug, fixed here**) |
+| Shapeshift rules `DoubleOfTheVeil_Slot3…6` (+ `_NoUnveil`) | `DoubleOfTheVeil_3…6`. **Five of them were lost:** they lived only in `Rulebook.lsx`; the Toolkit reads `Rulebook.tbl`, so the Owner's save of 18:41 kept `_Slot3` alone, with Splinter only — today no Double gets Reflected Seed/Falsehood or Unveil (**ARC-0020 bug**). `restore_double_rules.pl` puts the six slot rules back in **both** copies, with the UUIDs Osiris uses and the Owner's current base kit |
+| Rulebook `.tbl` names `New_Stat_1` / `New_Stat_2` | `FacelessCopy` / `DoubleOfTheVeil` |
+| 9 level maps nothing reads (`SigilofMalice_Damage`, `Mirror*_Damage`, `Mimic*_Damage`, `Distortion_Damage`, `EtherealChains_Damage`) | removed from `.lsx` + `.tbl` (Owner: remove with backup) |
+| Root templates nothing references: `ARCANA_CHAR_CreateClone_2` (old clone, 3 dead spells), `ARCANA_ITEM_Spell_DistortionPosition`, `_MimicDistortionPosition`, `_MirrorDistortionPosition` | removed, archived in `93` (unused, so the Owner's "dead → remove" answer wins over "rename to Veilstep") |
+| Root template of the Double `ARCANA_CHAR_CreateClone_1` (`8807d230`, used by the cards) | `ARCANA_CHAR_DoubleOfTheVeil` (name only, GUID kept; Divine at the apply) |
+| Kept on purpose | the vanilla icon `Spell_Illusion_MirrorImage`; *Mirrored Self* / *Mirrored Spell* |
+
+Comments and test names that still say Distortion / Mimic / Sigil (Lua tests, `Overhead.lua`, `ArcanaHelpers.khn`, two goals)
+and `Mods/…/GLOSSARY.md` are polished by hand at the apply. Generators that would write the old names back:
+`gen_awakening_progress.pl` (key `EMPRESS`), `gen_upcast_variants.pl`, `gen_emotion_alchemy.pl`, `check_cards.pl`,
+`sort_stats.pl`, `subclass_texts.pl` — updated in the same commit.
+
+## Dry run (2026-11-25, `55/_wip/Deceiver/ARC-0036/`)
+
+`rename_ids.pl --out` → `restore_double_rules.pl` → `cleanup_dead.pl`, all on copies: **1095 replacements in 55 files**;
+every Stats file keeps its entries, count and sequence; the only "new name already in use" is the intended
+`Shout_Arcana_Double_Splinter`; 30 XML copies parse; `check_osiris.pl` on the 34 goals 0/0; rules lsx 8 = tbl 8, the
+seven names Osiris applies all exist.
+
+## Apply (one `[fechado] ARC-0036` message, Toolkit closed)
+
+1. Backup every touched file in `94_Safety_Backups/ARC-0036_<date>/`.
+2. Run the dry run again on the game as it is then (the Owner may have saved since), check the report, `--apply`.
+3. Divine: rename the Double's template; move the four dead templates to `93` with a README.
+4. Generators, comments, glossaries; `sync_data`; validators (`check_osiris`, `check_castable`, `check_cards`).
+5. The Owner compiles the Story (`0 error(s)`), opens the Toolkit (the Rulebook shows 8 rules, no `New_Stat`), and plays the smoke test.
+
 ## Where the ids live (2026-11-25 sweep, `grep -rla` over Public, Mods and Editor/Mods)
 
 Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_BOOST) · `SpellLists` · `Progressions` ·
@@ -76,10 +111,12 @@ Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_B
 
 ## Acceptance criteria
 
-- [ ] The rename table approved by the Owner and logged as **DV37** (amends DV12, DV29 and the Stats half of DV36)
-- [ ] OR-59 gains the row `<Type>_Arcana_Double_X` (the Double's own spells); the `<Type>_Deceiver_Clone_` row of the
-      code glossary goes; `33.03` maps each new id to its in-game name
-- [ ] Vanilla clash checked for every new status (`SEED`…) — the extraction path of `57.06` is missing on this machine
+- [x] The rename table approved by the Owner and logged as **DV37** (amends DV12, DV29 and the Stats half of DV36)
+- [x] OR-59 gains the summon-spell row (`<Type>_Arcana_Double_X`) and `_N` variants (never `_SlotN`)
+- [ ] The `<Type>_Deceiver_Clone_` row of the code glossary goes; `33.03` maps each new id to its in-game name
+- [x] Vanilla clash checked for every new status — none (`Editor/Mods/Shared, Gustav, GustavX` `.stats`; the extraction
+      path of `57.06` is missing on this machine, the editor corpus stands in)
+- [ ] The Double's six slot rules exist in both Rulebook copies; Reflected Seed/Falsehood from level 5, Unveil from 9 (ARC-0020 L5/L9)
 - [ ] Backup in `94_Safety_Backups/ARC-0036_<date>/`, then a script renames in place, one `[fechado] ARC-0036` message
 - [ ] **Order kept:** the list of entry names of every Stats `.txt` / `.stats` file, with the table applied, equals the
       list after the rename (same count, same sequence); each file's entry count unchanged (Toolkit truncation trap)
@@ -99,3 +136,6 @@ Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_B
 ## Log
 
 - 2026-11-25 — created from the Owner's report during the ARC-0020 playtest and four answers (above).
+- 2026-11-25 — table approved → DV37; OR-59 rows. Dry run clean; it found the Shatter call and the lost Double rules
+  (ARC-0020 bugs, fixed in this apply) and dead level maps / templates (Owner: remove with backup). → `spec_ready`,
+  waits `[fechado] ARC-0036`.

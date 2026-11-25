@@ -48,3 +48,5 @@ the new Deceiver and Kingmaker goals. Lesson in 57.05 §13.6. Next: QA_ARC-0035 
 Mimic, Distortion, Empress, `_Slot3`). Swept the mod tree; four answers from the Owner (nothing published yet, so rename;
 keep entry positions; `<Type>_Arcana_Double_X`; Mirrored kept; Veilwalker in prose; statuses and dead loca in scope).
 Rename table proposed in the ticket, waiting for the Owner's approval → DV37. Backlog.
+
+**ARC-0036 prepared:** the Owner approved the rename table → DV37; OR-59 gains the summon-spell row and `_N` variants. Dry run on copies (rename, restore the Double rules, drop dead level maps): 1095 replacements in 55 files, entry order kept, XML and check_osiris clean. It found two ARC-0020 bugs (the Shatter call; five Double rules lost because they were only in the .lsx) and dead templates/level maps. → `spec_ready`, waits `[fechado] ARC-0036`.

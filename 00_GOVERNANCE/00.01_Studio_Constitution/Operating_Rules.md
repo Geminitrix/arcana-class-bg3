@@ -1,7 +1,7 @@
 ---
 id: 00.01/Operating_Rules
 owner: Owner (changes need the Owner's OK)
-updated: 2026-10-17
+updated: 2026-11-25 (OR-59: summon spells, `_N` variants — Owner, ARC-0036)
 replaces: Studio_Architecture_and_Agile_Flow_v0.4_PT.md (archived 2026-10-17, 93), 00.07 Implementation_Policy, the rule sections of AGENTS.md
 ---
 
@@ -139,13 +139,14 @@ is the ticket's `status:` field; the board (`/sync-board`) shows it.
   | Utility / lore / roleplay (not in the deck, no combat use) | `<Type>_Arcana_Util_X` | `Shout_Arcana_Util_Faceless` |
   | Reaction (the interrupt) and its helpers | `Interrupt_Arcana_Reaction_X` / `<Type>_Arcana_Reaction_X` | `Interrupt_Arcana_Reaction_TurnTheBlow` |
   | Equipment spell | `<Type>_Arcana_Equip_X` | `Projectile_Arcana_Equip_Moonstone` |
-  | Helper / sub-projectile (not castable) | `<Type>_Arcana_X` | `Projectile_Arcana_Distortion_Explosion` |
+  | Helper / sub-projectile (not castable) | `<Type>_Arcana_X` | `Projectile_Arcana_Veilstep_Explosion` |
+  | A summon's own spell (cast by the summon, never by her; e.g. the Veilwalker's Doubles) | `<Type>_Arcana_<Summon>_X` | `Projectile_Arcana_Double_ReflectedSeed` |
   | Passive (`Arcana_Passive_Equip_X` for items) | `Arcana_Passive_X` | `Arcana_Passive_TheRota` |
   | **Status** | **UPPER_SNAKE_CASE, no `ARCANA_` prefix**; hidden technical ones end `_TECH` / `_HELPER`; a subclass word only to avoid a vanilla collision | `WINDSWEPT`, `KINGMAKER_RISING`, `KINGMAKER_STEP_TECH` |
   | Osiris goal files, `DB_` / `PROC_` / `QRY_`, item stats | `ARCANA_` | `ARCANA_Kingmaker_Wheel`, `DB_ARCANA_Courage`, `ARCANA_CC_EQP_Robe_Deceiver` |
   | Design documents only (never in the game) | `SPL_`, `FEAT_`, `STA_`, `CLS_`, `ICO_` | `SPL_Kingmaker_Coronation` |
 
-  `X` is PascalCase English. In `.stats` the spell `Name` omits the type prefix (`Arcana_Card_Spell_X`). Before writing an
+  `X` is PascalCase English. Variants of one entry end `_N` (its level or slot band: `_3`), never `_SlotN`. In `.stats` the spell `Name` omits the type prefix (`Arcana_Card_Spell_X`). Before writing an
   id, check the glossary (`33.03`) and the vanilla extraction for a clash. A published entry is never renamed (OR-10); an
   unpublished one with a wrong name is renamed before release.
 
