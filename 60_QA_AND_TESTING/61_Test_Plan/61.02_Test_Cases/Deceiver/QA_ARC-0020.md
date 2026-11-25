@@ -17,6 +17,10 @@ results come back here at `/sync-test-guides`. **Intent:** ARC-0020 is proven in
 a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-17 from TC_ARC-0019.
 
 > The level-by-level tests are written at the build kit of ARC-0020 (stage 4), from the draft in the appendix.
+>
+> **Read the appendix with the level map v2 (DV35, 2026-11-25):** every level 1–12 carries something; Seed of Doubt
+> at 2, Splinter on Command at 4, Binding Falsehood at 5, Veilstep at 6, cap 4 at 8, Mirrored Spell at 10. So B5
+> checks the rows of DESIGN §9.1 with **no** empty level, and V1 is played at level 4, not 2.
 
 ## Appendix — TC_ARC-0019 (design-stage draft, verbatim)
 
@@ -83,3 +87,4 @@ strongest? When did you keep a Double instead of spending it, and why? What woul
 ## Log
 
 - 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources TC_ARC-0019 merged; nothing removed.
+- 2026-11-25 — DV35 (level map v2): note added above the appendix (B5, V1 read with the new map); the appendix stays verbatim.

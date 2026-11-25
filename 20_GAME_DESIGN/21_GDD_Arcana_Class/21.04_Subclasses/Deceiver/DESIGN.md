@@ -1,15 +1,15 @@
 ---
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
-state: approved design (DV1–DV32, 2026-10-16). The game still has the Veil build of 2026-10-07 with the old names and map (`05.02/Deceiver.md`) until the ARC-0019 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change
+state: design (DV1–DV35); DV35 (level map v2, 2026-11-25) awaits the Owner's approval of this document (stage 3). The game still has the Veil build of 2026-10-07 with the stage-1 names and the old map (`05.02/Deceiver.md`) until the ARC-0020 build ships
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35): §4.2, §5, §6, §9
 ---
 
 # The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
 
 > Design document for the Arcana's subclass **The Deceiver**: identity, the Veil and every one of its rules, every
 > spell and passive, the Aspect Awakening, the progression and the technical pattern. Decisions are in
-> `DECISIONS.md` (DV1–DV31); the review behind DV18–DV30 is `REFINE_Deceiver.md` (ARC-0019). Every gameplay effect
+> `DECISIONS.md` (DV1–DV35); the review behind DV18–DV30 is `REFINE_Deceiver.md` (ARC-0019). Every gameplay effect
 > lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions**.
 >
 > **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this document says *(25)*; the Deceiver's
@@ -125,7 +125,7 @@ and *Malicious Whispers* on a Seeded target. No card carries its own exception.
 |---|---|
 | Body | 1 HP, fixed AC, no level scaling (DV4); her look, the Duplicity shimmer |
 | Summoned by | *Eidolon* (1, then 2, then 3 by slot), *Veilstep* (one where she stood), *Grand Deception* (up to the cap) |
-| Cap | 3 · 4 at level 7 · 5 at level 12 (DV16). Past the cap the oldest goes without a Splinter and without Doubt |
+| Cap | 3 · 4 at level 8 · 5 at level 12 (DV16, DV35). Past the cap the oldest goes without a Splinter and without Doubt |
 | For her | +1 AC per Double (DV7) |
 | Turn | Its own turn, player-controlled: movement + one action; Dash, Disengage; *Dismiss* is free; no attacks, no bonus action, no reaction (DV5) |
 | Immune to | Charmed, Madness, Possessed/Dominated, fleeing Fear (DV6) |
@@ -197,15 +197,15 @@ Every chain ends: Doubles are finite, Deluded resets the stacks, Two Pillars is 
 |---|---|---|---|---|
 | **Malicious Whispers** *(cantrip)* | 1 | 0 | 18 m, WIS save: Psychic *(25)*, Disadvantage on its next attack; Seeded target: Paranoia + 1 Doubt | — |
 | **Eidolon** | 1 | 1 | Summon 1 Double within 9 m; 2 from slot 3, 3 from slot 5 | — |
-| **Seed of Doubt** | 1 | 1 | 18 m, never misses: Force *(25)* and a Seed (§4.4) | — |
-| **Splinter on Command** | 2 | 0 | Bonus action: one of her Doubles splinters now. A deck card, drawn like the others (DV24, DV31, DV32) | — |
+| **Friends** *(utility)* | 1 | 1 | Advantage on Charisma checks; at slot 6 no Concentration and the target never notices (DV14) | Concentration (below slot 6) |
+| **Seed of Doubt** | 2 | 1 | 18 m, never misses: Force *(25)* and a Seed (§4.4) | — |
 | **Faceless** *(utility)* | 2 | 0 | Assume the identity of another person, altering her appearance | — |
-| **Friends** *(utility)* | 2 | 1 | Advantage on Charisma checks; at slot 6 no Concentration and the target never notices (DV14) | Concentration (below slot 6) |
-| **Binding Falsehood** | 3 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn | — |
 | **Veiled Prison** | 3 | 2 | WIS save: Incapacitated, crits from 3 m, repeats the save; 2+ Doubt: Disadvantage | Concentration · Short Rest · Unique |
-| **Veilstep** | 5 | 3 | Teleport 18 m, Force burst on landing, a Double where she stood; creates *Withdraw* (swap with that Double) and *Twice-Told: Veilstep* | — |
+| **Splinter on Command** | 4 | 0 | Bonus action: one of her Doubles splinters now. A deck card, drawn like the others (DV24, DV31, DV32, DV35) | — |
+| **Binding Falsehood** | 5 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn | — |
+| **Veilstep** | 6 | 3 | Teleport 18 m, Force burst on landing, a Double where she stood; creates *Withdraw* (swap with that Double) and *Twice-Told: Veilstep* | — |
 | **Twice-Told** | 6 | — | Bonus action: recast the last damaging card | — |
-| **Mirrored Spell** *(passive card)* | 6 | 3 | Copy a spell cast within 18 m that she doesn't know | — |
+| **Mirrored Spell** *(passive card)* | 10 | 3 | Copy a spell cast within 18 m that she doesn't know | — |
 | **Marionette** | 9 | 5 | Dominate; 2+ Doubt: Disadvantage on the save | Concentration · Long Rest · Unique |
 | **Mirrored Self** *(passive card)* | 10 | 2 | Her next single-target spell gains a second target, **cast from one of her Doubles' positions** (DV25, T2) | — |
 | **Grand Deception** — the ultimate | 11 | 5 | Every enemy within 9 m: WIS save; on a failure it gains 1 Doubt per Double already within a short range *(25)* of it; then Doubles fill her cap (DV22) | Long Rest · Unique |
@@ -223,7 +223,7 @@ The ultimate **builds and reads** (where she placed her Doubles); the Aspect car
 | **The Veil** | 1 | The core rule (§4.1) and the Doubles (§4.2) |
 | **Two Truths** | 5 | Doubles learn *Reflected Seed* and *Reflected Falsehood* |
 | **Unveil** | 9 | Doubles learn *Unveil* |
-| Cap 4 / cap 5 *(hidden)* | 7 / 12 | The Doubles' cap |
+| Cap 4 / cap 5 *(hidden)* | 8 / 12 | The Doubles' cap; the level-up text announces each (J2) |
 
 ---
 
@@ -262,30 +262,33 @@ No tier gives an ability bonus (DV21 replaces the old +3 Charisma and Charisma t
 
 | Level | What arrives | Headline the player feels | Kind | New concepts |
 |---|---|---|---|---|
-| 1 | The Veil · Eidolon · Seed of Doubt · Malicious Whispers | "I fight with lies: Doubles on the field, Doubt on enemies" | rule + buttons | ~8 |
-| 2 | Splinter on Command · Faceless · Friends | "I burst a Double when I choose — and wear other faces" | button | 1 (+2 utilities) |
-| 3 | Tier I *Veiled* · Binding Falsehood · Veiled Prison · The Veil Lifts | "Doubt pays: doubting minds fail my prisons" | rule + buttons | 3 |
-| 4 | — (feat) | — | — | 0 |
-| 5 | Two Truths · Veilstep | "My Doubles cast my spells; I leave myself behind" | rule + button | 2 |
-| 6 | Twice-Told · Mirrored Spell | "I tell it twice — even with other people's spells" | buttons (one idea: copy) | 2 |
-| 7 | Tier II *Two Pillars* · cap 4 | "Every Deluded enemy seeds the next" | rule + growth | 2 |
-| 8 | — (feat) | — | — | 0 |
+| 1 | The Veil · Eidolon · Malicious Whispers · Friends *(utility)* | "I fight with lies: Doubles on the field, Doubt on enemies" | rule + buttons | ~5 |
+| 2 | Seed of Doubt · Faceless *(utility)* | "I plant a lie that bursts later — and wear other faces" | button | 2 (+1 utility) |
+| 3 | Tier I *Veiled* · The Veil Lifts · Veiled Prison | "Doubt pays: doubting minds fail my prison" | rule + buttons | 3 |
+| 4 | Splinter on Command (+ feat) | "I burst a Double when I choose" | button (the Double's rank) | 1 |
+| 5 | Two Truths · Binding Falsehood | "My Doubles cast my spells — and bind with my lie" | rule + button | 2 |
+| 6 | Veilstep · Twice-Told | "I leave myself behind — and tell it twice" | buttons | 2 |
+| 7 | Tier II *Two Pillars* | "Every Deluded enemy seeds the next" | rule | 1 |
+| 8 | cap 4 (+ feat) | "A fourth Double on the field" | growth (the Double's rank) | 0 |
 | 9 | Unveil · Marionette | "The Double becomes me — and the enemy becomes mine" | rule + button | 2 |
-| 10 | Mirrored Self | "My twin spell comes from a Double" | button | 1 |
+| 10 | Mirrored Self · Mirrored Spell | "I mirror spells — mine from a Double, theirs as my own" | buttons (one idea: the mirror) | 2 |
 | 11 | Grand Deception | "The whole field is a lie I placed" | ultimate | 1 |
-| 12 | Tier III *Aspect of Doubt* · cap 5 | "Strike me and the lie explodes" | rule + growth | 2 |
+| 12 | Tier III *Aspect of Doubt* · cap 5 · *Ready: Which One?* | "Strike me and the lie explodes" | rule + growth | 2 |
 
-Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
+Every level carries something (DV35). Levels 4 and 8 carry a rank of the Double beside the feat — a predictable
+concept (§6.5), the same exception the Windborn takes (WB16). Base class underneath: Portent and a choice at 2, Dispel
+Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 
 ### 9.2 The signature button in ranks — the Double
 
 | Level | Rank | What a Double does now |
 |---|---|---|
 | 1 | 1 | Walks, draws fire, gives AC, *Splinters* |
-| 2 | 2 | Splinters on her command (bonus action) |
+| 4 | 2 | Splinters on her command (bonus action) |
 | 5 | 3 | Casts her Seed and her Falsehood |
+| 8 | — | A fourth body on the field (cap 4) |
 | 9 | 4 | Trades places with her |
-| 12 | 5 | Bursts when struck, wider |
+| 12 | 5 | Bursts when struck, wider; a fifth body (cap 5) |
 
 *Eidolon* grows by slot: 1 Double (levels 1–4), 2 (5–8), 3 (9+).
 
@@ -293,9 +296,9 @@ Base class underneath: Portent and a choice at 2, Dispel Magic at 6, Third Eye a
 
 | Part | Levels | What the player feels |
 |---|---|---|
-| Introduce | 1–2 | Lies on the field: bodies to keep or spend |
-| Develop | 3–6 | Doubt pays off; the Doubles cast her spells; everything is told twice |
-| Turn | 7–10 | The lie spreads (Two Pillars), the Double becomes her (Unveil), the enemy becomes hers (Marionette) |
+| Introduce | 1–2 | Lies on the field: bodies to keep or spend; a Seed that bursts later |
+| Develop | 3–6 | Doubt pays off; she bursts a Double at will; the Doubles cast her spells; everything is told twice |
+| Turn | 7–10 | The lie spreads (Two Pillars), a fourth body, the Double becomes her (Unveil), the enemy becomes hers (Marionette), the mirror |
 | Conclude | 11–12 | The whole field is a lie (Grand Deception); the lie explodes (Tier III). Reversed, the card reveals: *The Veil Lifts* |
 
 ---

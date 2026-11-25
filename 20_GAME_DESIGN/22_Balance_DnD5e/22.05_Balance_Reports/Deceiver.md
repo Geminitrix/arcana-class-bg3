@@ -2,7 +2,7 @@
 id: 22.05/Deceiver
 owner: Balance Designer
 source: 21.04/Deceiver/DECISIONS.md (DV1–DV30), DESIGN.md §12, REFINE_Deceiver.md §5, 25 (*_Deceiver_*)
-reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); directions only, values in the balance pass; 2026-10-16 ARC-0020 — sizes of the build approved (section ARC-0020); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change
+reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); directions only, values in the balance pass; 2026-10-16 ARC-0020 — sizes of the build approved (section ARC-0020); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35)
 ---
 
 # 22.05 · Balance — The Deceiver (current verdict)
@@ -30,9 +30,10 @@ balance report and is largely untested in game (`05.02` §8). This file holds th
 |---|---|---|---|
 | DV21 Tier III *the lie explodes*: a Double destroyed by an enemy splinters by itself; Splinter's area grows | **Up** at 12, the old Charisma bonus **leaves** | `SPL_Deceiver_Splinter` `tier3_radius_next` 4 m | ⚠️ watch bursts per fight at level 12 (V3); every Double struck becomes damage plus Doubt |
 | DV22 Grand Deception reads the Doubles near each enemy | **Up or down** with placement (flat 2 Doubt today) | `SPL_Deceiver_GrandDeception` `doubt_per_double_next` 1, `doubles_range_next` 3 m | ⚠️ can Delude a crowd in one cast; the per-enemy count is the knob (V2) |
-| DV24 Splinter on Command (bonus action) | **Up** from level 2 | `SPL_Deceiver_SplinterOnCommand` | A burst a turn without an action, paid with a body and its AC; dominant if used every turn — braked on PC by the draw: a deck card (DV32) (V1) |
+| DV24 Splinter on Command (bonus action) | **Up** from level 4 (DV35) | `SPL_Deceiver_SplinterOnCommand` | A burst a turn without an action, paid with a body and its AC; dominant if used every turn — braked on PC by the draw: a deck card (DV32) (V1) |
 | DV25 Mirrored Self from a Double's position | Flat (same extra target) | `SPL_Deceiver_MirroredSelf` `plan_b_range_next` 9 m | Positional only; engine support is V4 |
 | DV28 the spread map (Twice-Told 7 → 6, Mirrored Spell 12 → 6, Mirrored Self 12 → 10, Friends and Faceless 1 → 2) | **Up** mid-game, flat overall | `level_next` keys | Same content, earlier; watch Twice-Told at 6 with Reflected spells at 5 |
+| DV35 level map v2 (Seed of Doubt 1 → 2, Splinter on Command 2 → 4, Binding Falsehood 3 → 5, Veilstep 5 → 6, Mirrored Spell → 10, cap 4 7 → 8; Friends stays at 1) | **Down** a little early, flat overall | `level_next`, `cap_next` keys | Levels 1–3 lose Seed of Doubt at 1 and the bonus-action burst until 4; the cap 4 one level later. No new power; watch that level 1 still has a damage turn (Malicious Whispers, a Double's Splinter) |
 | DV26 Telepathy leaves | Flat (utility) | `FEAT_Deceiver_TheVeil` `telepathy_next` | — |
 | DV19, DV29 one passive, new names | Flat | `name_next` keys | — |
 
@@ -57,7 +58,7 @@ Enemies caught by radius (Double placed beside them): 3 m → 1.5 · 4 m → 2 �
 
 | V# | Fight | Metric | Right if | Wrong if |
 |---|---|---|---|---|
-| V1 | Level 2, any | Turns with Splinter on Command | Used in most fights, not every turn | Never, or every turn |
+| V1 | Level 4, any | Turns with Splinter on Command | Used in most fights, not every turn | Never, or every turn |
 | V2 | Level 11 | Doubt from Grand Deception with Doubles placed vs none | Placement changes the result clearly | Same either way |
 | V3 | Level 12, Tier III | Turn Tier III wakes; bursts per fight | Wakes in a normal fight; bursts feel like the peak | Wakes after the fight is decided |
 | V4 | Level 10 | Mirrored Self's extra target from a Double's position | Works in the engine | Needs plan B |

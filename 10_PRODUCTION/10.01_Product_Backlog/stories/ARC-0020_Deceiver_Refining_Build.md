@@ -4,7 +4,7 @@ title: "Deceiver refining build: the game plays DV18–DV31"
 type: rework
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
-status: ready
+status: in_review
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -48,3 +48,4 @@ created: 2026-10-16
 - 2026-10-16 — Tasks 0.6–0.7 prepared: `arc0020/40_tier3.patch` (stats + 4 texts, dry run clean), `42_goal_tier3_grand.pl` (+98 lines on a copy, idempotent). New probes B5 (Grand Deception snapshot timing), B6 (Splinter Tier III condition). Stage 3 texts pending in `32.04`. Stage 0 left: nothing but Task 0.8 (after B4) — stage 1 can run with `[fechado] ARC-0020`.
 - 2026-10-16 — Stage 1 applied in the game (`[fechado] ARC-0020`): names and the one-rule text (`10_names.patch`). Pre-apply snapshot `3c87edf`; check_cards OK, selftest 1151/1151, no long lines; `sync_data`, `gen_catalog`, `05.02` updated. Stage 3 texts approved by the Owner. Next: stage 2 (`[fechado] ARC-0020`).
 - 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — stage 1 (names) applied before the rulebook; the rest is typed by the Owner (OR-11). Carries the Design and Narrative gates from ARC-0019.
+- 2026-11-25 — Back to the design (stage 3, OR-1): the Owner asked to spread the Veilwalker over levels 1–12 like the Windborn and the Kingmaker and to playtest it 1–12. Three level-4/8 options given (A ranks at 4 and 8 · B only 4 · C both empty); the Owner chose A → **DV35** (level map v2: no empty level; Seed of Doubt 2, Splinter on Command 4, Binding Falsehood 5, Veilstep 6, cap 4 at 8, Mirrored Spell 10). Updated: DESIGN.md §4.2/§5/§6/§9, 21.03, 23.02 (9 sheets + index), 25 (`level_next`/`cap_next` in 7 YAML), 22.05, 26.01, QA_ARC-0020 (note); 21.08, 31.02, 32.01, 33.03, 42.04, 05.02 checked, no change. `check_propagation.pl Deceiver` OK (the checker had skipped every dossier since the map got CRLF line ends — fixed). Status `in_review`: the Owner approves DESIGN.md, then stage 4 (SPEC rewritten, TOOLKIT_ARC-0020, QA_ARC-0020 level by level → `ready` → the Veilwalker tab on the Test Guides page). Nothing in the game changed.

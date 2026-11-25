@@ -36,6 +36,7 @@ chdir $ROOT or exit 0;
 # --- the map ---
 open my $mf, '<:encoding(UTF-8)', '00_GOVERNANCE/00.08_Propagation_Map/Propagation_Map.md' or die "map missing\n";
 my $map = do { local $/; <$mf> };
+$map =~ tr/\r//d;   # the map is saved with CRLF; the section regexes expect LF
 my ($sec) = $map =~ /## Change type: subclass.*?\n(.*?)\n## /s or die "subclass section missing\n";
 my ($srcline) = $sec =~ /Sources[^:]*:\s*\n(.*?)\n\n/s;
 my @sources = $srcline =~ /`([^`]+)`/g;

@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|---|---|---|
 | [ARC-0029](stories/ARC-0029_Osiris_Fixes_Windborn_Harmony.md) | "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak" | bug | Mod Engineer | must | 5/2 | in_qa | owner | S01 |
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_review | owner | S01 |
-| [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | ready | owner |  |
+| [ARC-0020](stories/ARC-0020_Deceiver_Refining_Build.md) | "Deceiver refining build: the game plays DV18–DV31" | rework | Mod Engineer | must | 5/4 | in_review | owner |  |
 | [ARC-0025](stories/ARC-0025_Starchild_Refining_Build.md) | "Starchild refining build: the game plays SC0–SC32" | rework | Mod Engineer | must | 5/5 | ready | owner |  |
 | [ARC-0010](stories/ARC-0010_Resonant_Balance_Playtest.md) | Resonant balance playtest: Overload frequency, Harmony, Shared Heart | research | QA Lead | should | 4/2 | backlog | pending |  |
 | [ARC-0006](stories/ARC-0006_Player_Guide_Resonant.md) | Player guide — the Resonant page matches the raised subclass | docs | Producer | should | 3/2 | backlog | claude |  |

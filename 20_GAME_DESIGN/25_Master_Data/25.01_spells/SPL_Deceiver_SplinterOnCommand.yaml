@@ -1,5 +1,5 @@
 id: SPL_Deceiver_SplinterOnCommand
-reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build; 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked"
+reviewed: "2026-10-16 ARC-0019 — new (DV24, DV32), not built; only pending_build; 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0020 — level map v2 (DV35)"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
@@ -15,3 +15,4 @@ pending_build:
   threads_next: { value: 1, unit: Threads, note: "DV32: PC cost (CardDB), as a cantrip; Owner, 2026-10-16" }
   doubles_next: { value: 1, unit: count, note: "one of her Doubles splinters now (SPL_Deceiver_Splinter)" }
   range_next:   { value: 18, unit: metres, note: "how far the Double may be from her; Owner, 2026-10-16" }
+  level_next:   { value: 4, note: "DV35: new at level 4, the Double's rank 2 (DV28 had 2)" }
