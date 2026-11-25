@@ -4,7 +4,7 @@ title: Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 type: design
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_qa
+status: done
 owner: Lead Class Designer
 implementation: claude
 priority: must
@@ -38,7 +38,7 @@ elements — with an ultimate that ties it together and a kit the player can hol
 
 - [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — answered 2026-10-13, passes with three notes (below)
 - [x] Narrative gate (`32.04`) — passed 2026-10-15, recorded in `32.04/ARC-0008_Kingmaker.md` (second sentence, panel line, tag line, *Fortune's Reach*, 52 tooltips)
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`)
 
 ### Design gate (2026-10-13)
 
@@ -204,3 +204,7 @@ budget is above the suggestion until an ADR fixes it; (3) the T1/T3 percentages 
 - 2026-10-17 — ARC-0027 (Producer, phase D): stage 5 — built 1–12, the Owner plays probes P1–P48 (QA-0002); sprint S01.
 - 2026-11-16 — Adjustments (Owner request, applied by Claude, `[fechado] ARC-0008`): the crown stays with the King until another ally has Reigned more rounds (off the Wheel and through Atropos' Cut too); Court office holders are never King nor Regent (the King's Hand keeps only the 19-20 crit while the King isn't Reigning); the Crossing hits once per Reigning ally and also fires when an ally enters Reigning, Crossing 1d8/2d6/2d8, Hubris 2d8/3d6/3d8; Swift Shears (level 3); Severance (level 4, the Owner's PLACEHOLDER1, fixed); the Owner's new Atropos' Cut damage (higher = more). Files: `55/_wip/Kingmaker/adjust_2026-11-14/`. Game = rehearsal; check_cards OK; validate 0 errors. Pending: Story recompile, docs propagation (25, 32.01, 21.03, SPEC), probes A1–D3.
 - 2026-11-16 — Propagation (00.08) of SP115–SP120: 21.04 DECISIONS (SP115–SP120) and DESIGN, 21.03, 25 (Crossing, Hubris, Court, TheRota, AtroposCut `upcast_die: each`; new FEAT_Kingmaker_SwiftShears / _Severance), 23.02 sheets (+2), 32.01 (re-extracted, + texts_with_params), 31.02 vocabulary, 22.05 (not re-priced, flagged), 26.01, 42.04, 05.02, SPEC stage 6a, QA_ARC-0008 (+15 tests, 7 updated). gen_upcast_variants.pl: `upcast_die: each` and the goal renamed by ARC-0030 (it crashed on ARCANA_Spell_Withdraw.txt). Not done: 25.05 inventory (gen_catalog would also pick up other sessions' uncommitted mirror changes).
+- 2026-11-25 — done. QA_ARC-0008 complete on Arcana Test Guides: 67 tests, 66 pass, 1 skipped (L1.6), 0 failed. The fixes
+  found on the way went through ARC-0032 (Story split), ARC-0033 (Foreseen, Anticipation, the Wheel side) and ARC-0034
+  (Windborn Riposte); decisions SP121–SP128 logged and propagated. DoD: criteria and gates met; 05.00, 05.02 and README
+  updated (Implemented — done); daily log; `check_propagation` OK; `sync_data` run. Not yet published (release work).

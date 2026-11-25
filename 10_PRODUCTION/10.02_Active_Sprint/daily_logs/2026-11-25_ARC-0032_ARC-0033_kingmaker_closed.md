@@ -21,3 +21,7 @@ before the edit, `IsMiss()` back and `HasStatus('INVISIBILITY')` without `contex
 ARC-0034 opened for it (implementation: claude; applied on the Owner's `[fechado] ARC-0034`), INVISIBILITY restored too.
 
 **ARC-0034 done (2026-11-25):** the Owner played the Windborn's L5.3 with the restored Riposte conditions: pass.
+
+**ARC-0008 done (2026-11-25):** the page had been showing only 49 of the 67 Kingmaker tests (the export predated
+SP115-SP128); republished, the Owner marked the 18 new ones. QA_ARC-0008: 66 pass, 1 skipped, 0 failed. The Kingmaker
+is "Implemented - done" in 05.00, 05.02 and the README; not yet published.

@@ -6,7 +6,7 @@ state: synced
 
 # ⏳ The Kingmaker — X · Wheel of Fortune · Aspect of Anticipation
 
-**Built in the game files (levels 1–12, ARC-0008 stages 1–6); no probe played yet; not in the published 3.1.0.28.**
+**Built in the game files (levels 1–12, ARC-0008 stages 1–6) and playtested: QA_ARC-0008 67 tests, 66 pass, 1 skipped (2026-11-25); not in the published 3.1.0.28.**
 Was *the Spinner* (renamed and redesigned in ARC-0008). Force multiplier: creatures ride the Wheel of Fortune's four
 positions; an enemy that falls while an ally reigns suffers a Crossing. Casts with INT, secondary CHA. Design:
 `21.04/Kingmaker/DESIGN.md`; decisions SP47–SP120: `21.04/Kingmaker/DECISIONS.md`. Tag `THEKINGMAKER`

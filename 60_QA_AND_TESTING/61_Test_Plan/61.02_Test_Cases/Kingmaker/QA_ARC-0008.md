@@ -4,7 +4,7 @@ title: Playtest — The Kingmaker — new subclass (levels 1–12)
 type: playtest
 subclass: kingmaker
 build: ARC-0008
-status: in_qa
+status: done
 owner: QA Lead
 sources: [QA-0002, GUIDE_ARC-0008, TC_ARC-0008]
 created: 2026-10-16
@@ -665,3 +665,5 @@ The Owner plays P1–P48 in one session; failures become bugs in `62` (bug vs de
 
 - 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources QA-0002, GUIDE_ARC-0008, TC_ARC-0008 merged; nothing removed.
 - 2026-11-16 — Owner adjustments SP115–SP120 (Claude): L1.8, L3.1, L3.3, L3.7, L3.8, L5.1, the level-7 Hubris test changed to the new rules; added L1.9–L1.12, L3.9–L3.11, Level 4 (L4.1–L4.3), L5.10–L5.11, L9.7. Not played yet.
+- 2026-11-25 — done: every test pass or skipped on Arcana Test Guides (66 pass, 1 skipped); L3.5 kept its pass and is
+  retired by SP122; L3.11–L3.13, L4.x, L11.4, A.3–A.4 added for SP122–SP126 and played.
