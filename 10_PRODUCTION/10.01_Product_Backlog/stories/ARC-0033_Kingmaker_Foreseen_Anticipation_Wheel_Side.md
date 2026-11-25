@@ -4,7 +4,7 @@ title: "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies 
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: in_qa
+status: in_progress
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -43,6 +43,26 @@ without it the reaction is never set to ask. The rest of the chain is in place: 
 **Change (Toolkit, Stats → Interrupt → `Interrupt_Arcana_Aspect_Foreseen`):** add the field
 `InterruptDefaultValue` = `Ask;Enabled`. If the prompt still does not show, the next suspect is the context
 (`OnSpellCast` + `IsAttack()`): report it and it gets its own probe.
+
+**Second round (2026-11-25):** with `InterruptDefaultValue` added the prompt still never shows (L12.4 failed). The
+context is the cause: vanilla uses `OnSpellCast` only with `IsSpell()` (Counterspell, Mage Slayer, Controlled Chaos,
+Psionic Backlash: 9 interrupts, none with `IsAttack()`), while every reaction to an attack on an ally uses
+`OnPostRoll` + `HasInterruptedAttack()` (`Interrupt_FightingStyle_Protection`, `Interrupt_CuttingWords`,
+`Interrupt_BendLuck_Bonus`; 25 interrupts use `OnPostRoll`). Source: `Shared.pak` / `Gustav.pak`
+`Public/Shared*`, `GustavDev` `Stats/Generated/Data/Interrupt.txt`, extracted with Divine on 2026-11-25.
+
+**Change (Toolkit, Stats → Interrupt → `Interrupt_Arcana_Aspect_Foreseen`)**, keeping `InterruptDefaultValue`
+`Ask;Enabled`, `Properties` and `Cost` as they are:
+
+| Field | Value |
+|---|---|
+| `InterruptContext` | `OnPostRoll` |
+| `InterruptContextScope` | `Self;Nearby` (the Kingmaker may be the target too; `Interrupt_Arcana_Reaction_GaleDeflection` uses it) |
+| `Conditions` | `IsAbleToReact(context.Observer) and HasInterruptedAttack() and Enemy(context.Source, context.Observer) and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source)) and not AnyEntityIsItem()` |
+
+`OnPostRoll` fires after the attack roll and before the hit resolves: the enemy steps on before the blow lands, but
+its d20 is already rolled. Whether the step should also weigh on that roll (an `AdjustRoll` of the Falling penalty)
+is an Owner decision, asked separately; without it the step counts from the next attack on.
 
 ### B2 · Aspect of Anticipation (Tier III) — an ally still drops to Fallen
 
@@ -133,10 +153,10 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 - [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-25 00:04).
 - [ ] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
       drops to Falling before the blow (L12.4).
-- [ ] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
-- [ ] Tier III: Peripeteia on a Reigning ally leaves it Falling, not Fallen.
-- [ ] Dethrone on an ally: it enters Falling, never gets Hubris, never takes a Crossing, and can still be crowned King.
-- [ ] Coronation on an enemy: it enters Rising, gets Hubris when it Reigns, never becomes Regent or King, and crosses
+- [x] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
+- [x] Tier III: Peripeteia on a Reigning ally leaves it Falling, not Fallen (part of L12.2).
+- [x] Dethrone on an ally: it enters Falling, never gets Hubris, never takes a Crossing, and can still be crowned King.
+- [x] Coronation on an enemy: it enters Rising, gets Hubris when it Reigns, never becomes Regent or King, and crosses
       when Fallen.
 - [ ] `sync_data`, commit and push (OR-40).
 
@@ -153,3 +173,7 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
   `ARCANA_Aspect_WheelOfFortune`; B3 the four bind rules in `ARCANA_Kingmaker_Wheel`. `check_osiris`: no errors from
   these edits (two LF lines in `CrownTheKing` come from the Story Editor). Waiting for the Owner: compile, then play.
 - 2026-11-25 — the Owner compiled: 0 errors, 0 warnings. Next: the playtest criteria.
+- 2026-11-25 — Owner's playtest: L12.2 (Anticipation), A.3 and A.4 (the side follows the creature) pass; L12.4
+  (Foreseen) fails again: no prompt. Cause: the `OnSpellCast` context (vanilla uses it only for spells); B1 now
+  moves it to `OnPostRoll` + `HasInterruptedAttack()` like `Interrupt_FightingStyle_Protection`. L12.2 includes Peripeteia
+  on a Reigning ally, which passed too.
