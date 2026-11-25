@@ -2,9 +2,8 @@
 
 *Generated 2026-11-25 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (1)
+## To Do (0)
 
-- **ARC-0034** "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)"
 
 ## In Progress (0)
 
@@ -17,12 +16,13 @@
 ## Spec Ready (0)
 
 
-## In QA (4)
+## In QA (5)
 
 - **ARC-0008** Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 - **ARC-0017** "Resonant refining build — R49–R68 in the game"
 - **ARC-0029** "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak"
 - **ARC-0030** "Osiris goals: one standard for comments and regions, and preventive fixes"
+- **ARC-0034** "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)"
 
 ## Done (4)
 

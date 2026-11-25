@@ -4,7 +4,7 @@
 
 | Ticket | Title | Type | Owner | Priority | Value/Effort | Status | Impl. | Sprint |
 |---|---|---|---|---|---|---|---|---|
-| [ARC-0034](stories/ARC-0034_Windborn_Riposte_Conditions_Restore.md) | "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)" | bug | Mod Engineer | must | 4/1 | ready | claude | S01 |
+| [ARC-0034](stories/ARC-0034_Windborn_Riposte_Conditions_Restore.md) | "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)" | bug | Mod Engineer | must | 4/1 | in_qa | claude | S01 |
 | [ARC-0029](stories/ARC-0029_Osiris_Fixes_Windborn_Harmony.md) | "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak" | bug | Mod Engineer | must | 5/2 | in_qa | owner | S01 |
 | [ARC-0008](stories/ARC-0008_Spinner_Design_Raise.md) | Raise the Kingmaker (was the Spinner) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_qa | claude | S01 |
 | [ARC-0009](stories/ARC-0009_Lionheart_Design_Create.md) | Create the Lionheart (was the Titan) to the subclass standard (design) | design | Lead Class Designer | must | 5/4 | in_review | owner | S01 |
