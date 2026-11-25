@@ -4,7 +4,7 @@ title: Playtest — The Arcana — Osiris standard: Kingmaker casts and pins (an
 type: playtest
 subclass: class
 build: ARC-0035
-status: draft
+status: ready
 owner: QA Lead
 created: 2026-11-25
 ---
@@ -132,3 +132,4 @@ fires, or each failure becomes a fix (OR-1).
 
 - 2026-11-25 — created with the fix (55/_wip/Osiris/ARC-0035/): one test per changed event, against QA_ARC-0008's results.
   Draft until the apply.
+- 2026-11-25 — ARC-0035 applied (`[fechado] ARC-0035`): ready to play after the Owner's compile.

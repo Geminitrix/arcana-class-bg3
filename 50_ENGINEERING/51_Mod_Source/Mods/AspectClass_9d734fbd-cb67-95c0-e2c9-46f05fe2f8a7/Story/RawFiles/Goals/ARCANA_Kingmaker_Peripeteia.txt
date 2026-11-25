@@ -13,7 +13,7 @@ KBSECTION
 
 //REGION Peripeteia (Level 5)
 IF
-StatusApplied(_Owner, "KINGMAKER_INVERT_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
 AND
@@ -24,7 +24,7 @@ THEN
 DB_ARCANA_Kingmaker_Inverting(_Owner, _Creature, _Position, _Side, _Order);
 
 IF
-StatusApplied(_Owner, "KINGMAKER_INVERT_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_Inverting(_Owner, _Creature, _Position, _Side, _Order)
 AND
@@ -42,7 +42,7 @@ ApplyStatus(_Creature, _NewStatus, -6.0, 1, _Owner);
 PROC_ARCANA_Kingmaker_Fell(_Owner, _Creature, _NewPosition, _Side);
 
 IF
-StatusApplied(_Owner, "KINGMAKER_INVERT_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_Counter(_Owner, _)
 THEN

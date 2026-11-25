@@ -3,7 +3,8 @@
    "tabs" : [
       {
          "guides" : [
-            "test_guides/data/Class/QA_ARC-0030.json"
+            "test_guides/data/Class/QA_ARC-0030.json",
+            "test_guides/data/Class/QA_ARC-0035.json"
          ],
          "name" : "Class"
       },

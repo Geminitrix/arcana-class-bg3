@@ -14,7 +14,7 @@ KBSECTION
 
 //REGION Atropos' Cut
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_CUT_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_CUT_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
 AND

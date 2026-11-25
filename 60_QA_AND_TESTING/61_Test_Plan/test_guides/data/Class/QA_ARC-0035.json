@@ -1,0 +1,115 @@
+{
+   "before" : [
+      "ARC-0035 is applied (a `[fechado] ARC-0035` message) and the Story is compiled: `log.txt` ends with `0 error(s)`.",
+      "A Kingmaker at level 12 (every card and Tier III), a party of three, a fight with four or more enemies. Values and",
+      "Console edition."
+   ],
+   "sessions" : [
+      {
+         "id" : "ANY",
+         "name" : "Any level — full run",
+         "setup" : "The Kingmaker at level 12 with allies and enemies bound to the Wheel.",
+         "tests" : [
+            {
+               "expected" : "It ends with `0 error(s), 0 warning(s)` and has no \"type mismatch\" line",
+               "fails" : "Any error, warning or type mismatch",
+               "id" : "A.1",
+               "rule" : "ARC-0035 (pins and casts)",
+               "steps" : "Compile in the Story Editor; open `Mods/AspectClass_…/Story/log.txt`",
+               "title" : "The Story compiles clean"
+            },
+            {
+               "expected" : "The ally steps to Reigning, the enemy to Fallen, before she acts (as QA_ARC-0008 L1.4)",
+               "fails" : "Nothing moves at her turn start",
+               "id" : "A.2",
+               "rule" : "`TurnStarted((CHARACTER)_Owner)` in ARCANA_Kingmaker_Wheel",
+               "steps" : "End her turn with an ally Rising and an enemy Falling on the Wheel; watch her next turn start",
+               "title" : "The Wheel turns at her turn start"
+            },
+            {
+               "expected" : "The enemy crosses (the Crossing statuses show) as before",
+               "fails" : "No Crossing where QA_ARC-0008 had one",
+               "id" : "A.3",
+               "rule" : "`TurnStarted((CHARACTER)_Owner)` in ARCANA_Kingmaker_Crossing",
+               "steps" : "Arrange a Fallen enemy within reach of a Reigning ally at her turn start",
+               "title" : "A Crossing at her turn start"
+            },
+            {
+               "expected" : "Every creature on the Wheel moves one step (as QA_ARC-0008 L3.6)",
+               "fails" : "Nothing moves",
+               "id" : "A.4",
+               "rule" : "`StatusApplied((CHARACTER)_Owner, \"KINGMAKER_TURN_TECH\", _, _)` in ARCANA_Aspect_WheelOfFortune",
+               "steps" : "At Tier I, cast Rota Fortunae",
+               "title" : "Rota Fortunae moves every creature one step"
+            },
+            {
+               "expected" : "It drops to Fallen at once (as QA_ARC-0008 L1.5)",
+               "fails" : "It doesn't move",
+               "id" : "A.5",
+               "rule" : "the causee cast in ARCANA_Kingmaker_TurnTheSpoke",
+               "steps" : "Cast Turn the Spoke on a Falling enemy",
+               "title" : "Turn the Spoke drops the Falling enemy"
+            },
+            {
+               "expected" : "The damage lands, the enemy loses its position status and the Wheel ignores it (as QA_ARC-0008 L3.7)",
+               "fails" : "It keeps its position",
+               "id" : "A.6",
+               "rule" : "the causee cast in ARCANA_Kingmaker_AtroposCut",
+               "steps" : "Cast Atropos' Cut on a Falling enemy",
+               "title" : "Atropos' Cut takes an enemy off the Wheel"
+            },
+            {
+               "expected" : "Reigning and Fallen swap, Rising and Falling swap (as QA_ARC-0008 L5.8)",
+               "fails" : "Nothing inverts",
+               "id" : "A.7",
+               "rule" : "`StatusApplied((CHARACTER)_Owner, \"KINGMAKER_INVERT_TECH\", _, _)` in ARCANA_Kingmaker_Peripeteia",
+               "steps" : "Cast Peripeteia with allies and enemies on the Wheel within 18 m",
+               "title" : "Peripeteia inverts the Wheel"
+            },
+            {
+               "expected" : "The ally becomes Fallen and the enemy Reigning (as QA_ARC-0008 L7.7)",
+               "fails" : "No trade, or the second target is never asked",
+               "id" : "A.8",
+               "rule" : "the causee cast in ARCANA_Kingmaker_Usurp",
+               "steps" : "Cast Usurp on a Reigning ally, then on a Fallen enemy",
+               "title" : "Usurp trades two positions"
+            },
+            {
+               "expected" : "Each holder shows its office and its effect works (the Hand's crits, the Master of Laws' sentence, as QA_ARC-0008 L5.1, L7.2)",
+               "fails" : "An office is shown but does nothing",
+               "id" : "A.9",
+               "rule" : "the causee cast in ARCANA_Kingmaker_KingsCourt",
+               "steps" : "Convene the Court and appoint the King's Hand and the Master of Laws",
+               "title" : "The Court's offices land"
+            },
+            {
+               "expected" : "For her next two turn starts nothing moves; at the third the Wheel turns again (as QA_ARC-0008 L11.2)",
+               "fails" : "The Wheel keeps turning, or never turns again",
+               "id" : "A.10",
+               "rule" : "`StatusApplied((CHARACTER)_Owner, \"KINGMAKER_STOP_TECH\", _, _)` in ARCANA_Kingmaker_Wheel",
+               "steps" : "Cast The Wheel Stops with an ally Reigning and an enemy Fallen",
+               "title" : "The Wheel Stops holds the Wheel for two turn starts"
+            },
+            {
+               "expected" : "The attacker becomes Falling and the roll loses 1d4 (as QA_ARC-0008 L12.4)",
+               "fails" : "The reaction does nothing",
+               "id" : "A.11",
+               "rule" : "the causee cast in ARCANA_Aspect_WheelOfFortune (Foreseen)",
+               "steps" : "At Tier III, let a Reigning enemy on the Wheel attack an ally; take Foreseen",
+               "title" : "Ready: Foreseen still answers"
+            },
+            {
+               "expected" : "The bag releases the marks and the wind blows; The Calm turns the turns left into gusts and reopens the bag",
+               "fails" : "Either does nothing",
+               "id" : "A.12",
+               "kind" : "observe",
+               "rule" : "ARCANA_Unbound_AeolusBag, ARCANA_Aspect_Fool (line endings and header only)",
+               "steps" : "With a Windborn, open Aeolus' Bag with two marked enemies; later cast The Calm",
+               "title" : "The Windborn's bag and The Calm still work"
+            }
+         ]
+      }
+   ],
+   "ticket" : "ARC-0035",
+   "title" : "The Arcana — Osiris standard: Kingmaker casts and pins (any level)"
+}

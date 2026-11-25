@@ -10,7 +10,7 @@ KBSECTION
 
 //REGION Turn The Spoke
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_STEP_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_STEP_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
 THEN

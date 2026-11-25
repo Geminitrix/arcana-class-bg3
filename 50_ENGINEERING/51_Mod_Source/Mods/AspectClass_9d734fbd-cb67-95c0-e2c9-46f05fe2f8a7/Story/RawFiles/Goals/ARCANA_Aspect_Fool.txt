@@ -4,6 +4,22 @@ INITSECTION
 PROC_ARCANA_Fool_Aspect_Init();
 
 KBSECTION
+// Aspect of The Fool (the Windborn; internal ids keep "Unbound" and "Fool"; decisions WB8-WB25).
+//   Goal: every Windswept mark released is one step. ARCANA_Unbound_Windswept.txt calls
+//   PROC_ARCANA_Unbound_Windswept_Released for each mark the bag, its sweeps or The Calm release; 3 / 5 / 8 in
+//   ARCANA_Aspect_Common.txt.
+//   Tier I (The First Step) lives in the Stats (ASPECT_AWAKENED_FOOL_I/II/III apply THE_FIRST_STEP) and Tier III
+//   (Into the Storm) in the aura of ASPECT_AWAKENED_FOOL_III. Tier II (Fellow Travellers): here. Aspect card: The Calm
+//   (the turns left become gusts on every enemy under a headwind, then the marks are released and the bag reopens).
+//
+// DBs (tables, rebuilt by PROC_ARCANA_Fool_Aspect_Init on a new game and on every load):
+//   DB_ARCANA_CalmGust(Turns, Gust)    The Calm's gust status by turns left.
+// DBs (state):
+//   DB_ARCANA_Gusted(Foe)              transient: one gust per enemy, however many headwinds.
+// Reads: DB_ARCANA_BagTurns (ARCANA_Unbound_AeolusBag.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached
+// (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Unbound_Windswept_Release, PROC_ARCANA_Unbound_AeolusBag_EndWind.
+// Answers the hook PROC_ARCANA_Unbound_Windswept_Released. Hooks: PROC_ARCANA_Aspect_Reset.
+
 //REGION Tables
 PROC
 PROC_ARCANA_Fool_Aspect_Init()

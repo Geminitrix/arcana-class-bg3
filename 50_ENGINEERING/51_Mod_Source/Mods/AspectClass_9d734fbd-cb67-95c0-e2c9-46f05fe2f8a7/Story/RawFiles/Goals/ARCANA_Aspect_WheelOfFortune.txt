@@ -43,14 +43,14 @@ PROC_ARCANA_Kingmaker_Aspect_Init();
 //REGION Tier I - Rota Fortunae: the Wheel turns once more, now
 // The list is collected first, so the ledger is never changed while it is read.
 IF
-StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
 THEN
 DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
 
 IF
-StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_Pending(_Owner, _Creature)
 THEN
@@ -58,7 +58,7 @@ NOT DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
 PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
 
 IF
-StatusApplied(_Owner, "KINGMAKER_TURN_TECH", _, _)
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
 AND
 DB_ARCANA_Kingmaker_Counter(_Owner, _)
 THEN
@@ -178,7 +178,7 @@ NOT DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order);
 DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
 
 IF
-StatusApplied((CHARACTER)_Enemy, "KINGMAKER_FORESEEN_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Enemy, "KINGMAKER_FORESEEN_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _Position, 0, _)
 AND

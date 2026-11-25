@@ -31,3 +31,6 @@ pins. None breaks the game (last compile 0 errors). Plan and pin table in the ti
 **ARC-0035 prepared:** fixed goals in `55/_wip/Osiris/ARC-0035/goals/` (build.pl from the game's copies). The pins needed 27
 `(CHARACTER)_Owner` casts at event binding sites, or the Story Editor would skip those rules (57.05 §5). check_osiris on
 all 34 goals: 0/0; compare: only pins and casts. Smoke test QA_ARC-0035 (12, draft). → `spec_ready`, waits `[fechado] ARC-0035`.
+
+**ARC-0035 applied (`[fechado] ARC-0035`):** 11 goals copied after a backup of all 34; `check_osiris` on the game 0/0;
+`sync_data`. ARC-0035 → `in_qa`, QA_ARC-0035 → `ready` (Class tab). Next: the Owner compiles and plays the 12 smoke tests.

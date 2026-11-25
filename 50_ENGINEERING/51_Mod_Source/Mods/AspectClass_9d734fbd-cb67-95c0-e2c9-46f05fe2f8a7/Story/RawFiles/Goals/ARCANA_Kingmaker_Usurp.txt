@@ -1,6 +1,8 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
+DB_ARCANA_Kingmaker_UsurpFirst((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", 0, 0);
+NOT DB_ARCANA_Kingmaker_UsurpFirst((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", 0, 0);
 
 KBSECTION
 // Usurp: an ally and an enemy on the Wheel trade positions. The card has two targets: the first waits for the second.
@@ -23,7 +25,7 @@ THEN
 DB_NOOP(1);
 
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
 AND
 NOT QRY_ARCANA_Kingmaker_HasUsurpFirst(_Owner)
 AND
@@ -32,7 +34,7 @@ THEN
 DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _Creature, _Position, _Side, _Order);
 
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder)
 AND
@@ -45,7 +47,7 @@ THEN
 DB_ARCANA_Kingmaker_Usurping(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder, _Creature, _Position, _Side, _Order);
 
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder)
 AND
@@ -54,7 +56,7 @@ THEN
 NOT DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder);
 
 IF
-StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", _Owner, _)
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
 AND
 DB_ARCANA_Kingmaker_Usurping(_Owner, _A, _PositionA, _SideA, _OrderA, _B, _PositionB, _SideB, _OrderB)
 AND

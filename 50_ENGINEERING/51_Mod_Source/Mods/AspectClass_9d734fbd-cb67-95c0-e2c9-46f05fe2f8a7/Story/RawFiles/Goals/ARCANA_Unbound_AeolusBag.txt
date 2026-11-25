@@ -4,6 +4,7 @@ INITSECTION
 DB_ARCANA_BagTurns((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
 NOT DB_ARCANA_BagTurns((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
 PROC_ARCANA_Unbound_AeolusBag_Init();
+
 KBSECTION
 // Aeolus' Bag (Unbound): opening the bag releases her Windswept marks and sets the chosen wind(s) blowing.
 // Opening counts X (her standing Windswept enemies, capped by Zephyr's rank), gives each of them the chosen wind's
