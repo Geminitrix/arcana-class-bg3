@@ -43,3 +43,8 @@ Veilwalker. Windborn propagation brought up to date (WB66–WB67 checked). WIP n
 **ARC-0035 compile:** three rounds — the Kingmaker's PROCs declare `(GUIDSTRING)_Owner`, so 14 Owner pins had to be
 GUIDSTRING (12 seen at 16:47, 2 more hidden behind them at 16:53). 16:58: `0 error(s), 0 warning(s)`; the game now runs
 the new Deceiver and Kingmaker goals. Lesson in 57.05 §13.6. Next: QA_ARC-0035 and QA_ARC-0020 in game.
+
+**ARC-0036 created (Owner):** the Veilwalker's Stats ids mix old and new names (Sigil/Seed, Mirror for the Double,
+Mimic, Distortion, Empress, `_Slot3`). Swept the mod tree; four answers from the Owner (nothing published yet, so rename;
+keep entry positions; `<Type>_Arcana_Double_X`; Mirrored kept; Veilwalker in prose; statuses and dead loca in scope).
+Rename table proposed in the ticket, waiting for the Owner's approval → DV37. Backlog.
