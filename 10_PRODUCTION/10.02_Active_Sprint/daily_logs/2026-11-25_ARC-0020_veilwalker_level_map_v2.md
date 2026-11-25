@@ -39,3 +39,7 @@ all 34 goals: 0/0; compare: only pins and casts. Smoke test QA_ARC-0035 (12, dra
 Palerider and Heartsong texts carried to their builds) and ARC-0029 (play items proven by QA_ARC-0026; the Harmony item
 accepted without its own test). ARC-0017 (Heartsong build) parked back to `ready` with QA_ARC-0017: small changes after the
 Veilwalker. Windborn propagation brought up to date (WB66–WB67 checked). WIP now 3: ARC-0020, ARC-0030, ARC-0035.
+
+**ARC-0035 compile:** three rounds — the Kingmaker's PROCs declare `(GUIDSTRING)_Owner`, so 14 Owner pins had to be
+GUIDSTRING (12 seen at 16:47, 2 more hidden behind them at 16:53). 16:58: `0 error(s), 0 warning(s)`; the game now runs
+the new Deceiver and Kingmaker goals. Lesson in 57.05 §13.6. Next: QA_ARC-0035 and QA_ARC-0020 in game.

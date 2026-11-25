@@ -68,7 +68,7 @@ appear instead of tickets later.
 
 - [x] `check_osiris.pl` on the game's goals: 0 error(s), 0 warning(s)
 - [x] `check_osiris.pl --compare` before/after: no code difference outside the INITSECTION pins and the 27 `(CHARACTER)_Owner` casts
-- [ ] Story compiled by the Owner with `0 error(s), 0 warning(s)`
+- [x] Story compiled by the Owner with `0 error(s), 0 warning(s)` — 2026-11-25 16:58, after three rounds (log.txt, no type mismatch)
 - [x] The Fool's restored header names `PROC_ARCANA_Fool_Aspect_Init` (the Owner's rename kept)
 - [ ] QA_ARC-0035 passes (each changed event still fires; the 27 casts filter nothing)
 
@@ -89,3 +89,4 @@ appear instead of tickets later.
 - 2026-11-25 — Round 2 applied (`[fechado] ARC-0035`): backup of the round-1 goals in `90/94/ARC-0035_2026-11-25/goals_round1/`; 11 goals copied and checked byte for byte; `check_osiris` on the game 0/0; `sync_data`. Next: the Owner compiles.
 - 2026-11-25 — Compile 16:53: 9 errors / 6 warnings, the same mismatch on `CrossedBy` and `HubrisSpent` (hidden in round 1: a rule stops at its first mismatch). Round 3 in `build.pl`: both take a GUIDSTRING Owner; the six DBs left with a CHARACTER Owner compiled in round 2 outside the failing rules. Waiting: a `[fechado] ARC-0035` to copy `ARCANA_Kingmaker_Crossing`.
 - 2026-11-25 — Round 3 applied (`[fechado] ARC-0035`): `ARCANA_Kingmaker_Crossing` copied (backup `90/94/ARC-0035_2026-11-25/goals_round2/`); the game's 11 goals equal `goals/`; `check_osiris` 0/0; `sync_data`. Next: the Owner compiles.
+- 2026-11-25 — The Owner compiled (16:58): `log.txt` 0 error(s), 0 warning(s); `story.div.osi` rewritten, so the game now runs ARC-0035 and ARC-0020's Deceiver goals. Next: QA_ARC-0035.

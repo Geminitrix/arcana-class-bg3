@@ -2,21 +2,6 @@
 
 ### Compile("C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3\Data\Mods\AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7\Story\story.div","r+")
 DeleteAllData
-line 409481: error: 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409483: error: error in rule THEN-part: action 2 "DB_ARCANA_Kingmaker_HubrisSpent((GUIDSTRING), (GUIDSTRING))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409501: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409501: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409522: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409522: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409538: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409538: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409559: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409559: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409584: error: 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409584: warning: 'DB_ARCANA_Kingmaker_HubrisSpent': 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409600: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410120: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410120: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
 
 DIV events not referenced:
 --------------------------
@@ -340,4 +325,5 @@ DB_WYR_Chess_LifeGems( (ITEM)_ )
 DB_TWN_CentralSquare_UsedPlaques( (INTEGER)_, (ITEM)_ )
 DB_WYR_KillDirectorGortash_SteelWatcherReplacement_Temp( (CHARACTER)_ )
 
-9 error(s), 6 warning(s). Compilation ended.
+0 error(s), 0 warning(s). Compilation ended.
+DeleteAllData
