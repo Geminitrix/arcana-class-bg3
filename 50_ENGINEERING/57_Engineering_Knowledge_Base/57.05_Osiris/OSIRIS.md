@@ -586,7 +586,7 @@ ENDEXITSECTION
 - `CombatEnded(_Combat)` is any fight on the map. Clear only the rows of owners who are not still fighting
   elsewhere: a QRY that succeeds when `CombatGetGuidFor(_Owner, _Other)` gives an `_Other != _Combat`, used
   negated (the Kingmaker's `QRY_ARCANA_Kingmaker_FightOver`, the Grudge's `QRY_ARCANA_Resonant_Grudge_FightOver`).
-- A DB that two goals touch is pinned in its owner's INITSECTION (W).
+- A DB that two goals touch is pinned in its owner's INITSECTION (W). Pin each column with the type its writers already use: read the PROC heads, not only the events (the Kingmaker's PROCs declare `(GUIDSTRING)_Owner`; a CHARACTER pin there failed the compile with "parameter 1 type mismatch … Rule skipped", ARC-0035). A failed compile leaves the previous `story.div.osi` in place: the game keeps running the old story until a compile succeeds.
 
 ### 13.7 Generated goals
 

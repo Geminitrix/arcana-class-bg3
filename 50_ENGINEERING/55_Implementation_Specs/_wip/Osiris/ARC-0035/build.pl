@@ -8,16 +8,20 @@
 use strict; use warnings;
 my $hdr = do { local $/; open my $h, '<', 'fool_header.txt' or die; <$h> };
 my $Z = '(CHARACTER)NULL_00000000-0000-0000-0000-000000000000';
+# The Owner column is GUIDSTRING wherever the Kingmaker's PROCs write it: 49 of them declare (GUIDSTRING)_Owner. Pinning
+# it CHARACTER failed the compile of 2026-11-25 16:47 (72 "parameter 1 type mismatch", 12 DBs). $G marks those columns;
+# the DBs that compiled with a CHARACTER Owner keep it.
+my $G = '(GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000';
 my %pins = (
   ARCANA_Kingmaker_Wheel => [
-    ['OnWheel', "$Z, $Z, \"\", 0, 0"], ['Counter', "$Z, 0"], ['Moving', "$Z, $Z, \"\", 0, 0"], ['Pending', "$Z, $Z"],
-    ['Enemies', "$Z, 0"], ['Held', "$Z, $Z"], ['ReignTime', "$Z, $Z, 0"], ['Stopped', "$Z, 0"],
+    ['OnWheel', "$G, $Z, \"\", 0, 0"], ['Counter', "$G, 0"], ['Moving', "$G, $Z, \"\", 0, 0"], ['Pending', "$Z, $Z"],
+    ['Enemies', "$Z, 0"], ['Held', "$Z, $Z"], ['ReignTime', "$Z, $Z, 0"], ['Stopped', "$G, 0"],
     ['Next', '"", ""'], ['Opposite', '"", ""'], ['PositionStatus', '"", ""'], ['CrossStatus', '0, ""'],
-    ['NewFallen', "$Z, $Z"], ['NewRuler', "$Z, $Z"], ['NewReigning', "$Z, $Z"] ],
-  ARCANA_Kingmaker_Crossing => [ ['CrossedBy', "$Z, $Z, $Z"], ['CrossSlot', "$Z, $Z, 0"], ['CrossPair', "$Z, $Z, $Z"], ['HubrisSpent', "$Z, $Z"] ],
+    ['NewFallen', "$G, $Z"], ['NewRuler', "$G, $Z"], ['NewReigning', "$G, $Z"] ],
+  ARCANA_Kingmaker_Crossing => [ ['CrossedBy', "$Z, $Z, $Z"], ['CrossSlot', "$G, $Z, 0"], ['CrossPair', "$G, $Z, $Z"], ['HubrisSpent', "$Z, $Z"] ],
   ARCANA_Kingmaker_CrownTheKing => [ ['King', "$Z, $Z"], ['Best', "$Z, $Z, 0"] ],
-  ARCANA_Kingmaker_KingsCourt => [ ['Court', "$Z, $Z, \"\""], ['Condemned', "$Z, $Z"] ],
-  ARCANA_Kingmaker_Usurp => [ ['UsurpFirst', "$Z, $Z, \"\", 0, 0"] ],
+  ARCANA_Kingmaker_KingsCourt => [ ['Court', "$G, $Z, \"\""], ['Condemned', "$G, $Z"] ],
+  ARCANA_Kingmaker_Usurp => [ ['UsurpFirst', "$G, $Z, \"\", 0, 0"] ],
 );
 for my $f (glob 'before/*.txt') {
   (my $g = $f) =~ s{^before/|\.txt$}{}g;

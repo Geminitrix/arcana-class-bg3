@@ -22,3 +22,14 @@ rule (57.05 §5). The Kingmaker always takes turns and receives these statuses a
   casts above (no rule added, removed or reordered).
 - Not yet: the Owner's compile (`log.txt` must end with `0 error(s), 0 warning(s)` and contain no "type mismatch"), and the
   Kingmaker smoke test `61.02/Class/QA_ARC-0035.md`.
+
+## Round 2 (2026-11-25, after the Owner's compile at 16:47)
+
+The first apply failed the compile: 41 errors, 32 warnings, all `'DB_ARCANA_Kingmaker_X': conflict with function
+definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER) … Rule skipped`, on 12 DBs (OnWheel, Moving,
+Counter, Stopped, NewFallen, NewRuler, NewReigning, CrossSlot, CrossPair, Court, Condemned, UsurpFirst; LawPending's
+"type of parameter 2 unknown" followed from a skipped rule). Root cause: 52 Kingmaker PROC heads declare
+`(GUIDSTRING)_Owner`; the pins typed the Owner column CHARACTER. Only events had been checked. Fix: those 12 pins take a
+`(GUIDSTRING)` Owner (`build.pl`); the 8 DBs that compiled with a CHARACTER Owner keep it; every other column is what the
+PROC heads declare (`(CHARACTER)_Creature`, STRING positions, INTEGER sides and orders). The failed compile did not write
+`story.div.osi` (still 00:04): the game runs the story of the morning until the next clean compile.
