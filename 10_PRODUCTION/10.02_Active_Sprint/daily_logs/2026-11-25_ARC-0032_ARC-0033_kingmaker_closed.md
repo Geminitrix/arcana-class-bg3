@@ -19,3 +19,5 @@ propagated (DESIGN §7.3, 23.02, 32.01, 05.02). Usurp's text lost "Once per comb
 vanilla Riposte's own condition, the Owner chose to put it back. Block given (Toolkit, game open): the Conditions as
 before the edit, `IsMiss()` back and `HasStatus('INVISIBILITY')` without `context.Source`, as in vanilla. No design change.
 ARC-0034 opened for it (implementation: claude; applied on the Owner's `[fechado] ARC-0034`), INVISIBILITY restored too.
+
+**ARC-0034 done (2026-11-25):** the Owner played the Windborn's L5.3 with the restored Riposte conditions: pass.

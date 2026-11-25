@@ -4,7 +4,7 @@ title: "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)"
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: unbound
-status: in_qa
+status: done
 owner: Mod Engineer
 implementation: claude
 priority: must
@@ -49,16 +49,18 @@ Nothing else in the entry changes.
 ## Acceptance criteria
 
 - [x] Both copies carry the restored `Conditions`; the rest of the entry is unchanged (one line each against the backup; the `.stats` entry is identical to the 51 copy before `0f30eac`).
-- [ ] In game (ARC-0026 L5.3): with Wind Whispers up, an unmarked enemy's melee attack that misses offers the Riposte;
-      one that hits does not.
+- [x] In game (ARC-0026 L5.3): with Wind Whispers up, an unmarked enemy's melee attack that misses offers the Riposte;
+      one that hits does not (the Owner's playtest, 2026-11-25).
 - [x] `sync_data`, commit and push (OR-40).
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`)
 
 ## Log
 
 - 2026-11-25 — created on the Owner's request: restore `IsMiss()` and `HasStatus('INVISIBILITY')` as tested and approved.
 - 2026-11-25 — built by Claude on the Owner's `[fechado]` (backup `94_Safety_Backups/ARC-0034_2026-11-25/`); waiting for
   the Owner's L5.3 check in game.
+- 2026-11-25 — done. The Owner played L5.3 and it passes. DoD: criteria met; outputs listed; no numbers outside 25;
+  05 unchanged (the game matches 05.02 again); README matches 05.00; daily log; `check_propagation` OK; `sync_data` run.
