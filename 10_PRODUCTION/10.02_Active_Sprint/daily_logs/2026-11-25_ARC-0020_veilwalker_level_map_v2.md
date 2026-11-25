@@ -23,3 +23,7 @@ divergences and one dangling list reference fixed; the Deceiver's Osiris split o
 (DV36, 6 goals retired, 11 written, every old rule kept); generators and the PC deck row done. ARC-0020 → `in_qa`. **Next:**
 the Owner compiles the Story (log.txt: 0 errors) and plays QA_ARC-0020. Pre-existing, not ours: `check_osiris` shows 6
 errors / 23 warnings in the Fool, Kingmaker and Windborn goals.
+
+**ARC-0035 created (Owner):** the 6 errors and 23 warnings of `check_osiris` outside the Deceiver investigated — LF lines
+and a deleted header from Story Editor saves (Fool, CrownTheKing, AeolusBag) and 23 shared Kingmaker DBs without type
+pins. None breaks the game (last compile 0 errors). Plan and pin table in the ticket; `implementation: claude`, backlog.
