@@ -2,8 +2,9 @@
 
 *Generated 2026-11-25 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (0)
+## To Do (1)
 
+- **ARC-0034** "Windborn Riposte: restore the tested conditions (IsMiss, INVISIBILITY)"
 
 ## In Progress (0)
 

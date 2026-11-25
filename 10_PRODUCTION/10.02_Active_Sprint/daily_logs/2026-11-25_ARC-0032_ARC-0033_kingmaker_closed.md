@@ -18,3 +18,4 @@ propagated (DESIGN §7.3, 23.02, 32.01, 05.02). Usurp's text lost "Once per comb
 **Windborn Riposte (2026-11-25):** the Owner removed `IsMiss()` thinking it was wrong; told it is the design (WB57) and the
 vanilla Riposte's own condition, the Owner chose to put it back. Block given (Toolkit, game open): the Conditions as
 before the edit, `IsMiss()` back and `HasStatus('INVISIBILITY')` without `context.Source`, as in vanilla. No design change.
+ARC-0034 opened for it (implementation: claude; applied on the Owner's `[fechado] ARC-0034`), INVISIBILITY restored too.
