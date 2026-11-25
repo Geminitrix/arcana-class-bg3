@@ -4,7 +4,7 @@ title: Playtest tickets and a Playtests tab on the Arcana Board
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: in_review
+status: done
 owner: Mod Engineer
 implementation: claude
 priority: should
@@ -37,11 +37,11 @@ created: 2026-10-16
 - [x] First tickets: QA-0001 Resonant (GUIDE_ARC-0017, 33 tests) and QA-0002 Kingmaker (GUIDE_ARC-0008, 49 tests),
       both Ready. Old `TC_*.md` and ARC-0010 stay as they are.
 
-- [ ] Owner opens the Playtests tab on the real board, marks a test on Arcana Test Guides and asks for a sync.
+- [x] Owner opens the Playtests tab on the real board, marks a test on Arcana Test Guides and asks for a sync. — done many times: QA_ARC-0008 (67) and QA_ARC-0026 (65) marked and synced
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`) — criteria met; check_propagation OK; board regenerated; committed (2026-11-25)
 
 ## Log
 
@@ -62,3 +62,4 @@ created: 2026-10-16
   Rules: `61_Test_Plan/_AGENT.md` § Test guides and playtests; DoD engineering row; `/update-board` republishes both.
 - 2026-10-17 — ARC-0027 (Producer, phase D): waiting for the Owner: open the Playtests tab, mark a test and ask for a sync.
 - 2026-10-17 — Producer (ARC-0027 follow-up), Board and Test Guides brought to the rules: `61_Test_Plan/GUIDE_FORMAT.md` and OR-4 (TC draft → GUIDE → QA ticket); guides standardised (titles with display names, "Level N — …" sessions, ids L<level>.<n> / A.<n>, old ids kept in `rule`; no result was lost — the Owner's three stage-2 results copied to their new ids); `playtests.pl` check command, ORPHAN report, titles refreshed at sync, only ready / in_qa guides on the page, owner QA Lead; QA-0004 done (probes, frozen guide), QA-0005 Windborn levels 1–12 (in QA), QA-0001/0002 in QA, QA-0003 backlog (probes never applied; guide renamed _probes); board: WIP = In Progress + In QA ≤ 3 (OR-36), departments from the 9 roles, sprint filter, subclass keys lowercase. Both pages republished.
+- 2026-11-25 — Done (Owner: close what can close). The last criterion is met in use: the Owner marked and synced the Kingmaker (QA_ARC-0008, 67 tests) and the Windborn (QA_ARC-0026, 65 tests) on Arcana Test Guides, and the Board's Playtests tab shows them. The QA-#### tickets of this design were later merged into one QA_ARC per ARC (OR-4, ARC-0027); the tab and the sync work on those.

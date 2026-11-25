@@ -4,7 +4,7 @@ title: "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak"
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: unbound
-status: in_qa
+status: done
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -71,17 +71,17 @@ Tier II got `RESONANT_SURGE_FREE` (seen on a level-7 Windborn). It gains
 - [x] The game's `ARCANA_Aspect_Fool` matches `55/_wip/Unbound/arc0029/ARCANA_Aspect_Fool.txt`; the Story compiles with `0 error(s)`
 - [x] The game's `ARCANA_Aspect_Temperance` carries the `HasPassive(... Temperance_II ...)` condition
 - [x] The Stats edits of §3 are in the game (checked against this list after `sync_data`)
-- [ ] Play: 4 enemies, 3 marked, open the bag with Notus → only those 3 take `HEADWIND_NOTUS`, and keep it until the wind stops
-- [ ] Play: an enemy marked while the wind blows takes the headwind; marked with no wind, it doesn't
-- [ ] Play: The Calm with 2+ turns left hits every enemy under a headwind (1d8 per turn left to level 6, 2d6 from 7), once each; the headwinds end; the bag can reopen the same turn
-- [ ] Play: "the bag is open" shows the turns left and ends with the wind, not a turn early
-- [ ] Play: a Windborn at Tier II does not receive Harmony; a Resonant at Tier II still does
-- [ ] Play: The First Step (first Zephyr Rush free) still works at Tier II and Tier III
-- [ ] The Owner's decisions of 2026-10-20 logged in `21.04/Unbound/DECISIONS.md`; `SPEC_ARC-0026` and `QA_ARC-0026` updated
+- [x] Play: 4 enemies, 3 marked, open the bag with Notus → only those 3 take `HEADWIND_NOTUS`, and keep it until the wind stops — QA_ARC-0026 L2.4 pass
+- [x] Play: an enemy marked while the wind blows takes the headwind; marked with no wind, it doesn't — QA_ARC-0026 L2.5 pass
+- [x] Play: The Calm with 2+ turns left hits every enemy under a headwind (1d8 per turn left to level 6, 2d6 from 7), once each; the headwinds end; the bag can reopen the same turn — QA_ARC-0026 L3.3 pass
+- [x] Play: "the bag is open" shows the turns left and ends with the wind, not a turn early — WB64 (BAG_OPEN ticks at turn start), QA_ARC-0026 L2.x pass
+- [x] Play: a Windborn at Tier II does not receive Harmony; a Resonant at Tier II still does — not played on its own; accepted by the Owner 2026-11-25
+- [x] Play: The First Step (first Zephyr Rush free) still works at Tier II and Tier III — QA_ARC-0026 L3.2 pass, Windborn played to level 12
+- [x] The Owner's decisions of 2026-10-20 logged in `21.04/Unbound/DECISIONS.md`; `SPEC_ARC-0026` and `QA_ARC-0026` updated — superseded by WB57–WB67 and the goal split (ARC-0026, done 2026-11-16)
 
 ## Gates
 
-- [ ] DoD (`00.03`)
+- [x] DoD (`00.03`) — check_propagation Unbound OK (2026-11-25); board regenerated; committed
 
 ## Log
 
@@ -95,3 +95,4 @@ Tier II got `RESONANT_SURGE_FREE` (seen on a level-7 Windborn). It gains
   `ARCANA_Aspect_Temperance` (backup in `94_Safety_Backups/ARC-0029_2026-10-20/`). `sync_data` run (it also brought the
   Owner's ARC-0026 typing and the removal of the probe goal). Next: the Owner compiles the Story and plays the tests above.
 - 2026-10-20 — Owner compiled the Story (12:42, after the Temperance fix of 12:39): `log.txt` 0 error(s), 0 warning(s). Waiting: the play tests.
+- 2026-11-25 — Done (Owner: close what can close). The play items were proven by the Windborn playtest QA_ARC-0026 (all pass): the bag, winds and headwinds (L2.1–L2.5), The First Step (L3.2), The Calm (L3.3), Tier II Fellow Travellers (L7.1–L7.2). The Harmony item was never played on its own: the Owner accepted it as is (no Harmony seen on the Windborn through levels 7–12). The 2026-10-20 goal design was superseded by the Windborn goal split and WB64 (ARC-0026), whose tests passed.

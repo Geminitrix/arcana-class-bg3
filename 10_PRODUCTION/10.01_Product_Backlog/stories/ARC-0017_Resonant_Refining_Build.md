@@ -4,7 +4,7 @@ title: "Resonant refining build — R49–R68 in the game"
 type: feature
 epic: EPIC_Rework_Subclasses
 subclass: resonant
-status: in_qa
+status: ready
 owner: Mod Engineer
 implementation: owner
 priority: should
@@ -45,3 +45,4 @@ in both editions.
 - 2026-10-16 — The test page became one page for every pending test, a tab per subproject (Owner): `61_Test_Plan/TEST_GUIDES.json` lists the guides; results keyed `<ARC>_<test>`; `gen_test_guide_md.pl` writes each record.
 - 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — next build in line; the Owner types it (OR-11): SPEC per level and TOOLKIT_ARC-0017_L<n> guides before typing.
 - 2026-10-17 — ARC-0027 correction: the phase-D line above was wrong — stages 1–4 are already in the game (applied 2026-10-16, before the rulebook). This ticket is in stage 5: the Owner plays the 33 tests (QA-0001); divergences are fixed under OR-11; whatever stage of the SPEC is still unapplied is typed by the Owner. Sprint S01.
+- 2026-11-25 — Parked (Owner): back to `ready`, out of the WIP count (OR-36). The Heartsong gets small changes after the Veilwalker; QA_ARC-0017 (33 tests, none played) waits for them. Stages 1–4 stay in the game as they are.

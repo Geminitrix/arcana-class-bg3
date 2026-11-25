@@ -4,7 +4,7 @@ title: Playtest — The Heartsong — refining R49–R68 (levels 1–12)
 type: playtest
 subclass: resonant
 build: ARC-0017
-status: in_qa
+status: ready
 owner: QA Lead
 sources: [QA-0001, GUIDE_ARC-0017, TC_ARC-0014]
 created: 2026-10-16
@@ -403,3 +403,4 @@ strongest? When did you feel the Resonant level up? What would you call its sign
 ## Log
 
 - 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources QA-0001, GUIDE_ARC-0017, TC_ARC-0014 merged; nothing removed.
+- 2026-11-25 — Parked with ARC-0017 (Owner): small Heartsong changes come after the Veilwalker; these tests wait for them.

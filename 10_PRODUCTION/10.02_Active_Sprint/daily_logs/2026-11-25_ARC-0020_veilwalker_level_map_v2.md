@@ -34,3 +34,8 @@ all 34 goals: 0/0; compare: only pins and casts. Smoke test QA_ARC-0035 (12, dra
 
 **ARC-0035 applied (`[fechado] ARC-0035`):** 11 goals copied after a backup of all 34; `check_osiris` on the game 0/0;
 `sync_data`. ARC-0035 → `in_qa`, QA_ARC-0035 → `ready` (Class tab). Next: the Owner compiles and plays the 12 smoke tests.
+
+**Tickets (Owner, 2026-11-25):** closed ARC-0024 (the Playtests tab and sync in use), ARC-0021 (names chosen and in use;
+Palerider and Heartsong texts carried to their builds) and ARC-0029 (play items proven by QA_ARC-0026; the Harmony item
+accepted without its own test). ARC-0017 (Heartsong build) parked back to `ready` with QA_ARC-0017: small changes after the
+Veilwalker. Windborn propagation brought up to date (WB66–WB67 checked). WIP now 3: ARC-0020, ARC-0030, ARC-0035.
