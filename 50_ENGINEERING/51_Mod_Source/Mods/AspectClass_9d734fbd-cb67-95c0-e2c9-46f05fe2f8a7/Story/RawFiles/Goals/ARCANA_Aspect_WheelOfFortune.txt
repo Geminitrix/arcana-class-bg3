@@ -163,6 +163,20 @@ DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "RISING", 1, _Order);
 RemoveStatus(_Creature, "KINGMAKER_FALLING", _Owner);
 ApplyStatus(_Creature, "KINGMAKER_RISING", -6.0, 1, _Owner);
 
+// Tier III: an ally that would step from Falling to Fallen stays Falling one more turn (SP80); the next step,
+// held, takes it to Rising (the rule above). Its position status never changes, so nothing is removed and given back.
+PROC
+PROC_ARCANA_Kingmaker_Move_Override((GUIDSTRING)_Owner, (CHARACTER)_Creature)
+AND
+DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order)
+AND
+NOT DB_ARCANA_Kingmaker_Held(_Owner, _Creature)
+AND
+HasActiveStatus(_Owner, "ASPECT_AWAKENED_WHEEL_III", 1)
+THEN
+NOT DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order);
+DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
+
 IF
 StatusApplied((CHARACTER)_Enemy, "KINGMAKER_FORESEEN_TECH", _Owner, _)
 AND

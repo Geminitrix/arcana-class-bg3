@@ -89,15 +89,35 @@ PROC_ARCANA_Kingmaker_Wheel_Init();
 //REGION Coronation and Dethrone
 // Every tier binds here: an ally enters at Rising, an enemy at Falling (SP122). Tyche (Tier I) frees the first
 // Turn the Spoke of each turn instead, in Stats (KINGMAKER_TYCHE).
+// The card sets the position, the creature sets the side (SP92, SP126): a Dethroned ally is still an ally on the
+// Wheel, a crowned enemy still an enemy. A creature that is not an enemy of the Kingmaker enters on the allies' side.
 IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
+AND
+IsEnemy(_Owner, _Creature, 0)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 1);
 
 IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ALLY_TECH", (CHARACTER)_Owner, _)
+AND
+IsEnemy(_Owner, _Creature, 1)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "RISING", 0);
+
+IF
 StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
+AND
+IsEnemy(_Owner, _Creature, 1)
 THEN
 PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 0);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_BIND_ENEMY_TECH", (CHARACTER)_Owner, _)
+AND
+IsEnemy(_Owner, _Creature, 0)
+THEN
+PROC_ARCANA_Kingmaker_Bind(_Owner, _Creature, "FALLING", 1);
 
 PROC
 PROC_ARCANA_Kingmaker_Bind((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)

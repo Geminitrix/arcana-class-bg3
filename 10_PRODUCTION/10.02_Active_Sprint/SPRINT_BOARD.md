@@ -2,9 +2,8 @@
 
 *Generated 2026-11-24 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (1)
+## To Do (0)
 
-- **ARC-0033** "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies fall, allies bound by Dethrone play as enemies"
 
 ## In Progress (0)
 
@@ -17,13 +16,14 @@
 ## Spec Ready (0)
 
 
-## In QA (5)
+## In QA (6)
 
 - **ARC-0008** Raise the Kingmaker (was the Spinner) to the subclass standard (design)
 - **ARC-0017** "Resonant refining build — R49–R68 in the game"
 - **ARC-0029** "Osiris fixes from the Windborn review: the Fool goal and Harmony's leak"
 - **ARC-0030** "Osiris goals: one standard for comments and regions, and preventive fixes"
 - **ARC-0032** "Kingmaker Story split: restore the rules lost and the Master of Laws order"
+- **ARC-0033** "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies fall, allies bound by Dethrone play as enemies"
 
 ## Done (2)
 

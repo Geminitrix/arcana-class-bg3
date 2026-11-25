@@ -4,7 +4,7 @@ title: "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies 
 type: bug
 epic: EPIC_Rework_Subclasses
 subclass: kingmaker
-status: ready
+status: in_qa
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -129,7 +129,8 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 
 ## Acceptance criteria
 
-- [ ] B1 in the Toolkit, B2 and B3 in the Story; the Story compiles with 0 errors (`Story/log.txt`).
+- [x] B1 (both copies: `Interrupt.txt`, `Interrupt.stats`), B2 and B3 in the game (Claude, 2026-11-24, `[fechado]`).
+- [ ] The Story compiles with 0 errors (`Story/log.txt`).
 - [ ] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
       drops to Falling before the blow (L12.4).
 - [ ] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
@@ -147,3 +148,7 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 
 - 2026-11-24 — created from the Owner's report (Foreseen, Anticipation, allies with Hubris and Crossings after
   Dethrone). Causes traced in the game files; SP126 logged (the side follows the creature, not the card).
+- 2026-11-24 — built by Claude on the Owner's `[fechado]` (backup `94_Safety_Backups/ARC-0033_2026-11-24/`): B1
+  `InterruptDefaultValue` `Ask;Enabled` in `Interrupt.txt` and `Interrupt.stats`; B2 the hold rule in
+  `ARCANA_Aspect_WheelOfFortune`; B3 the four bind rules in `ARCANA_Kingmaker_Wheel`. `check_osiris`: no errors from
+  these edits (two LF lines in `CrownTheKing` come from the Story Editor). Waiting for the Owner: compile, then play.
