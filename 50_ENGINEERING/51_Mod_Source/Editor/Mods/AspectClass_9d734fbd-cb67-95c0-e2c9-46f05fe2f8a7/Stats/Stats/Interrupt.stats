@@ -78,7 +78,7 @@
         <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnCastHit" enumeration_type_name="InterruptContext" version="1" />
         <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self" enumeration_type_name="InterruptContextScope" version="1" />
         <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and IsMiss() and not HasStatus('WINDSWEPT',context.Source) and not HasStatus('INVISIBILITY') and not AnyEntityIsItem() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source) and HasLastAttackTriggered();" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and not HasStatus('WINDSWEPT',context.Source) and not HasStatus('INVISIBILITY',context.Source) and not AnyEntityIsItem() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source) and HasLastAttackTriggered();" />
         <field name="Properties" type="StringTableFieldDefinition" value="UseSpell(SWAP,Target_Arcana_WindRiposte,true,true,true)" />
         <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
         <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
@@ -192,11 +192,11 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h76d134b8g69ceg3a44g5aa9g53b28e79fc09" version="2" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="he938ff6fgf1dfgf6a0g20bag6fe87eb1c7e1" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_TrueStrike" />
-        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnSpellCast" enumeration_type_name="InterruptContext" version="1" />
-        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Nearby" enumeration_type_name="InterruptContextScope" version="1" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" value="OnPostRoll" enumeration_type_name="InterruptContext" version="1" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" value="Self;Nearby" enumeration_type_name="InterruptContextScope" version="1" />
         <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
-        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source, context.Observer) and IsAttack() and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source))" />
-        <field name="Properties" type="StringTableFieldDefinition" value="ApplyStatus(OBSERVER_SOURCE,KINGMAKER_FORESEEN_TECH,100,0)" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and HasInterruptedAttack() and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source)) and not AnyEntityIsItem();" />
+        <field name="Properties" type="StringTableFieldDefinition" value="IF(HasStatus('KINGMAKER_REIGNING', context.Source)):AdjustRoll(-1d4);ApplyStatus(OBSERVER_SOURCE,KINGMAKER_FORESEEN_TECH,100,0);" />
         <field name="Cost" type="StringTableFieldDefinition" value="ReactionActionPoint:1" />
         <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" value="Ask;Enabled" enumeration_type_name="InterruptDefaultValue" version="1" />
       </fields>

@@ -3739,13 +3739,14 @@
         <field name="UUID" type="IdTableFieldDefinition" value="ab49e12c-403d-1439-f2a5-836fab9c05be" />
         <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_FORESEEN_READY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6751e25fg245dg6ea4gec87ga75748d59f76" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf098e7acgf400g4524ge3d9g6c8afcd69067" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf098e7acgf400g4524ge3d9g6c8afcd69067" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_TrueStrike" />
         <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_FORESEEN_READY" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_Aspect_Foreseen)" />
         <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" value="OnCombatEnded" enumeration_type_name="StatusEvent" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="ForceOverhead" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" value="StartTurn" enumeration_type_name="TickType" version="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

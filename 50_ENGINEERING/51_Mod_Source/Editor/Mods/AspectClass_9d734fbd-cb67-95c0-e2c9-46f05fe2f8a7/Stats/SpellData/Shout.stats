@@ -3344,7 +3344,7 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_FORESEEN_READY,100,-1)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Divination_TrueStrike" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc4390e98g4788g21b3ge32cgd6ea3e410597" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb3bd950gb2e0gf9b1gc8ecg9caa22e0282c" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hfb3bd950gb2e0gf9b1gc8ecg9caa22e0282c" version="3" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(KINGMAKER_FORESEEN_READY,100,-1)" />
         <field name="PreviewCursor" type="EnumerationTableFieldDefinition" value="Cast" enumeration_type_name="CursorMode" version="1" />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
