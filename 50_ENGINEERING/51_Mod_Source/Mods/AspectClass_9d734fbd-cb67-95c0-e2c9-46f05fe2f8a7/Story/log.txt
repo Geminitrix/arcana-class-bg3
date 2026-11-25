@@ -2,79 +2,21 @@
 
 ### Compile("C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3\Data\Mods\AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7\Story\story.div","r+")
 DeleteAllData
-line 407172: error: 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 407172: warning: 'DB_ARCANA_Kingmaker_Moving': 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 407188: error: 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 407188: warning: 'DB_ARCANA_Kingmaker_Moving': 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 407217: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 407217: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409474: error: 'DB_ARCANA_Kingmaker_NewReigning': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409474: warning: 'DB_ARCANA_Kingmaker_NewReigning': 'DB_ARCANA_Kingmaker_NewReigning': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409486: error: 'DB_ARCANA_Kingmaker_NewReigning': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409486: warning: 'DB_ARCANA_Kingmaker_NewReigning': 'DB_ARCANA_Kingmaker_NewReigning': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409493: error: 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409493: warning: 'DB_ARCANA_Kingmaker_NewFallen': 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409512: error: 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409512: warning: 'DB_ARCANA_Kingmaker_NewFallen': 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409530: error: 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409530: warning: 'DB_ARCANA_Kingmaker_NewRuler': 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409549: error: 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409549: warning: 'DB_ARCANA_Kingmaker_NewRuler': 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409566: error: 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409566: warning: 'DB_ARCANA_Kingmaker_NewFallen': 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409573: error: 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409573: warning: 'DB_ARCANA_Kingmaker_NewRuler': 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409580: error: 'DB_ARCANA_Kingmaker_CrossPair': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409580: warning: 'DB_ARCANA_Kingmaker_CrossPair': 'DB_ARCANA_Kingmaker_CrossPair': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409597: error: 'DB_ARCANA_Kingmaker_CrossPair': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409597: warning: 'DB_ARCANA_Kingmaker_CrossPair': 'DB_ARCANA_Kingmaker_CrossPair': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409607: error: 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409607: warning: 'DB_ARCANA_Kingmaker_CrossSlot': 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409614: error: 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409614: warning: 'DB_ARCANA_Kingmaker_CrossSlot': 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409624: error: 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409624: warning: 'DB_ARCANA_Kingmaker_CrossSlot': 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409633: error: 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409633: warning: 'DB_ARCANA_Kingmaker_CrossSlot': 'DB_ARCANA_Kingmaker_CrossSlot': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409674: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409674: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409683: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409683: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409693: error: 'DB_ARCANA_Kingmaker_Court': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409693: warning: 'DB_ARCANA_Kingmaker_Court': 'DB_ARCANA_Kingmaker_Court': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409765: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409765: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 409784: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 409784: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410057: error: 'DB_ARCANA_Kingmaker_Stopped': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410057: warning: 'DB_ARCANA_Kingmaker_Stopped': 'DB_ARCANA_Kingmaker_Stopped': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410070: error: Auto-define Osiris query "DB_ARCANA_Kingmaker_LawPending"()/2: failed: type of parameter 2 unknown
-line 410078: error: 'DB_ARCANA_Kingmaker_Condemned': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410078: warning: 'DB_ARCANA_Kingmaker_Condemned': 'DB_ARCANA_Kingmaker_Condemned': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410110: error: 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410110: warning: 'DB_ARCANA_Kingmaker_NewFallen': 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410342: error: 'DB_ARCANA_Kingmaker_UsurpFirst': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410342: warning: 'DB_ARCANA_Kingmaker_UsurpFirst': 'DB_ARCANA_Kingmaker_UsurpFirst': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410565: error: 'DB_ARCANA_Kingmaker_Counter': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410565: warning: 'DB_ARCANA_Kingmaker_Counter': 'DB_ARCANA_Kingmaker_Counter': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410574: error: 'DB_ARCANA_Kingmaker_Counter': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410574: warning: 'DB_ARCANA_Kingmaker_Counter': 'DB_ARCANA_Kingmaker_Counter': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410591: error: 'DB_ARCANA_Kingmaker_Stopped': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410591: warning: 'DB_ARCANA_Kingmaker_Stopped': 'DB_ARCANA_Kingmaker_Stopped': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410602: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410602: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410611: error: 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410611: warning: 'DB_ARCANA_Kingmaker_Moving': 'DB_ARCANA_Kingmaker_Moving': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
-line 410633: error: 'DB_ARCANA_Kingmaker_NewFallen': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410635: error: error in rule THEN-part: action 1 "DB_ARCANA_Kingmaker_NewFallen((GUIDSTRING), (GUIDSTRING))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410642: error: 'DB_ARCANA_Kingmaker_NewReigning': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410644: error: error in rule THEN-part: action 1 "DB_ARCANA_Kingmaker_NewReigning((GUIDSTRING), (GUIDSTRING))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410651: error: 'DB_ARCANA_Kingmaker_NewRuler': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410653: error: error in rule THEN-part: action 1 "DB_ARCANA_Kingmaker_NewRuler((GUIDSTRING), (GUIDSTRING))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410764: error: 'DB_ARCANA_Kingmaker_Stopped': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410766: error: error in rule THEN-part: action 1 "DB_ARCANA_Kingmaker_Stopped((GUIDSTRING), (INTEGER))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410771: error: 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
-line 410771: warning: 'DB_ARCANA_Kingmaker_OnWheel': 'DB_ARCANA_Kingmaker_OnWheel': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409481: error: 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409483: error: error in rule THEN-part: action 2 "DB_ARCANA_Kingmaker_HubrisSpent((GUIDSTRING), (GUIDSTRING))": parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409501: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409501: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409522: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409522: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409538: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409538: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409559: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409559: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409584: error: 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 409584: warning: 'DB_ARCANA_Kingmaker_HubrisSpent': 'DB_ARCANA_Kingmaker_HubrisSpent': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
+line 409600: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 410120: error: 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER)
+line 410120: warning: 'DB_ARCANA_Kingmaker_CrossedBy': 'DB_ARCANA_Kingmaker_CrossedBy': conflict with function definition: parameter 1 type mismatch: got (GUIDSTRING), expected (CHARACTER). Rule skipped.
 
 DIV events not referenced:
 --------------------------
@@ -398,4 +340,4 @@ DB_WYR_Chess_LifeGems( (ITEM)_ )
 DB_TWN_CentralSquare_UsedPlaques( (INTEGER)_, (ITEM)_ )
 DB_WYR_KillDirectorGortash_SteelWatcherReplacement_Temp( (CHARACTER)_ )
 
-41 error(s), 32 warning(s). Compilation ended.
+9 error(s), 6 warning(s). Compilation ended.
