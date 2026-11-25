@@ -185,3 +185,7 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
   on a Reigning ally, which passed too.
 - 2026-11-25 — the Owner chose the −1d4 on the interrupted roll (SP127); B1 gets the `Properties` and the text; SP127
   propagated (DESIGN §7.9, 23.02, 25, 32.01, SPEC, QA L12.4; the card ids renamed `Shout_Arcana_Created_*` there too).
+- 2026-11-25 — third round: the Owner applied B1, still no prompt. The game's Conditions carry one extra test,
+  `HasLastAttackTriggered()`: vanilla `CommonConditions.khn` (l. 1677) reads `context.HitDescription.LastAttack`, which only
+  exists once a hit landed — its 14 vanilla interrupts are all `OnCastHit`. At `OnPostRoll` it is always false. Fix:
+  remove `and HasLastAttackTriggered()` from the Conditions; everything else stays as B1 says.
