@@ -2,8 +2,9 @@
 
 *Generated 2026-11-24 by `82_Automation/update_board.pl` — do not edit.*
 
-## To Do (0)
+## To Do (1)
 
+- **ARC-0033** "Kingmaker bugs: Ready: Foreseen never prompts, Anticipation lets allies fall, allies bound by Dethrone play as enemies"
 
 ## In Progress (0)
 

@@ -579,6 +579,22 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Fails if:** Anything missing or extra.
 - **Result:** —
 
+### A.3 · Dethrone on an ally (level 7+, a Reigning ally near the Wheel)
+
+- **Rule:** SP126 · ARC-0033
+- **Steps:** Dethrone an ally; follow it until it Reigns, then until it is Fallen next to a Reigning ally
+- **Expected:** It enters Falling; it never gets Hubris; it takes no Crossing; it can be crowned King
+- **Fails if:** It gets Hubris, takes a Crossing, or is never counted as an ally for the crown.
+- **Result:** —
+
+### A.4 · Coronation on an enemy (level 7+)
+
+- **Rule:** SP126 · ARC-0033
+- **Steps:** Crown an enemy; follow it until it Reigns, then until it is Fallen next to a Reigning ally
+- **Expected:** It enters Rising; it gets Hubris when it Reigns and is never Regent or King; it crosses when Fallen
+- **Fails if:** It becomes Regent or King, gets no Hubris, or does not cross.
+- **Result:** —
+
 ## Appendix — TC_ARC-0008 (design-stage draft, verbatim)
 
 Header of the original file:

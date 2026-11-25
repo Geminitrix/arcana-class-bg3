@@ -186,10 +186,13 @@ easier to hit and can't react — so a Crossing pair multiplies instead of stack
 
 | Way in | Who | Position (every tier, SP122) |
 |---|---|---|
-| *Coronation* (§7.2) | An ally or the Kingmaker | Rising |
-| *Dethrone* (§7.3) | An enemy | Falling |
+| *Coronation* (§7.2) | Anyone (usually an ally or the Kingmaker) | Rising |
+| *Dethrone* (§7.3) | Anyone (usually an enemy) | Falling |
 | *Wheel of Ixion* (§7.8) | Every enemy in the line | Falling |
 | *Succession* (§8.4) | The nearest enemy off the Wheel | The dead enemy's position |
+
+The card sets the position; the side is who the creature is to the Kingmaker when it enters (SP92, SP126): a
+Dethroned ally is still an ally on the Wheel, a crowned enemy still an enemy.
 
 Coronation at Rising and Dethrone at Falling put the two creatures in **anti-phase**: at the next turn of
 the Wheel the ally reigns while the enemy hits the bottom.
