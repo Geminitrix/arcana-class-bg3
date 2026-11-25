@@ -1,10 +1,11 @@
 id: SPL_Kingmaker_Foreseen
-reviewed: "2026-11-24 ARC-0032 — game_ids: the Kingmaker Story is split into one goal per feature"
+reviewed: "2026-11-25 ARC-0033 — SP127 (Foreseen: −1d4 on the interrupted roll); the card is Shout_Arcana_Created_Foreseen"
 kind: spell
 subclass: Kingmaker
 ticket: ARC-0008
 design: "21.04/Kingmaker/DESIGN.md §7.9"
 balance_report: "22.05/2026-10-13_ARC-0008_Kingmaker_Balance.md"
-game_ids: [Shout_Arcana_Created_Aspect_ReadyForeseen, Interrupt_Arcana_Aspect_Foreseen, KINGMAKER_FORESEEN_READY, ARCANA_Aspect_WheelOfFortune]
+game_ids: [Shout_Arcana_Created_Foreseen, Interrupt_Arcana_Aspect_Foreseen, KINGMAKER_FORESEEN_READY, ARCANA_Aspect_WheelOfFortune]
 values:
+  roll_penalty: { value: "1d4", note: "subtracted from the interrupted attack roll when the attacker was Reigning (SP127)" }
   uses: { value: 1, unit: count, note: "per round; reaction. Readied with a Bonus Action, no slot, until combat ends (SP114)" }

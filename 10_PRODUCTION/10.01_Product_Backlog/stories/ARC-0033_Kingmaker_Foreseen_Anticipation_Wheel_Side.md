@@ -52,17 +52,23 @@ Psionic Backlash: 9 interrupts, none with `IsAttack()`), while every reaction to
 `Public/Shared*`, `GustavDev` `Stats/Generated/Data/Interrupt.txt`, extracted with Divine on 2026-11-25.
 
 **Change (Toolkit, Stats → Interrupt → `Interrupt_Arcana_Aspect_Foreseen`)**, keeping `InterruptDefaultValue`
-`Ask;Enabled`, `Properties` and `Cost` as they are:
+`Ask;Enabled` and `Cost` as they are:
 
 | Field | Value |
 |---|---|
 | `InterruptContext` | `OnPostRoll` |
 | `InterruptContextScope` | `Self;Nearby` (the Kingmaker may be the target too; `Interrupt_Arcana_Reaction_GaleDeflection` uses it) |
 | `Conditions` | `IsAbleToReact(context.Observer) and HasInterruptedAttack() and Enemy(context.Source, context.Observer) and (Self(context.Target, context.Observer) or Ally(context.Target, context.Observer)) and (HasStatus('KINGMAKER_REIGNING', context.Source) or HasStatus('KINGMAKER_FALLING', context.Source)) and not AnyEntityIsItem()` |
+| `Properties` | `IF(HasStatus('KINGMAKER_REIGNING', context.Source)):AdjustRoll(-1d4);ApplyStatus(OBSERVER_SOURCE,KINGMAKER_FORESEEN_TECH,100,0)` (SP127; the vanilla forms of `Interrupt_BendLuck_Malus` and the Shield's `IF(...):AdjustRoll`) |
 
-`OnPostRoll` fires after the attack roll and before the hit resolves: the enemy steps on before the blow lands, but
-its d20 is already rolled. Whether the step should also weigh on that roll (an `AdjustRoll` of the Falling penalty)
-is an Owner decision, asked separately; without it the step counts from the next attack on.
+`OnPostRoll` fires after the attack roll and before the hit resolves: the enemy steps on before the blow lands, and
+(SP127, Owner 2026-11-25) a Reigning attacker's −1d4 also counts on that roll. The condition is read before Osiris moves it.
+
+**Text (`Localization/English/english.xml`, `h76d134b8g69ceg3a44g5aa9g53b28e79fc09`, the reaction's description):**
+
+```
+When an enemy on the Wheel attacks you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. A Reigning attacker also takes a 1d4 penalty to that attack roll.
+```
 
 ### B2 · Aspect of Anticipation (Tier III) — an ally still drops to Fallen
 
@@ -152,7 +158,7 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 - [x] B1 (both copies: `Interrupt.txt`, `Interrupt.stats`), B2 and B3 in the game (Claude, 2026-11-24, `[fechado]`).
 - [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-25 00:04).
 - [ ] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
-      drops to Falling before the blow (L12.4).
+      drops to Falling before the blow and that roll loses 1d4 (L12.4, SP127).
 - [x] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
 - [x] Tier III: Peripeteia on a Reigning ally leaves it Falling, not Fallen (part of L12.2).
 - [x] Dethrone on an ally: it enters Falling, never gets Hubris, never takes a Crossing, and can still be crowned King.
@@ -177,3 +183,5 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
   (Foreseen) fails again: no prompt. Cause: the `OnSpellCast` context (vanilla uses it only for spells); B1 now
   moves it to `OnPostRoll` + `HasInterruptedAttack()` like `Interrupt_FightingStyle_Protection`. L12.2 includes Peripeteia
   on a Reigning ally, which passed too.
+- 2026-11-25 — the Owner chose the −1d4 on the interrupted roll (SP127); B1 gets the `Properties` and the text; SP127
+  propagated (DESIGN §7.9, 23.02, 25, 32.01, SPEC, QA L12.4; the card ids renamed `Shout_Arcana_Created_*` there too).

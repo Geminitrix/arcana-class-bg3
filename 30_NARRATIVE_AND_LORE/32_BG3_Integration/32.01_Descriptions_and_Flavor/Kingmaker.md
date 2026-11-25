@@ -92,7 +92,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 
 | Internal id | Name | Description |
 |---|---|---|
-| `Interrupt_Arcana_Aspect_Foreseen` | Foreseen | When an enemy on the Wheel is about to attack you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. |
+| `Interrupt_Arcana_Aspect_Foreseen` | Foreseen | When an enemy on the Wheel attacks you or an ally, push it one position onward before the blow lands, if it is Reigning or Falling. A Reigning attacker also takes a 1d4 penalty to that attack roll. |
 
 ## Convene the Court — the seven options
 

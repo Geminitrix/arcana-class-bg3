@@ -547,7 +547,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 
 - **Rule:** P46 · SPEC_ARC-0008
 - **Steps:** A Reigning enemy on the Wheel attacks an ally; take Foreseen
-- **Expected:** Before the roll it becomes Falling (no 19–20 crit, −1d4); a Falling attacker becomes Fallen and may cross | The step lands after the roll → swap the position statuses in the interrupt's own Properties
+- **Expected:** The reaction is offered once the attack is rolled; taken, a Reigning attacker becomes Falling and that roll loses 1d4 (SP127); a Falling attacker becomes Fallen and may cross
 - **Fails if:** It does not happen as expected.
 - **Result:** —
 

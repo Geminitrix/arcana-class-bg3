@@ -338,7 +338,8 @@ allies included — aim it away from the party.
 **Reigning** or **Falling**, it moves one position on **before** the attack — Reigning → Falling (loses the
 19–20 crit, takes −1d4), Falling → Fallen (Advantage against it, and a Crossing if a Reigning ally is within
 9 m). Rising or Fallen: nothing happens, so it never crowns the attacker. A Reigning enemy dropped this way
-keeps its *Hubris*. On console the card is cast and readies the reaction until combat ends; on PC holding it
+keeps its *Hubris*. The reaction comes once the attack is rolled and before it lands: a Reigning attacker's
+−1d4 also weighs on that roll (SP127). On console the card is cast and readies the reaction until combat ends; on PC holding it
 in hand is the charge (`02-systems` §8).
 
 ### 7.10 *The Wheel Stops* — capstone (level 11)
@@ -535,7 +536,7 @@ Everything is Stats, Osiris and Khonsu; nothing needs Script Extender. Signature
 ### 13.4 Ids
 
 Ids as built (`SPEC_ARC-0008`, ADR-0002): cards `<Type>_Arcana_Card_Spell_*`; the Aspect cards
-`Shout_Arcana_Created_Aspect_RotaFortunae` and `Shout_Arcana_Created_Aspect_ReadyForeseen`; the reaction
+`Shout_Arcana_Created_RotaFortunae` and `Shout_Arcana_Created_Foreseen`; the reaction
 `Interrupt_Arcana_Aspect_Foreseen`; the utility `Target_Arcana_Util_ConveneTheCourt` (a *Choose* container);
 passives `Arcana_Passive_*` (level 12: `Arcana_Passive_FortunesReach`); statuses `KINGMAKER_*` and `COURT_*`,
 technical ones ending in `_TECH`; Osiris goals `ARCANA_Kingmaker_*` (one per feature; the Wheel in `ARCANA_Kingmaker_Wheel`) and `ARCANA_Aspect_WheelOfFortune`. Full catalogue: `23.02/Kingmaker/`, `05.03`, `05.04`.
