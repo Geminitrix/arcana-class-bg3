@@ -18,7 +18,7 @@ my %pins = (
     ['Enemies', "$Z, 0"], ['Held', "$Z, $Z"], ['ReignTime', "$Z, $Z, 0"], ['Stopped', "$G, 0"],
     ['Next', '"", ""'], ['Opposite', '"", ""'], ['PositionStatus', '"", ""'], ['CrossStatus', '0, ""'],
     ['NewFallen', "$G, $Z"], ['NewRuler', "$G, $Z"], ['NewReigning', "$G, $Z"] ],
-  ARCANA_Kingmaker_Crossing => [ ['CrossedBy', "$Z, $Z, $Z"], ['CrossSlot', "$G, $Z, 0"], ['CrossPair', "$G, $Z, $Z"], ['HubrisSpent', "$Z, $Z"] ],
+  ARCANA_Kingmaker_Crossing => [ ['CrossedBy', "$G, $Z, $Z"], ['CrossSlot', "$G, $Z, 0"], ['CrossPair', "$G, $Z, $Z"], ['HubrisSpent', "$G, $Z"] ],
   ARCANA_Kingmaker_CrownTheKing => [ ['King', "$Z, $Z"], ['Best', "$Z, $Z, 0"] ],
   ARCANA_Kingmaker_KingsCourt => [ ['Court', "$G, $Z, \"\""], ['Condemned', "$G, $Z"] ],
   ARCANA_Kingmaker_Usurp => [ ['UsurpFirst', "$G, $Z, \"\", 0, 0"] ],

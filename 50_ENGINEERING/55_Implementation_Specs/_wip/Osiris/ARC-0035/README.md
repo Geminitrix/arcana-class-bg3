@@ -33,3 +33,11 @@ Counter, Stopped, NewFallen, NewRuler, NewReigning, CrossSlot, CrossPair, Court,
 `(GUIDSTRING)` Owner (`build.pl`); the 8 DBs that compiled with a CHARACTER Owner keep it; every other column is what the
 PROC heads declare (`(CHARACTER)_Creature`, STRING positions, INTEGER sides and orders). The failed compile did not write
 `story.div.osi` (still 00:04): the game runs the story of the morning until the next clean compile.
+
+## Round 3 (after the compile at 16:53: 9 errors, 6 warnings)
+
+The same mismatch on two more DBs, `CrossedBy` and `HubrisSpent`: their rules had been skipped at an earlier DB in round 1
+(a rule stops at its first mismatch), so their own CHARACTER Owner showed only once those were fixed. Both are written by
+`PROC_ARCANA_Kingmaker_Settle_*((GUIDSTRING)_Owner)`: their Owner pins are GUIDSTRING now. The six DBs that keep a
+CHARACTER Owner (Pending, Enemies, Held, ReignTime, King, Best) compiled in round 2 in rules that were not skipped, so
+their type is proven; none of them appears in the nine rules that failed.
