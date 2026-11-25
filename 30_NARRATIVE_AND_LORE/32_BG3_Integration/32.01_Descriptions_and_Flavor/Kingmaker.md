@@ -79,7 +79,7 @@ not have these strings yet (Localization). Polishing the English waits for the e
 | `KINGMAKER_EXPOSED` | Exposed | The Master of Secrets has its measure. Can't become Invisible or hide. |
 | `KINGMAKER_CROSSING_HUBRIS_TECH` | The Crossing | Fell from its pride while an ally reigned nearby, and took greater Force damage. |
 | `KINGMAKER_CROSSING_TECH` | The Crossing | Lay Fallen while an ally reigned nearby, and took Force damage. |
-| `KINGMAKER_FORESEEN_READY` | Foreseen | Watching the Wheel. Can react with Foreseen until combat ends. |
+| `KINGMAKER_FORESEEN_READY` | Foreseen | Can react to push an attacking enemy one position onward on the Wheel before the blow lands, if it is Reigning or Falling. A Reigning attacker also subtracts 1d4 from that Attack Roll. |
 | `KINGMAKER_HUBRIS` | Hubris | Climbed too high. The next Crossing it suffers deals [1] instead. |
 | `KINGMAKER_REGENT` | Regent | Reigns beside the King without wearing the crown. |
 | `KINGMAKER_REIGNING_LINGER` | Reigning | Cut from the Wheel at its peak. Lands a Critical Hit on a roll of 19 or 20 and has Advantage on Saving Throws until the end of its next turn. |
