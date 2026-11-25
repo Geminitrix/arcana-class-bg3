@@ -130,7 +130,7 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
 ## Acceptance criteria
 
 - [x] B1 (both copies: `Interrupt.txt`, `Interrupt.stats`), B2 and B3 in the game (Claude, 2026-11-24, `[fechado]`).
-- [ ] The Story compiles with 0 errors (`Story/log.txt`).
+- [x] The Story compiles with 0 errors (`Story/log.txt`, 2026-11-25 00:04).
 - [ ] Ready: Foreseen readied; a Reigning enemy on the Wheel attacks an ally: the reaction is offered; taken, the enemy
       drops to Falling before the blow (L12.4).
 - [ ] Tier III: an ally Falling at the turn start stays Falling (status and position), the next turn it goes to Rising.
@@ -152,3 +152,4 @@ so nothing changes for them. Creatures already on the Wheel keep the side they h
   `InterruptDefaultValue` `Ask;Enabled` in `Interrupt.txt` and `Interrupt.stats`; B2 the hold rule in
   `ARCANA_Aspect_WheelOfFortune`; B3 the four bind rules in `ARCANA_Kingmaker_Wheel`. `check_osiris`: no errors from
   these edits (two LF lines in `CrownTheKing` come from the Story Editor). Waiting for the Owner: compile, then play.
+- 2026-11-25 — the Owner compiled: 0 errors, 0 warnings. Next: the playtest criteria.
