@@ -4,14 +4,14 @@ title: "Osiris standard: the 6 errors and 23 warnings of check_osiris in the Foo
 type: chore
 epic: EPIC_Rework_Subclasses
 subclass: none
-status: backlog
+status: spec_ready
 owner: Mod Engineer
 implementation: claude
 priority: should
 value: 2
 effort: 2
 inputs: [game Story/RawFiles/Goals (ARCANA_Aspect_Fool, ARCANA_Kingmaker_*, ARCANA_Aspect_WheelOfFortune, ARCANA_Unbound_AeolusBag), 57.05/OSIRIS.md §13, 82_Automation/check_osiris.pl]
-outputs: [game Story/RawFiles/Goals (the same goals, at the apply), 55/_wip/Osiris/ARC-0035/]
+outputs: [game Story/RawFiles/Goals (the same goals, at the apply), 55/_wip/Osiris/ARC-0035/, 61.02/Class/QA_ARC-0035.md]
 blocked_by: []
 sprint:
 created: 2026-11-25
@@ -70,6 +70,7 @@ appear instead of tickets later.
 - [ ] `check_osiris.pl --compare` before/after: no code difference outside the INITSECTION pins
 - [ ] Story compiled by the Owner with `0 error(s), 0 warning(s)`
 - [ ] The Fool's restored header names `PROC_ARCANA_Fool_Aspect_Init` (the Owner's rename kept)
+- [ ] QA_ARC-0035 passes (each changed event still fires; the 27 casts filter nothing)
 
 ## Gates
 
@@ -82,3 +83,4 @@ appear instead of tickets later.
 - 2026-11-25 — created at the Owner's request after the ARC-0020 goal split: `check_osiris.pl` on the 34 goals of the game
   showed 6 errors and 23 warnings outside the Deceiver; investigated (findings above). The last compile (log.txt,
   2026-11-25 00:04) has 0 errors, so none of them breaks the game.
+- 2026-11-25 — Prepared (the Owner: "Sim, preparar"): `55/_wip/Osiris/ARC-0035/` — `before/` (the game's 11 goals), `goals/` built by `build.pl`, `README.md`. Found while preparing: pinning the Owner columns as CHARACTER needs a cast where an event binds the Kingmaker as an uncast GUIDSTRING (`TurnStarted(_Owner)`, `StatusApplied(_Owner, …)`, the causee `_Owner`), or the Story Editor skips the rule with a type mismatch (57.05 §5) — 27 patterns in 8 goals now read `(CHARACTER)_Owner`. Checks: `check_osiris` on the 34 goals 0 errors / 0 warnings; `--compare`: Fool and Aeolus' Bag same code, the rest only pins and casts. Smoke test `61.02/Class/QA_ARC-0035.md` (12 tests, draft until the apply). Status `spec_ready`: next, a `[fechado] ARC-0035` message to apply, then the Owner compiles.

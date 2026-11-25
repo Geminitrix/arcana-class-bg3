@@ -1,0 +1,267 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_Kingmaker_Court((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
+NOT DB_ARCANA_Kingmaker_Court((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "");
+DB_ARCANA_Kingmaker_Condemned((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_Kingmaker_Condemned((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+PROC_ARCANA_Kingmaker_KingsCourt_Init();
+
+KBSECTION
+// The King's Court: the offices the Kingmaker hands out of combat (seats = Charisma modifier, at least 1), lasting
+// until the next Long Rest, and the offices whose rules need Osiris - Master of Healing, Master of Laws, Master of
+// Coin, Master of Ships. The King's Hand's crown is in PROC_ARCANA_Kingmaker_Crown (ARCANA_Kingmaker_CrownTheKing.txt).
+// The Master of Laws runs in PROC_ARCANA_Kingmaker_AfterTurn, which ARCANA_Kingmaker_Wheel.txt calls after the
+// Wheel's turn-start moves: a TurnStarted rule here would run before them (goals answer in alphabetical order).
+//
+// DBs (tables, rebuilt by PROC_ARCANA_Kingmaker_KingsCourt_Init on a new game and on every load):
+//   DB_ARCANA_Kingmaker_Office(Status, Office)  DB_ARCANA_Kingmaker_HealStep(Position)  DB_ARCANA_Kingmaker_LawStep(Position)
+// DBs (the Court; deleted when the office status ends - death, Long Rest):
+//   DB_ARCANA_Kingmaker_Court(Owner, Holder, Office)   DB_ARCANA_Kingmaker_Seats(Owner, Taken) (deleted at the Long Rest)
+// DBs (the Wheel's, written here):
+//   DB_ARCANA_Kingmaker_Condemned(Owner, Enemy)   Master of Laws: sentenced for the next turn of the Wheel; deleted
+//                                                 then, and at the end of the fight (ARCANA_Kingmaker_Wheel.txt)
+//   DB_ARCANA_Kingmaker_LawPending(Owner, Enemy)  transient, same frame
+//   DB_ARCANA_Kingmaker_CrossPair(Owner, Enemy, Source)   the Master of Ships' Crossings (ARCANA_Kingmaker_Crossing.txt)
+// Reads: DB_ARCANA_Kingmaker_OnWheel, DB_ARCANA_Kingmaker_Stopped, DB_ARCANA_Kingmaker_NewFallen,
+// DB_ARCANA_Kingmaker_CrossedBy. Calls PROC_ARCANA_Kingmaker_Move, PROC_ARCANA_Kingmaker_Crown, PROC_ARCANA_Kingmaker_Settle.
+
+//REGION Tables
+PROC
+PROC_ARCANA_Kingmaker_KingsCourt_Init()
+AND
+DB_ARCANA_Kingmaker_Office(_Status, _Office)
+THEN
+NOT DB_ARCANA_Kingmaker_Office(_Status, _Office);
+
+PROC
+PROC_ARCANA_Kingmaker_KingsCourt_Init()
+AND
+DB_ARCANA_Kingmaker_HealStep(_Position)
+THEN
+NOT DB_ARCANA_Kingmaker_HealStep(_Position);
+
+PROC
+PROC_ARCANA_Kingmaker_KingsCourt_Init()
+AND
+DB_ARCANA_Kingmaker_LawStep(_Position)
+THEN
+NOT DB_ARCANA_Kingmaker_LawStep(_Position);
+
+PROC
+PROC_ARCANA_Kingmaker_KingsCourt_Init()
+THEN
+DB_ARCANA_Kingmaker_Office("COURT_KINGS_HAND", "KINGS_HAND");
+DB_ARCANA_Kingmaker_Office("COURT_LORD_COMMANDER", "LORD_COMMANDER");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_HEALING", "MASTER_OF_HEALING");
+DB_ARCANA_Kingmaker_HealStep("FALLEN");
+DB_ARCANA_Kingmaker_HealStep("RISING");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_LAWS", "MASTER_OF_LAWS");
+DB_ARCANA_Kingmaker_LawStep("REIGNING");
+DB_ARCANA_Kingmaker_LawStep("FALLING");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_SECRETS", "MASTER_OF_SECRETS");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_COIN", "MASTER_OF_COIN");
+DB_ARCANA_Kingmaker_Office("COURT_MASTER_OF_SHIPS", "MASTER_OF_SHIPS");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Kingmaker_KingsCourt_Init();
+//END_REGION
+
+//REGION The Court (level 5)
+IF
+StatusApplied((CHARACTER)_Holder, _Status, (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Kingmaker_Office(_Status, _Office)
+THEN
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office);
+ApplyStatus(_Holder, "COURT_HOLDER", -1.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner)
+AND
+NOT DB_ARCANA_Kingmaker_Seats(_Owner, _)
+THEN
+DB_ARCANA_Kingmaker_Seats(_Owner, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Seats(_Owner, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_Seats(_Owner, _Old);
+DB_ARCANA_Kingmaker_Seats(_Owner, _New);
+
+PROC
+PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Seats(_Owner, _N)
+AND
+GetAbility(_Owner, "Charisma", _Score)
+AND
+IntegerSubtract(_Score, 10, _X)
+AND
+IntegerDivide(_X, 2, _Mod)
+AND
+_Mod < 1
+AND
+_N >= 1
+THEN
+ApplyStatus(_Owner, "COURT_FULL", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_TakeSeat((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Seats(_Owner, _N)
+AND
+GetAbility(_Owner, "Charisma", _Score)
+AND
+IntegerSubtract(_Score, 10, _X)
+AND
+IntegerDivide(_X, 2, _Mod)
+AND
+_Mod >= 1
+AND
+_N >= _Mod
+THEN
+ApplyStatus(_Owner, "COURT_FULL", -1.0, 1, _Owner);
+
+IF
+StatusRemoved((CHARACTER)_Holder, _Status, _, _)
+AND
+DB_ARCANA_Kingmaker_Office(_Status, _Office)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office)
+THEN
+NOT DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office);
+RemoveStatus(_Holder, "COURT_HOLDER", _Owner);
+RemoveStatus(_Holder, "KINGMAKER_HAND_CROWN", _Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+
+IF
+Died(_Holder)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office)
+AND
+DB_ARCANA_Kingmaker_Office(_Status, _Office)
+THEN
+RemoveStatus(_Holder, _Status, _Owner);
+
+IF
+LongRestFinished()
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, _Office)
+AND
+DB_ARCANA_Kingmaker_Office(_Status, _Office)
+THEN
+RemoveStatus(_Holder, _Status, _Owner);
+
+IF
+LongRestFinished()
+AND
+DB_ARCANA_Kingmaker_Seats(_Owner, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_Seats(_Owner, _N);
+RemoveStatus(_Owner, "COURT_FULL", _Owner);
+//END_REGION
+
+//REGION Master of Healing (Level 5)
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_HEAL_STEP_TECH", (CHARACTER)_Healer, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Healer, "MASTER_OF_HEALING")
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, 1, _)
+AND
+DB_ARCANA_Kingmaker_HealStep(_Position)
+THEN
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+
+//REGION Master of Laws (Level 7)
+// After the Wheel turned: a condemned enemy that now Reigns (came from Rising) or Falls (came from Reigning) takes one
+// more step - it skips its reign, or drops to Fallen; from Falling or Fallen nothing more (SP105).
+PROC
+PROC_ARCANA_Kingmaker_AfterTurn((GUIDSTRING)_Owner)
+AND
+NOT DB_ARCANA_Kingmaker_Stopped(_Owner, _)
+AND
+DB_ARCANA_Kingmaker_Condemned(_Owner, _Enemy)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _Position, 0, _)
+AND
+DB_ARCANA_Kingmaker_LawStep(_Position)
+THEN
+DB_ARCANA_Kingmaker_LawPending(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_AfterTurn((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_LawPending(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_LawPending(_Owner, _Enemy);
+PROC_ARCANA_Kingmaker_Move(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_AfterTurn((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Condemned(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_Condemned(_Owner, _Enemy);
+
+IF
+AttackedBy((CHARACTER)_King, (CHARACTER)_Enemy, _, _, _, _, _)
+AND
+HasActiveStatus(_King, "KINGMAKER_KING", 1)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _, "MASTER_OF_LAWS")
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _, 0, _)
+THEN
+DB_ARCANA_Kingmaker_Condemned(_Owner, _Enemy);
+//END_REGION
+
+//REGION Master of Coin (Level 9)
+IF
+StatusApplied((CHARACTER)_Enemy, "KINGMAKER_COIN_TECH", (CHARACTER)_Holder, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Holder, "MASTER_OF_COIN")
+AND
+HasActiveStatus(_Owner, "KINGMAKER_COIN_SPENT", 0)
+THEN
+ApplyStatus(_Owner, "KINGMAKER_COIN_SPENT", 6.0, 1, _Owner);
+ApplyStatus(_Owner, "KINGMAKER_COIN_RESTORE", 0.0, 1, _Owner);
+//END_REGION
+
+//REGION Master of Ships (Level 9)
+PROC
+PROC_ARCANA_Kingmaker_Settle_Pairs((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Ships, "MASTER_OF_SHIPS")
+AND
+IsDead(_Ships, 0)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ships)
+AND
+GetDistanceTo(_Enemy, _Ships, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ships);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

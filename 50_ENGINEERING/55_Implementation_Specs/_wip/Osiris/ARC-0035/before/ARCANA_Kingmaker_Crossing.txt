@@ -1,0 +1,225 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// The Crossing: a Fallen enemy crosses (Force damage through a _TECH status) once per round with each Reigning ally
+// within 9 m - when the enemy enters Fallen and when an ally enters Reigning (SP117). Fortune's Reach drops the range;
+// Hubris pays the enemy's first Crossing with more damage. PROC_ARCANA_Kingmaker_Settle runs after every change of the
+// Wheel in four steps - Hubris, Pairs, Cleanup, Resolve - then Nemesis (ARCANA_Aspect_WheelOfFortune.txt).
+// PROC_ARCANA_Kingmaker_Settle_Pairs is also defined in ARCANA_Kingmaker_KingsCourt.txt (the Master of Ships).
+//
+// DBs (deleted at the owner's turn start, a new round, and at the end of the fight in ARCANA_Kingmaker_Wheel.txt):
+//   DB_ARCANA_Kingmaker_CrossedBy(Owner, Enemy, Source)   this pair already crossed this round
+//   DB_ARCANA_Kingmaker_CrossSlot(Owner, Enemy, N)         Crossings the enemy took this round: the next uses the next status
+//   DB_ARCANA_Kingmaker_HubrisSpent(Owner, Enemy)          its Hubris already paid for a Crossing (also cleared by a new Hubris)
+// DBs (transient, consumed by the Settle that reads them): DB_ARCANA_Kingmaker_CrossPair(Owner, Enemy, Source),
+//   DB_ARCANA_Kingmaker_NewFallen(Owner, Enemy), DB_ARCANA_Kingmaker_NewRuler(Owner, Ally),
+//   DB_ARCANA_Kingmaker_NewReigning(Owner, Enemy) - written by the Wheel's moves (PROC_ARCANA_Kingmaker_Fell)
+// Reads: DB_ARCANA_Kingmaker_OnWheel, DB_ARCANA_Kingmaker_CrossStatus (ARCANA_Kingmaker_Wheel.txt).
+// Calls PROC_ARCANA_Kingmaker_CountCrossing and PROC_ARCANA_Kingmaker_Nemesis (ARCANA_Aspect_WheelOfFortune.txt).
+
+//REGION The Crossing
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N);
+
+IF
+TurnStarted(_Owner)
+AND
+DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
+//END_REGION
+
+//REGION The Crossing (Level 3) & Fortune's Reach (Level 12)
+PROC
+PROC_ARCANA_Kingmaker_Settle((GUIDSTRING)_Owner)
+THEN
+PROC_ARCANA_Kingmaker_Settle_Hubris(_Owner);
+PROC_ARCANA_Kingmaker_Settle_Pairs(_Owner);
+PROC_ARCANA_Kingmaker_Settle_Cleanup(_Owner);
+PROC_ARCANA_Kingmaker_Settle_Resolve(_Owner);
+PROC_ARCANA_Kingmaker_NemesisMove((CHARACTER)_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Hubris((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewReigning(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_Hubris", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "REIGNING", 0, _)
+THEN
+ApplyStatus(_Enemy, "KINGMAKER_HUBRIS", -6.0, 1, _Owner);
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Hubris((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewReigning(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_NewReigning(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Pairs((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+AND
+GetDistanceTo(_Enemy, _Ally, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Pairs((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+HasPassive(_Owner, "Arcana_Passive_FortunesReach", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+// an ally that entered Reigning: one Crossing with each Fallen enemy within 9 m of it
+PROC
+PROC_ARCANA_Kingmaker_Settle_Pairs((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+AND
+GetDistanceTo(_Enemy, _Ally, _Dist)
+AND
+_Dist <= 9.0
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Pairs((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+AND
+HasPassive(_Owner, "Arcana_Passive_TheCrossing", 1)
+AND
+HasPassive(_Owner, "Arcana_Passive_FortunesReach", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Ally, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, "FALLEN", 0, _)
+AND
+NOT DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Ally)
+THEN
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Cleanup((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_NewFallen(_Owner, _Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Cleanup((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally)
+THEN
+NOT DB_ARCANA_Kingmaker_NewRuler(_Owner, _Ally);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Resolve((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source)
+AND
+HasActiveStatus(_Enemy, "KINGMAKER_HUBRIS", 1)
+AND
+NOT DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_HubrisSpent(_Owner, _Enemy);
+ApplyStatus(_Enemy, "KINGMAKER_CROSSING_HUBRIS_TECH", 0.0, 1, _Owner);
+RemoveStatus(_Enemy, "KINGMAKER_HUBRIS", _Owner);
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner);
+PROC_ARCANA_Kingmaker_Nemesis((CHARACTER)_Owner, (CHARACTER)_Enemy);
+
+PROC
+PROC_ARCANA_Kingmaker_Settle_Resolve((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossPair(_Owner, _Enemy, _Source);
+DB_ARCANA_Kingmaker_CrossedBy(_Owner, _Enemy, _Source);
+PROC_ARCANA_Kingmaker_Cross((CHARACTER)_Owner, (CHARACTER)_Enemy);
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _)
+THEN
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _Old);
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _New);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+AND
+DB_ARCANA_Kingmaker_CrossStatus(_N, _Status)
+THEN
+ApplyStatus(_Enemy, _Status, 0.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Cross((GUIDSTRING)_Owner, (CHARACTER)_Enemy)
+AND
+DB_ARCANA_Kingmaker_CrossSlot(_Owner, _Enemy, _N)
+AND
+_N > 4
+THEN
+ApplyStatus(_Enemy, "KINGMAKER_CROSSING_TECH_4", 0.0, 1, _Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

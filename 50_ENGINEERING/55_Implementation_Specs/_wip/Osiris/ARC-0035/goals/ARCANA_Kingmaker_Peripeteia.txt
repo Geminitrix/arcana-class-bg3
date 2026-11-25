@@ -1,0 +1,54 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Peripeteia: every creature on the Kingmaker's Wheel within 18 m moves to the opposite position at once, then the
+// Wheel settles (the crown and the Crossings).
+//
+// DBs: DB_ARCANA_Kingmaker_Inverting(Owner, Creature, Position, Side, Order)   transient, same frame: the list is
+// collected first, so the ledger is never changed while it is read. DB_ARCANA_Kingmaker_OnWheel is the Wheel's ledger.
+// Reads: DB_ARCANA_Kingmaker_Opposite, DB_ARCANA_Kingmaker_PositionStatus, DB_ARCANA_Kingmaker_Counter
+// (ARCANA_Kingmaker_Wheel.txt). Calls PROC_ARCANA_Kingmaker_Fell, PROC_ARCANA_Kingmaker_Crown, PROC_ARCANA_Kingmaker_Settle.
+
+//REGION Peripeteia (Level 5)
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+AND
+GetDistanceTo(_Owner, _Creature, _Dist)
+AND
+_Dist <= 18.0
+THEN
+DB_ARCANA_Kingmaker_Inverting(_Owner, _Creature, _Position, _Side, _Order);
+
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Inverting(_Owner, _Creature, _Position, _Side, _Order)
+AND
+DB_ARCANA_Kingmaker_Opposite(_Position, _NewPosition)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_Position, _OldStatus)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_NewPosition, _NewStatus)
+THEN
+NOT DB_ARCANA_Kingmaker_Inverting(_Owner, _Creature, _Position, _Side, _Order);
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _NewPosition, _Side, _Order);
+RemoveStatus(_Creature, _OldStatus, _Owner);
+ApplyStatus(_Creature, _NewStatus, -6.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_Fell(_Owner, _Creature, _NewPosition, _Side);
+
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_INVERT_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

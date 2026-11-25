@@ -1,0 +1,83 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_Kingmaker_UsurpFirst((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", 0, 0);
+NOT DB_ARCANA_Kingmaker_UsurpFirst((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", 0, 0);
+
+KBSECTION
+// Usurp: an ally and an enemy on the Wheel trade positions. The card has two targets: the first waits for the second.
+// The rules answer the same status in file order and read each other's writes: never reorder them.
+//
+// DBs:
+//   DB_ARCANA_Kingmaker_UsurpFirst(Owner, Creature, Position, Side, Order)   the first target, waiting; deleted by the
+//     second, at the owner's turn start and at the end of the fight (ARCANA_Kingmaker_Wheel.txt)
+//   DB_ARCANA_Kingmaker_Usurping(Owner, A, PositionA, SideA, OrderA, B, PositionB, SideB, OrderB)   transient, same frame
+//   DB_ARCANA_Kingmaker_OnWheel   the Wheel's ledger (ARCANA_Kingmaker_Wheel.txt)
+// Reads: DB_ARCANA_Kingmaker_PositionStatus. Calls PROC_ARCANA_Kingmaker_Fell, PROC_ARCANA_Kingmaker_Crown,
+// PROC_ARCANA_Kingmaker_Settle.
+
+//REGION Usurp (Level 7)
+QRY
+QRY_ARCANA_Kingmaker_HasUsurpFirst((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_UsurpFirst(_Owner, (CHARACTER)_First, (STRING)_Position, (INTEGER)_Side, (INTEGER)_Order)
+THEN
+DB_NOOP(1);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
+AND
+NOT QRY_ARCANA_Kingmaker_HasUsurpFirst(_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+THEN
+DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _Creature, _Position, _Side, _Order);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder)
+AND
+_First != _Creature
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _Side, _Order)
+AND
+_Side != _FirstSide
+THEN
+DB_ARCANA_Kingmaker_Usurping(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder, _Creature, _Position, _Side, _Order);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder)
+AND
+_First != _Creature
+THEN
+NOT DB_ARCANA_Kingmaker_UsurpFirst(_Owner, _First, _FirstPosition, _FirstSide, _FirstOrder);
+
+IF
+StatusApplied((CHARACTER)_Creature, "KINGMAKER_USURP_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Kingmaker_Usurping(_Owner, _A, _PositionA, _SideA, _OrderA, _B, _PositionB, _SideB, _OrderB)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_PositionA, _StatusA)
+AND
+DB_ARCANA_Kingmaker_PositionStatus(_PositionB, _StatusB)
+THEN
+NOT DB_ARCANA_Kingmaker_Usurping(_Owner, _A, _PositionA, _SideA, _OrderA, _B, _PositionB, _SideB, _OrderB);
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _A, _PositionA, _SideA, _OrderA);
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _B, _PositionB, _SideB, _OrderB);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _A, _PositionB, _SideA, _OrderA);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _B, _PositionA, _SideB, _OrderB);
+RemoveStatus(_A, _StatusA, _Owner);
+RemoveStatus(_B, _StatusB, _Owner);
+ApplyStatus(_A, _StatusB, -6.0, 1, _Owner);
+ApplyStatus(_B, _StatusA, -6.0, 1, _Owner);
+PROC_ARCANA_Kingmaker_Fell(_Owner, _A, _PositionB, _SideA);
+PROC_ARCANA_Kingmaker_Fell(_Owner, _B, _PositionA, _SideB);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

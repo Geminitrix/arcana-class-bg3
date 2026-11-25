@@ -1,0 +1,210 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+PROC_ARCANA_Kingmaker_Aspect_Init();
+
+KBSECTION
+// Wheel of Fortune: the Kingmaker's Aspect - the Awakening count and what each tier does to the Wheel.
+// Tier I Tyche (the free Turn the Spoke is in Stats, KINGMAKER_TYCHE) brings Rota Fortunae; Tier II Nemesis drops the Falling enemies near a
+// Hubris Crossing; Tier III Foreseen steps an attacker, and an ally that would fall to Fallen is held at Falling.
+// The tiers plug into the Wheel (ARCANA_Kingmaker_Wheel.txt) through PROC_ARCANA_Kingmaker_Move_Override,
+// PROC_ARCANA_Kingmaker_Fell and PROC_ARCANA_Kingmaker_NemesisMove (called last by PROC_ARCANA_Kingmaker_Settle).
+//
+// DBs:
+//   DB_ARCANA_Kingmaker_ForeseenStep(Position)   table: the positions where Foreseen steps; rebuilt by the Init
+//   DB_ARCANA_Kingmaker_Enemies(Owner, N)        enemies on the Wheel, recounted at each Crossing; deleted at the end of the fight
+//   DB_ARCANA_Kingmaker_NemesisPending(Owner, Enemy), DB_ARCANA_Kingmaker_NemesisMoved(Owner)   transient, same frame
+//   DB_ARCANA_Kingmaker_Held(Owner, Ally)        an ally held at Falling; deleted when it moves on, dies, is cut, or the fight ends
+//   DB_ARCANA_Kingmaker_Pending(Owner, Creature) Rota Fortunae's list of creatures to move; transient, same frame
+//   DB_ARCANA_Kingmaker_OnWheel, DB_ARCANA_Kingmaker_Moving   the Wheel's ledger (ARCANA_Kingmaker_Wheel.txt)
+// Reads: DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt). Calls PROC_ARCANA_Aspect_Step,
+// PROC_ARCANA_Kingmaker_Move, PROC_ARCANA_Kingmaker_Crown, PROC_ARCANA_Kingmaker_Settle.
+
+//REGION Tables
+PROC
+PROC_ARCANA_Kingmaker_Aspect_Init()
+AND
+DB_ARCANA_Kingmaker_ForeseenStep(_Status)
+THEN
+NOT DB_ARCANA_Kingmaker_ForeseenStep(_Status);
+
+PROC
+PROC_ARCANA_Kingmaker_Aspect_Init()
+THEN
+DB_ARCANA_Kingmaker_ForeseenStep("REIGNING");
+DB_ARCANA_Kingmaker_ForeseenStep("FALLING");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Kingmaker_Aspect_Init();
+//END_REGION
+
+//REGION Tier I - Rota Fortunae: the Wheel turns once more, now
+// The list is collected first, so the ledger is never changed while it is read.
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+THEN
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Pending(_Owner, _Creature)
+THEN
+NOT DB_ARCANA_Kingmaker_Pending(_Owner, _Creature);
+PROC_ARCANA_Kingmaker_Move(_Owner, _Creature);
+
+IF
+StatusApplied((CHARACTER)_Owner, "KINGMAKER_TURN_TECH", _, _)
+AND
+DB_ARCANA_Kingmaker_Counter(_Owner, _)
+THEN
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+
+//REGION Awakening - Wheel of Fortune
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, _N)
+THEN
+NOT DB_ARCANA_Kingmaker_Enemies(_Owner, _N);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+THEN
+DB_ARCANA_Kingmaker_Enemies(_Owner, 0);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _, 0, _)
+THEN
+PROC_ARCANA_Kingmaker_AddEnemy(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_AddEnemy((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, _Old)
+AND
+IntegerSum(_Old, 1, _New)
+THEN
+NOT DB_ARCANA_Kingmaker_Enemies(_Owner, _Old);
+DB_ARCANA_Kingmaker_Enemies(_Owner, _New);
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+HasPassive(_Owner, "Arcana_Passive_Aspect_WheelOfFortune_Awakening", 1)
+THEN
+PROC_ARCANA_Aspect_Step(_Owner, "WHEEL");
+
+PROC
+PROC_ARCANA_Kingmaker_CountCrossing((CHARACTER)_Owner)
+AND
+HasPassive(_Owner, "Arcana_Passive_Aspect_WheelOfFortune_Awakening", 1)
+AND
+DB_ARCANA_Kingmaker_Enemies(_Owner, 1)
+THEN
+PROC_ARCANA_Aspect_Step(_Owner, "WHEEL");
+//END_REGION
+
+//REGION Tier II - Nemesis
+PROC
+PROC_ARCANA_Kingmaker_Nemesis((CHARACTER)_Owner, (CHARACTER)_Source)
+AND
+DB_ARCANA_AspectReached(_Owner, 2)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Other, "FALLING", 0, _)
+AND
+_Other != _Source
+AND
+GetDistanceTo(_Source, _Other, _Dist)
+AND
+_Dist <= 3.0
+THEN
+DB_ARCANA_Kingmaker_NemesisPending(_Owner, _Other);
+
+PROC
+PROC_ARCANA_Kingmaker_NemesisMove((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_NemesisPending(_Owner, _Other)
+THEN
+NOT DB_ARCANA_Kingmaker_NemesisPending(_Owner, _Other);
+PROC_ARCANA_Kingmaker_Move((CHARACTER)_Owner, (CHARACTER)_Other);
+DB_ARCANA_Kingmaker_NemesisMoved(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_NemesisMove((CHARACTER)_Owner)
+AND
+DB_ARCANA_Kingmaker_NemesisMoved(_Owner)
+THEN
+NOT DB_ARCANA_Kingmaker_NemesisMoved(_Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+//END_REGION
+
+//REGION Tier III - Foreseen and Hold Ally Position instead of Fallen
+PROC
+PROC_ARCANA_Kingmaker_Move_Override((GUIDSTRING)_Owner, (CHARACTER)_Creature)
+AND
+DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order)
+AND
+DB_ARCANA_Kingmaker_Held(_Owner, _Creature)
+THEN
+NOT DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order);
+NOT DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "FALLING", 1, _Order);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "RISING", 1, _Order);
+RemoveStatus(_Creature, "KINGMAKER_FALLING", _Owner);
+ApplyStatus(_Creature, "KINGMAKER_RISING", -6.0, 1, _Owner);
+
+// Tier III: an ally that would step from Falling to Fallen stays Falling one more turn (SP80); the next step,
+// held, takes it to Rising (the rule above). Its position status never changes, so nothing is removed and given back.
+PROC
+PROC_ARCANA_Kingmaker_Move_Override((GUIDSTRING)_Owner, (CHARACTER)_Creature)
+AND
+DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order)
+AND
+NOT DB_ARCANA_Kingmaker_Held(_Owner, _Creature)
+AND
+HasActiveStatus(_Owner, "ASPECT_AWAKENED_WHEEL_III", 1)
+THEN
+NOT DB_ARCANA_Kingmaker_Moving(_Owner, _Creature, "FALLING", 1, _Order);
+DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
+
+IF
+StatusApplied((CHARACTER)_Enemy, "KINGMAKER_FORESEEN_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Enemy, _Position, 0, _)
+AND
+DB_ARCANA_Kingmaker_ForeseenStep(_Position)
+THEN
+PROC_ARCANA_Kingmaker_Move(_Owner, _Enemy);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+PROC_ARCANA_Kingmaker_Settle(_Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Fell((GUIDSTRING)_Owner, (CHARACTER)_Creature, (STRING)_Position, (INTEGER)_Side)
+AND
+_Position == "FALLEN"
+AND
+_Side == 1
+AND
+HasActiveStatus(_Owner, "ASPECT_AWAKENED_WHEEL_III", 1)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "FALLEN", 1, _Order)
+THEN
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "FALLEN", 1, _Order);
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "FALLING", 1, _Order);
+RemoveStatus(_Creature, "KINGMAKER_FALLEN", _Owner);
+ApplyStatus(_Creature, "KINGMAKER_FALLING", -6.0, 1, _Owner);
+DB_ARCANA_Kingmaker_Held(_Owner, _Creature);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

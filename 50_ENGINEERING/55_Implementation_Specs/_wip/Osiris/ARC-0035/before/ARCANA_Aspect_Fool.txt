@@ -1,0 +1,126 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+PROC_ARCANA_Fool_Aspect_Init();
+
+KBSECTION
+//REGION Tables
+PROC
+PROC_ARCANA_Fool_Aspect_Init()
+AND
+DB_ARCANA_CalmGust(_R, _Gust)
+THEN
+NOT DB_ARCANA_CalmGust(_R, _Gust);
+
+PROC
+PROC_ARCANA_Fool_Aspect_Init()
+THEN
+DB_ARCANA_CalmGust(1, "CALM_GUST_1");
+DB_ARCANA_CalmGust(2, "CALM_GUST_2");
+DB_ARCANA_CalmGust(3, "CALM_GUST_3");
+DB_ARCANA_CalmGust(4, "CALM_GUST_4");
+DB_ARCANA_CalmGust(5, "CALM_GUST_5");
+
+IF
+SavegameLoaded()
+THEN
+PROC_ARCANA_Fool_Aspect_Init();
+//END_REGION
+
+//REGION Goal: every released mark is one Awakening step
+PROC
+PROC_ARCANA_Unbound_Windswept_Released((CHARACTER)_Born, (CHARACTER)_Foe)
+THEN
+PROC_ARCANA_Aspect_Step(_Born, "FOOL");
+//END_REGION
+
+//REGION Tier II: Fellow Travellers (an ally's hit marks the enemy in her name, 2 of her turns, as her own marks)
+IF
+AttackedBy((CHARACTER)_Foe, (CHARACTER)_Ally, _, _, (INTEGER)_AllyDamage, _, _)
+AND
+DB_ARCANA_AspectReached(_Born, 2)
+AND
+HasPassive(_Born, "Arcana_Passive_Aspect_Fool_II", 1)
+AND
+_Ally != _Born
+AND
+_AllyDamage > 0
+AND
+DB_ARCANA_Aspect_InCombat(_Born, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Ally, _Combat)
+AND
+IsEnemy(_Born, _Foe, 1)
+AND
+IsEnemy(_Born, _Ally, 0)
+THEN
+ApplyStatus(_Foe, "WINDSWEPT", 12.0, 1, _Born);
+//END_REGION
+
+//REGION Aspect card: The Calm (the turns left become gusts on every enemy under a headwind, then release and reopen)
+IF
+CastedSpell((CHARACTER)_Born, "Shout_Arcana_Created_TheCalm", _, _, _)
+AND
+DB_ARCANA_BagTurns(_Born, _R)
+AND
+_R > 0
+THEN
+PROC_ARCANA_Fool_Gusts(_Born, _R);
+PROC_ARCANA_Unbound_Windswept_Release(_Born);
+PROC_ARCANA_Unbound_AeolusBag_EndWind(_Born);
+
+PROC
+PROC_ARCANA_Fool_Gusts((CHARACTER)_Born, (INTEGER)_R)
+AND
+DB_ARCANA_CalmGust(_R, _Gust)
+AND
+DB_ARCANA_Aspect_InCombat(_Born, _Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Foe, _Combat)
+AND
+IsEnemy(_Born, _Foe, 1)
+AND
+IsDead(_Foe, 0)
+THEN
+PROC_ARCANA_Fool_GustFoe(_Born, _Foe, _Gust);
+
+// any headwind marks the enemy once, so two winds (Hurricane) don't hit it twice
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_BOREAS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_NOTUS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+HasActiveStatus(_Foe, "HEADWIND_EURUS", 1)
+THEN
+DB_ARCANA_Gusted(_Foe);
+
+PROC
+PROC_ARCANA_Fool_GustFoe((CHARACTER)_Born, (CHARACTER)_Foe, (STRING)_Gust)
+AND
+DB_ARCANA_Gusted(_Foe)
+THEN
+NOT DB_ARCANA_Gusted(_Foe);
+ApplyStatus(_Foe, _Gust, 0.0, 1, _Born);
+//END_REGION
+
+//REGION Cleanup (combat end: ARCANA_Aspect_Common.txt calls the reset)
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Born)
+THEN
+RemoveStatus(_Born, "THE_FIRST_STEP", _Born);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

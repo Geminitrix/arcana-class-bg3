@@ -1,0 +1,210 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_Kingmaker_King((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_Kingmaker_King((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+DB_ARCANA_Kingmaker_Best((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
+
+KBSECTION
+// Crown the King: the ally with the most rounds Reigning (not a summon, not a Court office holder) is King, and keeps
+// the crown - off the Wheel too - until another ally has Reigned strictly longer (SP115, SP116). Other Reigning allies
+// are Regents. The King's Hand never wears the crown and crits on 19-20 while there is no King or the King is not
+// Reigning. The rules of PROC_ARCANA_Kingmaker_Crown run in file order and read DB_ARCANA_Kingmaker_Best, which the
+// last one deletes: every Crown rule stays in this goal. Statuses are only removed where they no longer belong,
+// never removed and given back in the same moment.
+//
+// DBs:
+//   DB_ARCANA_Kingmaker_King(Owner, King)   the crown's holder; deleted when it dies, is outreigned, or the fight ends
+//   DB_ARCANA_Kingmaker_Best(Owner, Ally, Rounds)   transient: the best reign found by this Crown
+//   DB_ARCANA_Kingmaker_ReignTime(Owner, Ally, Rounds)   deleted here at its death (written by ARCANA_Kingmaker_Wheel.txt)
+// Reads: DB_ARCANA_Kingmaker_OnWheel (ARCANA_Kingmaker_Wheel.txt), DB_ARCANA_Kingmaker_Court (ARCANA_Kingmaker_KingsCourt.txt).
+
+//REGION Crown the King
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _Position, _, _)
+AND
+_Position != "REIGNING"
+THEN
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", _, _)
+AND
+DB_ARCANA_Kingmaker_Court(_, _Creature, _)
+THEN
+RemoveStatus(_Creature, "KINGMAKER_REGENT", _Owner);
+
+// the King's Hand never wears the crown
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+AND
+HasActiveStatus(_Hand, "KINGMAKER_KING", 1)
+THEN
+RemoveStatus(_Hand, "KINGMAKER_KING", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_Creature, (INTEGER)_Rounds)
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_King((CHARACTER)_Owner, (CHARACTER)_King)
+AND
+IsDead(_King, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _King, _)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _King, _Rounds)
+THEN
+DB_ARCANA_Kingmaker_Best(_Owner, _King, _Rounds);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_ReignTime((CHARACTER)_Owner, (CHARACTER)_Creature, (INTEGER)_Rounds)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _, _)
+AND
+IsDead(_Creature, 0)
+AND
+IsSummon(_Creature, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
+THEN
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_ReignTime((CHARACTER)_Owner, (CHARACTER)_Creature, (INTEGER)_Rounds)
+AND
+IsDead(_Creature, 0)
+AND
+IsSummon(_Creature, 0)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_Best, (INTEGER)_BestRounds)
+AND
+_Rounds > _BestRounds
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Best, _BestRounds);
+DB_ARCANA_Kingmaker_Best(_Owner, _Creature, _Rounds);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_King((CHARACTER)_Owner, (CHARACTER)_Old)
+AND
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _Old, _)
+THEN
+NOT DB_ARCANA_Kingmaker_King(_Owner, _Old);
+RemoveStatus(_Old, "KINGMAKER_KING", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, _, _, _)
+AND
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_Creature, _)
+AND
+HasActiveStatus(_Creature, "KINGMAKER_KING", 1)
+THEN
+RemoveStatus(_Creature, "KINGMAKER_KING", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
+THEN
+DB_ARCANA_Kingmaker_King(_Owner, _King);
+ApplyStatus(_King, "KINGMAKER_KING", -6.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _Creature, "REIGNING", 1, _)
+AND
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_Creature, _)
+AND
+NOT DB_ARCANA_Kingmaker_Court(_, _Creature, _)
+THEN
+ApplyStatus(_Creature, "KINGMAKER_REGENT", -6.0, 1, _Owner);
+
+// King's Hand: while there is no King, or the King is not Reigning, the Hand crits on 19-20
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+NOT DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, _, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+AND
+IsDead(_Hand, 0)
+AND
+IsInCombat(_Hand, 1)
+THEN
+ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
+AND
+NOT DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+AND
+IsDead(_Hand, 0)
+AND
+IsInCombat(_Hand, 1)
+THEN
+ApplyStatus(_Hand, "KINGMAKER_HAND_CROWN", -1.0, 1, _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, _)
+AND
+DB_ARCANA_Kingmaker_OnWheel(_Owner, _King, "REIGNING", 1, _)
+AND
+DB_ARCANA_Kingmaker_Court(_Owner, _Hand, "KINGS_HAND")
+THEN
+RemoveStatus(_Hand, "KINGMAKER_HAND_CROWN", _Owner);
+
+PROC
+PROC_ARCANA_Kingmaker_Crown((GUIDSTRING)_Owner)
+AND
+DB_ARCANA_Kingmaker_Best((CHARACTER)_Owner, (CHARACTER)_King, (INTEGER)_Rounds)
+THEN
+NOT DB_ARCANA_Kingmaker_Best(_Owner, _King, _Rounds);
+
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_ReignTime(_Owner, _Dead, _Rounds)
+THEN
+NOT DB_ARCANA_Kingmaker_ReignTime(_Owner, _Dead, _Rounds);
+
+IF
+Died(_Dead)
+AND
+DB_ARCANA_Kingmaker_King((CHARACTER)_Owner, (CHARACTER)_Dead)
+THEN
+NOT DB_ARCANA_Kingmaker_King(_Owner, _Dead);
+RemoveStatus(_Dead, "KINGMAKER_KING", _Owner);
+PROC_ARCANA_Kingmaker_Crown(_Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

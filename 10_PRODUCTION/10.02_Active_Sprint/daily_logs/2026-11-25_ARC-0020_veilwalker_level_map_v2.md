@@ -27,3 +27,7 @@ errors / 23 warnings in the Fool, Kingmaker and Windborn goals.
 **ARC-0035 created (Owner):** the 6 errors and 23 warnings of `check_osiris` outside the Deceiver investigated — LF lines
 and a deleted header from Story Editor saves (Fool, CrownTheKing, AeolusBag) and 23 shared Kingmaker DBs without type
 pins. None breaks the game (last compile 0 errors). Plan and pin table in the ticket; `implementation: claude`, backlog.
+
+**ARC-0035 prepared:** fixed goals in `55/_wip/Osiris/ARC-0035/goals/` (build.pl from the game's copies). The pins needed 27
+`(CHARACTER)_Owner` casts at event binding sites, or the Story Editor would skip those rules (57.05 §5). check_osiris on
+all 34 goals: 0/0; compare: only pins and casts. Smoke test QA_ARC-0035 (12, draft). → `spec_ready`, waits `[fechado] ARC-0035`.
