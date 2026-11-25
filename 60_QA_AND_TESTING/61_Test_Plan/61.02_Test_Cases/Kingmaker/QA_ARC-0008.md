@@ -97,7 +97,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Crown ally A (the first to Reign); let the Wheel move A on to Falling
 - **Expected:** A keeps the King status while Falling, Fallen and Rising; no other ally is King
 - **Fails if:** A loses the crown when it leaves Reigning, or another ally takes it.
-- **Result:** —
+- **Result:** pass
 
 ### L1.10 · A tie keeps the King
 
@@ -105,7 +105,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Ally B Reigns as many rounds as King A in total (count the turn starts each one began Reigning)
 - **Expected:** A keeps the crown; B is Regent while it Reigns
 - **Fails if:** B takes the crown on a tie.
-- **Result:** —
+- **Result:** pass
 
 ### L1.11 · A longer reign takes the crown
 
@@ -113,7 +113,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Ally B Reigns one round more than King A in total (Turn the Spoke helps)
 - **Expected:** B becomes King at your turn start; A loses the King status
 - **Fails if:** The crown stays with A, or both show King.
-- **Result:** —
+- **Result:** pass
 
 ### L1.12 · The King dies
 
@@ -121,7 +121,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Let King A die (on the Wheel or off it)
 - **Expected:** The ally with the most rounds Reigning becomes King at once
 - **Fails if:** Nobody is crowned, or the dead ally keeps the status.
-- **Result:** —
+- **Result:** pass
 
 ## Level 3 — The Crossing, Awakening Tier I Tyche, Atropos' Cut
 
@@ -197,7 +197,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** An enemy already Fallen within 9 m of a Rising ally; Turn the Spoke the ally to Reigning
 - **Expected:** The enemy takes a Crossing at once
 - **Fails if:** No Crossing until the next turn start.
-- **Result:** —
+- **Result:** pass
 
 ### L3.10 · Two Reigning allies, two enemies enter Fallen
 
@@ -205,7 +205,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Two Reigning allies within 9 m of two enemies that enter Fallen at the same turn start
 - **Expected:** Four Crossing hits in the combat log, two on each enemy
 - **Fails if:** Fewer hits (two Crossings in the same moment merged into one).
-- **Result:** —
+- **Result:** pass
 
 ### L3.11 · Swift Shears
 
@@ -213,7 +213,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Cast Atropos' Cut without casting Turn the Spoke first; then cast Turn the Spoke and Atropos' Cut (upcast) in the same turn
 - **Expected:** The first Cut costs the Action; after Turn the Spoke the Swift Shears status shows and the next Cut (upcast too) costs no Action; the slot is spent every time
 - **Fails if:** The Cut is free without Turn the Spoke, stays free twice in a turn, or the upcast variant still costs the Action.
-- **Result:** —
+- **Result:** pass
 
 ### L3.12 · Tyche: two Turn the Spoke in one turn
 
@@ -221,7 +221,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** With Tier I awakened, cast Turn the Spoke twice in one turn; next turn, once more
 - **Expected:** The first Turn the Spoke of each turn costs no Bonus Action, the second costs it; next turn the first is free again
 - **Fails if:** Both are free, neither is free, or the free cast does not come back the next turn.
-- **Result:** —
+- **Result:** pass
 
 ### L3.13 · Tyche: Coronation and Dethrone after Tier I
 
@@ -229,7 +229,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** With Tier I awakened, cast Coronation on a new ally, Dethrone on a new enemy
 - **Expected:** The ally enters Rising and the enemy enters Falling, as before Tier I
 - **Fails if:** Either does not enter the Wheel, or enters one position ahead.
-- **Result:** —
+- **Result:** pass
 
 ## Level 4 — Severance
 
@@ -241,7 +241,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Cast Atropos' Cut on an enemy; then Dethrone another enemy
 - **Expected:** After the Cut the Dethrone icon glows and costs no Action
 - **Fails if:** Dethrone still costs the Action, or the enemy cut gets the Severance status.
-- **Result:** —
+- **Result:** pass
 
 ### L4.2 · A second Dethrone
 
@@ -249,7 +249,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** After L4.1, cast Dethrone again in the same turn
 - **Expected:** It costs the Action again (the glow is gone)
 - **Fails if:** Every Dethrone of the turn is free.
-- **Result:** —
+- **Result:** pass
 
 ### L4.3 · Upcast Dethrone after the Cut
 
@@ -257,7 +257,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Atropos' Cut, then Dethrone with a higher slot
 - **Expected:** The upcast Dethrone costs no Action too
 - **Fails if:** Only the level-1 Dethrone is discounted.
-- **Result:** —
+- **Result:** pass
 
 ## Level 5 — Peripeteia, the Court
 
@@ -277,7 +277,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** With a King on the Wheel, appoint it to an office (any)
 - **Expected:** It loses the crown; the next ally by rounds Reigning takes it (or nobody, if none has reigned)
 - **Fails if:** The office holder stays King.
-- **Result:** —
+- **Result:** pass
 
 ### L5.11 · An office holder Reigns
 
@@ -285,7 +285,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Coronation on an ally that holds an office; let it Reign for several rounds, longer than anyone
 - **Expected:** It Reigns (Reigning effects, Crossings near it) but never shows King nor Regent
 - **Fails if:** It is crowned or shown as Regent.
-- **Result:** —
+- **Result:** pass
 
 ### L5.2 · Level 5, CHA 15 (+2): Convene the Court twice out of combat, then t...
 
@@ -477,7 +477,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Ships and a Reigning ally (not the Ships) both within 9 m of an enemy entering Fallen
 - **Expected:** Two Crossing hits on the enemy
 - **Fails if:** One hit only.
-- **Result:** —
+- **Result:** pass
 
 ## Level 11 — The Wheel Stops
 
@@ -513,7 +513,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Cast The Wheel Stops in a fight, try it again in the same fight, then start a new fight without resting
 - **Expected:** It cannot be cast twice in one fight; it is available again in the next fight
 - **Fails if:** It can be cast twice in a fight, or it waits for a Long Rest.
-- **Result:** —
+- **Result:** pass
 
 ## Level 12 — Fortune's Reach, Tier III, Ready: Foreseen
 
@@ -585,7 +585,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Dethrone an ally; follow it until it Reigns, then until it is Fallen next to a Reigning ally
 - **Expected:** It enters Falling; it never gets Hubris; it takes no Crossing; it can be crowned King
 - **Fails if:** It gets Hubris, takes a Crossing, or is never counted as an ally for the crown.
-- **Result:** —
+- **Result:** pass
 
 ### A.4 · Coronation on an enemy (level 7+)
 
@@ -593,7 +593,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Crown an enemy; follow it until it Reigns, then until it is Fallen next to a Reigning ally
 - **Expected:** It enters Rising; it gets Hubris when it Reigns and is never Regent or King; it crosses when Fallen
 - **Fails if:** It becomes Regent or King, gets no Hubris, or does not cross.
-- **Result:** —
+- **Result:** pass
 
 ## Appendix — TC_ARC-0008 (design-stage draft, verbatim)
 
