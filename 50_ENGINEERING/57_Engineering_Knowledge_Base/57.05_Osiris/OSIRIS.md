@@ -63,7 +63,7 @@ ENDEXITSECTION
 
 ### One file per feature
 
-`ARCANA_<Area>_<Feature>.txt` — `ARCANA_Aspect_Common`, `ARCANA_Status_Hemorrhage`, `ARCANA_Deceiver_Doubles`.
+`ARCANA_<Area>_<Feature>.txt` — `ARCANA_Aspect_Common`, `ARCANA_Status_Hemorrhage`, `ARCANA_Deceiver_TheVeil`.
 Keep a feature's rules together; the story VM doesn't care about file boundaries, but you will. The layout
 inside the file is the house standard of §13.
 
@@ -227,7 +227,7 @@ which is the value the Toolkit's status editor uses for a permanent status. It d
 "6 turns".
 
 ✅ This mod passes `-6.0` for the Sigil — `ApplyStatus(_Target, "SIGIL", -6.0, …)` in
-`ARCANA_Status_Sigil.txt` and `ARCANA_Aspect_Empress.txt` — so the mark is **permanent, by design**: it stays
+`ARCANA_Deceiver_SeedOfDoubt.txt` and `ARCANA_Aspect_HighPriestess.txt` — so the mark is **permanent, by design**: it stays
 on the target until it detonates.
 
 Still: don't write `-6.0` when you mean a turn count. Use `-1` for permanent, and `36.0` for 6 turns.
@@ -603,12 +603,9 @@ Change the generator, then regenerate; never edit the output by hand. The genera
 | Goal | What it holds |
 |---|---|
 | `ARCANA_Aspect_Common` | the Awakening: roster of the fight, tiers, countdown, the reset hook |
-| `ARCANA_Aspect_Fool` · `_Empress` · `_Star` · `_Death` · `_Temperance` | each Aspect's goal and tier effects (Windborn, Deceiver, Starchild, Eternal, Resonant) |
+| `ARCANA_Aspect_Fool` · `_HighPriestess` · `_Star` · `_Death` · `_Temperance` | each Aspect's goal and tier effects (Windborn, Deceiver, Starchild, Eternal, Resonant) |
 | `ARCANA_Kingmaker_Wheel` · `_Crossing` · `_CrownTheKing` · `_KingsCourt` · `_AtroposCut` · `_Peripeteia` · `_Usurp` · `_TurnTheSpoke` · `_Succession` | the Kingmaker: the Wheel (ledger, binds, turn, stop, leaving), the Crossing, the crown, the Court, one goal per card; its Aspect is `ARCANA_Aspect_WheelOfFortune` |
-| `ARCANA_Deceiver_Doubles` · `ARCANA_Deceiver_Doubt` | the Deceiver's Doubles and the Doubt counter |
-| `ARCANA_Spell_Withdraw` · `ARCANA_Spell_MimicWithdraw` | Withdraw and Mimic: Withdraw (swap with the Double) |
-| `ARCANA_Status_Sigil` | the Sigil's owner and the Doubt of a detonation |
+| `ARCANA_Deceiver_TheVeil` · `_Doubt` · `_Splinter` · `_SplinterOnCommand` · `_SeedOfDoubt` · `_Veilstep` · `_TwiceTold` · `_GrandDeception` · `_MirroredSpell` · `_Faceless` | the Veilwalker, one goal per feature (DV36): the Doubles, the Doubt counter, the Splinter, Splinter on Command, the Seed, Veilstep and Twice-Told: Veilstep (swap with the Double), Grand Deception, Mirrored Spell, Faceless: Copy; its Aspect is `ARCANA_Aspect_HighPriestess` (the Stats ids keep *Empress*, OR-10) |
 | `ARCANA_Resonant_Overload` · `_Grudge` · `_SharedHeart` | the Resonant's Overload meter, Anger's grudge, Shared Heart |
 | `ARCANA_Status_Hemorrhage` | the Eternal's Hemorrhage bank |
-| `ARCANA_Passive_MirroredSpell` · `ARCANA_Spell_FacelessCopy` | Mirrored Spell, Faceless: Copy |
 | `ARCANA_PreCombatBuffs` · `ARCANA_CardFamilies` | buffs that cannot enter a fight; the card-variant table |

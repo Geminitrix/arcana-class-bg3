@@ -1,0 +1,76 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_GDBefore((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_GDBefore((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+
+KBSECTION
+// Grand Deception reads the Veil (DV22): each enemy that fails gains one Doubt per Double of hers that stood within
+// 3 m of it before the cast.
+// Shout_Arcana_Card_Spell_GrandDeception summons its Doubles through the usual Summon functor (each one registers in
+// ARCANA_Deceiver_TheVeil.txt like an Eidolon Double; the spell only summons the ones she is missing) and, on each
+// enemy that fails its Wisdom save, applies GRAND_DECEPTION_TECH once. Before the spell resolves (UsingSpell, earlier
+// than its Summon functors) her Doubles are written down; each failed enemy gains one Doubt for each of those Doubles
+// within 3 m of it (25: SPL_Deceiver_GrandDeception doubles_range_next, doubt_per_double_next). The raise is called
+// directly: PROC_ARCANA_Doubt_Add is the Doubt goal's own entry point (ARCANA_Deceiver_Doubt.txt); each call runs to
+// the end before the next starts, so the count rises by one per Double (3 -> Deluded, stacks reset, as usual).
+//
+// DBs:
+//   DB_ARCANA_GDBefore(Owner, Double)   her live Doubles when she started casting. Deleted 1.5 s after the cast.
+// Reads DB_ARCANA_Double, DB_ARCANA_DoubleGone (ARCANA_Deceiver_TheVeil.txt), DB_ARCANA_CardFamily (upcast variants).
+// Calls PROC_ARCANA_Doubt_Add.
+
+//REGION Her Doubles before the cast
+IF
+UsingSpell((CHARACTER)_Owner, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Shout_Arcana_Card_Spell_GrandDeception")
+AND
+DB_ARCANA_Double(_Double, _Owner, _)
+AND
+NOT DB_ARCANA_DoubleGone(_Double, _Owner)
+THEN
+DB_ARCANA_GDBefore(_Owner, _Double);
+//END_REGION
+
+//REGION An enemy that fails gains one Doubt per Double beside it
+IF
+StatusApplied((CHARACTER)_Foe, "GRAND_DECEPTION_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_GDBefore(_Owner, _Double)
+AND
+NOT DB_ARCANA_DoubleGone(_Double, _Owner)
+AND
+GetDistanceTo(_Foe, _Double, _Dist)
+AND
+_Dist <= 3.0
+THEN
+PROC_ARCANA_Doubt_Add(_Foe, _Owner);
+//END_REGION
+
+//REGION Cleanup
+IF
+CastedSpell((CHARACTER)_Owner, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Shout_Arcana_Card_Spell_GrandDeception")
+THEN
+RealtimeObjectTimerCancel(_Owner, "ARCANA_GDBefore");
+RealtimeObjectTimerLaunch(_Owner, "ARCANA_GDBefore", 1500);
+
+IF
+ObjectTimerFinished((CHARACTER)_Owner, "ARCANA_GDBefore")
+AND
+DB_ARCANA_GDBefore(_Owner, _Double)
+THEN
+NOT DB_ARCANA_GDBefore(_Owner, _Double);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_GDBefore(_Char, _Double)
+THEN
+NOT DB_ARCANA_GDBefore(_Char, _Double);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

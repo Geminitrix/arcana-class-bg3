@@ -1,0 +1,346 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_HighPriestessChained((CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_HighPriestessChained((CHARACTER)00000000-0000-0000-0000-000000000000);
+DB_ARCANA_HighPriestessBest((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0.0);
+NOT DB_ARCANA_HighPriestessBest((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0.0);
+DB_ARCANA_WhichOneBest((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0.0);
+NOT DB_ARCANA_WhichOneBest((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0.0);
+DB_ARCANA_VeilLiftsBy((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_VeilLiftsBy((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+DB_ARCANA_DoubleStruckAt((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
+NOT DB_ARCANA_DoubleStruckAt((CHARACTER)00000000-0000-0000-0000-000000000000, 0.0, 0.0, 0.0);
+
+KBSECTION
+// The High Priestess: the Veilwalker's Aspect of Doubt - the Awakening count and what each tier does.
+//   Goal: every stack of Doubt she applies is one step (DB_ARCANA_DoubtStep rows, written by
+//   ARCANA_Deceiver_Doubt.txt); 4 / 7 / 10 in ARCANA_Aspect_Common.txt, whose tables key this Aspect as "EMPRESS"
+//   (the key and the Stats ids ASPECT_AWAKENED_EMPRESS_*, Arcana_Passive_Aspect_Empress_* are published names, OR-10).
+//   Tier I (Veiled) lives in the DOUBT statuses; its Aspect card is The Veil Lifts (every Double splinters, survivors
+//   with Doubt become Deluded). Tier II (Two Pillars): once per turn, when an enemy becomes Deluded in her name, the
+//   nearest un-Seeded enemy within 6 m gains her Seed. Tier III (Aspect of Doubt, DV21): every Splinter is one 4 m
+//   burst (Projectile_Arcana_SplinterBurst, she is the caster; the Splinter shout itself deals nothing at Tier III),
+//   a Double an enemy destroys bursts where it was struck, and Ready: Which One? swaps her with her nearest Double.
+//
+// DBs:
+//   DB_ARCANA_HighPriestessChained(Deceiver)       Two Pillars already chained this turn. Deleted at her turn start
+//                                                  and by the reset.
+//   DB_ARCANA_HighPriestessBest(Deceiver, Foe, Dist)  transient: the nearest candidate for the Seed.
+//   DB_ARCANA_WhichOneBest(Owner, Double, Dist)    transient: the nearest Double for Which One?. Also cleared by the
+//                                                  reset.
+//   DB_ARCANA_VeilLiftsBy(Foe, Owner)              an enemy The Veil Lifts touched, waiting 900 ms for its Doubt.
+//                                                  Deleted by the timer and by the reset.
+//   DB_ARCANA_DoubleStruckAt(Double, X, Y, Z)      where a Double was last struck (or where it died, if nothing struck
+//                                                  it). Deleted by the purge (PROC_ARCANA_Doubles_OnPurge).
+// Reads: DB_ARCANA_DoubtStep (consumes it), DB_ARCANA_DoubtCount (ARCANA_Deceiver_Doubt.txt); DB_ARCANA_Double,
+// DB_ARCANA_DoubleGone, DB_ARCANA_MirrorImageOf, DB_ARCANA_DoubleNoBlame, DB_ARCANA_DoubleKiller
+// (ARCANA_Deceiver_TheVeil.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt);
+// DB_ARCANA_CardFamily. Calls PROC_ARCANA_Aspect_Step, PROC_ARCANA_Doubt_Raise, PROC_ARCANA_Doubles_Retire.
+// Hooks: PROC_ARCANA_Aspect_Reset, PROC_ARCANA_Doubles_OnPurge (called by The Veil's purge).
+
+//REGION Goal: Doubt applied
+IF
+DB_ARCANA_DoubtStep(_Owner, _Foe, _Stack)
+THEN
+NOT DB_ARCANA_DoubtStep(_Owner, _Foe, _Stack);
+PROC_ARCANA_Aspect_Step(_Owner, "EMPRESS");
+//END_REGION
+
+//REGION Tier I - The Veil Lifts: every Double splinters, every survivor with Doubt becomes Deluded
+// Every Double she has splinters (each casts its own Splinter: Psychic damage and Doubt around it).
+IF
+CastedSpell((CHARACTER)_Owner, _Spell, _, _, _)
+AND
+DB_ARCANA_CardFamily(_Spell, "Shout_Arcana_Created_Aspect_VeilLifts")
+AND
+DB_ARCANA_Double(_Double, _Owner, _Order)
+AND
+NOT DB_ARCANA_DoubleGone(_Double, _Owner)
+AND
+IsDead(_Double, 0)
+THEN
+UseSpell(_Double, "Shout_Deceiver_Double_Shatter", _Double, _Double, 1);
+
+// Each enemy it touched (VEIL_LIFTS_TECH): after the Seeds' and the Splinters' Doubt has landed, Doubt goes to 3, so
+// the enemy becomes Deluded through the Doubt goal's own path (stacks reset, steps counted).
+IF
+StatusApplied((CHARACTER)_Foe, "VEIL_LIFTS_TECH", (CHARACTER)_Owner, _)
+THEN
+DB_ARCANA_VeilLiftsBy(_Foe, _Owner);
+RealtimeObjectTimerCancel(_Foe, "ARCANA_VeilLifts");
+RealtimeObjectTimerLaunch(_Foe, "ARCANA_VeilLifts", 900);
+
+IF
+ObjectTimerFinished((CHARACTER)_Foe, "ARCANA_VeilLifts")
+AND
+DB_ARCANA_VeilLiftsBy(_Foe, _Owner)
+THEN
+NOT DB_ARCANA_VeilLiftsBy(_Foe, _Owner);
+PROC_ARCANA_VeilLifts_Delude(_Foe, _Owner);
+
+PROC
+PROC_ARCANA_VeilLifts_Delude((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+IsDead(_Foe, 0)
+AND
+DB_ARCANA_DoubtCount(_Foe, 2)
+THEN
+PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
+
+PROC
+PROC_ARCANA_VeilLifts_Delude((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+IsDead(_Foe, 0)
+AND
+DB_ARCANA_DoubtCount(_Foe, 1)
+THEN
+PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
+PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
+//END_REGION
+
+//REGION Tier II - Two Pillars: the Deluded enemy's nearest un-Seeded neighbour within 6 m gains her Seed
+IF
+StatusApplied((CHARACTER)_Foe, "DELUDED", (CHARACTER)_Deceiver, _)
+THEN
+PROC_ARCANA_HighPriestess_Chain(_Deceiver, _Foe);
+
+PROC
+PROC_ARCANA_HighPriestess_Chain((CHARACTER)_Deceiver, (CHARACTER)_From)
+AND
+DB_ARCANA_AspectReached(_Deceiver, 2)
+AND
+NOT DB_ARCANA_HighPriestessChained(_Deceiver)
+AND
+DB_ARCANA_Aspect_InCombat(_Deceiver, _Combat)
+THEN
+PROC_ARCANA_HighPriestess_ClearBest(_Deceiver);
+PROC_ARCANA_HighPriestess_Consider(_Deceiver, _From, _Combat);
+PROC_ARCANA_HighPriestess_Mark(_Deceiver);
+
+PROC
+PROC_ARCANA_HighPriestess_ClearBest((CHARACTER)_Deceiver)
+AND
+DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist)
+THEN
+NOT DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist);
+
+PROC
+PROC_ARCANA_HighPriestess_Consider((CHARACTER)_Deceiver, (CHARACTER)_From, (GUIDSTRING)_Combat)
+AND
+DB_ARCANA_Aspect_InCombat(_Cand, _Combat)
+AND
+_Cand != _From
+AND
+IsEnemy(_Deceiver, _Cand, 1)
+AND
+IsDead(_Cand, 0)
+AND
+HasActiveStatus(_Cand, "SIGIL", 0)
+AND
+GetDistanceTo(_From, _Cand, _Dist)
+AND
+_Dist <= 6.0
+THEN
+PROC_ARCANA_HighPriestess_Offer(_Deceiver, _Cand, _Dist);
+
+PROC
+PROC_ARCANA_HighPriestess_Offer((CHARACTER)_Deceiver, (CHARACTER)_Cand, (REAL)_Dist)
+AND
+DB_ARCANA_HighPriestessBest(_Deceiver, _Old, _OldDist)
+AND
+_Dist < _OldDist
+THEN
+NOT DB_ARCANA_HighPriestessBest(_Deceiver, _Old, _OldDist);
+DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist);
+
+PROC
+PROC_ARCANA_HighPriestess_Offer((CHARACTER)_Deceiver, (CHARACTER)_Cand, (REAL)_Dist)
+AND
+NOT DB_ARCANA_HighPriestessBest(_Deceiver, _, _)
+THEN
+DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist);
+
+PROC
+PROC_ARCANA_HighPriestess_Mark((CHARACTER)_Deceiver)
+AND
+DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist)
+THEN
+NOT DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist);
+DB_ARCANA_HighPriestessChained(_Deceiver);
+ApplyStatus(_Cand, "SIGIL", -6.0, 1, _Deceiver);
+
+IF
+TurnStarted((CHARACTER)_Deceiver)
+AND
+DB_ARCANA_HighPriestessChained(_Deceiver)
+THEN
+NOT DB_ARCANA_HighPriestessChained(_Deceiver);
+//END_REGION
+
+//REGION Tier III - the lie explodes: every Splinter is one 4 m burst, a destroyed Double bursts by itself
+// Vanilla Death Burst pattern (GLO_CombatNPCs.txt: CreateExplosionAtPosition at the creature; the projectile's
+// ExplodeRadius sets the area, 25: SPL_Deceiver_Splinter tier3_radius_next). She is the caster, so the damage and the
+// Doubt are hers. At Tier III the Splinter shout deals nothing (its SpellProperties read ASPECT_AWAKENED_EMPRESS_III
+// through GetSummoner), so a Splinter is never two bursts.
+// A Splinter cast at Tier III: its own turn, Splinter on Command, The Veil Lifts.
+IF
+CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
+AND
+DB_ARCANA_MirrorImageOf(_Double, _Owner)
+AND
+DB_ARCANA_AspectReached(_Owner, 3)
+AND
+GetPosition(_Double, _X, _Y, _Z)
+THEN
+CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_SplinterBurst", 1, _Owner);
+
+// Where a Double was struck: the hit that damages a 1-HP Double is the one that destroys it, and its position is still
+// valid here. A Double that dies with no AttackedBy keeps the spot it died on.
+IF
+AttackedBy((CHARACTER)_Double, _, _, _, _Damage, _, _)
+AND
+DB_ARCANA_MirrorImageOf(_Double, _)
+AND
+_Damage > 0
+AND
+GetPosition(_Double, _X, _Y, _Z)
+THEN
+PROC_ARCANA_HighPriestess_StruckAt(_Double, _X, _Y, _Z);
+
+IF
+Died(_Double)
+AND
+DB_ARCANA_MirrorImageOf(_Double, _)
+AND
+NOT DB_ARCANA_DoubleStruckAt(_Double, _, _, _)
+AND
+GetPosition(_Double, _X, _Y, _Z)
+THEN
+DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z);
+
+PROC
+PROC_ARCANA_HighPriestess_StruckAt((CHARACTER)_Double, (REAL)_X, (REAL)_Y, (REAL)_Z)
+AND
+DB_ARCANA_DoubleStruckAt(_Double, _OX, _OY, _OZ)
+THEN
+NOT DB_ARCANA_DoubleStruckAt(_Double, _OX, _OY, _OZ);
+
+PROC
+PROC_ARCANA_HighPriestess_StruckAt((CHARACTER)_Double, (REAL)_X, (REAL)_Y, (REAL)_Z)
+THEN
+DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z);
+
+// The purge of The Veil (about 1 s after the death): a Double an enemy destroyed bursts where it was struck. Never on
+// the blameless paths (the cap, Dismiss, the cleanups, her death, Which One?, a Splinter's own vanishing): those mark
+// it first. Then its row goes, whatever happened.
+PROC
+PROC_ARCANA_Doubles_OnPurge((CHARACTER)_Double, (CHARACTER)_Owner)
+AND
+NOT DB_ARCANA_DoubleNoBlame(_Double)
+AND
+DB_ARCANA_DoubleKiller(_Double, _Killer)
+AND
+IsEnemy(_Killer, _Owner, 1)
+AND
+DB_ARCANA_AspectReached(_Owner, 3)
+AND
+DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z)
+THEN
+CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_SplinterBurst", 1, _Owner);
+
+PROC
+PROC_ARCANA_Doubles_OnPurge((CHARACTER)_Double, (CHARACTER)_Owner)
+AND
+DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z)
+THEN
+NOT DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z);
+//END_REGION
+
+//REGION Tier III - Which One? (Interrupt_Arcana_Aspect_WhichOne applies WHICH_ONE_TECH on her; the attack already missed)
+// She swaps places with her nearest Double and that Double is destroyed in her place (the retire path: no Splinter, no
+// blame; the attacker's Doubt comes from the interrupt itself).
+IF
+StatusApplied((CHARACTER)_Owner, "WHICH_ONE_TECH", _, _)
+THEN
+PROC_ARCANA_WhichOne_ClearBest(_Owner);
+PROC_ARCANA_WhichOne_Consider(_Owner);
+PROC_ARCANA_WhichOne_Swap(_Owner);
+
+PROC
+PROC_ARCANA_WhichOne_ClearBest((CHARACTER)_Owner)
+AND
+DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist)
+THEN
+NOT DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist);
+
+PROC
+PROC_ARCANA_WhichOne_Consider((CHARACTER)_Owner)
+AND
+DB_ARCANA_Double(_Double, _Owner, _Order)
+AND
+NOT DB_ARCANA_DoubleGone(_Double, _Owner)
+AND
+IsDead(_Double, 0)
+AND
+GetDistanceTo(_Owner, _Double, _Dist)
+THEN
+PROC_ARCANA_WhichOne_Offer(_Owner, _Double, _Dist);
+
+PROC
+PROC_ARCANA_WhichOne_Offer((CHARACTER)_Owner, (CHARACTER)_Double, (REAL)_Dist)
+AND
+DB_ARCANA_WhichOneBest(_Owner, _Old, _OldDist)
+AND
+_Dist < _OldDist
+THEN
+NOT DB_ARCANA_WhichOneBest(_Owner, _Old, _OldDist);
+DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist);
+
+PROC
+PROC_ARCANA_WhichOne_Offer((CHARACTER)_Owner, (CHARACTER)_Double, (REAL)_Dist)
+AND
+NOT DB_ARCANA_WhichOneBest(_Owner, _, _)
+THEN
+DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist);
+
+PROC
+PROC_ARCANA_WhichOne_Swap((CHARACTER)_Owner)
+AND
+DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist)
+AND
+GetPosition(_Owner, _OX, _OY, _OZ)
+AND
+GetPosition(_Double, _DX, _DY, _DZ)
+THEN
+NOT DB_ARCANA_WhichOneBest(_Owner, _Double, _Dist);
+TeleportToPosition(_Owner, _DX, _DY, _DZ, "ARCANA_WhichOne", 0, 0, 0, 0, 1);
+TeleportToPosition(_Double, _OX, _OY, _OZ, "ARCANA_WhichOne", 0, 0, 0, 0, 1);
+PROC_ARCANA_Doubles_Retire(_Double, _Owner);
+//END_REGION
+
+//REGION Cleanup
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_HighPriestessChained(_Char)
+THEN
+NOT DB_ARCANA_HighPriestessChained(_Char);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_WhichOneBest(_Char, _Double, _Dist)
+THEN
+NOT DB_ARCANA_WhichOneBest(_Char, _Double, _Dist);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_VeilLiftsBy(_Foe, _Char)
+THEN
+NOT DB_ARCANA_VeilLiftsBy(_Foe, _Char);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

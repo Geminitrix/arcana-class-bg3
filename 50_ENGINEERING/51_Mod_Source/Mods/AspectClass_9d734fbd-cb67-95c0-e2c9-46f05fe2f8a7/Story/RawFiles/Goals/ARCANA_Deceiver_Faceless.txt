@@ -1,0 +1,60 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Faceless: Copy (Deceiver utility): she takes the look of the character she targets until FACELESS_COPY ends.
+// The Transform waits 800 ms (real time) after the cast, so the cast animation is not cut by the shapeshift.
+//
+// DBs:
+//   DB_ARCANA_Copy_Active(Caster, Target)   whose look she has (or is about to take). One row per caster;
+//                                           deleted when FACELESS_COPY ends or by the next copy.
+
+//REGION Procedures
+PROC
+PROC_ARCANA_FacelessCopy_Clear((CHARACTER)_Caster)
+AND
+DB_ARCANA_Copy_Active(_Caster, _Old)
+THEN
+NOT DB_ARCANA_Copy_Active(_Caster, _Old);
+
+PROC
+PROC_ARCANA_FacelessCopy_End((CHARACTER)_Caster)
+THEN
+RealtimeObjectTimerCancel(_Caster, "ARCANA_FacelessCopy_Timer");
+PROC_ARCANA_FacelessCopy_Clear(_Caster);
+RemoveTransforms(_Caster);
+//END_REGION
+
+//REGION Copy: take the target's look
+IF
+UsingSpellOnTarget((CHARACTER)_Caster, _Target, "Target_Arcana_Util_Faceless_Copy", _, _, _)
+AND
+IsCharacter(_Target, 1)
+AND
+_Target != _Caster
+THEN
+PROC_ARCANA_FacelessCopy_Clear(_Caster);
+DB_ARCANA_Copy_Active(_Caster, _Target);
+RealtimeObjectTimerCancel(_Caster, "ARCANA_FacelessCopy_Timer");
+RealtimeObjectTimerLaunch(_Caster, "ARCANA_FacelessCopy_Timer", 800);
+
+IF
+ObjectTimerFinished((CHARACTER)_Caster, "ARCANA_FacelessCopy_Timer")
+AND
+DB_ARCANA_Copy_Active(_Caster, _Target)
+THEN
+Transform(_Caster, _Target, (SHAPESHIFTRULE)FacelessCopy_3eb3fee7-67b4-46b5-a81a-2ac2da66bff7);
+//END_REGION
+
+//REGION Copy ends: back to her own look
+IF
+StatusRemoved((CHARACTER)_Caster, "FACELESS_COPY", _, _)
+AND
+DB_ARCANA_Copy_Active(_Caster, _)
+THEN
+PROC_ARCANA_FacelessCopy_End(_Caster);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

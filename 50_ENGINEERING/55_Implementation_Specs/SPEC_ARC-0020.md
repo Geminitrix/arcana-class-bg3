@@ -45,7 +45,7 @@ each level grants is written once, in items 09–21.
 | 08 | Passive | — | `Arcana_Passive_TheVeil` (change: text) | Stats → PassiveData | — | ☐ |
 | 09–15 | Spell lists | — | "Deceiver Level 1/2/3/4/5/6/10" (2 new, 5 changed) | UUID Object Editor → Lists | 02 | ☐ |
 | 16–21 | Progression | levels 1, 2, 4, 6, 7, 8, 10, 12 | table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` | UUID Object Editor → Progressions | 09–15 | ☐ |
-| 22 | Osiris | goal | `ARCANA_Deceiver_Doubles` (replaced whole) | Story Editor | 01, 03 | ☐ |
+| 22 | Osiris | goals | the Deceiver goals, one per feature (DV36) | Claude writes them; the Owner compiles | 01, 03 | ☐ |
 | 23 | Generated / PC | — | `ARCANA_CardFamilies`, `CardDB.lua` | Claude, after the Owner saves | 02 | ☐ |
 
 ---
@@ -120,11 +120,15 @@ The Doubles' kit by level (`DB_ARCANA_DoubleRuleTier`: Reflected spells from 5, 
 - **Verify:** QA_ARC-0020 A.1 (`dump_progression.pl` matches DESIGN §9.1, no empty level) and the "new at this level" test of
   each level.
 
-## Feature F · The goal (item 22)
+## Feature F · The goals (item 22) — written by Claude (DV36)
 
-`ARCANA_Deceiver_Doubles.txt` replaced whole (the Owner pastes it). Built from the game's goal of 2026-11-25 (after
-ARC-0030's standard); working copy and the untouched original in `55/_wip/Deceiver/arc0020/kit/`. `check_osiris.pl`:
-0 errors, 0 warnings. ASCII, CRLF.
+At the Owner's request the Osiris side is Claude's: the rules of this build and the old Deceiver goals, one goal per feature
+(the Kingmaker's pattern), *HighPriestess* instead of *Empress* in Osiris (`ARCANA_Aspect_HighPriestess`, `ARCANA_Deceiver_TheVeil`,
+`_Doubt`, `_Splinter`, `_SplinterOnCommand`, `_SeedOfDoubt`, `_Veilstep`, `_TwiceTold`, `_GrandDeception`, `_MirroredSpell`,
+`_Faceless`). The Tier III burst of a destroyed Double runs from The Veil's purge through the hook
+`PROC_ARCANA_Doubles_OnPurge` (defined in the Aspect goal). Source in `55/_wip/Deceiver/arc0020/goals/`; every old rule is in
+the new set (rule-by-rule diff), `check_osiris.pl` 0 errors and 0 warnings for the 11 goals. The published Stats ids and the
+Awakening key `"EMPRESS"` stay (OR-10). The Owner compiles the Story (OR-15).
 
 ## Generated and PC edition (item 23)
 

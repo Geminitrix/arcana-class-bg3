@@ -1,21 +1,20 @@
 ---
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
-synced_at: 2026-10-16 (texts after ARC-0020 stage 1; levels and kit as of 2026-10-11 — every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-07)
+synced_at: 2026-11-25 (ARC-0020 build: the Owner's Stats, lists and progression of TOOLKIT_ARC-0020; Claude's goal split DV36; levels from dump_progression.pl)
 state: synced
-reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35) checked, no change; 2026-11-25 ARC-0020 — build kit checked, no change (game unchanged)
+reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35) checked, no change; 2026-11-25 ARC-0020 — build kit checked, no change (game unchanged); 2026-11-25 ARC-0020 — the build in the game (map v2, Tier III burst, Grand Deception, Splinter on Command, goals split)
 ---
 
 # 🪞 The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
 
-> **In game since ARC-0020 stage 1 (2026-10-16):** the player-facing names below (Eidolon, Seed of Doubt / Seed, Veilstep,
-> Binding Falsehood, Twice-Told, Splinter, Reflected Seed / Falsehood, the subclass *The Veilwalker*) and The Veil's
-> one-rule text. Still the Veil build otherwise: Telepathy and the *Doubt* passive at level 1, the old map, Tier III with
-> Charisma — they change in stages 2–4 of `55/SPEC_ARC-0020.md`.
+> **In game since 2026-11-25 (ARC-0020 build, not yet played):** the map of DV35 (something at every level 1–12; Telepathy
+> and the *Doubt* passive out of the progression), *Splinter on Command*, the Tier III burst (no Charisma), Grand Deception
+> reading the Doubles, and the Osiris goals one per feature (DV36). *Mirrored Self* from a Double (DV25) is deferred.
 >
-> Last verified: **2026-10-07** (after the Veil rework, stages 1–4) · Progression table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` ·
-> Lists "Deceiver Level N" · Osiris `ARCANA_Deceiver_Doubles.txt`, `ARCANA_Deceiver_Doubt.txt`, `ARCANA_Aspect_Empress.txt`
-> (internal ids keep *Empress*), `ARCANA_Status_Sigil.txt`, `ARCANA_Spell_Withdraw.txt`, `ARCANA_Spell_MimicWithdraw.txt`,
-> `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV34, being built (ARC-0020) — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
+> Last verified: **2026-11-25** (ARC-0020 build, levels by `dump_progression.pl`; numbers of the Veil build last re-checked 2026-10-07) · Progression table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` ·
+> Lists "Deceiver Level N" · Osiris `ARCANA_Deceiver_TheVeil` · `_Doubt` · `_Splinter` · `_SplinterOnCommand` · `_SeedOfDoubt` ·
+> `_Veilstep` · `_TwiceTold` · `_GrandDeception` · `_MirroredSpell` · `_Faceless`, Aspect `ARCANA_Aspect_HighPriestess` (Stats ids keep
+> *Empress*) · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV36, built by ARC-0020, in playtest — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
 > (D1–D17) · Patches and scripts in `55_Implementation_Specs/_wip/Deceiver/` · Wiki artifact: https://claude.ai/artifact/439SJbZifq1fWxUsvPtnuh
 
 ---
@@ -95,13 +94,18 @@ gives **Paranoia** (`WHISPERED_PARANOIA`: no reactions).
 
 | Lvl | Passives | Cards / spells |
 |---|---|---|
-| 1 | **The Veil** · **Doubt** · Telepathy | Seed of Doubt · Malicious Whispers *(cantrip)* · Eidolon · Faceless *(util)* · Friends *(level-1 spell)* |
-| 3 | **2 - The High Priestess: Awakening** · Veiled (Tier I) | Binding Falsehood · Veiled Prison |
-| 5 | **Two Truths** | Veilstep |
-| 7 | Two Pillars (Tier II) · cap 4 | Twice-Told |
+| 1 | **The Veil** | Malicious Whispers *(cantrip)* · Eidolon · Friends *(level-1 spell)* |
+| 2 | — | Seed of Doubt · Faceless *(util)* |
+| 3 | **2 - The High Priestess: Awakening** · Veiled (Tier I) | Veiled Prison |
+| 4 | — | Splinter on Command |
+| 5 | **Two Truths** | Binding Falsehood |
+| 6 | — | Veilstep · Twice-Told |
+| 7 | Two Pillars (Tier II) | — |
+| 8 | cap 4 (`Arcana_Passive_VeilCap4`) | — |
 | 9 | **Unveil** | Marionette |
+| 10 | — | Mirrored Self · Mirrored Spell |
 | 11 | — | Grand Deception |
-| 12 | Aspect of Doubt (Tier III) · cap 5 | Mirrored Self · Mirrored Spell |
+| 12 | Aspect of Doubt (Tier III) · cap 5 (`Arcana_Passive_VeilCap5`) | — |
 | 13–20 | — | — |
 
 ---
@@ -110,17 +114,18 @@ gives **Paranoia** (`WHISPERED_PARANOIA`: no reactions).
 
 | Card | Lvl | Card lvl | Effect |
 |---|---|---|---|
-| **Seed of Doubt** | 1 | 1 | 18 m, never misses: Force (1d6 per slot) and a Seed |
+| **Seed of Doubt** | 2 | 1 | 18 m, never misses: Force (1d6 per slot) and a Seed |
 | **Malicious Whispers** | 1 | cantrip | WIS save: Psychic (`D4Cantrip`), Disadvantage on its next attack; marked target: Paranoia + 1 Doubt |
 | **Eidolon** | 1 | 1 | Summon 1 Double within 9 m (2 at slot 3, 3 at slot 5) |
 | **Friends** | 1 | 1 | Advantage on Charisma checks; at slot 6 the old Faux Amis (no Concentration, unnoticed) |
-| **Binding Falsehood** | 3 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn |
+| **Binding Falsehood** | 5 | 2 | WIS save: Force when bound and at turn end, then Restrained 1 turn |
 | **Veiled Prison** | 3 | 2 | WIS save: Incapacitated 10 turns, crits from 3 m, repeats the save; 2+ Doubt: Disadvantage. Concentration · Short Rest · Unique |
-| **Veilstep** | 5 | 3 | Teleport 18 m, Force blast on landing, a Double where she stood; creates Withdraw (swap with that Double) and Twice-Told: Veilstep |
-| **Twice-Told** | 7 | — | Bonus action: recast the last damaging card |
+| **Veilstep** | 6 | 3 | Teleport 18 m, Force blast on landing, a Double where she stood; creates Withdraw (swap with that Double) and Twice-Told: Veilstep |
+| **Twice-Told** | 6 | — | Bonus action: recast the last damaging card |
 | **Marionette** | 9 | 5 | Dominate 10 turns; 2+ Doubt: Disadvantage. Concentration · Long Rest · Unique |
-| **Grand Deception** | 11 | 5 | Doubles up to the cap; enemies within 9 m: WIS save or 2 Doubt. Long Rest · Unique |
-| **Mirrored Self** / **Mirrored Spell** | 12 | 2 / 3 | Unchanged passive cards |
+| **Grand Deception** | 11 | 5 | Doubles up to the cap; enemies within 9 m that fail a WIS save gain 1 Doubt per Double of hers that stood within 3 m of them before the cast. Long Rest · Unique |
+| **Mirrored Self** / **Mirrored Spell** | 10 | 2 / 3 | Unchanged passive cards (Mirrored Self: one more target; DV25 deferred) |
+| **Splinter on Command** | 4 | 0 | Bonus action, 18 m: one of her Doubles Splinters at once. A deck card (1 Thread on PC) |
 | **Ready: Which One?** | Tier III | 3 | Conjured at Tier III (console: `UnlockSpell` while awakened). Once per round (`ArcanaReactWhichOne`, Turn), reaction when an attack would hit: swap with the nearest Double, the attack misses, the Double is destroyed, the attacker gains Doubt |
 | **The Veil Lifts** *(Aspect card)* | Tier I | — | Every Double casts Splinter, every Seed of hers detonates, survivors with Doubt go to Deluded. Once per combat |
 
@@ -137,7 +142,7 @@ Image, Friends: Faux Amis, Heartbreak, Beloved, the old clone's Mirror spells, `
 |---|---|---|---|---|
 | I | 3 | 4 | **Veiled** | Enemies with Doubt have Disadvantage on attacks against her and her Doubles (in the DOUBT statuses, `GetSummoner` for Doubles) |
 | II | 7 | 7 | **Two Pillars** | Once per turn, when an enemy becomes Deluded in her name, the nearest unmarked enemy within 6 m gains her Seed |
-| III | 12 | 10 | **Aspect of Doubt** | +3 CHA; CHA modifier to Arcane damage; Ready: Which One? |
+| III | 12 | 10 | **Aspect of Doubt** | Every Splinter is one 4 m burst (`Projectile_Arcana_SplinterBurst`, hers); a Double an enemy destroys bursts where it was struck; Ready: Which One? |
 
 ---
 
@@ -148,13 +153,12 @@ Image, Friends: Faux Amis, Heartbreak, Beloved, the old clone's Mirror spells, `
 | Control that snowballs: Doubt makes every save worse, Deluded every few hits | No healing; light armour |
 | Bodies on the field: decoys, +AC, Splinter bursts, Which One? | Doubles die to any hit or area |
 | Burst: Seed + Twice-Told + Mirror spells | Damage needs setup |
-| Utility: Telepathy, Faceless, Friends, Mirrored Spell | Many control cards share Concentration |
+| Utility: Faceless, Friends, Mirrored Spell | Many control cards share Concentration |
 
 **What sets it apart:** the only subclass with bodies to spend, and the one whose debuff (Doubt) feeds both its control and its Awakening.
 
 ---
 
-## 8. Still to test in game (2026-10-07)
+## 8. Still to test in game
 
-Doubles' spells by tier (the rule switch), Mirror damage, Veiled Prison, Grand Deception, the Awakening (steps, Two
-Pillars, Which One? and whose Doubt it is, The Veil Lifts making the Doubles cast Splinter off-turn).
+Everything of the build above: `61.02/Deceiver/QA_ARC-0020.md`, levels 1–12 (Arcana Test Guides, tab Veilwalker).

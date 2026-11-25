@@ -1,0 +1,106 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ARCANA_SigilDoubtOwner((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_SigilDoubtOwner((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+
+KBSECTION
+// Sigil (Deceiver): lays the mark in the Deceiver's name and turns a detonation into one stack of Doubt.
+// The mark only detonates on damage from whoever applied it or a summon of theirs (HasStatus('SIGIL',
+// context.Target, context.Source) in its RemoveConditions). A Double marks in its owner's name, so the two can
+// detonate each other's marks: the Deceiver as the mark's source, the Double through GetSummoner.
+//
+// DBs:
+//   DB_ARCANA_SigilDoubtOwner(Foe, Owner)   the Deceiver whose mark the foe carries (the latest one applied).
+//                                           Deleted by the detonation, the foe's death, or either of them leaving
+//                                           combat (PROC_ARCANA_Aspect_Reset). A row that outlives a mark removed
+//                                           without a detonation is harmless: only a new mark, which replaces it,
+//                                           can detonate.
+// Reads: DB_ARCANA_MirrorImageOf (ARCANA_Deceiver_Doubles.txt). Hooks: PROC_ARCANA_Aspect_Reset.
+
+//REGION The mark is laid in the Deceiver's name
+IF
+StatusApplied(_Target, "SIGIL_TECH", _Caster, _)
+AND
+DB_ARCANA_MirrorImageOf((CHARACTER)_Caster, _Owner)
+AND
+HasActiveStatus(_Target, "SIGIL", 0)
+THEN
+ApplyStatus(_Target, "SIGIL", -6.0, 1, _Owner);
+
+IF
+StatusApplied(_Target, "SIGIL_TECH", _Caster, _)
+AND
+NOT DB_ARCANA_MirrorImageOf((CHARACTER)_Caster, _)
+AND
+HasActiveStatus(_Target, "SIGIL", 0)
+THEN
+ApplyStatus(_Target, "SIGIL", -6.0, 1, _Caster);
+//END_REGION
+
+//REGION A detonation adds Doubt (The Veil)
+// SIGIL.OnRemoveFunctors applies SIGIL_DETONATED_TECH when the mark is triggered, but a status applied from an
+// OnRemoveFunctors has no guaranteed source, so the owner of each mark is remembered here when the mark lands (the
+// rules above always put it in the Deceiver's name, also when a Double lays it). On the detonation the foe gets ONE
+// DOUBT_ADD_TECH in her name: the Doubt goal (ARCANA_Deceiver_Doubt.txt) raises the stack and credits her.
+// Own DB on purpose: two goals that answer one event in an unknown order must not share a row.
+IF
+StatusApplied((CHARACTER)_Foe, "SIGIL", (CHARACTER)_Owner, _)
+THEN
+PROC_ARCANA_Sigil_SetDoubtOwner(_Foe, _Owner);
+
+PROC
+PROC_ARCANA_Sigil_SetDoubtOwner((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+DB_ARCANA_SigilDoubtOwner(_Foe, _Old)
+THEN
+NOT DB_ARCANA_SigilDoubtOwner(_Foe, _Old);
+
+PROC
+PROC_ARCANA_Sigil_SetDoubtOwner((CHARACTER)_Foe, (CHARACTER)_Owner)
+THEN
+DB_ARCANA_SigilDoubtOwner(_Foe, _Owner);
+
+IF
+StatusApplied((CHARACTER)_Foe, "SIGIL_DETONATED_TECH", _, _)
+AND
+DB_ARCANA_SigilDoubtOwner(_Foe, _Owner)
+THEN
+NOT DB_ARCANA_SigilDoubtOwner(_Foe, _Owner);
+PROC_ARCANA_Sigil_Doubt(_Foe, _Owner);
+
+// A detonation that kills (the mark's damage is skipped on a killing blow, the detonation status is not) adds nothing.
+PROC
+PROC_ARCANA_Sigil_Doubt((CHARACTER)_Foe, (CHARACTER)_Owner)
+AND
+IsDead(_Foe, 0)
+THEN
+ApplyStatus(_Foe, "DOUBT_ADD_TECH", 0.0, 1, _Owner);
+//END_REGION
+
+//REGION Cleanup
+IF
+Died((CHARACTER)_Foe)
+AND
+DB_ARCANA_SigilDoubtOwner(_Foe, _Owner)
+THEN
+NOT DB_ARCANA_SigilDoubtOwner(_Foe, _Owner);
+
+// PROC_ARCANA_Aspect_Reset (ARCANA_Aspect_Common.txt) runs when a character leaves combat: drop its rows either way.
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_SigilDoubtOwner(_Foe, _Char)
+THEN
+NOT DB_ARCANA_SigilDoubtOwner(_Foe, _Char);
+
+PROC
+PROC_ARCANA_Aspect_Reset((CHARACTER)_Char)
+AND
+DB_ARCANA_SigilDoubtOwner(_Char, _Owner)
+THEN
+NOT DB_ARCANA_SigilDoubtOwner(_Char, _Owner);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

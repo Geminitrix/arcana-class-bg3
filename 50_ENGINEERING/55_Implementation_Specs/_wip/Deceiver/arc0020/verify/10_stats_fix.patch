@@ -1,0 +1,12 @@
+# ARC-0020 verification of the Owner's Stats typing (2026-11-25) — divergences from TOOLKIT_ARC-0020, fixed by Claude (OR-11).
+# 1. The Veil: the level-8 text went into the Description (h8cce4774) instead of the ExtraDescription (h475554fe).
+@loca h8cce4774gc43ag85c1gfbf4g7a2213dd6822 Every lie an enemy believes plants <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> in it. At the third, it becomes <LSTag Type="Status" Tooltip="DELUDED">Deluded</LSTag>.<br><br><LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_MirrorImage">Eidolon</LSTag> and <LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion">Veilstep</LSTag> summon Doubles: illusions of you with 1 <LSTag Tooltip="HitPoints">hit point</LSTag> that act on their own turn and can <LSTag Type="Spell" Tooltip="Shout_Deceiver_Double_Shatter">Splinter</LSTag>. You gain +1 <LSTag Tooltip="ArmourClass">Armour Class</LSTag> for each one.
+@loca h475554feg85f0g3262gf95agde7fb3d1ed7e An enemy believes a lie when it destroys one of your Doubles, when a Splinter hits it, when your Seed bursts in it and when Malicious Whispers finds your Seed. Each stack of Doubt reduces its Wisdom Saving Throws and its Attack Rolls against you and your Doubles by 1.<br><br>You can keep 3 Doubles at once, 4 from level 8 and 5 from level 12. They vanish when combat ends, after a Long Rest or if you die.
+
+# 2. Grand Deception: TooltipStatusApply still DOUBT_2 (step 07).
+@file Spell_Shout
+@set Shout_Arcana_Card_Spell_GrandDeception TooltipStatusApply ApplyStatus(DOUBT_1,100,3)
+
+# 3. Splinter on Command: DamageType Psychic left from the parent (step 02 clears it).
+@file Spell_Target
+@set Target_Arcana_Card_Spell_SplinterOnCommand DamageType ""

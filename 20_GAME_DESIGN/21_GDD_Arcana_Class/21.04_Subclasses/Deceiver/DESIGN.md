@@ -2,7 +2,7 @@
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
 state: design (DV1–DV35); approved by the Owner 2026-11-25; build kit ready (SPEC_ARC-0020, TOOLKIT_ARC-0020, delta on the Veil build). The game still has the Veil build of 2026-10-07 with the stage-1 names and the old map (`05.02/Deceiver.md`) until the ARC-0020 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35): §4.2, §5, §6, §9; 2026-11-25 ARC-0020 — build kit: §13.2 burst path, §14 ids kept and DV25 deferred
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35): §4.2, §5, §6, §9; 2026-11-25 ARC-0020 — build kit: §13.2 burst path, §14 ids kept and DV25 deferred; 2026-11-25 ARC-0020 — DV36 Osiris goals (§13.1)
 ---
 
 # The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
@@ -341,12 +341,15 @@ Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 
 | Goal | Role |
 |---|---|
-| `ARCANA_Deceiver_Doubles.txt` | Summon, transform, kit by level, cap, AC layers, Doubt on destruction, cleanup; **new:** Splinter on Command, the Tier III burst, the Doubles counted by Grand Deception |
+| `ARCANA_Deceiver_TheVeil.txt` | The Doubles: registry, cap, AC layers, form and kit by level, who destroyed one, the purge (Doubt for the destroyer), cleanup |
 | `ARCANA_Deceiver_Doubt.txt` | Doubt counter, Deluded, Awakening steps |
-| `ARCANA_Aspect_Empress.txt` | Tier bonuses, The Veil Lifts, Which One? (ids keep *Empress*, DV12) |
-| `ARCANA_Status_Sigil.txt` | The Seed's burst and its Doubt (file and status ids renamed or kept in the build) |
-| `ARCANA_Spell_Withdraw.txt`, `…MimicWithdraw.txt`, `…MirrorWithdraw.txt` | Veilstep's Double and the swap |
-| `ARCANA_Passive_MirroredSpell.txt`, `ARCANA_Spell_FacelessCopy.txt` | Mirrored Spell, Faceless |
+| `ARCANA_Deceiver_Splinter.txt` | A Double that Splinters is gone a moment later, blameless |
+| `ARCANA_Deceiver_SplinterOnCommand.txt` | The marked Double Splinters at once (UseSpell) |
+| `ARCANA_Deceiver_SeedOfDoubt.txt` | The Seed laid in her name (status `SIGIL`) and the Doubt of its burst |
+| `ARCANA_Deceiver_Veilstep.txt`, `ARCANA_Deceiver_TwiceTold.txt` | Veilstep's Double and Withdraw; the same for Twice-Told: Veilstep |
+| `ARCANA_Deceiver_GrandDeception.txt` | One Doubt per Double that stood within 3 m of a failed enemy |
+| `ARCANA_Deceiver_MirroredSpell.txt`, `ARCANA_Deceiver_Faceless.txt` | Mirrored Spell, Faceless: Copy |
+| `ARCANA_Aspect_HighPriestess.txt` | The Awakening count; Tier I The Veil Lifts; Tier II Two Pillars; Tier III the lie explodes (Splinter burst, burst of a destroyed Double through `PROC_ARCANA_Doubles_OnPurge`) and Which One? (DV36: *HighPriestess* in Osiris; the Stats ids keep *Empress*) |
 
 ### 13.2 Patterns
 

@@ -1292,7 +1292,7 @@ sub common_rows {
 }
 
 # Osiris for the Aspect: the goal (each reaction is a step), Harmony's free Surge (Tier II, R40) and the Tier III wave.
-# Patterns: ARCANA_Aspect_Empress.txt (Step, nearest candidate from DB_ARCANA_Aspect_InCombat, once per turn cleared
+# Patterns: ARCANA_Aspect_HighPriestess.txt (Step, nearest candidate from DB_ARCANA_Aspect_InCombat, once per turn cleared
 # on TurnStarted, PROC_ARCANA_Aspect_Reset hook); ARCANA_Aspect_Fool.txt (a card by DB_ARCANA_CardFamily).
 sub temperance_goal {
     my @feel = map { 'FEELING_' . uc $FEELING{$_}{name} } sort { $FEELING{$a}{name} cmp $FEELING{$b}{name} } keys %FEELING;

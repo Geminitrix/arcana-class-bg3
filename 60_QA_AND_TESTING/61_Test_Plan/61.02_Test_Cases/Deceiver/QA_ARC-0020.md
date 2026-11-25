@@ -4,7 +4,7 @@ title: Playtest — The Veilwalker — rework DV1–DV35 (levels 1–12)
 type: playtest
 subclass: deceiver
 build: ARC-0020
-status: ready
+status: in_qa
 owner: QA Lead
 sources: [TC_ARC-0019]
 created: 2026-10-17
@@ -22,6 +22,8 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - Type the whole of `TOOLKIT_ARC-0020.md` (only what changes: 9 Stats entries, the lists, the progression and one goal),
   compile the Story (log.txt: 0 error(s)), save and tell Claude `[fechado] ARC-0020`: Claude checks every step, runs the
   generators and the PC deck row (step 23), then you play here.
+- 2026-11-25: the Stats, lists and progression are typed and checked; the Osiris goals were split one per feature by Claude
+  (DV36). Compile the Story once before playing (log.txt: 0 error(s)).
 - Console edition (Script Extender off) unless a test says PC edition.
 - A new Veilwalker (Arcana, subclass The Veilwalker) at level 1, levelled up only after the level's tests pass. Keep a save
   at the start of each level.
@@ -757,3 +759,4 @@ strongest? When did you keep a Double instead of spending it, and why? What woul
 - 2026-10-17 — QA_ARC created (ARC-0027, Owner: one QA file per playtest): sources TC_ARC-0019 merged; nothing removed.
 - 2026-11-25 — DV35 (level map v2): note added above the appendix (B5, V1 read with the new map); the appendix stays verbatim.
 - 2026-11-25 — Build kit (ARC-0020 stage 4): the tests written level by level (L1–L12, A.1–A.3) from the appendix, on the level map v2 (DV35) and the delta build of TOOLKIT_ARC-0020; Mirrored Self from a Double (DV25) deferred. Status ready.
+- 2026-11-25 — Build in the game (the Owner's Stats, lists and progression; Claude's fixes and goals, DV36): status in_qa.

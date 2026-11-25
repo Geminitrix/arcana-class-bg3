@@ -1,0 +1,29 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Splinter on Command (DV24, DV32): her card marks one of her Doubles, and that Double Splinters at once.
+// Target_Arcana_Card_Spell_SplinterOnCommand only applies SPLINTER_COMMAND_TECH to the Double. The Double then casts
+// its own Splinter with UseSpell, the path The Veil Lifts uses (ARCANA_Aspect_HighPriestess.txt), so the Splinter
+// goal marks it blameless and retires it after the burst and, at Tier III, the Aspect makes the burst. The card's
+// target condition only asks for a Double; ownership is checked here, so a Double that isn't hers, or is already
+// gone, is ignored: the card is spent and nothing happens.
+//
+// DBs: none. Reads DB_ARCANA_Double and DB_ARCANA_DoubleGone (ARCANA_Deceiver_TheVeil.txt).
+
+//REGION The marked Double splinters now
+IF
+StatusApplied((CHARACTER)_Double, "SPLINTER_COMMAND_TECH", (CHARACTER)_Owner, _)
+AND
+DB_ARCANA_Double(_Double, _Owner, _)
+AND
+NOT DB_ARCANA_DoubleGone(_Double, _Owner)
+AND
+IsDead(_Double, 0)
+THEN
+UseSpell(_Double, "Shout_Deceiver_Double_Shatter", _Double, _Double, 1);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

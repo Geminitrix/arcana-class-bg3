@@ -84,35 +84,35 @@ Keep this section in every guide; it is how the Owner reads the rest (full text:
 | 19 | E · The map | UUID Object Editor | Progressions / Progressions | Deceiver levels 6 and 7 | change | 14 | ☐ |
 | 20 | E · The map | UUID Object Editor | Progressions / Progressions | Deceiver levels 7 and 8 (the cap) | change | — | ☐ |
 | 21 | E · The map | UUID Object Editor | Progressions / Progressions | Deceiver levels 10 and 12 | change | 15 | ☐ |
-| 22 | F · The Doubles goal | Stories | Goals | `ARCANA_Deceiver_Doubles` | replace the whole goal | 01, 03 | ☐ |
+| 22 | F · The goals | Stories | Goals | the Deceiver goals, one per feature (DV36) | done by Claude — compile only | 01, 03 | ☐ |
 | 23 | — | Generated and PC edition | `ARCANA_CardFamilies`, `CardDB.lua` | Splinter on Command | Claude, after you save | 02 | ☐ |
 
 ---
 
 ## 1 · Stories (Osiris)
 
-### 22 · Goal `ARCANA_Deceiver_Doubles` — replace the whole goal (parent goal unchanged)
+### 22 · The Deceiver's goals — done by Claude (DV36), nothing to paste
 
-Open the goal in the Story Editor, select all, delete, paste the block below, save, **compile** and read
-`Mods/AspectClass_…/Story/log.txt` — it must end with `0 error(s)`. What changed from today's goal (everything else is
-identical, line for line):
+At the Owner's request (2026-11-25, `[fechado] ARC-0020`) Claude wrote the Osiris side: the rules of this build and the
+old Deceiver goals, **one goal per feature** (the Kingmaker's pattern), *HighPriestess* instead of *Empress* in Osiris.
+In the game now (`Mods/AspectClass_…/Story/RawFiles/Goals/`):
 
-| Region | Change | Decision |
-|---|---|---|
-| INITSECTION | two new DBs pinned: `DB_ARCANA_DoubleStruckAt`, `DB_ARCANA_GDBefore` | — |
-| The cap | comment: cap 4 at level 8 | DV35 |
-| Who destroyed it | new: records where a Double was struck (or died), for the Tier III burst | DV21 |
-| Splinter's Double vanishes | new rule: at Tier III a Splinter cast makes the 4 m burst `Projectile_Arcana_SplinterBurst`, her as the caster | DV21 |
-| Splinter on Command | new region: the Double marked by `SPLINTER_COMMAND_TECH` casts its Splinter at once | DV24, DV32 |
-| Grand Deception | the flat two Doubt replaced: one Doubt per Double that stood within 3 m of the enemy before the cast | DV22 |
-| Purge | new: at Tier III a Double an enemy destroyed bursts where it was struck | DV21 |
+| Goal | What it holds |
+|---|---|
+| `ARCANA_Deceiver_TheVeil` | The Doubles: registry, cap, AC layers, form and kit, who destroyed one, the purge, cleanup |
+| `ARCANA_Deceiver_Doubt` | The Doubt counter and Deluded |
+| `ARCANA_Deceiver_Splinter` | A Double that Splinters is gone a moment later, blameless |
+| `ARCANA_Deceiver_SplinterOnCommand` | Feature A: the marked Double Splinters at once |
+| `ARCANA_Deceiver_GrandDeception` | Feature C: one Doubt per Double within 3 m before the cast |
+| `ARCANA_Deceiver_SeedOfDoubt` | The Seed in her name and the Doubt of its burst |
+| `ARCANA_Deceiver_Veilstep` · `ARCANA_Deceiver_TwiceTold` | Veilstep's Double and Withdraw; Twice-Told: Veilstep's |
+| `ARCANA_Deceiver_MirroredSpell` · `ARCANA_Deceiver_Faceless` | Mirrored Spell; Faceless: Copy |
+| `ARCANA_Aspect_HighPriestess` | The Awakening; The Veil Lifts; Two Pillars; Feature B (the Tier III bursts); Which One? |
 
-```
-@@GOAL@@
-```
-
-Numbers: `3.0` (Grand Deception, metres) = `SPL_Deceiver_GrandDeception#doubles_range_next`; one `PROC_ARCANA_Doubt_Add`
-per Double = `SPL_Deceiver_GrandDeception#doubt_per_double_next` (1). The burst's area is in step 03.
+Retired from the game (archived in `90_ARCHIVE/93_Old_Versions/2026-11-25_ARC-0020_Deceiver_goals_split/`):
+`ARCANA_Aspect_Empress`, `ARCANA_Deceiver_Doubles`, `_Sigil`, `_Withdraw`, `_MimicWithdraw`, `_FacelessCopy`. Every old rule
+is in the new goals (checked rule by rule); the only new rules are this build's. **Your part:** open the Story Editor,
+**compile**, and read `Mods/AspectClass_…/Story/log.txt` — it must end with `0 error(s)`.
 
 ---
 

@@ -39,6 +39,7 @@ return {
         end,
         ["A cantrip costs 1 Thread: nothing to zero, the status only adds"] = function()
             T.eq(D.CostOf("Target_Arcana_Card_Spell_MaliciousWhispers"), 1)
+            T.eq(D.CostOf("Target_Arcana_Card_Spell_SplinterOnCommand"), 1, "Splinter on Command (DV32)")
             T.eq(D.CostOf("Shout_Arcana_Card_Spell_HowlOfTheDead"), 1)
         end,
         ["Every reaction card is a Passive card; only the once-a-round ones are Unique"] = function()

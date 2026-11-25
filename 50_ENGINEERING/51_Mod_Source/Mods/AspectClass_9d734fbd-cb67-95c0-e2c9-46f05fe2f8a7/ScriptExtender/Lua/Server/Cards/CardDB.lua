@@ -63,6 +63,8 @@ D.cards = {
     -- A cantrip has no slot cost, so ARCANA_WEAVING has nothing to zero on it and only adds: it is
     -- the one case that tests the Add half of the mechanism on its own. 1 Thread, like any card.
     ["Target_Arcana_Card_Spell_MaliciousWhispers"] = { aspect = "Deceiver", cost = 1 },
+    -- Splinter on Command (DV32): a level-0 deck card, 1 Thread like a cantrip.
+    ["Target_Arcana_Card_Spell_SplinterOnCommand"] = { aspect = "Deceiver", cost = 1 },
     ["Shout_Arcana_Card_Spell_HowlOfTheDead"] = { aspect = "Eternal", cost = 1 },
 
     -- Ready: Gale Deflection (WB63): a normal card, one copy. Played, it keeps GALE_DEFLECTION_READY until combat

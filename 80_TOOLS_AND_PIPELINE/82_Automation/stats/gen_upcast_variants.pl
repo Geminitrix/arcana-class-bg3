@@ -339,7 +339,7 @@ $khnNote = sprintf("%d variante(s) com campos editados preservados", scalar keys
     my $goal = "$dir/ARCANA_CardFamilies.txt";
     # Os goals sao CRLF. O cat -A do Git Bash esconde o CR e ja enganou uma checagem minha, entao o
     # fim de linha e lido de um goal existente em vez de assumido.
-    my $w = "$dir/ARCANA_Deceiver_Withdraw.txt";   # ARCANA_Spell_Withdraw until ARC-0030 renamed it
+    my $w = "$dir/ARCANA_Deceiver_Veilstep.txt";   # was ARCANA_Spell_Withdraw, then ARCANA_Deceiver_Withdraw (ARC-0020 split the goals)
     my $g = exists $pending{$w} ? $pending{$w} : do { open my $h,'<:raw',$w or die "$w: $!"; local $/; my $x=<$h>; close $h; $x };
     my $nl = ($g =~ /\r\n/) ? "\r\n" : "\n";
     my @facts;

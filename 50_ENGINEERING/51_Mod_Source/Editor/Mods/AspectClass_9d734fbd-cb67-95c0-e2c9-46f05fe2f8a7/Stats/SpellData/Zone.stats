@@ -353,8 +353,8 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="b8dd2f5f-f526-41ac-bbf0-5c5e8c8cbc46" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="3" />
-        <field name="Range" type="IntegerTableFieldDefinition" value="13" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:3;" />
+        <field name="Range" type="IntegerTableFieldDefinition" value="13" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -364,8 +364,8 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="b8dd2f5f-f526-41ac-bbf0-5c5e8c8cbc46" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="4" />
-        <field name="Range" type="IntegerTableFieldDefinition" value="14" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:4;" />
+        <field name="Range" type="IntegerTableFieldDefinition" value="14" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -375,8 +375,8 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="b8dd2f5f-f526-41ac-bbf0-5c5e8c8cbc46" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
-        <field name="Range" type="IntegerTableFieldDefinition" value="15" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:5;" />
+        <field name="Range" type="IntegerTableFieldDefinition" value="15" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -386,8 +386,8 @@
         <field name="Using" type="BaseClassTableFieldDefinition" value="b8dd2f5f-f526-41ac-bbf0-5c5e8c8cbc46" />
         <field name="RootSpellID" type="StringTableFieldDefinition" value="Zone_Arcana_Card_Spell_WindBlast" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
-        <field name="Range" type="IntegerTableFieldDefinition" value="16" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;SpellSlotsGroup:1:1:6;" />
+        <field name="Range" type="IntegerTableFieldDefinition" value="16" />
       </fields>
     </stat_object>
     <stat_object color="#FF66CDAA" is_substat="false">
@@ -451,6 +451,5 @@
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((6d6)/2,Fire,Magical);ApplyStatus(KINGMAKER_BIND_ENEMY_TECH,100,0)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(6d6,Fire)" />
       </fields>
-    </stat_object>
-  </stat_objects>
+    </stat_object></stat_objects>
 </stats>

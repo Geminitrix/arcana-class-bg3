@@ -17,3 +17,9 @@ SPEC_ARC-0020 (rewritten for the Owner to type; the staged plan archived), TOOLK
 6 changed, 7 lists, 9 progression rows, the Doubles goal replaced whole), QA_ARC-0020 level by level (74 tests) → `ready`;
 Arcana Test Guides now has the Veilwalker tab (the Kingmaker tab left it: QA_ARC-0008 is done). ARC-0020 → `spec_ready`.
 Deferred: Mirrored Self from a Double (DV25), after its probe. **Next:** the Owner types the TOOLKIT, then `[fechado] ARC-0020`.
+
+**Build verified (later, 2026-11-25, `[fechado] ARC-0020`):** the Owner typed the Stats, lists and progression. Three Stats
+divergences and one dangling list reference fixed; the Deceiver's Osiris split one goal per feature with *HighPriestess*
+(DV36, 6 goals retired, 11 written, every old rule kept); generators and the PC deck row done. ARC-0020 → `in_qa`. **Next:**
+the Owner compiles the Story (log.txt: 0 errors) and plays QA_ARC-0020. Pre-existing, not ours: `check_osiris` shows 6
+errors / 23 warnings in the Fool, Kingmaker and Windborn goals.

@@ -9,7 +9,7 @@ NOT DB_ARCANA_DoubtStep((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARAC
 KBSECTION
 // Doubt (Deceiver, The Veil): the Doubt counter.
 //
-// Every source of Doubt (Shatter, a Double destroyed by an enemy, her Sigil detonating, Malicious Whispers,
+// Every source of Doubt (a Splinter, a Double destroyed by an enemy, her Seed bursting, Malicious Whispers,
 // Grand Deception, the DEBUG spell...) applies ONE status with duration 0: ApplyStatus(DOUBT_ADD_TECH,100,0).
 // This goal turns each application into one stack: none -> DOUBT_1 -> DOUBT_2 -> DOUBT_3. DOUBT_3 never
 // lingers: on landing it becomes DELUDED (Confused, 1 turn) and the stacks start again from none.
@@ -22,8 +22,8 @@ KBSECTION
 //   DB_ARCANA_DoubtStep(Owner, Foe, Stack) EVENT ROW for the Awakening, one per raise (Stack = the new stack,
 //                                          1..3; the raise that triggers Deluded is a 3). Owner is the Deceiver
 //                                          (a Double's raise is credited to the Double's owner). The Awakening
-//                                          goal (ARCANA_Aspect_Empress.txt) consumes and deletes it.
-// Reads: DB_ARCANA_MirrorImageOf (ARCANA_Deceiver_Doubles.txt). Entry points for other goals:
+//                                          goal (ARCANA_Aspect_HighPriestess.txt) consumes and deletes it.
+// Reads: DB_ARCANA_MirrorImageOf (ARCANA_Deceiver_TheVeil.txt). Entry points for other goals:
 // PROC_ARCANA_Doubt_Add, PROC_ARCANA_Doubt_Raise. Hooks: PROC_ARCANA_Aspect_Reset.
 
 //REGION Entry point

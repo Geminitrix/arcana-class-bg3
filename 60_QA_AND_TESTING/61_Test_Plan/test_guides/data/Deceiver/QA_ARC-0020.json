@@ -1,6 +1,7 @@
 {
    "before" : [
       "Type the whole of `TOOLKIT_ARC-0020.md` (only what changes: 9 Stats entries, the lists, the progression and one goal),",
+      "2026-11-25: the Stats, lists and progression are typed and checked; the Osiris goals were split one per feature by Claude",
       "Console edition (Script Extender off) unless a test says PC edition.",
       "A new Veilwalker (Arcana, subclass The Veilwalker) at level 1, levelled up only after the level's tests pass. Keep a save",
       "Values come from `25` (`*_Deceiver_*`): Splinter 1d6 Psychic in 3 m (4 m at Tier III), Doubt −1 per stack, Deluded at the",

@@ -53,7 +53,9 @@ for my $x (sort keys %e) {
 
     # magia da classe que causa dano precisa de uma marca, carta ou ARCANA_IS_SPELL: e por ela que o
     # IsArcanaSpell() reconhece o dano, e a marca SIGIL so detona com IsArcanaSpell() (2026-09-26)
-    if ($x =~ /_Arcana_|^Projectile_Deceiver_Clone_|^Target_Deceiver_Clone_|^Zone_Deceiver_Clone_/) {
+    # excecao de design: o Splinter dos Doubles e a sua explosao do Tier III (ARC-0020, DV21) nao levam marca,
+    # de proposito -- um Splinter nunca detona a Seed (21.04/Deceiver/DESIGN.md §4.4)
+    if ($x =~ /_Arcana_|^Projectile_Deceiver_Clone_|^Target_Deceiver_Clone_|^Zone_Deceiver_Clone_/ && $x ne 'Projectile_Arcana_SplinterBurst') {
         my $sp = join ';', grep { defined } map { field($x, $_) } qw(SpellProperties SpellSuccess SpellFail);
         if ($sp =~ /DealDamage/ && !$marked && !(defined $r && $r =~ /not HasPassive\('ARCANA_IS_SPELL', context\.Source\)/)) {
             push @err, "dano sem marca da Arcana   $x (nao detona o SIGIL: ponha ARCANA_IS_SPELL no TargetConditions)";
