@@ -89,7 +89,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Crown two allies on different turns
 - **Expected:** The first ally to Reign is King; when both Reign, the other is Regent (changed 2026-11-16, SP115: the crown follows rounds Reigning)
 - **Fails if:** It does not happen as expected.
-- **Result:** skipped
+- **Result:** pass — Alterado.
 
 ### L1.9 · The King leaves Reigning
 
@@ -269,7 +269,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Appoint the King's Hand; start a fight with nobody on the Wheel
 - **Expected:** The Hand never shows the King status; it crits on 19–20 while there is no King, and while the King is not Reigning; when the King Reigns the crit stops (changed 2026-11-16, SP116) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass — Funcionou, mas vou mudar.
 
 ### L5.10 · Give the King an office
 
@@ -293,7 +293,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 5, CHA 15 (+2): Convene the Court twice out of combat, then try a third
 - **Expected:** Two offices land; the third option can't be cast (`COURT_FULL`); in combat the container can't be cast | `GetAbility` key not `"Charisma"` → read the modifier from a boost-free stat
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.3 · Appoint the Lord Commander next to the King
 
@@ -301,7 +301,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Appoint the Lord Commander next to the King
 - **Expected:** Attacks against the King show Disadvantage while the King is within 3 m of the Commander | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.4 · Master of Healing heals a Fallen ally, then a Falling one
 
@@ -309,7 +309,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Healing heals a Fallen ally, then a Falling one
 - **Expected:** Fallen → Rising at once; the Falling ally doesn't move | `OnHeal` doesn't fire from potions/items → note it
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.5 · Long Rest
 
@@ -317,7 +317,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Long Rest
 - **Expected:** Every office and `COURT_FULL` are gone; the options can be cast again | Statuses survive the rest → Osiris removes them at `LongRestFinished` (already written)
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.6 · A holder dies
 
@@ -325,7 +325,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** A holder dies
 - **Expected:** Its office ends; the seat isn't given back until the Long Rest | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.7 · Level 5 character: open Convene the Court
 
@@ -333,7 +333,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 5 character: open Convene the Court
 - **Expected:** Master of Laws and Master of Secrets are shown but can't be cast before level 7 | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.8 · Peripeteia with allies and enemies on the Wheel, some beyond 18 m
 
@@ -341,7 +341,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Peripeteia with allies and enemies on the Wheel, some beyond 18 m
 - **Expected:** Within 18 m: Reigning ↔ Fallen, Rising ↔ Falling; an enemy turned Fallen next to a Reigning ally crosses at once; beyond 18 m nothing moves | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L5.9 · Cast Peripeteia again in the same fight, with a higher slot
 
@@ -349,7 +349,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Cast Peripeteia again in the same fight, with a higher slot
 - **Expected:** It can't (once per combat, variants included) | Variants don't share the cooldown → a `PERIPETEIA_USED` status like `ARCANE_MASTERY_USED`
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ## Level 7 — Hubris, Usurp, Tier II Nemesis, two offices
 
@@ -361,7 +361,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** With Nemesis (5 Crossings): a Hubris enemy crosses with a Falling enemy within 3 m
 - **Expected:** The Falling one drops to Fallen and crosses too if an ally Reigns near; nothing loops | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.2 · Master of Laws held; a Rising enemy attacks the King
 
@@ -369,7 +369,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Laws held; a Rising enemy attacks the King
 - **Expected:** At the next turn it skips Reigning and lands on Falling (no Hubris) | `AttackedBy` doesn't fire on misses → note it
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.3 · Same with a Reigning enemy; with a Falling one
 
@@ -377,7 +377,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Same with a Reigning enemy; with a Falling one
 - **Expected:** Reigning → Fallen (and may cross); Falling → Fallen only | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.4 · Master of Secrets; an enemy on the Wheel within 9 m tries to hide o...
 
@@ -385,7 +385,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Secrets; an enemy on the Wheel within 9 m tries to hide or turn invisible
 - **Expected:** It can't; an invisible one becomes visible; the holder's attacks against a Falling enemy have Advantage | `SNEAKING` immunity doesn't stop hiding → look for the vanilla anti-hide status
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.5 · Level 7 character: open Convene the Court
 
@@ -393,7 +393,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 7 character: open Convene the Court
 - **Expected:** Coin and Ships are shown but locked; at 9 they open | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.6 · Level 7: let an enemy reach Reigning; next turn it falls to Fallen ...
 
@@ -401,7 +401,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 7: let an enemy reach Reigning; next turn it falls to Fallen next to a Reigning ally
 - **Expected:** It shows Hubris while Reigning; its first Crossing deals 3d6 (Hubris; a normal Crossing is 2d6 at level 7) and Hubris goes; a second Reigning ally adds a normal 2d6 Crossing (SP117) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.7 · Usurp on a Reigning ally and a Fallen enemy; then on a Fallen ally ...
 
@@ -409,7 +409,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Usurp on a Reigning ally and a Fallen enemy; then on a Fallen ally and a Reigning enemy with Hubris
 - **Expected:** First: the ally becomes Fallen and the enemy Reigning (it gains Hubris). Second: the enemy drops to Fallen and crosses at once if an ally Reigns near, with its Hubris die | Two targets not offered → one target that trades with the King
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L7.8 · Usurp on two allies
 
@@ -417,7 +417,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Usurp on two allies
 - **Expected:** Nothing moves; the card is spent (once per combat) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ## Level 9 — Succession, Wheel of Ixion, two offices
 
@@ -429,7 +429,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Ships 5 m from an enemy entering Fallen, no Reigning ally near
 - **Expected:** The enemy crosses | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L9.2 · Master of Coin hits a Fallen enemy, then another
 
@@ -437,7 +437,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Master of Coin hits a Fallen enemy, then another
 - **Expected:** One spell slot (of your slot level) comes back the first time only; the next round it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass — Fiz mudanças.
 
 ### L9.3 · Seven offices with CHA 20 (+5)
 
@@ -445,7 +445,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Seven offices with CHA 20 (+5)
 - **Expected:** Five appointed, then the rest are locked (`COURT_FULL`) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L9.4 · Level 9: kill a Falling enemy with another enemy off the Wheel 5 m ...
 
@@ -453,7 +453,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 9: kill a Falling enemy with another enemy off the Wheel 5 m from it and a third 8 m away
 - **Expected:** The 5 m one becomes Falling (Succession); the third doesn't | Roster empty (enemies not in `DB_ARCANA_Aspect_InCombat`) → collect candidates from `EnteredCombat` in this goal
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L9.5 · Kill a Reigning enemy with an heir in range
 
@@ -461,7 +461,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Kill a Reigning enemy with an heir in range
 - **Expected:** The heir enters Reigning with Hubris | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L9.6 · Wheel of Ixion through two enemies and an ally
 
@@ -469,7 +469,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Wheel of Ixion through two enemies and an ally
 - **Expected:** Enemies take 5d6 (half on a CHA save) and enter Falling; the ally takes no damage from the wheel; the line burns for 2 turns and the ally standing in it burns | The Kingmaker's own square catches fire → `FrontOffset 0`
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L9.7 · Master of Ships and a Reigning ally, both near an enemy entering Fallen
 
@@ -489,7 +489,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Ixion with a level-6 slot
 - **Expected:** 6d6 | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L11.2 · Level 11: The Wheel Stops with an ally Reigning and an enemy Fallen...
 
@@ -497,7 +497,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 11: The Wheel Stops with an ally Reigning and an enemy Fallen 5 m away
 - **Expected:** For your next 2 turn starts nothing moves and the enemy crosses each time (not twice in a round); at the third the Wheel turns again and the marks go | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L11.3 · During the stop: Turn the Spoke, Rota Fortunae, Dethrone a new enemy
 
@@ -505,7 +505,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** During the stop: Turn the Spoke, Rota Fortunae, Dethrone a new enemy
 - **Expected:** They still move / bind; the new enemy is marked stopped | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L11.4 · The Wheel Stops in the next fight
 
@@ -525,7 +525,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level 12: an enemy enters Fallen 20 m from the only Reigning ally
 - **Expected:** It crosses (Fortune's Reach) | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L12.2 · Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia...
 
@@ -533,7 +533,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Tier III (8 Crossings): follow an ally around the Wheel; Peripeteia an ally from Reigning
 - **Expected:** Rising → Reigning → Falling → Falling → Rising, never Fallen; Peripeteia leaves it Falling | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L12.3 · Tier III: cast Ready: Foreseen
 
@@ -541,7 +541,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Tier III: cast Ready: Foreseen
 - **Expected:** It costs a Bonus Action, can't be cast twice in the fight, and *Foreseen* shows as a reaction | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L12.4 · A Reigning enemy on the Wheel attacks an ally; take Foreseen
 
@@ -549,7 +549,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** A Reigning enemy on the Wheel attacks an ally; take Foreseen
 - **Expected:** The reaction is offered once the attack is rolled; taken, a Reigning attacker becomes Falling and that roll loses 1d4 (SP127); a Falling attacker becomes Fallen and may cross
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### L12.5 · A Rising or Fallen enemy attacks
 
@@ -557,7 +557,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** A Rising or Fallen enemy attacks
 - **Expected:** Foreseen isn't offered | `IsAttack()` false in `OnSpellCast` → drop it and keep the target condition
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ## Any level — full run
 
@@ -569,7 +569,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Two Kingmakers in the party
 - **Expected:** Each crowns and turns their own Wheel; one creature can't be on both | —
 - **Fails if:** It does not happen as expected.
-- **Result:** —
+- **Result:** pass
 
 ### A.2 · A new Kingmaker gets exactly the 21.03 table
 
@@ -577,7 +577,7 @@ a decision (design feedback, OR-1). One file per ARC (OR-4): merged on 2026-10-1
 - **Steps:** Level a new Kingmaker from 1 to 12 and compare each level with 21.03/Kingmaker.md.
 - **Expected:** Every level grants exactly what the table lists.
 - **Fails if:** Anything missing or extra.
-- **Result:** —
+- **Result:** pass
 
 ### A.3 · Dethrone on an ally (level 7+, a Reigning ally near the Wheel)
 

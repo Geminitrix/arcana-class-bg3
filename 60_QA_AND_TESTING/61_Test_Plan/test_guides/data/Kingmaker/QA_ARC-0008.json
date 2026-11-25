@@ -149,12 +149,12 @@
                "title" : "Fight with one enemy on the Wheel, then two"
             },
             {
-               "expected" : "The ally enters Reigning (King at once); the enemy enters Fallen and crosses at once | —",
-               "fails" : "It does not happen as expected.",
+               "expected" : "—",
+               "fails" : "—",
                "id" : "L3.5",
-               "rule" : "P13 · SPEC_ARC-0008",
-               "steps" : "With Tyche: Coronation, then Dethrone next to the Reigning ally",
-               "title" : "With Tyche: Coronation, then Dethrone next to the Reigning ally"
+               "rule" : "SP122 · ARC-0032",
+               "steps" : "Not played again: its pass belongs to the old Tyche (bindings one position ahead); L3.12 and L3.13 test the new one",
+               "title" : "Retired by SP122: Tyche no longer binds one position ahead"
             },
             {
                "expected" : "Every creature on the Wheel moves one step; a Falling enemy near a Reigning ally crosses; it can't be cast again this combat | —",
@@ -197,12 +197,28 @@
                "title" : "Two Reigning allies, two enemies enter Fallen"
             },
             {
-               "expected" : "The first Cut of each turn costs no Action (the card glows, the Swift Shears status shows until then); the second costs the Action; the upcast one is free too; the slot is spent every time",
-               "fails" : "Both free, neither free, or the upcast variant costs an Action as the first cast.",
+               "expected" : "The first Cut costs the Action; after Turn the Spoke the Swift Shears status shows and the next Cut (upcast too) costs no Action; the slot is spent every time",
+               "fails" : "The Cut is free without Turn the Spoke, stays free twice in a turn, or the upcast variant still costs the Action.",
                "id" : "L3.11",
-               "rule" : "D1 · SP118 · TOOLKIT_Kingmaker_adjust_2026-11-14",
-               "steps" : "Cast Atropos' Cut twice in one turn (the second needs an Action); next turn cast it again, upcast",
+               "rule" : "SP123 · ARC-0032",
+               "steps" : "Cast Atropos' Cut without casting Turn the Spoke first; then cast Turn the Spoke and Atropos' Cut (upcast) in the same turn",
                "title" : "Swift Shears"
+            },
+            {
+               "expected" : "The first Turn the Spoke of each turn costs no Bonus Action, the second costs it; next turn the first is free again",
+               "fails" : "Both are free, neither is free, or the free cast does not come back the next turn.",
+               "id" : "L3.12",
+               "rule" : "SP122 · ARC-0032",
+               "steps" : "With Tier I awakened, cast Turn the Spoke twice in one turn; next turn, once more",
+               "title" : "Tyche: two Turn the Spoke in one turn"
+            },
+            {
+               "expected" : "The ally enters Rising and the enemy enters Falling, as before Tier I",
+               "fails" : "Either does not enter the Wheel, or enters one position ahead.",
+               "id" : "L3.13",
+               "rule" : "SP122 · ARC-0032",
+               "steps" : "With Tier I awakened, cast Coronation on a new ally, Dethrone on a new enemy",
+               "title" : "Tyche: Coronation and Dethrone after Tier I"
             }
          ]
       },
@@ -213,26 +229,26 @@
          "setup" : "A Kingmaker at level 4, in a party of four, a normal fight, two enemies on the Wheel.",
          "tests" : [
             {
-               "expected" : "After the Cut the Dethrone icon glows and costs a Bonus Action; the Action is still free",
+               "expected" : "After the Cut the Dethrone icon glows and costs no Action",
                "fails" : "Dethrone still costs the Action, or the enemy cut gets the Severance status.",
                "id" : "L4.1",
-               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "rule" : "SP124 · ARC-0032",
                "steps" : "Cast Atropos' Cut on an enemy; then Dethrone another enemy",
                "title" : "Atropos' Cut, then Dethrone"
             },
             {
                "expected" : "It costs the Action again (the glow is gone)",
-               "fails" : "Every Dethrone of the turn costs a Bonus Action.",
+               "fails" : "Every Dethrone of the turn is free.",
                "id" : "L4.2",
-               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "rule" : "SP124 · ARC-0032",
                "steps" : "After L4.1, cast Dethrone again in the same turn",
                "title" : "A second Dethrone"
             },
             {
-               "expected" : "The upcast Dethrone costs a Bonus Action too",
+               "expected" : "The upcast Dethrone costs no Action too",
                "fails" : "Only the level-1 Dethrone is discounted.",
                "id" : "L4.3",
-               "rule" : "SP119 · TOOLKIT_Kingmaker_adjust_2026-11-14",
+               "rule" : "SP124 · ARC-0032",
                "steps" : "Atropos' Cut, then Dethrone with a higher slot",
                "title" : "Upcast Dethrone after the Cut"
             }
@@ -421,7 +437,7 @@
                "title" : "Master of Ships 5 m from an enemy entering Fallen, no Reigning ally..."
             },
             {
-               "expected" : "One spell slot (of your slot level) comes back the first time only; after a Long Rest it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`",
+               "expected" : "One spell slot (of your slot level) comes back the first time only; the next round it works again | `RestoreResource` without `SELF` doesn't reach the Kingmaker → `SELF`",
                "fails" : "It does not happen as expected.",
                "id" : "L9.2",
                "rule" : "P37 · SPEC_ARC-0008",
@@ -499,6 +515,14 @@
                "rule" : "P42 · SPEC_ARC-0008",
                "steps" : "During the stop: Turn the Spoke, Rota Fortunae, Dethrone a new enemy",
                "title" : "During the stop: Turn the Spoke, Rota Fortunae, Dethrone a new enemy"
+            },
+            {
+               "expected" : "It cannot be cast twice in one fight; it is available again in the next fight",
+               "fails" : "It can be cast twice in a fight, or it waits for a Long Rest.",
+               "id" : "L11.4",
+               "rule" : "SP125 · ARC-0032",
+               "steps" : "Cast The Wheel Stops in a fight, try it again in the same fight, then start a new fight without resting",
+               "title" : "The Wheel Stops in the next fight"
             }
          ]
       },
@@ -533,7 +557,7 @@
                "title" : "Tier III: cast Ready: Foreseen"
             },
             {
-               "expected" : "Before the roll it becomes Falling (no 19–20 crit, −1d4); a Falling attacker becomes Fallen and may cross | The step lands after the roll → swap the position statuses in the interrupt's own Properties",
+               "expected" : "The reaction is offered once the attack is rolled; taken, a Reigning attacker becomes Falling and that roll loses 1d4 (SP127); a Falling attacker becomes Fallen and may cross",
                "fails" : "It does not happen as expected.",
                "id" : "L12.4",
                "rule" : "P46 · SPEC_ARC-0008",
@@ -570,6 +594,22 @@
                "rule" : "PR1 · 21.03",
                "steps" : "Level a new Kingmaker from 1 to 12 and compare each level with 21.03/Kingmaker.md.",
                "title" : "A new Kingmaker gets exactly the 21.03 table"
+            },
+            {
+               "expected" : "It enters Falling; it never gets Hubris; it takes no Crossing; it can be crowned King",
+               "fails" : "It gets Hubris, takes a Crossing, or is never counted as an ally for the crown.",
+               "id" : "A.3",
+               "rule" : "SP126 · ARC-0033",
+               "steps" : "Dethrone an ally; follow it until it Reigns, then until it is Fallen next to a Reigning ally",
+               "title" : "Dethrone on an ally (level 7+, a Reigning ally near the Wheel)"
+            },
+            {
+               "expected" : "It enters Rising; it gets Hubris when it Reigns and is never Regent or King; it crosses when Fallen",
+               "fails" : "It becomes Regent or King, gets no Hubris, or does not cross.",
+               "id" : "A.4",
+               "rule" : "SP126 · ARC-0033",
+               "steps" : "Crown an enemy; follow it until it Reigns, then until it is Fallen next to a Reigning ally",
+               "title" : "Coronation on an enemy (level 7+)"
             }
          ]
       }
