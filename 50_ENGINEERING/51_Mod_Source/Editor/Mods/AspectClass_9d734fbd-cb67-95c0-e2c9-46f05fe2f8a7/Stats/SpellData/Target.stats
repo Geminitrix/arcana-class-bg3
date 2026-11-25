@@ -71,6 +71,16 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="18081eda-a463-4f8c-8aca-ce6584acff70" />
+        <field name="Name" type="NameTableFieldDefinition" value="DEBUG_InfiniteSpells_Reverse" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(DEBUG_INFINITE_SPELLS);" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd9f6cfceg8257gd046gc668g9ceb12cae89b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h89af1196g3e4bg6031g02eeg6cf2289042e5" version="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="03128a15-dbac-45db-a943-909dc44d3716" />
         <field name="Name" type="NameTableFieldDefinition" value="DEBUG_Kill" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="437c34df-3066-49b8-ae10-03c8d77d3e11" />

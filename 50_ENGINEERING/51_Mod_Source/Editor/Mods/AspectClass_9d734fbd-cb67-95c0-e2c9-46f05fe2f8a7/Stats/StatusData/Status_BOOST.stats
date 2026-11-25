@@ -3836,7 +3836,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="1a173459-129c-460f-b5d3-e9d4ff336729" />
         <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_TYCHE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb5db5032g345agb092g026eg99af49a81ac6" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7d8aeb38gcef3ga5dag1da2gab3006c2cda3" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7d8aeb38gcef3ga5dag1da2gab3006c2cda3" version="2" />
         <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_TYCHE" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Target_Arcana_Card_Spell_TurnTheSpoke'),ModifyUseCosts(Replace,BonusActionPoint,0,0,BonusActionPoint),ModifyTooltipDescription());" />
@@ -3860,10 +3860,10 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="bd16900c-a218-4d62-984f-33d461c5a8a4" />
-        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_ANTECIPATION" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hebfef519g3a01gf0a2g05e5g5fcdbedaae3c" version="1" />
+        <field name="Name" type="NameTableFieldDefinition" value="KINGMAKER_ANTICIPATION" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hebfef519g3a01gf0a2g05e5g5fcdbedaae3c" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="ha7c83fdag519ag39dbgaf15gfbdba4dc6091" version="2" />
-        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_ANTECIPATION" />
+        <field name="StackId" type="StringTableFieldDefinition" value="KINGMAKER_ANTICIPATION" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" enumeration_type_name="StatusPropertyFlags" version="1" />
       </fields>
@@ -4521,7 +4521,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="0638c336-72c0-06cb-5bcf-26e90d0af6fb" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0e1ba1c9g9177gc670g1a95gdef74cd76e17" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ee0c309g9c55g5db9g708bgb3b133523903" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4ee0c309g9c55g5db9g708bgb3b133523903" version="4" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_SpellSlotRestoration" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -4535,7 +4535,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="40e81775-123c-5074-9353-0aa26d7159b3" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5870985dgdb53gc6d0gc5ceg75405405739b" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h928a775dgfacdg0be8ge36ag4244d2ce000e" version="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h928a775dgfacdg0be8ge36ag4244d2ce000e" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_SpellSlotRestoration" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -4549,7 +4549,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="019538fa-7345-bb9a-9f63-acfce14ee83f" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6beaa3a3gb9e0gbee7gca9age5f99c2dc63c" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb652b230gc104ge516gdcc0gd61334cbc371" version="3" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb652b230gc104ge516gdcc0gd61334cbc371" version="5" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_SpellSlotRestoration" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_PROGRESS_WHEEL" />
         <field name="StackType" type="EnumerationTableFieldDefinition" value="Overwrite" enumeration_type_name="StatusStackType" version="1" />
@@ -4598,7 +4598,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="7367aca5-04dd-fc90-388b-b7cd1f704e7f" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_WHEEL_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8e4fbc1eg45acg3565gbafdgdf46b5022e95" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hca6c0fb0g05f5g90efg3166g67d75daf320e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hca6c0fb0g05f5g90efg3166g67d75daf320e" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_SpellSlotRestoration_2" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_WHEEL_TIER" />
@@ -4619,7 +4619,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="1e3728b3-4dc0-c7cf-da0f-ed5236a2dc7a" />
         <field name="Name" type="NameTableFieldDefinition" value="ASPECT_AWAKENED_WHEEL_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h943cca70ge372g10d0g7a33g6e11a0fae93f" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf988d590gcd2fg4d99g9955ge9d1b74382a2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf988d590gcd2fg4d99g9955ge9d1b74382a2" version="2" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(3)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Mag_SpellSlotRestoration_3" />
         <field name="StackId" type="StringTableFieldDefinition" value="ASPECT_AWAKENED_WHEEL_TIER" />
