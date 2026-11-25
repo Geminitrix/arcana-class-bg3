@@ -11,3 +11,9 @@ recorded yet"). Fixed (strips `\r`); a full run now shows 21 pending artifacts f
 
 **Next:** the Owner approves `21.04/Deceiver/DESIGN.md` (DV35) → stage 4: SPEC_ARC-0020 rewritten in today's format,
 TOOLKIT_ARC-0020, QA_ARC-0020 level by level → `ready` → the Veilwalker tab on Arcana Test Guides.
+
+**Build kit (later, 2026-11-25):** the Owner approved the design and chose a delta kit ("só o que muda"). Written:
+SPEC_ARC-0020 (rewritten for the Owner to type; the staged plan archived), TOOLKIT_ARC-0020 (23 steps: 3 new Stats entries,
+6 changed, 7 lists, 9 progression rows, the Doubles goal replaced whole), QA_ARC-0020 level by level (74 tests) → `ready`;
+Arcana Test Guides now has the Veilwalker tab (the Kingmaker tab left it: QA_ARC-0008 is done). ARC-0020 → `spec_ready`.
+Deferred: Mirrored Self from a Double (DV25), after its probe. **Next:** the Owner types the TOOLKIT, then `[fechado] ARC-0020`.

@@ -9,9 +9,9 @@
       },
       {
          "guides" : [
-            "test_guides/data/Kingmaker/QA_ARC-0008.json"
+            "test_guides/data/Deceiver/QA_ARC-0020.json"
          ],
-         "name" : "Kingmaker"
+         "name" : "Veilwalker"
       },
       {
          "guides" : [

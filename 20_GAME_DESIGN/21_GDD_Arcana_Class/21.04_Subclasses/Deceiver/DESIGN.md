@@ -1,8 +1,8 @@
 ---
 id: 21.04/Deceiver/DESIGN
 owner: Lead Class Designer
-state: design (DV1–DV35); DV35 (level map v2, 2026-11-25) awaits the Owner's approval of this document (stage 3). The game still has the Veil build of 2026-10-07 with the stage-1 names and the old map (`05.02/Deceiver.md`) until the ARC-0020 build ships
-reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35): §4.2, §5, §6, §9
+state: design (DV1–DV35); approved by the Owner 2026-11-25; build kit ready (SPEC_ARC-0020, TOOLKIT_ARC-0020, delta on the Veil build). The game still has the Veil build of 2026-10-07 with the stage-1 names and the old map (`05.02/Deceiver.md`) until the ARC-0020 build ships
+reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REFINE_Deceiver.md; replaces 2026-10-06-deceiver-veil-design.md (archived); 2026-10-16 ARC-0020 — sizes approved, now in 25 (placeholders removed); 2026-10-16 ARC-0021 — display name *Veilwalker* (DV33); 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35): §4.2, §5, §6, §9; 2026-11-25 ARC-0020 — build kit: §13.2 burst path, §14 ids kept and DV25 deferred
 ---
 
 # The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
@@ -352,7 +352,7 @@ Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 
 | Need | Pattern |
 |---|---|
-| Tier III burst on death | Vanilla **Death Burst**: `GLO_CombatNPCs.txt` explodes a dying creature with `CreateExplosionAtPosition(…, "Projectile_DeathBurst_*", 1, _Char)`; the projectile's `ExplodeRadius` sets the area (`Projectile_DeathBurst_Died_IceMephit`). Run from the Doubles goal, only on the "destroyed by an enemy" path, caster = her — **T2** |
+| Tier III burst on death | Vanilla **Death Burst**: `GLO_CombatNPCs.txt` explodes a dying creature with `CreateExplosionAtPosition(…, "Projectile_DeathBurst_*", 1, _Char)`; the projectile's `ExplodeRadius` sets the area (`Projectile_DeathBurst_Died_IceMephit`). Run from the Doubles goal with `Projectile_Arcana_SplinterBurst` (4 m), caster = her: on every Splinter cast at Tier III (the shout itself then deals nothing) and, from the purge, where a Double an enemy destroyed was struck — never on the blameless paths. **T2** until QA_ARC-0020 L12.3–L12.6 pass |
 | A Double casting off its turn | `UseSpell(_Double, …)` from Osiris, as The Veil Lifts does |
 | Mirrored Self from a Double's position | Unknown — **T2**, test before the spec; plan B: the second target must be within a short range *(25)* of a Double |
 
@@ -370,8 +370,12 @@ is *Seed of Doubt* in game text. A rename of ids, if chosen, follows ADR-0002 an
 
 ## 14. Open
 
-- Whether the build renames internal ids to the new names (DV29) or keeps them (DV12's rule).
-- Telepathy leaves the progression (DV26): its passive goes to the archive in the build.
+- Internal ids keep their names (DV12's rule, settled in the ARC-0020 build kit: published entries are never renamed,
+  OR-10); only the three new entries follow OR-59.
+- Telepathy leaves the progression (DV26): its passive goes to the archive when ARC-0020 closes.
+- **Mirrored Self from a Double (DV25) is deferred** (`SPEC_ARC-0020`, Deferred): the engine can't move a spell's origin,
+  so it needs the Double to cast a copy (probe B4) and a rule for that copy's target. Until then *Mirrored Self* keeps one
+  more target and arrives at level 10.
 
 ## 15. To test in game
 

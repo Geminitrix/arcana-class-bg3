@@ -17,3 +17,4 @@ Replaced GDDs, specs, baselines and applied patches.
 | `2026-10-17_TOOLKIT_per_level_and_test_files/` | 2026-10-17 | 14 per-level / per-stage Toolkit guides and 23 test files (GUIDE_ARC, TC_ARC, QA-####), merged into one TOOLKIT_ARC and one QA_ARC per ARC (Owner, OR-4) — map in its README |
 | `2026-10-20_ARC-0030_mirrorwithdraw_goal/` | 2026-10-20 | The Osiris goal of the old Mirror Withdraw: its spells and status no longer exist; Withdraw and Mimic: Withdraw replaced it (ARC-0030, RISKS B5) |
 | `2026-10-23_ARC-0026_Windborn_retired/` | 2026-10-23 | Storm Fists, Leap of Faith and Where the Winds Meet (master data + spell sheets), replaced in the Owner's Toolkit build by Zephyr: Tempest, Zephyr: Ally Tempest and Unleashed Winds (WB54–WB56) |
+| `2026-11-25_ARC-0020_SPEC_staged_plan/` | 2026-11-25 | The staged SPEC_ARC-0020 of 2026-10-16 (Claude applies stage by stage, map DV28), replaced by SPEC_ARC-0020 + TOOLKIT_ARC-0020 for the Owner to type (OR-11, DV35) |

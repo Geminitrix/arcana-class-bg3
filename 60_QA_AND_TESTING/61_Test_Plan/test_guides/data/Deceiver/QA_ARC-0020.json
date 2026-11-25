@@ -1,0 +1,723 @@
+{
+   "before" : [
+      "Type the whole of `TOOLKIT_ARC-0020.md` (only what changes: 9 Stats entries, the lists, the progression and one goal),",
+      "Console edition (Script Extender off) unless a test says PC edition.",
+      "A new Veilwalker (Arcana, subclass The Veilwalker) at level 1, levelled up only after the level's tests pass. Keep a save",
+      "Values come from `25` (`*_Deceiver_*`): Splinter 1d6 Psychic in 3 m (4 m at Tier III), Doubt −1 per stack, Deluded at the",
+      "*Mirrored Self* from a Double (DV25) is not in this build (SPEC_ARC-0020, Deferred): level 10 tests it as it is today."
+   ],
+   "sessions" : [
+      {
+         "id" : "L1",
+         "level" : 1,
+         "name" : "Level 1 — The Veil: Doubles on the field, Doubt on enemies",
+         "setup" : "A new Veilwalker at level 1 in a fight with three or more enemies (goblins work), one ally in the party.",
+         "tests" : [
+            {
+               "expected" : "Passives: The Veil only (no Telepathy, no Doubt). Spells: Malicious Whispers, Eidolon, Friends. No Seed of Doubt, no Faceless",
+               "fails" : "Telepathy or Doubt is listed, or Seed of Doubt / Faceless is already there",
+               "id" : "L1.1",
+               "rule" : "DV35, DV19, DV26",
+               "steps" : "Open the character sheet and the spellbook at level 1",
+               "title" : "The level-1 kit is the map of DV35"
+            },
+            {
+               "expected" : "\"Every lie an enemy believes plants Doubt in it. At the third, it becomes Deluded\", the Doubles explained, and \"4 from level 8 and 5 from level 12\"",
+               "fails" : "The text is missing, names Sigil or Shatter, or says level 7",
+               "id" : "L1.2",
+               "rule" : "DV19",
+               "steps" : "Hover The Veil on the character sheet",
+               "title" : "The Veil states the one rule"
+            },
+            {
+               "expected" : "One Double appears with her look and the Duplicity shimmer, 1 hit point",
+               "fails" : "No Double, more than one, or a Double with more than 1 hit point",
+               "id" : "L1.3",
+               "rule" : "DV4, DV8",
+               "steps" : "Cast Eidolon on a spot within 9 m",
+               "title" : "Eidolon summons one Double that looks like her"
+            },
+            {
+               "expected" : "AC rises by 1 (Veil layer status on her)",
+               "fails" : "AC doesn't change",
+               "id" : "L1.4",
+               "rule" : "DV7",
+               "steps" : "Note her AC with no Double, then with one Double on the field",
+               "title" : "Each Double gives her +1 AC"
+            },
+            {
+               "expected" : "Movement, Dash, Disengage, Splinter, Dismiss; no weapon attack, no bonus action, no reaction",
+               "fails" : "It can attack, or Reflected Seed / Unveil are already there",
+               "id" : "L1.5",
+               "rule" : "DV5 (A1: levels 1–4)",
+               "steps" : "On the Double's turn, open its hotbar",
+               "title" : "A Double has its own turn with Splinter and Dismiss only"
+            },
+            {
+               "expected" : "Each enemy within 3 m takes 1d6 Psychic and gains 1 Doubt; the Double is gone",
+               "fails" : "No damage, no Doubt, or the Double stays",
+               "id" : "L1.6",
+               "rule" : "DESIGN §4.2 Splinter",
+               "steps" : "Walk the Double next to two enemies and cast Splinter",
+               "title" : "A Splinter bursts around the Double"
+            },
+            {
+               "expected" : "That enemy gains 1 Doubt",
+               "fails" : "No Doubt on the destroyer",
+               "id" : "L1.7",
+               "rule" : "DV19 (a lie believed)",
+               "steps" : "Leave a Double next to an enemy and end the turn; let the enemy destroy it",
+               "title" : "An enemy that destroys a Double gains Doubt"
+            },
+            {
+               "expected" : "It becomes Deluded (Confused, 1 turn) and its Doubt stacks reset",
+               "fails" : "No Deluded, or the stacks stay",
+               "id" : "L1.8",
+               "rule" : "DESIGN §4.3",
+               "steps" : "Bring one enemy to 3 Doubt (Splinters, a Double it destroys)",
+               "title" : "The third Doubt makes an enemy Deluded"
+            },
+            {
+               "expected" : "The status reads −1 per stack to Wisdom Saving Throws and to Attack Rolls against her and her Doubles; the roll shows −2",
+               "fails" : "No penalty shown or applied",
+               "id" : "L1.9",
+               "rule" : "DESIGN §4.3",
+               "steps" : "Hover an enemy with 2 Doubt; let it attack her or a Double",
+               "title" : "Doubt lowers its Wisdom saves and its attacks against her"
+            },
+            {
+               "expected" : "The Double goes; no damage and no Doubt to anyone",
+               "fails" : "It bursts or someone gains Doubt",
+               "id" : "L1.10",
+               "rule" : "DESIGN §4.8",
+               "steps" : "Put a Double next to an enemy and cast its Dismiss",
+               "title" : "Dismiss: no Splinter, no Doubt"
+            },
+            {
+               "expected" : "No one gains Doubt",
+               "fails" : "The ally or an enemy gains Doubt",
+               "id" : "L1.11",
+               "rule" : "DESIGN §4.8",
+               "steps" : "Let an ally destroy one of her Doubles (an area spell, or an attack)",
+               "title" : "An ally's hit on a Double plants no Doubt"
+            },
+            {
+               "expected" : "Wisdom save; on a failure Psychic damage and Disadvantage on its next attack; no Doubt (it carries no Seed)",
+               "fails" : "No save, no Disadvantage, or Doubt without a Seed",
+               "id" : "L1.12",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Malicious Whispers on an enemy without a Seed",
+               "title" : "Malicious Whispers: the fallback turn"
+            },
+            {
+               "expected" : "The Double is gone and her AC is back to normal",
+               "fails" : "A Double stays after combat, or the AC bonus stays",
+               "id" : "L1.13",
+               "rule" : "DESIGN §4.2",
+               "steps" : "End a fight with a Double on the field",
+               "title" : "Doubles vanish when combat ends"
+            },
+            {
+               "expected" : "The check has Advantage",
+               "fails" : "No Advantage",
+               "id" : "L1.14",
+               "kind" : "observe",
+               "rule" : "DV14",
+               "steps" : "Cast Friends on a non-hostile creature and start a dialogue with a Charisma check",
+               "title" : "Friends gives Advantage on Charisma checks"
+            }
+         ]
+      },
+      {
+         "id" : "L2",
+         "level" : 2,
+         "name" : "Level 2 — Seed of Doubt: a lie that bursts later",
+         "setup" : "Level up to 2. A fight with three or more enemies.",
+         "tests" : [
+            {
+               "expected" : "Seed of Doubt and Faceless are new at level 2",
+               "fails" : "Either is missing, or something else arrives",
+               "id" : "L2.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen and the spellbook",
+               "title" : "Level 2 grants Seed of Doubt and Faceless"
+            },
+            {
+               "expected" : "Force damage with no roll to hit, and a Seed on it for 6 turns",
+               "fails" : "It can miss, or no Seed status",
+               "id" : "L2.2",
+               "rule" : "DESIGN §4.4",
+               "steps" : "Cast Seed of Doubt on an enemy",
+               "title" : "Seed of Doubt never misses and plants a Seed"
+            },
+            {
+               "expected" : "The Seed bursts: Psychic damage and 1 Doubt; the Seed is gone",
+               "fails" : "The Seed stays, or no Doubt",
+               "id" : "L2.3",
+               "rule" : "DESIGN §4.4",
+               "steps" : "Hit the Seeded enemy with Malicious Whispers (fails its save)",
+               "title" : "Her next Arcane damage bursts the Seed"
+            },
+            {
+               "expected" : "The Splinter's damage and Doubt land; the Seed stays",
+               "fails" : "The Seed bursts",
+               "id" : "L2.4",
+               "rule" : "DESIGN §4.4 (a Splinter is not her Arcane spell)",
+               "steps" : "Splinter a Double next to a Seeded enemy",
+               "title" : "A Splinter does not burst a Seed"
+            },
+            {
+               "expected" : "Paranoia (no reactions) and 2 Doubt in total: the rider's and the Seed's burst",
+               "fails" : "No Paranoia, or only 1 Doubt",
+               "id" : "L2.5",
+               "rule" : "DV15",
+               "steps" : "Seed an enemy, then cast Malicious Whispers on it (it fails)",
+               "title" : "Malicious Whispers on a Seeded target: Paranoia and its own Doubt"
+            },
+            {
+               "expected" : "She takes its appearance",
+               "fails" : "Nothing changes",
+               "id" : "L2.6",
+               "kind" : "observe",
+               "rule" : "DV26",
+               "steps" : "Out of combat, cast Faceless on a humanoid",
+               "title" : "Faceless takes another face"
+            }
+         ]
+      },
+      {
+         "id" : "L3",
+         "level" : 3,
+         "name" : "Level 3 — Tier I: Doubt pays",
+         "setup" : "Level up to 3. A fight with four or more enemies.",
+         "tests" : [
+            {
+               "expected" : "Veiled Prison and *2 - The High Priestess: Awakening* are new; Binding Falsehood is not there yet",
+               "fails" : "Binding Falsehood is already granted, or Veiled Prison is missing",
+               "id" : "L3.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen and the spellbook",
+               "title" : "Level 3 grants Veiled Prison and the Awakening, not Binding Falsehood"
+            },
+            {
+               "expected" : "It counts down from 4; at the fourth stack *Veiled* (Tier I) wakes",
+               "fails" : "The count doesn't move, or the tier wakes at another number",
+               "id" : "L3.2",
+               "rule" : "DESIGN §8 (A5)",
+               "steps" : "Apply Doubt in a fight and watch the progress status",
+               "title" : "The Awakening counts Doubt: 4 stacks wake Tier I"
+            },
+            {
+               "expected" : "Both attacks roll with Disadvantage; an enemy without Doubt rolls normally",
+               "fails" : "No Disadvantage, or Disadvantage without Doubt",
+               "id" : "L3.3",
+               "rule" : "DESIGN §8 Tier I",
+               "steps" : "At Tier I, let an enemy with Doubt attack her, then a Double",
+               "title" : "Veiled: doubting enemies attack her and her Doubles with Disadvantage"
+            },
+            {
+               "expected" : "Every Double Splinters, every Seed of hers bursts, and each surviving enemy with Doubt becomes Deluded",
+               "fails" : "A Double stays, a Seed stays, or an enemy with Doubt is not Deluded",
+               "id" : "L3.4",
+               "planb" : "Explode at each Double's position from Osiris",
+               "rule" : "DESIGN §5 Aspect card (A8)",
+               "steps" : "At Tier I, with two Doubles near enemies and one Seeded enemy, cast The Veil Lifts",
+               "title" : "The Veil Lifts: every lie bursts at once"
+            },
+            {
+               "expected" : "1 Doubt: a normal save. 2 Doubt: the save has Disadvantage",
+               "fails" : "Disadvantage at 1, or none at 2",
+               "id" : "L3.5",
+               "rule" : "DV10 (A3)",
+               "steps" : "Cast Veiled Prison on an enemy with 1 Doubt, then (another fight or rest) on one with 2",
+               "title" : "Veiled Prison: Disadvantage on the save at 2 Doubt, not at 1"
+            },
+            {
+               "expected" : "It can't move, act or react; the hit is a Critical Hit",
+               "fails" : "It acts, or the hit is not critical",
+               "id" : "L3.6",
+               "rule" : "DESIGN §5",
+               "steps" : "Let a Veiled Prison land; attack the target from within 3 m",
+               "title" : "Veiled Prison: Incapacitated, critical hits from 3 m"
+            }
+         ]
+      },
+      {
+         "id" : "L4",
+         "level" : 4,
+         "name" : "Level 4 — Splinter on Command: spend a body when she chooses",
+         "setup" : "Level up to 4 (take the feat). A fight with three or more enemies.",
+         "tests" : [
+            {
+               "expected" : "Splinter on Command is new: a Bonus Action, no spell slot",
+               "fails" : "Missing, it costs a slot, or it is an Action",
+               "id" : "L4.1",
+               "rule" : "DV35, DV24",
+               "steps" : "Look at the level-up screen and the hotbar",
+               "title" : "Level 4 grants Splinter on Command"
+            },
+            {
+               "expected" : "Only the Double can be targeted, within 18 m",
+               "fails" : "An enemy or an ally can be targeted",
+               "id" : "L4.2",
+               "rule" : "DV24",
+               "steps" : "Open Splinter on Command and hover an enemy, an ally, then one of her Doubles",
+               "title" : "It targets only her Doubles"
+            },
+            {
+               "expected" : "The Double bursts at once: 1d6 Psychic and 1 Doubt to each enemy within 3 m; the Double is gone; her Bonus Action is spent",
+               "fails" : "Nothing happens, it waits for the Double's turn, or it fails because the Double already acted",
+               "id" : "L4.3",
+               "planb" : "Make Splinter on Command a ground-targeted spell that removes the Double and runs the burst from Osiris",
+               "rule" : "DV24, DV31 (SPEC probe B1)",
+               "steps" : "Let a Double take its turn (move, Dash). On her turn, put it next to two enemies with Splinter on Command",
+               "title" : "The Double Splinters at once, off its own turn"
+            },
+            {
+               "edition" : "PC",
+               "expected" : "It comes into the hand like the other cards and costs 1 Thread",
+               "fails" : "Always in hand, free, or never drawn",
+               "id" : "L4.4",
+               "rule" : "DV32",
+               "steps" : "PC edition. Build a deck with Splinter on Command; play a fight",
+               "title" : "On PC it costs 1 Thread and is drawn from the deck"
+            },
+            {
+               "expected" : "Used in most fights, not every turn",
+               "fails" : "Never used, or every turn (dominant) — design feedback",
+               "id" : "L4.5",
+               "kind" : "observe",
+               "rule" : "DV24 (V1)",
+               "steps" : "Over two fights, note the turns you used it and why",
+               "title" : "How often Splinter on Command is used"
+            }
+         ]
+      },
+      {
+         "id" : "L5",
+         "level" : 5,
+         "name" : "Level 5 — Two Truths and Binding Falsehood: the Doubles cast her spells",
+         "setup" : "Level up to 5. A fight with four or more enemies.",
+         "tests" : [
+            {
+               "expected" : "Binding Falsehood and Two Truths are new; Veilstep is not there yet",
+               "fails" : "Veilstep is granted here, or either of the two is missing",
+               "id" : "L5.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen and the spellbook",
+               "title" : "Level 5 grants Binding Falsehood and Two Truths, not Veilstep"
+            },
+            {
+               "expected" : "Force damage now and at the end of its turn, then Restrained for 1 turn",
+               "fails" : "No second damage, or no Restrained",
+               "id" : "L5.2",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Binding Falsehood on an enemy (it fails the Wisdom save)",
+               "title" : "Binding Falsehood: Force now and at turn end, then Restrained"
+            },
+            {
+               "expected" : "Splinter, Dismiss, Reflected Seed, Reflected Falsehood (no Unveil yet)",
+               "fails" : "The two Reflected spells are missing",
+               "id" : "L5.3",
+               "rule" : "DESIGN §4.2 (A1: level 5)",
+               "steps" : "Summon a Double and open its hotbar",
+               "title" : "The Doubles learn Reflected Seed and Reflected Falsehood"
+            },
+            {
+               "expected" : "Half of 3d6 Force (her slot 3) and her Seed on the target",
+               "fails" : "Full damage, a fixed die, or no Seed",
+               "id" : "L5.4",
+               "rule" : "DV17 (A2)",
+               "steps" : "A Double casts Reflected Seed on an enemy",
+               "title" : "Reflected Seed: half her Seed at her highest slot, and her Seed"
+            },
+            {
+               "expected" : "Half of Binding Falsehood's damage; on a failed Wisdom save Restrained 1 turn",
+               "fails" : "No save, or full damage",
+               "id" : "L5.5",
+               "rule" : "DESIGN §4.2",
+               "steps" : "A Double casts Reflected Falsehood on an enemy",
+               "title" : "Reflected Falsehood: half her Falsehood, save or Restrained"
+            },
+            {
+               "expected" : "Two Doubles appear",
+               "fails" : "One, or three",
+               "id" : "L5.6",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Eidolon with a level-3 slot",
+               "title" : "Eidolon at slot 3 summons two Doubles"
+            },
+            {
+               "expected" : "The oldest Double goes without bursting and nobody gains Doubt; three remain",
+               "fails" : "Four stay, or the retired Double bursts",
+               "id" : "L5.7",
+               "rule" : "DV16",
+               "steps" : "With three Doubles, summon one more",
+               "title" : "Cap 3: a fourth Double retires the oldest, quietly"
+            }
+         ]
+      },
+      {
+         "id" : "L6",
+         "level" : 6,
+         "name" : "Level 6 — Veilstep and Twice-Told: leave yourself behind, tell it twice",
+         "setup" : "Level up to 6. A fight with three or more enemies.",
+         "tests" : [
+            {
+               "expected" : "Veilstep and Twice-Told are new at level 6",
+               "fails" : "Either is missing",
+               "id" : "L6.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen and the hotbar",
+               "title" : "Level 6 grants Veilstep and Twice-Told"
+            },
+            {
+               "expected" : "She teleports, enemies around the landing take Force damage, a Double stands where she was",
+               "fails" : "No Double, or it appears at the landing",
+               "id" : "L6.2",
+               "rule" : "DV9",
+               "steps" : "Cast Veilstep to a spot within 18 m near enemies",
+               "title" : "Veilstep: teleport, burst on landing, a Double where she stood"
+            },
+            {
+               "expected" : "She and the Veilstep Double trade places",
+               "fails" : "No Withdraw, or no swap",
+               "id" : "L6.3",
+               "rule" : "DV9",
+               "steps" : "Within 2 turns of Veilstep, cast Withdraw",
+               "title" : "Withdraw swaps her with that Double"
+            },
+            {
+               "expected" : "*Twice-Told: Veilstep* is offered",
+               "fails" : "It is missing",
+               "id" : "L6.4",
+               "rule" : "DV35 (Veilstep and Twice-Told arrive together)",
+               "steps" : "Cast Veilstep, then look at the hotbar",
+               "title" : "Twice-Told: Veilstep appears after Veilstep"
+            },
+            {
+               "expected" : "Seed of Doubt again; the second use that turn is refused",
+               "fails" : "It recasts something else, costs an Action, or works twice in a turn",
+               "id" : "L6.5",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Seed of Doubt, then Twice-Told as a Bonus Action; try a second Twice-Told the same turn",
+               "title" : "Twice-Told recasts the last damaging card, once per turn"
+            }
+         ]
+      },
+      {
+         "id" : "L7",
+         "level" : 7,
+         "name" : "Level 7 — Tier II: every Deluded enemy seeds the next",
+         "setup" : "Level up to 7. A fight with five or more enemies close together.",
+         "tests" : [
+            {
+               "expected" : "Two Pillars is new; the cap is still 3 (the oldest Double retires)",
+               "fails" : "Four Doubles stay at level 7",
+               "id" : "L7.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen; then with three Doubles summon one more",
+               "title" : "Level 7 grants Two Pillars and no fourth Double"
+            },
+            {
+               "expected" : "Tier II *Two Pillars* wakes at the seventh stack",
+               "fails" : "It wakes at another count",
+               "id" : "L7.2",
+               "rule" : "DESIGN §8 (A5)",
+               "steps" : "After Tier I, keep applying Doubt and watch the progress status",
+               "title" : "Seven Doubt wake Tier II"
+            },
+            {
+               "expected" : "That nearest enemy gains her Seed",
+               "fails" : "No Seed, or it goes to an enemy farther than 6 m",
+               "id" : "L7.3",
+               "rule" : "DESIGN §8 Tier II (A6)",
+               "steps" : "At Tier II, make an enemy Deluded with another enemy within 6 m of it that has no Seed",
+               "title" : "Two Pillars: a Deluded enemy seeds its nearest un-Seeded neighbour"
+            },
+            {
+               "expected" : "Only the first one seeds a neighbour",
+               "fails" : "Both seed a neighbour",
+               "id" : "L7.4",
+               "rule" : "DESIGN §4.6",
+               "steps" : "At Tier II, make two enemies Deluded in the same turn",
+               "title" : "Two Pillars fires once per turn"
+            }
+         ]
+      },
+      {
+         "id" : "L8",
+         "level" : 8,
+         "name" : "Level 8 — Cap 4: a fourth body on the field",
+         "setup" : "Level up to 8 (take the feat). A fight.",
+         "tests" : [
+            {
+               "expected" : "Four Doubles stay; a fifth retires the oldest, quietly",
+               "fails" : "Only three stay, or five",
+               "id" : "L8.1",
+               "rule" : "DV35, DV16",
+               "steps" : "Summon four Doubles (Eidolon twice at slot 3, or Veilstep and Eidolon)",
+               "title" : "Level 8 raises the cap to 4"
+            },
+            {
+               "expected" : "Base AC + 4",
+               "fails" : "The layer stops at +3",
+               "id" : "L8.2",
+               "rule" : "DV7",
+               "steps" : "With four Doubles, read her AC",
+               "title" : "Four Doubles give her +4 AC"
+            }
+         ]
+      },
+      {
+         "id" : "L9",
+         "level" : 9,
+         "name" : "Level 9 — Unveil and Marionette",
+         "setup" : "Level up to 9. A fight with three or more enemies.",
+         "tests" : [
+            {
+               "expected" : "She and the Double trade places; the second Unveil that round is refused",
+               "fails" : "No Unveil, no swap, or two swaps in a round",
+               "id" : "L9.1",
+               "rule" : "DESIGN §4.2 (A1: level 9)",
+               "steps" : "On a Double's turn, cast Unveil; then try Unveil with a second Double in the same round",
+               "title" : "The Doubles learn Unveil: swap with her, once per round"
+            },
+            {
+               "expected" : "Three Doubles appear",
+               "fails" : "Two, or four",
+               "id" : "L9.2",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Eidolon with a level-5 slot (with no Double on the field)",
+               "title" : "Eidolon at slot 5 summons three Doubles"
+            },
+            {
+               "expected" : "The save has Disadvantage; on a failure the enemy fights for her",
+               "fails" : "No Disadvantage, or no control",
+               "id" : "L9.3",
+               "rule" : "DESIGN §5",
+               "steps" : "Cast Marionette on an enemy with 2 Doubt",
+               "title" : "Marionette: Disadvantage on the save at 2 Doubt"
+            }
+         ]
+      },
+      {
+         "id" : "L10",
+         "level" : 10,
+         "name" : "Level 10 — The mirror: Mirrored Self and Mirrored Spell",
+         "setup" : "Level up to 10. A fight with a spellcaster enemy and at least two other enemies.",
+         "tests" : [
+            {
+               "expected" : "Both cards are new at level 10",
+               "fails" : "Either is missing",
+               "id" : "L10.1",
+               "rule" : "DV35",
+               "steps" : "Look at the level-up screen",
+               "title" : "Level 10 grants Mirrored Self and Mirrored Spell"
+            },
+            {
+               "expected" : "The spell takes two targets",
+               "fails" : "Only one target",
+               "id" : "L10.2",
+               "rule" : "DESIGN §5 (as built today; DV25 deferred)",
+               "steps" : "Use Mirrored Self, then cast Binding Falsehood",
+               "title" : "Mirrored Self: her next single-target spell gains a second target"
+            },
+            {
+               "expected" : "She gains a copy of that spell she can cast",
+               "fails" : "No copy",
+               "id" : "L10.3",
+               "rule" : "DESIGN §5",
+               "steps" : "Use Mirrored Spell; let an enemy caster cast a spell within 18 m",
+               "title" : "Mirrored Spell copies a spell cast near her"
+            }
+         ]
+      },
+      {
+         "id" : "L11",
+         "level" : 11,
+         "name" : "Level 11 — Grand Deception: the whole field is a lie she placed",
+         "setup" : "Level up to 11. A fight with four or more enemies. Before casting, place two Doubles next to one enemy (within",
+         "tests" : [
+            {
+               "expected" : "Two new Doubles appear (cap 4 at this level)",
+               "fails" : "More or fewer than the cap",
+               "id" : "L11.1",
+               "rule" : "DESIGN §5, DV22",
+               "steps" : "With two Doubles on the field, cast Grand Deception",
+               "title" : "Grand Deception fills the cap"
+            },
+            {
+               "expected" : "That enemy gains 2 Doubt",
+               "fails" : "It gains 0, 1 or the old flat 2 regardless of the Doubles (see L11.3)",
+               "id" : "L11.2",
+               "planb" : "Snapshot the Doubles on the card's technical status instead of UsingSpell",
+               "rule" : "DV22 (SPEC probe B5: the count reads the Doubles before the cast)",
+               "steps" : "Cast Grand Deception with two Doubles within 3 m of one enemy that fails its save",
+               "title" : "An enemy beside two Doubles gains 2 Doubt on a failed save"
+            },
+            {
+               "expected" : "No Doubt",
+               "fails" : "It gains Doubt",
+               "id" : "L11.3",
+               "rule" : "DV22",
+               "steps" : "Same cast: look at an enemy within 9 m that failed but had no Double within 3 m",
+               "title" : "An enemy with no Double near it gains no Doubt"
+            },
+            {
+               "expected" : "The new Doubles appear; no enemy gains Doubt from them",
+               "fails" : "Enemies gain Doubt from the Doubles the spell just made",
+               "id" : "L11.4",
+               "rule" : "DV22",
+               "steps" : "Cast Grand Deception with no Double on the field, enemies close around her",
+               "title" : "The new Doubles don't count"
+            },
+            {
+               "expected" : "\"…gain 1 stack of Doubt for each of your Doubles that stood within 3m of them before the cast\"",
+               "fails" : "It still says 2 stacks",
+               "id" : "L11.5",
+               "rule" : "DV22, Narrative gate",
+               "steps" : "Hover Grand Deception",
+               "title" : "The tooltip states the rule"
+            },
+            {
+               "expected" : "Placement changes the Doubt clearly",
+               "fails" : "Same result either way — design feedback",
+               "id" : "L11.6",
+               "kind" : "observe",
+               "rule" : "DV22 (V2)",
+               "steps" : "Compare a cast with Doubles placed beside enemies and one without",
+               "title" : "Placement changes the result"
+            }
+         ]
+      },
+      {
+         "id" : "L12",
+         "level" : 12,
+         "name" : "Level 12 — Tier III: strike her and the lie explodes",
+         "setup" : "Level up to 12. A long fight with five or more enemies; reach Tier III (10 Doubt).",
+         "tests" : [
+            {
+               "expected" : "Aspect of Doubt and cap 5; Mirrored Self and Mirrored Spell are not granted again; five Doubles stay",
+               "fails" : "Cap 4, or the cards arrive again",
+               "id" : "L12.1",
+               "rule" : "DV35, DV21",
+               "steps" : "Look at the level-up screen; summon five Doubles",
+               "title" : "Level 12 grants Tier III and cap 5, and nothing moves away from it"
+            },
+            {
+               "expected" : "Tier III wakes at the tenth stack; Charisma unchanged; the status reads the new Aspect of Doubt line (\"splinters by itself… reach 4m\")",
+               "fails" : "Charisma rises, or the old text",
+               "id" : "L12.2",
+               "rule" : "DV21 (A5)",
+               "steps" : "Note her Charisma; reach Tier III; read it again and hover the tier status",
+               "title" : "Ten Doubt wake Tier III without a Charisma bonus"
+            },
+            {
+               "expected" : "Both enemies take one 1d6 Psychic hit and 1 Doubt each; one damage number per enemy",
+               "fails" : "The enemy at 3.5 m is missed, or an enemy takes two hits",
+               "id" : "L12.3",
+               "planb" : "A Tier III shapeshift rule with a damage-free Splinter",
+               "rule" : "DV21 (SPEC probe B6)",
+               "steps" : "At Tier III, Splinter a Double with one enemy 2 m away and another 3.5 m away",
+               "title" : "At Tier III a Splinter is one burst of 4 m"
+            },
+            {
+               "expected" : "Two Pillars seeds the neighbour (the Deluded counts as hers); the Doubt counted on her progress status",
+               "fails" : "No Seed for the neighbour — the Doubt is not credited to her",
+               "id" : "L12.4",
+               "planb" : "The burst applies Doubt from Osiris on each enemy within 4 m",
+               "rule" : "DV21 (SPEC probe B2)",
+               "steps" : "At Tier III, make an enemy Deluded with a Splinter's burst, with an un-Seeded enemy within 6 m",
+               "title" : "The burst's Doubt is hers"
+            },
+            {
+               "expected" : "About a second later a 4 m burst where the Double stood: 1d6 Psychic and 1 Doubt to each enemy in it; the destroyer also gains its own Doubt for believing the lie",
+               "fails" : "No burst, or it lands elsewhere",
+               "id" : "L12.5",
+               "planb" : "Read the position on the hit (AttackedBy), not on the death",
+               "rule" : "DV21 (SPEC probe B3)",
+               "steps" : "At Tier III, leave a Double next to two enemies; let one destroy it",
+               "title" : "A Double destroyed by an enemy bursts by itself"
+            },
+            {
+               "expected" : "None of them bursts",
+               "fails" : "Any of them bursts",
+               "id" : "L12.6",
+               "rule" : "DESIGN §4.8 (review focus 1)",
+               "steps" : "At Tier III: Dismiss a Double; retire one with the cap; let an ally destroy one",
+               "title" : "No burst when no enemy destroyed it"
+            },
+            {
+               "expected" : "Every Double vanishes; no burst",
+               "fails" : "A Double stays or bursts",
+               "id" : "L12.7",
+               "rule" : "DESIGN §4.8",
+               "steps" : "At Tier III with Doubles next to enemies, let her go down",
+               "title" : "Her death ends the Doubles without bursting"
+            },
+            {
+               "expected" : "The reaction asks; she swaps with the nearest Double, the attack misses, that Double is destroyed without bursting, the attacker gains Doubt in her name",
+               "fails" : "No swap, a burst, or the attacker gains no Doubt",
+               "id" : "L12.8",
+               "planb" : "Raise the Doubt through the Doubt goal with her as the cause",
+               "rule" : "DESIGN §5 (A7)",
+               "steps" : "At Tier III, let an attack that would hit her land",
+               "title" : "Ready: Which One? swaps her with the nearest Double"
+            },
+            {
+               "expected" : "No Charisma modifier added",
+               "fails" : "The Charisma bonus is still there",
+               "id" : "L12.9",
+               "rule" : "DV21",
+               "steps" : "At Tier III, cast Seed of Doubt and read the damage breakdown",
+               "title" : "Her Arcane spells no longer add Charisma to damage"
+            },
+            {
+               "expected" : "Tier III wakes before the fight is decided; the bursts feel like the peak",
+               "fails" : "It wakes after the fight is decided — design feedback",
+               "id" : "L12.10",
+               "kind" : "observe",
+               "rule" : "DV21 (V3)",
+               "steps" : "Note the turn Tier III wakes and how many bursts the fight has",
+               "title" : "The peak happens in a normal fight"
+            }
+         ]
+      },
+      {
+         "id" : "ANY",
+         "name" : "Any level — full run",
+         "setup" : "",
+         "tests" : [
+            {
+               "expected" : "The rows of DESIGN §9.1: something at every level 1–12, no Telepathy, no Doubt passive",
+               "fails" : "Any level differs",
+               "id" : "A.1",
+               "kind" : "observe",
+               "rule" : "DV35 (SPEC probe B5 of the draft)",
+               "steps" : "Claude runs `dump_progression.pl` after the sync",
+               "title" : "The level map matches the design"
+            },
+            {
+               "expected" : "No *Sigil*, *Shatter*, *Mirror Image*, *Distortion*, *Ethereal Chains* or *Mimic*",
+               "fails" : "Any of them shows",
+               "id" : "A.2",
+               "rule" : "DV29 (B7 of the draft)",
+               "steps" : "Hover every Veilwalker card, passive and status as you play",
+               "title" : "No old name in any Veilwalker tooltip"
+            },
+            {
+               "expected" : "The Double is immune (Charmed, Madness, Dominated, Frightened)",
+               "fails" : "A Double is charmed or flees",
+               "id" : "A.3",
+               "kind" : "observe",
+               "rule" : "DV6",
+               "steps" : "When an enemy casts a charm or fear effect on a Double",
+               "title" : "Doubles ignore loss of control"
+            }
+         ]
+      }
+   ],
+   "ticket" : "ARC-0020",
+   "title" : "The Veilwalker — rework DV1–DV35 (levels 1–12)"
+}

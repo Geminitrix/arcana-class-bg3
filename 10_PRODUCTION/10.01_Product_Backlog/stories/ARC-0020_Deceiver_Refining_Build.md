@@ -4,7 +4,7 @@ title: "Deceiver refining build: the game plays DV18–DV31"
 type: rework
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
-status: in_review
+status: spec_ready
 owner: Mod Engineer
 implementation: owner
 priority: must
@@ -24,7 +24,7 @@ created: 2026-10-16
 
 ## Acceptance criteria
 
-- [ ] Design gate (`_SUBCLASS_STANDARD` §15) and Narrative gate (`32.04`) recorded — carried from the design ticket
+- [x] Design gate (`_SUBCLASS_STANDARD` §15) and Narrative gate (`32.04`) recorded — carried from the design ticket (Owner approved DESIGN DV1–DV35, 2026-11-25; texts in 32.04)
 - [ ] Stage 0: the open sizes of `25` (`‹…›` in `pending_build`) decided with the Owner; patches and scripts ready, dry runs clean
 - [ ] Stages 1–4 applied, one `[fechado] ARC-0020` message each; Story compiled with 0 errors after each goal change
 - [ ] Probes B1–B4 recorded, plan B applied where one failed
@@ -33,8 +33,8 @@ created: 2026-10-16
 
 ## Gates
 
-- [ ] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15)
-- [ ] Narrative gate (`32.04`)
+- [x] Design gate (`21.04/_SUBCLASS_STANDARD.md` §15) — Owner, 2026-11-25 (DV1–DV35)
+- [x] Narrative gate (`32.04`) — `32.04/ARC-0020_Deceiver.md` (stages 1–3 texts)
 - [ ] DoD (`00.03`)
 
 ## Log
@@ -49,3 +49,4 @@ created: 2026-10-16
 - 2026-10-16 — Stage 1 applied in the game (`[fechado] ARC-0020`): names and the one-rule text (`10_names.patch`). Pre-apply snapshot `3c87edf`; check_cards OK, selftest 1151/1151, no long lines; `sync_data`, `gen_catalog`, `05.02` updated. Stage 3 texts approved by the Owner. Next: stage 2 (`[fechado] ARC-0020`).
 - 2026-10-17 — ARC-0027 (Producer, phase D): stage 4 — stage 1 (names) applied before the rulebook; the rest is typed by the Owner (OR-11). Carries the Design and Narrative gates from ARC-0019.
 - 2026-11-25 — Back to the design (stage 3, OR-1): the Owner asked to spread the Veilwalker over levels 1–12 like the Windborn and the Kingmaker and to playtest it 1–12. Three level-4/8 options given (A ranks at 4 and 8 · B only 4 · C both empty); the Owner chose A → **DV35** (level map v2: no empty level; Seed of Doubt 2, Splinter on Command 4, Binding Falsehood 5, Veilstep 6, cap 4 at 8, Mirrored Spell 10). Updated: DESIGN.md §4.2/§5/§6/§9, 21.03, 23.02 (9 sheets + index), 25 (`level_next`/`cap_next` in 7 YAML), 22.05, 26.01, QA_ARC-0020 (note); 21.08, 31.02, 32.01, 33.03, 42.04, 05.02 checked, no change. `check_propagation.pl Deceiver` OK (the checker had skipped every dossier since the map got CRLF line ends — fixed). Status `in_review`: the Owner approves DESIGN.md, then stage 4 (SPEC rewritten, TOOLKIT_ARC-0020, QA_ARC-0020 level by level → `ready` → the Veilwalker tab on the Test Guides page). Nothing in the game changed.
+- 2026-11-25 — The Owner approved DESIGN.md with DV35 (design gate, stage 3) and chose a **delta** build kit ("só o que muda") over retyping from zero. Stage 4 written: `55/SPEC_ARC-0020.md` rewritten for the Owner to type (the staged plan of 2026-10-16 archived in `93/2026-11-25_ARC-0020_SPEC_staged_plan/`), `55/TOOLKIT_ARC-0020.md` (23 steps, feature by feature: Splinter on Command, Tier III burst, Grand Deception, The Veil's text, the map, the Doubles goal replaced whole — `check_osiris` 0/0), `QA_ARC-0020` level by level (74 tests, L1–L12 + A.1–A.3) → `ready`; the Veilwalker tab is on Arcana Test Guides. Deferred: Mirrored Self from a Double (DV25, probe B4) — stays as today at level 10. Status `spec_ready`: the Owner types the TOOLKIT, then `[fechado] ARC-0020` for the check and step 23.

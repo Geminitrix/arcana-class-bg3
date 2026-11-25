@@ -2,7 +2,7 @@
 source: 51 (Progressions, Lists, Stats, Story) — carried over from the pre-migration knowledge base
 synced_at: 2026-10-16 (texts after ARC-0020 stage 1; levels and kit as of 2026-10-11 — every granted spell and passive matched by 82_Automation/verify_context.pl; numbers last re-checked 2026-10-07)
 state: synced
-reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35) checked, no change
+reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026-10-16 ARC-0020 — sizes approved (25), names patch drafted; no change; 2026-10-16 ARC-0021 — display name checked, no change; 2026-10-16 ARC-0020 — Task 0.5 prepared (Splinter on Command), no change; 2026-10-16 ARC-0020 — Tasks 0.6–0.7 prepared, no change; 2026-10-16 ARC-0020 — stage 1 applied (names in game), no change; 2026-11-25 ARC-0020 — level map v2 (DV35) checked, no change; 2026-11-25 ARC-0020 — build kit checked, no change (game unchanged)
 ---
 
 # 🪞 The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
