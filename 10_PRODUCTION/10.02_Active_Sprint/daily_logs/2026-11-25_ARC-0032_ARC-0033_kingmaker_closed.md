@@ -14,3 +14,7 @@ propagated (DESIGN §7.3, 23.02, 32.01, 05.02). Usurp's text lost "Once per comb
   any melee attack, not only a miss (WB33/WB57 design). Asked the Owner; not propagated.
 - The Kingmaker's own build ticket ARC-0008 stays `in_qa` until the QA_ARC-0008 results are synced (`/sync-test-guides`).
 - The other 14 languages still carry the old Kingmaker texts (translation sync).
+
+**Windborn Riposte (2026-11-25):** the Owner removed `IsMiss()` thinking it was wrong; told it is the design (WB57) and the
+vanilla Riposte's own condition, the Owner chose to put it back. Block given (Toolkit, game open): the Conditions as
+before the edit, `IsMiss()` back and `HasStatus('INVISIBILITY')` without `context.Source`, as in vanilla. No design change.
