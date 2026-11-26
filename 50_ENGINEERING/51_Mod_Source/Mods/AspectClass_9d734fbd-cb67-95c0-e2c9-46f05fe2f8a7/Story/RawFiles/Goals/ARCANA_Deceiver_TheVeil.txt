@@ -154,8 +154,13 @@ _N > 0
 THEN
 DB_ARCANA_DoubleCount(_Owner, _N);
 
+// A moment above the cap (a new Double before the oldest is retired) applies no layer: two ApplyStatus of the same
+// StackId in one frame left the higher one on her (QA_ARC-0020 L1.4: 3 Doubles, +4 AC). Enforce brings the count back
+// down and this runs again with the right number.
 PROC
 PROC_ARCANA_Doubles_SetCount((CHARACTER)_Owner, (INTEGER)_N)
+AND
+NOT QRY_ARCANA_Doubles_OverCap(_Owner)
 THEN
 PROC_ARCANA_Doubles_Layers(_Owner, _N);
 
@@ -199,7 +204,7 @@ _N == 4
 THEN
 ApplyStatus(_Owner, "VEIL_LAYER_4", -1.0, 1, _Owner);
 
-// 5, or a moment above the cap before the oldest is retired.
+// 5 or more (never above the cap: SetCount skips that moment).
 PROC
 PROC_ARCANA_Doubles_Layers((CHARACTER)_Owner, (INTEGER)_N)
 AND
