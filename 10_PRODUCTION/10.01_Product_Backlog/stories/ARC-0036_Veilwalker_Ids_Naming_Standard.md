@@ -154,3 +154,4 @@ Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_B
   Owner's Splinter (`ApplyStatus(SELF,UNSUMMON_ACTIVE…)` without GROUND — ARC-0020 verification) and the DEBUG Seed spell
   before its parent (an old order, kept: no entry moves). `Mods/…/GLOSSARY.md` (translation memory) is localization work.
   → `in_qa`: the Owner compiles the Story and plays `QA_ARC-0036`.
+- 2026-11-25 — The Owner compiled the Story (21:41): `log.txt` ends with `0 error(s), 0 warning(s)` — the renamed goals and the L1.4 fix are live. QA_ARC-0036 A.1 marked pass on Arcana Test Guides.
