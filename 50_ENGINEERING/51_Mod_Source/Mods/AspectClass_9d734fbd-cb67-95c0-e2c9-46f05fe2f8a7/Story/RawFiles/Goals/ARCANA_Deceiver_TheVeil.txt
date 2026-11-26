@@ -1,8 +1,8 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-DB_ARCANA_MirrorImageOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
-NOT DB_ARCANA_MirrorImageOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+DB_ARCANA_DoubleOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
+NOT DB_ARCANA_DoubleOf((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 DB_ARCANA_Double((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0);
 NOT DB_ARCANA_Double((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000, 0);
 DB_ARCANA_DoubleSeq((CHARACTER)00000000-0000-0000-0000-000000000000, 0);
@@ -45,7 +45,7 @@ KBSECTION
 //   DB_ARCANA_DoubleRuleTier(Min, Max, Unveil, Rule)  the shapeshift rule per level range (Unveil: 0 any, 1 has it,
 //                                           2 lacks it: multiclass).
 // DBs (state):
-//   DB_ARCANA_MirrorImageOf(Double, Owner)  every Double ever registered and not yet purged. Shared contract:
+//   DB_ARCANA_DoubleOf(Double, Owner)  every Double ever registered and not yet purged. Shared contract:
 //                                           ARCANA_Deceiver_SeedOfDoubt.txt, ARCANA_Deceiver_Doubt.txt and the
 //                                           Aspect read it to credit her. Kept ~1 s after the Double dies (see Purge)
 //                                           so a Splinter's Doubt, which lands as its caster dies, still finds the owner.
@@ -80,12 +80,12 @@ NOT DB_ARCANA_DoubleRuleTier(_Min, _Max, _Need, _Rule);
 PROC
 PROC_ARCANA_Doubles_Init()
 THEN
-DB_ARCANA_DoubleRuleTier(5, 6, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot3_d27e2641-3a75-82be-7741-ec16ebc2561f);
-DB_ARCANA_DoubleRuleTier(7, 8, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot4_cfbaa6cd-62ba-7b67-9700-114cd3b86b75);
-DB_ARCANA_DoubleRuleTier(9, 10, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot5_d6306a71-9b8a-4dd0-f97a-3f6df38c9b8c);
-DB_ARCANA_DoubleRuleTier(11, 20, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot6_8014e496-f3d0-76b1-532c-fcd4863b6199);
-DB_ARCANA_DoubleRuleTier(9, 10, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot5_NoUnveil_615d1e0d-b8f5-7ef4-e5ee-3b66eb467645);
-DB_ARCANA_DoubleRuleTier(11, 20, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_Slot6_NoUnveil_c0c93c59-f1a4-7866-6887-0f782fa29689);
+DB_ARCANA_DoubleRuleTier(5, 6, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_3_d27e2641-3a75-82be-7741-ec16ebc2561f);
+DB_ARCANA_DoubleRuleTier(7, 8, 0, (SHAPESHIFTRULE)DoubleOfTheVeil_4_cfbaa6cd-62ba-7b67-9700-114cd3b86b75);
+DB_ARCANA_DoubleRuleTier(9, 10, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_5_d6306a71-9b8a-4dd0-f97a-3f6df38c9b8c);
+DB_ARCANA_DoubleRuleTier(11, 20, 1, (SHAPESHIFTRULE)DoubleOfTheVeil_6_8014e496-f3d0-76b1-532c-fcd4863b6199);
+DB_ARCANA_DoubleRuleTier(9, 10, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_5_NoUnveil_615d1e0d-b8f5-7ef4-e5ee-3b66eb467645);
+DB_ARCANA_DoubleRuleTier(11, 20, 2, (SHAPESHIFTRULE)DoubleOfTheVeil_6_NoUnveil_c0c93c59-f1a4-7866-6887-0f782fa29689);
 
 // INITSECTION does not run again in an existing save.
 IF
@@ -98,9 +98,9 @@ PROC_ARCANA_Doubles_Init();
 IF
 StatusApplied((CHARACTER)_Double, "DOUBLE_OF_THE_VEIL_TECH", (CHARACTER)_Owner, _)
 AND
-NOT DB_ARCANA_MirrorImageOf(_Double, _)
+NOT DB_ARCANA_DoubleOf(_Double, _)
 THEN
-DB_ARCANA_MirrorImageOf(_Double, _Owner);
+DB_ARCANA_DoubleOf(_Double, _Owner);
 DB_ARCANA_DoubleSetup(_Double, _Owner);
 PROC_ARCANA_Doubles_Register(_Double, _Owner);
 PROC_ARCANA_Doubles_Enforce(_Owner);
@@ -384,7 +384,7 @@ Transform(_Double, _Owner, _Rule);
 IF
 AttackedBy((CHARACTER)_Double, _, (CHARACTER)_Attacker, _, _Damage, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 AND
 _Damage > 0
 AND
@@ -395,7 +395,7 @@ PROC_ARCANA_Doubles_SetKiller(_Double, _Attacker);
 IF
 KilledBy(_Double, _, (CHARACTER)_Attacker, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 AND
 IsCharacter(_Attacker, 1)
 THEN
@@ -441,7 +441,7 @@ NOT DB_ARCANA_DoubleHome(_Double, _X, _Y, _Z);
 IF
 Died(_Double)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _Owner)
+DB_ARCANA_DoubleOf(_Double, _Owner)
 THEN
 PROC_ARCANA_Doubles_Gone(_Double, _Owner);
 
@@ -449,7 +449,7 @@ PROC_ARCANA_Doubles_Gone(_Double, _Owner);
 IF
 CastSpell((CHARACTER)_Double, "Shout_Deceiver_Clone_Dismiss", _, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _Owner)
+DB_ARCANA_DoubleOf(_Double, _Owner)
 THEN
 DB_ARCANA_DoubleNoBlame(_Double);
 PROC_ARCANA_Doubles_Gone(_Double, _Owner);
@@ -457,7 +457,7 @@ PROC_ARCANA_Doubles_Gone(_Double, _Owner);
 IF
 CastSpell((CHARACTER)_Double, "Shout_Dismiss_Self", _, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _Owner)
+DB_ARCANA_DoubleOf(_Double, _Owner)
 THEN
 DB_ARCANA_DoubleNoBlame(_Double);
 PROC_ARCANA_Doubles_Gone(_Double, _Owner);
@@ -542,7 +542,7 @@ PROC
 PROC_ARCANA_Doubles_Purge((CHARACTER)_Double, (CHARACTER)_Owner)
 THEN
 NOT DB_ARCANA_DoubleGone(_Double, _Owner);
-NOT DB_ARCANA_MirrorImageOf(_Double, _Owner);
+NOT DB_ARCANA_DoubleOf(_Double, _Owner);
 //END_REGION
 
 //REGION Cleanup: end of combat, Long Rest, her death

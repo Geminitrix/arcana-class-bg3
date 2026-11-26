@@ -1,11 +1,11 @@
 id: SPL_Deceiver_MirroredSelf
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0020 — build kit: DV25 deferred, values unchanged"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0020 — build kit: DV25 deferred, values unchanged; 2026-11-25 ARC-0036 — DV37 (ids renamed), no change"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
 design: "21.04/Deceiver/DESIGN.md §5"
 balance_report: "22.05/Deceiver.md"
-game_ids: [Shout_Arcana_Card_Passive_MirroredCharm, MIRRORED_SELF]
+game_ids: [Shout_Arcana_Card_Passive_MirroredSelf, MIRRORED_SELF]
 values:
   extra_targets: { value: 1, unit: count, note: "her next single-target spell" }
 

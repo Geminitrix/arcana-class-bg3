@@ -15,12 +15,12 @@ NOT DB_ARCANA_DoubleStruckAt((CHARACTER)00000000-0000-0000-0000-000000000000, 0.
 KBSECTION
 // The High Priestess: the Veilwalker's Aspect of Doubt - the Awakening count and what each tier does.
 //   Goal: every stack of Doubt she applies is one step (DB_ARCANA_DoubtStep rows, written by
-//   ARCANA_Deceiver_Doubt.txt); 4 / 7 / 10 in ARCANA_Aspect_Common.txt, whose tables key this Aspect as "EMPRESS"
-//   (the key and the Stats ids ASPECT_AWAKENED_EMPRESS_*, Arcana_Passive_Aspect_Empress_* are published names, OR-10).
+//   ARCANA_Deceiver_Doubt.txt); 4 / 7 / 10 in ARCANA_Aspect_Common.txt, whose tables key this Aspect as "HIGHPRIESTESS"
+//   (the key and the Stats ids ASPECT_AWAKENED_HIGHPRIESTESS_*, Arcana_Passive_Aspect_HighPriestess_* are published names, OR-10).
 //   Tier I (Veiled) lives in the DOUBT statuses; its Aspect card is The Veil Lifts (every Double splinters, survivors
 //   with Doubt become Deluded). Tier II (Two Pillars): once per turn, when an enemy becomes Deluded in her name, the
 //   nearest un-Seeded enemy within 6 m gains her Seed. Tier III (Aspect of Doubt, DV21): every Splinter is one 4 m
-//   burst (Projectile_Arcana_SplinterBurst, she is the caster; the Splinter shout itself deals nothing at Tier III),
+//   burst (Projectile_Arcana_Splinter_Explosion, she is the caster; the Splinter shout itself deals nothing at Tier III),
 //   a Double an enemy destroys bursts where it was struck, and Ready: Which One? swaps her with her nearest Double.
 //
 // DBs:
@@ -34,7 +34,7 @@ KBSECTION
 //   DB_ARCANA_DoubleStruckAt(Double, X, Y, Z)      where a Double was last struck (or where it died, if nothing struck
 //                                                  it). Deleted by the purge (PROC_ARCANA_Doubles_OnPurge).
 // Reads: DB_ARCANA_DoubtStep (consumes it), DB_ARCANA_DoubtCount (ARCANA_Deceiver_Doubt.txt); DB_ARCANA_Double,
-// DB_ARCANA_DoubleGone, DB_ARCANA_MirrorImageOf, DB_ARCANA_DoubleNoBlame, DB_ARCANA_DoubleKiller
+// DB_ARCANA_DoubleGone, DB_ARCANA_DoubleOf, DB_ARCANA_DoubleNoBlame, DB_ARCANA_DoubleKiller
 // (ARCANA_Deceiver_TheVeil.txt); DB_ARCANA_Aspect_InCombat, DB_ARCANA_AspectReached (ARCANA_Aspect_Common.txt);
 // DB_ARCANA_CardFamily. Calls PROC_ARCANA_Aspect_Step, PROC_ARCANA_Doubt_Raise, PROC_ARCANA_Doubles_Retire.
 // Hooks: PROC_ARCANA_Aspect_Reset, PROC_ARCANA_Doubles_OnPurge (called by The Veil's purge).
@@ -44,7 +44,7 @@ IF
 DB_ARCANA_DoubtStep(_Owner, _Foe, _Stack)
 THEN
 NOT DB_ARCANA_DoubtStep(_Owner, _Foe, _Stack);
-PROC_ARCANA_Aspect_Step(_Owner, "EMPRESS");
+PROC_ARCANA_Aspect_Step(_Owner, "HIGHPRIESTESS");
 //END_REGION
 
 //REGION Tier I - The Veil Lifts: every Double splinters, every survivor with Doubt becomes Deluded
@@ -60,7 +60,7 @@ NOT DB_ARCANA_DoubleGone(_Double, _Owner)
 AND
 IsDead(_Double, 0)
 THEN
-UseSpell(_Double, "Shout_Deceiver_Double_Shatter", _Double, _Double, 1);
+UseSpell(_Double, "Shout_Arcana_Double_Splinter", _Double, _Double, 1);
 
 // Each enemy it touched (VEIL_LIFTS_TECH): after the Seeds' and the Splinters' Doubt has landed, Doubt goes to 3, so
 // the enemy becomes Deluded through the Doubt goal's own path (stacks reset, steps counted).
@@ -136,7 +136,7 @@ IsEnemy(_Deceiver, _Cand, 1)
 AND
 IsDead(_Cand, 0)
 AND
-HasActiveStatus(_Cand, "SIGIL", 0)
+HasActiveStatus(_Cand, "SEED", 0)
 AND
 GetDistanceTo(_From, _Cand, _Dist)
 AND
@@ -168,7 +168,7 @@ DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist)
 THEN
 NOT DB_ARCANA_HighPriestessBest(_Deceiver, _Cand, _Dist);
 DB_ARCANA_HighPriestessChained(_Deceiver);
-ApplyStatus(_Cand, "SIGIL", -6.0, 1, _Deceiver);
+ApplyStatus(_Cand, "SEED", -6.0, 1, _Deceiver);
 
 IF
 TurnStarted((CHARACTER)_Deceiver)
@@ -181,26 +181,26 @@ NOT DB_ARCANA_HighPriestessChained(_Deceiver);
 //REGION Tier III - the lie explodes: every Splinter is one 4 m burst, a destroyed Double bursts by itself
 // Vanilla Death Burst pattern (GLO_CombatNPCs.txt: CreateExplosionAtPosition at the creature; the projectile's
 // ExplodeRadius sets the area, 25: SPL_Deceiver_Splinter tier3_radius_next). She is the caster, so the damage and the
-// Doubt are hers. At Tier III the Splinter shout deals nothing (its SpellProperties read ASPECT_AWAKENED_EMPRESS_III
+// Doubt are hers. At Tier III the Splinter shout deals nothing (its SpellProperties read ASPECT_AWAKENED_HIGHPRIESTESS_III
 // through GetSummoner), so a Splinter is never two bursts.
 // A Splinter cast at Tier III: its own turn, Splinter on Command, The Veil Lifts.
 IF
-CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
+CastSpell((CHARACTER)_Double, "Shout_Arcana_Double_Splinter", _, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _Owner)
+DB_ARCANA_DoubleOf(_Double, _Owner)
 AND
 DB_ARCANA_AspectReached(_Owner, 3)
 AND
 GetPosition(_Double, _X, _Y, _Z)
 THEN
-CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_SplinterBurst", 1, _Owner);
+CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_Splinter_Explosion", 1, _Owner);
 
 // Where a Double was struck: the hit that damages a 1-HP Double is the one that destroys it, and its position is still
 // valid here. A Double that dies with no AttackedBy keeps the spot it died on.
 IF
 AttackedBy((CHARACTER)_Double, _, _, _, _Damage, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 AND
 _Damage > 0
 AND
@@ -211,7 +211,7 @@ PROC_ARCANA_HighPriestess_StruckAt(_Double, _X, _Y, _Z);
 IF
 Died(_Double)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 AND
 NOT DB_ARCANA_DoubleStruckAt(_Double, _, _, _)
 AND
@@ -247,7 +247,7 @@ DB_ARCANA_AspectReached(_Owner, 3)
 AND
 DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z)
 THEN
-CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_SplinterBurst", 1, _Owner);
+CreateExplosionAtPosition(_X, _Y, _Z, "Projectile_Arcana_Splinter_Explosion", 1, _Owner);
 
 PROC
 PROC_ARCANA_Doubles_OnPurge((CHARACTER)_Double, (CHARACTER)_Owner)
@@ -257,7 +257,7 @@ THEN
 NOT DB_ARCANA_DoubleStruckAt(_Double, _X, _Y, _Z);
 //END_REGION
 
-//REGION Tier III - Which One? (Interrupt_Arcana_Aspect_WhichOne applies WHICH_ONE_TECH on her; the attack already missed)
+//REGION Tier III - Which One? (Interrupt_Arcana_Reaction_WhichOne applies WHICH_ONE_TECH on her; the attack already missed)
 // She swaps places with her nearest Double and that Double is destroyed in her place (the retire path: no Splinter, no
 // blame; the attacker's Doubt comes from the interrupt itself).
 IF

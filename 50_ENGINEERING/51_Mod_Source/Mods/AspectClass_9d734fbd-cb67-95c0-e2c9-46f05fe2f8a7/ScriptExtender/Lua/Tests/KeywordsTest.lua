@@ -12,9 +12,9 @@ local FATED = "Shout_Arcana_Card_Spell_DEBUG_Fated"
 local FLEETING = "Shout_Arcana_Card_Spell_DEBUG_Fleeting"
 local TANGLER = "Shout_Arcana_Card_Spell_DEBUG_Tangler"
 local TANGLE = "Shout_Arcana_Created_Tangle_DEBUG"
-local DISTORTION = "Target_Arcana_Card_Spell_Distortion"
+local VEILSTEP = "Target_Arcana_Card_Spell_Veilstep"
 local WITHDRAW = "Shout_Arcana_Created_Withdraw"
-local MIMIC_DISTORTION = "Target_Arcana_Created_MimicDistortion"
+local TWICE_TOLD_VEILSTEP = "Target_Arcana_Created_TwiceTold_Veilstep"
 local ZEPHYR = "Target_Arcana_Created_ZephyrStrike"
 
 local savedIo
@@ -72,20 +72,20 @@ return {
             T.eq(count(st.hand, FLEETING), 0)
             T.eq(count(st.unraveled, FLEETING), 1)
         end,
-        ["Distortion conjures Withdraw and Mimic Distortion"] = function()
+        ["Veilstep conjures Withdraw and Twice-Told: Veilstep"] = function()
             local st = begin()
             F.StartTurn("c", st, yes)
-            F.Cast("c", st, DISTORTION)
+            F.Cast("c", st, VEILSTEP)
             T.eq(count(st.hand, WITHDRAW), 1)
-            T.eq(count(st.hand, MIMIC_DISTORTION), 1)
+            T.eq(count(st.hand, TWICE_TOLD_VEILSTEP), 1)
             T.eq(st.hand[#st.hand].conjured, true)
         end,
         ["Conjured cards last for their number of turns"] = function()
             local st = begin()
             F.StartTurn("c", st, yes)
-            F.Cast("c", st, DISTORTION)
+            F.Cast("c", st, VEILSTEP)
             nextTurn(st)
-            T.eq(count(st.hand, MIMIC_DISTORTION), 0, "lasts 1: gone after its own turn")
+            T.eq(count(st.hand, TWICE_TOLD_VEILSTEP), 0, "lasts 1: gone after its own turn")
             T.eq(count(st.hand, WITHDRAW), 1, "lasts 2: still there on turn 2")
             nextTurn(st)
             T.eq(count(st.hand, WITHDRAW), 0, "lasts 2: gone after turn 2")
@@ -98,15 +98,15 @@ return {
         end,
         ["Nothing is conjured out of combat"] = function()
             local st = S.New()
-            F.Cast("c", st, DISTORTION)
+            F.Cast("c", st, VEILSTEP)
             F.StatusApplied("c", st, "ZEPHYR_STRIKE")
             T.eq(#st.hand, 0)
         end,
         ["Awakening an Aspect puts its card in hand"] = function()
             local cards = {
                 ASPECT_AWAKENED_FOOL = "Shout_Arcana_Created_TheCalm",
-                ASPECT_AWAKENED_EMPRESS = "Shout_Arcana_Created_Aspect_VeilLifts",
-                ASPECT_AWAKENED_EMPRESS_III = "Shout_Arcana_Card_Passive_WhichOne",
+                ASPECT_AWAKENED_HIGHPRIESTESS = "Shout_Arcana_Created_Aspect_VeilLifts",
+                ASPECT_AWAKENED_HIGHPRIESTESS_III = "Shout_Arcana_Card_Passive_WhichOne",
                 ASPECT_AWAKENED_STAR = "Shout_Arcana_Created_Aspect_WishUponAStar",
                 ASPECT_AWAKENED_DEATH = "Target_Arcana_Created_Aspect_FinalToll",
             }

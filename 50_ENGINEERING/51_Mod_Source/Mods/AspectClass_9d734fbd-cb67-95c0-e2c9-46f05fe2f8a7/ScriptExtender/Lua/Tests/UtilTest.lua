@@ -5,19 +5,19 @@ return {
     name = "Util",
     cases = {
         ["IsUpcast only fires on a trailing _N"] = function()
-            T.ok(U.IsUpcast("Target_Arcana_Card_Spell_Distortion_5"), "variant")
-            T.ok(not U.IsUpcast("Target_Arcana_Card_Spell_Distortion"), "base card")
+            T.ok(U.IsUpcast("Target_Arcana_Card_Spell_Veilstep_5"), "variant")
+            T.ok(not U.IsUpcast("Target_Arcana_Card_Spell_Veilstep"), "base card")
             T.ok(not U.IsUpcast("Target_Arcana_Card_Spell_Transfusion_EX"), "_EX is not a level")
         end,
         ["Category reads the Arcana prefix after the spell type"] = function()
-            T.eq(U.Category("Target_Arcana_Card_Spell_Distortion"), "Card")
+            T.eq(U.Category("Target_Arcana_Card_Spell_Veilstep"), "Card")
             T.eq(U.Category("Shout_Arcana_Created_Withdraw"), "Created")
             T.eq(U.Category("Shout_Arcana_Util_Faceless"), "Util")
             T.eq(U.Category("Projectile_Arcana_Card_Ability_Fly_Untethered"), "Ability")
         end,
         ["Category ignores clone, helper and vanilla spells"] = function()
-            T.eq(U.Category("Target_Deceiver_Clone_MirrorDistortion"), nil)
-            T.eq(U.Category("Projectile_Arcana_Distortion_Explosion"), nil)
+            T.eq(U.Category("Target_Arcana_Double_Unveil"), nil)
+            T.eq(U.Category("Projectile_Arcana_Veilstep_Explosion"), nil)
             T.eq(U.Category("Projectile_MagicMissile"), nil)
             T.eq(U.Category(nil), nil)
         end,

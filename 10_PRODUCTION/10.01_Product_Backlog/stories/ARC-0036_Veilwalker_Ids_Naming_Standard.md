@@ -4,7 +4,7 @@ title: "Veilwalker ids: one naming standard for the Stats, statuses and their re
 type: chore
 epic: EPIC_Rework_Subclasses
 subclass: deceiver
-status: spec_ready
+status: in_qa
 owner: Mod Engineer
 implementation: claude
 priority: should
@@ -113,24 +113,24 @@ Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_B
 
 - [x] The rename table approved by the Owner and logged as **DV37** (amends DV12, DV29 and the Stats half of DV36)
 - [x] OR-59 gains the summon-spell row (`<Type>_Arcana_Double_X`) and `_N` variants (never `_SlotN`)
-- [ ] The `<Type>_Deceiver_Clone_` row of the code glossary goes; `33.03` maps each new id to its in-game name
+- [x] The `<Type>_Deceiver_Clone_` row of the code glossary goes; `33.03` maps each new id to its in-game name
 - [x] Vanilla clash checked for every new status — none (`Editor/Mods/Shared, Gustav, GustavX` `.stats`; the extraction
       path of `57.06` is missing on this machine, the editor corpus stands in)
-- [ ] The Double's six slot rules exist in both Rulebook copies; Reflected Seed/Falsehood from level 5, Unveil from 9 (ARC-0020 L5/L9)
-- [ ] Backup in `94_Safety_Backups/ARC-0036_<date>/`, then a script renames in place, one `[fechado] ARC-0036` message
-- [ ] **Order kept:** the list of entry names of every Stats `.txt` / `.stats` file, with the table applied, equals the
+- [x] The Double's six slot rules exist in both Rulebook copies; Reflected Seed/Falsehood from level 5, Unveil from 9 (ARC-0020 L5/L9)
+- [x] Backup in `94_Safety_Backups/ARC-0036_<date>/`, then a script renames in place, one `[fechado] ARC-0036` message
+- [x] **Order kept:** the list of entry names of every Stats `.txt` / `.stats` file, with the table applied, equals the
       list after the rename (same count, same sequence); each file's entry count unchanged (Toolkit truncation trap)
-- [ ] `grep -rlaP` over the mod tree finds none of the old ids (patterns exclude the new names); `check_castable.pl`,
+- [x] `grep -rlaP` over the mod tree finds none of the old ids (patterns exclude the new names); `check_castable.pl`,
       `check_osiris.pl` 0/0, the Lua tests pass; the Owner compiles the Story with `0 error(s)`
 - [ ] Every Deceiver tooltip (EN) renders its LSTag links; no dead string left; no tooltip says *Gale Deflection* on the Seed
-- [ ] Documents: `DESIGN` §13–14, `SPEC_ARC-0020`, `TOOLKIT_ARC-0020`, `QA_ARC-0020` (appendix still says Mirror: Sigil,
+- [x] Documents: `DESIGN` §13–14, `SPEC_ARC-0020`, `TOOLKIT_ARC-0020`, `QA_ARC-0020` (appendix still says Mirror: Sigil,
       Shatter), `05.02/Deceiver.md`, the code glossary — new ids, *Veilwalker* in prose
 - [ ] Smoke test in game: level 1–12 Veilwalker loads, every card casts, the Awakening counts (QA_ARC-0036, short)
 
 ## Gates
 
-- [ ] Design gate — n/a (no design change; DV37 records the names)
-- [ ] Narrative gate (`32.04`) — only for the *Gale Deflection* fix
+- [x] Design gate — n/a (no design change; DV37 records the names)
+- [x] Narrative gate (`32.04`) — only the hidden `SEED_BURST_TECH` name (*Seed Burst*); n/a otherwise
 - [ ] DoD (`00.03`)
 
 ## Log
@@ -139,3 +139,18 @@ Stats `.txt` + `.stats` (Passive, Projectile, Shout, Target, Interrupt, Status_B
 - 2026-11-25 — table approved → DV37; OR-59 rows. Dry run clean; it found the Shatter call and the lost Double rules
   (ARC-0020 bugs, fixed in this apply) and dead level maps / templates (Owner: remove with backup). → `spec_ready`,
   waits `[fechado] ARC-0036`.
+- 2026-11-25 — `[fechado] ARC-0036` applied. Backup of 63 files in `94/ARC-0036_2026-11-25/` (+ `removed_loca.xml`,
+  `REMOVED_levelmaps.txt`, the dry-run `REPORT.md`). Rename in place: 1095 replacements in 55 files, entry order kept;
+  the six Double slot rules back in `Rulebook.lsx` **and** `.tbl` (8 = 8, `New_Stat_1/2` named); 9 dead level maps out;
+  the Double template renamed `ARCANA_CHAR_DoubleOfTheVeil` (Divine, round trip = the Name only); 4 dead templates to
+  `93/2026-11-25_ARC-0036_dead_templates/`; 18 dead English strings (12 in each other language) out; `SEED_BURST_TECH`
+  gets its own name *Seed Burst* (the *Gale Deflection* handle is a placeholder shared by 6 other hidden statuses of
+  other subclasses — left to their tickets). Also found and fixed: Osiris exploded `Projectile_Arcana_SplinterBurst`, but
+  the Owner typed `Projectile_Arcana_Splinter_Explosion` (Tier III burst never fired) — aligned to the Owner's name.
+  Generators (`gen_awakening_progress` key, `subclass_texts` class line, `check_cards` exception), comments, Lua tests,
+  documents (ids + *Veilwalker* in prose; Toolkit row names stay `Deceiver` in code), master data, catalogs, propagation.
+  Checks: `check_osiris` 0/0 (34 goals), `validate` 0 errors (4 Eternal handle warnings, not ours), `verify_context`
+  Deceiver 0 misses, `playtests check` OK, `check_propagation Deceiver` OK. Left by design: `check_cards` flags the
+  Owner's Splinter (`ApplyStatus(SELF,UNSUMMON_ACTIVE…)` without GROUND — ARC-0020 verification) and the DEBUG Seed spell
+  before its parent (an old order, kept: no entry moves). `Mods/…/GLOSSARY.md` (translation memory) is localization work.
+  → `in_qa`: the Owner compiles the Story and plays `QA_ARC-0036`.

@@ -12,7 +12,7 @@ reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026
 > reading the Doubles, and the Osiris goals one per feature (DV36). *Mirrored Self* from a Double (DV25) is deferred.
 >
 > Last verified: **2026-11-25** (ARC-0020 build, levels by `dump_progression.pl`; numbers of the Veil build last re-checked 2026-10-07) · Progression table `8fe1f693-d8ff-4b02-a655-efd4acbc04cb` ·
-> Lists "Deceiver Level N" · Osiris `ARCANA_Deceiver_TheVeil` · `_Doubt` · `_Splinter` · `_SplinterOnCommand` · `_SeedOfDoubt` ·
+> Lists "Veilwalker Level N" · Osiris `ARCANA_Deceiver_TheVeil` · `_Doubt` · `_Splinter` · `_SplinterOnCommand` · `_SeedOfDoubt` ·
 > `_Veilstep` · `_TwiceTold` · `_GrandDeception` · `_MirroredSpell` · `_Faceless`, Aspect `ARCANA_Aspect_HighPriestess` (Stats ids keep
 > *Empress*) · Design `21.04_Subclasses/Deceiver/DESIGN.md` (approved DV1–DV36, built by ARC-0020, in playtest — this file stays the game as it is; the old spec is in `90/93/2026-10-16_ARC-0019_deceiver_veil_design/`)
 > (D1–D17) · Patches and scripts in `55_Implementation_Specs/_wip/Deceiver/` · Wiki artifact: https://claude.ai/artifact/439SJbZifq1fWxUsvPtnuh
@@ -27,7 +27,7 @@ reviewed: 2026-10-16 ARC-0019 — DV32 checked, no change (game unchanged); 2026
 | **Aspect** | Doubt |
 | **Colour** | Pink `#f83fa5` · 🪞 |
 | **Role** | Controller and burst caster who fights with illusions |
-| **Fantasy** | "Mystra wove the Deceiver from the veil between what is and what seems." No one watching can say which of her is real. |
+| **Fantasy** | "Mystra wove the Veilwalker from the veil between what is and what seems." No one watching can say which of her is real. |
 | **Inspirations** | **LeBlanc** (League of Legends): Mirror Image, Sigil of Malice, Distortion, Ethereal Chains, Mimic — renamed in game to Eidolon, Seed of Doubt, Veilstep, Binding Falsehood, Twice-Told (DV29). **Bene Gesserit** (Dune). **The High Priestess** (tarot) |
 | **Sound set / dialogue** | Bard |
 
@@ -66,7 +66,7 @@ The engine is **The Veil**: **Doubles** (1-HP illusions of her) on the field and
 
 | Double spell | From | Effect |
 |---|---|---|
-| Splinter (`Shout_Deceiver_Double_Shatter`) | 1 | 3 m burst, 1d6 Psychic, 1 Doubt per enemy hit; the Double dies |
+| Splinter (`Shout_Arcana_Double_Splinter`) | 1 | 3 m burst, 1d6 Psychic, 1 Doubt per enemy hit; the Double dies |
 | Reflected Seed (`…MirrorSigil_SlotN`) | 5 (Two Truths) | `(Nd6)/2` Force and her Seed; N = her highest slot (3 at 5–6 … 6 at 11+) |
 | Reflected Falsehood (`…MirrorChains_SlotN`) | 5 | Same damage, WIS save or Restrained 1 turn |
 | Unveil | 9 | Swap places with her, once per round across all Doubles |
@@ -85,7 +85,7 @@ The engine is **The Veil**: **Doubles** (1-HP illusions of her) on the field and
 ### The Seed
 
 Seed of Doubt marks for 6 turns; the next Arcane spell damage from her (or a Double's Mirror spell) detonates it for
-`Sigil_MarkDamage` Psychic and 1 Doubt. Applying a status never detonates. Malicious Whispers on a marked target also
+`Seed_BurstDamage` Psychic and 1 Doubt. Applying a status never detonates. Malicious Whispers on a marked target also
 gives **Paranoia** (`WHISPERED_PARANOIA`: no reactions).
 
 ---
@@ -142,7 +142,7 @@ Image, Friends: Faux Amis, Heartbreak, Beloved, the old clone's Mirror spells, `
 |---|---|---|---|---|
 | I | 3 | 4 | **Veiled** | Enemies with Doubt have Disadvantage on attacks against her and her Doubles (in the DOUBT statuses, `GetSummoner` for Doubles) |
 | II | 7 | 7 | **Two Pillars** | Once per turn, when an enemy becomes Deluded in her name, the nearest unmarked enemy within 6 m gains her Seed |
-| III | 12 | 10 | **Aspect of Doubt** | Every Splinter is one 4 m burst (`Projectile_Arcana_SplinterBurst`, hers); a Double an enemy destroys bursts where it was struck; Ready: Which One? |
+| III | 12 | 10 | **Aspect of Doubt** | Every Splinter is one 4 m burst (`Projectile_Arcana_Splinter_Explosion`, hers); a Double an enemy destroys bursts where it was struck; Ready: Which One? |
 
 ---
 

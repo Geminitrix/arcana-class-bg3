@@ -12,28 +12,28 @@ D.PILE_FRAYED, D.PILE_UNRAVEL = "frayed", "unravel"
 -- number here is the Lua's own bookkeeping (tests, !arcanahand, previews), so it has to match the
 -- spell's UseCosts: when a card's level changes, both move together.
 D.cards = {
-    ["Target_Arcana_Card_Spell_Distortion"] = {
+    ["Target_Arcana_Card_Spell_Veilstep"] = {
         aspect = "Deceiver",
         cost = 3,
         conjures = {
             { id = "Shout_Arcana_Created_Withdraw", lasts = 2 },
-            { id = "Target_Arcana_Created_MimicDistortion", lasts = 1 },
+            { id = "Target_Arcana_Created_TwiceTold_Veilstep", lasts = 1 },
         },
     },
-    ["Target_Arcana_Created_MimicDistortion"] = {
+    ["Target_Arcana_Created_TwiceTold_Veilstep"] = {
         aspect = "Deceiver",
         cost = 2,
-        conjures = { { id = "Shout_Arcana_Created_MimicWithdraw", lasts = 2 } },
+        conjures = { { id = "Shout_Arcana_Created_TwiceTold_Withdraw", lasts = 2 } },
     },
-    ["Projectile_Arcana_Card_Spell_SigilofMalice"] = {
+    ["Projectile_Arcana_Card_Spell_SeedOfDoubt"] = {
         aspect = "Deceiver",
         cost = 1,
-        conjures = { { id = "Projectile_Arcana_Created_MimicSigilofMalice", lasts = 1 } },
+        conjures = { { id = "Projectile_Arcana_Created_TwiceTold_SeedOfDoubt", lasts = 1 } },
     },
-    ["Target_Arcana_Card_Spell_EtherealChains"] = {
+    ["Target_Arcana_Card_Spell_BindingFalsehood"] = {
         aspect = "Deceiver",
         cost = 2,
-        conjures = { { id = "Target_Arcana_Created_MimicEtherealChains", lasts = 1 } },
+        conjures = { { id = "Target_Arcana_Created_TwiceTold_BindingFalsehood", lasts = 1 } },
     },
     ["Zone_Arcana_Card_Spell_FinalSpark"] = {
         aspect = "Starchild",
@@ -49,11 +49,11 @@ D.cards = {
         keywords = { Choose = true },
     },
 
-    ["Target_Arcana_Created_Mimic"] = { aspect = "Deceiver", cost = 2 },
-    ["Projectile_Arcana_Created_MimicSigilofMalice"] = { aspect = "Deceiver", cost = 1 },
-    ["Target_Arcana_Created_MimicEtherealChains"] = { aspect = "Deceiver", cost = 1 },
+    ["Target_Arcana_Created_TwiceTold"] = { aspect = "Deceiver", cost = 2 },
+    ["Projectile_Arcana_Created_TwiceTold_SeedOfDoubt"] = { aspect = "Deceiver", cost = 1 },
+    ["Target_Arcana_Created_TwiceTold_BindingFalsehood"] = { aspect = "Deceiver", cost = 1 },
     ["Shout_Arcana_Created_Withdraw"] = { aspect = "Deceiver", cost = 1 },
-    ["Shout_Arcana_Created_MimicWithdraw"] = { aspect = "Deceiver", cost = 1 },
+    ["Shout_Arcana_Created_TwiceTold_Withdraw"] = { aspect = "Deceiver", cost = 1 },
     -- level 1 and no slot since 2026-09-27: one Thread in combat, free outside
     ["Zone_Arcana_Created_FinalSpark_Recreate"] = { aspect = "Starchild", cost = 1 },
     ["Target_Arcana_Created_ZephyrStrike"] = { aspect = "Unbound", cost = 1 },
@@ -153,8 +153,8 @@ D.statusConjures = {
     BAG_READY = { id = "Shout_Arcana_Created_AeolusBag", lasts = 99 },
     -- the Aspect card stays playable for the rest of the fight
     ASPECT_AWAKENED_FOOL = { id = "Shout_Arcana_Created_TheCalm", lasts = 99 },
-    ASPECT_AWAKENED_EMPRESS = { id = "Shout_Arcana_Created_Aspect_VeilLifts", lasts = 99 },
-    ASPECT_AWAKENED_EMPRESS_III = { id = "Shout_Arcana_Card_Passive_WhichOne", lasts = 99 },
+    ASPECT_AWAKENED_HIGHPRIESTESS = { id = "Shout_Arcana_Created_Aspect_VeilLifts", lasts = 99 },
+    ASPECT_AWAKENED_HIGHPRIESTESS_III = { id = "Shout_Arcana_Card_Passive_WhichOne", lasts = 99 },
     ASPECT_AWAKENED_STAR = { id = "Shout_Arcana_Created_Aspect_WishUponAStar", lasts = 99 },
     ASPECT_AWAKENED_DEATH = { id = "Target_Arcana_Created_Aspect_FinalToll", lasts = 99 },
     ASPECT_AWAKENED_TEMPERANCE = { id = "Shout_Arcana_Created_Aspect_TwoCups", lasts = 99 },
@@ -187,10 +187,10 @@ D.reactionByUsed = {}
 for id, r in pairs(D.reactions) do D.reactionByUsed[r.used] = id end
 
 D.containers = {
-    ["Target_Arcana_Created_Mimic"] = {
-        "Projectile_Arcana_Created_MimicSigilofMalice",
-        "Target_Arcana_Created_MimicEtherealChains",
-        "Target_Arcana_Created_MimicDistortion",
+    ["Target_Arcana_Created_TwiceTold"] = {
+        "Projectile_Arcana_Created_TwiceTold_SeedOfDoubt",
+        "Target_Arcana_Created_TwiceTold_BindingFalsehood",
+        "Target_Arcana_Created_TwiceTold_Veilstep",
     },
     ["Target_Arcana_Card_Spell_Hemoplague"] = {
         "Target_Arcana_Created_Hemoplague_BlindingSickness",

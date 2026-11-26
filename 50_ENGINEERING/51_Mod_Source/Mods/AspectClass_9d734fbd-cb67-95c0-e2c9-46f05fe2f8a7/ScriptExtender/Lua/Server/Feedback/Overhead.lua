@@ -14,7 +14,7 @@ end
 local names = {}
 
 local function fromId(id)
-    -- last resort: Projectile_Arcana_Card_Spell_SigilofMalice -> "SigilofMalice"
+    -- last resort: Projectile_Arcana_Card_Spell_SeedOfDoubt -> "SeedOfDoubt"
     return (id:gsub("^.-_Arcana_[A-Za-z]-_?[A-Za-z]-_", ""):gsub("^.*_", ""))
 end
 

@@ -16,7 +16,7 @@ return {
             D.io.spellLevel = function(id) return id == "NV2" and 2 or nil end
             T.eq(D.CostOf("NV2"), 2, "o Level manda -- era isso que fazia o Olhar Hipnotico dizer 1")
             D.io.spellLevel = function() return nil end
-            T.eq(D.CostOf("Projectile_Arcana_Card_Spell_SigilofMalice"), 1, "sem Level, cai na tabela")
+            T.eq(D.CostOf("Projectile_Arcana_Card_Spell_SeedOfDoubt"), 1, "sem Level, cai na tabela")
             D.io.spellLevel = saved
         end,
         ["CostOf falls back to the default"] = function()
@@ -24,18 +24,18 @@ return {
             T.eq(D.CostOf("Shout_Arcana_Card_Spell_DEBUG_Tangler"), 2)
         end,
         ["A card costs its level, with no once-per-rest discount"] = function()
-            T.eq(D.CostOf("Projectile_Arcana_Card_Spell_SigilofMalice"), 1)
-            T.eq(D.CostOf("Target_Arcana_Card_Spell_EtherealChains"), 2)
-            T.eq(D.CostOf("Target_Arcana_Card_Spell_Distortion"), 3)
+            T.eq(D.CostOf("Projectile_Arcana_Card_Spell_SeedOfDoubt"), 1)
+            T.eq(D.CostOf("Target_Arcana_Card_Spell_BindingFalsehood"), 2)
+            T.eq(D.CostOf("Target_Arcana_Card_Spell_Veilstep"), 3)
             T.eq(D.CostOf("Zone_Arcana_Card_Spell_FinalSpark"), 6, "level 6, once per short rest")
             T.eq(D.CostOf("Shout_Arcana_Created_Withdraw"), 1)
-            T.eq(D.CostOf("Target_Arcana_Created_MimicDistortion"), 2)
+            T.eq(D.CostOf("Target_Arcana_Created_TwiceTold_Veilstep"), 2)
         end,
         ["Container children the deck ignores are skipped"] = function()
             T.eq(D.Skipped("Shout_Arcana_Util_Faceless_Elf_Male"), true)
             T.eq(D.Skipped("Target_Arcana_Util_Faceless_Copy"), true)
             T.eq(D.Skipped("Shout_Arcana_Util_Faceless"), false, "the container itself stays")
-            T.eq(D.Skipped("Target_Arcana_Card_Spell_Distortion"), false)
+            T.eq(D.Skipped("Target_Arcana_Card_Spell_Veilstep"), false)
         end,
         ["A cantrip costs 1 Thread: nothing to zero, the status only adds"] = function()
             T.eq(D.CostOf("Target_Arcana_Card_Spell_MaliciousWhispers"), 1)
@@ -78,8 +78,8 @@ return {
             T.eq(D.Has("Shout_Arcana_Card_Spell_DEBUG_Fated", "Unique"), false)
             T.eq(D.Has("Unknown_Spell", "Fated"), false)
         end,
-        ["ConjuresOn lists the Distortion tokens"] = function()
-            local c = D.ConjuresOn("Target_Arcana_Card_Spell_Distortion")
+        ["ConjuresOn lists the Veilstep tokens"] = function()
+            local c = D.ConjuresOn("Target_Arcana_Card_Spell_Veilstep")
             T.eq(#c, 2)
             T.eq(c[1].id, "Shout_Arcana_Created_Withdraw")
             T.eq(c[1].lasts, 2)
@@ -91,7 +91,7 @@ return {
             end
             -- a reaction card conjured by an Awakening (Which One?) stays a Passive card: the reaction system reads it
             for _, c in pairs(D.statusConjures) do T.eq(U.Category(c.id), D.reactions[c.id] and "Passive" or "Created", c.id) end
-            -- a container is either a Created card (Mimic) or a deck card whose Choose options
+            -- a container is either a Created card (Twice-Told) or a deck card whose Choose options
             -- are Created (Hemoplague); the children are always Created
             for container, subs in pairs(D.containers) do
                 local cat = U.Category(container)

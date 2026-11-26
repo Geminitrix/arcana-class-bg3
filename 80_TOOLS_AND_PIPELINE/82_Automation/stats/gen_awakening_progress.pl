@@ -22,7 +22,7 @@ our $M = 'AspectClass_9d734fbd-cb67-95c0-e2c9-46f05fe2f8a7';
 our $ROOT = abs_path(dirname(__FILE__) . '/../../..');
 sub slurp { my $p = shift; open my $h, '<:raw', $p or die "$p: $!"; local $/; my $s = <$h>; close $h; $s =~ s/\r\n/\n/g; $s }
 
-our @ORDER = qw(FOOL EMPRESS TEMPERANCE WHEEL STAR DEATH);
+our @ORDER = qw(FOOL HIGHPRIESTESS TEMPERANCE WHEEL STAR DEATH);
 # passive: the tier passives' infix; tiers: their names; left: what the number counts (the status text);
 # do: the passive's opening; rule: an extra sentence; goal: the goal in words from the row value
 our %A = (
@@ -32,7 +32,7 @@ our %A = (
         do => 'Strike different enemies with attacks within a single round',
         rule => 'If fewer enemies stand when your turn begins than a goal asks for, strikes on any enemy count towards that goal instead.',
         goal => sub { "strike $_[0] different enemies in one round" } },
-    EMPRESS => { passive => 'Empress', aspect => 'Doubt', icon => 'Spell_Necromancy_BestowCurse', mode => 'COUNT',
+    HIGHPRIESTESS => { passive => 'HighPriestess', aspect => 'Doubt', icon => 'Spell_Necromancy_BestowCurse', mode => 'COUNT',
         tiers => ['Veiled', 'Two Pillars', 'Aspect of Doubt'],
         left => 'Stacks of Doubt left to apply',
         do => 'Sow <LSTag Type="Status" Tooltip="DOUBT_1">Doubt</LSTag> in your enemies',

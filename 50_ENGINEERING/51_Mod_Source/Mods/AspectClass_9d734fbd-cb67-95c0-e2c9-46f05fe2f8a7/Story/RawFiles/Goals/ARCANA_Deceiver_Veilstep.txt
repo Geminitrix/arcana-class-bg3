@@ -7,25 +7,25 @@ DB_ARCANA_Withdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARAC
 NOT DB_ARCANA_Withdraw_Link((CHARACTER)00000000-0000-0000-0000-000000000000, (CHARACTER)00000000-0000-0000-0000-000000000000);
 
 KBSECTION
-// Veilstep (Deceiver; internal id Target_Arcana_Card_Spell_Distortion): Veilstep leaves a Double where she stood;
+// Veilstep (Deceiver; internal id Target_Arcana_Card_Spell_Veilstep): Veilstep leaves a Double where she stood;
 // Withdraw swaps places with THAT Double. The Double is the marker: no marker item is summoned.
 //
 // Flow:
-//   1. UsingSpell (Distortion family): remember where she stands (the origin) and open a 6 s "awaiting" window.
+//   1. UsingSpell (Veilstep family): remember where she stands (the origin) and open a 6 s "awaiting" window.
 //      UsingSpell fires at cast start; the Summon functor runs after the cast animation, which for a teleporting
 //      Target spell can take 1-3 s. The bind consumes the window, so a long one is harmless.
-//   2. Distortion's SpellProperties summon a Double with the technical status DOUBLE_OF_THE_VEIL_TECH, cause = her.
+//   2. Veilstep's SpellProperties summon a Double with the technical status DOUBLE_OF_THE_VEIL_TECH, cause = her.
 //      ARCANA_Deceiver_TheVeil.txt registers it like any Double (cap, AC layers) and its kit step moves it to the
 //      origin (DB_ARCANA_DoubleHome). This goal sees the same StatusApplied and BINDS that Double to her:
-//      DB_ARCANA_Withdraw_Link, the Withdraw spell, DISTORTION_HELPER (it locks Distortion AND unlocks Withdraw,
+//      DB_ARCANA_Withdraw_Link, the Withdraw spell, VEILSTEP_HELPER (it locks Veilstep AND unlocks Withdraw,
 //      whose RequirementConditions test it) and the 2-turn window timer.
 //   3. Withdraw (CastSpell): both positions are read first, then each moves to the other's spot (TeleportToPosition).
 //   4. The window ends when she swaps, when the timer runs out, or when THAT Double is gone (destroyed, dismissed,
-//      shattered, retired by the cap, end of combat, Long Rest, her death): Withdraw is lost and DISTORTION_HELPER
-//      is removed, so Distortion is available again.
+//      shattered, retired by the cap, end of combat, Long Rest, her death): Withdraw is lost and VEILSTEP_HELPER
+//      is removed, so Veilstep is available again.
 //
 // DBs:
-//   DB_ARCANA_Withdraw_Awaiting(Caster, X, Y, Z)  she just cast Distortion from (X, Y, Z); the next Double she
+//   DB_ARCANA_Withdraw_Awaiting(Caster, X, Y, Z)  she just cast Veilstep from (X, Y, Z); the next Double she
 //                                                 summons is the one. Dropped by the first Double or after 6 s.
 //   DB_ARCANA_Withdraw_Link(Caster, Double)       the Double Withdraw swaps with. One row per Deceiver; dropped
 //                                                 when the window ends.
@@ -33,7 +33,7 @@ KBSECTION
 // (the event "a Double went"). Writes for it: DB_ARCANA_DoubleHome. Reads DB_ARCANA_CardFamily (upcast variants).
 
 //REGION Shared cleanup
-// Closes the window. Never touches DISTORTION_HELPER (the swap and the timer have their own reasons).
+// Closes the window. Never touches VEILSTEP_HELPER (the swap and the timer have their own reasons).
 PROC
 PROC_ARCANA_Withdraw_Reset((CHARACTER)_Caster)
 THEN
@@ -55,19 +55,19 @@ DB_ARCANA_Withdraw_Link(_Caster, _Double)
 THEN
 NOT DB_ARCANA_Withdraw_Link(_Caster, _Double);
 
-// The window ended without a swap (timer, or its Double is gone): Withdraw is lost and Distortion is free again.
+// The window ended without a swap (timer, or its Double is gone): Withdraw is lost and Veilstep is free again.
 PROC
 PROC_ARCANA_Withdraw_Lost((CHARACTER)_Caster)
 THEN
 PROC_ARCANA_Withdraw_Reset(_Caster);
-RemoveStatus(_Caster, "DISTORTION_HELPER", _Caster);
+RemoveStatus(_Caster, "VEILSTEP_HELPER", _Caster);
 //END_REGION
 
-//REGION She cast Distortion: remember the origin and wait for the Double it summons
+//REGION She cast Veilstep: remember the origin and wait for the Double it summons
 IF
 UsingSpell((CHARACTER)_Caster, _ArcanaSpell, _, _, _)
 AND
-DB_ARCANA_CardFamily(_ArcanaSpell, "Target_Arcana_Card_Spell_Distortion")
+DB_ARCANA_CardFamily(_ArcanaSpell, "Target_Arcana_Card_Spell_Veilstep")
 AND
 GetPosition(_Caster, _X, _Y, _Z)
 THEN
@@ -75,7 +75,7 @@ PROC_ARCANA_Withdraw_Reset(_Caster);
 DB_ARCANA_Withdraw_Awaiting(_Caster, _X, _Y, _Z);
 RealtimeObjectTimerLaunch(_Caster, "ARCANA_Withdraw_Await", 6000);
 
-// Distortion's Summon never produced a Double (the summon failed): nothing was bound, nothing was offered.
+// Veilstep's Summon never produced a Double (the summon failed): nothing was bound, nothing was offered.
 IF
 ObjectTimerFinished((CHARACTER)_Caster, "ARCANA_Withdraw_Await")
 AND
@@ -96,7 +96,7 @@ RealtimeObjectTimerCancel(_Owner, "ARCANA_Withdraw_Await");
 DB_ARCANA_Withdraw_Link(_Owner, _Double);
 DB_ARCANA_DoubleHome(_Double, _X, _Y, _Z);
 AddSpell(_Owner, "Shout_Arcana_Created_Withdraw", 1, 0);
-ApplyStatus(_Owner, "DISTORTION_HELPER", 12.0, 1, _Owner);
+ApplyStatus(_Owner, "VEILSTEP_HELPER", 12.0, 1, _Owner);
 ObjectTimerCancel(_Owner, "ARCANA_Withdraw_Timer");
 ObjectTimerLaunch(_Owner, "ARCANA_Withdraw_Timer", 12000, 1);
 //END_REGION
@@ -118,7 +118,7 @@ PROC_ARCANA_Withdraw_Lost(_Owner);
 //END_REGION
 
 //REGION Withdraw: swap places with the Double
-// The spell itself only removes DISTORTION_HELPER and costs the bonus action and the slot. It cannot be cast without
+// The spell itself only removes VEILSTEP_HELPER and costs the bonus action and the slot. It cannot be cast without
 // the helper (RequirementConditions), and the helper goes the moment the Double goes, so a Double that is already gone
 // never reaches this rule; the checks below are a second net.
 IF

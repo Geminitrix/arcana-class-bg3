@@ -45,13 +45,13 @@
   <content contentuid="h5d0c74dag8bfbgd0fege79bgbd32c751cb1a" version="5">對非敵對生物進行魅力&lt;LSTag Tooltip="AbilityCheck"&gt;檢定&lt;/LSTag&gt;時具有&lt;LSTag Tooltip="Advantage"&gt;優勢&lt;/LSTag&gt;。</content>
   <content contentuid="h9dd95e32gd1f4g9b57g9df7g7706c0b3938e" version="3">此法術可在&lt;LSTag Type="Status" Tooltip="SILENCED"&gt;沉默&lt;/LSTag&gt;狀態下施放。</content>
   <content contentuid="he9ce7070g7529g7835ga365gf087009b761f" version="1">幻影鎖鏈</content>
-  <content contentuid="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13">以&lt;LSTag Type="Status" Tooltip="ETHEREAL_CHAINS"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
+  <content contentuid="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13">以&lt;LSTag Type="Status" Tooltip="BINDING_FALSEHOOD"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
   <content contentuid="h61aa29d1ga943g2882g51b8gdd450c37b7a8" version="1">幻影鎖鏈</content>
   <content contentuid="h27ab0da9g39aagf457g6a30g6d1955451372" version="10">目標被幻影鎖鏈束縛，造成[1]點傷害兩次，並在回合結束時&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
   <content contentuid="h5a9834b3g29bfg7f21g71c4ga9b6a3271088" version="4">印記</content>
   <content contentuid="h28e6ebc5g3632g32ddgd3d7ge688706a5796" version="10">目標被欺瞞者標記，其奧術法術額外造成[1]點傷害。</content>
   <content contentuid="h629833b0gfc8dg4921g4f7fged5030c535cf" version="2">惡意魔印</content>
-  <content contentuid="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5">向一個生物投擲奧術能量衝擊，造成[1]點傷害並標記其&lt;LSTag Type="Status" Tooltip="SIGIL"&gt;印記&lt;/LSTag&gt;。</content>
+  <content contentuid="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5">向一個生物投擲奧術能量衝擊，造成[1]點傷害並標記其&lt;LSTag Type="Status" Tooltip="SEED"&gt;印記&lt;/LSTag&gt;。</content>
   <content contentuid="hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef" version="3">鏡花水月</content>
   <content contentuid="h805db51fg1ce6g5aa9g3a26g99b6279b2218" version="11">創造一個能複製你部分具傷害性奧術法術的分身。</content>
   <content contentuid="h7ce24c2bg5830g1f25gda97gc927f6e8e6b1" version="36">克隆體</content>
@@ -180,9 +180,9 @@
   <content contentuid="hf4767ceag7e98g7466g81cdg572e1744f0aa" version="2">無縛者</content>
   <content contentuid="h65e864dfg6fabg0d32gef8bgf8558787ab9c" version="2">我們隨流浪之風而動，從不被任何道路束縛，在開闊天空下自由自在。</content>
   <content contentuid="hdb9aca65g1d8ag0b4fg4907g7797d5506932" version="2">印記技術</content>
-  <content contentuid="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="3">向一個生物投擲強化版&lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;惡意魔印&lt;/LSTag&gt;，造成[1]點傷害並標記&lt;LSTag Type="Status" Tooltip="SIGIL"&gt;印記&lt;/LSTag&gt;。</content>
+  <content contentuid="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="3">向一個生物投擲強化版&lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SeedOfDoubt"&gt;惡意魔印&lt;/LSTag&gt;，造成[1]點傷害並標記&lt;LSTag Type="Status" Tooltip="SEED"&gt;印記&lt;/LSTag&gt;。</content>
   <content contentuid="h200724afg96c5gcdcegbc15g5d898fa0a99e" version="4">目標被削弱版幻影鎖鏈束縛，造成[1]點傷害兩次，並在回合結束時&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
-  <content contentuid="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="4">以強化版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
+  <content contentuid="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="4">以強化版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_BindingFalsehood"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
   <content contentuid="ha88ea3afg2012g59e5g8455gb13b526c3109" version="1">故技重施：撤回</content>
   <content contentuid="ha9ab263dg2d5ag59d8ge6ebg41fd212787aa" version="3">星輝恩典</content>
   <content contentuid="h9c380e04gfe24g4f57gbb0fg8e317ec95eae" version="3">將同伴的命運與不朽的宇宙光芒相連。你的盟友受到治療時將恢復最大可能的&lt;LSTag Tooltip="HitPoints"&gt;生命值&lt;/LSTag&gt;。同時，他們在感知&lt;LSTag Tooltip="SavingThrow"&gt;豁免檢定&lt;/LSTag&gt;和死亡豁免上具有&lt;LSTag Tooltip="Advantage"&gt;優勢&lt;/LSTag&gt;。</content>
@@ -521,7 +521,7 @@
   <content contentuid="h8db03496gc1e4g2343g6f20gf951a4afda58" version="1">僅在未穿戴護甲或使用盾牌時生效。</content>
   <content contentuid="h6507b6e7g5e30g5a89g923dg11f8b4e5735e" version="1">僅在未穿戴護甲或使用盾牌時生效。</content>
   <content contentuid="h795d3f9bg4693g7095gaeeeg14daa8dec939" version="1">僅在未穿戴護甲或使用盾牌時生效。</content>
-  <content contentuid="h19148393g43edg142eg8af8gc41f2c6b60f9" version="2">以削弱版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
+  <content contentuid="h19148393g43edg142eg8af8gc41f2c6b60f9" version="2">以削弱版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_BindingFalsehood"&gt;幻影鎖鏈&lt;/LSTag&gt;束縛一個生物。在其回合結束時，該生物陷入&lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;束縛&lt;/LSTag&gt;。</content>
   <content contentuid="he3d63e7ege30bg4ab2gb047ga84261db272b" version="2">無縛者長袍</content>
   <content contentuid="h8e552a9cgcf9bg0600g43bbg028d56c53aa7" version="4">永恆者的板甲</content>
   <content contentuid="h5579f51ega301g3a6dgd1e8g6ef02575405c" version="4">暗沉的鋼鐵承載著早已被遺忘的戰爭留下的斑駁痕跡，其表面未經多餘的打磨。即便在正午的陽光下，這副護甲依舊透著寒意，彷彿不願交出它所見證過的一切。縱使生者早已遺忘，死亡仍銘記每一個名字。</content>
@@ -554,8 +554,6 @@
   <content contentuid="hb13711c4gf09dgf9ddg178bgd022a7b41e72" version="1">%%% EMPTY</content>
   <content contentuid="h5ea38b1ageb8bgbbf3g8ba7g9f34c9b1b1ea" version="1">%%% EMPTY</content>
   <content contentuid="hf4e59586g9e6dg2176g46a7g8d8473ae8b1e" version="1">%%% EMPTY</content>
-  <content contentuid="h99c412c1g5750g734agae2bg492af97b6d38" version="1">鏡像撤回計時器</content>
-  <content contentuid="haf283608gcd44g528eg31acgbdb12e23ba2b" version="1">故技重施撤回計時器</content>
   <content contentuid="hfed34aaeg7703g6c7dga63fg744706fe3e37" version="1">撤回計時器</content>
   <content contentuid="hbbe87a54g9882ga869g13a3g51d491fb409e" version="1">魔影迷蹤助手</content>
   <content contentuid="h74931156g68e6g78c3g675fgcd9196f71a0c" version="1">故技重施魔影迷蹤助手</content>
@@ -563,12 +561,10 @@
   <content contentuid="h2a283036g31f4ga58bgc5d4g83b36478a82e" version="1">上次施放：惡意魔印</content>
   <content contentuid="hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f" version="1">上次施放：幻影鎖鏈</content>
   <content contentuid="h3c4edb12g2741g4fd0g7808g1b880efe0603" version="1">上次施放：魔影迷蹤</content>
-  <content contentuid="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="1">向一個生物投擲削弱版&lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;惡意魔印&lt;/LSTag&gt;，造成[1]點傷害並標記&lt;LSTag Type="Status" Tooltip="SIGIL"&gt;印記&lt;/LSTag&gt;。</content>
-  <content contentuid="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="1">以強化版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion"&gt;魔影迷蹤&lt;/LSTag&gt;穿梭空間，在落點造成傷害。在2回合內，你可以施展&lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_MimicWithdraw"&gt;撤回&lt;/LSTag&gt;傳送回原位。</content>
+  <content contentuid="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="1">向一個生物投擲削弱版&lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SeedOfDoubt"&gt;惡意魔印&lt;/LSTag&gt;，造成[1]點傷害並標記&lt;LSTag Type="Status" Tooltip="SEED"&gt;印記&lt;/LSTag&gt;。</content>
+  <content contentuid="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="1">以強化版&lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Veilstep"&gt;魔影迷蹤&lt;/LSTag&gt;穿梭空間，在落點造成傷害。在2回合內，你可以施展&lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_TwiceTold_Withdraw"&gt;撤回&lt;/LSTag&gt;傳送回原位。</content>
   <content contentuid="h1c6805e2gef72gde13g0ac7g7d9b19112b25" version="1">鏡像法術</content>
-  <content contentuid="hd1b4c14fg68b2g2642g9a32gc052f2f749b1" version="3">你精通鏡像之術。當有生物在[1]範圍內施放法術時，你會將該法術加入你的法術池，持續3回合。</content>
   <content contentuid="h34f46efbg619ag290ag7eddg2383b122a86a" version="1">鏡像法術助手</content>
-  <content contentuid="haa5e063cga90egac8cg9e75gb55fc8aa24e3" version="1">鏡像法術：啟用</content>
   <content contentuid="h75b888d9gfb47g2bc1ge9b9gb7555ade89f3" version="2">奧術碎片</content>
   <content contentuid="hf2380d02g4523g5595ge459g914a7fc4f4f0" version="4">戰鬥中，每當你施展一個奧術法術時，獲得等同於該法術環階的奧術碎片。</content>
   <content contentuid="h29c86812g92e4g6c36g1518g26f86501eefc" version="1">每當你施展法術時，環繞你身邊的奧術碎片數量增加該法術的環階。&lt;br&gt;&lt;br&gt;每當你受到傷害時，碎片會抵擋等同於其數量的傷害，其數量隨後減少[1]。&lt;br&gt;&lt;br&gt;每次&lt;LSTag Tooltip="LongRest"&gt;長休&lt;/LSTag&gt;後，碎片數量會重置為等同於你的奧術等級。</content>
@@ -619,7 +615,6 @@
   <content contentuid="hdfa25fe3g3b7dgcaa2g2d62g9d47fffc98ab" version="2">無論身在何處，你都能召喚你的奧術使魔來到身邊。</content>
   <content contentuid="h4bf754ddg1e5dgd684gf115g576f1521c6d0" version="1">奧術等級1</content>
   <content contentuid="h563fda14ge9b7g5700gd7b8g745792e339ce" version="1">奧術等級1</content>
-  <content contentuid="hbc507ad3g4d3fg1c5agebe8gc2ca72609748" version="2">奧術法術：欺瞞者</content>
   <content contentuid="he47f970fgdf96g0a61g6657gc42a6e90061b" version="9">你的魔力源自奧術的原始洪流，並流經你所選擇的道路。&lt;br&gt;&lt;br&gt;你所有奧術法術的&lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;施法屬性&lt;/LSTag&gt;為&lt;LSTag Tooltip="Charisma"&gt;魅力&lt;/LSTag&gt;。</content>
   <content contentuid="h2667abfag50d3gd991g364cge7a153673e32" version="1">奧術法術：星之子</content>
   <content contentuid="h3e73ec69g2f3cg3906ga4cdg5c61b60de819" version="6">你的魔力源自奧術的原始洪流，並流經你所選擇的道路。&lt;br&gt;&lt;br&gt;你所有奧術法術的&lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;施法屬性&lt;/LSTag&gt;為&lt;LSTag Tooltip="Wisdom"&gt;感知&lt;/LSTag&gt;。</content>
@@ -690,17 +685,10 @@
   <content contentuid="h2ae1ad59g4446ga303g4248g9cfc579d2175" version="1">宿敵輔助</content>
   <content contentuid="hb6ddcdecgf2d4gef8bg52fdg685590346780" version="3">複製法術</content>
   <content contentuid="h2860887eg2cbbg4642gc1d1g2e42a82f8c7a" version="1">惡意收購：政變</content>
-  <content contentuid="hbf65a8a0g8472g6450ged91g838380afe396" version="2">他們同時被標記上&lt;LSTag Type="Status" Tooltip="SIGIL"&gt;印記&lt;/LSTag&gt;。</content>
   <content contentuid="h55a93e30g7951g4942g0751gc81cf26497da" version="1">假冒一名你可見之人的身分。</content>
-  <content contentuid="hb3d9a78bg92ccg41faga257g7382d53daaf9" version="2">虛影：終焉帷幕</content>
-  <content contentuid="hba73e0bdgd0e0g20b8ge1bbgd5b671159403" version="2">你同時將其標記上&lt;LSTag Type="Status" Tooltip="SIGIL"&gt;印記&lt;/LSTag&gt;，並變得&lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;隱形&lt;/LSTag&gt;。</content>
   <content contentuid="h7b05ee1dg6b73g13d9g1979gcbe131d1e1aa" version="1">你必須進行&lt;LSTag Tooltip="ShortRest"&gt;短休&lt;/LSTag&gt;才能再次使用此能力。</content>
   <content contentuid="heb03bacdg1288gf8c6g7dc5g18567f139417" version="1">必須進行長休。</content>
-  <content contentuid="h559873e2g715cg7dc4g1136g7eff482bacb8" version="2">虛影：終焉帷幕</content>
-  <content contentuid="h06794c35g0d0bg171bg257ag41dd2850a171" version="1">你同時將其標記上印記，並變得隱形。</content>
-  <content contentuid="hf9febea7g3060g3d1eg7657g23352aa094f2" version="1">鏡像：鏡廳</content>
   <content contentuid="h648f69c1g8f76g09f2gab54g3b17bfec6003" version="1">創造另一個分身。</content>
-  <content contentuid="h091e2391g5f87gb416g69d8gdb5651238af0" version="2">克隆體</content>
   <content contentuid="h3874ddc7g1c9eg6dafgbdb2gbcbcfb8f14e0" version="2">3 - 女皇</content>
   <content contentuid="hfda61488g9163gb8a3ga2c2g4f7401c5be55" version="4">你已成為愛之相。&lt;br&gt;&lt;br&gt;你的&lt;LSTag Tooltip="Charisma"&gt;魅力&lt;/LSTag&gt;提高[1]，並能施展&lt;LSTag Type="Spell" Tooltip="Target_IND_Friends_EX"&gt;好友：虛情假意&lt;/LSTag&gt;。當你以奧術法術造成傷害時，將你的魅力&lt;LSTag Tooltip="AbilityModifier"&gt;調整值&lt;/LSTag&gt;加入其中。</content>
   <content contentuid="h6e6068e2g201cg7f0bg2e5cg49ed5c57b692" version="1">0 - 愚者</content>

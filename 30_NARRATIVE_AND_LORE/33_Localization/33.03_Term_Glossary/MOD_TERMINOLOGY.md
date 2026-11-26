@@ -98,8 +98,8 @@ English is final in game (`32.01/Kingmaker.md`); the other 15 languages have no 
 ## The Deceiver (reviewed 2026-10-16 ARC-0019 — DV18–DV32 terms; ARC-0020 checked, no change; rows marked ★ reach the game with the build)
 
 English is final in game for the unmarked rows (`32.01/Deceiver.md`); the other 15 languages have no Deceiver strings
-yet (Localization, pending). Internal ids keep the old names (`MirrorImage`, `SigilofMalice`, `SIGIL`, `Distortion`,
-`EtherealChains`, `Mimic`, `Shatter`, `Empress`) — never translate or show them.
+yet (Localization, pending). Internal ids follow these names since DV37 (ARC-0036: `SeedOfDoubt`, `SEED`, `Eidolon`, `Veilstep`,
+`BindingFalsehood`, `TwiceTold`, `HighPriestess`) — never translate or show them.
 
 | English | Meaning | Never |
 |---|---|---|

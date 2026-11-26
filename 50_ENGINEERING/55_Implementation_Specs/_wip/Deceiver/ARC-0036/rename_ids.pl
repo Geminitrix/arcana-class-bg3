@@ -18,7 +18,7 @@ my @ROOTS = ("Public/$MOD", "Mods/$MOD", "Editor/Mods/$MOD");
 my $TEXT  = qr/\.(txt|stats|lsx|tbl|lua|khn|xml|md|json)$/i;
 my $SKIP  = qr{(?:^|/)(?:story\.div|goals\.raw|story_ac\.dat)$}i;
 
-my ($mode, $dir) = @ARGV; die "usage: --out <dir> | --apply <dir>\n" unless $mode && $dir && $mode =~ /^--(out|apply)$/;
+my ($mode, $dir) = @ARGV; die "usage: --out <dir> | --apply <dir> | --docs <file>...\n" unless $mode && $dir && $mode =~ /^--(out|apply|docs)$/;
 
 # Ordered: the longer / more specific ids first. N = boundary: no letter or digit around the match
 # (an underscore is allowed, so type prefixes and _N variants ride along).
@@ -93,8 +93,14 @@ sub entries {   # entry names in file order (.txt "new entry", .stats Name field
 sub slurp { open my $f, '<:raw', $_[0] or die "$_[0]: $!"; local $/; <$f> }
 sub spew  { make_path(dirname($_[0])); open my $f, '>:raw', $_[0] or die "$_[0]: $!"; print $f $_[1]; close $f }
 
+if ($mode eq '--docs') {   # project documents that describe the current build: same table, in place
+  shift @ARGV;
+  for my $p (@ARGV) { my $s = slurp($p); my $n = 0; my $t = rename_ids($s, \$n); next unless $n; spew($p, $t); print "$n\t$p\n"; }
+  exit 0;
+}
+
 if ($mode eq '--apply') {
-  my @files; find(sub { push @files, $File::Find::name if -f && $_ ne 'REPORT.md' }, $dir);
+  my @files; find(sub { push @files, $File::Find::name if -f && $File::Find::dir =~ m{/(?:Public|Mods|Editor)/} }, $dir);   # game paths only (no REPORT, REMOVED_*)
   for my $src (@files) { (my $rel = $src) =~ s/^\Q$dir\E\/?//; copy($src, "$DATA/$rel") or die "$rel: $!"; print "applied $rel\n"; }
   exit 0;
 }

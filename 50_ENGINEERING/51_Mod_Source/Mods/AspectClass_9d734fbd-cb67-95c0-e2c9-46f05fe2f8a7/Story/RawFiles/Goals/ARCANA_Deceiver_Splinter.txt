@@ -5,21 +5,21 @@ INITSECTION
 KBSECTION
 // Splinter (the Doubles' burst): the Double that casts its Splinter is gone a moment later,
 // and nobody is blamed for it.
-// Shout_Deceiver_Double_Shatter (in game: Splinter) does the burst and nothing else: a CAST: functor is its own
+// Shout_Arcana_Double_Splinter (in game: Splinter) does the burst and nothing else: a CAST: functor is its own
 // context and cannot be ordered against the area hits, so the spell does not kill its caster. The death is made
 // deterministic here. A Splinter cast on the Double's turn, by Splinter on Command and by The Veil Lifts all come
 // through the same CastSpell event (UseSpell raises it too). At Tier III the burst itself is the Aspect's
 // (ARCANA_Aspect_HighPriestess.txt); this goal only removes the Double.
 //
 // DBs: none of its own. Writes DB_ARCANA_DoubleNoBlame (ARCANA_Deceiver_TheVeil.txt, which deletes it in the purge).
-// Reads DB_ARCANA_MirrorImageOf. Calls PROC_ARCANA_Doubles_Retire (ARCANA_Deceiver_TheVeil.txt).
+// Reads DB_ARCANA_DoubleOf. Calls PROC_ARCANA_Doubles_Retire (ARCANA_Deceiver_TheVeil.txt).
 
 //REGION The Double that splinters is nobody's doing
 // Its Doubt comes from the spell itself, not from the purge.
 IF
-CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
+CastSpell((CHARACTER)_Double, "Shout_Arcana_Double_Splinter", _, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 THEN
 DB_ARCANA_DoubleNoBlame(_Double);
 //END_REGION
@@ -31,9 +31,9 @@ DB_ARCANA_DoubleNoBlame(_Double);
 // registry update as usual (the purge keeps the registry row ~1 s after the retire, so a Doubt that lands late still
 // finds her).
 IF
-CastSpell((CHARACTER)_Double, "Shout_Deceiver_Double_Shatter", _, _, _)
+CastSpell((CHARACTER)_Double, "Shout_Arcana_Double_Splinter", _, _, _)
 AND
-DB_ARCANA_MirrorImageOf(_Double, _)
+DB_ARCANA_DoubleOf(_Double, _)
 THEN
 RealtimeObjectTimerCancel(_Double, "ARCANA_Double_Shatter");
 RealtimeObjectTimerLaunch(_Double, "ARCANA_Double_Shatter", 800);
@@ -41,7 +41,7 @@ RealtimeObjectTimerLaunch(_Double, "ARCANA_Double_Shatter", 800);
 IF
 ObjectTimerFinished((CHARACTER)_Double, "ARCANA_Double_Shatter")
 AND
-DB_ARCANA_MirrorImageOf(_Double, _Owner)
+DB_ARCANA_DoubleOf(_Double, _Owner)
 AND
 IsDead(_Double, 0)
 THEN

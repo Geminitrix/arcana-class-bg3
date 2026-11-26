@@ -55,11 +55,11 @@
 | `<Type>_Arcana_Util_` | Utility |
 | `Interrupt_Arcana_Reaction_` / `<Type>_Arcana_Reaction_` | Reaction and its helpers |
 | `<Type>_Arcana_` | Helper / sub-projectile |
-| `<Type>_Deceiver_Clone_` | Clone-only spell |
+| `<Type>_Arcana_Double_` | A Double's own spell (variants `_N`) |
 | `<Type>_Arcana_Equip_` | Equipment spell |
 | `Arcana_Passive_` | Passive (`Arcana_Passive_Equip_` for items) |
 | `ARCANA_` | Item stats; Osiris goals, `DB_ARCANA_*`, `PROC_ARCANA_*` |
-| UPPERCASE, no prefix | Statuses (`SIGIL`, `STAR_MOONLIT`); hidden ones end `_TECH` / `_HELPER` |
+| UPPERCASE, no prefix | Statuses (`SEED`, `STAR_MOONLIT`); hidden ones end `_TECH` / `_HELPER` |
 
 ## Subclass terms
 
@@ -68,8 +68,8 @@
 | **Zephyr Strike** | Unbound | Bonus-action unarmed attack granted after unarmed attacks and Arcane cards |
 | **Wind Riposte** | Unbound | Automatic unarmed counter while Wind Whispers is up |
 | **Fool's Luck** | Unbound | Tier III: first attack against you each round misses |
-| **Sigil / detonation** | Deceiver | Mark that deals stored Psychic when your Arcana spell damages it |
-| **Mimic / Mirror** | Deceiver | Bonus-action recast of her last card / the Doubles' half-damage copies |
+| **Seed (`SEED`) / burst** | Veilwalker | Laid by Seed of Doubt; bursts for Psychic and 1 Doubt on her next Arcane spell damage |
+| **Twice-Told / Reflected** | Veilwalker | Bonus-action recast of her last card (`…_Created_TwiceTold_X`) / the Doubles' half-damage copies (`…_Arcana_Double_ReflectedSeed`, `_ReflectedFalsehood`) |
 | **Doubles / Doubt / Deluded** | Deceiver | 1-HP illusions of her (The Veil) / stacking debuff on enemies / the 3rd stack: Confused 1 turn |
 | **Which One?** | Deceiver | Tier III reaction card: swap with the nearest Double when an attack would hit |
 | **Rejuvenation** | Starchild | Starcall self-buff; makes Astral Infusion free |

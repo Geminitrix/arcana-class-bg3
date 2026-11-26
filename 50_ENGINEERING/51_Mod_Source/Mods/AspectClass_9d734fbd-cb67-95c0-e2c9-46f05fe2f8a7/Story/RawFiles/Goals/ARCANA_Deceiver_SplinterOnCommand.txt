@@ -22,7 +22,7 @@ NOT DB_ARCANA_DoubleGone(_Double, _Owner)
 AND
 IsDead(_Double, 0)
 THEN
-UseSpell(_Double, "Shout_Deceiver_Double_Shatter", _Double, _Double, 1);
+UseSpell(_Double, "Shout_Arcana_Double_Splinter", _Double, _Double, 1);
 //END_REGION
 EXITSECTION
 

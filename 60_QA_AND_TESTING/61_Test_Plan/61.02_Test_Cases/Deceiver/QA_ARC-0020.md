@@ -704,25 +704,25 @@ reviewed: 2026-10-16 ARC-0019 — created (propagation, 00.08); 2026-10-16 ARC-0
 status: part A runnable now on the Veil build; parts B and C planned — run after the ARC-0019 build ships
 ```
 
-### TC_ARC-0019 · The Deceiver — the Veil build and the refining (DV18–DV30)
+### TC_ARC-0019 · The Veilwalker — the Veil build and the refining (DV18–DV30)
 
 **Decision it informs:** close the ARC-0019 build, or send a failing rule back to the Lead Class Designer; part A also
 decides whether the Veil build (DV1–DV17) is sound enough to build on.
-**Scenario:** console edition (no SE), a Deceiver built through the real progression, the standard saves of `83.02`;
+**Scenario:** console edition (no SE), a Veilwalker built through the real progression, the standard saves of `83.02`;
 the PC (SE) edition where marked. Compile the Story after any apply. Values: `25` (`*_Deceiver_*`).
 
 #### A · The Veil build, untested since 2026-10-07 (`05.02` §8) — runnable today
 
 | # | Rule | Expected | Plan B if not |
 |---|---|---|---|
-| A1 | The Doubles' spells follow her tier (the shapeshift rule switch) | Level 1–4: Splinter + Dismiss only · 5: + Mirror: Sigil and Mirror: Chains · 9: + Unveil | The goal re-applies the rule on level-up |
-| A2 | Mirror damage is half her card at her highest slot (DV17) | Level 5 (slot 3): Mirror: Sigil deals (3d6)/2 Force and lays her Sigil | Fixed variants per slot band |
+| A1 | The Doubles' spells follow her tier (the shapeshift rule switch) | Level 1–4: Splinter + Dismiss only · 5: + Reflected Seed and Reflected Falsehood · 9: + Unveil | The goal re-applies the rule on level-up |
+| A2 | Reflected damage is half her card at her highest slot (DV17) | Level 5 (slot 3): Reflected Seed deals (3d6)/2 Force and lays her Seed | Fixed variants per slot band |
 | A3 | Veiled Prison saves with Disadvantage at 2+ Doubt | Doubt 2 → the save shows Disadvantage; Doubt 1 → normal | — |
 | A4 | Grand Deception fills the cap and gives Doubt on a failed save | Doubles up to the cap; each failing enemy within 9 m gains 2 Doubt (1 → Deluded at 3) | — |
 | A5 | Awakening steps count Doubt stacks | Goals 4 / 7 / 10 count down on the progress status; each tier wakes at its goal | — |
 | A6 | Two Pillars (Tier II) | Once per turn, a Deluded enemy in her name seeds the nearest unmarked enemy within 6 m | — |
 | A7 | Which One? (Tier III): whose Doubt | The attacker gains Doubt **in her name** (counts for her Awakening) | Raise it through the Doubt goal with her as the cause |
-| A8 | The Veil Lifts makes every Double cast Shatter off its turn | Every Double bursts; every Sigil of hers detonates; survivors with Doubt become Deluded | Explode at each Double's position from Osiris |
+| A8 | The Veil Lifts makes every Double cast Splinter off its turn | Every Double bursts; every Seed of hers bursts; survivors with Doubt become Deluded | Explode at each Double's position from Osiris |
 
 #### B · Probes for the ARC-0019 build (one rule each — run first, they decide the spec)
 

@@ -19,7 +19,7 @@
         <field name="SpellCastingAbility" type="EnumerationTableFieldDefinition" value="Charisma" enumeration_type_name="Ability" version="1" />
         <field name="UnarmedAttackAbility" type="EnumerationTableFieldDefinition" value="Strength" enumeration_type_name="Ability" version="1" />
         <field name="UnarmedRangedAttackAbility" type="EnumerationTableFieldDefinition" value="Strength" enumeration_type_name="Ability" version="1" />
-        <field name="ActionResources" type="StringTableFieldDefinition" value="ActionPoint:1;Movement:9" />
+        <field name="ActionResources" type="StringTableFieldDefinition" value="ActionPoint:1;BonusActionPoint:1;ReactionActionPoint:1;Movement:9" />
         <field name="Passives" type="StringTableFieldDefinition" value="Arcana_Passive_DoubleOfTheVeil;DarknessRules" />
         <field name="MinimumDetectionRange" type="StringTableFieldDefinition" value="2" />
         <field name="DarkvisionRange" type="StringTableFieldDefinition" value="0" />

@@ -1837,17 +1837,8 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="8fa67c7b-a262-29e7-68e7-13feeec248c8" />
-        <field name="Name" type="NameTableFieldDefinition" value="Deceiver_Clone_Dismiss" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="be2ddd2f-6515-4b5c-aab5-e241280f7a52" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" value="DontChange" enumeration_type_name="SpellSheathing" version="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="3405af41-1983-4552-9b17-6a3c23201e08" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredCharm" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredSelf" />
         <field name="Level" type="IntegerTableFieldDefinition" value="2" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Illusion" enumeration_type_name="SpellSchool" version="1" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(SELF,MIRRORED_SELF,100,1)" />
@@ -1871,9 +1862,9 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="961d59be-077f-4a6e-889d-76d6f4dddf42" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredCharm_5" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredSelf_5" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="3405af41-1983-4552-9b17-6a3c23201e08" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_MirroredCharm" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_MirroredSelf" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="5" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="SpellSlotsGroup:1:1:5;" />
       </fields>
@@ -1881,9 +1872,9 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="b983685b-8829-4797-95bd-f764919bb6d4" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredCharm_6" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Card_Passive_MirroredSelf_6" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="3405af41-1983-4552-9b17-6a3c23201e08" />
-        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_MirroredCharm" />
+        <field name="RootSpellID" type="StringTableFieldDefinition" value="Shout_Arcana_Card_Passive_MirroredSelf" />
         <field name="PowerLevel" type="IntegerTableFieldDefinition" value="6" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="SpellSlotsGroup:1:1:6;" />
       </fields>
@@ -1907,10 +1898,10 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;SpellSlotsGroup:1:1:1;" />
         <field name="Level" type="IntegerTableFieldDefinition" value="1" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="4226c755-e28f-4050-849c-e34c97552058" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(SELF,DISTORTION_HELPER);" />
-        <field name="FollowUpOriginalSpell" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Distortion" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(SELF,VEILSTEP_HELPER);" />
+        <field name="FollowUpOriginalSpell" type="StringTableFieldDefinition" value="Target_Arcana_Card_Spell_Veilstep" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="not HasPassive('ARCANA_IS_CARD', context.Source)" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('DISTORTION_HELPER')" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('VEILSTEP_HELPER')" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hafa40c9cg2688g1293gbc87gb7ea0856761c" version="1" />
       </fields>
     </stat_object>
@@ -2047,26 +2038,25 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="0d25d952-a388-4066-9b7c-55ced1b06519" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_MimicWithdraw" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Created_TwiceTold_Withdraw" />
         <field name="Using" type="BaseClassTableFieldDefinition" value="7c0a814a-7eeb-4938-bd23-c0d81ccad215" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha88ea3afg2012g59e5g8455gb13b526c3109" version="2" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(SELF,MIMIC_DISTORTION_HELPER);" />
-        <field name="FollowUpOriginalSpell" type="StringTableFieldDefinition" value="Target_Arcana_Created_MimicDistortion" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('MIMIC_DISTORTION_HELPER')" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="RemoveStatus(SELF,TWICE_TOLD_VEILSTEP_HELPER);" />
+        <field name="FollowUpOriginalSpell" type="StringTableFieldDefinition" value="Target_Arcana_Created_TwiceTold_Veilstep" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('TWICE_TOLD_VEILSTEP_HELPER')" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="afb35d64-14f9-c416-743e-22cb13535dea" />
-        <field name="Name" type="NameTableFieldDefinition" value="Deceiver_Double_Shatter" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(not HasStatus('ASPECT_AWAKENED_EMPRESS_III',GetSummoner(context.Source))):DealDamage(1d6,Psychic,Magical);IF(not HasStatus('ASPECT_AWAKENED_EMPRESS_III',GetSummoner(context.Source))):ApplyStatus(DOUBT_ADD_TECH,100,0);" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="3" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Enemy() and Character() and not Dead()" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Double_Splinter" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="GROUND:CreateExplosion(Projectile_Arcana_Splinter_Explosion);ApplyStatus(SELF,UNSUMMON_ACTIVE,100,-1);Unsummon();" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self();" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('DOUBLE_OF_THE_VEIL',context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Evocation_Shatter" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h122c76dbgdcf9g6f07gcc55gacfcd3a5e30b" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb6cf1a80gfaf5gffb3g2465g6823f5198bc6" version="2" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic);Distance(3)" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic);Distance(4)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(1d6,Psychic)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="ApplyStatus(DOUBT_1,100,3)" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Thunder_Gen_L1to3" />
@@ -2082,6 +2072,8 @@
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="2af907e1-127c-4c83-a117-af18f211c59d" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="ee3c85ae-0078-4223-9345-c2594535d1f2" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" value="Psychic" enumeration_type_name="Damage Type" version="1" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Illusion" enumeration_type_name="SpellSchool" version="1" />
       </fields>
     </stat_object>
     <stat_object color="#FF800080" is_substat="false">
@@ -3317,7 +3309,7 @@
         <field name="Level" type="IntegerTableFieldDefinition" value="0" />
         <field name="SpellSchool" type="EnumerationTableFieldDefinition" value="Illusion" enumeration_type_name="SpellSchool" version="1" />
         <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerCombat" enumeration_type_name="CooldownType" version="1" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(HasStatus('SIGIL', context.Target, context.Source)):DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(not Dead()):ApplyStatus(VEIL_LIFTS_TECH,100,0)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(HasStatus('SEED', context.Target, context.Source)):DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical);IF(not Dead()):ApplyStatus(VEIL_LIFTS_TECH,100,0)" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead() and not HasPassive('ARCANA_IS_CARD', context.Source)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_MirrorImage" />
@@ -3515,5 +3507,6 @@
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" value="MagicalNonDamage" enumeration_type_name="HitAnimationType" version="1" />
         <field name="Requirements" type="StringTableFieldDefinition" value="Combat" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+  </stat_objects>
 </stats>

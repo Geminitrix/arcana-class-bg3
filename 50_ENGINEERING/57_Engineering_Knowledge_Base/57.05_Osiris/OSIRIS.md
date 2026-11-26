@@ -206,13 +206,13 @@ normally need; the reverse is implicit.
 Both look like function invocations; they behave differently.
 
 - **Call** — an action. Goes after `THEN`, ends with `;`. All parameters are inputs.
-  `ApplyStatus(_Target, "SIGIL", -6.0, 1, _Caster);`
+  `ApplyStatus(_Target, "SEED", -6.0, 1, _Caster);`
 - **Query** — a condition. Goes after `AND`. Has `[in]` and `[out]` parameters; the `[out]` ones **bind
   variables**, and the query **fails** (aborting the rule) if it can't produce a value.
   `GetHitpoints(_Defender, _NewHP)` — `_NewHP` is an output.
 
 A boolean query's output is an `INTEGER`, and you assert it by passing the literal you want:
-`HasActiveStatus(_Char, "SIGIL", 1)` means "has it", `…, 0)` means "doesn't". ✅ This is the idiom the
+`HasActiveStatus(_Char, "SEED", 1)` means "has it", `…, 0)` means "doesn't". ✅ This is the idiom the
 mod uses everywhere; it's cleaner than binding then comparing.
 
 ### Status duration units
@@ -226,7 +226,7 @@ stages with `18.0` and its description says *"within 3 turns"*, and Mirrored Spe
 which is the value the Toolkit's status editor uses for a permanent status. It does **not** mean
 "6 turns".
 
-✅ This mod passes `-6.0` for the Sigil — `ApplyStatus(_Target, "SIGIL", -6.0, …)` in
+✅ This mod passes `-6.0` for the Sigil — `ApplyStatus(_Target, "SEED", -6.0, …)` in
 `ARCANA_Deceiver_SeedOfDoubt.txt` and `ARCANA_Aspect_HighPriestess.txt` — so the mark is **permanent, by design**: it stays
 on the target until it detonates.
 

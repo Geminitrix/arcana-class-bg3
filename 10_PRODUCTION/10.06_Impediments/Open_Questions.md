@@ -76,8 +76,8 @@
 | 11 | `LevelMapValues` | `Starbreath_Heal` has no values for 13–20 (Starbreath now scales by slot; the series may be unused) |
 | 12 | `AbilityDistributionPresets.lsx`, `DefaultValues/Abilities.lsx` | The class casts with **Intelligence**, but the presets give INT 15 only to the Deceiver (Unbound INT 8, Starchild 10, Eternal 13) and the recommended abilities are the old pairs (DEX+WIS, CHA+INT, WIS+CON, CON+STR). They should favour INT + the secondary ability. Windborn decided: STR 8 · DEX 15 · CON 13 · INT 15 · WIS 10 · CHA 10, INT in the AC (WB21, WB45; ARC-0022) |
 | 13 | Mod pages (`Publishing/`) | Nexus / mod.io text still says each subclass casts with its own stat ("the Eternal casts off Constitution") |
-| 15 | Per-level statuses of dropped variants | Since the variants below each card's first slot were dropped (2026-10-03), statuses such as `MIMIC_ETHEREAL_CHAINS`, `_2`, `_3` are never applied but are still listed in `HasAnyStatus` conditions (Sigil, Ethereal Chains). Harmless; clean up when convenient |
-| 16 | `Shout_Arcana_Created_MimicWithdraw` | Inherits Withdraw's `SpellSlotsGroup:1:1:1` cost but has no `Level` of its own, so the generator makes no variants for it. It appears at Deceiver 7 (slot 4); on console, with no Threads, a level-1 slot cost may be unpayable. Not tested |
+| 15 | Per-level statuses of dropped variants | Since the variants below each card's first slot were dropped (2026-10-03), statuses such as `TWICE_TOLD_BINDING_FALSEHOOD`, `_2`, `_3` are never applied but are still listed in `HasAnyStatus` conditions (Sigil, Ethereal Chains). Harmless; clean up when convenient |
+| 16 | `Shout_Arcana_Created_TwiceTold_Withdraw` | Inherits Withdraw's `SpellSlotsGroup:1:1:1` cost but has no `Level` of its own, so the generator makes no variants for it. It appears at Deceiver 7 (slot 4); on console, with no Threads, a level-1 slot cost may be unpayable. Not tested |
 | 17 | Weaver Hand strings (2026-10-04) | The ~38 new English strings (Weaver Hand names, Guidance, Command, Chill, Blind…) exist only in English; the other 15 languages need a sync |
 
 ## 3. Unverified in game

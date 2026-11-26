@@ -208,7 +208,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="9a567479-2eb4-15d3-736e-e4b11bf0eed8" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_TheVeil" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb16708e1ge3edg9ce1g5712g5b26977fbc01" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8cce4774gc43ag85c1gfbf4g7a2213dd6822" version="6" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8cce4774gc43ag85c1gfbf4g7a2213dd6822" version="7" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Cleric_InvokeDuplicity" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h475554feg85f0g3262gf95agde7fb3d1ed7e" version="2" />
@@ -264,7 +264,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="7bcb7cf0-6b3b-4bd6-84ec-dd6f6d292d85" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_MirroredCharm" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_MirroredSelf" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1db9d360g745dg3fd1g0586g868dfb79601e" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hebe50e8bg943eg9487gb9c1g7e016fb544ab" version="8" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
@@ -277,7 +277,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="935b081d-0d67-6d0b-2328-21634484a56a" />
         <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Doubt" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h096fc856g5f2bg6f33ge7acg6da9b3338f67" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h982669dfg04a3ga0f4g08eegc9a58855ea02" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h982669dfg04a3ga0f4g08eegc9a58855ea02" version="2" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Illusion_PhantasmalForce" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
@@ -850,7 +850,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="24e76dec-e214-ed67-4eae-849998ef9950" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_Awakened_III" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_Awakened_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h77a96793gb7edg0637g7edagadeac5101250" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
@@ -865,7 +865,7 @@
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h89d46dcag4da9g64acgc0abg49299fc78228" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_IllusorySelf" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_Aspect_WhichOne);ActionResource(ArcanaReactWhichOne,1,0)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_Arcana_Reaction_WhichOne);ActionResource(ArcanaReactWhichOne,1,0)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1047,7 +1047,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="0fb316f0-5503-a407-5c89-a9573da01052" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_Awakened_III_Damage" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_Awakened_III_Damage" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h77a96793gb7edg0637g7edagadeac5101250" version="3" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
@@ -1057,7 +1057,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="b33a0db8-5196-c2fe-f176-0b176cf4d04f" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_Awakening" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_Awakening" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h62f64796g34edg43a1g847fg57470a1fe8b0" version="2" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8881b09bgce68g9efbg5381g5c6b0980ad97" version="4" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
@@ -1067,7 +1067,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="5e8222ea-57ba-d816-c173-df871b33507b" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_I" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_I" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h90c35527gc161g2f05ge3f0g79299d1337ce" version="3" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h2378df51g4857ga0feg5195g0b9b91142b92" version="4" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
@@ -1077,7 +1077,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="b27461b3-e266-31ae-95dd-f8f44fc54d65" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_II" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_II" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3c52bd83g3771gf057g15c4g02fc3ee37643" version="3" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h4fcbc57eg47fbga22dg3dc5g95429133cbb9" version="4" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(6)" />
@@ -1088,9 +1088,9 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="7d0ec504-1a8a-4804-b83c-9f1f23d58382" />
-        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_Empress_III" />
+        <field name="Name" type="NameTableFieldDefinition" value="Arcana_Passive_Aspect_HighPriestess_III" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h77a96793gb7edg0637g7edagadeac5101250" version="3" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc6233dddg7b75g1f90g74acgcae8cb86d424" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc6233dddg7b75g1f90g74acgcae8cb86d424" version="6" />
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="Distance(4)" />
         <field name="Icon" type="StringTableFieldDefinition" value="Spell_Necromancy_BestowCurse" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="IsHidden" enumeration_type_name="PassiveFlags" version="1" />
@@ -1276,5 +1276,6 @@
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="RegainHitPoints(WisdomModifier*5);Distance(9)" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" value="Highlighted" enumeration_type_name="PassiveFlags" version="1" />
       </fields>
-    </stat_object></stat_objects>
+    </stat_object>
+  </stat_objects>
 </stats>

@@ -60,7 +60,7 @@ PROC_ARCANA_Aspect_Init()
 THEN
 // Aspect, progress status, technical status (Tier I reached), Tier I passive
 DB_ARCANA_Aspect("FOOL", "ASPECT_PROGRESS_FOOL", "ASPECT_AWAKENED_FOOL", "Arcana_Passive_Aspect_Fool_I");
-DB_ARCANA_Aspect("EMPRESS", "ASPECT_PROGRESS_EMPRESS", "ASPECT_AWAKENED_EMPRESS", "Arcana_Passive_Aspect_Empress_I");
+DB_ARCANA_Aspect("HIGHPRIESTESS", "ASPECT_PROGRESS_HIGHPRIESTESS", "ASPECT_AWAKENED_HIGHPRIESTESS", "Arcana_Passive_Aspect_HighPriestess_I");
 DB_ARCANA_Aspect("STAR", "ASPECT_PROGRESS_STAR", "ASPECT_AWAKENED_STAR", "Arcana_Passive_Aspect_Star_I");
 DB_ARCANA_Aspect("DEATH", "ASPECT_PROGRESS_DEATH", "ASPECT_AWAKENED_DEATH", "Arcana_Passive_Aspect_Death_I");
 DB_ARCANA_Aspect("TEMPERANCE", "ASPECT_PROGRESS_TEMPERANCE", "ASPECT_AWAKENED_TEMPERANCE", "Arcana_Passive_Aspect_Temperance_I");
@@ -69,9 +69,9 @@ DB_ARCANA_Aspect("WHEEL", "ASPECT_PROGRESS_WHEEL", "ASPECT_AWAKENED_WHEEL", "Arc
 DB_ARCANA_AspectTier("FOOL", 1, "Arcana_Passive_Aspect_Fool_I", "ASPECT_AWAKENED_FOOL_I", 3);
 DB_ARCANA_AspectTier("FOOL", 2, "Arcana_Passive_Aspect_Fool_II", "ASPECT_AWAKENED_FOOL_II", 5);
 DB_ARCANA_AspectTier("FOOL", 3, "Arcana_Passive_Aspect_Fool_III", "ASPECT_AWAKENED_FOOL_III", 8);
-DB_ARCANA_AspectTier("EMPRESS", 1, "Arcana_Passive_Aspect_Empress_I", "ASPECT_AWAKENED_EMPRESS_I", 4);
-DB_ARCANA_AspectTier("EMPRESS", 2, "Arcana_Passive_Aspect_Empress_II", "ASPECT_AWAKENED_EMPRESS_II", 7);
-DB_ARCANA_AspectTier("EMPRESS", 3, "Arcana_Passive_Aspect_Empress_III", "ASPECT_AWAKENED_EMPRESS_III", 10);
+DB_ARCANA_AspectTier("HIGHPRIESTESS", 1, "Arcana_Passive_Aspect_HighPriestess_I", "ASPECT_AWAKENED_HIGHPRIESTESS_I", 4);
+DB_ARCANA_AspectTier("HIGHPRIESTESS", 2, "Arcana_Passive_Aspect_HighPriestess_II", "ASPECT_AWAKENED_HIGHPRIESTESS_II", 7);
+DB_ARCANA_AspectTier("HIGHPRIESTESS", 3, "Arcana_Passive_Aspect_HighPriestess_III", "ASPECT_AWAKENED_HIGHPRIESTESS_III", 10);
 DB_ARCANA_AspectTier("STAR", 1, "Arcana_Passive_Aspect_Star_I", "ASPECT_AWAKENED_STAR_I", 500);
 DB_ARCANA_AspectTier("STAR", 2, "Arcana_Passive_Aspect_Star_II", "ASPECT_AWAKENED_STAR_II", 800);
 DB_ARCANA_AspectTier("STAR", 3, "Arcana_Passive_Aspect_Star_III", "ASPECT_AWAKENED_STAR_III", 1200);
@@ -86,7 +86,7 @@ DB_ARCANA_AspectTier("WHEEL", 2, "Arcana_Passive_Aspect_WheelOfFortune_II", "ASP
 DB_ARCANA_AspectTier("WHEEL", 3, "Arcana_Passive_Aspect_WheelOfFortune_III", "ASPECT_AWAKENED_WHEEL_III", 8);
 // how the progress is shown: COUNT = the number itself; HEAL / LOSS = converted back to hit points
 DB_ARCANA_AspectShow("FOOL", "COUNT");
-DB_ARCANA_AspectShow("EMPRESS", "COUNT");
+DB_ARCANA_AspectShow("HIGHPRIESTESS", "COUNT");
 DB_ARCANA_AspectShow("STAR", "HEAL");
 DB_ARCANA_AspectShow("DEATH", "LOSS");
 DB_ARCANA_AspectShow("TEMPERANCE", "COUNT");
@@ -238,9 +238,9 @@ THEN
 DB_ARCANA_AspectProgress("FOOL", 1, "ASPECT_PROGRESS_FOOL_I");
 DB_ARCANA_AspectProgress("FOOL", 2, "ASPECT_PROGRESS_FOOL_II");
 DB_ARCANA_AspectProgress("FOOL", 3, "ASPECT_PROGRESS_FOOL_III");
-DB_ARCANA_AspectProgress("EMPRESS", 1, "ASPECT_PROGRESS_EMPRESS_I");
-DB_ARCANA_AspectProgress("EMPRESS", 2, "ASPECT_PROGRESS_EMPRESS_II");
-DB_ARCANA_AspectProgress("EMPRESS", 3, "ASPECT_PROGRESS_EMPRESS_III");
+DB_ARCANA_AspectProgress("HIGHPRIESTESS", 1, "ASPECT_PROGRESS_HIGHPRIESTESS_I");
+DB_ARCANA_AspectProgress("HIGHPRIESTESS", 2, "ASPECT_PROGRESS_HIGHPRIESTESS_II");
+DB_ARCANA_AspectProgress("HIGHPRIESTESS", 3, "ASPECT_PROGRESS_HIGHPRIESTESS_III");
 DB_ARCANA_AspectProgress("TEMPERANCE", 1, "ASPECT_PROGRESS_TEMPERANCE_I");
 DB_ARCANA_AspectProgress("TEMPERANCE", 2, "ASPECT_PROGRESS_TEMPERANCE_II");
 DB_ARCANA_AspectProgress("TEMPERANCE", 3, "ASPECT_PROGRESS_TEMPERANCE_III");

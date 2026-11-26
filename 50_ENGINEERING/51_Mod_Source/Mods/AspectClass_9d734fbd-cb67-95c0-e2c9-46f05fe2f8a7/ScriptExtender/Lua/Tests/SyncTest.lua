@@ -3,7 +3,7 @@ local S = Req("Server/Core/State.lua")
 local Sy = Req("Server/Core/Sync.lua")
 
 local CARD, TOKEN, UTIL = "Shout_Arcana_Card_Spell_A", "Shout_Arcana_Created_B", "Shout_Arcana_Util_C"
-local MIMIC, MIMIC_SUB = "Target_Arcana_Created_Mimic", "Target_Arcana_Created_MimicDistortion"
+local TWICE_TOLD, TWICE_TOLD_SUB = "Target_Arcana_Created_TwiceTold", "Target_Arcana_Created_TwiceTold_Veilstep"
 local TANGLE = "Shout_Arcana_Created_Tangle_DEBUG"
 local RELEVANT = { { id = CARD, cat = "Card" }, { id = TOKEN, cat = "Created" }, { id = UTIL, cat = "Util" } }
 
@@ -54,10 +54,10 @@ return {
             T.eq(want[TOKEN], Sy.LockFor(TOKEN))
             T.ok(want[CARD]:find("ArcanaNotInHand", 1, true), "lock uses the unpayable resource")
         end,
-        ["The Mimic container glows when one of its cards is in hand"] = function()
-            local rel = { { id = MIMIC, cat = "Created" } }
-            T.eq(Sy.Desired(inCombat({ MIMIC_SUB }), rel)[MIMIC], Sy.GlowFor(MIMIC))
-            T.eq(Sy.Desired(inCombat(), rel)[MIMIC], Sy.LockFor(MIMIC))
+        ["The Twice-Told container glows when one of its cards is in hand"] = function()
+            local rel = { { id = TWICE_TOLD, cat = "Created" } }
+            T.eq(Sy.Desired(inCombat({ TWICE_TOLD_SUB }), rel)[TWICE_TOLD], Sy.GlowFor(TWICE_TOLD))
+            T.eq(Sy.Desired(inCombat(), rel)[TWICE_TOLD], Sy.LockFor(TWICE_TOLD))
         end,
         ["Unplayable cards stay locked in hand"] = function()
             local rel = { { id = TANGLE, cat = "Created" } }

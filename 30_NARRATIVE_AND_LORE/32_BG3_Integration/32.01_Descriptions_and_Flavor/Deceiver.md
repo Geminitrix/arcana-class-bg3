@@ -17,39 +17,39 @@ Every name and description the player reads, **as it is in the game today** (the
 |---|---|---|
 | Five LeBlanc names and the Doubles' Shatter | Replaced by DV29 | Rename as in the table at the end; every description that names them follows |
 | *Doubt* passive | Folded into The Veil (DV19) | The Veil's description carries the core rule in one sentence: *every lie an enemy believes plants Doubt; at the third, it is Deluded* |
-| *Aspect of Doubt* (Tier III) and `ASPECT_AWAKENED_EMPRESS_III` | Say +Charisma and Charisma to damage; DV21 replaces both | "A Double destroyed by an enemy splinters by itself, and every Splinter reaches farther. You can use Ready: Which One? until combat ends." |
+| *Aspect of Doubt* (Tier III) and `ASPECT_AWAKENED_HIGHPRIESTESS_III` | Say +Charisma and Charisma to damage; DV21 replaces both | "A Double destroyed by an enemy splinters by itself, and every Splinter reaches farther. You can use Ready: Which One? until combat ends." |
 | *Grand Deception* | Says "possibly fill the mind… with Doubt"; DV22 reads the Doubles near each enemy | Name the rule: each enemy that fails gains Doubt for each of your Doubles near it |
 | *Mirrored Self* (passive) | Says two creatures; DV25 casts the second from a Double | Rewrite after V4 decides the engine path |
 | *Double of the Veil* status | No description | One line: an illusion of the Deceiver, 1 hit point, gone when struck |
-| Two Pillars (`Arcana_Passive_Aspect_Empress_II`) | "unmarked enemy … gains your Sigil" | "…an enemy without a Seed … gains your Seed" |
+| Two Pillars (`Arcana_Passive_Aspect_HighPriestess_II`) | "unmarked enemy … gains your Sigil" | "…an enemy without a Seed … gains your Seed" |
 | Narrative gate | No approval recorded in `32.04` for these texts | Record it when the build's texts are written |
 
 ## Spells and cards
 
 | Internal id | Name | Description |
 |---|---|---|
-| `Projectile_Arcana_Card_Spell_SigilofMalice` | Seed of Doubt | Hurl a surge of arcane force at a creature, dealing [1] and planting a Seed in its mind. |
-| `Projectile_Arcana_Created_MimicSigilofMalice` | Twice-Told: Seed of Doubt | Recast Seed of Doubt at a creature, dealing [1] and planting a Seed in its mind. |
-| `Projectile_Deceiver_Double_MirrorSigil` | Reflected Seed | Hurl a reflection of Seed of Doubt at a creature, dealing [1] and planting the Veilwalker's Seed in its mind. |
+| `Projectile_Arcana_Card_Spell_SeedOfDoubt` | Seed of Doubt | Hurl a surge of arcane force at a creature, dealing [1] and planting a Seed in its mind. |
+| `Projectile_Arcana_Created_TwiceTold_SeedOfDoubt` | Twice-Told: Seed of Doubt | Recast Seed of Doubt at a creature, dealing [1] and planting a Seed in its mind. |
+| `Projectile_Arcana_Double_ReflectedSeed` | Reflected Seed | Hurl a reflection of Seed of Doubt at a creature, dealing [1] and planting the Veilwalker's Seed in its mind. |
 | `Shout_Arcana_Util_Faceless` | Faceless | Assume the identity of another person, altering your appearance. |
-| `Shout_Arcana_Card_Passive_MirroredCharm` | Mirrored Self | Split your reflection across the Weave. You gain Mirrored Self until the end of your turn. |
+| `Shout_Arcana_Card_Passive_MirroredSelf` | Mirrored Self | Split your reflection across the Weave. You gain Mirrored Self until the end of your turn. |
 | `Shout_Arcana_Created_Withdraw` | Withdraw | Swap places with the Double you left behind. |
 | `Shout_Arcana_Card_Passive_MirroredSpell` | Mirrored Spell | Every spell woven near you leaves its reflection on Mystra's Weave. Until your next Long Rest or until combat ends, you gain Mirrored Spell. |
 | `Shout_Arcana_Card_Spell_GrandDeception` | Grand Deception | Surround yourself with Doubles until you reach your limit, and possibly fill the mind of every nearby enemy with Doubt. |
-| `Shout_Deceiver_Double_Shatter` | Splinter | Splinter into shards of illusion, dealing [1] to enemies within [2] and sowing Doubt in their minds. The Double is destroyed. |
+| `Shout_Arcana_Double_Splinter` | Splinter | Splinter into shards of illusion, dealing [1] to enemies within [2] and sowing Doubt in their minds. The Double is destroyed. |
 | `Shout_Arcana_Created_Aspect_VeilLifts` | The Veil Lifts | Lift the veil all at once: every one of your Doubles splinters and every Seed you planted bursts. Surviving enemies with Doubt become Deluded. |
 | `Shout_Arcana_Card_Passive_WhichOne` | Ready: Which One? | Until combat ends, once per round, when an attack is about to hit you, you can use your reaction to swap places with your nearest Double. The attack misses, the Double is destroyed in your place and the attacker gains Doubt. |
 | `Target_Arcana_Card_Spell_MaliciousWhispers` | Malicious Whispers | Invade a creature's mind with malicious whispers, imposing Disadvantage on its next Attack Roll. A creature carrying your Seed also suffers Paranoia and gains Doubt. |
-| `Target_Arcana_Card_Spell_MirrorImage` | Eidolon | Summon a Double of the Veil: an illusion of you with 1 hit point that acts on its own turn and can Splinter. |
+| `Target_Arcana_Card_Spell_Eidolon` | Eidolon | Summon a Double of the Veil: an illusion of you with 1 hit point that acts on its own turn and can Splinter. |
 | `Target_Arcana_Util_Friends` | Friends | Gain Advantage on Charisma Checks against a non-hostile creature. |
-| `Target_Arcana_Card_Spell_EtherealChains` | Binding Falsehood | Bind a creature with a woven lie. At the end of its turn, it becomes Restrained. |
-| `Target_Arcana_Created_MimicEtherealChains` | Twice-Told: Binding Falsehood | Recast Binding Falsehood on a creature. At the end of its turn, it becomes Restrained. |
+| `Target_Arcana_Card_Spell_BindingFalsehood` | Binding Falsehood | Bind a creature with a woven lie. At the end of its turn, it becomes Restrained. |
+| `Target_Arcana_Created_TwiceTold_BindingFalsehood` | Twice-Told: Binding Falsehood | Recast Binding Falsehood on a creature. At the end of its turn, it becomes Restrained. |
 | `Target_Arcana_Card_Spell_VeiledPrison` | Veiled Prison | Trap a creature behind a veil in its own mind, preventing movement, actions and reactions. Attacks from within [1] are always Critical Hits. |
-| `Target_Arcana_Card_Spell_Distortion` | Veilstep | Step behind the veil and out again, dealing damage where you arrive and leaving a Double standing where you were. For 2 turns, you can cast Withdraw to swap places with it. |
+| `Target_Arcana_Card_Spell_Veilstep` | Veilstep | Step behind the veil and out again, dealing damage where you arrive and leaving a Double standing where you were. For 2 turns, you can cast Withdraw to swap places with it. |
 | `Target_Arcana_Card_Spell_Marionette` | Marionette | Manipulate a creature's reality, forcing it to fight alongside you. Each time it takes damage, it must succeed a Wisdom Saving Throw or break free. |
-| `Target_Arcana_Created_Mimic` | Twice-Told | Tell the lie twice: recast your last damaging Arcane spell as a bonus action, once per turn. |
-| `Target_Deceiver_Double_MirrorChains` | Reflected Falsehood | Bind a creature with a reflection of Binding Falsehood. If it fails the Saving Throw, it takes [1] and becomes Restrained for [2]. |
-| `Target_Deceiver_Double_Unveil` | Unveil | Swap places with the Veilwalker. |
+| `Target_Arcana_Created_TwiceTold` | Twice-Told | Tell the lie twice: recast your last damaging Arcane spell as a bonus action, once per turn. |
+| `Target_Arcana_Double_ReflectedFalsehood` | Reflected Falsehood | Bind a creature with a reflection of Binding Falsehood. If it fails the Saving Throw, it takes [1] and becomes Restrained for [2]. |
+| `Target_Arcana_Double_Unveil` | Unveil | Swap places with the Veilwalker. |
 
 ## Passives
 
@@ -59,24 +59,24 @@ Every name and description the player reads, **as it is in the game today** (the
 | `Arcana_Passive_TheVeil` | The Veil | Every lie an enemy believes plants Doubt in it. At the third, it becomes Deluded.Eidolon and Veilstep summon Doubles: illusions of you with 1 hit point that act on their own turn and can Splinter. You gain +1 Armour Class for each one. |
 | `Arcana_Passive_TwoTruths` | Two Truths | Your Doubles can also cast Reflected Seed and Reflected Falsehood. Both deal half the damage of your Seed of Doubt at your highest spell slot. |
 | `Arcana_Passive_Unveil` | Unveil | Your Doubles can also cast Unveil to swap places with you. Only one Double can do so each round. |
-| `Arcana_Passive_MirroredCharm` | Mirrored Self | You have mastered the art of mirrors. Arcane spells that normally target only one creature can instead target two creatures. |
+| `Arcana_Passive_MirroredSelf` | Mirrored Self | You have mastered the art of mirrors. Arcane spells that normally target only one creature can instead target two creatures. |
 | `Arcana_Passive_WhichOne` | Which One? | Once per round, when an attack is about to hit you, you can use your reaction to swap places with your nearest Double. The attack misses and the Double is destroyed in your place. |
-| `Arcana_Passive_Aspect_Empress_Awakening` | 2 - The High Priestess: Awakening | Sow Doubt in your enemies during a fight to awaken the Aspect of Doubt until combat ends. Each goal you reach awakens one more tier.Level 3: apply 4 stacks of Doubt to gain Veiled.Level 7: apply 7 stacks of Doubt to also gain Two Pillars.Level 12: apply 10 stacks of Doubt to awaken as the Aspect of Doubt.The Awakening status shows how much is left to the next tier. |
-| `Arcana_Passive_Aspect_Empress_I` | Veiled | Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles. |
-| `Arcana_Passive_Aspect_Empress_II` | Two Pillars | Once per turn, when an enemy becomes Deluded, the nearest enemy within [1] of it that carries no Seed gains yours. |
-| `Arcana_Passive_Aspect_Empress_III` | Aspect of Doubt | Your Charisma increases by [1] and your Arcane spells add your Charisma Modifier to their damage. You can use Ready: Which One? until combat ends. |
+| `Arcana_Passive_Aspect_HighPriestess_Awakening` | 2 - The High Priestess: Awakening | Sow Doubt in your enemies during a fight to awaken the Aspect of Doubt until combat ends. Each goal you reach awakens one more tier.Level 3: apply 4 stacks of Doubt to gain Veiled.Level 7: apply 7 stacks of Doubt to also gain Two Pillars.Level 12: apply 10 stacks of Doubt to awaken as the Aspect of Doubt.The Awakening status shows how much is left to the next tier. |
+| `Arcana_Passive_Aspect_HighPriestess_I` | Veiled | Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles. |
+| `Arcana_Passive_Aspect_HighPriestess_II` | Two Pillars | Once per turn, when an enemy becomes Deluded, the nearest enemy within [1] of it that carries no Seed gains yours. |
+| `Arcana_Passive_Aspect_HighPriestess_III` | Aspect of Doubt | Your Charisma increases by [1] and your Arcane spells add your Charisma Modifier to their damage. You can use Ready: Which One? until combat ends. |
 
 ## Statuses
 
 | Internal id | Name | Description |
 |---|---|---|
-| `SIGIL` | Seed | A seed of doubt planted by the Veilwalker. Their next Arcane spell damage makes it burst for an additional [1] and sow Doubt. |
+| `SEED` | Seed | A seed of doubt planted by the Veilwalker. Their next Arcane spell damage makes it burst for an additional [1] and sow Doubt. |
 | `WHISPERED_PARANOIA` | Paranoia | Whispers have found the seed of doubt in its mind. Can't take reactions. |
-| `ETHEREAL_CHAINS` | Binding Falsehood | Bound by a woven lie that deals [1] twice and leaves it Restrained at the end of its turn. |
+| `BINDING_FALSEHOOD` | Binding Falsehood | Bound by a woven lie that deals [1] twice and leaves it Restrained at the end of its turn. |
 | `DOUBLE_OF_THE_VEIL` | Double of the Veil | An illusion of the Veilwalker with 1 hit point. A single blow dispels it. |
-| `ASPECT_AWAKENED_EMPRESS_I` | 2 - The High Priestess: Awakened I | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles. |
-| `ASPECT_AWAKENED_EMPRESS_II` | 2 - The High Priestess: Awakened II | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles.Two Pillars: Once per turn, when an enemy becomes Deluded, the nearest enemy within [1] of it that carries no Seed gains yours. |
-| `ASPECT_AWAKENED_EMPRESS_III` | 2 - The High Priestess: Awakened III | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles.Two Pillars: Once per turn, when an enemy becomes Deluded, the nearest unmarked enemy within [1] of it gains your Sigil.Aspect of Doubt: Your Charisma increases by [2], your Arcane spells add your Charisma Modifier to their damage, and you can use Ready: Which One?. |
+| `ASPECT_AWAKENED_HIGHPRIESTESS_I` | 2 - The High Priestess: Awakened I | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles. |
+| `ASPECT_AWAKENED_HIGHPRIESTESS_II` | 2 - The High Priestess: Awakened II | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles.Two Pillars: Once per turn, when an enemy becomes Deluded, the nearest enemy within [1] of it that carries no Seed gains yours. |
+| `ASPECT_AWAKENED_HIGHPRIESTESS_III` | 2 - The High Priestess: Awakened III | Veiled: Enemies with Doubt have Disadvantage on Attack Rolls against you and your Doubles.Two Pillars: Once per turn, when an enemy becomes Deluded, the nearest unmarked enemy within [1] of it gains your Sigil.Aspect of Doubt: Your Charisma increases by [2], your Arcane spells add your Charisma Modifier to their damage, and you can use Ready: Which One?. |
 | `DELUDED` | Deluded | Confused by illusions that cannot be told from the real thing. Acts at random and may lose its turn.At the start of each turn, can end the effect with a Wisdom Saving Throw. |
 | `VEILED_PRISON` | Veiled Prison | Lost behind a veil in its own mind. Can't move, act or react. Automatically fails Strength and Dexterity Saving Throws, and attacks from within [1] are always Critical Hits.At the end of each turn, can end the effect with a Wisdom Saving Throw, made with Disadvantage while it has 2 or more stacks of Doubt. |
 
@@ -84,7 +84,7 @@ Every name and description the player reads, **as it is in the game today** (the
 
 | Internal id | Name | Description |
 |---|---|---|
-| `Interrupt_Arcana_Aspect_WhichOne` | Which One? | Swap places with your nearest Double: the attack misses, the Double is destroyed in your place and the attacker gains Doubt. |
+| `Interrupt_Arcana_Reaction_WhichOne` | Which One? | Swap places with your nearest Double: the attack misses, the Double is destroyed in your place and the attacker gains Doubt. |
 
 ## Names after the ARC-0019 build (DV29, approved 2026-10-16)
 
@@ -92,16 +92,16 @@ Internal ids keep their names until the build decides (DV12's rule).
 
 | Internal id | Name before ARC-0020 | Name in game (stage 1 applied 2026-10-16) |
 |---|---|---|
-| `Target_Arcana_Card_Spell_MirrorImage` | Mirror Image | **Eidolon** |
-| `Projectile_Arcana_Card_Spell_SigilofMalice` | Sigil of Malice | **Seed of Doubt** |
-| `SIGIL` | Sigil | **Seed** |
-| `Target_Arcana_Card_Spell_Distortion` | Distortion | **Veilstep** |
-| `Target_Arcana_Card_Spell_EtherealChains` · `ETHEREAL_CHAINS` | Ethereal Chains | **Binding Falsehood** |
-| `Target_Arcana_Created_Mimic` | Mimic | **Twice-Told** |
+| `Target_Arcana_Card_Spell_Eidolon` | Mirror Image | **Eidolon** |
+| `Projectile_Arcana_Card_Spell_SeedOfDoubt` | Sigil of Malice | **Seed of Doubt** |
+| `SEED` | Sigil | **Seed** |
+| `Target_Arcana_Card_Spell_Veilstep` | Distortion | **Veilstep** |
+| `Target_Arcana_Card_Spell_BindingFalsehood` · `BINDING_FALSEHOOD` | Ethereal Chains | **Binding Falsehood** |
+| `Target_Arcana_Created_TwiceTold` | Mimic | **Twice-Told** |
 | `…_Created_Mimic<Card>` | Mimic: <Card> | **Twice-Told: <new card name>** (e.g. *Twice-Told: Veilstep*) |
-| `Shout_Deceiver_Double_Shatter` | Shatter | **Splinter** |
-| `Projectile_Deceiver_Double_MirrorSigil` | Mirror: Sigil of Malice | **Reflected Seed** |
-| `Target_Deceiver_Double_MirrorChains` | Mirror: Ethereal Chains | **Reflected Falsehood** |
+| `Shout_Arcana_Double_Splinter` | Shatter | **Splinter** |
+| `Projectile_Arcana_Double_ReflectedSeed` | Mirror: Sigil of Malice | **Reflected Seed** |
+| `Target_Arcana_Double_ReflectedFalsehood` | Mirror: Ethereal Chains | **Reflected Falsehood** |
 | — (new, DV24) | — | **Splinter on Command** (DV31) |
 | `Arcana_Passive_Doubt` | Doubt | leaves (DV19) — *Doubt* stays as the status name |
 | Telepathy (level 1) | Telepathy | leaves the Deceiver (DV26) |

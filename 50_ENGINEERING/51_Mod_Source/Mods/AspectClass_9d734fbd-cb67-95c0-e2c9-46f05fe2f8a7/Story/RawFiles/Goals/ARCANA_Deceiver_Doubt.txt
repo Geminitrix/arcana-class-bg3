@@ -23,7 +23,7 @@ KBSECTION
 //                                          1..3; the raise that triggers Deluded is a 3). Owner is the Deceiver
 //                                          (a Double's raise is credited to the Double's owner). The Awakening
 //                                          goal (ARCANA_Aspect_HighPriestess.txt) consumes and deletes it.
-// Reads: DB_ARCANA_MirrorImageOf (ARCANA_Deceiver_TheVeil.txt). Entry points for other goals:
+// Reads: DB_ARCANA_DoubleOf (ARCANA_Deceiver_TheVeil.txt). Entry points for other goals:
 // PROC_ARCANA_Doubt_Add, PROC_ARCANA_Doubt_Raise. Hooks: PROC_ARCANA_Aspect_Reset.
 
 //REGION Entry point
@@ -33,19 +33,19 @@ THEN
 PROC_ARCANA_Doubt_Add(_Foe, _Cause);
 
 // Who gets the credit: a Double counts for its owner. First the mod's own registry (Doubles register in
-// DB_ARCANA_MirrorImageOf), then the engine's summon owner (in case the registry row is already gone),
+// DB_ARCANA_DoubleOf), then the engine's summon owner (in case the registry row is already gone),
 // and anything that is not a summon counts for itself.
 PROC
 PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
 AND
-DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, (CHARACTER)_Owner)
+DB_ARCANA_DoubleOf((CHARACTER)_Cause, (CHARACTER)_Owner)
 THEN
 PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
 
 PROC
 PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
 AND
-NOT DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, _)
+NOT DB_ARCANA_DoubleOf((CHARACTER)_Cause, _)
 AND
 IsSummon(_Cause, 1)
 AND
@@ -56,7 +56,7 @@ PROC_ARCANA_Doubt_Raise(_Foe, _Owner);
 PROC
 PROC_ARCANA_Doubt_Add((CHARACTER)_Foe, (CHARACTER)_Cause)
 AND
-NOT DB_ARCANA_MirrorImageOf((CHARACTER)_Cause, _)
+NOT DB_ARCANA_DoubleOf((CHARACTER)_Cause, _)
 AND
 IsSummon(_Cause, 0)
 THEN

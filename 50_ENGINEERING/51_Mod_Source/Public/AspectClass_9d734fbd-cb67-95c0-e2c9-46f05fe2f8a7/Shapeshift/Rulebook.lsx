@@ -57,10 +57,11 @@
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
                     <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;"/>
                     <attribute id="UUID" type="guid" value="21aacde3-d14d-7a32-7dbb-5418cc3bdf9d"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -89,12 +90,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot3"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_3"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot3;Target_Deceiver_Double_MirrorChains_Slot3"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_3;Target_Arcana_Double_ReflectedFalsehood_3;"/>
                     <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -123,12 +125,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot4"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_4"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot4;Target_Deceiver_Double_MirrorChains_Slot4"/>
-                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_4;Target_Arcana_Double_ReflectedFalsehood_4;"/>
+                    <attribute id="UUID" type="guid" value="cfbaa6cd-62ba-7b67-9700-114cd3b86b75"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -157,12 +160,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot5"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_5_NoUnveil"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5;Target_Deceiver_Double_Unveil"/>
-                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_5;Target_Arcana_Double_ReflectedFalsehood_5;"/>
+                    <attribute id="UUID" type="guid" value="615d1e0d-b8f5-7ef4-e5ee-3b66eb467645"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -191,12 +195,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot6"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_5"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6;Target_Deceiver_Double_Unveil"/>
-                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_5;Target_Arcana_Double_ReflectedFalsehood_5;Target_Arcana_Double_Unveil;"/>
+                    <attribute id="UUID" type="guid" value="d6306a71-9b8a-4dd0-f97a-3f6df38c9b8c"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -225,12 +230,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot5_NoUnveil"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_6_NoUnveil"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5"/>
-                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_6;Target_Arcana_Double_ReflectedFalsehood_6;"/>
+                    <attribute id="UUID" type="guid" value="c0c93c59-f1a4-7866-6887-0f782fa29689"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">
@@ -259,12 +265,13 @@
                     <attribute id="RemovePrevSpells" type="bool" value="true"/>
                     <attribute id="ResistancesInheritanceType" type="FixedString" value="KeepOriginal"/>
                     <attribute id="RetainDisplayName" type="bool" value="true"/>
-                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_Slot6_NoUnveil"/>
+                    <attribute id="RuleName" type="LSString" value="DoubleOfTheVeil_6"/>
                     <attribute id="SpellCastingAbilityInheritanceType" type="FixedString" value="KeepOriginal"/>
-                    <attribute id="SpellsAdd" type="LSString" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6"/>
-                    <attribute id="UUID" type="guid" value="d27e2641-3a75-82be-7741-ec16ebc2561f"/>
+                    <attribute id="SpellsAdd" type="LSString" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_6;Target_Arcana_Double_ReflectedFalsehood_6;Target_Arcana_Double_Unveil;"/>
+                    <attribute id="UUID" type="guid" value="8014e496-f3d0-76b1-532c-fcd4863b6199"/>
                     <attribute id="UnarmedAbilityFromTemplate" type="bool" value="false"/>
                     <attribute id="UseShapeshiftIdentity" type="bool" value="false"/>
+                    <attribute id="UseTemplateEquipmentSet" type="bool" value="false"/>
                     <attribute id="WildShapeHotBar" type="bool" value="false"/>
                     <children>
                         <node id="TagsAdd">

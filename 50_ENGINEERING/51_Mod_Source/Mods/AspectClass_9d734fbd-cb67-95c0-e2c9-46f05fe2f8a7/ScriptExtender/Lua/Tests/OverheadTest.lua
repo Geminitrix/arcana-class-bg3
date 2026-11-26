@@ -4,7 +4,7 @@ local P = Req("Server/Core/Piles.lua")
 local O = Req("Server/Feedback/Overhead.lua")
 
 local CHAR = "char-overhead"
-local CARD = "Projectile_Arcana_Card_Spell_SigilofMalice"
+local CARD = "Projectile_Arcana_Card_Spell_SeedOfDoubt"
 local said, savedIo, savedOn
 
 local function inCombat(list)

@@ -278,7 +278,7 @@ differently. Passing the schema is necessary, not sufficient.
 
 | File | Function | Definition |
 |---|---|---|
-| `IsArcanaSpell.khn` | `IsArcanaSpell()` | Any class spell: its conditions carry the card marker `ARCANA_IS_CARD` or the `ARCANA_IS_SPELL` marker (non-card damage spells and utilities aimed at a creature or object). Used by the SIGIL detonation and by `IsMirroredSelfSpell` |
+| `IsArcanaSpell.khn` | `IsArcanaSpell()` | Any class spell: its conditions carry the card marker `ARCANA_IS_CARD` or the `ARCANA_IS_SPELL` marker (non-card damage spells and utilities aimed at a creature or object). Used by the SEED detonation and by `IsMirroredSelfSpell` |
 | `IsArcanaAttackSpell.khn` | `IsArcanaAttackSpell()` | `IsCardSpell() & HasStringInSpellRoll('Attack')` |
 | `IsArcanaSaveSpell.khn` | `IsArcanaSaveSpell()` | `IsCardSpell() & (HasStringInSpellRoll('SavingThrow') \| HasStringInFunctorConditions('SavingThrow'))` |
 | `IsArcanaCantrip.khn` | `IsArcanaCantrip()` | Fixed `SpellId(...)` OR-chain over the 8 class cantrips |

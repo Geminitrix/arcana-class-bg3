@@ -1,11 +1,11 @@
 id: SPL_Deceiver_Eidolon
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0036 — DV37 (ids renamed), no change"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
 design: "21.04/Deceiver/DESIGN.md §5, §4.2"
 balance_report: "22.05/Deceiver.md"
-game_ids: [Target_Arcana_Card_Spell_MirrorImage, Target_Arcana_Card_Spell_MirrorImage_2, Target_Arcana_Card_Spell_MirrorImage_3, Target_Arcana_Card_Spell_MirrorImage_4, Target_Arcana_Card_Spell_MirrorImage_5, Target_Arcana_Card_Spell_MirrorImage_6]
+game_ids: [Target_Arcana_Card_Spell_Eidolon, Target_Arcana_Card_Spell_Eidolon_2, Target_Arcana_Card_Spell_Eidolon_3, Target_Arcana_Card_Spell_Eidolon_4, Target_Arcana_Card_Spell_Eidolon_5, Target_Arcana_Card_Spell_Eidolon_6]
 values:
   range:   { value: 9, unit: metres }
   doubles: { value: 1, unit: count, by_level: { 1: 1, 3: 2, 5: 3 }, note: "keys are slot levels, not character levels" }

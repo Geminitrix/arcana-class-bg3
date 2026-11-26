@@ -45,13 +45,13 @@
   <content contentuid="h5d0c74dag8bfbgd0fege79bgbd32c751cb1a" version="5">적대적이지 않은 크리처를 상대로 한 매력 &lt;LSTag Tooltip="AbilityCheck"&gt;판정&lt;/LSTag&gt;에 &lt;LSTag Tooltip="Advantage"&gt;유리 보정&lt;/LSTag&gt;을 얻습니다.</content>
   <content contentuid="h9dd95e32gd1f4g9b57g9df7g7706c0b3938e" version="3">이 주문은 &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;침묵&lt;/LSTag&gt; 상태에서도 시전할 수 있습니다.</content>
   <content contentuid="he9ce7070g7529g7835ga365gf087009b761f" version="1">영묘한 사슬</content>
-  <content contentuid="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13">크리처를 &lt;LSTag Type="Status" Tooltip="ETHEREAL_CHAINS"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
+  <content contentuid="h0cc4e041g2995ge3d1g9de4g7febc0fc2946" version="13">크리처를 &lt;LSTag Type="Status" Tooltip="BINDING_FALSEHOOD"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
   <content contentuid="h61aa29d1ga943g2882g51b8gdd450c37b7a8" version="1">영묘한 사슬</content>
   <content contentuid="h27ab0da9g39aagf457g6a30g6d1955451372" version="10">영향을 받은 대상은 영묘한 사슬에 결박되어 [1]를 두 차례 입으며, 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
   <content contentuid="h5a9834b3g29bfg7f21g71c4ga9b6a3271088" version="4">인장</content>
   <content contentuid="h28e6ebc5g3632g32ddgd3d7ge688706a5796" version="10">영향을 받은 대상은 속이는 자에게 표식이 새겨져, 그의 비전 주문으로부터 추가로 [1]를 받습니다.</content>
   <content contentuid="h629833b0gfc8dg4921g4f7fged5030c535cf" version="2">악의의 인장</content>
-  <content contentuid="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5">크리처에게 비전 힘의 파동을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
+  <content contentuid="hf8d9df66gdf2fgddd2gdc5cg87074e8257d4" version="5">크리처에게 비전 힘의 파동을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SEED"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
   <content contentuid="hfdec3a47gb1c5g5c51g6b2eg00757ffc4aef" version="3">거울 분신</content>
   <content contentuid="h805db51fg1ce6g5aa9g3a26g99b6279b2218" version="11">피해를 주는 비전 주문 중 일부를 그대로 따라 하는 분신을 만듭니다.</content>
   <content contentuid="h7ce24c2bg5830g1f25gda97gc927f6e8e6b1" version="36">복제체</content>
@@ -180,9 +180,9 @@
   <content contentuid="hf4767ceag7e98g7466g81cdg572e1744f0aa" version="2">얽매이지 않은 자</content>
   <content contentuid="h65e864dfg6fabg0d32gef8bgf8558787ab9c" version="2">우리는 방랑하는 바람과 함께 움직이며, 그 어떤 길에도 얽매이지 않고 탁 트인 하늘 아래 자유로이 나아간다.</content>
   <content contentuid="hdb9aca65g1d8ag0b4fg4907g7797d5506932" version="2">인장 기법</content>
-  <content contentuid="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="3">크리처에게 강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;악의의 인장&lt;/LSTag&gt;을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
+  <content contentuid="he624619ag7ba5gd55fge4dfgc5905104b8f4" version="3">크리처에게 강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SeedOfDoubt"&gt;악의의 인장&lt;/LSTag&gt;을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SEED"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
   <content contentuid="h200724afg96c5gcdcegbc15g5d898fa0a99e" version="4">영향을 받은 대상은 약화된 영묘한 사슬에 결박되어 [1]를 두 차례 입으며, 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
-  <content contentuid="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="4">크리처를 강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
+  <content contentuid="h98433cefgd6dfg3e06g3791g33bdfcb25951" version="4">크리처를 강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_BindingFalsehood"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
   <content contentuid="ha88ea3afg2012g59e5g8455gb13b526c3109" version="1">모방: 후퇴</content>
   <content contentuid="ha9ab263dg2d5ag59d8ge6ebg41fd212787aa" version="3">별의 은총</content>
   <content contentuid="h9c380e04gfe24g4f57gbb0fg8e317ec95eae" version="3">동료의 운명을 우주의 영원한 빛과 결속시킵니다. 아군은 치유될 때 가능한 최대치의 &lt;LSTag Tooltip="HitPoints"&gt;생명력&lt;/LSTag&gt;을 회복합니다. 또한 지혜 &lt;LSTag Tooltip="SavingThrow"&gt;내성 굴림&lt;/LSTag&gt;과 죽음 내성 굴림에 &lt;LSTag Tooltip="Advantage"&gt;유리 보정&lt;/LSTag&gt;을 얻습니다.</content>
@@ -521,7 +521,7 @@
   <content contentuid="h8db03496gc1e4g2343g6f20gf951a4afda58" version="1">갑옷을 입지 않고 방패를 사용하지 않을 때만 활성화됩니다.</content>
   <content contentuid="h6507b6e7g5e30g5a89g923dg11f8b4e5735e" version="1">갑옷을 입지 않고 방패를 사용하지 않을 때만 활성화됩니다.</content>
   <content contentuid="h795d3f9bg4693g7095gaeeeg14daa8dec939" version="1">갑옷을 입지 않고 방패를 사용하지 않을 때만 활성화됩니다.</content>
-  <content contentuid="h19148393g43edg142eg8af8gc41f2c6b60f9" version="2">크리처를 약화된 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_EtherealChains"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
+  <content contentuid="h19148393g43edg142eg8af8gc41f2c6b60f9" version="2">크리처를 약화된 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_BindingFalsehood"&gt;영묘한 사슬&lt;/LSTag&gt;로 결박합니다. 대상은 자신의 턴이 끝날 때 &lt;LSTag Type="Status" Tooltip="RESTRAINED"&gt;구속&lt;/LSTag&gt; 상태가 됩니다.</content>
   <content contentuid="he3d63e7ege30bg4ab2gb047ga84261db272b" version="2">얽매이지 않은 자의 로브</content>
   <content contentuid="h8e552a9cgcf9bg0600g43bbg028d56c53aa7" version="4">불멸자의 판금 갑옷</content>
   <content contentuid="h5579f51ega301g3a6dgd1e8g6ef02575405c" version="4">어두운 강철에는 오래전 잊힌 전투의 흔적이 은은하게 남아 있으며, 표면은 불필요한 광택 없이 그대로 방치되어 있다. 이 갑옷은 한낮의 태양 아래에서도 차갑게 느껴지니, 마치 자신이 목격한 것을 내어주기를 거부하는 듯하다. 산 자가 잊어도, 죽음은 모든 이름을 기억한다.</content>
@@ -554,8 +554,6 @@
   <content contentuid="hb13711c4gf09dgf9ddg178bgd022a7b41e72" version="1">%%% EMPTY</content>
   <content contentuid="h5ea38b1ageb8bgbbf3g8ba7g9f34c9b1b1ea" version="1">%%% EMPTY</content>
   <content contentuid="hf4e59586g9e6dg2176g46a7g8d8473ae8b1e" version="1">%%% EMPTY</content>
-  <content contentuid="h99c412c1g5750g734agae2bg492af97b6d38" version="1">거울 후퇴 타이머</content>
-  <content contentuid="haf283608gcd44g528eg31acgbdb12e23ba2b" version="1">모방 후퇴 타이머</content>
   <content contentuid="hfed34aaeg7703g6c7dga63fg744706fe3e37" version="1">후퇴 타이머</content>
   <content contentuid="hbbe87a54g9882ga869g13a3g51d491fb409e" version="1">왜곡 헬퍼</content>
   <content contentuid="h74931156g68e6g78c3g675fgcd9196f71a0c" version="1">모방 왜곡 헬퍼</content>
@@ -563,12 +561,10 @@
   <content contentuid="h2a283036g31f4ga58bgc5d4g83b36478a82e" version="1">마지막 시전: 악의의 인장</content>
   <content contentuid="hcf63cdf5g1419g1ed1g7f0egbe02ac50a35f" version="1">마지막 시전: 영묘한 사슬</content>
   <content contentuid="h3c4edb12g2741g4fd0g7808g1b880efe0603" version="1">마지막 시전: 왜곡</content>
-  <content contentuid="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="1">크리처에게 약화된 버전의 &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SigilofMalice"&gt;악의의 인장&lt;/LSTag&gt;을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
-  <content contentuid="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="1">강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Distortion"&gt;왜곡&lt;/LSTag&gt;으로 공간을 가로질러 돌진해 도착 지점에 피해를 입힙니다. 2턴 동안 &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_MimicWithdraw"&gt;후퇴&lt;/LSTag&gt;를 시전해 원래 위치로 순간 이동할 수 있습니다.</content>
+  <content contentuid="hf22a0eedgbc8dgc316g2434g51c6f4982dc4" version="1">크리처에게 약화된 버전의 &lt;LSTag Type="Spell" Tooltip="Projectile_Arcana_Card_Spell_SeedOfDoubt"&gt;악의의 인장&lt;/LSTag&gt;을 던져 [1]를 입히고 &lt;LSTag Type="Status" Tooltip="SEED"&gt;인장&lt;/LSTag&gt;을 새깁니다.</content>
+  <content contentuid="hea3258c7g78a8g47c1g40cbg1263fd6d0156" version="1">강력한 버전의 &lt;LSTag Type="Spell" Tooltip="Target_Arcana_Card_Spell_Veilstep"&gt;왜곡&lt;/LSTag&gt;으로 공간을 가로질러 돌진해 도착 지점에 피해를 입힙니다. 2턴 동안 &lt;LSTag Type="Spell" Tooltip="Shout_Arcana_Created_TwiceTold_Withdraw"&gt;후퇴&lt;/LSTag&gt;를 시전해 원래 위치로 순간 이동할 수 있습니다.</content>
   <content contentuid="h1c6805e2gef72gde13g0ac7g7d9b19112b25" version="1">거울 주문</content>
-  <content contentuid="hd1b4c14fg68b2g2642g9a32gc052f2f749b1" version="3">거울의 기술에 통달했습니다. [1] 이내에서 누군가 주문을 시전하면, 그 주문을 3턴 동안 자신의 목록에 추가합니다.</content>
   <content contentuid="h34f46efbg619ag290ag7eddg2383b122a86a" version="1">거울 주문 헬퍼</content>
-  <content contentuid="haa5e063cga90egac8cg9e75gb55fc8aa24e3" version="1">거울 주문 활성화</content>
   <content contentuid="h75b888d9gfb47g2bc1ge9b9gb7555ade89f3" version="2">비전 파편</content>
   <content contentuid="hf2380d02g4523g5595ge459g914a7fc4f4f0" version="4">전투 중 비전 주문을 시전할 때마다, 주문 레벨만큼 비전 파편을 얻습니다.</content>
   <content contentuid="h29c86812g92e4g6c36g1518g26f86501eefc" version="1">주문을 시전할 때마다, 자신 주위를 감도는 비전 파편의 수가 주문 레벨만큼 증가합니다.&lt;br&gt;&lt;br&gt;피해를 입을 때마다, 파편이 그 수만큼 피해를 막아 내며 수가 [1]만큼 감소합니다.&lt;br&gt;&lt;br&gt;&lt;LSTag Tooltip="LongRest"&gt;긴 휴식&lt;/LSTag&gt;을 취할 때마다, 파편의 수가 아르카나 레벨과 같아지도록 재설정됩니다.</content>
@@ -619,7 +615,6 @@
   <content contentuid="hdfa25fe3g3b7dgcaa2g2d62g9d47fffc98ab" version="2">어디를 가든, 비전 사역마를 곁으로 소환할 수 있습니다.</content>
   <content contentuid="h4bf754ddg1e5dgd684gf115g576f1521c6d0" version="1">아르카나 레벨 1</content>
   <content contentuid="h563fda14ge9b7g5700gd7b8g745792e339ce" version="1">아르카나 레벨 1</content>
-  <content contentuid="hbc507ad3g4d3fg1c5agebe8gc2ca72609748" version="2">비전 주문: 속이는 자</content>
   <content contentuid="he47f970fgdf96g0a61g6657gc42a6e90061b" version="9">당신의 마법은 비전의 원초적인 흐름에서 시작해, 당신이 선택한 길을 통해 흘러나옵니다.&lt;br&gt;&lt;br&gt;모든 비전 주문에 대한 &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;주문 시전 능력&lt;/LSTag&gt;은 &lt;LSTag Tooltip="Charisma"&gt;매력&lt;/LSTag&gt;입니다.</content>
   <content contentuid="h2667abfag50d3gd991g364cge7a153673e32" version="1">비전 주문: 별의 아이</content>
   <content contentuid="h3e73ec69g2f3cg3906ga4cdg5c61b60de819" version="6">당신의 마법은 비전의 원초적인 흐름에서 시작해, 당신이 선택한 길을 통해 흘러나옵니다.&lt;br&gt;&lt;br&gt;모든 비전 주문에 대한 &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;주문 시전 능력&lt;/LSTag&gt;은 &lt;LSTag Tooltip="Wisdom"&gt;지혜&lt;/LSTag&gt;입니다.</content>
@@ -690,17 +685,10 @@
   <content contentuid="h2ae1ad59g4446ga303g4248g9cfc579d2175" version="1">숙적 도우미</content>
   <content contentuid="hb6ddcdecgf2d4gef8bg52fdg685590346780" version="3">복사된 주문</content>
   <content contentuid="h2860887eg2cbbg4642gc1d1g2e42a82f8c7a" version="1">적대적 인수: 쿠데타</content>
-  <content contentuid="hbf65a8a0g8472g6450ged91g838380afe396" version="2">또한 그들에게 &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;인장&lt;/LSTag&gt;이 표시됩니다.</content>
   <content contentuid="h55a93e30g7951g4942g0751gc81cf26497da" version="1">볼 수 있는 다른 사람의 정체성을 취합니다.</content>
-  <content contentuid="hb3d9a78bg92ccg41faga257g7382d53daaf9" version="2">공허한 분신: 최후의 장막</content>
-  <content contentuid="hba73e0bdgd0e0g20b8ge1bbgd5b671159403" version="2">또한 그들에게 &lt;LSTag Type="Status" Tooltip="SIGIL"&gt;인장&lt;/LSTag&gt;을 표시하고, 스스로 &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;투명&lt;/LSTag&gt; 상태가 됩니다.</content>
   <content contentuid="h7b05ee1dg6b73g13d9g1979gcbe131d1e1aa" version="1">이 기능을 다시 사용하려면 &lt;LSTag Tooltip="ShortRest"&gt;짧은 휴식&lt;/LSTag&gt;을 취해야 합니다.</content>
   <content contentuid="heb03bacdg1288gf8c6g7dc5g18567f139417" version="1">긴 휴식을 취해야 합니다.</content>
-  <content contentuid="h559873e2g715cg7dc4g1136g7eff482bacb8" version="2">공허한 분신: 최후의 장막</content>
-  <content contentuid="h06794c35g0d0bg171bg257ag41dd2850a171" version="1">또한 그들에게 인장을 표시하고, 스스로 투명 상태가 됩니다.</content>
-  <content contentuid="hf9febea7g3060g3d1eg7657g23352aa094f2" version="1">거울 분신: 거울의 방</content>
   <content contentuid="h648f69c1g8f76g09f2gab54g3b17bfec6003" version="1">분신을 하나 더 만듭니다.</content>
-  <content contentuid="h091e2391g5f87gb416g69d8gdb5651238af0" version="2">복제체</content>
   <content contentuid="h3874ddc7g1c9eg6dafgbdb2gbcbcfb8f14e0" version="2">3 - 여황제</content>
   <content contentuid="hfda61488g9163gb8a3ga2c2g4f7401c5be55" version="4">당신은 사랑의 아스펙트가 되었습니다.&lt;br&gt;&lt;br&gt;&lt;LSTag Tooltip="Charisma"&gt;매력&lt;/LSTag&gt;이 [1]만큼 증가하며, &lt;LSTag Type="Spell" Tooltip="Target_IND_Friends_EX"&gt;친구만: 거짓 우정&lt;/LSTag&gt;을 시전할 수 있습니다. 비전 주문으로 피해를 입힐 때, 매력 &lt;LSTag Tooltip="AbilityModifier"&gt;보정치&lt;/LSTag&gt;를 추가로 더합니다.</content>
   <content contentuid="h6e6068e2g201cg7f0bg2e5cg49ed5c57b692" version="1">0 - 바보</content>

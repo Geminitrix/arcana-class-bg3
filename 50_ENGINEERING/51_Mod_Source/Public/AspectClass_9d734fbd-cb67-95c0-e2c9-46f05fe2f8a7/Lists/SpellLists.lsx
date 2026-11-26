@@ -86,7 +86,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Deceiver Level 1"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_MaliciousWhispers;Target_Arcana_Card_Spell_MirrorImage;Target_Arcana_Util_Friends"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_MaliciousWhispers;Target_Arcana_Card_Spell_Eidolon;Target_Arcana_Util_Friends"/>
                     <attribute id="UUID" type="guid" value="507f2c2a-ccdd-44f0-bf45-ca3676e1a03f"/>
                 </node>
                 <node id="SpellList">
@@ -96,7 +96,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Deceiver Level 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_EtherealChains"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_BindingFalsehood"/>
                     <attribute id="UUID" type="guid" value="9aac7d55-57b7-4942-afb4-1751e506b172"/>
                 </node>
                 <node id="SpellList">
@@ -111,7 +111,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Deceiver Level 10"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_MirroredCharm;Shout_Arcana_Card_Passive_MirroredSpell"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Arcana_Card_Passive_MirroredSelf;Shout_Arcana_Card_Passive_MirroredSpell"/>
                     <attribute id="UUID" type="guid" value="292cab8b-27ad-467c-9a99-2f0b7bddd406"/>
                 </node>
                 <node id="SpellList">
@@ -276,7 +276,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Deceiver Level 2"/>
-                    <attribute id="Spells" type="LSString" value="Projectile_Arcana_Card_Spell_SigilofMalice;Shout_Arcana_Util_Faceless"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_Arcana_Card_Spell_SeedOfDoubt;Shout_Arcana_Util_Faceless"/>
                     <attribute id="UUID" type="guid" value="0adfec11-637b-4057-9ac7-44ace76631b2"/>
                 </node>
                 <node id="SpellList">
@@ -286,7 +286,7 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="Deceiver Level 6"/>
-                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_Distortion;Target_Arcana_Created_Mimic"/>
+                    <attribute id="Spells" type="LSString" value="Target_Arcana_Card_Spell_Veilstep;Target_Arcana_Created_TwiceTold"/>
                     <attribute id="UUID" type="guid" value="2c7b0104-de34-44ec-afdd-7f688e49db54"/>
                 </node>
             </children>

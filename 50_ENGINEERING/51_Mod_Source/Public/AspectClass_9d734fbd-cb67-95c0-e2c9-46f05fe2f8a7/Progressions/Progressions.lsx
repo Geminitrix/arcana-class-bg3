@@ -442,7 +442,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="3"/>
                     <attribute id="Name" type="LSString" value="Deceiver"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Empress_I;Arcana_Passive_Aspect_Empress_Awakening"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_HighPriestess_I;Arcana_Passive_Aspect_HighPriestess_Awakening"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="Selectors" type="LSString" value="AddSpells(f5216d9b-4fed-49f0-b1ea-8a5e2b831b59,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
@@ -476,7 +476,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Deceiver"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Empress_II"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_HighPriestess_II"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
                     <attribute id="UUID" type="guid" value="d355f68d-767d-42ed-81c6-b7c63e01d7f8"/>
@@ -517,7 +517,7 @@
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
                     <attribute id="Name" type="LSString" value="Deceiver"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_Empress_III;Arcana_Passive_VeilCap5"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Arcana_Passive_Aspect_HighPriestess_III;Arcana_Passive_VeilCap5"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="8fe1f693-d8ff-4b02-a655-efd4acbc04cb"/>
                     <attribute id="UUID" type="guid" value="dd366005-9385-440c-9515-5363933908c8"/>

@@ -121,7 +121,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="d0f455b7-1cad-0611-689e-39b9cd0c8572" />
-        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Aspect_WhichOne" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_Arcana_Reaction_WhichOne" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2d5f3701gd280g0d1bgced0g444f2878bf39" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3ecb639dg13e6ga6b2gd94dg2cbbb7a9c279" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="PassiveFeature_IllusorySelf" />

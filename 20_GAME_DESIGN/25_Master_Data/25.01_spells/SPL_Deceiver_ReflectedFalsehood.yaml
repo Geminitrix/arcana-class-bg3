@@ -1,11 +1,11 @@
 id: SPL_Deceiver_ReflectedFalsehood
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0036 — DV37 (ids renamed), no change"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
 design: "21.04/Deceiver/DESIGN.md §4.2"
 balance_report: "22.05/Deceiver.md"
-game_ids: [Target_Deceiver_Double_MirrorChains_Slot3, Target_Deceiver_Double_MirrorChains_Slot4, Target_Deceiver_Double_MirrorChains_Slot5, Target_Deceiver_Double_MirrorChains_Slot6]
+game_ids: [Target_Arcana_Double_ReflectedFalsehood_3, Target_Arcana_Double_ReflectedFalsehood_4, Target_Arcana_Double_ReflectedFalsehood_5, Target_Arcana_Double_ReflectedFalsehood_6]
 values:
   range:      { value: 18, unit: metres }
   damage:     { value: "(Nd6)/2", unit: damage, type: Force, by_level: { 5: (3d6)/2, 7: (4d6)/2, 9: (5d6)/2, 11: (6d6)/2 }, note: "N = her highest slot (DV17)" }

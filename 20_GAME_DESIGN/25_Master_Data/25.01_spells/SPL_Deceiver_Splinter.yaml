@@ -1,11 +1,11 @@
 id: SPL_Deceiver_Splinter
-reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0020 — build kit"
+reviewed: "2026-10-16 ARC-0019 — values read from the game (Veil build, 2026-10-07); DV18–DV30 approved; the block pending_build holds what the build applies (the generator still reads values: until then); 2026-10-16 ARC-0020 checked; 2026-10-16 ARC-0021 checked; 2026-11-25 ARC-0020 — build kit; 2026-11-25 ARC-0036 — DV37 (ids renamed), no change"
 kind: spell
 subclass: Deceiver
 ticket: ARC-0019
 design: "21.04/Deceiver/DESIGN.md §4.2, §8"
 balance_report: "22.05/Deceiver.md"
-game_ids: [Shout_Deceiver_Double_Shatter]
+game_ids: [Shout_Arcana_Double_Splinter]
 values:
   radius: { value: 3, unit: metres }
   damage: { value: 1d6, unit: damage, type: Psychic, note: "fixed die (DV17)" }
@@ -17,4 +17,4 @@ pending_build:
   name_next:               { value: Splinter, note: "DV29" }
   tier3_radius_next:       { value: 4, unit: metres, note: "DV21: Tier III, the projectile's ExplodeRadius (vanilla Death Burst pattern); Owner, 2026-10-16 (22.05 §ARC-0020)" }
   tier3_on_destroyed_next: { value: 1, unit: count, note: "DV21: a Double destroyed by an enemy splinters by itself, once" }
-  tier3_projectile_next:   { value: Projectile_Arcana_SplinterBurst, note: "DV21: the burst the Doubles goal makes at Tier III (TOOLKIT_ARC-0020 step 03)" }
+  tier3_projectile_next:   { value: Projectile_Arcana_Splinter_Explosion, note: "DV21: the burst the Doubles goal makes at Tier III (TOOLKIT_ARC-0020 step 03)" }

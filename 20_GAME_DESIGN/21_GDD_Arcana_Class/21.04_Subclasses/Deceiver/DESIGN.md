@@ -7,12 +7,12 @@ reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REF
 
 # The Veilwalker (internal: Deceiver) — II · The High Priestess · Aspect of Doubt
 
-> Design document for the Arcana's subclass **The Deceiver**: identity, the Veil and every one of its rules, every
+> Design document for the Arcana's subclass **The Veilwalker**: identity, the Veil and every one of its rules, every
 > spell and passive, the Aspect Awakening, the progression and the technical pattern. Decisions are in
 > `DECISIONS.md` (DV1–DV35); the review behind DV18–DV30 is `REFINE_Deceiver.md` (ARC-0019). Every gameplay effect
 > lives in Stats, Osiris and Khonsu, so the subclass runs in **both editions**.
 >
-> **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this document says *(25)*; the Deceiver's
+> **Numbers live in `25_Master_Data`** (ADR-0005). Where a value is needed this document says *(25)*; the Veilwalker's
 > YAML files are still to be written in the balance pass (§13.3). Caps, stack counts, ranges in metres, durations in
 > turns and level placement are design and final unless a test proves them wrong.
 
@@ -20,7 +20,7 @@ reviewed: 2026-10-16 ARC-0019 — written from DECISIONS.md (DV1–DV32) and REF
 
 ## 1. The subclass in one page
 
-The Deceiver is the Arcana who **fights with lies**. She puts **Doubles** of herself on the field — 1-HP illusions
+The Veilwalker is the Arcana who **fights with lies**. She puts **Doubles** of herself on the field — 1-HP illusions
 that walk, cast and burst — and every lie an enemy believes plants **Doubt** in it. At the third Doubt the enemy is
 **Deluded** and loses its grip on what is real. Her control cards bite harder on a doubting mind; her Doubles learn
 her spells, trade places with her and, at the peak, burst in the face of whoever strikes them.
@@ -58,7 +58,7 @@ Resonant's emotions.
 
 ### 2.3 Mystra and the Weave
 
-*Mystra, the Lady of Mysteries, keeps a veil between what is and what seems; the Deceiver was woven from it, a thread
+*Mystra, the Lady of Mysteries, keeps a veil between what is and what seems; the Veilwalker was woven from it, a thread
 no one watching can follow.* Her Doubles are the Weave bent into her shape; *Binding Falsehood* binds with a woven lie.
 
 ### 2.4 References
@@ -317,7 +317,7 @@ Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 
 - Subclass name in game: **The Veilwalker** (DV33, ARC-0021); internal names stay *Deceiver*.
 - Aspect names in game: **2 - The High Priestess**, *Veiled*, *Two Pillars*, *Aspect of Doubt*.
-- Class line: *"Mystra keeps a veil between what is and what seems. The Deceiver walks it - and no one watching can
+- Class line: *"Mystra keeps a veil between what is and what seems. The Veilwalker walks it - and no one watching can
   say which of her is real."*
 - Names (DV29): Eidolon, Seed of Doubt (status *Seed*), Veilstep, Binding Falsehood, Twice-Told, Splinter, Reflected
   Seed, Reflected Falsehood; Doubles: *Double of the Veil*; *Doubt*, *Deluded*.
@@ -345,7 +345,7 @@ Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 | `ARCANA_Deceiver_Doubt.txt` | Doubt counter, Deluded, Awakening steps |
 | `ARCANA_Deceiver_Splinter.txt` | A Double that Splinters is gone a moment later, blameless |
 | `ARCANA_Deceiver_SplinterOnCommand.txt` | The marked Double Splinters at once (UseSpell) |
-| `ARCANA_Deceiver_SeedOfDoubt.txt` | The Seed laid in her name (status `SIGIL`) and the Doubt of its burst |
+| `ARCANA_Deceiver_SeedOfDoubt.txt` | The Seed laid in her name (status `SEED`) and the Doubt of its burst |
 | `ARCANA_Deceiver_Veilstep.txt`, `ARCANA_Deceiver_TwiceTold.txt` | Veilstep's Double and Withdraw; the same for Twice-Told: Veilstep |
 | `ARCANA_Deceiver_GrandDeception.txt` | One Doubt per Double that stood within 3 m of a failed enemy |
 | `ARCANA_Deceiver_MirroredSpell.txt`, `ARCANA_Deceiver_Faceless.txt` | Mirrored Spell, Faceless: Copy |
@@ -355,7 +355,7 @@ Magic at 6, Third Eye at 10, Arcane Gate and a feat at 12.
 
 | Need | Pattern |
 |---|---|
-| Tier III burst on death | Vanilla **Death Burst**: `GLO_CombatNPCs.txt` explodes a dying creature with `CreateExplosionAtPosition(…, "Projectile_DeathBurst_*", 1, _Char)`; the projectile's `ExplodeRadius` sets the area (`Projectile_DeathBurst_Died_IceMephit`). Run from the Doubles goal with `Projectile_Arcana_SplinterBurst` (4 m), caster = her: on every Splinter cast at Tier III (the shout itself then deals nothing) and, from the purge, where a Double an enemy destroyed was struck — never on the blameless paths. **T2** until QA_ARC-0020 L12.3–L12.6 pass |
+| Tier III burst on death | Vanilla **Death Burst**: `GLO_CombatNPCs.txt` explodes a dying creature with `CreateExplosionAtPosition(…, "Projectile_DeathBurst_*", 1, _Char)`; the projectile's `ExplodeRadius` sets the area (`Projectile_DeathBurst_Died_IceMephit`). Run from the Doubles goal with `Projectile_Arcana_Splinter_Explosion` (4 m), caster = her: on every Splinter cast at Tier III (the shout itself then deals nothing) and, from the purge, where a Double an enemy destroyed was struck — never on the blameless paths. **T2** until QA_ARC-0020 L12.3–L12.6 pass |
 | A Double casting off its turn | `UseSpell(_Double, …)` from Osiris, as The Veil Lifts does |
 | Mirrored Self from a Double's position | Unknown — **T2**, test before the spec; plan B: the second target must be within a short range *(25)* of a Double |
 
@@ -366,15 +366,13 @@ today's game values.
 
 ### 13.4 Ids
 
-Internal ids keep their current names until the build decides (DV12, DV29): e.g. `Projectile_Arcana_Card_Spell_SigilofMalice`
-is *Seed of Doubt* in game text. A rename of ids, if chosen, follows ADR-0002 and the naming memory of the project.
+Internal ids follow the in-game names (DV37, ARC-0036): `Projectile_Arcana_Card_Spell_SeedOfDoubt` is *Seed of Doubt*,
+status `SEED` is *Seed*; the Doubles' own spells are `<Type>_Arcana_Double_X` with `_N` variants (OR-59).
 
 ---
 
 ## 14. Open
 
-- Internal ids keep their names (DV12's rule, settled in the ARC-0020 build kit: published entries are never renamed,
-  OR-10); only the three new entries follow OR-59.
 - Telepathy leaves the progression (DV26): its passive goes to the archive when ARC-0020 closes.
 - **Mirrored Self from a Double (DV25) is deferred** (`SPEC_ARC-0020`, Deferred): the engine can't move a spell's origin,
   so it needs the Double to cast a copy (probe B4) and a rule for that copy's target. Until then *Mirrored Self* keeps one

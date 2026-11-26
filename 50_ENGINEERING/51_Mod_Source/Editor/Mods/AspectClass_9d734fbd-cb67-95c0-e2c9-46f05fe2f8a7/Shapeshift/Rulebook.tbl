@@ -3,7 +3,7 @@
   <stat_objects>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_1" />
+        <field name="Name" type="NameTableFieldDefinition" value="FacelessCopy" />
         <field name="UUID" type="IdTableFieldDefinition" value="3eb3fee7-67b4-46b5-a81a-2ac2da66bff7" />
         <field name="RuleName" type="StringTableFieldDefinition" value="FacelessCopy" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="True" />
@@ -34,7 +34,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="New_Stat_2" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil" />
         <field name="UUID" type="IdTableFieldDefinition" value="21aacde3-d14d-7a32-7dbb-5418cc3bdf9d" />
         <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
@@ -49,7 +49,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -63,13 +63,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot3" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_3" />
         <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot3" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_3" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -82,7 +83,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot3;Target_Deceiver_Double_MirrorChains_Slot3" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_3;Target_Arcana_Double_ReflectedFalsehood_3;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -96,13 +97,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot4" />
-        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot4" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="cfbaa6cd-62ba-7b67-9700-114cd3b86b75" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_4" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -115,7 +117,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot4;Target_Deceiver_Double_MirrorChains_Slot4" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_4;Target_Arcana_Double_ReflectedFalsehood_4;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -129,13 +131,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot5" />
-        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot5" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_5_NoUnveil" />
+        <field name="UUID" type="IdTableFieldDefinition" value="615d1e0d-b8f5-7ef4-e5ee-3b66eb467645" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_5_NoUnveil" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -148,7 +151,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5;Target_Deceiver_Double_Unveil" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_5;Target_Arcana_Double_ReflectedFalsehood_5;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -162,13 +165,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot6" />
-        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot6" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d6306a71-9b8a-4dd0-f97a-3f6df38c9b8c" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_5" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -181,7 +185,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6;Target_Deceiver_Double_Unveil" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_5;Target_Arcana_Double_ReflectedFalsehood_5;Target_Arcana_Double_Unveil;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -195,13 +199,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot5_NoUnveil" />
-        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot5_NoUnveil" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_6_NoUnveil" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c0c93c59-f1a4-7866-6887-0f782fa29689" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_6_NoUnveil" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -214,7 +219,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot5;Target_Deceiver_Double_MirrorChains_Slot5" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_6;Target_Arcana_Double_ReflectedFalsehood_6;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -228,13 +233,14 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_Slot6_NoUnveil" />
-        <field name="UUID" type="IdTableFieldDefinition" value="d27e2641-3a75-82be-7741-ec16ebc2561f" />
-        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_Slot6_NoUnveil" />
+        <field name="Name" type="NameTableFieldDefinition" value="DoubleOfTheVeil_6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8014e496-f3d0-76b1-532c-fcd4863b6199" />
+        <field name="RuleName" type="StringTableFieldDefinition" value="DoubleOfTheVeil_6" />
         <field name="ApplyTagsFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="TagsAdd" type="GuidObjectListTableFieldDefinition" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
         <field name="ChangeRace" type="BoolTableFieldDefinition" value="True" />
@@ -247,7 +253,7 @@
         <field name="MuteEquipmentSound" type="BoolTableFieldDefinition" value="True" />
         <field name="RemovePrevSpells" type="BoolTableFieldDefinition" value="True" />
         <field name="ApplySpellsFromTemplate" type="BoolTableFieldDefinition" value="False" />
-        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Dash;Shout_Disengage;Shout_Deceiver_Double_Shatter;Shout_Deceiver_Clone_Dismiss;Projectile_Deceiver_Double_MirrorSigil_Slot6;Target_Deceiver_Double_MirrorChains_Slot6" />
+        <field name="SpellsAdd" type="StringTableFieldDefinition" value="Shout_Disengage;Shout_Dash;Shout_Dismiss_Self;Shout_Arcana_Double_Splinter;Projectile_Arcana_Double_ReflectedSeed_6;Target_Arcana_Double_ReflectedFalsehood_6;Target_Arcana_Double_Unveil;" />
         <field name="UnarmedAbilityFromTemplate" type="BoolTableFieldDefinition" value="False" />
         <field name="DisableEquipmentSlots" type="BoolTableFieldDefinition" value="True" />
         <field name="BlockLevelUp" type="BoolTableFieldDefinition" value="True" />
@@ -261,6 +267,7 @@
         <field name="FlagsInheritanceType" type="EnumerationTableFieldDefinition" value="KeepOriginal" enumeration_type_name="ShapeshiftInheritanceType" version="1" />
         <field name="WildShapeHotBar" type="BoolTableFieldDefinition" value="False" />
         <field name="RemoveOldTags" type="BoolTableFieldDefinition" value="False" />
+        <field name="UseTemplateEquipmentSet" type="BoolTableFieldDefinition" value="False" />
       </fields>
     </stat_object>
   </stat_objects>
