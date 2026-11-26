@@ -30,7 +30,7 @@ come back here at `/sync-test-guides`. **Intent:** the tidied goals play exactly
 - **Steps:** Load a save made before the update; start a fight; reach Tier I with any Arcana.
 - **Expected:** Tier I awakens and its countdown shows, as before.
 - **Fails if:** the Aspect never awakens or the countdown never shows.
-- **Result:** —
+- **Result:** skipped
 
 ### A.2 · An upcast Distortion still offers Withdraw
 - **Rule:** RISKS A4 (the card table is cleared and refilled)

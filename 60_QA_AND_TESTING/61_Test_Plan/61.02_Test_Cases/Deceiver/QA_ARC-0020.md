@@ -41,7 +41,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Open the character sheet and the spellbook at level 1
 - **Expected:** Passives: The Veil only (no Telepathy, no Doubt). Spells: Malicious Whispers, Eidolon, Friends. No Seed of Doubt, no Faceless
 - **Fails if:** Telepathy or Doubt is listed, or Seed of Doubt / Faceless is already there
-- **Result:** —
+- **Result:** pass
 
 ### L1.2 · The Veil states the one rule
 
@@ -49,7 +49,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Hover The Veil on the character sheet
 - **Expected:** "Every lie an enemy believes plants Doubt in it. At the third, it becomes Deluded", the Doubles explained, and "4 from level 8 and 5 from level 12"
 - **Fails if:** The text is missing, names Sigil or Shatter, or says level 7
-- **Result:** —
+- **Result:** pass
 
 ### L1.3 · Eidolon summons one Double that looks like her
 
@@ -57,7 +57,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Cast Eidolon on a spot within 9 m
 - **Expected:** One Double appears with her look and the Duplicity shimmer, 1 hit point
 - **Fails if:** No Double, more than one, or a Double with more than 1 hit point
-- **Result:** —
+- **Result:** pass
 
 ### L1.4 · Each Double gives her +1 AC
 
@@ -65,7 +65,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Note her AC with no Double, then with one Double on the field
 - **Expected:** AC rises by 1 (Veil layer status on her)
 - **Fails if:** AC doesn't change
-- **Result:** —
+- **Result:** FAIL — Estou com 3 Doubles e tá dando +4 de AC. Verificar. Depois que eu matei 1 das 3, apareceu +2 na AC. Algum bug fazendo chegar a +4 mesmo no nível 1.
 
 ### L1.5 · A Double has its own turn with Splinter and Dismiss only
 
@@ -73,7 +73,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** On the Double's turn, open its hotbar
 - **Expected:** Movement, Dash, Disengage, Splinter, Dismiss; no weapon attack, no bonus action, no reaction
 - **Fails if:** It can attack, or Reflected Seed / Unveil are already there
-- **Result:** —
+- **Result:** pass — Funcionou, mas fiz algumas alterações. Não consegui deixar o Double sem ataque de arma, então mantive o bonus action, e o reaction também, então é possível atacar com arma, não consegui mudar isso, mas queria que mudasse, porque o dano da arma é maior que a do Splinter. Talvez tenha como passar para o Double apenas o visual e não as armas do Original.
 
 ### L1.6 · A Splinter bursts around the Double
 
@@ -81,7 +81,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Walk the Double next to two enemies and cast Splinter
 - **Expected:** Each enemy within 3 m takes 1d6 Psychic and gains 1 Doubt; the Double is gone
 - **Fails if:** No damage, no Doubt, or the Double stays
-- **Result:** —
+- **Result:** pass
 
 ### L1.7 · An enemy that destroys a Double gains Doubt
 
@@ -89,7 +89,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Leave a Double next to an enemy and end the turn; let the enemy destroy it
 - **Expected:** That enemy gains 1 Doubt
 - **Fails if:** No Doubt on the destroyer
-- **Result:** —
+- **Result:** pass
 
 ### L1.8 · The third Doubt makes an enemy Deluded
 
@@ -97,7 +97,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Bring one enemy to 3 Doubt (Splinters, a Double it destroys)
 - **Expected:** It becomes Deluded (Confused, 1 turn) and its Doubt stacks reset
 - **Fails if:** No Deluded, or the stacks stay
-- **Result:** —
+- **Result:** pass
 
 ### L1.9 · Doubt lowers its Wisdom saves and its attacks against her
 
@@ -105,7 +105,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Hover an enemy with 2 Doubt; let it attack her or a Double
 - **Expected:** The status reads −1 per stack to Wisdom Saving Throws and to Attack Rolls against her and her Doubles; the roll shows −2
 - **Fails if:** No penalty shown or applied
-- **Result:** —
+- **Result:** pass
 
 ### L1.10 · Dismiss: no Splinter, no Doubt
 
@@ -113,7 +113,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Put a Double next to an enemy and cast its Dismiss
 - **Expected:** The Double goes; no damage and no Doubt to anyone
 - **Fails if:** It bursts or someone gains Doubt
-- **Result:** —
+- **Result:** pass
 
 ### L1.11 · An ally's hit on a Double plants no Doubt
 
@@ -121,7 +121,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Let an ally destroy one of her Doubles (an area spell, or an attack)
 - **Expected:** No one gains Doubt
 - **Fails if:** The ally or an enemy gains Doubt
-- **Result:** —
+- **Result:** pass
 
 ### L1.12 · Malicious Whispers: the fallback turn
 
@@ -129,7 +129,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** Cast Malicious Whispers on an enemy without a Seed
 - **Expected:** Wisdom save; on a failure Psychic damage and Disadvantage on its next attack; no Doubt (it carries no Seed)
 - **Fails if:** No save, no Disadvantage, or Doubt without a Seed
-- **Result:** —
+- **Result:** pass
 
 ### L1.13 · Doubles vanish when combat ends
 
@@ -137,7 +137,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Steps:** End a fight with a Double on the field
 - **Expected:** The Double is gone and her AC is back to normal
 - **Fails if:** A Double stays after combat, or the AC bonus stays
-- **Result:** —
+- **Result:** pass
 
 ### L1.14 · Friends gives Advantage on Charisma checks
 
@@ -146,7 +146,7 @@ written on 2026-11-25 from it (the appendix keeps the draft verbatim).
 - **Expected:** The check has Advantage
 - **Fails if:** No Advantage
 - **Kind:** observe
-- **Result:** —
+- **Result:** pass
 
 ## Level 2 — Seed of Doubt: a lie that bursts later
 

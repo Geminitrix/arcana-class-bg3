@@ -10,7 +10,8 @@
       },
       {
          "guides" : [
-            "test_guides/data/Deceiver/QA_ARC-0020.json"
+            "test_guides/data/Deceiver/QA_ARC-0020.json",
+            "test_guides/data/Deceiver/QA_ARC-0036.json"
          ],
          "name" : "Veilwalker"
       },

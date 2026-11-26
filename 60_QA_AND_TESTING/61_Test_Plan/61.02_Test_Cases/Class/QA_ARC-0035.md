@@ -33,7 +33,7 @@ fires, or each failure becomes a fix (OR-1).
 - **Steps:** Compile in the Story Editor; open `Mods/AspectClass_…/Story/log.txt`
 - **Expected:** It ends with `0 error(s), 0 warning(s)` and has no "type mismatch" line
 - **Fails if:** Any error, warning or type mismatch
-- **Result:** —
+- **Result:** pass
 
 ### A.2 · The Wheel turns at her turn start
 

@@ -1,0 +1,73 @@
+{
+   "before" : [
+      "ARC-0036 is applied and the Story is compiled: `log.txt` ends with `0 error(s)`.",
+      "A new Veilwalker at level 12 (or levelled 1 → 12 as you go), a fight with three or more enemies. Console edition."
+   ],
+   "sessions" : [
+      {
+         "id" : "ANY",
+         "name" : "Any level — full run",
+         "setup" : "The Veilwalker at level 12 in a fight with three or more enemies.",
+         "tests" : [
+            {
+               "expected" : "It ends with `0 error(s), 0 warning(s)`",
+               "fails" : "Any error or warning",
+               "id" : "A.1",
+               "rule" : "ARC-0036 (Osiris ids renamed)",
+               "steps" : "Compile in the Story Editor; open `Mods/AspectClass_…/Story/log.txt`",
+               "title" : "The Story compiles clean"
+            },
+            {
+               "expected" : "Each card sits where it was, with the new id (`…_SeedOfDoubt`, `…_Eidolon`, `…_Veilstep`, `…_BindingFalsehood`, `…_TwiceTold_…`, `…_Arcana_Double_…`); the Rulebook lists 8 rules: FacelessCopy, DoubleOfTheVeil, DoubleOfTheVeil_3, _4, _5_NoUnveil, _5, _6_NoUnveil, _6 — no `New_Stat`",
+               "fails" : "An entry moved, an old id is left, or a rule is missing",
+               "id" : "A.2",
+               "rule" : "DV37 (renamed in place); OR-12 (both Rulebook copies)",
+               "steps" : "Open the Toolkit; look at the Veilwalker spells in the Stats Editor and at Shapeshift / Rulebook",
+               "title" : "The Toolkit shows the new names in their old places"
+            },
+            {
+               "expected" : "Every card is in her spellbook and casts; every linked word opens its tooltip (Seed, Doubt, Splinter, Binding Falsehood, Twice-Told…)",
+               "fails" : "A card is missing, does not cast, or a link shows an empty tooltip",
+               "id" : "A.3",
+               "rule" : "DV37 (ids in lists, progressions and LSTags)",
+               "steps" : "Cast each Veilwalker card once; hover each underlined word in their tooltips",
+               "title" : "Every card casts and every tooltip link opens"
+            },
+            {
+               "expected" : "Level 5+: Reflected Seed and Reflected Falsehood beside Splinter, Dash, Disengage and Dismiss; level 9+: Unveil too",
+               "fails" : "The Double has Splinter only",
+               "id" : "A.4",
+               "rule" : "DESIGN §4.2, Two Truths, Unveil (the restored rules)",
+               "steps" : "Summon a Double with Eidolon; open its hotbar at level 5, then at level 9 or later",
+               "title" : "The Doubles cast her spells from level 5 and swap from level 9"
+            },
+            {
+               "expected" : "That Double splinters at once, the enemies take the burst and 1 Doubt each, and the Double is gone",
+               "fails" : "Nothing happens, or the Double stays after its Splinter",
+               "id" : "A.5",
+               "rule" : "Splinter on Command (DV31); `ARCANA_Deceiver_Splinter`",
+               "steps" : "With a Double near two enemies, cast Splinter on Command",
+               "title" : "Splinter on Command and the Splinter cleanup"
+            },
+            {
+               "expected" : "The struck Double bursts by itself (4 m, Doubt); The Veil Lifts splinters every Double and bursts every Seed",
+               "fails" : "A struck Double dies without a burst, or The Veil Lifts leaves Doubles standing",
+               "id" : "A.6",
+               "rule" : "Aspect card The Veil Lifts; Tier III, the lie explodes",
+               "steps" : "Reach Tier III; let an enemy strike a Double; later use The Veil Lifts with Doubles and Seeds on the field",
+               "title" : "The Veil Lifts and the Tier III burst"
+            },
+            {
+               "expected" : "The Seed bursts with its Doubt; Twice-Told offers the last card; the Awakening progress counts Doubt down and Tier I arrives",
+               "fails" : "The Seed never bursts, Twice-Told is empty, or the Awakening never counts",
+               "id" : "A.7",
+               "rule" : "Seed of Doubt (`SEED`), Twice-Told, Awakening (*HighPriestess* key)",
+               "steps" : "Cast Seed of Doubt, then a damaging card on the same enemy; use Twice-Told; fight until Tier I",
+               "title" : "The Seed, Twice-Told and the Awakening"
+            }
+         ]
+      }
+   ],
+   "ticket" : "ARC-0036",
+   "title" : "The Veilwalker — ids renamed, the Double's rules restored (any level)"
+}
